@@ -1,0 +1,8 @@
+; Scene related statements and function
+; SC Prefix = SCene
+;
+
+; Set the background image for a scene
+Statement SC_set_bg{id.w}
+    NPrint "Setting #", id, " as the scene background"
+End Statement

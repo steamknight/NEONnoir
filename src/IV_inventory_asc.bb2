@@ -1,0 +1,46 @@
+; Inventory related statements and functions
+; Prefix IV = InVentory
+;
+
+; Inventory items in the player's possessions
+; 32 is probably enough
+;
+#IV_max_items = 32
+Dim List IV_user_items(#IV_max_items)
+
+Function.b IV_has_item{id.w}
+    SHARED IV_user_items()
+    ResetList IV_user_items()
+
+    While NextItem(IV_user_items())
+        If IV_user_items() = iv Then Function Return True
+    WEnd
+
+    Function Return False
+End Function
+
+Statement IV_add_item{id.w}
+    SHARED IV_user_items()
+    If IV_has_item{id}
+        NPrint "Player already has item ", id
+    Else
+        NPrint "Added ", id, " to inventory."
+        AddLast IV_user_items()
+        IV_user_items() = id
+    End If
+End Statement
+
+Statement IV_remove_item{id.w}
+    SHARED IV_user_items()
+    If NOT IV_has_item{id}
+        NPrint "Player doesn't have item ", id
+        Return
+    End If
+
+    ResetList IV_user_items()
+    While NextItem(IV_user_items())
+        If IV_user_items() = id Then KillItem IV_user_items()
+    WEnd
+End Statement
+
+

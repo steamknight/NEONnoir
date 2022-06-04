@@ -1,0 +1,197 @@
+#ML_op_noop             = 0     ; No operation
+#ML_op_clrf             = 1     ; #ML_op_clrf       id      -- Clear flag by id
+#ML_op_setf             = 2     ; #ML_op_setf       id      -- Set flag by id
+#ML_op_togf             = 3     ; #ML_op_togf       id      -- Toggle flag by id
+#ML_op_getf             = 4     ; #ML_op_getf       id      -- Place flag in flag register
+#ML_op_and              = 5     ; #ML_op_and        id      -- AND the flag register with flag, store in register. 
+#ML_op_or               = 6     ; #ML_op_or         id      -- OR the flag register with flag, store in register.
+#ML_op_not              = 7     ; #ML_op_not                -- NOT the flag register, store in register
+#ML_op_jump             = 8     ; #ML_op_jump       num     -- Skip the next 'num' words
+#ML_op_jpns             = 9     ; #ML_op_jpns       num     -- Skip ahead a 'num' words if the flag register is not set
+#ML_op_end              = 10    ; #ML_op_end                -- Ends script execution
+#ML_op_setbg            = 11    ; #ML_op_setbg      id      -- Sets bitmap id as the background of the scene
+#ML_op_setsh            = 12    ; #ML_op_setsh      id x y  -- Draw shape id at x, y
+#ML_op_addinv           = 13    ; #ML_op_addinv     id      -- Adds item id to inventory
+#ML_op_reminv           = 14    ; #ML_op_reninv     id      -- Removes item from inventory
+#ML_op_hasinv           = 15    ; #ML_op_hasinv     id      -- Check if items is in inventory, updates flag register
+#ML_op_text             = 16    ; #ML_op_text       id      -- Displays text
+#ML_op_gameover         = 17    ; #ML_op_gameover   id      -- Ends game, displays text
+
+; An item in Neon Noir
+;
+NEWTYPE .NN_item
+    id.w                        ; Shape id for this item in the inventory
+    name.w                      ; String id for the item's name
+    desc.w                      ; String if for the item's description
+End NEWTYPE
+
+
+Dim NN_flags.b(512)             ; All the flags
+Dim ML_data.w(512)              ; All of the scripts
+
+Dim NN_text.s(128)              ; All the strings in Neon Noir
+Dim NN_items.NN_item(128)       ; All the items in Neon Noir
+Dim List NN_inventory.w(128)    ; The player's inventory
+
+Statement NN_SetBackground{id.w}
+    NPrint "*** Set background to ", id
+End Statement
+
+Statement NN_SetShape{id.w, x.w, y.w}
+    NPrint "*** Set shape ", id, " at ", x, ", ", y
+End Statement
+
+Statement NN_AddInventory{id.w}
+    SHARED NN_inventory(), NN_items()
+
+    AddLast NN_inventory()
+    NN_inventory(NN_items(id))
+
+    NPrint "*** Added ", NN_items(id)\name, " to inventory"
+End Statement
+
+Statement NN_RemoveInventory{id.w}
+End Statement
+
+Function .b NN_HasInventoryItem{id.w}
+    Function Return True
+End Function
+
+Statement NN_DisplayText{id.w}
+    SHARED NN_text()
+
+    NPrint NN_text(id)
+End Statement
+
+Statement NN_GameOver{id.w}
+    SHARED NN_text()
+
+    NPrint "GAME OVER: ", NN_text(id)
+End Statement
+
+Statement ML_execute_script{script_start.w, script_length.w}
+    SHARED ML_data(), NN_flags()    ; get a reference to the script data and game flags
+
+    pc.w = script_start         ; set up the program counter
+    eos.w = pc + script_length  ; figure out the last address of the script
+    flag_register = False       ; set up the flag register
+
+    Repeat
+        Select ML_data(pc)
+            Case #ML_op_noop
+                pc + 1          ; eat the opcode
+
+            Case #ML_op_clrf; id
+                pc + 1          ; eat the opcode
+                NN_flags(ML_data(pc)) = False
+                pc + 1          ; eat the parameter
+
+            Case #ML_op_setf; id
+                pc + 1          ; eat the opcode
+                NN_flags(ML_data(pc)) = True
+                pc + 1          ; eat the parameter
+
+            Case #ML_op_togf; id
+                pc + 1          ; eat the opcode
+                NN_flags(ML_data(pc)) = NOT NN_flags(ML_data(pc))
+                pc + 1          ; eat the parameter
+
+            Case #ML_op_getf; id
+                pc + 1          ; eat the opcode
+                flag_register = NN_flags(ML_data(pc))
+                pc + 1          ; eat the parameter
+
+            Case #ML_op_and; ic
+                pc + 1          ; eat the opcode
+                flag_register = flag_register and NN_flags(ML_data(pc))
+                pc + 1          ; eat the parameter
+
+            Case #ML_op_or; ic
+                pc + 1          ; eat the opcode
+                flag_register = flag_register or NN_flags(ML_data(pc))
+                pc + 1          ; eat the parameter
+
+            Case #ML_op_not
+                pc + 1          ; eat the opcode
+                flag_register = not flag_register
+
+            Case #ML_op_jump; amount
+                pc + 1          ; eat the opcode
+                pc + ML_data(pc)
+                pc + 1          ; eat the parameter
+
+            Case #ML_op_jpns; amount
+                pc + 1          ; eat the opcode
+                if not flag_register then pc = pc + ML_data(pc)
+                pc + 1          ; eat the parameter
+
+            Case #ML_op_end
+                pc = eos        ; jump to the end of the script
+
+            Case #ML_op_setbg; id
+                pc + 1          ; eat the opcode
+                NN_SetBackground{ML_data(pc)}
+                pc + 1          ; eat the parameter
+
+            Case #ML_op_setsh; id x y
+                pc + 1          ; eat the opcode
+                NN_SetShape{ML_data(pc), ML_data(pc + 1), ML_data(pc + 2)}
+                pc + 3          ; eat the parameters
+
+            Case #ML_op_addinv; id
+                pc + 1          ; eat the opcode
+                NN_AddInventory{ML_data(pc)}
+                pc + 1          ; eat the parameter
+
+            Case #ML_op_reminv; id
+                pc + 1          ; eat the opcode
+                NN_RemoveInventory{ML_data(pc)}
+                pc + 1          ; eat the parameter
+
+            Case #ML_op_hasinv; id
+                pc + 1          ; eat the opcode
+                flag_register = NN_HasInventoryItem{ML_data(pc)}
+                pc + 1          ; eat the parameter
+
+            Case #ML_op_text; id
+                pc + 1          ; eat the opcode
+                NN_DisplayText{ML_data(pc)}
+                pc + 1          ; eat the parameter
+
+            Case #ML_op_gameover
+                pc + 1          ; eat the opcode
+                NN_DisplayText{ML_data(pc)}
+                pc + 1          ; eat the parameter
+
+            Default
+                ; Unknown opcode!
+                NPrint "*** Error! Unknown opcode!"
+                NPrint "PC: ", pc, "    Opcode: ", ML_data(pc)
+                pc = eos
+        End Select
+
+    Until pc >= eos              ; Continue until we're at the End of Script
+End Statement
+
+NN_text(0) = "Oh no! Danger ahead!"
+NN_text(1) = "Oops, ya died."
+NN_text(2) = "Ya did it, kid."
+
+ML_data(0) = #ML_op_text
+ML_data(1) = 0
+
+ML_data(2) = #ML_op_getf    ; Get flag 0, it should be false
+ML_data(3) = 0
+
+ML_data(4) = #ML_op_jpns    ; If the flag is false (which is it, skip this next part)
+ML_data(5) = 3
+
+ML_data(6) = #ML_op_gameover
+ML_data(7) = 1
+ML_data(8) = #ML_op_end
+
+ML_data(9) = #ML_op_text
+ML_data(10) = 2
+ML_data(11) = #ML_op_end
+
+ML_execute_script{0, 12}

@@ -1,0 +1,31 @@
+; Noir Script Opcodes
+;
+; Name              Value     Usage         Meaning
+#NS_op_noop         = $00   ;| noop        | No operation
+; Flag register operations  ;|             |
+#NS_op_clear        = $01   ;| clear       | Clears the flag register
+#NS_op_set          = $02   ;| set         | Sets the flag register
+#NS_op_load         = $03   ;| load id     | Loads flag into register
+#NS_op_store        = $04   ;| store id    | Store flag register in to global flag
+; Logical operations        ;|             |
+#NS_op_and          = $10   ;| and id      | Logical AND with flag and flag register
+#NS_op_or           = $11   ;| or id       | Logical OR with flag and flag register
+#NS_op_not          = $12   ;| not         | Logical NOT on flag register
+; Flow control              ;|             |
+#NS_op_jump         = $20   ;| jump N      | Skip the next 'N' words
+#NS_op_jift         = $21   ;| jifs N      | Skip the next 'N' words if flag register is true
+#NS_op_jiff         = $22   ;| jiff N      | Skip the next 'N' words if flag register is false
+#NS_op_end          = $2F   ;| end         | Ends the script prematurely
+; Scene operations          ;|             |
+#NS_op_setbg        = $30   ;| setbg id    | Set the scene background to bitmap id
+; Shape operations          ;|             |
+#NS_op_draw         = $40   ;| draw id x y | Draw shape ID at X,Y
+; Inventory Operations      ;|             |
+#NS_op_hasi         = $60   ;| hasi id     | Sets flag register if player has item ID in inventory
+#NS_op_addi         = $61   ;| addi id     | Adds item ID to inventory
+#NS_op_remi         = $62   ;| remi id     | Remove item ID from inventory
+; Game operations           ;|             |
+#NS_op_goto         = $80   ;| goto id     | Go to location ID, ends script
+#NS_op_map          = $81   ;| map         | Display location selection screen, ends script
+#NS_op_text         = $82   ;| text id     | Display string ID
+#NS_op_gameover     = $8F   ;| gameover id | Displays game over with string ID as message, ends script

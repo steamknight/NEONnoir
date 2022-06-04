@@ -1,0 +1,21 @@
+BLITZ
+
+Statement FadeInScreen{cop, source, dest}
+    InitPalette dest, 256
+    For i = 25 To 0 Step -1
+        FadePalette source, dest, 1-i/25
+        VWait
+        DisplayPalette cop, dest
+    Next
+End Statement
+
+Statement FadeOutScreen{cop, source, dest}
+    InitPalette dest, 256
+    For i = 0 To 25
+        FadePalette source, dest, 1-i/25
+        VWait
+        DisplayPalette cop, dest
+    Next
+End Statement
+
+AMIGA

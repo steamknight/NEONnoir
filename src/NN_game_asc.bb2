@@ -1,0 +1,24 @@
+; Gameplay related statements and functions
+; Prefix NN = Neon Noir
+;
+
+; All string resources are in this file
+XINCLUDE "NN_string_table.bb2"
+
+Statement NN_game_set_scene{id.w}
+    NPrint "Going to scene #", id
+End Statement
+
+Statement NN_game_map{}
+    NPrint "Displaying location map"
+End Statement
+
+Statement NN_display_text{id.w}
+    SHARED NN_string_table$()
+    NPrint NN_string_table$(id)
+End Statement
+
+Statement NN_game_over{id.w}
+    SHARED NN_string_table$()
+    NPrint "Game Over: ", NN_string_table$(id)
+End Statement

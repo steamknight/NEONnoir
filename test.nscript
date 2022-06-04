@@ -1,0 +1,61 @@
+; Declare all the global flags
+.FLAGS
+    power_on
+    light_on
+
+.CONST
+    lights_on_bg        1
+
+.TEXT
+    lights_on           "No, I'm afraid of the dark"
+    turned_lights_on    "Let there be light!"
+    no_power            "There is no power!"
+    power_now_on        "There! Now we should have some juice."
+    power_stays_on      "Nah, I better leave it on"
+
+; Turn on the light if when the switch is pressed
+; if the power is on, otherwise warn the player
+.SCRIPT light_switch_in_control_room
+    load !light_on              ; Load the power_on flag into the register
+    jiff @lights_off           ; Skip if the lights are not on yet
+    text $lights_on             ; Display the "lights_on" text
+    end                         ; Stop running the script
+
+; If the lights are off, turn them on if we have power
+@lights_off
+    load !power_on              ; Load the power_on flag into the register
+    jiff @power_off             ; Skip this part if the power is off
+    setbg #lights_on_bg         ; Set the current scene's bg to #1
+    set                         ; Set the lights on flag to true
+    store !light_on             ;   by storying the content of flag register
+    text $turned_lights_on      ; Display the "turned_lights_on" text
+    end                         ; We're done here
+
+; If the power is off, nothing we can do
+@power_off
+    text $no_power              ; Display the "no_power" text
+    end
+
+; Simple switch, say something when toggling it
+.SCRIPT power_switch_in_reactor_room
+    load !power_on
+    jiff @power_already_on
+    set
+    store !power_on
+    text $power_now_on
+    end
+
+@power_already_on
+    text $power_stays_on
+    end
+
+;--------------------------------------
+;Manifest would look like
+;
+;NAME                            START   LENGTH
+;light_switch_in_control_room    0       23
+;power_switch_in_reactor_room    24      14
+
+
+
+

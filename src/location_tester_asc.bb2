@@ -1,0 +1,153 @@
+XINCLUDE "NS_script.bb2"
+
+Function .b is_point_in_rect{px.w, py.w, rect.l}
+    rx.w = Peek.w(rect)
+    ry.w = Peek.w(rect + 2)
+    rw.w = Peek.w(rect + 4)
+    rh.w = Peek.w(rect + 6)
+
+    Function Return (px >= rx AND px < (rx + rw) AND py >= ry AND py < (ry + rh))
+End Function
+
+Dim images$(3)
+images$(0) = "data/scene1_no_light.iff"
+images$(1) = "data/scene1_with_light.iff"
+images$(2) = "data/scene2.iff"
+
+For i = 0 to 2
+    LoadBitMap i, images$(i), i
+Next
+
+NEWTYPE.NN_scene
+    name_id.w           ; String Id for the location name "Your Office"
+    image_id.w          ; Id of the background image
+
+    ; Contrain the mouse pointer to this view
+    view_x.w
+    view_y.w
+    view_width.w
+    view_height.w
+
+    ; Normally at 0,0, this offset the baground image
+    offset_x.w
+    offset_y.w
+
+    num_regions.w       ; Number of interactive regions in this location
+    regions.w[8]        ; 8 aught to be enough regions, right?
+end NEWTYPE
+
+NEWTYPE.NN_region
+    ; Rectangle for the region
+    x.w
+    y.w
+    width.w
+    height.w
+
+    shape_id.w          ; Shape that should be in this space if has_shape is true
+
+    ; Interaction behavior
+    description_id.w    ; Id of the string that describes this region
+    script_id.w         ; Id of the script to run when the region is clicked
+end NEWTYPE
+
+Dim scenes.NN_scene(2)
+scenes(0)\name_id = 0
+scenes(0)\image_id = 0
+scenes(0)\view_x = 0
+scenes(0)\view_y = 0
+scenes(0)\view_width = 320
+scenes(0)\view_height = 200
+scenes(0)\offset_x = 0
+scenes(0)\offset_y = 0
+scenes(0)\num_regions = 2
+scenes(0)\regions[0] = 0
+scenes(0)\regions[1] = 1
+
+scenes(1)\name_id = 1
+scenes(1)\image_id = 2
+scenes(1)\view_x = 0
+scenes(1)\view_y = 0
+scenes(1)\view_width = 320
+scenes(1)\view_height = 200
+scenes(1)\offset_x = 0
+scenes(1)\offset_y = 0
+scenes(1)\num_regions = 2
+scenes(1)\regions[0] = 2
+scenes(1)\regions[1] = 3
+
+Dim regions.NN_region(4)
+regions(0)\x = 0
+regions(0)\y = 0
+regions(0)\width = 20
+regions(0)\height = 20
+regions(0)\shape_id = -1
+regions(0)\description_id = 2
+regions(0)\script_id = 0
+
+regions(1)\x = 300
+regions(1)\y = 180
+regions(1)\width = 20
+regions(1)\height = 20
+regions(1)\shape_id = -1
+regions(1)\description_id = 3
+regions(1)\script_id = 2
+
+regions(2)\x = 0
+regions(2)\y = 180
+regions(2)\width = 20
+regions(2)\height = 20
+regions(2)\shape_id = -1
+regions(2)\description_id = 4
+regions(2)\script_id = 1
+
+regions(3)\x = 300
+regions(3)\y = 180
+regions(3)\width = 20
+regions(3)\height = 20
+regions(3)\shape_id = -1
+regions(3)\description_id = 5
+regions(3)\script_id = 3
+
+#DB_coplist = 0
+#max_sprites = 8                        ; Always 8
+coplist_flag.l = $10000                 ; AGA mode
+coplist_flag.l +     $8                 ; 8 bitplanes, 256 colors
+screen_offset = 70 - (NTSC * 44)        ; centers the display in PAL mode
+num_colors = 256
+InitCopList #DB_coplist, screen_offset, 200, coplist_flag, #max_sprites, num_colors, 0
+
+result.l = NS_initialize{"test.nsx"}
+Bi
+BitMap 0, 320, 200, 8
+
+BLITZ
+Mouse On
+CreateDisplay #DB_coplist
+
+DEFTYPE .w current_id, next_id
+current_id = -1
+next_id = 0
+
+Repeat
+    ; Are we entering a new scene?
+    If next_id <> current_id
+        current_id = next_id
+
+        ; Show the background image
+        DisplayPalette #DB_coplist, scenes(current_id)\image_id
+        DisplayBitMap #DB_coplist, scenes(current_id)\image_id
+
+    End If
+
+    ; Check if the mouse has been clicked on one of the regions
+    If Joyb(0) = 1
+        DEFTYPE .w region_id
+        For r = 0 to scenes(current_id)\num_regions - 1
+            region_id = scenes(current_id)\regions[r]
+            If is_point_in_rect{MouseX, MouseY, &regions(region_id)} AND regions(region_id)\script_id > -1
+                NS_execute_script{regions(region_id)\script_id}
+            End If
+        Next
+    End If
+
+Until False

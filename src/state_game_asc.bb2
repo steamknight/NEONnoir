@@ -1,0 +1,11 @@
+Statement SM_Game_Initialize{}
+
+End Statement
+
+Statement SM_Game_Tick{}
+
+End Statement
+
+Statement SM_Game_Cleanup{}
+
+End Statement

@@ -1,0 +1,47 @@
+; Mass Produced Games Splash screen
+;
+
+XINCLUDE "utils.bb2"
+
+#DB_coplist = 0
+#DB_primary = 0
+#DB_secondary = 1
+#DB_palette = 0
+
+; State Machine - State initialization
+; Load the MPG image
+Statement SM_Logo_Initialize{}
+    ; Need Amiga mode to do file IO
+    QAMIGA
+
+    LoadBitMap 1, "data/ui.iff", 1
+    GetaShape 0, 0, 0, 16, 16
+    GetaSprite 0, 0
+
+    ; Load the MPG logo into the first bitmap, then copy it into the second
+    LoadBitMap #DB_primary, "data/mpg.iff", #DB_palette
+    CopyBitMap #DB_primary, #DB_secondary
+
+    FreeBitMap_(1)
+
+    ; Return to BLITZ mode... after about 2 seconds.
+    ; This is to wait for any I/O to settle, as entering
+    ; BLITZ mode during I/O is apparently disastrous
+    VWait 100 + (NTSC * -20)
+    BLITZ
+    Mouse 0
+End Statement
+
+; State Machine - State Tick
+Statement SM_Logo_Tick{}
+    Shared SM_next_state, SM_state_quit
+
+    FadeInScreen{#DB_coplist, #DB_palette, 1}
+    VWait 50
+    FadeOutScreen{#DB_coplist, #DB_palette, 1}
+
+    SM_next_state = SM_state_quit
+End Statement
+
+Statement SM_Logo_Cleanup{}
+End Statement

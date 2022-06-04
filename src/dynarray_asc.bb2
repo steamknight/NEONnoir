@@ -1,0 +1,51 @@
+NEWTYPE DynArray
+    element_size.w
+    num_elements.w
+    allocated_size.w
+    allocation_factor.w
+End NEWTYPE
+
+Function .l AllocDynArray{element.size, initial_capacity}
+    DEFTYPE .DynArray header
+    header\element_size = element_size
+    header\num_elements = initial_capacity
+    header\allocated_size = elemet_size * num_elements
+    header\allocation_factor = 0
+
+    DEFTYPE .l header_size, address
+    header_size = SizeOf .DynArray
+
+    ; Allocate enough memory for both the array and the header
+    address = AllocMem_(header\allocated_size + header_size, 0)
+    If Address <> 0
+        CopyMemQuick_(&header, header_size)
+        Function Return address + header_size)
+    end If
+
+    function return 0;
+end function
+
+Function .w DynGetAllocaedSize{dyn_array.l}
+    Function Return Peek.w (dyn_array - 4)
+end function
+
+Function .w DynGetLength{dyn_array.l}
+    Function return Peek.w (dyn_array - 6)
+
+Statement FreeDynArray{dyn_array.l}
+    FreeMem_(dyn_array - SizeOf .DynArray, Peek.w (dyn_array - 4))
+end Statement
+
+Function .b DynSet{dyn_array.l, element_ptr.l, index.w}
+    If index > Peek.w (dyn_array - 6)
+        return False
+    end If
+
+    
+    DEFTYPE .l ptr, element_size
+    element_size = Peek.w (dyn_array - 8)
+    ptr = dyn_array + (index * ptr)
+    CopyMem(element_ptr, ptr, element_size)
+    
+    function return true
+end Function
