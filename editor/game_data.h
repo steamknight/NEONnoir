@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <string>
+#include "glfw_utils.h"
 
 namespace NEONnoir
 {
@@ -54,6 +55,7 @@ namespace NEONnoir
     {
         std::string name;
         std::vector<std::string> backgrounds;
+        std::vector<GLtexture> background_textures;
         std::vector<game_data_scene> scenes;
     };
 

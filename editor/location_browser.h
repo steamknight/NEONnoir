@@ -23,7 +23,7 @@ namespace NEONnoir
         void display_editor(std::shared_ptr<game_data> data);
         void display_location(game_data_location& location, size_t location_index);
         void display_location_name(std::string& name, std::string const& id);
-        void display_backgrounds(std::vector<std::string>& backgrounds, std::string const& id);
+        void display_backgrounds(std::vector<std::string>& backgrounds, std::vector<GLtexture>& background_textures, std::string const& id);
         void display_scenes(std::vector<game_data_scene>& scenes, std::string const& id, size_t location_index);
 
     private:

@@ -60,6 +60,7 @@ namespace NEONnoir
         GLuint texture_id{};
         int32_t width{};
         int32_t height{};
+        operator void* () { return (void*)(intptr_t)texture_id; }
     };
 
     GLtexture load_texture(std::string_view const& image_path);

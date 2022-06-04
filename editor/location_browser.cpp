@@ -81,7 +81,7 @@ namespace NEONnoir
         if (ImGui::BeginTable(("LocationTable" + id).c_str(), 2, ImGuiTableFlags_SizingStretchProp))
         {
             display_location_name(location.name, id);
-            display_backgrounds(location.backgrounds, id);
+            display_backgrounds(location.backgrounds, location.background_textures, id);
             display_scenes(location.scenes, id, location_index);
 
             // End LocationTable
@@ -94,6 +94,7 @@ namespace NEONnoir
         ImGui::TableNextRow();
 
         ImGui::TableNextColumn();
+        ImGui::AlignTextToFramePadding();
         ImGui::TextUnformatted("Name");
 
         ImGui::TableNextColumn();
@@ -101,7 +102,7 @@ namespace NEONnoir
         ImGui::InputText(("##" + id).c_str(), &name);
     }
 
-    void location_browser::display_backgrounds(std::vector<std::string>& backgrounds, std::string const& id)
+    void location_browser::display_backgrounds(std::vector<std::string>& backgrounds, std::vector<GLtexture>& background_textures, std::string const& id)
     {
         ImGui::TableNextRow();
 
@@ -118,6 +119,8 @@ namespace NEONnoir
             {
                 auto filename = fs::path{ file.value() }.filename();
                 backgrounds.push_back(filename.string());
+
+                background_textures.push_back(load_texture(file.value()));
             }
         }
 
