@@ -117,8 +117,6 @@ num_colors = 256
 InitCopList #DB_coplist, screen_offset, 200, coplist_flag, #max_sprites, num_colors, 0
 
 result.l = NS_initialize{"test.nsx"}
-Bi
-BitMap 0, 320, 200, 8
 
 BLITZ
 Mouse On

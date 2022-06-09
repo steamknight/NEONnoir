@@ -19,15 +19,17 @@ namespace NEONnoir
 
     void scene_editor::display()
     {
-        auto locations_window = ImGui_window("Scene");
-
         auto data = _game_data.lock();
         if (data && _location_index.has_value() && _scene_index.has_value())
         {
+            auto const& location = data->locations[_location_index.value()];
+            auto const& scene = location.scenes[_scene_index.value()];
+            auto locations_window = ImGui_window(std::format("{}: {}###Scene", location.name, scene.name));
             display_editor(data);
         }
         else
         {
+            auto locations_window = ImGui_window("Scene");
             display_placeholder();
         }
     }
@@ -75,27 +77,27 @@ namespace NEONnoir
 
             if (ImGui::BeginTable("PropsLayout", 2, ImGuiTableFlags_SizingStretchProp))
             {
-                display_prop_name(scene.name);
+                display_prop_string("Name", scene.name);
                 display_prop_background(scene, data->locations[_location_index.value()].backgrounds);
-
                 ImGui::EndTable();
             }
+            display_prop_regions(scene);
         }
         
         ImGui::EndChild();
     }
 
-    void scene_editor::display_prop_name(std::string& name)
+    void scene_editor::display_prop_string(std::string_view const& label, std::string& value)
     {
         ImGui::TableNextRow();
 
         ImGui::TableNextColumn();
         ImGui::AlignTextToFramePadding();
-        ImGui::TextUnformatted("Name");
+        ImGui::TextUnformatted(label.data());
 
         ImGui::TableNextColumn();
         ImGui::SetNextItemWidth(-FLT_MIN);
-        ImGui::InputText(std::format("##{}", (uint64_t)&name).c_str(), &name);
+        ImGui::InputText(std::format("##{}", (uint64_t)&value).c_str(), &value);
     }
 
     void scene_editor::display_prop_background(game_data_scene& scene, std::vector<std::string> const& backgrounds)
@@ -126,30 +128,79 @@ namespace NEONnoir
         }
     }
 
+    void scene_editor::display_prop_regions(game_data_scene& scene)
+    {
+        ImGui::NewLine();
+
+        auto const origin = ImGui::GetCursorScreenPos();
+        auto content_center = ImGui::GetColumnWidth() / 2.f;
+        SetCursorCenteredText(origin + ImVec2{content_center, 0}, "Regions");
+        ImGui::TextUnformatted("Regions");
+
+        if (ImGui::BeginTable("RegionsLayout", 2, ImGuiTableFlags_SizingStretchProp))
+        {
+            _selected_region_index = -1;
+            auto region_to_delete = -1;
+            for (auto index = 0; index < scene.regions.size(); index++)
+            {
+                auto& region = scene.regions[index];
+                ImGui::TableNextRow();
+
+                ImGui::BeginGroup();
+                
+                ImGui::TableNextColumn();
+                ImGui::Text("Region %d", index);
+                ImGui::TableNextColumn();
+
+                display_prop_region_scalar("X", region.x);
+                display_prop_region_scalar("Y", region.y);
+                display_prop_region_scalar("Width", region.width);
+                display_prop_region_scalar("Height", region.height);
+                display_prop_string("Hover Text", region.description);
+
+                ImGui::TableNextColumn(); ImGui::TableNextColumn();
+                ImGui::SetNextItemWidth(-FLT_MIN);
+                if (DeleteButton(std::format("{}", (uint64_t)&region).c_str(), " Delete"))
+                {
+                    region_to_delete = index;
+                }
+
+                ImGui::NewLine();
+                
+                ImGui::EndGroup();
+
+                if (ImGui::IsItemHovered())
+                {
+                    _selected_region_index = index;
+                }
+            }
+            ImGui::EndTable();
+
+            if (region_to_delete >= 0)
+            {
+                scene.regions.erase(scene.regions.begin() + region_to_delete);
+            }
+        }
+    }
+
+    void scene_editor::display_prop_region_scalar(std::string_view const& label, uint16_t& value)
+    {
+        ImGui::TableNextColumn();
+        ImGui::AlignTextToFramePadding();
+        ImGui::TextUnformatted(label.data());
+
+        ImGui::TableNextColumn();
+        size_t id = reinterpret_cast<size_t>(&value);
+        uint16_t const step_size = 1;
+        ImGui::SetNextItemWidth(-FLT_MIN);
+        ImGui::InputScalar(std::format("##{}", id).c_str(), ImGuiDataType_U16, &value, &step_size, nullptr, "%u");
+    }
+
     void scene_editor::display_scene(game_data_scene& scene, std::vector<GLtexture> const& background_textures)
     {
-        auto button_size = ImVec2{ 128, 0 };
-        if (ImGui::Button(ICON_MD_CROP " Add Region", button_size))
-        {
-            _add_region_mode = true;
-        }
-
-        ImGui::SameLine();
-        if (ImGui::Button(ICON_MD_ZOOM_IN " Zoom In", button_size))
-        {
-            _zoom++; 
-        }
-
-        ImGui::SameLine();
-        if (ImGui::Button(ICON_MD_ZOOM_OUT " Zoom Out", button_size) && _zoom > 1)
-        {
-            _zoom--;
-        };
+        display_scene_toolbar();
 
         ImGuiIO& io = ImGui::GetIO(); (void)io;
-
-        static ImVec2 last_mouse{ 0, 0 };
-        ImGui::Text(ICON_MD_NEAR_ME " %.0f, %.0f ", last_mouse.x, last_mouse.y);
 
         auto texture = background_textures[scene.image_id];
         ImGui::Image((void*)(intptr_t)texture.texture_id, ImVec2(texture.width * _zoom, texture.height * _zoom));
@@ -157,21 +208,20 @@ namespace NEONnoir
         auto image_min = ImGui::GetItemRectMin();
         if (ImGui::IsItemHovered())
         {
-            last_mouse = (io.MousePos - image_min) / _zoom;
+            _last_mouse = (io.MousePos - image_min) / _zoom;
         }
 
         auto draw_list = ImGui::GetWindowDrawList();
 
         if (_add_region_mode)
         {
-            if (io.MouseDown[0] && last_mouse.x > 0 && last_mouse.y > 0)
+            if (io.MouseDown[0] && _last_mouse.x > 0 && _last_mouse.y > 0)
             {
                 if (_add_region_p0.x < 0 && _add_region_p0.y < 0)
                 {
                     _add_region_p0 = io.MousePos;
                     _add_region_dragging = true;
                 }
-
             }
             if (io.MouseReleased[0] && _add_region_dragging)
             {
@@ -210,13 +260,47 @@ namespace NEONnoir
             }
         }
 
-        for (auto const& region : scene.regions)
+        for (auto index = 0; index < scene.regions.size(); index++)
         {
+            auto const& region = scene.regions[index];
+
             auto p0 = ImVec2{ static_cast<float>(region.x), static_cast<float>(region.y) } * _zoom + image_min;
             auto p1 = ImVec2{ static_cast<float>(region.x + region.width), static_cast<float>(region.y + region.height) } * _zoom + image_min;
 
-            draw_list->AddRectFilled(p0, p1, IM_COL32(13, 129, 255, 64));
-            draw_list->AddRect(p0, p1, IM_COL32(13, 129, 255, 255), 0.f, 0, 2.f);
+            if (_selected_region_index == index)
+            {
+                draw_list->AddRectFilled(p0, p1, IM_COL32(255, 165, 0, 64));
+                draw_list->AddRect(p0, p1, IM_COL32(255, 165, 0, 255), 0.f, 0, 2.f);
+            }
+            else
+            {
+                draw_list->AddRectFilled(p0, p1, IM_COL32(13, 129, 255, 64));
+                draw_list->AddRect(p0, p1, IM_COL32(13, 129, 255, 255), 0.f, 0, 2.f);
+            }
         }
+    }
+
+    void scene_editor::display_scene_toolbar() noexcept
+    {
+        auto button_size = ImVec2{ 128, 0 };
+        if (ImGui::Button(ICON_MD_CROP " Add Region", button_size))
+        {
+            _add_region_mode = true;
+        }
+
+        ImGui::SameLine();
+        if (ImGui::Button(ICON_MD_ZOOM_IN " Zoom In", button_size))
+        {
+            _zoom++;
+        }
+
+        ImGui::SameLine();
+        if (ImGui::Button(ICON_MD_ZOOM_OUT " Zoom Out", button_size) && _zoom > 1)
+        {
+            _zoom--;
+        };
+
+        ImGuiIO& io = ImGui::GetIO(); (void)io;
+        ImGui::Text(ICON_MD_NEAR_ME " %.0f, %.0f\t" ICON_MD_ZOOM_IN " %d00%%", _last_mouse.x, _last_mouse.y, _zoom);
     }
 }

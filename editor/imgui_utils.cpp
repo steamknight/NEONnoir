@@ -1,5 +1,6 @@
 #include "imgui_utils.h"
 #include "IconsMaterialDesign.h"
+#include <format>
 
 namespace NEONnoir
 {
@@ -52,13 +53,13 @@ namespace NEONnoir
         ImGui::SetCursorScreenPos(center - (text_sz / 2));
     }
 
-    bool DeleteButton(std::string const& id)
+    bool DeleteButton(std::string const& id, std::string_view const& label)
     {
         ImGui::PushID(id.c_str());
         ImGui::PushStyleColor(ImGuiCol_Button, (ImVec4)ImColor::HSV(0.0f, 0.6f, 0.4f));
         ImGui::PushStyleColor(ImGuiCol_ButtonHovered, (ImVec4)ImColor::HSV(0.0f, 0.7f, 0.7f));
         ImGui::PushStyleColor(ImGuiCol_ButtonActive, (ImVec4)ImColor::HSV(0.0f, 0.8f, 0.8f));
-        auto clicked = ImGui::Button(ICON_MD_DELETE);
+        auto clicked = ImGui::Button(std::format(ICON_MD_DELETE "{}", label).c_str());
         ImGui::PopStyleColor(3);
         ImGui::PopID();
 

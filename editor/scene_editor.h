@@ -19,10 +19,13 @@ namespace NEONnoir
         void display_editor(std::shared_ptr<game_data>& data);
         void display_scene_properties(std::shared_ptr<game_data>& data);
 
-        void display_prop_name(std::string& name);
+        void display_prop_string(std::string_view const& label, std::string& name);
         void display_prop_background(game_data_scene& scene, std::vector<std::string> const& backgrounds);
+        void display_prop_regions(game_data_scene& scene);
+        void display_prop_region_scalar(std::string_view const& label, uint16_t& value);
 
         void display_scene(game_data_scene& scene, std::vector<GLtexture> const& background_textures);
+        void display_scene_toolbar() noexcept;
 
     private:
         std::weak_ptr<game_data> _game_data;
@@ -33,7 +36,9 @@ namespace NEONnoir
 
         bool _add_region_mode{ false };
         bool _add_region_dragging{ false };
+        int32_t _selected_region_index{ -1 };
         ImVec2 _add_region_p0{ -1, -1 };
+        ImVec2 _last_mouse{ 0, 0 };
     };
 }
 

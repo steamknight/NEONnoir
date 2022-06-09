@@ -12,6 +12,7 @@
 
 #include "utils.h"
 #include "editor.h"
+#include "packfile.h"
 
 namespace fs = std::filesystem;
 
@@ -90,58 +91,6 @@ namespace NEONnoir
 
             process_main_menu();
 
-            //ImGui::Begin("Scene");
-
-            //if (ImGui::Button(ICON_MD_ZOOM_IN " Zoom In")) {zoom++; }
-            //ImGui::SameLine();
-            //if (ImGui::Button(ICON_MD_ZOOM_OUT " Zoom Out") && zoom > 1) { zoom--; };
-
-            //ImGui::Image((void*)(intptr_t)texture.texture_id, ImVec2(texture.width * zoom * _dpi_scale_x, texture.height * zoom * _dpi_scale_y));
-            //if (ImGui::IsItemHovered())
-            //{
-            //    auto image_min = ImGui::GetItemRectMin();
-            //    auto imagePos = (io.MousePos - image_min) / zoom;
-            //    ImGui::Text("Image: (%.0f, %.0f)", imagePos.x, imagePos.y);
-
-            //    //auto draw_list = ImGui::GetWindowDrawList();
-            //    //
-            //    //if (region_start.x < 0)
-            //    //{
-            //    //    region_start.x = io.MousePos.x - pos.x;
-            //    //    region_start.y = io.MousePos.y - pos.y;
-            //    //}
-
-            //    //auto size = ImVec2(
-            //    //    io.MousePos.x - pos.x,
-            //    //    io.MousePos.y - pos.y
-            //    //);
-
-            //    //draw_list->AddRect(region_start, size, IM_COL32(255, 0, 0, 255), 0.f, 0, zoom);
-
-
-            //    //ImVec4 tint_col = ImVec4(1.0f, 1.0f, 1.0f, 1.0f);   // No tint
-            //    //ImVec4 border_col = ImVec4(1.0f, 1.0f, 1.0f, 0.5f); // 50% opaque white
-            //    //ImVec2 pos = ImGui::GetCursorScreenPos();
-            //    //ImGui::BeginTooltip();
-            //    //float region_sz = 32.0f;
-            //    //float region_x = io.MousePos.x - pos.x - region_sz * 0.5f;
-            //    //float region_y = io.MousePos.y - pos.y - region_sz * 0.5f;
-            //    //float zoom = 4.0f;
-            //    //if (region_x < 0.0f) { region_x = 0.0f; }
-            //    //else if (region_x > texture.width - region_sz) { region_x = texture.width - region_sz; }
-            //    ///*if (region_y < 0.0f) { region_y = 0.0f; }
-            //    //else */
-            //    //    if (region_y > texture.height - region_sz) { region_y = texture.height - region_sz; }
-            //    //ImGui::Text("Min: (%.2f, %.2f)", region_x, region_y);
-            //    //ImGui::Text("Max: (%.2f, %.2f)", region_x + region_sz, region_y + region_sz);
-            //    //ImVec2 uv0 = ImVec2((region_x) / texture.width, (region_y) / texture.height);
-            //    //ImVec2 uv1 = ImVec2((region_x + region_sz) / texture.width, (region_y + region_sz) / texture.height);
-            //    //ImGui::Image((void*)(intptr_t)texture.texture_id, ImVec2(region_sz * zoom, region_sz * zoom), uv0, uv1, tint_col, border_col);
-            //    //ImGui::EndTooltip();
-            //    
-            //}
-            //ImGui::End();
-
             if (_palette_injector && !_palette_injector->display())
             {
                 _palette_injector.reset();
@@ -180,8 +129,21 @@ namespace NEONnoir
                     _game_data = std::make_shared<game_data>();
                     _location_browser.use(_game_data);
                 }
+                ImGui::BeginDisabled();
                 if (ImGui::MenuItem("Open", "Ctrl+O")) {}
                 if (ImGui::MenuItem("Save", "Ctrl+S")) {}
+                ImGui::EndDisabled();
+
+                ImGui::Separator();
+                if (ImGui::MenuItem("Export NEON file..."))
+                {
+                    auto file = save_file_dialog("NEON data|*.neon");
+                    if (file.has_value())
+                    {
+                        serialize_to_neon_pak(file.value(), _game_data);
+                    }
+                }
+
                 ImGui::Separator();
                 if (ImGui::MenuItem("Exit", "Alt+F4"))
                 {

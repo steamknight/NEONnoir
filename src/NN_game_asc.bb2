@@ -5,6 +5,20 @@
 ; All string resources are in this file
 XINCLUDE "NN_string_table.bb2"
 
+; Define all game types
+NEWTYPE .NN_region
+    ; Rectangle for the region
+    x.w
+    y.w
+    width.w
+    height.w
+
+    ; Interaction behavior
+    description_id.w    ; Id of the string that describes this region
+END NEWTYPE
+
+
+
 Statement NN_game_set_scene{id.w}
     NPrint "Going to scene #", id
 End Statement
