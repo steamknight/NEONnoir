@@ -125,6 +125,15 @@ namespace NEONnoir
 
         // Write the string table "header"
         write(neonpack, static_cast<uint32_t>(pak.string_table.size()));
+
+        auto string_size = 0u;
+        for (auto const& entry : pak.string_table)
+        {
+            string_size += static_cast<uint32_t>(entry.size());
+            string_size += 4;
+        }
+        write(neonpack, string_size);
+
         for (auto const& entry : pak.string_table)
         {
             write(neonpack, static_cast<uint32_t>(entry.size()));
