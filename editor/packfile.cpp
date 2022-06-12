@@ -1,4 +1,5 @@
 #include <fstream>
+#include <filesystem>
 #include "packfile.h"
 
 namespace fs = std::filesystem;
@@ -19,7 +20,9 @@ namespace NEONnoir
             loc.first_background_id = static_cast<uint16_t>(pak.string_table.size());
             for (auto const& background : location.backgrounds)
             {
-                pak.string_table.push_back(background);
+                auto path = std::filesystem::path{ background };
+                
+                pak.string_table.push_back(path.replace_extension("iff").string());
             }
 
             loc.scene_count = static_cast<uint16_t>(location.scenes.size());

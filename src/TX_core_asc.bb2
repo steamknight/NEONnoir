@@ -1,0 +1,114 @@
+; Text display functions
+; Prefix TX = Text facilities
+;
+; Needs two Buffers, 0 and 1. Buffer 0 draws the frame and text
+; while draws the blinking caret.
+;
+
+#TX_text_debug = -1
+
+#TX_font_start = 32
+#TX_font_end = 127
+#TX_frame_id = 31
+#TX_char_per_line = 28
+#TX_lines_per_frame = 2
+
+; This is specific to the font file we're using
+; A more robust approach would be to read this from a file
+#TX_font_width = 6
+#TX_font_height = 8
+
+DEFTYPE .w TX_frame_x, TX_frame_y
+
+Statement TX_initialize{fontfile$, framefile$}
+    SHARED TX_frame_x, TX_frame_y
+    LoadShapes #TX_font_start, #TX_font_end, "data/" + fontfile$
+    LoadShapes #TX_frame_id, #TX_frame_id, "data/" + framefile$
+    MidHandle #TX_frame_id
+
+    TX_frame_x = 160 ; Half the horizontal res
+
+    ; The frame is 8 pixels from the bottom of the screen
+    TX_frame_y = 192 - (ShapeHeight(#TX_frame_id) LSR 1)
+End Statement
+
+Statement TX_draw_single_line{text$}
+BLITZ
+    SHARED *NN_string_table, TX_frame_x, TX_frame_y
+    DEFTYPE .l strloc, strlen
+    DEFTYPE .w x, y, width
+
+    strlen = Len(text$)
+
+    width = strlen * #TX_font_width
+
+    ; Center the text in the frame
+    x = TX_frame_x - (width LSR 1)
+    y = TX_frame_y - (#TX_font_height LSR 1)
+
+    BBlit 0, #TX_frame_id, TX_frame_x, TX_frame_y, %0
+
+    For i = 1 To strlen
+        BBlit 0, Asc(Mid$(text$, i, 1)), x, y, %0
+        x + #TX_font_width
+    Next
+
+    tick.w = 0
+
+    ; Blink the caret
+    Repeat
+        If tick MOD 2 = 0
+            BBlit 1, 127, x + #TX_font_width, y, %0
+        Else
+            UnBuffer 1
+        End If
+
+        tick + 1
+        VWait 10
+    Until Joyb(0) = 1
+
+    ; Remove the text
+    UnBuffer 0
+
+End Statement
+
+; ===============================================================================
+; TEST
+; ===============================================================================
+
+CNIF #TX_text_debug=-1
+AMIGA
+
+BitMap 0, 320, 200, 8
+Buffer 0, 32000
+Buffer 1, 1000
+LoadBitMap 0, "data/alleyway2.iff", 0
+
+InitCopList 0, 44, 200, $10008, 8, 256, 0
+
+TX_initialize{"display.font", "text_frame.shape"}
+
+BLITZ
+CreateDisplay 0
+DisplayPalette 0, 0
+DisplayBitMap 0, 0
+
+TX_draw_single_line{"It was dark..."}
+
+If Joyb(0) = 1
+  Repeat
+    VWait  10
+  Until Joyb(0) = 0
+
+End If
+
+VWait 10
+
+If Joyb(0) = 1
+  Repeat
+    VWait 10
+  Until Joyb(0) = 0
+
+End If
+
+CEND

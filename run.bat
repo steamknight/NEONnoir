@@ -12,7 +12,7 @@ setlocal EnableDelayedExpansion
 :: Set the project path as seen by WorkBench in the emulated Amiga instance.
 :: (This is a Windows folder set up as a virtual hdd in WinUAE.)
 :: The project path must end with a forward slash (/).
-set project_path_on_amiga=Develop:/JamProj/
+set project_path_on_amiga=Develop:/NEONnoir/
 
 set destination_path=C:\Users\mass\OneDrive\Amiga\hdf\Development\NEONnoir\
 
@@ -30,6 +30,7 @@ set project_files[7]=NS_script_asc.bb2
 set project_files[8]=SC_scene_asc.bb2
 set project_files[9]=SH_shapes_asc.bb2
 set project_files[10]=NS_opcodes_asc.bb2
+set project_files[11]=TX_core_asc.bb2
 :: set project_files[1]=include1_asc.bb2
 :: set project_files[2]=include2_asc.bb2
 
@@ -77,9 +78,11 @@ if defined project_files[%x%] (
 set /a count=%x%-1
 
 :: Run ConvertEOL for every *_asc.bb2 file in the project
+
 for /l %%n in (0,1,%count%) do (
   ConvertEOL unix src\!project_files[%%n]! "%destination_path%!project_files[%%n]:~0,-8!.bb2"
 )
+
 
 :: Build the arguments for the WinUAEArexx command
 set filelist=!project_path_on_amiga!!project_files[0]:~0,-8!.bb2

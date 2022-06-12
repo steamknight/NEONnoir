@@ -1,8 +1,19 @@
 ; Gameplay related statements and functions
 ; Prefix NN = Neon Noir
-;
 
 #NN_game_debug = 0
+
+; Constants
+#TX_font_start = 32
+#TX_font_end = 127
+#TX_font_width = 6
+#TX_font_height = 8
+#TX_frame_id = 31
+#TX_char_per_line = 28
+#TX_lines_per_frame = 2
+
+
+DEFTYPE .w TX_frame_x, TX_frame_y
 
 ; Define all game types
 
@@ -63,12 +74,17 @@ DEFTYPE .b *NN_string_data
 DEFTYPE .l NN_string_count
 
 Macro __get_string_length
-    (Peek.w (*NN_string_table + ((`1) * SizeOf .w)))
+    (Peek.w (*NN_string_table + ((`1) * SizeOf .l)))
+End Macro
+
+Macro __get_string_addr
+    (Peek.l (*NN_string_table + ((`1) * SizeOf .l)) + 4)
 End Macro
 
 Macro __get_string
-    (*NN_string_table + ((`1) * SizeOf .w) + 2)
+    Peek$(!__get_string_addr{(`1)})
 End Macro
+
 
 ; Data loading
 ; -----------------------------------------------
@@ -142,6 +158,34 @@ Function .b NN_load_neonpack{filename$}
 
     Function Return #NN_NEON_success
 End Function
+
+Statement TX_initialize{fontfile$, framefile$}
+    SHARED TX_frame_x, TX_frame_y
+    LoadShapes #TX_font_start, #TX_font_end, "data/" + fontfile$
+    LoadShapes #TX_frame_id, #TX_frame_id, "data/" + framefile$
+
+    TX_frame_x = 160 ; Half the horizontal res
+    TX_frame_y = 182 - (ShapeHeight(#TX_frame_id) LSL 1)
+End Statement
+
+Statement TX_draw_single_line{string_id.w}
+    SHARED *NN_string_table, TX_frame_x, TX_frame_y
+    DEFTYPE .l strloc, strlen
+    DEFTYPE .w x, y, width
+
+    strloc = Peek.l (*NN_string_table + (id * SizeOf .l))
+    strlen = Peek.l (strloc)
+    strloc + 4
+
+    width = strlen * #TX_font_width
+
+    x = TX_frame_x - (width LSL 1)
+    y = TX_frame_y - (#TX_font_height LSL 1)
+    
+    For i = 0 To strlen - 1
+        BBlit 0, Peek.b (strloc + i), x, y, %0
+    Next
+End Statement
 
 Statement NN_game_set_scene{id.w}
     NPrint "Going to scene #", id
