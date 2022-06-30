@@ -4,9 +4,17 @@
 #include <vector>
 
 #include "game_data.h"
+#include "assembler.h"
 
 namespace NEONnoir
 {
+    class packer_error : public std::runtime_error
+    {
+    public:
+        packer_error(std::string const& error) :
+            runtime_error(error) {}
+    };
+
 #pragma pack(push, 1)
     struct neon_header
     {
@@ -26,11 +34,11 @@ namespace NEONnoir
     {
         uint16_t name_id;
 
-        uint16_t background_count;
-        uint16_t first_background_id;
+        uint16_t first_bg_id;
+        uint16_t last_bg_id;
 
-        uint16_t scene_count;
         uint16_t first_scene_id;
+        uint16_t last_scene_id;
     };
 
     struct neon_scene
@@ -38,15 +46,17 @@ namespace NEONnoir
         uint16_t name_id;
         uint16_t background_id;
 
-        uint16_t region_count;
         uint16_t first_region_id;
+        uint16_t last_region_id;
     };
 
     struct neon_region
     {
-        uint16_t x, y;
-        uint16_t width, height;
+        uint16_t x1, y1;
+        uint16_t x2, y2;
+        uint16_t pointer_id;
         uint16_t description_id;
+        uint16_t script_offset;
     };
 
     struct string_table
@@ -64,6 +74,6 @@ namespace NEONnoir
         std::vector<std::string> string_table;
     };
 
-    void serialize_to_neon_pak(std::filesystem::path file_path, std::shared_ptr<game_data> const& data);
+    void serialize_to_neon_pak(std::filesystem::path file_path, std::shared_ptr<game_data> const& data, assembler_result const& result);
 
 }

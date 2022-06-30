@@ -27,6 +27,7 @@ namespace NEONnoir
 
         return {};
     }
+
 }
 
 #pragma warning(pop)

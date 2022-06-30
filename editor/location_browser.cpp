@@ -20,7 +20,7 @@ namespace NEONnoir
 
     void location_browser::display()
     {
-        auto locations_window = ImGui_window("Locations");
+        auto locations_window = ImGui_window(ICON_MD_MAP " Locations");
 
         if (auto data = _game_data.lock())
         {
@@ -117,9 +117,7 @@ namespace NEONnoir
         {
             if (auto file = open_file_dialog("bmp; Bitmap file"))
             {
-                auto filename = fs::path{ file.value() }.filename();
-                backgrounds.push_back(filename.string());
-
+                backgrounds.push_back(file.value().data());
                 background_textures.push_back(load_texture(file.value()));
             }
         }
@@ -137,7 +135,8 @@ namespace NEONnoir
                 remove_index = idx;
             }
             ImGui::SameLine();
-            if (ImGui::Button(bg.c_str(), ImVec2{ -FLT_MIN, 0 }))
+            auto bg_name = fs::path{ bg }.stem().string();
+            if (ImGui::Button(bg_name.c_str(), ImVec2{ -FLT_MIN, 0 }))
             {
                 if (auto file = open_file_dialog("bmp"))
                 {
@@ -170,7 +169,7 @@ namespace NEONnoir
             scenes.emplace_back(name);
         }
 
-        // List backgrounds
+        // List scenes
         // Not using range-for because we need an index
         int32_t remove_index = -1;
         for (auto idx = 0; idx < scenes.size(); idx++)

@@ -1,0 +1,95 @@
+; =============================================================================
+; DB_log by mass
+; -----------------------------------------------------------------------------
+; If in debug mode, logs values to WinUAE's debug window.
+; Adapted from Deadalus, who did all the hard work.
+;
+; Define #DB_ENABLE_DEBUG_LOG = -1 to enable logging
+; Define #DB_ENABLE_DEBUG_TRACE = -1 to enable trace logging
+; -----------------------------------------------------------------------------
+; WinUAE version 4.4.0+ required (tested on 4.9.1)
+; Change these settings
+;   * Settings/Hardware/ROM page: Set "Advanced Custom ROM settings" to "ROM #1"
+;   * Settings/Host/Miscellaneous: Enable "Debug memory space"
+;   * Settings/Paths: In "Debug logging", enable "Log window".
+;       Note: This last one must be done every time as this setting is not 
+;             saved. Make sure to do this before you start the Amiga, otherwise
+;             this option will be disabled.
+; =============================================================================
+
+; Prints a string directly to the debug window
+; Should not be called directly
+; -----------------------------------------------------------------------------
+Statement dbugprintstring{output$}
+  output$ + Chr$(10) ; Newline
+  Poke.l $bfff04, &output$
+End Statement
+
+; Prints a format string that accepts one parameter
+; Should not be call directly
+; -----------------------------------------------------------------------------
+Statement dbugprintval{fmt$, value.l}
+  fmt$ + Chr$(10)
+  Poke.l $bfff00, value
+  Poke.l $bfff04, &fmt$
+End Statement
+
+; Prints a string directly to the debug window
+; Params:
+;   `1: Tag
+;   `2: String to log
+;
+; Usage:
+;   !DB_log_str{"FONT", "loading font"}
+; Output:
+;   [FONT] loading font
+; -----------------------------------------------------------------------------
+Macro DB_log_str
+CNIF #DB_ENABLE_DEBUG_LOG = -1
+  dbugprintstring{(`1) + ": " + (`2)}
+CEND
+End Macro
+
+; Prints a numeric value or format string
+;
+; Params:
+;   `1: Tag
+;   `2: Format string (Optional)
+;   `3: Value
+;
+; Usage:
+;   !DB_log_val{"CORE", "memory location $%lx", &pointer}
+;   !DB_log_val{"CORE", &pointer}
+; Output:
+;   [CORE] memory location $404BED28
+;   [CORE] 1078717736
+; -----------------------------------------------------------------------------
+Macro DB_log_val
+CNIF #DB_ENABLE_DEBUG_LOG = -1
+  CNIF `0=2
+    dbugprintval{(`1) + ": %ld", (`2)}
+  CELSE
+    dbugprintval{(`1) + ": " + (`2), (`3)}
+  CEND
+CEND
+End Macro
+
+; Prints out text only if tracing is enabled. This is meant to trace out
+; statement, functions, gosubs, etc. and is meant to be able to be 
+; disabled without disablying all logging.
+;
+; Parameters:
+;   Filename/Tag
+;   Function/Statement/Code section name
+;
+; Usage:
+;   !DB_trace{"main", "load_data"} ; load_data function in main.bb2
+; Outputs:
+;   [TRACE - main] load_data
+Macro DB_trace
+CNIF #DB_ENABLE_DEBUG_LOG = -1
+  CNIF #DB_ENABLE_DEBUG_TRACE = -1
+    dbugprintstring{"[TRACE - " + (`1) + "] " + (`2)}
+  CEND
+CEND
+End Macro

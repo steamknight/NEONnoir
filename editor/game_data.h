@@ -34,9 +34,10 @@ namespace NEONnoir
 
     struct game_data_region
     {
-        uint16_t x, y;
-        uint16_t width, height;
-        uint16_t shape_id;
+        uint16_t x{ 0 }, y{ 0 };
+        uint16_t width{ 0 }, height{ 0 };
+        uint16_t shape_id{ 0 };
+        uint16_t pointer_id{ 0 };
         std::string description;
         std::string script;
     };
@@ -44,10 +45,10 @@ namespace NEONnoir
     struct game_data_scene
     {
         std::string name;
-        uint16_t image_id;
-        uint16_t view_x, view_y;
-        uint16_t view_width, view_height;
-        uint16_t offset_x, offset_y;
+        uint16_t image_id{ 0 };
+        uint16_t view_x{ 0 }, view_y{ 0 };
+        uint16_t view_width{ 0 }, view_height{ 0 };
+        uint16_t offset_x{ 0 }, offset_y{ 0 };
         std::vector<game_data_region> regions;
     };
 
@@ -59,11 +60,14 @@ namespace NEONnoir
         std::vector<game_data_scene> scenes;
     };
 
-    class game_data
+    struct game_data
     {
-    public:
         std::vector<game_data_location> locations;
-    private:
+        std::vector<std::string> flags;
+
+        void serialize(std::string const& filename);
+
+        static std::shared_ptr<game_data> deserialize(std::string const& filename);
     };
 }
 

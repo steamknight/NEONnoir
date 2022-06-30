@@ -1,5 +1,6 @@
 #pragma once
 #include <glfw/glfw3.h>
+#include <TextEditor.h>
 #include "glfw_utils.h"
 #include <memory>
 
@@ -7,6 +8,7 @@
 #include "game_data.h"
 #include "location_browser.h"
 #include "scene_editor.h"
+#include "script_editor.h"
 
 struct ImFont;
 
@@ -39,9 +41,12 @@ namespace NEONnoir
 
         std::unique_ptr<palette_injector> _palette_injector;
         std::shared_ptr<game_data> _game_data;
+        std::string _script;
 
         location_browser _location_browser{};
         scene_editor _scene_editor{};
+        script_editor _script_editor{};
+        TextEditor _text_editor{};
     };
 };
 

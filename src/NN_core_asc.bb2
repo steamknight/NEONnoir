@@ -1,0 +1,126 @@
+; =============================================================================
+; NN_core
+; -----------------------------------------------------------------------------
+; Contains all global variables and a means to initialize and uninitialize that
+; data
+; =============================================================================
+
+XINCLUDE "DB_log.bb2"
+
+; =============================================================================
+; Define all game types
+; =============================================================================
+
+; Regions
+; -----------------------------------------------
+NEWTYPE .NN_region
+  x1.w
+  y1.w
+  x2.w
+  y2.w
+  pointer_id.w
+  description_id.w
+  script_offset.w
+End NEWTYPE
+
+; Scene
+; -----------------------------------------------
+NEWTYPE.NN_scene
+  name_id.w
+  background_id.w
+  first_region.w
+  last_region.w
+End NEWTYPE
+
+; Location
+; -----------------------------------------------
+NEWTYPE .NN_location
+  name_id.w
+  first_bg.w
+  last_bg.w
+  first_scene.w
+  last_scene.w
+End NEWTYPE
+
+; =============================================================================
+; Define all globals and macros
+; =============================================================================
+
+; NN_region dynamic array
+; -----------------------------------------------
+DEFTYPE .NN_region *NN_regions, *NN_current_region
+DEFTYPE .l NN_region_count
+
+Macro __get_region
+  (*NN_regions + (SizeOf .NN_region * (`1)))
+End Macro
+
+; NN_scene dynamic array
+; -----------------------------------------------
+DEFTYPE .NN_scene *NN_scenes, *NN_current_scene
+DEFTYPE .l NN_scene_count
+
+Macro __get_scene
+  (*NN_scenes + (SizeOf .NN_scene * (`1)))
+End Macro
+
+; NN_location dynamic array
+; -----------------------------------------------
+DEFTYPE .NN_location *NN_locations, *NN_current_location
+DEFTYPE .l NN_location_count
+
+Macro __get_location
+  (*NN_locations + (SizeOf .NN_location * (`1)))
+End Macro
+
+; String Table
+; -----------------------------------------------
+DEFTYPE .w *NN_string_table
+DEFTYPE .b *NN_string_data
+DEFTYPE .l NN_string_count, NN_string_data_size
+
+Macro __get_string_length
+  (Peek.w (*NN_string_table + ((`1) * SizeOf .l)))
+End Macro
+
+Macro __get_string_addr
+  (Peek.l (*NN_string_table + ((`1) * SizeOf .l)) + 4)
+End Macro
+
+Macro __get_string
+  Peek$(!__get_string_addr{(`1)})
+End Macro
+
+; Script
+; -----------------------------------------------
+DEFTYPE .w *NS_script_data
+DEFTYPE .l NS_script_data_size
+
+; =============================================================================
+; Constants
+; =============================================================================
+
+; Game resolution
+; -----------------------------------------------------------------------------
+#NN_screen_width = 320
+#NN_screen_height = 200
+#NN_screen_bpp = 8
+#NN_screen_colors = 256
+
+; Loading NEONpacks
+; -----------------------------------------------------------------------------
+#NN_NEON_magic = $4E454F4E     ; NEON
+#NN_NEON_success                = -1
+#NN_NEON_file_not_found         = 1
+#NN_NEON_generic_read_error     = 2
+#NN_NEON_not_a_neon_file        = 3
+#NN_NEON_version_not_supported  = 4
+
+; Mouse pointers
+; -----------------------------------------------------------------------------
+#NN_pointer_start = 10
+#NN_pointer_end = 12
+#NN_pointer_default = 10
+#NN_pointer_examine = 11
+#NN_pointer_interact = 12
+#NN_pointer_exit = 13

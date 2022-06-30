@@ -4,36 +4,70 @@
 ; Needs two Buffers, 0 and 1. Buffer 0 draws the frame and text
 ; while draws the blinking caret.
 ;
+DEFTYPE .w
 
-#TX_text_debug = -1
+XINCLUDE "log.bb2"
+#EnableDebugLogging = 0
+#TX_text_debug = 0
+
+#screen_width = 320
+#screen_height = 200
+#screen_bpp = 8
+#primary = 0
 
 #TX_font_start = 32
 #TX_font_end = 127
-#TX_frame_id = 31
+#TX_frame_start = 22
+#TX_frame_end = 30
 #TX_char_per_line = 28
 #TX_lines_per_frame = 2
+
+; Shape ids for the 9-patch for the text frame
+#TX_frame_tl = 22
+#TX_frame_tm = 23
+#TX_frame_tr = 24
+#TX_frame_ml = 25
+#TX_frame_mm = 26
+#TX_frame_mr = 27
+#TX_frame_bl = 28
+#TX_frame_bm = 29
+#TX_frame_br = 30
+
+#TX_frame_size = 8
+#TX_frame_total_size = 16
 
 ; This is specific to the font file we're using
 ; A more robust approach would be to read this from a file
 #TX_font_width = 6
 #TX_font_height = 8
 
+#TX_scratch_bmp = 1
+#TX_space = 32
+#TX_text_shape = 21
+
 DEFTYPE .w TX_frame_x, TX_frame_y
 
 Statement TX_initialize{fontfile$, framefile$}
-    SHARED TX_frame_x, TX_frame_y
-    LoadShapes #TX_font_start, #TX_font_end, "data/" + fontfile$
-    LoadShapes #TX_frame_id, #TX_frame_id, "data/" + framefile$
-    MidHandle #TX_frame_id
-
-    TX_frame_x = 160 ; Half the horizontal res
-
-    ; The frame is 8 pixels from the bottom of the screen
-    TX_frame_y = 192 - (ShapeHeight(#TX_frame_id) LSR 1)
+  !log_str{"******** TX_initialize"}
+  SHARED TX_frame_x, TX_frame_y
+  LoadShapes #TX_font_start, #TX_font_end, "data/" + fontfile$
+  LoadShapes #TX_frame_start, #TX_frame_end, "data/" + framefile$
 End Statement
 
-Statement TX_draw_single_line{text$}
+Statement TX_uninitialize{}
+  !log_str{"******** TX_uninitialize"}
+  For s = #TX_font_start To #TX_font_end
+    Free Shape s
+  Next
+
+  For s = #TX_frame_start To #TX_frame_end
+    Free Shape s
+  Next
+End Statement
+
 BLITZ
+
+Statement TX_draw_single_line{text$}
     SHARED *NN_string_table, TX_frame_x, TX_frame_y
     DEFTYPE .l strloc, strlen
     DEFTYPE .w x, y, width
@@ -46,7 +80,7 @@ BLITZ
     x = TX_frame_x - (width LSR 1)
     y = TX_frame_y - (#TX_font_height LSR 1)
 
-    BBlit 0, #TX_frame_id, TX_frame_x, TX_frame_y, %0
+    ;BBlit 0, #TX_frame_id, TX_frame_x, TX_frame_y, %0
 
     For i = 1 To strlen
         BBlit 0, Asc(Mid$(text$, i, 1)), x, y, %0
@@ -69,7 +103,188 @@ BLITZ
 
     ; Remove the text
     UnBuffer 0
+End Statement
 
+Statement TX_draw_text{text$, x.w, y.w}
+  DEFTYPE .w width, strlen
+
+  strlen = Len(text$)
+  width = strlen * #TX_font_width
+
+  If x + width > #screen_width Then x = #screen_width - width
+  If y + #TX_font_height > DispHeight Then y = DispHeight - #TX_font_height
+
+  For i = 0 To strlen - 1
+    BBlit 0, Peek.b (&text$ + i), x, y, %0
+    x + #TX_font_width
+  Next
+End Statement
+
+Statement TX_draw_text_centered{text$, cx.w, cy.w}
+  DEFTYPE .w width, halfw, halfh, strlen, x
+
+  strlen = Len(text$)
+  width = strlen * #TX_font_width
+  halfw = width LSR 1
+  halfh = #TX_font_height LSR 1
+
+  If cx - halfw < 0 Then cx = halfw
+  If cx + halfw >= #screen_width Then cx = #screen_width - halfw
+  If cy - halfh < 0 Then cy = halfy
+  If cy + halfh >= #screen_width Then cy = #screen_width - halfh
+
+  x = cx - halfw
+  For i = 0 To strlen - 1
+    BBlit 0, Peek.b (&text$ + i), x, cy, %0
+    x + #TX_font_width
+  Next
+End Statement
+
+#TX_max_words = 64 ; Assume no more than 64 words in one go
+Dim tx_word_begin.w(#TX_max_words)
+Dim tx_word_end.w(#TX_max_words)
+DEFTYPE .w tx_word_count
+
+BLITZ
+
+; [INTERNAL]
+; Breaks a string into words, placing the beginning and ending of each word
+; in the tx_word_begin and tx_word_end global arrays.
+; =============================================================================
+Statement tx_get_words{text$}
+  !log_str{"tx_get_words"}
+  SHARED tx_word_begin(), tx_word_end(), tx_word_count
+  DEFTYPE .w begin, current, text_len
+
+  ; Find the beginning and ends of every word
+  tx_word_count = 0
+  text_len = Len(text$)
+  For begin = 1 To text_len
+    current = begin
+    While current < text_len AND Peek.b (&text$ + current) <> #TX_space
+      current + 1 ; skip the space
+    Wend
+
+    tx_word_begin(tx_word_count) = begin - 1
+    tx_word_end(tx_word_count) = current - 1
+    tx_word_count + 1
+    begin = current + 1; skip the space
+  Next
+End Statement
+
+; [INTERNAL]
+; Used to draw a frame around the text
+; =============================================================================
+Statement tx_draw_frame{line_width.w, line_count.w}
+  ; Top
+  Blit #TX_frame_tl, 0, 0, 0
+  For i = 1 To line_width
+    Blit #TX_frame_tm, #TX_font_width * i, 0, 0
+  Next
+  Blit #TX_frame_tr, #TX_font_width * (line_width + 1), 0, 0
+
+  ; Middle
+  For i = 1 To line_count
+    Blit #TX_frame_ml, 0, #TX_font_height * i, 0
+    Blit #TX_frame_mr, #TX_font_width * (line_width + 1), i * #TX_font_height, 0
+  Next i
+
+  ; Bottom
+  Blit #TX_frame_bl, 0, #TX_font_height * (line_count + 1), 0
+  For i = 1 To line_width
+    Blit #TX_frame_bm, #TX_font_width * i, #TX_font_height * (line_count + 1), 0
+  Next
+  Blit #TX_frame_br, #TX_font_width * (line_width + 1), #TX_font_height * (line_count + 1), 0
+End Statement
+
+; Draws a multiline string wrapped a given width. The text is drawn around a
+; center point.
+; =============================================================================
+Statement TX_draw_text_wrapped{text$, line_width.w, cx.w, cy.w}
+  SHARED tx_word_begin(), tx_word_end(), tx_word_count
+  DEFTYPE .w widthw, line_count
+  DEFTYPE .w remaining
+  DEFTYPE .w x0, y0, x, y, widthr, heightr, max_len, cur_len
+
+  BitMap #TX_scratch_bmp, #screen_width, #screen_width, #screen_bpp
+  Use BitMap #TX_scratch_bmp
+
+  ; Find the beginning and ends of every word
+  tx_get_words{text$}
+
+  ; Figure out how many lines it's going to be amd what's the size of the longest line
+  remaining = line_width
+  line_count = 1
+  For i = 0 To tx_word_count - 1
+    widthw = tx_word_end(i) - tx_word_begin(i) + 1
+
+    If remaining - widthw < 0
+      ; Advance To Next Line
+      line_count + 1
+      remaining = line_width
+      cur_len = 0
+    End If
+
+    remaining - (widthw + 1) ; account for the space
+    cur_len + widthw + 1
+    If cur_len > max_len Then max_len = cur_len
+  Next i
+
+  If max_len < line_width Then line_width = max_len
+
+  ; Calculate how big a rectangle this will be, including enough
+  ; padding for the text frame
+  widthr = line_width * #TX_font_width + #TX_frame_total_size
+  heightr = line_count * #TX_font_height + #TX_frame_total_size
+  x0 = #TX_frame_size
+  y0 = #TX_frame_size
+
+  ; Draw the frame
+  ; Text area
+  Boxf x0, y0, x0 + widthr - #TX_frame_total_size, y0 + heightr - #TX_frame_total_size, 3
+  tx_draw_frame{line_width, line_count}
+
+  ; Finally draw the text
+  remaining = line_width
+  x = x0
+  y = y0
+  For i = 0 To tx_word_count - 1
+    widthw = tx_word_end(i) - tx_word_begin(i) + 1
+
+    If remaining - widthw < 0
+      ; Advance to next line
+      x = x0
+      y + #TX_font_height
+      remaining = line_width
+    End If
+
+    ; Print the word
+    For j = tx_word_begin(i) To tx_word_end(i)
+      Blit Peek.b(&text$ + j), x, y, %0
+      x + #TX_font_width
+    Next j
+
+    remaining - (widthw + 1) ; account for the space
+    x + #TX_font_width
+  Next i
+
+  GetaShape #TX_text_shape, 0, 0, widthr, heightr
+  MidHandle #TX_text_shape
+  Use BitMap #primary
+
+  DEFTYPE .w halfw, halfh
+  halfw = widthr LSR 1
+  halfh = heightr LSR 1
+
+  If cx - halfw < 0 Then cx = halfw
+  If cx + halfw >= #screen_width Then cx = #screen_width - halfw
+  If cy - halfh < 0 Then cy = halfy
+  If cy + halfh >= #screen_width Then cy = #screen_width - halfh
+
+  BBlit 0, #TX_text_shape, cx, cy, %0
+
+  Free Shape #TX_text_shape
+  Free BitMap #TX_scratch_bmp
 End Statement
 
 ; ===============================================================================
@@ -79,36 +294,56 @@ End Statement
 CNIF #TX_text_debug=-1
 AMIGA
 
-BitMap 0, 320, 200, 8
-Buffer 0, 32000
-Buffer 1, 1000
+BitMap 0, #screen_width, #screen_width, 8
+Buffer 0, 64000
+Queue 0, 16
+
 LoadBitMap 0, "data/alleyway2.iff", 0
 
-InitCopList 0, 44, 200, $10008, 8, 256, 0
+InitCopList 0, 44, #screen_width, $10008, 8, 256, 0
 
-TX_initialize{"display.font", "text_frame.shape"}
+TX_initialize{"display.font", "frame.shape"}
 
 BLITZ
 CreateDisplay 0
 DisplayPalette 0, 0
 DisplayBitMap 0, 0
 
-TX_draw_single_line{"It was dark..."}
+;TX_draw_single_line{"It was dark..."}
+;TX_draw_overlay{"It was dark..."}
 
-If Joyb(0) = 1
-  Repeat
-    VWait  10
-  Until Joyb(0) = 0
+;TX_draw_text_wrapped{"While it might prove to be a fun, if expensive diversion, I have far to much to right now.", 28, 160, 160
+a1$ = "Once again I found myself in the neon soaked alleyways of the Gutter. "
+a2$ = "Cheap thrills and violence were the very foundation this place was built on. "
+a3$ = "I needed to be careful, or wind up missing a few vital organs I'd gotten attached to."
 
-End If
+a$ = a1$ + a2$ + a3$
+NPrint a$
+TX_draw_text_wrapped{a$, 28, 160, 100}
 
-VWait 10
+BBlit 0, 22, 0, 0, 0
+BBlit 0, 23, 6, 0, 0
+BBlit 0, 24, 12, 0, 0
+BBlit 0, 25, 0, 9, 0
+BBlit 0, 26, 6, 9, 0
+BBlit 0, 27, 12, 9, 0
+BBlit 0, 28, 0, 18, 0
+BBlit 0, 29, 6, 18, 0
+BBlit 0, 30, 12, 18, 0
 
-If Joyb(0) = 1
-  Repeat
-    VWait 10
-  Until Joyb(0) = 0
+Repeat
+  If RawStatus($01) = True
+    !log_str{"*********************"}
+    TX_draw_text_wrapped{a$, 28, 160, 100}
+  End If
 
-End If
+  If RawStatus($02) = True
+    !log_str{"---------------------"}
+    ;UnQueue 0
+    UnBuffer 0
+  End If
+Until RawStatus($45) = True
+
+End
 
 CEND

@@ -23,6 +23,8 @@ namespace NEONnoir
         void display_prop_background(game_data_scene& scene, std::vector<std::string> const& backgrounds);
         void display_prop_regions(game_data_scene& scene);
         void display_prop_region_scalar(std::string_view const& label, uint16_t& value);
+        void display_prop_enum(std::string_view const& label, std::vector<std::string> const& values, uint16_t& selected_value);
+        void display_prop_list(std::string_view const& label, std::vector<std::string>const& values, std::string& selected);
 
         void display_scene(game_data_scene& scene, std::vector<GLtexture> const& background_textures);
         void display_scene_toolbar() noexcept;
@@ -39,6 +41,8 @@ namespace NEONnoir
         int32_t _selected_region_index{ -1 };
         ImVec2 _add_region_p0{ -1, -1 };
         ImVec2 _last_mouse{ 0, 0 };
+
+        const std::vector<std::string> pointer_types{ "Normal", "Examine", "Use", "Exit" };
     };
 }
 

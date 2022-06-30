@@ -1,152 +1,111 @@
-XINCLUDE "NN_game.bb2"
+WBStartup
+DEFTYPE .w
 
-Macro __delay_seconds
-    VWait (50 + (NSTC * -10)) * (`1)
-End Macro
+XINCLUDE "NN_game.bb2"
+XINCLUDE "TX_core.bb2"
+
+AMIGA
 
 #DB_coplist = 0
 #max_sprites = 8                        ; Always 8
 coplist_flag.l = $10000                 ; AGA mode
 coplist_flag.l +     $8                 ; 8 bitplanes, 256 colors
 screen_offset = 70 - (NTSC * 44)        ; centers the display in PAL mode
-num_colors = 256
-InitCopList #DB_coplist, screen_offset, 200, coplist_flag, #max_sprites, num_colors, 0
+InitCopList #DB_coplist, screen_offset, #NN_screen_height, coplist_flag, #max_sprites, #NN_screen_colors, 0
 
-result.b = NN_load_neonpack{"data/gutter.neon"}
+DEFTYPE .b result
+result = NN_initialize{"gutter.neon", "pointers.shape"}
 If result <> #NN_NEON_success
   NPrint "Error: ", result
-  Stop
-  End
+  Goto Finish
 End If
 
-LoadShapes 32, 127, "data/display.font"
-
-BLITZ
-Mouse On
-CreateDisplay #DB_coplist
-
-DEFTYPE .NN_location *current_location
-DEFTYPE .NN_scene *current_scene
-
-Statement NN_load_location{new_loc_id.w, new_scene_id.w}
-    SHARED *current_location, *current_scene
-    SHARED *NN_locations, *NN_scenes, *NN_string_table, *NN_string_data
-    *current_location = !__get_location{new_loc_id}
-
-    ; Load all the backgrounds
-    QAMIGA
-
-    For bg = 0 To *current_location\background_count - 1
-        NPrint "BG: ", bg
-        NPrint "BG ID: ", *current_location\first_background_id + bg
-        NPrint "BG S1: ", !__get_string{*current_location\first_background_id + bg}
-        NPrint "BG S2: ", !__get_string{(*current_location\first_background_id + bg)}
-
-        BitMap bg, 320, 200, 8
-        LoadBitMap bg, "data/" + !__get_string{*current_location\first_background_id + bg}, bg
-    Next
-
-    ; Wait two seconds for the disk to stop
-    ;!__delay_seconds{2}
-    BLITZ
-
-    ; Setup the next scene
-    *current_scene = !__get_scene{*current_location\first_scene_id + new_scene_id}
-
-    ; Show the background image
-    DisplayPalette #DB_coplist, *current_scene\background_id
-    DisplayBitMap #DB_coplist, *current_scene\background_id
-
-End Statement
+TX_initialize{"display.font", "frame.shape"}
 
 NN_load_location{0, 0}
 
+BLITZ
 
+Mouse On
+CreateDisplay #DB_coplist
 
+#BF_main = 0
+#BF_text = 1
+Buffer #BF_main, 64000
+Buffer #BF_text, 4096
 
+DEFTYPE .w pointer_id, bg_id
+DEFTYPE .w overlapped, prev_overlap
+DEFTYPE .NN_region *region
+DEFTYPE .b done
 
-#font_width = 6
-#font_height = 8
-
-done.b = False
-
-id.w = 0
-clicked.b = False
-
-bg_id.w = 0
-
-
-Buffer 0, 64000
-
+bg_id = 0
+pointer_id = 0
+overlapped = -1
+prev_overlap = -1
+done = False
 
 Repeat
-    ; Check if the mouse has been clicked on one of the regions
-    ; If Joyb(0) = 1
-    ;     DEFTYPE .w region_id
-    ;     For r = 0 to scenes(current_id)\num_regions - 1
-    ;         region_id = scenes(current_id)\regions[r]
-    ;         If is_point_in_rect{MouseX, MouseY, &regions(region_id)} AND regions(region_id)\script_id > -1
-    ;             NS_execute_script{regions(region_id)\script_id}
-    ;         End If
-    ;     Next
-    ; End If
+  VWait
 
-    bg_id = *current_scene\background_id
+  bg_id = *NN_current_scene\background_id
 
-    AGAPalRGB bg_id, 0, 0, 0, 0
-    AGAPalRGB bg_id, 1, 153, 229, 80
-    AGAPalRGB bg_id, 2, 106, 190, 148
+  ; Show the background image
+  DisplayPalette #DB_coplist, bg_id
+  DisplayBitMap #DB_coplist, bg_id
 
+  ; Update the mouse pointer
+  DisplaySprite #DB_coplist, pointer_id, MouseX, MouseY, 0
 
-    ; Show the background image
-    DisplayPalette #DB_coplist, bg_id
-    DisplayBitMap #DB_coplist, bg_id
-    Use BitMap bg_id
+  overlapped = NN_get_overlapped_region{MouseX, MouseY}
 
-
-    text$ = !__get_string{*current_scene\name_id}
-    text_len.w =  Len(text$)
-
-
-    x.w = (320 - text_len) LSR 1
-    y.w = (200 - #font_height) LSR 1
-
-
-
-
-
-
-    If Joyb(0) = 0 AND clicked = True
-
-        If id MOD 2 = 0
-          For i = 1 To Len(text$)
-
-            BBlit Asc(Mid$(text$, i, 1)), x, y, 0
-
-            x + #font_width
-          Next
-        Else
-          UnBuffer 0
-        End If
-
-
-          id + 1
-
-        ;If id > *current_location\first_scene_id + *current_location\scene_count
-        ;  done = True
-        ;Else
-        ;  NPrint "loading scene: ", *current_location\first_scene_id + id
-        ;  *current_scene = !__get_scene{*current_location\first_scene_id + id}
-        ;End If
-
+  ; Show or hide hover text for the overlapped region
+  If overlapped <> prev_overlap
+    UnBuffer #BF_main
+    If overlapped <> -1
+      *region = !__get_region{overlapped}
+      pointer_id = *region\pointer_id
+    Else
+      pointer_id = 0
     End If
+  End If
 
-    If Joyb(0) = 1
-      clicked = True
-    End If
+  prev_overlap = overlapped
 
-    If Joyb(0) = 0
-      clicked = False
-    End If
+  ; Press ESC to quit
+  If RawStatus($45) Then done = True
 
 Until done
+
+Finish:
+TX_uninitialize{}
+NN_uninitialize{}
+
+End
+; * Cannot use string literals as parameters
+; * String variables must be prefixed with &
+;   printf{"hello $s", &there$}
+Macro printf
+  CNIF `0 > 1
+    Poke.l $BFFF00, (`2)
+  CEND
+
+  CNIF `0 > 2
+    Poke.l $BFFF00, (`3)
+  CEND
+
+  CNIF `0 > 3
+    Poke.l $BFFF00, (`4)
+  CEND
+
+  CNIF `0 > 4
+    Poke.l $BFFF00, (`5)
+  CEND
+
+  CNIF `0 > 5
+    Poke.l $BFFF00, (`6)
+  CEND
+
+  printf_fmt$ = (`1) + Chr$(10)
+  Poke.l $BFFF04, &printf_fmt$
+End Macro

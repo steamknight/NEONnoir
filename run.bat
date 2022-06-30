@@ -25,12 +25,14 @@ set project_files[2]=state_logo_asc.bb2
 set project_files[3]=state_game_asc.bb2
 set project_files[4]=IV_inventory_asc.bb2
 set project_files[5]=NN_game_asc.bb2
-set project_files[6]=NN_string_table_asc.bb2
+set project_files[6]=DB_log_asc.bb2
 set project_files[7]=NS_script_asc.bb2
 set project_files[8]=SC_scene_asc.bb2
 set project_files[9]=SH_shapes_asc.bb2
 set project_files[10]=NS_opcodes_asc.bb2
 set project_files[11]=TX_core_asc.bb2
+set project_files[12]=NN_core_asc.bb2
+
 :: set project_files[1]=include1_asc.bb2
 :: set project_files[2]=include2_asc.bb2
 

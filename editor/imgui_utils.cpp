@@ -47,6 +47,18 @@ namespace NEONnoir
         }
     }
 
+    void ToolTip(char const* desc)
+    {
+        if (ImGui::IsItemHovered())
+        {
+            ImGui::BeginTooltip();
+            ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
+            ImGui::TextUnformatted(desc);
+            ImGui::PopTextWrapPos();
+            ImGui::EndTooltip();
+        }
+    }
+
     void SetCursorCenteredText(ImVec2 center, std::string_view const& text, float wrap_width)
     {
         auto text_sz = ImGui::CalcTextSize(text.data(), nullptr, false, wrap_width);
@@ -60,6 +72,19 @@ namespace NEONnoir
         ImGui::PushStyleColor(ImGuiCol_ButtonHovered, (ImVec4)ImColor::HSV(0.0f, 0.7f, 0.7f));
         ImGui::PushStyleColor(ImGuiCol_ButtonActive, (ImVec4)ImColor::HSV(0.0f, 0.8f, 0.8f));
         auto clicked = ImGui::Button(std::format(ICON_MD_DELETE "{}", label).c_str());
+        ImGui::PopStyleColor(3);
+        ImGui::PopID();
+
+        return clicked;
+    }
+
+    bool DeleteSelectable(std::string const& id, std::string_view const& label)
+    {
+        ImGui::PushID(id.c_str());
+        ImGui::PushStyleColor(ImGuiCol_Header, (ImVec4)ImColor::HSV(0.0f, 0.6f, 0.4f));
+        ImGui::PushStyleColor(ImGuiCol_HeaderHovered, (ImVec4)ImColor::HSV(0.0f, 0.7f, 0.7f));
+        ImGui::PushStyleColor(ImGuiCol_HeaderActive, (ImVec4)ImColor::HSV(0.0f, 0.8f, 0.8f));
+        auto clicked = ImGui::Selectable(std::format(ICON_MD_DELETE "{} ", label).c_str());
         ImGui::PopStyleColor(3);
         ImGui::PopID();
 

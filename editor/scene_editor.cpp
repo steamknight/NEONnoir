@@ -5,8 +5,11 @@
 #include "glfw_utils.h"
 
 #include <format>
+#include <filesystem>
 
 #include "scene_editor.h"
+
+namespace fs = std::filesystem;
 
 namespace NEONnoir
 {
@@ -29,7 +32,7 @@ namespace NEONnoir
         }
         else
         {
-            auto locations_window = ImGui_window("Scene");
+            auto locations_window = ImGui_window(ICON_MD_PLACE " Scene");
             display_placeholder();
         }
     }
@@ -100,6 +103,53 @@ namespace NEONnoir
         ImGui::InputText(std::format("##{}", (uint64_t)&value).c_str(), &value);
     }
 
+    void scene_editor::display_prop_enum(std::string_view const& label, std::vector<std::string> const& values, uint16_t & selected_value)
+    {
+        ImGui::TableNextRow();
+
+        ImGui::TableNextColumn();
+        ImGui::AlignTextToFramePadding();
+        ImGui::TextUnformatted(label.data());
+
+        ImGui::TableNextColumn();
+        ImGui::SetNextItemWidth(-FLT_MIN);
+
+        ImGui::SliderInt(std::format("##{}", (uint64_t)&selected_value).c_str(), (int*)&selected_value, 0, values.size() - 1, values[selected_value].c_str());
+    }
+
+
+    void scene_editor::display_prop_list(std::string_view const& label, std::vector<std::string>const& values, std::string& selected)
+    {
+        ImGui::TableNextRow();
+
+        ImGui::TableNextColumn();
+        ImGui::AlignTextToFramePadding();
+        ImGui::TextUnformatted(label.data());
+
+        ImGui::TableNextColumn();
+        ImGui::SetNextItemWidth(-FLT_MIN);
+ 
+        if (ImGui::BeginCombo("##ScriptCombo", "[NONE]"))
+        {
+            for (uint16_t index = 0; index < values.size(); index++)
+            {
+                auto const is_selected = values[index] == selected;
+
+                if (ImGui::Selectable(values[index].c_str(), is_selected))
+                {
+                    selected = values[index];
+                }
+
+                if (is_selected)
+                {
+                    ImGui::SetItemDefaultFocus();
+                }
+            }
+
+            ImGui::EndCombo();
+        }
+    }
+
     void scene_editor::display_prop_background(game_data_scene& scene, std::vector<std::string> const& backgrounds)
     {
         ImGui::TableNextColumn();
@@ -108,12 +158,15 @@ namespace NEONnoir
 
         ImGui::TableNextColumn();
         ImGui::SetNextItemWidth(-FLT_MIN);
-        if (ImGui::BeginCombo("##BackgroundCombo", backgrounds[scene.image_id].c_str()))
+        
+        auto bg_path = fs::path{ backgrounds[scene.image_id] };
+        if (ImGui::BeginCombo("##BackgroundCombo", bg_path.stem().string().c_str()))
         {
             for (uint16_t index = 0; index < backgrounds.size(); index++)
             {
                 auto const is_selected = scene.image_id == index;
-                if (ImGui::Selectable(backgrounds[index].c_str(), is_selected))
+                bg_path = fs::path{ backgrounds[index] };
+                if (ImGui::Selectable(bg_path.stem().string().c_str(), is_selected))
                 {
                     scene.image_id = index;
                 }
@@ -157,6 +210,8 @@ namespace NEONnoir
                 display_prop_region_scalar("Width", region.width);
                 display_prop_region_scalar("Height", region.height);
                 display_prop_string("Hover Text", region.description);
+                display_prop_enum("Mouse Pointer", pointer_types, region.pointer_id);
+                display_prop_string("Script Name", region.script);
 
                 ImGui::TableNextColumn(); ImGui::TableNextColumn();
                 ImGui::SetNextItemWidth(-FLT_MIN);
@@ -244,7 +299,7 @@ namespace NEONnoir
                 auto region = game_data_region{
                     static_cast<uint16_t>(p_min.x), static_cast<uint16_t>(p_min.y),
                     static_cast<uint16_t>(size.x), static_cast<uint16_t>(size.y),
-                    USHRT_MAX, "", ""
+                    USHRT_MAX, static_cast<uint16_t>(0), "", ""
                 };
 
                 scene.regions.push_back(region);

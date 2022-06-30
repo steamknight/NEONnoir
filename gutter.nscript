@@ -1,0 +1,42 @@
+; Setup all the global flags
+.FLAGS
+    has_found_body    ; Have we found the body yet?
+
+.CONST
+    ; Scenes in the Alley location
+    alley_takeshi_noodles     1 
+    alley_alleycat            0
+    alley_empty_lot           2
+    alley_alleycat_interior   3
+
+.TEXT
+    enter_alleycat            "A quick peek can't hurt, right?"
+    job_to_do                 "I don't have time for that, I got a job to do."
+
+; Attempt to enter the Alleycat. If we've haven't found the body
+; we have no reason to go in
+.SCRIPT enter_alleycat
+    load !has_found_body
+    jiff @no_body
+    text $enter_alleycat
+    goto #alley_alleycat_interior
+    end
+
+@no_body
+    text $job_to_do
+    end 
+
+.SCRIPT goto_alleycat         ; Move from Takeshi's/Empty lot to the Alleycat
+    goto #alley_alleycat
+    end
+
+.SCRIPT goto_takeshi          ; Move from the Alleycat to Takeshi's
+    goto #alley_takeshi_noodles
+    end
+
+.SCRIPT goto_empty_lot        ; Move from the Alleyvat to the emtpy lot
+    goto #alley_empty_lot
+    end
+
+
+

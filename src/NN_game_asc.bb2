@@ -1,278 +1,202 @@
-; Gameplay related statements and functions
-; Prefix NN = Neon Noir
+; =============================================================================
+; NN_game
+; -----------------------------------------------------------------------------
+; Contains functions an statement around running the game
+; =============================================================================
 
-#NN_game_debug = 0
+XINCLUDE "NN_core.bb2"
 
-; Constants
-#TX_font_start = 32
-#TX_font_end = 127
-#TX_font_width = 6
-#TX_font_height = 8
-#TX_frame_id = 31
-#TX_char_per_line = 28
-#TX_lines_per_frame = 2
-
-
-DEFTYPE .w TX_frame_x, TX_frame_y
-
-; Define all game types
-
-; Regions
-; -----------------------------------------------
-NEWTYPE .NN_region
-    x.w
-    y.w
-    width.w
-    height.w
-    description_id.w
-END NEWTYPE
-
-DEFTYPE .NN_region *NN_regions
-DEFTYPE .l NN_region_count
-
-Macro __get_region
-    (*NN_regions + (SizeOf .NN_region * (`1)))
-End Macro
-
-; Scene
-; -----------------------------------------------
-NEWTYPE.NN_scene
-    name_id.w
-    background_id.w
-    region_count.w
-    first_region_id.w
-end NEWTYPE
-
-DEFTYPE .NN_scene *NN_scenes
-DEFTYPE .l NN_scene_count
-
-Macro __get_scene
-    (*NN_scenes + (SizeOf .NN_scene * (`1)))
-End Macro
-
-; Locations
-; -----------------------------------------------
-NEWTYPE .NN_location
-    name_id.w
-    background_count.w
-    first_background_id.w
-    scene_count.w
-    first_scene_id.w
-END NEWTYPE
-
-DEFTYPE .NN_location *NN_locations
-DEFTYPE .l NN_location_count
-
-Macro __get_location
-    (*NN_locations + (SizeOf .NN_location * (`1)))
-End Macro
-
-; String Table
-; -----------------------------------------------
-DEFTYPE .w *NN_string_table
-DEFTYPE .b *NN_string_data
-DEFTYPE .l NN_string_count
-
-Macro __get_string_length
-    (Peek.w (*NN_string_table + ((`1) * SizeOf .l)))
-End Macro
-
-Macro __get_string_addr
-    (Peek.l (*NN_string_table + ((`1) * SizeOf .l)) + 4)
-End Macro
-
-Macro __get_string
-    Peek$(!__get_string_addr{(`1)})
-End Macro
-
-
-; Data loading
-; -----------------------------------------------
-#NN_NEON_magic = $4E454F4E     ; NEON
-#NN_NEON_success                = -1
-#NN_NEON_file_not_found         = 1
-#NN_NEON_generic_read_error     = 2
-#NN_NEON_not_a_neon_file        = 3
-#NN_NEON_version_not_supported  = 4
+; Loads a neon pack
+;
+; Requires AMIGA or QAMIGA mode
+; =============================================================================
 Function .b NN_load_neonpack{filename$}
-    SHARED *NN_locations, *NN_scenes, *NN_regions, *NN_string_table, *NN_string_data
-    SHARED NN_location_count, NN_scene_count, NN_region_count, NN_string_count
+  SHARED *NN_locations, *NN_scenes, *NN_regions, *NN_string_table, *NN_string_data
+  SHARED NN_location_count, NN_scene_count, NN_region_count, NN_string_count, NN_string_data_size
 
-    if Exists(filename$) = 0 then Function Return #NN_NEON_file_not_found
+  !DB_trace{"NN_GAME", "NN_load_neonpack: " +  filename$}
 
-    DEFTYPE .w id
-    id = 0
-    if ReadFile(id, filename$) = 0 then Function Return #NN_NEON_generic_read_error
-    
-    FileInput id
+  If Exists(filename$) = 0 Then Function Return #NN_NEON_file_not_found
 
-    ; Read the header
-    DEFTYPE .l magic
-    ReadMem id, &magic, 4
-    If magic <> #NN_NEON_magic then Function Return #NN_NEON_not_a_neon_file
+  DEFTYPE .w id
+  id = 0
+  If ReadFile(id, filename$) = 0 Then Function Return #NN_NEON_generic_read_error
 
-    ; Read the version -- Support only v1.0
-    DEFTYPE .l version
-    ReadMem id, &version, 4
-    If version <> $00010000 then Function Return #NN_NEON_version_not_supported
+  FileInput id
 
-    ; Read in all the locations
-    DEFTYPE .l size
-    ReadMem id, &NN_location_count, 4
-    size = NN_location_count * SizeOf .NN_location
-    *NN_locations = AllocMem(size, $10000)  ; Best available memory and clear
-    ReadMem id, *NN_locations, size
+  ; Read the header
+  DEFTYPE .l magic
+  ReadMem id, &magic, 4
+  If magic <> #NN_NEON_magic Then Function Return #NN_NEON_not_a_neon_file
 
-    ; Read in all the scenes
-    ReadMem id, &NN_scene_count, 4
-    size = NN_scene_count * SizeOf .NN_scene
-    *NN_scenes = AllocMem(size, $10000)  ; Best available memory and clear
-    ReadMem id, *NN_scenes, size
+  ; Read the version -- Support only v1.0
+  DEFTYPE .l version
+  ReadMem id, &version, 4
+  If version <> $00010000 Then Function Return #NN_NEON_version_not_supported
 
-    ; Read in all the regions
-    ReadMem id, &NN_region_count, 4
-    size = NN_region_count * SizeOf .NN_region
-    *NN_regions = AllocMem(size, $10000)  ; Best available memory and clear
-    ReadMem id, *NN_regions, size
+  ; Read in all the locations
+  DEFTYPE .l size
+  ReadMem id, &NN_location_count, 4
+  size = NN_location_count * SizeOf .NN_location
+  *NN_locations = AllocMem_(size, $10000)  ; Best available memory and clear
+  ReadMem id, *NN_locations, size
+  !DB_log_str{"NN_GAME", "    Locations > Addr: $" + Hex$(*NN_locations) + " Size: " + Str$(size)}
 
-    ; Read all the strings and generate a string table
-    ReadMem id, &NN_string_count, 4
-    ReadMem id, &size, 4
-    *NN_string_table = AllocMem(NN_string_count * SizeOf .l, $10000)
-    *NN_string_data = AllocMem(size, $10000)
+  ; Read in all the scenes
+  ReadMem id, &NN_scene_count, 4
+  size = NN_scene_count * SizeOf .NN_scene
+  *NN_scenes = AllocMem_(size, $10000)  ; Best available memory and clear
+  ReadMem id, *NN_scenes, size
+  !DB_log_str{"NN_GAME", "    Scenes    > Addr: $" + Hex$(*NN_scenes) + " Size: " + Str$(size)}
 
-    DEFTYPE .l ptr
-    ptr = *NN_string_data
-    DEFTYPE .l string_size
-    For i = 0 to NN_string_count - 1
-        Poke.l *NN_string_table + (i * 4), ptr
+  ; Read in all the regions
+  ReadMem id, &NN_region_count, 4
+  size = NN_region_count * SizeOf .NN_region
+  *NN_regions = AllocMem_(size, $10000)  ; Best available memory and clear
+  ReadMem id, *NN_regions, size
+  !DB_log_str{"NN_GAME", "    Regions > Addr: $" + Hex$(*NN_regions) + " Size: " + Str$(size)}
 
-        ReadMem id, &string_size, 4
-        Poke.l ptr, string_size
+  ; Read all the strings and generate a string table
+  ReadMem id, &NN_string_count, 4
+  ReadMem id, &NN_string_data_size, 4
+  *NN_string_table = AllocMem_(NN_string_count * SizeOf .l, $10000)
+  *NN_string_data = AllocMem_(NN_string_data_size, $10000)
+  !DB_log_str{"NN_GAME", "    Str Table > Addr: $" + Hex$(*NN_string_table) + " Size: " + Str$(NN_string_count * SizeOf .l)}
+  !DB_log_str{"NN_GAME", "    Str Data  > Addr: $" + Hex$(*NN_string_data) + " Size: " + Str$(NN_string_data_size)}
 
-        ptr + 4
-        ReadMem id, ptr, string_size
+  DEFTYPE .l ptr
+  ptr = *NN_string_data
+  DEFTYPE .l string_size
+  For i = 0 To NN_string_count - 1
+    Poke.l *NN_string_table + (i * 4), ptr
 
-        ptr + string_size
-    Next
+    ReadMem id, &string_size, 4
+    Poke.l ptr, string_size
 
-    Function Return #NN_NEON_success
+    ptr + 4
+    ReadMem id, ptr, string_size
+
+    ptr + string_size
+  Next
+
+  ; Read all the bytecode... I suppose it's more like word-code
+  ReadMem id, &NS_script_data_size, 4
+  *NS_script_data = AllocMem_(NS_script_data_size * SizeOf .w, $10000)
+  ReadMem id, *NS_script_data, NS_script_data_size
+
+  Function Return #NN_NEON_success
 End Function
 
-Statement TX_initialize{fontfile$, framefile$}
-    SHARED TX_frame_x, TX_frame_y
-    LoadShapes #TX_font_start, #TX_font_end, "data/" + fontfile$
-    LoadShapes #TX_frame_id, #TX_frame_id, "data/" + framefile$
+; Frees up all allocated memory
+; =============================================================================
+Statement NN_uninitialize{}
+  !DB_trace{"NN_GAME", "NN_uninitialize"}
+  SHARED *NN_locations, *NN_scenes, *NN_regions, *NN_string_table, *NN_string_data
+  SHARED NN_location_count, NN_scene_count, NN_region_count, NN_string_count, NN_string_data_size
 
-    TX_frame_x = 160 ; Half the horizontal res
-    TX_frame_y = 182 - (ShapeHeight(#TX_frame_id) LSL 1)
+  FreeMem_ *NN_locations, SizeOf .NN_location * NN_location_count
+  !DB_log_str{"NN_GAME", "    FreeMem locations $" + Hex$(*NN_locations) + ", " + Str$(SizeOf .NN_location * NN_location_count)}
+
+  FreeMem_ *NN_scenes, SizeOf .NN_scene * NN_scene_count
+  !DB_log_str{"NN_GAME", "    FreeMem scenes    $" + Hex$(*NN_scenes) + ", " + Str$(SizeOf .NN_scene * NN_scene_count)}
+
+  FreeMem_ *NN_regions, SizeOf .NN_region * NN_region_count
+  !DB_log_str{"NN_GAME", "    FreeMem regions   $" + Hex$(*NN_regions) + ", " + Str$(SizeOf .NN_region * NN_region_count)}
+
+  FreeMem_ *NN_string_table, SizeOf .l * NN_string_count
+  !DB_log_str{"NN_GAME", "    FreeMem str table $" + Hex$(*NN_string_table) + ", " + Str$(SizeOf .l * NN_string_count)}
+
+  FreeMem_ *NN_string_data, NN_string_data_size
+  !DB_log_str{"NN_GAME", "    FreeMem str data  $" + Hex$(*NN_string_data) + ", " + Str$(NN_string_data_size)}
+
+  FreeMem_ *NS_script_data, NS_script_data_size
+  !DB_log_str{"NN_GAME", "    FreeMem str data  $" + Hex$(*NS_script_data) + ", " + Str$(NS_script_data_size)}
 End Statement
 
-Statement TX_draw_single_line{string_id.w}
-    SHARED *NN_string_table, TX_frame_x, TX_frame_y
-    DEFTYPE .l strloc, strlen
-    DEFTYPE .w x, y, width
+; Loads the mouse pointers
+;
+; Requires AMIGA or QAMIGA mode
+; =============================================================================
+Statement NN_load_pointers{filename$}
+  !DB_trace{"NN_GAME", "NN_load_pointers"}
+  LoadShapes #NN_pointer_start, #NN_pointer_end, filename$
 
-    strloc = Peek.l (*NN_string_table + (id * SizeOf .l))
-    strlen = Peek.l (strloc)
-    strloc + 4
-
-    width = strlen * #TX_font_width
-
-    x = TX_frame_x - (width LSL 1)
-    y = TX_frame_y - (#TX_font_height LSL 1)
-    
-    For i = 0 To strlen - 1
-        BBlit 0, Peek.b (strloc + i), x, y, %0
-    Next
+  SpriteMode 0
+  For i = #NN_pointer_start To #NN_pointer_end
+    GetaSprite i - #NN_pointer_start, i
+    Free Shape i
+  Next
 End Statement
 
+; Initializes the game resources
+; neonpack$: Game's .NEON file, relative to the data/ directory
+; pointers$: Game's mouse cursors, relative to the data/ directory
+; =============================================================================
+Function NN_initialize{neonpack$, pointers$}
+  !DB_trace{"NN_GAME", "NEONpack: " + neonpack$ + " Mouse Pointers: " + pointers$}
+  NN_load_pointers{"data/" + pointers$}
+
+  Function Return NN_load_neonpack{"data/" + neonpack$}
+End Function
+
+; Loads the bitmaps for the new location and set the current
+; scene to the selected one.
+;
+; Requires AMIGA or QAMIGA mode
+; =============================================================================
+Statement NN_load_location{new_loc_id.w, new_scene_id.w}
+  !DB_trace{"NN_GAME", "NN_load_location{" + Str$(new_loc_id) + ", " + Str$(new_scene_id) + "}"}
+  SHARED *NN_current_location, *NN_current_scene
+  SHARED *NN_locations, *NN_scenes, *NN_string_table, *NN_string_data
+  *NN_current_location = !__get_location{new_loc_id}
+
+  ; Load all the backgrounds
+  For bg = *NN_current_location\first_bg To *NN_current_location\last_bg 
+    BitMap bg, #NN_screen_width, #NN_screen_height, #NN_screen_bpp
+    bmp$ = !__get_string{bg}
+    NPrint bmp$
+    LoadBitMap bg, "data/" + bmp$, bg
+  Next
+
+  ; Setup the next scene
+  *NN_current_scene = !__get_scene{*NN_current_location\first_scene + new_scene_id}
+End Statement
+
+
+; Checks if a point is inside one of the regions
+; =============================================================================
+Function.w NN_get_overlapped_region{mx.w, my.w}
+  !DB_trace{"NN_GAME", "NN_get_overlapped_region"}
+  SHARED *NN_regions, *NN_current_scene
+  DEFTYPE .NN_region *region
+
+  For r = *NN_current_scene\first_region To *NN_current_scene\last_region
+    *region = !__get_region{r}
+    x1.w = *region\x1
+    x2.w = *region\x2
+    y1.w = *region\y1
+    y2.w = *region\y2
+
+    If mx >= x1 AND mx < x2 AND my >= y1 AND my < y2
+      Function Return r
+    End If
+  Next
+
+  Function Return -1
+End Function
+
+; Sets the currently selected scene
+; =============================================================================
 Statement NN_game_set_scene{id.w}
-    NPrint "Going to scene #", id
+  !DB_trace{"NN_GAME", "NN_game_set_scene: " + Str$(id)}
+  *NN_current_scene = !__get_scene{id}
 End Statement
 
 Statement NN_game_map{}
-    NPrint "Displaying location map"
-End Statement
-
-Statement NN_display_text{id.w}
-    SHARED *NN_string_table
-    DEFTYPE .l strloc, strlen
-
-    strloc = Peek.l (*NN_string_table + (id * SizeOf .l))
-    strlen = Peek.l (strloc)
-
-    strloc + 4
-    For i = 0 To strlen - 1
-        Print Chr$(Peek.b(strloc + i))
-    Next
+  !DB_trace{"NN_GAME", "NN_game_map"}
+  NPrint "Displaying location map"
 End Statement
 
 Statement NN_game_over{id.w}
-
+  !DB_trace{"NN_GAME", "NN_game_over"}
 End Statement
-
-; ===============================================================================
-; TEST
-; ===============================================================================
-
-CNIF #NN_game_debug=-1
-STOP
-DEFTYPE .b status
-status = NN_load_neonpack{"data/test.neon"}
-
-DEFTYPE .NN_location *current_location
-DEFTYPE .NN_scene *current_scene
-DEFTYPE .NN_region *current_region
-
-For i = 0 to NN_location_count - 1
-    *current_location = !__get_location{i}
-
-    NPrint "Name id: ", *current_location\name_id
-
-    Print "Location "
-    NN_display_text{*current_location\name_id}
-    NPrint ""
-
-    NPrint "  ", *current_location\background_count, " Backgrounds:"
-    For j = 0 to *current_location\background_count - 1
-        Print "    "
-        NN_display_text{*current_location\first_background_id + j}
-        NPrint ""
-    Next
-
-    NPrint "  ", *current_location\scene_count, " Scenes:"
-    For j = 0 to *current_location\scene_count - 1
-        *current_scene = !__get_scene{*current_location\first_scene_id + j}
-
-        Print "    Scene "
-        NN_display_text{*current_scene\name_id}
-        NPrint ""
-
-        Print "      Background: "
-        NN_display_text{*current_scene\background_id}
-        NPrint ""
-
-        NPrint "      ", *current_scene\region_count, " Regions:"
-        For k = 0 to *current_scene\region_count - 1
-            *current_region = !__get_region{(*current_scene\first_region_id + k)}
-
-            Print "        Description: "
-            NN_display_text{*current_region\description_id}
-            NPrint ""
-
-            NPrint "        Location: (", *current_region\x, ", ", *current_region\y, ")"
-            NPrint "        Size: ", *current_region\width, "x", *current_region\height
-            NPrint ""
-        Next
-
-        NPrint ""
-    Next
-
-    NPrint ""
-Next
-CEND
-
-
-
-

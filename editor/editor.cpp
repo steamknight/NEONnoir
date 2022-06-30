@@ -9,6 +9,7 @@
 #include <GLFW/glfw3.h>
 #include <filesystem>
 #include <format>
+#include <iostream>
 
 #include "utils.h"
 #include "editor.h"
@@ -18,6 +19,52 @@ namespace fs = std::filesystem;
 
 namespace NEONnoir
 {
+    const TextEditor::LanguageDefinition& NEONscript_language_definition()
+    {
+        static bool inited = false;
+        static TextEditor::LanguageDefinition langDef;
+        if (!inited)
+        {
+            static const char* const keywords[] = {
+                ".FLAGS", ".CONST", ".TEXT", ".SCRIPT"
+            };
+
+            for (auto& k : keywords)
+                langDef.mKeywords.insert(k);
+
+            static const char* const identifiers[] = {
+                "noop", "clear", "set", "load", "store", "and", "or", "not", "jump", "jift", "jiff", 
+                "setbg", "draw", "hasi ", "addi", "remi", "goto", "map", "text", "gameover"
+            };
+            for (auto& k : identifiers)
+            {
+                TextEditor::Identifier id;
+                id.mDeclaration = "Built-in function";
+                langDef.mIdentifiers.insert(std::make_pair(std::string(k), id));
+            }
+
+            langDef.mTokenRegexStrings.push_back(std::make_pair<std::string, TextEditor::PaletteIndex>("L?\\\"(\\\\.|[^\\\"])*\\\"", TextEditor::PaletteIndex::String));
+            langDef.mTokenRegexStrings.push_back(std::make_pair<std::string, TextEditor::PaletteIndex>("\\\'[^\\\']*\\\'", TextEditor::PaletteIndex::String));
+            langDef.mTokenRegexStrings.push_back(std::make_pair<std::string, TextEditor::PaletteIndex>("0[xX][0-9a-fA-F]+[uU]?[lL]?[lL]?", TextEditor::PaletteIndex::Number));
+            langDef.mTokenRegexStrings.push_back(std::make_pair<std::string, TextEditor::PaletteIndex>("[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)([eE][+-]?[0-9]+)?[fF]?", TextEditor::PaletteIndex::Number));
+            langDef.mTokenRegexStrings.push_back(std::make_pair<std::string, TextEditor::PaletteIndex>("[+-]?[0-9]+[Uu]?[lL]?[lL]?", TextEditor::PaletteIndex::Number));
+            langDef.mTokenRegexStrings.push_back(std::make_pair<std::string, TextEditor::PaletteIndex>("[a-zA-Z_][a-zA-Z0-9_]*", TextEditor::PaletteIndex::Identifier));
+            langDef.mTokenRegexStrings.push_back(std::make_pair<std::string, TextEditor::PaletteIndex>("[\\[\\]\\{\\}\\!\\%\\^\\&\\*\\(\\)\\-\\+\\=\\~\\|\\<\\>\\?\\/\\;\\,\\.]", TextEditor::PaletteIndex::Punctuation));
+
+            langDef.mSingleLineComment = ";";
+            langDef.mCommentStart = "/*";
+            langDef.mCommentEnd = "*/";
+
+            langDef.mCaseSensitive = true;
+            langDef.mAutoIndentation = false;
+
+            langDef.mName = "NEONscript";
+
+            inited = true;
+        }
+        return langDef;
+    }
+
     editor::editor(editor::settings const& setting)
     {
         // Initialize GLFW
@@ -51,7 +98,6 @@ namespace NEONnoir
  
         // Load some custom fonts
         _ui_font = io.Fonts->AddFontFromFileTTF("data/Roboto-Medium.ttf", 18);
-        //_monospaced_font = io.Fonts->AddFontFromFileTTF("data/CascadiaCode.ttf", 18);
 
         // Add icons to the ui font
         auto config = ImFontConfig{};
@@ -62,6 +108,8 @@ namespace NEONnoir
         ImWchar const icon_range[] = { ICON_MIN_MD, ICON_MAX_16_MD, 0 };
         io.Fonts->AddFontFromFileTTF("data/MaterialIcons-Regular.ttf" , 18, &config, icon_range);
         io.Fonts->Build();
+
+        _monospaced_font = io.Fonts->AddFontFromFileTTF("data/CascadiaCode.ttf", 18);
     }
 
     editor::~editor() noexcept
@@ -75,10 +123,6 @@ namespace NEONnoir
 
     void editor::run()
     {
-        auto texture = load_texture("C:/Users/mass/source/NeonNoirEdit/source.bmp");
-        ImGuiIO& io = ImGui::GetIO(); (void)io;
-        auto zoom = 1;
-        ImVec2 region_start{-1,-1};
         while (!glfwWindowShouldClose(_window.get()))
         {
             glClear(GL_COLOR_BUFFER_BIT);
@@ -104,13 +148,12 @@ namespace NEONnoir
 
             _scene_editor.display();
 
-
+            _script_editor.display(_script, _monospaced_font);
 
             ImGui::ShowDemoWindow();
 
             ImGui::Render();
             ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-
 
             glfwSwapBuffers(_window.get());
             glfwPollEvents();
@@ -129,18 +172,43 @@ namespace NEONnoir
                     _game_data = std::make_shared<game_data>();
                     _location_browser.use(_game_data);
                 }
-                ImGui::BeginDisabled();
-                if (ImGui::MenuItem("Open", "Ctrl+O")) {}
-                if (ImGui::MenuItem("Save", "Ctrl+S")) {}
-                ImGui::EndDisabled();
+
+                if (ImGui::MenuItem("Open", "Ctrl+O")) 
+                {
+                    auto file = open_file_dialog("json");
+                    if (file)
+                    {
+                        _game_data = game_data::deserialize(file.value().data());
+                        _location_browser.use(_game_data);
+                    }
+                }
+
+                if (!_game_data) ImGui::BeginDisabled();
+                if (ImGui::MenuItem("Save", "Ctrl+S")) 
+                {
+                    auto file = save_file_dialog("json");
+                    if (file.has_value())
+                    {
+                        _game_data->serialize(file.value().data());
+                    }
+                }
+                if (!_game_data) ImGui::EndDisabled();
 
                 ImGui::Separator();
                 if (ImGui::MenuItem("Export NEON file..."))
                 {
-                    auto file = save_file_dialog("NEON data|*.neon");
-                    if (file.has_value())
+                    try
                     {
-                        serialize_to_neon_pak(file.value(), _game_data);
+                        auto result = _script_editor.compile();
+                        auto file = save_file_dialog("neon");
+                        if (file.has_value())
+                        {
+                            serialize_to_neon_pak(file.value(), _game_data, result);
+                        }
+                    }
+                    catch (std::exception const& ex)
+                    {
+                        std::cout << ex.what();
                     }
                 }
 
