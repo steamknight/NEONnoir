@@ -1,3 +1,6 @@
+; =============================================================================
+; TX_core
+; -----------------------------------------------------------------------------
 ; Text display functions
 ; Prefix TX = Text facilities
 ;
@@ -9,8 +12,6 @@ DEFTYPE .w
 ;#DB_ENABLE_DEBUG_LOG = -1
 ;#DB_ENABLE_DEBUG_TRACE = -1
 
-XINCLUDE "NN_core.bb2"
-XINCLUDE "DB_log.bb2"
 #TX_text_debug = 0
 
 #primary = 0
@@ -41,7 +42,7 @@ XINCLUDE "DB_log.bb2"
 #TX_font_width = 6
 #TX_font_height = 8
 
-#TX_scratch_bmp = 1
+#TX_scratch_bmp = 10
 #TX_space = 32
 #TX_text_shape = 21
 
@@ -205,7 +206,7 @@ End Statement
 ; =============================================================================
 Statement TX_draw_text_wrapped{text$, line_width.w, cx.w, cy.w}
   !DB_trace{"TX_CORE", "TX_draw_text_wrapped: " + text$ + " " + Str$(line_width) + ", " + Str$(x) + "," + Str$(y)}
-  SHARED tx_word_begin(), tx_word_end(), tx_word_count
+  SHARED tx_word_begin(), tx_word_end(), tx_word_count, NN_current_bmp
   DEFTYPE .w widthw, line_count
   DEFTYPE .w remaining
   DEFTYPE .w x0, y0, x, y, widthr, heightr, max_len, cur_len
@@ -274,7 +275,7 @@ Statement TX_draw_text_wrapped{text$, line_width.w, cx.w, cy.w}
 
   GetaShape #TX_text_shape, 0, 0, widthr, heightr
   MidHandle #TX_text_shape
-  Use BitMap #primary
+  Use BitMap NN_current_bmp
 
   DEFTYPE .w halfw, halfh
   halfw = widthr LSR 1

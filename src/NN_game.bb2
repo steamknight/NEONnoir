@@ -4,8 +4,6 @@
 ; Contains functions an statement around running the game
 ; =============================================================================
 
-XINCLUDE "NN_core.bb2"
-
 ; Loads a neon pack
 ;
 ; Requires AMIGA or QAMIGA mode
@@ -96,6 +94,7 @@ Statement NN_uninitialize{}
   !DB_trace{"NN_GAME", "NN_uninitialize"}
   SHARED *NN_locations, *NN_scenes, *NN_regions, *NN_string_table, *NN_string_data
   SHARED NN_location_count, NN_scene_count, NN_region_count, NN_string_count, NN_string_data_size
+  SHARED *NS_script_data, NS_script_data_size
 
   FreeMem_ *NN_locations, SizeOf .NN_location * NN_location_count
   !DB_log_str{"NN_GAME", "    FreeMem locations $" + Hex$(*NN_locations) + ", " + Str$(SizeOf .NN_location * NN_location_count)}
@@ -191,8 +190,15 @@ End Function
 ; Sets the currently selected scene
 ; =============================================================================
 Statement NN_game_set_scene{id.w}
+  SHARED *NN_scenes, *NN_current_scene, NN_current_bmp
   !DB_trace{"NN_GAME", "NN_game_set_scene: " + Str$(id)}
+
+  FadeOutScreen{ #DB_coplist, NN_current_bmp, 10}
   *NN_current_scene = !__get_scene{id}
+  ;NN_current_bmp = *NN_current_scene\background_id
+
+  ;FadeInScreen{ #DB_coplist, NN_current_bmp, 10}
+
 End Statement
 
 Statement NN_game_map{}

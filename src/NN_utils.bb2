@@ -1,0 +1,53 @@
+; =============================================================================
+; NN_utils
+; -----------------------------------------------------------------------------
+; Various game utilities
+; =============================================================================
+
+DEFTYPE .b IN_prev_state
+IN_prev_state = 0
+
+#IN_mouse_none = 0
+#IN_mouse_pressed = 1
+#IN_mouse_released = 2
+#IN_mouse_held = 3
+
+Function .b IN_update_mouse{}
+  SHARED IN_prev_state
+
+  curr.b = Joyb(0) AND %0001   ; Isolate left mouse button
+  prev.b = IN_prev_state
+  IN_prev_state = curr
+
+  ; The possible mouse states
+  ; Prev | Curr | Meaning
+  ;    0 |    0 | None
+  ;    0 |    1 | Pressed
+  ;    1 |    0 | Released
+  ;    1 |    1 | Held
+  value.b = (prev LSL 1) OR (curr)
+  !DB_printf{"*********** prev %d - curr %d = value %d", prev, curr, value}
+  Function Return value
+End Function
+
+BLITZ
+
+Statement FadeInScreen{cop, source, dest}
+  InitPalette dest, 256
+  For i = 25 To 0 Step -1
+    FadePalette source, dest, 1-i/25
+    VWait
+    DisplayPalette cop, dest
+  Next
+End Statement
+
+Statement FadeOutScreen{cop, source, dest}
+  InitPalette dest, 256
+  For i = 0 To 25
+    FadePalette source, dest, 1-i/25
+    VWait
+    DisplayPalette cop, dest
+  Next
+End Statement
+
+AMIGA

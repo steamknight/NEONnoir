@@ -1,10 +1,8 @@
-XINCLUDE "NS_opcodes.bb2"
-XINCLUDE "NN_game.bb2"
-XINCLUDE "IV_inventory.bb2"
-XINCLUDE "SH_shapes.bb2"
-XINCLUDE "SC_scene.bb2"
-XINCLUDE "TX_core.bb2"
-XINCLUDE "DB_log.bb2"
+; =============================================================================
+; NS_Script
+; -----------------------------------------------------------------------------
+; Executes the NOIRscript bytecode
+; =============================================================================
 
 Macro __print_bc
   op$ = (`2)
@@ -43,13 +41,13 @@ Statement NS_execute_script{script_offset.l}
     DEFTYPE .l PC
     DEFTYPE .b FR, done
 
-    PC = script_offset              ; Set up program counter
+    PC = script_offset * SizeOf .w; Set up program counter
     FR = False                    ; Initialize Flag Register
     done = False
 
     DEFTYPE .w v1, v2, v3
     Repeat
-        Select Peek.w (NS_script_data + PC)
+        Select Peek.w (*NS_script_data + PC)
             Case #NS_op_noop
                 PC + 2              ; Eat the opcode
                 !__print_bc{PC, "noop"}
@@ -67,14 +65,14 @@ Statement NS_execute_script{script_offset.l}
 
             Case #NS_op_load; id
                 PC + 2              ; Eat the opcode
-                v1 = Peek.w (NS_script_data + PC)
+                v1 = Peek.w (*NS_script_data + PC)
                 FR = NS_flags(v1)
                 PC + 2              ; Eat the parameter
                 !__print_bc_v1{PC, "load", v1}
 
             Case #NS_op_store; id
                 PC + 2              ; Eat the opcode
-                v1 = Peek.w (NS_script_data + PC)
+                v1 = Peek.w (*NS_script_data + PC)
                 NS_flags(v1) = FR
                 PC + 2              ; Eat the parameter
                 !__print_bc_v1{PC, "store", v1}
@@ -82,34 +80,34 @@ Statement NS_execute_script{script_offset.l}
             ; Logical operations
             Case #NS_op_and; id
                 PC + 2              ; Eat the opcode
-                v1 = Peek.w (NS_script_data + PC)
+                v1 = Peek.w (*NS_script_data + PC)
                 FR AND NS_flags(v1)
                 PC + 2              ; Eat the parameter
                 !__print_bc_v1{PC, "and", v1}
 
             Case #NS_op_or; id
                 PC + 2              ; Eat the opcode
-                v1 = Peek.w (NS_script_data + PC)
+                v1 = Peek.w (*NS_script_data + PC)
                 FR OR NS_flags(v1)
                 PC + 2              ; Eat the parameter
                 !__print_bc_v1{PC, "or", v1}
 
             Case #NS_op_not
                 PC + 2              ; Eat the opcode
-                v1 = Peek.w (NS_script_data + PC)
+                v1 = Peek.w (*NS_script_data + PC)
                 FR = NOT NS_flags(v1)
                 !__print_bc{PC, "not"}
 
             ; Flow control
             Case #NS_op_jump; offset
                 PC + 2              ; Eat the opcode
-                v1 = Peek.w (NS_script_data + PC) - 1
+                v1 = Peek.w (*NS_script_data + PC) - 1
                 PC + (v1 ASL 1)
                 !__print_bc_v1{PC, "jump", v1}
 
             Case #NS_op_jift; offset
                 PC + 2              ; Eat the opcode
-                v1 = Peek.w (NS_script_data + PC) - 1
+                v1 = Peek.w (*NS_script_data + PC) - 1
                 if FR
                     PC + (v1 ASL 1)
                 Else
@@ -119,7 +117,7 @@ Statement NS_execute_script{script_offset.l}
 
             Case #NS_op_jiff; offset
                 PC + 2              ; Eat the opcode
-                v1 = Peek.w (NS_script_data + PC) - 1
+                v1 = Peek.w (*NS_script_data + PC) - 1
                 if FR
                     PC + 2              ; Eat the parameter
                 Else
@@ -134,7 +132,7 @@ Statement NS_execute_script{script_offset.l}
             ; Scene operations
             Case #NS_op_setbg; id
                 PC + 2              ; Eat the opcode
-                v1 = Peek.w (NS_script_data + PC)
+                v1 = Peek.w (*NS_script_data + PC)
                 !__print_bc_v1{PC, "setbg", v1}
                 SC_set_bg{v1}
                 PC + 2              ; Eat the parameter
@@ -142,9 +140,9 @@ Statement NS_execute_script{script_offset.l}
             ; Shape operations
             Case #NS_op_draw; id x y
                 PC + 2              ; Eat the opcode
-                v1 = Peek.w (NS_script_data + PC)
-                v2 = Peek.w (NS_script_data + PC + 2)
-                v3 = Peek.w (NS_script_data + PC + 4)
+                v1 = Peek.w (*NS_script_data + PC)
+                v2 = Peek.w (*NS_script_data + PC + 2)
+                v3 = Peek.w (*NS_script_data + PC + 4)
                 !__print_bc{PC, "draw"}
                 SH_draw{v1, v2, v3}
                 PC + 6              ; Eat the parameters
@@ -152,21 +150,21 @@ Statement NS_execute_script{script_offset.l}
             ; Inventory Operations
             Case #NS_op_hasi; id
                 PC + 2              ; Eat the opcode
-                v1 = Peek.w (NS_script_data + PC)
+                v1 = Peek.w (*NS_script_data + PC)
                 !__print_bc_v1{PC, "hasi", v1}
                 FR = IV_has_item{v1}
                 PC + 2              ; Eat the parameter
 
             Case #NS_op_addi; id
                 PC + 2              ; Eat the opcode
-                v1 = Peek.w (NS_script_data + PC)
+                v1 = Peek.w (*NS_script_data + PC)
                 !__print_bc_v1{PC, "addi", v1}
                 IV_add_item{v1}
                 PC + 2              ; Eat the parameter
 
             Case #NS_op_remi; id
                 PC + 2              ; Eat the opcode
-                v1 = Peek.w (NS_script_data + PC)
+                v1 = Peek.w (*NS_script_data + PC)
                 !__print_bc_v1{PC, "remi", v1}
                 IV_remove_item{v1}
                 PC + 2              ; Eat the parameter
@@ -174,7 +172,7 @@ Statement NS_execute_script{script_offset.l}
             ; Game operations
             Case #NS_op_goto; id
                 PC + 2              ; Eat the opcode
-                v1 = Peek.w (NS_script_data + PC)
+                v1 = Peek.w (*NS_script_data + PC)
                 !__print_bc_v1{PC, "goto", v1}
                 NN_game_set_scene{v1}
                 done = True
@@ -187,21 +185,21 @@ Statement NS_execute_script{script_offset.l}
 
             Case #NS_op_text; id
                 PC + 2              ; Eat the opcode
-                v1 = Peek.w (NS_script_data + PC)
+                v1 = Peek.w (*NS_script_data + PC)
                 !__print_bc_v1{PC, "text", v1}
-                TX_draw_text_wrapped{!__get_string{v1}, 32, 160, 200}
+                TX_draw_text_wrapped{!__get_string{v1}, 32, #NN_half_screen_width , #NN_screen_height}
                 PC + 2              ; Eat the parameter
 
             Case #NS_op_gameover
                 PC + 2              ; Eat the opcode
-                v1 = Peek.w (NS_script_data + PC)
+                v1 = Peek.w (*NS_script_data + PC)
                 !__print_bc_v1{PC, "gameover", v1}
                 NN_game_over{v1}
                 done = True
 
             Default
                 ; Unknown opcode!
-                v1 = Peek.w (NS_script_data + PC)
+                v1 = Peek.w (*NS_script_data + PC)
                 !DB_log_str{"NS_SCRIPT", "Error! Unknown opcode! PC: $" + Hex$(PC) + " Opcode: $" + Hex$(v1)}
                 done = True
 

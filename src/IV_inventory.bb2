@@ -1,12 +1,9 @@
+; =============================================================================
+; IV_inventory
+; -----------------------------------------------------------------------------
 ; Inventory related statements and functions
 ; Prefix IV = InVentory
 ;
-
-; Inventory items in the player's possessions
-; 32 is probably enough
-;
-#IV_max_items = 32
-Dim List IV_user_items(#IV_max_items)
 
 Function.b IV_has_item{id.w}
     SHARED IV_user_items()

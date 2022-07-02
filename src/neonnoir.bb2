@@ -1,8 +1,27 @@
+; =============================================================================
+;                           _   _  _____ _____ _   _                           
+;                          | \ | ||  ___|  _  | \ | |                          
+;                          |  \| || |__ | | | |  \| |                          
+;                          | . ` ||  __|| | | | . ` |                          
+;                          | |\  || |___\ \_/ / |\  |                          
+;                          \_| \_/\____/ \___/\_| \_/                          
+;                         __   _  _____  _____  ______                          
+;                         | \  | |     |   |   |_____/                          
+;                         |  \_| |_____| __|__ |    \_                          
+;
+;                             A game by Massimo Loi
+;                                   (c) 2022
+; -----------------------------------------------------------------------------
+
+WBStartup
+DEFTYPE .w
+
+; Enable/Disable debug logging
 #DB_ENABLE_DEBUG_LOG = -1
 #DB_ENABLE_DEBUG_TRACE = -1
 
 ; =============================================================================
-; DB_log by mass
+; DB_log
 ; -----------------------------------------------------------------------------
 ; If in debug mode, logs values to WinUAE's debug window.
 ; Adapted from Deadalus, who did all the hard work.
@@ -89,6 +108,7 @@ End Macro
 ;   !DB_trace{"main", "load_data"} ; load_data function in main.bb2
 ; Outputs:
 ;   [TRACE - main] load_data
+; -----------------------------------------------------------------------------
 Macro DB_trace
 CNIF #DB_ENABLE_DEBUG_LOG = -1
   CNIF #DB_ENABLE_DEBUG_TRACE = -1
@@ -97,6 +117,10 @@ CNIF #DB_ENABLE_DEBUG_LOG = -1
 CEND
 End Macro
 
+; Simple printf implementation.
+; Other than the format string, it cannot use string literals.
+; String params should be preceeded with &, ie &foo$
+; -----------------------------------------------------------------------------
 Macro DB_printf
   CNIF #DB_ENABLE_DEBUG_LOG = -1
     CNIF `0 > 1
@@ -123,7 +147,6 @@ Macro DB_printf
     Poke.l $BFFF04, &printf_fmt$
   CEND
 End Macro
-
 ; =============================================================================
 ; NN_core
 ; -----------------------------------------------------------------------------
@@ -222,6 +245,12 @@ DEFTYPE .l NS_script_data_size
 
 Dim NS_flags.b(256)
 
+; Inventory items in the player's possessions
+; 32 is probably enough
+;
+#IV_max_items = 32
+Dim List IV_user_items(#IV_max_items)
+
 ; =============================================================================
 ; Constants
 ; =============================================================================
@@ -232,6 +261,8 @@ Dim NS_flags.b(256)
 #NN_screen_height = 200
 #NN_screen_bpp = 8
 #NN_screen_colors = 256
+
+#NN_half_screen_width = #NN_screen_width / 2
 
 ; Loading NEONpacks
 ; -----------------------------------------------------------------------------
@@ -250,7 +281,6 @@ Dim NS_flags.b(256)
 #NN_pointer_examine = 11
 #NN_pointer_interact = 12
 #NN_pointer_exit = 13
-
 ; =============================================================================
 ; NN_game
 ; -----------------------------------------------------------------------------
@@ -454,7 +484,9 @@ End Statement
 Statement NN_game_over{id.w}
   !DB_trace{"NN_GAME", "NN_game_over"}
 End Statement
-
+; =============================================================================
+; TX_core
+; -----------------------------------------------------------------------------
 ; Text display functions
 ; Prefix TX = Text facilities
 ;
@@ -746,7 +778,132 @@ Statement TX_draw_text_wrapped{text$, line_width.w, cx.w, cy.w}
   Free BitMap #TX_scratch_bmp
 End Statement
 
+; ===============================================================================
+; TEST
+; ===============================================================================
 
+CNIF #TX_text_debug=-1
+AMIGA
+
+BitMap 0, #NN_screen_width, #NN_screen_width, 8
+Buffer 0, 64000
+Queue 0, 16
+
+LoadBitMap 0, "data/alleyway2.iff", 0
+
+InitCopList 0, 44, #NN_screen_width, $10008, 8, 256, 0
+
+TX_initialize{"display.font", "frame.shape"}
+
+BLITZ
+CreateDisplay 0
+DisplayPalette 0, 0
+DisplayBitMap 0, 0
+
+;TX_draw_single_line{"It was dark..."}
+;TX_draw_overlay{"It was dark..."}
+
+;TX_draw_text_wrapped{"While it might prove to be a fun, if expensive diversion, I have far to much to right now.", 28, 160, 160
+a1$ = "Once again I found myself in the neon soaked alleyways of the Gutter. "
+a2$ = "Cheap thrills and violence were the very foundation this place was built on. "
+a3$ = "I needed to be careful, or wind up missing a few vital organs I'd gotten attached to."
+
+a$ = a1$ + a2$ + a3$
+NPrint a$
+TX_draw_text_wrapped{a$, 28, 160, 100}
+
+BBlit 0, 22, 0, 0, 0
+BBlit 0, 23, 6, 0, 0
+BBlit 0, 24, 12, 0, 0
+BBlit 0, 25, 0, 9, 0
+BBlit 0, 26, 6, 9, 0
+BBlit 0, 27, 12, 9, 0
+BBlit 0, 28, 0, 18, 0
+BBlit 0, 29, 6, 18, 0
+BBlit 0, 30, 12, 18, 0
+
+Repeat
+  If RawStatus($01) = True
+    !log_str{"*********************"}
+    TX_draw_text_wrapped{a$, 28, 160, 100}
+  End If
+
+  If RawStatus($02) = True
+    !log_str{"---------------------"}
+    ;UnQueue 0
+    UnBuffer 0
+  End If
+Until RawStatus($45) = True
+
+End
+
+CEND
+; =============================================================================
+; SC_Scene
+; -----------------------------------------------------------------------------
+; Scene related statements and function
+; SC Prefix = SCene
+;
+
+; Set the background image for a scene
+Statement SC_set_bg{id.w}
+    NPrint "Setting #", id, " as the scene background"
+End Statement
+; =============================================================================
+; SH_shapes
+; -----------------------------------------------------------------------------
+; Shape related Statements and Functions
+; Prefix SH = SHape
+
+Statement SH_draw {id.w, x.w, y.w}
+    NPrint "Drawing shape #", id, " at ", x, ",", y
+End Statement
+; =============================================================================
+; IV_inventory
+; -----------------------------------------------------------------------------
+; Inventory related statements and functions
+; Prefix IV = InVentory
+;
+
+Function.b IV_has_item{id.w}
+    SHARED IV_user_items()
+    ResetList IV_user_items()
+
+    While NextItem(IV_user_items())
+        If IV_user_items() = iv Then Function Return True
+    WEnd
+
+    Function Return False
+End Function
+
+Statement IV_add_item{id.w}
+    SHARED IV_user_items()
+    If IV_has_item{id}
+        NPrint "Player already has item ", id
+    Else
+        NPrint "Added ", id, " to inventory."
+        AddLast IV_user_items()
+        IV_user_items() = id
+    End If
+End Statement
+
+Statement IV_remove_item{id.w}
+    SHARED IV_user_items()
+    If NOT IV_has_item{id}
+        NPrint "Player doesn't have item ", id
+        Return
+    End If
+
+    ResetList IV_user_items()
+    While NextItem(IV_user_items())
+        If IV_user_items() = id Then KillItem IV_user_items()
+    WEnd
+End Statement
+
+
+; =============================================================================
+; NS_opcodes
+; -----------------------------------------------------------------------------
 ; Noir Script Opcodes
 ;
 ; Name              Value     Usage         Meaning
@@ -778,11 +935,11 @@ End Statement
 #NS_op_map          = $81   ;| map         | Display location selection screen, ends script
 #NS_op_text         = $82   ;| text id     | Display string ID
 #NS_op_gameover     = $8F   ;| gameover id | Displays game over with string ID as message, ends script
-
-
-XINCLUDE "IV_inventory.bb2"
-XINCLUDE "SH_shapes.bb2"
-XINCLUDE "SC_scene.bb2"
+; =============================================================================
+; NS_Script
+; -----------------------------------------------------------------------------
+; Executes the NOIRscript bytecode
+; =============================================================================
 
 Macro __print_bc
   op$ = (`2)
@@ -827,7 +984,7 @@ Statement NS_execute_script{script_offset.l}
 
     DEFTYPE .w v1, v2, v3
     Repeat
-        Select Peek.w (*NS_script_data + PC)
+        Select Peek.w (NS_script_data + PC)
             Case #NS_op_noop
                 PC + 2              ; Eat the opcode
                 !__print_bc{PC, "noop"}
@@ -845,14 +1002,14 @@ Statement NS_execute_script{script_offset.l}
 
             Case #NS_op_load; id
                 PC + 2              ; Eat the opcode
-                v1 = Peek.w (*NS_script_data + PC)
+                v1 = Peek.w (NS_script_data + PC)
                 FR = NS_flags(v1)
                 PC + 2              ; Eat the parameter
                 !__print_bc_v1{PC, "load", v1}
 
             Case #NS_op_store; id
                 PC + 2              ; Eat the opcode
-                v1 = Peek.w (*NS_script_data + PC)
+                v1 = Peek.w (NS_script_data + PC)
                 NS_flags(v1) = FR
                 PC + 2              ; Eat the parameter
                 !__print_bc_v1{PC, "store", v1}
@@ -860,34 +1017,34 @@ Statement NS_execute_script{script_offset.l}
             ; Logical operations
             Case #NS_op_and; id
                 PC + 2              ; Eat the opcode
-                v1 = Peek.w (*NS_script_data + PC)
+                v1 = Peek.w (NS_script_data + PC)
                 FR AND NS_flags(v1)
                 PC + 2              ; Eat the parameter
                 !__print_bc_v1{PC, "and", v1}
 
             Case #NS_op_or; id
                 PC + 2              ; Eat the opcode
-                v1 = Peek.w (*NS_script_data + PC)
+                v1 = Peek.w (NS_script_data + PC)
                 FR OR NS_flags(v1)
                 PC + 2              ; Eat the parameter
                 !__print_bc_v1{PC, "or", v1}
 
             Case #NS_op_not
                 PC + 2              ; Eat the opcode
-                v1 = Peek.w (*NS_script_data + PC)
+                v1 = Peek.w (NS_script_data + PC)
                 FR = NOT NS_flags(v1)
                 !__print_bc{PC, "not"}
 
             ; Flow control
             Case #NS_op_jump; offset
                 PC + 2              ; Eat the opcode
-                v1 = Peek.w (*NS_script_data + PC) - 1
+                v1 = Peek.w (NS_script_data + PC) - 1
                 PC + (v1 ASL 1)
                 !__print_bc_v1{PC, "jump", v1}
 
             Case #NS_op_jift; offset
                 PC + 2              ; Eat the opcode
-                v1 = Peek.w (*NS_script_data + PC) - 1
+                v1 = Peek.w (NS_script_data + PC) - 1
                 if FR
                     PC + (v1 ASL 1)
                 Else
@@ -897,7 +1054,7 @@ Statement NS_execute_script{script_offset.l}
 
             Case #NS_op_jiff; offset
                 PC + 2              ; Eat the opcode
-                v1 = Peek.w (*NS_script_data + PC) - 1
+                v1 = Peek.w (NS_script_data + PC) - 1
                 if FR
                     PC + 2              ; Eat the parameter
                 Else
@@ -912,7 +1069,7 @@ Statement NS_execute_script{script_offset.l}
             ; Scene operations
             Case #NS_op_setbg; id
                 PC + 2              ; Eat the opcode
-                v1 = Peek.w (*NS_script_data + PC)
+                v1 = Peek.w (NS_script_data + PC)
                 !__print_bc_v1{PC, "setbg", v1}
                 SC_set_bg{v1}
                 PC + 2              ; Eat the parameter
@@ -920,9 +1077,9 @@ Statement NS_execute_script{script_offset.l}
             ; Shape operations
             Case #NS_op_draw; id x y
                 PC + 2              ; Eat the opcode
-                v1 = Peek.w (*NS_script_data + PC)
-                v2 = Peek.w (*NS_script_data + PC + 2)
-                v3 = Peek.w (*NS_script_data + PC + 4)
+                v1 = Peek.w (NS_script_data + PC)
+                v2 = Peek.w (NS_script_data + PC + 2)
+                v3 = Peek.w (NS_script_data + PC + 4)
                 !__print_bc{PC, "draw"}
                 SH_draw{v1, v2, v3}
                 PC + 6              ; Eat the parameters
@@ -930,21 +1087,21 @@ Statement NS_execute_script{script_offset.l}
             ; Inventory Operations
             Case #NS_op_hasi; id
                 PC + 2              ; Eat the opcode
-                v1 = Peek.w (*NS_script_data + PC)
+                v1 = Peek.w (NS_script_data + PC)
                 !__print_bc_v1{PC, "hasi", v1}
                 FR = IV_has_item{v1}
                 PC + 2              ; Eat the parameter
 
             Case #NS_op_addi; id
                 PC + 2              ; Eat the opcode
-                v1 = Peek.w (*NS_script_data + PC)
+                v1 = Peek.w (NS_script_data + PC)
                 !__print_bc_v1{PC, "addi", v1}
                 IV_add_item{v1}
                 PC + 2              ; Eat the parameter
 
             Case #NS_op_remi; id
                 PC + 2              ; Eat the opcode
-                v1 = Peek.w (*NS_script_data + PC)
+                v1 = Peek.w (NS_script_data + PC)
                 !__print_bc_v1{PC, "remi", v1}
                 IV_remove_item{v1}
                 PC + 2              ; Eat the parameter
@@ -952,7 +1109,7 @@ Statement NS_execute_script{script_offset.l}
             ; Game operations
             Case #NS_op_goto; id
                 PC + 2              ; Eat the opcode
-                v1 = Peek.w (*NS_script_data + PC)
+                v1 = Peek.w (NS_script_data + PC)
                 !__print_bc_v1{PC, "goto", v1}
                 NN_game_set_scene{v1}
                 done = True
@@ -965,21 +1122,21 @@ Statement NS_execute_script{script_offset.l}
 
             Case #NS_op_text; id
                 PC + 2              ; Eat the opcode
-                v1 = Peek.w (*NS_script_data + PC)
+                v1 = Peek.w (NS_script_data + PC)
                 !__print_bc_v1{PC, "text", v1}
-                TX_draw_text_wrapped{!__get_string{v1}, 32, 160, 200}
+                TX_draw_text_wrapped{!__get_string{v1}, 32, #NN_half_screen_width, #NN_screen_height}
                 PC + 2              ; Eat the parameter
 
             Case #NS_op_gameover
                 PC + 2              ; Eat the opcode
-                v1 = Peek.w (*NS_script_data + PC)
+                v1 = Peek.w (NS_script_data + PC)
                 !__print_bc_v1{PC, "gameover", v1}
                 NN_game_over{v1}
                 done = True
 
             Default
                 ; Unknown opcode!
-                v1 = Peek.w (*NS_script_data + PC)
+                v1 = Peek.w (NS_script_data + PC)
                 !DB_log_str{"NS_SCRIPT", "Error! Unknown opcode! PC: $" + Hex$(PC) + " Opcode: $" + Hex$(v1)}
                 done = True
 
@@ -994,7 +1151,7 @@ Statement NS_DEBUG_print_bytecode{}
 
     DEFTYPE .s v
     For i = 0 to num_entries - 1
-        v = Right$(Hex$(Peek.w (*NS_script_data + (i * SizeOf .w))), 4)
+        v = Right$(Hex$(Peek.w (NS_script_data + (i * SizeOf .w))), 4)
 
         If i MOD 4 = 3
             NPrint v, " "
@@ -1004,8 +1161,7 @@ Statement NS_DEBUG_print_bytecode{}
     Next
 End Statement
 
-WBStartup
-DEFTYPE .w
+
 
 AMIGA
 
@@ -1067,7 +1223,7 @@ Repeat
     UnBuffer #BF_main
     If overlapped <> -1
       *region = !__get_region{overlapped}
-      TX_draw_text_wrapped{!__get_string{*region\description_id}, 32, 160, 200}
+      TX_draw_text_wrapped{!__get_string{*region\description_id}, 32, #NN_half_screen_width, #NN_screen_height}
       pointer_id = *region\pointer_id
 
       If Joyb(0) = 1 AND *region\script_offset <> -1
@@ -1090,30 +1246,3 @@ TX_uninitialize{}
 NN_uninitialize{}
 
 End
-; * Cannot use string literals as parameters
-; * String variables must be prefixed with &
-;   printf{"hello $s", &there$}
-Macro printf
-  CNIF `0 > 1
-    Poke.l $BFFF00, (`2)
-  CEND
-
-  CNIF `0 > 2
-    Poke.l $BFFF00, (`3)
-  CEND
-
-  CNIF `0 > 3
-    Poke.l $BFFF00, (`4)
-  CEND
-
-  CNIF `0 > 4
-    Poke.l $BFFF00, (`5)
-  CEND
-
-  CNIF `0 > 5
-    Poke.l $BFFF00, (`6)
-  CEND
-
-  printf_fmt$ = (`1) + Chr$(10)
-  Poke.l $BFFF04, &printf_fmt$
-End Macro

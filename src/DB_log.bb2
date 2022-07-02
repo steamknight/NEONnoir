@@ -1,5 +1,5 @@
 ; =============================================================================
-; DB_log by mass
+; DB_log
 ; -----------------------------------------------------------------------------
 ; If in debug mode, logs values to WinUAE's debug window.
 ; Adapted from Deadalus, who did all the hard work.
@@ -86,6 +86,7 @@ End Macro
 ;   !DB_trace{"main", "load_data"} ; load_data function in main.bb2
 ; Outputs:
 ;   [TRACE - main] load_data
+; -----------------------------------------------------------------------------
 Macro DB_trace
 CNIF #DB_ENABLE_DEBUG_LOG = -1
   CNIF #DB_ENABLE_DEBUG_TRACE = -1
@@ -94,6 +95,10 @@ CNIF #DB_ENABLE_DEBUG_LOG = -1
 CEND
 End Macro
 
+; Simple printf implementation.
+; Other than the format string, it cannot use string literals.
+; String params should be preceeded with &, ie &foo$
+; -----------------------------------------------------------------------------
 Macro DB_printf
   CNIF #DB_ENABLE_DEBUG_LOG = -1
     CNIF `0 > 1

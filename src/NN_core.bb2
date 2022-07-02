@@ -5,8 +5,6 @@
 ; data
 ; =============================================================================
 
-XINCLUDE "DB_log.bb2"
-
 ; =============================================================================
 ; Define all game types
 ; =============================================================================
@@ -98,6 +96,17 @@ DEFTYPE .l NS_script_data_size
 
 Dim NS_flags.b(256)
 
+; Inventory
+; -----------------------------------------------
+; Inventory items in the player's possessions
+; 32 is probably enough
+#IV_max_items = 32
+Dim List IV_user_items(#IV_max_items)
+
+; Main
+; -----------------------------------------------
+DEFTYPE .b NN_current_bmp
+
 ; =============================================================================
 ; Constants
 ; =============================================================================
@@ -108,6 +117,8 @@ Dim NS_flags.b(256)
 #NN_screen_height = 200
 #NN_screen_bpp = 8
 #NN_screen_colors = 256
+
+#NN_half_screen_width = #NN_screen_width / 2
 
 ; Loading NEONpacks
 ; -----------------------------------------------------------------------------
@@ -126,3 +137,6 @@ Dim NS_flags.b(256)
 #NN_pointer_examine = 11
 #NN_pointer_interact = 12
 #NN_pointer_exit = 13
+
+
+#DB_coplist = 0

@@ -1,6 +1,0 @@
-; Shape related Statements and Functions
-; Prefix SH = SHape
-
-Statement SH_draw {id.w, x.w, y.w}
-    NPrint "Drawing shape #", id, " at ", x, ",", y
-End Statement
