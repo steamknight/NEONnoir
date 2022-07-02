@@ -6,13 +6,13 @@
 ;
 DEFTYPE .w
 
-XINCLUDE "log.bb2"
-#EnableDebugLogging = 0
+;#DB_ENABLE_DEBUG_LOG = -1
+;#DB_ENABLE_DEBUG_TRACE = -1
+
+XINCLUDE "NN_core.bb2"
+XINCLUDE "DB_log.bb2"
 #TX_text_debug = 0
 
-#screen_width = 320
-#screen_height = 200
-#screen_bpp = 8
 #primary = 0
 
 #TX_font_start = 32
@@ -48,14 +48,14 @@ XINCLUDE "log.bb2"
 DEFTYPE .w TX_frame_x, TX_frame_y
 
 Statement TX_initialize{fontfile$, framefile$}
-  !log_str{"******** TX_initialize"}
+  !DB_trace{"TX_CORE", "TX_initialize: " + fontfile$ + ", " + framefile$}
   SHARED TX_frame_x, TX_frame_y
   LoadShapes #TX_font_start, #TX_font_end, "data/" + fontfile$
   LoadShapes #TX_frame_start, #TX_frame_end, "data/" + framefile$
 End Statement
 
 Statement TX_uninitialize{}
-  !log_str{"******** TX_uninitialize"}
+  !DB_trace{"TX_CORE", "TX_uninitialize"}
   For s = #TX_font_start To #TX_font_end
     Free Shape s
   Next
@@ -68,6 +68,7 @@ End Statement
 BLITZ
 
 Statement TX_draw_single_line{text$}
+    !DB_trace{"TX_CORE", "TX_draw_single_line: " + text$}
     SHARED *NN_string_table, TX_frame_x, TX_frame_y
     DEFTYPE .l strloc, strlen
     DEFTYPE .w x, y, width
@@ -106,12 +107,13 @@ Statement TX_draw_single_line{text$}
 End Statement
 
 Statement TX_draw_text{text$, x.w, y.w}
+  !DB_trace{"TX_CORE", "TX_draw_text: " + text$ + " " + Str$(x) + "," + Str$(y)}
   DEFTYPE .w width, strlen
 
   strlen = Len(text$)
   width = strlen * #TX_font_width
 
-  If x + width > #screen_width Then x = #screen_width - width
+  If x + width > #NN_screen_width Then x = #NN_screen_width - width
   If y + #TX_font_height > DispHeight Then y = DispHeight - #TX_font_height
 
   For i = 0 To strlen - 1
@@ -129,9 +131,9 @@ Statement TX_draw_text_centered{text$, cx.w, cy.w}
   halfh = #TX_font_height LSR 1
 
   If cx - halfw < 0 Then cx = halfw
-  If cx + halfw >= #screen_width Then cx = #screen_width - halfw
+  If cx + halfw >= #NN_screen_width Then cx = #NN_screen_width - halfw
   If cy - halfh < 0 Then cy = halfy
-  If cy + halfh >= #screen_width Then cy = #screen_width - halfh
+  If cy + halfh >= #NN_screen_width Then cy = #NN_screen_width - halfh
 
   x = cx - halfw
   For i = 0 To strlen - 1
@@ -152,7 +154,7 @@ BLITZ
 ; in the tx_word_begin and tx_word_end global arrays.
 ; =============================================================================
 Statement tx_get_words{text$}
-  !log_str{"tx_get_words"}
+  !DB_trace{"TX_CORE", "tx_get_words"}
   SHARED tx_word_begin(), tx_word_end(), tx_word_count
   DEFTYPE .w begin, current, text_len
 
@@ -176,6 +178,7 @@ End Statement
 ; Used to draw a frame around the text
 ; =============================================================================
 Statement tx_draw_frame{line_width.w, line_count.w}
+  !DB_trace{"TX_CORE", "tx_draw_frame: " + Str$(line_width) + ", " + Str$(line_count)}
   ; Top
   Blit #TX_frame_tl, 0, 0, 0
   For i = 1 To line_width
@@ -201,12 +204,13 @@ End Statement
 ; center point.
 ; =============================================================================
 Statement TX_draw_text_wrapped{text$, line_width.w, cx.w, cy.w}
+  !DB_trace{"TX_CORE", "TX_draw_text_wrapped: " + text$ + " " + Str$(line_width) + ", " + Str$(x) + "," + Str$(y)}
   SHARED tx_word_begin(), tx_word_end(), tx_word_count
   DEFTYPE .w widthw, line_count
   DEFTYPE .w remaining
   DEFTYPE .w x0, y0, x, y, widthr, heightr, max_len, cur_len
 
-  BitMap #TX_scratch_bmp, #screen_width, #screen_width, #screen_bpp
+  BitMap #TX_scratch_bmp, #NN_screen_width, #NN_screen_height, #NN_screen_bpp
   Use BitMap #TX_scratch_bmp
 
   ; Find the beginning and ends of every word
@@ -277,9 +281,9 @@ Statement TX_draw_text_wrapped{text$, line_width.w, cx.w, cy.w}
   halfh = heightr LSR 1
 
   If cx - halfw < 0 Then cx = halfw
-  If cx + halfw >= #screen_width Then cx = #screen_width - halfw
+  If cx + halfw >= #NN_screen_width Then cx = #NN_screen_width - halfw
   If cy - halfh < 0 Then cy = halfy
-  If cy + halfh >= #screen_width Then cy = #screen_width - halfh
+  If cy + halfh >= #NN_screen_height Then cy = #NN_screen_height - halfh
 
   BBlit 0, #TX_text_shape, cx, cy, %0
 
@@ -294,13 +298,13 @@ End Statement
 CNIF #TX_text_debug=-1
 AMIGA
 
-BitMap 0, #screen_width, #screen_width, 8
+BitMap 0, #NN_screen_width, #NN_screen_width, 8
 Buffer 0, 64000
 Queue 0, 16
 
 LoadBitMap 0, "data/alleyway2.iff", 0
 
-InitCopList 0, 44, #screen_width, $10008, 8, 256, 0
+InitCopList 0, 44, #NN_screen_width, $10008, 8, 256, 0
 
 TX_initialize{"display.font", "frame.shape"}
 

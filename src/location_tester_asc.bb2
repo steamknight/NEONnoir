@@ -1,8 +1,12 @@
 WBStartup
 DEFTYPE .w
 
+#DB_ENABLE_DEBUG_LOG = -1
+#DB_ENABLE_DEBUG_TRACE = -1
+
 XINCLUDE "NN_game.bb2"
 XINCLUDE "TX_core.bb2"
+XINCLUDE "NS_script.bb2"
 
 AMIGA
 
@@ -64,7 +68,12 @@ Repeat
     UnBuffer #BF_main
     If overlapped <> -1
       *region = !__get_region{overlapped}
+      TX_draw_text_wrapped{!__get_string{*region\description_id}, 32, 160, 200}
       pointer_id = *region\pointer_id
+
+      If Joyb(0) = 1 AND *region\script_offset <> -1
+        NS_execute_script{*region\script_offset}
+      End If
     Else
       pointer_id = 0
     End If

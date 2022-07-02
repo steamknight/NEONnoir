@@ -21,7 +21,7 @@
 ; Should not be called directly
 ; -----------------------------------------------------------------------------
 Statement dbugprintstring{output$}
-  output$ + Chr$(10) ; Newline
+  output$ = "******** " + output$ + Chr$(10) ; Newline
   Poke.l $bfff04, &output$
 End Statement
 
@@ -29,7 +29,7 @@ End Statement
 ; Should not be call directly
 ; -----------------------------------------------------------------------------
 Statement dbugprintval{fmt$, value.l}
-  fmt$ + Chr$(10)
+  fmt$ = "******** " + fmt$ + Chr$(10)
   Poke.l $bfff00, value
   Poke.l $bfff04, &fmt$
 End Statement
@@ -92,4 +92,31 @@ CNIF #DB_ENABLE_DEBUG_LOG = -1
     dbugprintstring{"[TRACE - " + (`1) + "] " + (`2)}
   CEND
 CEND
+End Macro
+
+Macro DB_printf
+  CNIF #DB_ENABLE_DEBUG_LOG = -1
+    CNIF `0 > 1
+      Poke.l $BFFF00, (`2)
+    CEND
+
+    CNIF `0 > 2
+      Poke.l $BFFF00, (`3)
+    CEND
+
+    CNIF `0 > 3
+      Poke.l $BFFF00, (`4)
+    CEND
+
+    CNIF `0 > 4
+      Poke.l $BFFF00, (`5)
+    CEND
+
+    CNIF `0 > 5
+      Poke.l $BFFF00, (`6)
+    CEND
+
+    printf_fmt$ = (`1) + Chr$(10)
+    Poke.l $BFFF04, &printf_fmt$
+  CEND
 End Macro

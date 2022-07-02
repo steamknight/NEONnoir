@@ -1,0 +1,1119 @@
+#DB_ENABLE_DEBUG_LOG = -1
+#DB_ENABLE_DEBUG_TRACE = -1
+
+; =============================================================================
+; DB_log by mass
+; -----------------------------------------------------------------------------
+; If in debug mode, logs values to WinUAE's debug window.
+; Adapted from Deadalus, who did all the hard work.
+;
+; Define #DB_ENABLE_DEBUG_LOG = -1 to enable logging
+; Define #DB_ENABLE_DEBUG_TRACE = -1 to enable trace logging
+; -----------------------------------------------------------------------------
+; WinUAE version 4.4.0+ required (tested on 4.9.1)
+; Change these settings
+;   * Settings/Hardware/ROM page: Set "Advanced Custom ROM settings" to "ROM #1"
+;   * Settings/Host/Miscellaneous: Enable "Debug memory space"
+;   * Settings/Paths: In "Debug logging", enable "Log window".
+;       Note: This last one must be done every time as this setting is not 
+;             saved. Make sure to do this before you start the Amiga, otherwise
+;             this option will be disabled.
+; =============================================================================
+
+; Prints a string directly to the debug window
+; Should not be called directly
+; -----------------------------------------------------------------------------
+Statement dbugprintstring{output$}
+  output$ = "******** " + output$ + Chr$(10) ; Newline
+  Poke.l $bfff04, &output$
+End Statement
+
+; Prints a format string that accepts one parameter
+; Should not be call directly
+; -----------------------------------------------------------------------------
+Statement dbugprintval{fmt$, value.l}
+  fmt$ = "******** " + fmt$ + Chr$(10)
+  Poke.l $bfff00, value
+  Poke.l $bfff04, &fmt$
+End Statement
+
+; Prints a string directly to the debug window
+; Params:
+;   `1: Tag
+;   `2: String to log
+;
+; Usage:
+;   !DB_log_str{"FONT", "loading font"}
+; Output:
+;   [FONT] loading font
+; -----------------------------------------------------------------------------
+Macro DB_log_str
+CNIF #DB_ENABLE_DEBUG_LOG = -1
+  dbugprintstring{(`1) + ": " + (`2)}
+CEND
+End Macro
+
+; Prints a numeric value or format string
+;
+; Params:
+;   `1: Tag
+;   `2: Format string (Optional)
+;   `3: Value
+;
+; Usage:
+;   !DB_log_val{"CORE", "memory location $%lx", &pointer}
+;   !DB_log_val{"CORE", &pointer}
+; Output:
+;   [CORE] memory location $404BED28
+;   [CORE] 1078717736
+; -----------------------------------------------------------------------------
+Macro DB_log_val
+CNIF #DB_ENABLE_DEBUG_LOG = -1
+  CNIF `0=2
+    dbugprintval{(`1) + ": %ld", (`2)}
+  CELSE
+    dbugprintval{(`1) + ": " + (`2), (`3)}
+  CEND
+CEND
+End Macro
+
+; Prints out text only if tracing is enabled. This is meant to trace out
+; statement, functions, gosubs, etc. and is meant to be able to be 
+; disabled without disablying all logging.
+;
+; Parameters:
+;   Filename/Tag
+;   Function/Statement/Code section name
+;
+; Usage:
+;   !DB_trace{"main", "load_data"} ; load_data function in main.bb2
+; Outputs:
+;   [TRACE - main] load_data
+Macro DB_trace
+CNIF #DB_ENABLE_DEBUG_LOG = -1
+  CNIF #DB_ENABLE_DEBUG_TRACE = -1
+    dbugprintstring{"[TRACE - " + (`1) + "] " + (`2)}
+  CEND
+CEND
+End Macro
+
+Macro DB_printf
+  CNIF #DB_ENABLE_DEBUG_LOG = -1
+    CNIF `0 > 1
+      Poke.l $BFFF00, (`2)
+    CEND
+
+    CNIF `0 > 2
+      Poke.l $BFFF00, (`3)
+    CEND
+
+    CNIF `0 > 3
+      Poke.l $BFFF00, (`4)
+    CEND
+
+    CNIF `0 > 4
+      Poke.l $BFFF00, (`5)
+    CEND
+
+    CNIF `0 > 5
+      Poke.l $BFFF00, (`6)
+    CEND
+
+    printf_fmt$ = (`1) + Chr$(10)
+    Poke.l $BFFF04, &printf_fmt$
+  CEND
+End Macro
+
+; =============================================================================
+; NN_core
+; -----------------------------------------------------------------------------
+; Contains all global variables and a means to initialize and uninitialize that
+; data
+; =============================================================================
+
+; =============================================================================
+; Define all game types
+; =============================================================================
+
+; Regions
+; -----------------------------------------------
+NEWTYPE .NN_region
+  x1.w
+  y1.w
+  x2.w
+  y2.w
+  pointer_id.w
+  description_id.w
+  script_offset.w
+End NEWTYPE
+
+; Scene
+; -----------------------------------------------
+NEWTYPE.NN_scene
+  name_id.w
+  background_id.w
+  first_region.w
+  last_region.w
+End NEWTYPE
+
+; Location
+; -----------------------------------------------
+NEWTYPE .NN_location
+  name_id.w
+  first_bg.w
+  last_bg.w
+  first_scene.w
+  last_scene.w
+End NEWTYPE
+
+; =============================================================================
+; Define all globals and macros
+; =============================================================================
+
+; NN_region dynamic array
+; -----------------------------------------------
+DEFTYPE .NN_region *NN_regions, *NN_current_region
+DEFTYPE .l NN_region_count
+
+Macro __get_region
+  (*NN_regions + (SizeOf .NN_region * (`1)))
+End Macro
+
+; NN_scene dynamic array
+; -----------------------------------------------
+DEFTYPE .NN_scene *NN_scenes, *NN_current_scene
+DEFTYPE .l NN_scene_count
+
+Macro __get_scene
+  (*NN_scenes + (SizeOf .NN_scene * (`1)))
+End Macro
+
+; NN_location dynamic array
+; -----------------------------------------------
+DEFTYPE .NN_location *NN_locations, *NN_current_location
+DEFTYPE .l NN_location_count
+
+Macro __get_location
+  (*NN_locations + (SizeOf .NN_location * (`1)))
+End Macro
+
+; String Table
+; -----------------------------------------------
+DEFTYPE .w *NN_string_table
+DEFTYPE .b *NN_string_data
+DEFTYPE .l NN_string_count, NN_string_data_size
+
+Macro __get_string_length
+  (Peek.w (*NN_string_table + ((`1) * SizeOf .l)))
+End Macro
+
+Macro __get_string_addr
+  (Peek.l (*NN_string_table + ((`1) * SizeOf .l)) + 4)
+End Macro
+
+Macro __get_string
+  Peek$(!__get_string_addr{(`1)})
+End Macro
+
+; Script
+; -----------------------------------------------
+DEFTYPE .w *NS_script_data
+DEFTYPE .l NS_script_data_size
+
+Dim NS_flags.b(256)
+
+; =============================================================================
+; Constants
+; =============================================================================
+
+; Game resolution
+; -----------------------------------------------------------------------------
+#NN_screen_width = 320
+#NN_screen_height = 200
+#NN_screen_bpp = 8
+#NN_screen_colors = 256
+
+; Loading NEONpacks
+; -----------------------------------------------------------------------------
+#NN_NEON_magic = $4E454F4E     ; NEON
+#NN_NEON_success                = -1
+#NN_NEON_file_not_found         = 1
+#NN_NEON_generic_read_error     = 2
+#NN_NEON_not_a_neon_file        = 3
+#NN_NEON_version_not_supported  = 4
+
+; Mouse pointers
+; -----------------------------------------------------------------------------
+#NN_pointer_start = 10
+#NN_pointer_end = 13
+#NN_pointer_default = 10
+#NN_pointer_examine = 11
+#NN_pointer_interact = 12
+#NN_pointer_exit = 13
+
+; =============================================================================
+; NN_game
+; -----------------------------------------------------------------------------
+; Contains functions an statement around running the game
+; =============================================================================
+
+; Loads a neon pack
+;
+; Requires AMIGA or QAMIGA mode
+; =============================================================================
+Function .b NN_load_neonpack{filename$}
+  SHARED *NN_locations, *NN_scenes, *NN_regions, *NN_string_table, *NN_string_data
+  SHARED NN_location_count, NN_scene_count, NN_region_count, NN_string_count, NN_string_data_size
+  SHARED *NS_script_data, NS_script_data_size
+
+  !DB_trace{"NN_GAME", "NN_load_neonpack: " +  filename$}
+
+  If Exists(filename$) = 0 Then Function Return #NN_NEON_file_not_found
+
+  DEFTYPE .w id
+  id = 0
+  If ReadFile(id, filename$) = 0 Then Function Return #NN_NEON_generic_read_error
+
+  FileInput id
+
+  ; Read the header
+  DEFTYPE .l magic
+  ReadMem id, &magic, 4
+  If magic <> #NN_NEON_magic Then Function Return #NN_NEON_not_a_neon_file
+
+  ; Read the version -- Support only v1.0
+  DEFTYPE .l version
+  ReadMem id, &version, 4
+  If version <> $00010000 Then Function Return #NN_NEON_version_not_supported
+
+  ; Read in all the locations
+  DEFTYPE .l size
+  ReadMem id, &NN_location_count, 4
+  size = NN_location_count * SizeOf .NN_location
+  *NN_locations = AllocMem_(size, $10000)  ; Best available memory and clear
+  ReadMem id, *NN_locations, size
+  !DB_log_str{"NN_GAME", "    Locations > Addr: $" + Hex$(*NN_locations) + " Size: " + Str$(size)}
+
+  ; Read in all the scenes
+  ReadMem id, &NN_scene_count, 4
+  size = NN_scene_count * SizeOf .NN_scene
+  *NN_scenes = AllocMem_(size, $10000)  ; Best available memory and clear
+  ReadMem id, *NN_scenes, size
+  !DB_log_str{"NN_GAME", "    Scenes    > Addr: $" + Hex$(*NN_scenes) + " Size: " + Str$(size)}
+
+  ; Read in all the regions
+  ReadMem id, &NN_region_count, 4
+  size = NN_region_count * SizeOf .NN_region
+  *NN_regions = AllocMem_(size, $10000)  ; Best available memory and clear
+  ReadMem id, *NN_regions, size
+  !DB_log_str{"NN_GAME", "    Regions   > Addr: $" + Hex$(*NN_regions) + " Size: " + Str$(size)}
+
+  ; Read all the strings and generate a string table
+  ReadMem id, &NN_string_count, 4
+  ReadMem id, &NN_string_data_size, 4
+  *NN_string_table = AllocMem_(NN_string_count * SizeOf .l, $10000)
+  *NN_string_data = AllocMem_(NN_string_data_size, $10000)
+  !DB_log_str{"NN_GAME", "    Str Table > Addr: $" + Hex$(*NN_string_table) + " Size: " + Str$(NN_string_count * SizeOf .l)}
+  !DB_log_str{"NN_GAME", "    Str Data  > Addr: $" + Hex$(*NN_string_data) + " Size: " + Str$(NN_string_data_size)}
+
+  DEFTYPE .l ptr
+  ptr = *NN_string_data
+  DEFTYPE .l string_size
+  For i = 0 To NN_string_count - 1
+    Poke.l *NN_string_table + (i * 4), ptr
+
+    ReadMem id, &string_size, 4
+    Poke.l ptr, string_size
+
+    ptr + 4
+    ReadMem id, ptr, string_size
+
+    ptr + string_size
+  Next
+
+  ; Read all the bytecode... I suppose it's more like word-code
+  ReadMem id, &NS_script_data_size, 4
+  NS_script_data_size * SizeOf .w
+  *NS_script_data = AllocMem_(NS_script_data_size, $10000)
+  ReadMem id, *NS_script_data, NS_script_data_size
+  !DB_log_str{"NN_GAME", "    Script    > Addr: $" + Hex$(*NS_script_data) + " Size: " + Str$(NS_script_data_size)}
+
+  Function Return #NN_NEON_success
+End Function
+
+; Frees up all allocated memory
+; =============================================================================
+Statement NN_uninitialize{}
+  !DB_trace{"NN_GAME", "NN_uninitialize"}
+  SHARED *NN_locations, *NN_scenes, *NN_regions, *NN_string_table, *NN_string_data
+  SHARED NN_location_count, NN_scene_count, NN_region_count, NN_string_count, NN_string_data_size
+
+  FreeMem_ *NN_locations, SizeOf .NN_location * NN_location_count
+  !DB_log_str{"NN_GAME", "    FreeMem locations $" + Hex$(*NN_locations) + ", " + Str$(SizeOf .NN_location * NN_location_count)}
+
+  FreeMem_ *NN_scenes, SizeOf .NN_scene * NN_scene_count
+  !DB_log_str{"NN_GAME", "    FreeMem scenes    $" + Hex$(*NN_scenes) + ", " + Str$(SizeOf .NN_scene * NN_scene_count)}
+
+  FreeMem_ *NN_regions, SizeOf .NN_region * NN_region_count
+  !DB_log_str{"NN_GAME", "    FreeMem regions   $" + Hex$(*NN_regions) + ", " + Str$(SizeOf .NN_region * NN_region_count)}
+
+  FreeMem_ *NN_string_table, SizeOf .l * NN_string_count
+  !DB_log_str{"NN_GAME", "    FreeMem str table $" + Hex$(*NN_string_table) + ", " + Str$(SizeOf .l * NN_string_count)}
+
+  FreeMem_ *NN_string_data, NN_string_data_size
+  !DB_log_str{"NN_GAME", "    FreeMem str data  $" + Hex$(*NN_string_data) + ", " + Str$(NN_string_data_size)}
+
+  FreeMem_ *NS_script_data, NS_script_data_size
+  !DB_log_str{"NN_GAME", "    FreeMem str data  $" + Hex$(*NS_script_data) + ", " + Str$(NS_script_data_size)}
+End Statement
+
+; Loads the mouse pointers
+;
+; Requires AMIGA or QAMIGA mode
+; =============================================================================
+Statement NN_load_pointers{filename$}
+  !DB_trace{"NN_GAME", "NN_load_pointers"}
+  LoadShapes #NN_pointer_start, #NN_pointer_end, filename$
+
+  SpriteMode 0
+  For i = #NN_pointer_start To #NN_pointer_end
+    GetaSprite i - #NN_pointer_start, i
+    Free Shape i
+  Next
+End Statement
+
+; Initializes the game resources
+; neonpack$: Game's .NEON file, relative to the data/ directory
+; pointers$: Game's mouse cursors, relative to the data/ directory
+; =============================================================================
+Function NN_initialize{neonpack$, pointers$}
+  !DB_trace{"NN_GAME", "NEONpack: " + neonpack$ + " Mouse Pointers: " + pointers$}
+  NN_load_pointers{"data/" + pointers$}
+
+  Function Return NN_load_neonpack{"data/" + neonpack$}
+End Function
+
+; Loads the bitmaps for the new location and set the current
+; scene to the selected one.
+;
+; Requires AMIGA or QAMIGA mode
+; =============================================================================
+Statement NN_load_location{new_loc_id.w, new_scene_id.w}
+  !DB_trace{"NN_GAME", "NN_load_location{" + Str$(new_loc_id) + ", " + Str$(new_scene_id) + "}"}
+  SHARED *NN_current_location, *NN_current_scene
+  SHARED *NN_locations, *NN_scenes, *NN_string_table, *NN_string_data
+  *NN_current_location = !__get_location{new_loc_id}
+
+  ; Load all the backgrounds
+  For bg = 0 To *NN_current_location\last_bg - *NN_current_location\first_bg
+    BitMap bg, #NN_screen_width, #NN_screen_height, #NN_screen_bpp
+    bmp$ = !__get_string{bg + *NN_current_location\first_bg}
+    NPrint bmp$
+    LoadBitMap bg, "data/" + bmp$, bg
+  Next
+
+  ; Setup the next scene
+  *NN_current_scene = !__get_scene{*NN_current_location\first_scene + new_scene_id}
+End Statement
+
+
+; Checks if a point is inside one of the regions
+; =============================================================================
+Function.w NN_get_overlapped_region{mx.w, my.w}
+  ;!DB_trace{"NN_GAME", "NN_get_overlapped_region"}
+  SHARED *NN_regions, *NN_current_scene
+  DEFTYPE .NN_region *region
+
+  For r = *NN_current_scene\first_region To *NN_current_scene\last_region
+    *region = !__get_region{r}
+    x1.w = *region\x1
+    x2.w = *region\x2
+    y1.w = *region\y1
+    y2.w = *region\y2
+
+    If mx >= x1 AND mx < x2 AND my >= y1 AND my < y2
+      Function Return r
+    End If
+  Next
+
+  Function Return -1
+End Function
+
+; Sets the currently selected scene
+; =============================================================================
+Statement NN_game_set_scene{id.w}
+  !DB_trace{"NN_GAME", "NN_game_set_scene: " + Str$(id)}
+  *NN_current_scene = !__get_scene{id}
+End Statement
+
+Statement NN_game_map{}
+  !DB_trace{"NN_GAME", "NN_game_map"}
+  NPrint "Displaying location map"
+End Statement
+
+Statement NN_game_over{id.w}
+  !DB_trace{"NN_GAME", "NN_game_over"}
+End Statement
+
+; Text display functions
+; Prefix TX = Text facilities
+;
+; Needs two Buffers, 0 and 1. Buffer 0 draws the frame and text
+; while draws the blinking caret.
+;
+DEFTYPE .w
+
+;#DB_ENABLE_DEBUG_LOG = -1
+;#DB_ENABLE_DEBUG_TRACE = -1
+
+#TX_text_debug = 0
+
+#primary = 0
+
+#TX_font_start = 32
+#TX_font_end = 127
+#TX_frame_start = 22
+#TX_frame_end = 30
+#TX_char_per_line = 28
+#TX_lines_per_frame = 2
+
+; Shape ids for the 9-patch for the text frame
+#TX_frame_tl = 22
+#TX_frame_tm = 23
+#TX_frame_tr = 24
+#TX_frame_ml = 25
+#TX_frame_mm = 26
+#TX_frame_mr = 27
+#TX_frame_bl = 28
+#TX_frame_bm = 29
+#TX_frame_br = 30
+
+#TX_frame_size = 8
+#TX_frame_total_size = 16
+
+; This is specific to the font file we're using
+; A more robust approach would be to read this from a file
+#TX_font_width = 6
+#TX_font_height = 8
+
+#TX_scratch_bmp = 1
+#TX_space = 32
+#TX_text_shape = 21
+
+DEFTYPE .w TX_frame_x, TX_frame_y
+
+Statement TX_initialize{fontfile$, framefile$}
+  !DB_trace{"TX_CORE", "TX_initialize: " + fontfile$ + ", " + framefile$}
+  SHARED TX_frame_x, TX_frame_y
+  LoadShapes #TX_font_start, #TX_font_end, "data/" + fontfile$
+  LoadShapes #TX_frame_start, #TX_frame_end, "data/" + framefile$
+End Statement
+
+Statement TX_uninitialize{}
+  !DB_trace{"TX_CORE", "TX_uninitialize"}
+  For s = #TX_font_start To #TX_font_end
+    Free Shape s
+  Next
+
+  For s = #TX_frame_start To #TX_frame_end
+    Free Shape s
+  Next
+End Statement
+
+BLITZ
+
+Statement TX_draw_single_line{text$}
+    !DB_trace{"TX_CORE", "TX_draw_single_line: " + text$}
+    SHARED *NN_string_table, TX_frame_x, TX_frame_y
+    DEFTYPE .l strloc, strlen
+    DEFTYPE .w x, y, width
+
+    strlen = Len(text$)
+
+    width = strlen * #TX_font_width
+
+    ; Center the text in the frame
+    x = TX_frame_x - (width LSR 1)
+    y = TX_frame_y - (#TX_font_height LSR 1)
+
+    ;BBlit 0, #TX_frame_id, TX_frame_x, TX_frame_y, %0
+
+    For i = 1 To strlen
+        BBlit 0, Asc(Mid$(text$, i, 1)), x, y, %0
+        x + #TX_font_width
+    Next
+
+    tick.w = 0
+
+    ; Blink the caret
+    Repeat
+        If tick MOD 2 = 0
+            BBlit 1, 127, x + #TX_font_width, y, %0
+        Else
+            UnBuffer 1
+        End If
+
+        tick + 1
+        VWait 10
+    Until Joyb(0) = 1
+
+    ; Remove the text
+    UnBuffer 0
+End Statement
+
+Statement TX_draw_text{text$, x.w, y.w}
+  !DB_trace{"TX_CORE", "TX_draw_text: " + text$ + " " + Str$(x) + "," + Str$(y)}
+  DEFTYPE .w width, strlen
+
+  strlen = Len(text$)
+  width = strlen * #TX_font_width
+
+  If x + width > #NN_screen_width Then x = #NN_screen_width - width
+  If y + #TX_font_height > DispHeight Then y = DispHeight - #TX_font_height
+
+  For i = 0 To strlen - 1
+    BBlit 0, Peek.b (&text$ + i), x, y, %0
+    x + #TX_font_width
+  Next
+End Statement
+
+Statement TX_draw_text_centered{text$, cx.w, cy.w}
+  DEFTYPE .w width, halfw, halfh, strlen, x
+
+  strlen = Len(text$)
+  width = strlen * #TX_font_width
+  halfw = width LSR 1
+  halfh = #TX_font_height LSR 1
+
+  If cx - halfw < 0 Then cx = halfw
+  If cx + halfw >= #NN_screen_width Then cx = #NN_screen_width - halfw
+  If cy - halfh < 0 Then cy = halfy
+  If cy + halfh >= #NN_screen_width Then cy = #NN_screen_width - halfh
+
+  x = cx - halfw
+  For i = 0 To strlen - 1
+    BBlit 0, Peek.b (&text$ + i), x, cy, %0
+    x + #TX_font_width
+  Next
+End Statement
+
+#TX_max_words = 64 ; Assume no more than 64 words in one go
+Dim tx_word_begin.w(#TX_max_words)
+Dim tx_word_end.w(#TX_max_words)
+DEFTYPE .w tx_word_count
+
+BLITZ
+
+; [INTERNAL]
+; Breaks a string into words, placing the beginning and ending of each word
+; in the tx_word_begin and tx_word_end global arrays.
+; =============================================================================
+Statement tx_get_words{text$}
+  !DB_trace{"TX_CORE", "tx_get_words"}
+  SHARED tx_word_begin(), tx_word_end(), tx_word_count
+  DEFTYPE .w begin, current, text_len
+
+  ; Find the beginning and ends of every word
+  tx_word_count = 0
+  text_len = Len(text$)
+  For begin = 1 To text_len
+    current = begin
+    While current < text_len AND Peek.b (&text$ + current) <> #TX_space
+      current + 1 ; skip the space
+    Wend
+
+    tx_word_begin(tx_word_count) = begin - 1
+    tx_word_end(tx_word_count) = current - 1
+    tx_word_count + 1
+    begin = current + 1; skip the space
+  Next
+End Statement
+
+; [INTERNAL]
+; Used to draw a frame around the text
+; =============================================================================
+Statement tx_draw_frame{line_width.w, line_count.w}
+  !DB_trace{"TX_CORE", "tx_draw_frame: " + Str$(line_width) + ", " + Str$(line_count)}
+  ; Top
+  Blit #TX_frame_tl, 0, 0, 0
+  For i = 1 To line_width
+    Blit #TX_frame_tm, #TX_font_width * i, 0, 0
+  Next
+  Blit #TX_frame_tr, #TX_font_width * (line_width + 1), 0, 0
+
+  ; Middle
+  For i = 1 To line_count
+    Blit #TX_frame_ml, 0, #TX_font_height * i, 0
+    Blit #TX_frame_mr, #TX_font_width * (line_width + 1), i * #TX_font_height, 0
+  Next i
+
+  ; Bottom
+  Blit #TX_frame_bl, 0, #TX_font_height * (line_count + 1), 0
+  For i = 1 To line_width
+    Blit #TX_frame_bm, #TX_font_width * i, #TX_font_height * (line_count + 1), 0
+  Next
+  Blit #TX_frame_br, #TX_font_width * (line_width + 1), #TX_font_height * (line_count + 1), 0
+End Statement
+
+; Draws a multiline string wrapped a given width. The text is drawn around a
+; center point.
+; =============================================================================
+Statement TX_draw_text_wrapped{text$, line_width.w, cx.w, cy.w}
+  !DB_trace{"TX_CORE", "TX_draw_text_wrapped: " + text$ + " " + Str$(line_width) + ", " + Str$(x) + "," + Str$(y)}
+  SHARED tx_word_begin(), tx_word_end(), tx_word_count
+  DEFTYPE .w widthw, line_count
+  DEFTYPE .w remaining
+  DEFTYPE .w x0, y0, x, y, widthr, heightr, max_len, cur_len
+
+  BitMap #TX_scratch_bmp, #NN_screen_width, #NN_screen_height, #NN_screen_bpp
+  Use BitMap #TX_scratch_bmp
+
+  ; Find the beginning and ends of every word
+  tx_get_words{text$}
+
+  ; Figure out how many lines it's going to be amd what's the size of the longest line
+  remaining = line_width
+  line_count = 1
+  For i = 0 To tx_word_count - 1
+    widthw = tx_word_end(i) - tx_word_begin(i) + 1
+
+    If remaining - widthw < 0
+      ; Advance To Next Line
+      line_count + 1
+      remaining = line_width
+      cur_len = 0
+    End If
+
+    remaining - (widthw + 1) ; account for the space
+    cur_len + widthw + 1
+    If cur_len > max_len Then max_len = cur_len
+  Next i
+
+  If max_len < line_width Then line_width = max_len
+
+  ; Calculate how big a rectangle this will be, including enough
+  ; padding for the text frame
+  widthr = line_width * #TX_font_width + #TX_frame_total_size
+  heightr = line_count * #TX_font_height + #TX_frame_total_size
+  x0 = #TX_frame_size
+  y0 = #TX_frame_size
+
+  ; Draw the frame
+  ; Text area
+  Boxf x0, y0, x0 + widthr - #TX_frame_total_size, y0 + heightr - #TX_frame_total_size, 3
+  tx_draw_frame{line_width, line_count}
+
+  ; Finally draw the text
+  remaining = line_width
+  x = x0
+  y = y0
+  For i = 0 To tx_word_count - 1
+    widthw = tx_word_end(i) - tx_word_begin(i) + 1
+
+    If remaining - widthw < 0
+      ; Advance to next line
+      x = x0
+      y + #TX_font_height
+      remaining = line_width
+    End If
+
+    ; Print the word
+    For j = tx_word_begin(i) To tx_word_end(i)
+      Blit Peek.b(&text$ + j), x, y, %0
+      x + #TX_font_width
+    Next j
+
+    remaining - (widthw + 1) ; account for the space
+    x + #TX_font_width
+  Next i
+
+  GetaShape #TX_text_shape, 0, 0, widthr, heightr
+  MidHandle #TX_text_shape
+  Use BitMap #primary
+
+  DEFTYPE .w halfw, halfh
+  halfw = widthr LSR 1
+  halfh = heightr LSR 1
+
+  If cx - halfw < 0 Then cx = halfw
+  If cx + halfw >= #NN_screen_width Then cx = #NN_screen_width - halfw
+  If cy - halfh < 0 Then cy = halfy
+  If cy + halfh >= #NN_screen_height Then cy = #NN_screen_height - halfh
+
+  BBlit 0, #TX_text_shape, cx, cy, %0
+
+  Free Shape #TX_text_shape
+  Free BitMap #TX_scratch_bmp
+End Statement
+
+
+; Noir Script Opcodes
+;
+; Name              Value     Usage         Meaning
+#NS_op_noop         = $00   ;| noop        | No operation
+; Flag register operations  ;|             |
+#NS_op_clear        = $01   ;| clear       | Clears the flag register
+#NS_op_set          = $02   ;| set         | Sets the flag register
+#NS_op_load         = $03   ;| load id     | Loads flag into register
+#NS_op_store        = $04   ;| store id    | Store flag register in to global flag
+; Logical operations        ;|             |
+#NS_op_and          = $10   ;| and id      | Logical AND with flag and flag register
+#NS_op_or           = $11   ;| or id       | Logical OR with flag and flag register
+#NS_op_not          = $12   ;| not         | Logical NOT on flag register
+; Flow control              ;|             |
+#NS_op_jump         = $20   ;| jump N      | Skip the next 'N' words
+#NS_op_jift         = $21   ;| jifs N      | Skip the next 'N' words if flag register is true
+#NS_op_jiff         = $22   ;| jiff N      | Skip the next 'N' words if flag register is false
+#NS_op_end          = $2F   ;| end         | Ends the script prematurely
+; Scene operations          ;|             |
+#NS_op_setbg        = $30   ;| setbg id    | Set the scene background to bitmap id
+; Shape operations          ;|             |
+#NS_op_draw         = $40   ;| draw id x y | Draw shape ID at X,Y
+; Inventory Operations      ;|             |
+#NS_op_hasi         = $60   ;| hasi id     | Sets flag register if player has item ID in inventory
+#NS_op_addi         = $61   ;| addi id     | Adds item ID to inventory
+#NS_op_remi         = $62   ;| remi id     | Remove item ID from inventory
+; Game operations           ;|             |
+#NS_op_goto         = $80   ;| goto id     | Go to location ID, ends script
+#NS_op_map          = $81   ;| map         | Display location selection screen, ends script
+#NS_op_text         = $82   ;| text id     | Display string ID
+#NS_op_gameover     = $8F   ;| gameover id | Displays game over with string ID as message, ends script
+
+
+XINCLUDE "IV_inventory.bb2"
+XINCLUDE "SH_shapes.bb2"
+XINCLUDE "SC_scene.bb2"
+
+Macro __print_bc
+  op$ = (`2)
+  !DB_printf{"********     %04lx: %02x - %s", (`1), (`1), &op$}
+End Macro
+
+Macro __print_bc_v1
+  op$ = (`2)
+  !DB_printf{"********     %04lx: %02x - %s %d", (`1), (`1), &op$, (`3)}
+End Macro
+
+; Executes the bytecode pointed to in the script
+; Assumes the existence of this global data:
+;   NS_data: Word array containing the opcodes to all the scrips
+;   NS_flags: Byte array containing all of the game's flags
+; And these global statements/functions
+;   NN_game_over: Transition to game over screen
+;   NN_display_text: Show text on the screen
+;   IV_has_item: Check if an item is in the inventory
+;   IV_add_item: Adds an item to the inventory
+;   IV_remvoe_item: Removes and item from the inventory
+;   SH_draw: Draws a shape
+;   SC_set_bg: Sets the background in a scene
+;   NN_game_set_scene: Goes to a new scene
+;   NN_game_map: Display the map with locations
+Statement NS_execute_script{script_offset.l}
+    !DB_trace{"NS_SCRIPT", "NS_exectute_script: $" + Hex$(script_offset)}
+    SHARED *NS_script_data, NS_script_data_size, NS_flags()    ; get a reference to the script data and game flags
+    SHARED *NN_string_table
+    ; Get the referenced script
+    If script_offset > NS_script_data_size
+        NPrint "Script offset", script_offset, " out of bounds";
+        Statement Return
+    End If
+
+    DEFTYPE .l PC
+    DEFTYPE .b FR, done
+
+    PC = script_offset              ; Set up program counter
+    FR = False                    ; Initialize Flag Register
+    done = False
+
+    DEFTYPE .w v1, v2, v3
+    Repeat
+        Select Peek.w (*NS_script_data + PC)
+            Case #NS_op_noop
+                PC + 2              ; Eat the opcode
+                !__print_bc{PC, "noop"}
+
+            ; Flag register operations
+            Case #NS_op_clear
+                PC + 2              ; Eat the opcode
+                FR = False
+                !__print_bc{PC, "clear"}
+
+            Case #NS_op_set
+                PC + 2              ; Eat the opcode
+                FR = True
+                !__print_bc{PC, "set"}
+
+            Case #NS_op_load; id
+                PC + 2              ; Eat the opcode
+                v1 = Peek.w (*NS_script_data + PC)
+                FR = NS_flags(v1)
+                PC + 2              ; Eat the parameter
+                !__print_bc_v1{PC, "load", v1}
+
+            Case #NS_op_store; id
+                PC + 2              ; Eat the opcode
+                v1 = Peek.w (*NS_script_data + PC)
+                NS_flags(v1) = FR
+                PC + 2              ; Eat the parameter
+                !__print_bc_v1{PC, "store", v1}
+
+            ; Logical operations
+            Case #NS_op_and; id
+                PC + 2              ; Eat the opcode
+                v1 = Peek.w (*NS_script_data + PC)
+                FR AND NS_flags(v1)
+                PC + 2              ; Eat the parameter
+                !__print_bc_v1{PC, "and", v1}
+
+            Case #NS_op_or; id
+                PC + 2              ; Eat the opcode
+                v1 = Peek.w (*NS_script_data + PC)
+                FR OR NS_flags(v1)
+                PC + 2              ; Eat the parameter
+                !__print_bc_v1{PC, "or", v1}
+
+            Case #NS_op_not
+                PC + 2              ; Eat the opcode
+                v1 = Peek.w (*NS_script_data + PC)
+                FR = NOT NS_flags(v1)
+                !__print_bc{PC, "not"}
+
+            ; Flow control
+            Case #NS_op_jump; offset
+                PC + 2              ; Eat the opcode
+                v1 = Peek.w (*NS_script_data + PC) - 1
+                PC + (v1 ASL 1)
+                !__print_bc_v1{PC, "jump", v1}
+
+            Case #NS_op_jift; offset
+                PC + 2              ; Eat the opcode
+                v1 = Peek.w (*NS_script_data + PC) - 1
+                if FR
+                    PC + (v1 ASL 1)
+                Else
+                    PC + 2              ; Eat the parameter
+                End If
+                !__print_bc_v1{PC, "jift", v1}
+
+            Case #NS_op_jiff; offset
+                PC + 2              ; Eat the opcode
+                v1 = Peek.w (*NS_script_data + PC) - 1
+                if FR
+                    PC + 2              ; Eat the parameter
+                Else
+                    PC + (v1 ASL 1)
+                End If
+                !__print_bc_v1{PC, "jiff", v1}
+
+            Case #NS_op_end
+                done = True
+                !__print_bc{PC, "end"}
+
+            ; Scene operations
+            Case #NS_op_setbg; id
+                PC + 2              ; Eat the opcode
+                v1 = Peek.w (*NS_script_data + PC)
+                !__print_bc_v1{PC, "setbg", v1}
+                SC_set_bg{v1}
+                PC + 2              ; Eat the parameter
+
+            ; Shape operations
+            Case #NS_op_draw; id x y
+                PC + 2              ; Eat the opcode
+                v1 = Peek.w (*NS_script_data + PC)
+                v2 = Peek.w (*NS_script_data + PC + 2)
+                v3 = Peek.w (*NS_script_data + PC + 4)
+                !__print_bc{PC, "draw"}
+                SH_draw{v1, v2, v3}
+                PC + 6              ; Eat the parameters
+
+            ; Inventory Operations
+            Case #NS_op_hasi; id
+                PC + 2              ; Eat the opcode
+                v1 = Peek.w (*NS_script_data + PC)
+                !__print_bc_v1{PC, "hasi", v1}
+                FR = IV_has_item{v1}
+                PC + 2              ; Eat the parameter
+
+            Case #NS_op_addi; id
+                PC + 2              ; Eat the opcode
+                v1 = Peek.w (*NS_script_data + PC)
+                !__print_bc_v1{PC, "addi", v1}
+                IV_add_item{v1}
+                PC + 2              ; Eat the parameter
+
+            Case #NS_op_remi; id
+                PC + 2              ; Eat the opcode
+                v1 = Peek.w (*NS_script_data + PC)
+                !__print_bc_v1{PC, "remi", v1}
+                IV_remove_item{v1}
+                PC + 2              ; Eat the parameter
+
+            ; Game operations
+            Case #NS_op_goto; id
+                PC + 2              ; Eat the opcode
+                v1 = Peek.w (*NS_script_data + PC)
+                !__print_bc_v1{PC, "goto", v1}
+                NN_game_set_scene{v1}
+                done = True
+
+            Case #NS_op_map
+                PC + 2              ; Eat the opcode
+                !__print_bc{PC, "map"}
+                NN_game_map{}
+                done = True
+
+            Case #NS_op_text; id
+                PC + 2              ; Eat the opcode
+                v1 = Peek.w (*NS_script_data + PC)
+                !__print_bc_v1{PC, "text", v1}
+                TX_draw_text_wrapped{!__get_string{v1}, 32, 160, 200}
+                PC + 2              ; Eat the parameter
+
+            Case #NS_op_gameover
+                PC + 2              ; Eat the opcode
+                v1 = Peek.w (*NS_script_data + PC)
+                !__print_bc_v1{PC, "gameover", v1}
+                NN_game_over{v1}
+                done = True
+
+            Default
+                ; Unknown opcode!
+                v1 = Peek.w (*NS_script_data + PC)
+                !DB_log_str{"NS_SCRIPT", "Error! Unknown opcode! PC: $" + Hex$(PC) + " Opcode: $" + Hex$(v1)}
+                done = True
+
+        End Select
+    Until done = True
+End Statement
+
+Statement NS_DEBUG_print_bytecode{}
+    SHARED NS_script_data, NS_data_size
+    DEFTYPE .w num_entries
+    num_entries = NS_data_size / SizeOf .w
+
+    DEFTYPE .s v
+    For i = 0 to num_entries - 1
+        v = Right$(Hex$(Peek.w (*NS_script_data + (i * SizeOf .w))), 4)
+
+        If i MOD 4 = 3
+            NPrint v, " "
+        Else
+            Print v, " "
+        End If
+    Next
+End Statement
+
+WBStartup
+DEFTYPE .w
+
+AMIGA
+
+#DB_coplist = 0
+#max_sprites = 8                        ; Always 8
+coplist_flag.l = $10000                 ; AGA mode
+coplist_flag.l +     $8                 ; 8 bitplanes, 256 colors
+screen_offset = 70 - (NTSC * 44)        ; centers the display in PAL mode
+InitCopList #DB_coplist, screen_offset, #NN_screen_height, coplist_flag, #max_sprites, #NN_screen_colors, 0
+
+DEFTYPE .b result
+result = NN_initialize{"gutter.neon", "pointers.shape"}
+If result <> #NN_NEON_success
+  NPrint "Error: ", result
+  Goto Finish
+End If
+
+TX_initialize{"display.font", "frame.shape"}
+
+NN_load_location{0, 0}
+
+BLITZ
+
+Mouse On
+CreateDisplay #DB_coplist
+
+#BF_main = 0
+#BF_text = 1
+Buffer #BF_main, 64000
+Buffer #BF_text, 4096
+
+DEFTYPE .w pointer_id, bg_id
+DEFTYPE .w overlapped, prev_overlap
+DEFTYPE .NN_region *region
+DEFTYPE .b done
+
+bg_id = 0
+pointer_id = 0
+overlapped = -1
+prev_overlap = -1
+done = False
+
+Repeat
+  VWait
+
+  bg_id = *NN_current_scene\background_id
+
+  ; Show the background image
+  DisplayPalette #DB_coplist, bg_id
+  DisplayBitMap #DB_coplist, bg_id
+
+  ; Update the mouse pointer
+  DisplaySprite #DB_coplist, pointer_id, MouseX, MouseY, 0
+
+  overlapped = NN_get_overlapped_region{MouseX, MouseY}
+
+  ; Show or hide hover text for the overlapped region
+  If overlapped <> prev_overlap
+    UnBuffer #BF_main
+    If overlapped <> -1
+      *region = !__get_region{overlapped}
+      TX_draw_text_wrapped{!__get_string{*region\description_id}, 32, 160, 200}
+      pointer_id = *region\pointer_id
+
+      If Joyb(0) = 1 AND *region\script_offset <> -1
+        NS_execute_script{*region\script_offset}
+      End If
+    Else
+      pointer_id = 0
+    End If
+  End If
+
+  prev_overlap = overlapped
+
+  ; Press ESC to quit
+  If RawStatus($45) Then done = True
+
+Until done
+
+Finish:
+TX_uninitialize{}
+NN_uninitialize{}
+
+End
+; * Cannot use string literals as parameters
+; * String variables must be prefixed with &
+;   printf{"hello $s", &there$}
+Macro printf
+  CNIF `0 > 1
+    Poke.l $BFFF00, (`2)
+  CEND
+
+  CNIF `0 > 2
+    Poke.l $BFFF00, (`3)
+  CEND
+
+  CNIF `0 > 3
+    Poke.l $BFFF00, (`4)
+  CEND
+
+  CNIF `0 > 4
+    Poke.l $BFFF00, (`5)
+  CEND
+
+  CNIF `0 > 5
+    Poke.l $BFFF00, (`6)
+  CEND
+
+  printf_fmt$ = (`1) + Chr$(10)
+  Poke.l $BFFF04, &printf_fmt$
+End Macro

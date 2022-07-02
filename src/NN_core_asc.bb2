@@ -96,6 +96,8 @@ End Macro
 DEFTYPE .w *NS_script_data
 DEFTYPE .l NS_script_data_size
 
+Dim NS_flags.b(256)
+
 ; =============================================================================
 ; Constants
 ; =============================================================================
@@ -119,7 +121,7 @@ DEFTYPE .l NS_script_data_size
 ; Mouse pointers
 ; -----------------------------------------------------------------------------
 #NN_pointer_start = 10
-#NN_pointer_end = 12
+#NN_pointer_end = 13
 #NN_pointer_default = 10
 #NN_pointer_examine = 11
 #NN_pointer_interact = 12

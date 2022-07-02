@@ -13,6 +13,7 @@ XINCLUDE "NN_core.bb2"
 Function .b NN_load_neonpack{filename$}
   SHARED *NN_locations, *NN_scenes, *NN_regions, *NN_string_table, *NN_string_data
   SHARED NN_location_count, NN_scene_count, NN_region_count, NN_string_count, NN_string_data_size
+  SHARED *NS_script_data, NS_script_data_size
 
   !DB_trace{"NN_GAME", "NN_load_neonpack: " +  filename$}
 
@@ -54,7 +55,7 @@ Function .b NN_load_neonpack{filename$}
   size = NN_region_count * SizeOf .NN_region
   *NN_regions = AllocMem_(size, $10000)  ; Best available memory and clear
   ReadMem id, *NN_regions, size
-  !DB_log_str{"NN_GAME", "    Regions > Addr: $" + Hex$(*NN_regions) + " Size: " + Str$(size)}
+  !DB_log_str{"NN_GAME", "    Regions   > Addr: $" + Hex$(*NN_regions) + " Size: " + Str$(size)}
 
   ; Read all the strings and generate a string table
   ReadMem id, &NN_string_count, 4
@@ -81,8 +82,10 @@ Function .b NN_load_neonpack{filename$}
 
   ; Read all the bytecode... I suppose it's more like word-code
   ReadMem id, &NS_script_data_size, 4
-  *NS_script_data = AllocMem_(NS_script_data_size * SizeOf .w, $10000)
+  NS_script_data_size * SizeOf .w
+  *NS_script_data = AllocMem_(NS_script_data_size, $10000)
   ReadMem id, *NS_script_data, NS_script_data_size
+  !DB_log_str{"NN_GAME", "    Script    > Addr: $" + Hex$(*NS_script_data) + " Size: " + Str$(NS_script_data_size)}
 
   Function Return #NN_NEON_success
 End Function
@@ -151,9 +154,9 @@ Statement NN_load_location{new_loc_id.w, new_scene_id.w}
   *NN_current_location = !__get_location{new_loc_id}
 
   ; Load all the backgrounds
-  For bg = *NN_current_location\first_bg To *NN_current_location\last_bg 
+  For bg = 0 To *NN_current_location\last_bg - *NN_current_location\first_bg
     BitMap bg, #NN_screen_width, #NN_screen_height, #NN_screen_bpp
-    bmp$ = !__get_string{bg}
+    bmp$ = !__get_string{bg + *NN_current_location\first_bg}
     NPrint bmp$
     LoadBitMap bg, "data/" + bmp$, bg
   Next
@@ -166,7 +169,7 @@ End Statement
 ; Checks if a point is inside one of the regions
 ; =============================================================================
 Function.w NN_get_overlapped_region{mx.w, my.w}
-  !DB_trace{"NN_GAME", "NN_get_overlapped_region"}
+  ;!DB_trace{"NN_GAME", "NN_get_overlapped_region"}
   SHARED *NN_regions, *NN_current_scene
   DEFTYPE .NN_region *region
 

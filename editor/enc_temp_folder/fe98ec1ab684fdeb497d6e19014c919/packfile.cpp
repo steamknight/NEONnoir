@@ -68,10 +68,6 @@ namespace NEONnoir
                             r.script_offset = result.scripts_meta.at(region.script).start;
                         }
                     }
-                    else
-                    {
-                        r.script_offset = 0xFFFF;
-                    }
 
                     pak.regions.push_back(r);
                 }
