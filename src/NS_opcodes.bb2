@@ -23,6 +23,15 @@
 #NS_op_setbg        = $30   ;| setbg id    | Set the scene background to bitmap id
 ; Shape operations          ;|             |
 #NS_op_draw         = $40   ;| draw id x y | Draw shape ID at X,Y
+; Dialogues
+#NS_op_dlg          = $50   ;| dlg id      | Show dialogue id    
+#NS_op_choff        = $51   ;| choff id    | Disabled choice #i
+#NS_op_chon         = $52   ;| chon id     | Enables choice #id
+#NS_op_pageoff      = $53   ;| pageoff id  | Disabled page #i
+#NS_op_pageon       = $54   ;| pageon id   | Enables page #id
+#NS_op_dlgimg       = $55   ;| dlgimg id   | Changes the speaker's portrait
+#NS_op_dlgname      = $5F   ;| dlgname id  | Changes the speaker's name 
+#NS_op_dlgend       = $5F   ;| dlgend      | Closes the dialogue 
 ; Inventory Operations      ;|             |
 #NS_op_hasi         = $60   ;| hasi id     | Sets flag register if player has item ID in inventory
 #NS_op_addi         = $61   ;| addi id     | Adds item ID to inventory

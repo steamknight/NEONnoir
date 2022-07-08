@@ -166,6 +166,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="assembler.cpp" />
+    <ClCompile Include="dialogue_editor.cpp" />
     <ClCompile Include="editor.cpp" />
     <ClCompile Include="game_data.cpp" />
     <ClCompile Include="gl.c" />
@@ -190,6 +191,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="assembler.h" />
+    <ClInclude Include="dialogue_editor.h" />
     <ClInclude Include="editor.h" />
     <ClInclude Include="bmp_header.h" />
     <ClInclude Include="game_data.h" />
@@ -213,6 +215,9 @@
     <ClInclude Include="script_editor.h" />
     <ClInclude Include="stb_image.h" />
     <ClInclude Include="utils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

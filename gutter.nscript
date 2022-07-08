@@ -8,6 +8,7 @@
     alley_alleycat            0
     alley_empty_lot           2
     alley_alleycat_interior   3
+    dialogue_glitch           0
 
 .TEXT
     enter_alleycat            "A quick peek can't hurt, right?"
@@ -42,6 +43,11 @@
 .SCRIPT examine_takeshi       ; Describe the noodle join
     text $takeshi
     end
+
+.SCRIPT dialogue_glitch       ; Talk to Glitch
+    dlg #dialogue_glitch
+    end
+
 
 
 

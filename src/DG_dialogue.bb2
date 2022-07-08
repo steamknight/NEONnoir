@@ -1,0 +1,42 @@
+; =============================================================================
+; DG_dialogue
+; -----------------------------------------------------------------------------
+; Dialogue related statements and functions
+; Prefix DG = DialoGue
+;
+
+; Displays and runs the dialog at the given id
+; =============================================================================
+Statement DG_show_dialog{id.w}
+  !DB_trace{"DG", "DG_show_dialog:" + Str$(id)}
+End Statement
+
+; Enables/Disables a page
+; =============================================================================
+Statement DG_enable_page{id.w, enabled.b}
+  !DB_trace{"DG", "DG_enable_page:" + Str$(id) + ", " + Str$(enabled)}
+End Statement
+
+; Enables/Disables a choice
+; =============================================================================
+Statement DG_enable_choice{id.w, enabled.w}
+  !DB_trace{"DG", "DG_enable_choice:" + Str$(id) + ", " + Str$(enabled)}
+End Statement
+
+; Changes the speaker's portrait
+; =============================================================================
+Statement DG_set_speaker_image{image_id.w}
+  !DB_trace{"DG", "DG_set_speaker_image:" + Str$(image_id)}
+End Statement
+
+; Changes the speaker's name
+; =============================================================================
+Statement DG_set_speaker_name{name_id.w}
+  !DB_trace{"DG", "DG_set_speaker_name:" + Str$(name_id)}
+End Statement
+
+; Ends the current dialogue
+; =============================================================================
+Statement DG_end{}
+  !DB_trace{"DG", "DG_end"}
+End Statement

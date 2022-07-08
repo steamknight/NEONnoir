@@ -14,6 +14,18 @@ Macro __print_bc_v1
   !DB_printf{"********     %04lx: %02x - %s %d", (`1), (`1), &op$, (`3)}
 End Macro
 
+Macro __execute_opcode
+  PC + 2
+  !__print_bc{PC, (`1)}
+End Macro
+
+Macro __execute_opcode_v1
+  PC + 2
+  v1 = Peek.w(*NS_script_data + PC)
+  !__print_bc{PC - 2, (`1), v1}
+  PC + 2
+End Macro
+
 ; Executes the bytecode pointed to in the script
 ; Assumes the existence of this global data:
 ;   NS_data: Word array containing the opcodes to all the scrips
@@ -29,182 +41,215 @@ End Macro
 ;   NN_game_set_scene: Goes to a new scene
 ;   NN_game_map: Display the map with locations
 Statement NS_execute_script{script_offset.l}
-    !DB_trace{"NS_SCRIPT", "NS_exectute_script: $" + Hex$(script_offset)}
-    SHARED *NS_script_data, NS_script_data_size, NS_flags()    ; get a reference to the script data and game flags
-    SHARED *NN_string_table
-    ; Get the referenced script
-    If script_offset > NS_script_data_size
-        NPrint "Script offset", script_offset, " out of bounds";
-        Statement Return
-    End If
+  !DB_trace{"NS_SCRIPT", "NS_exectute_script: $" + Hex$(script_offset)}
+  SHARED *NS_script_data, NS_script_data_size, NS_flags()    ; get a reference to the script data and game flags
+  SHARED *NN_string_table
+  ; Get the referenced script
+  If script_offset > NS_script_data_size
+    NPrint "Script offset", script_offset, " out of bounds";
+    Statement Return
+  End If
 
-    DEFTYPE .l PC
-    DEFTYPE .b FR, done
+  DEFTYPE .l PC
+  DEFTYPE .b FR, done
 
-    PC = script_offset * SizeOf .w; Set up program counter
-    FR = False                    ; Initialize Flag Register
-    done = False
+  PC = script_offset * SizeOf .w; Set up program counter
+  FR = False                    ; Initialize Flag Register
+  done = False
 
-    DEFTYPE .w v1, v2, v3
-    Repeat
-        Select Peek.w (*NS_script_data + PC)
-            Case #NS_op_noop
-                PC + 2              ; Eat the opcode
-                !__print_bc{PC, "noop"}
+  DEFTYPE .w v1, v2, v3
+  Repeat
+    Select Peek.w (*NS_script_data + PC)
+      Case #NS_op_noop
+        PC + 2              ; Eat the opcode
+        !__print_bc{PC, "noop"}
 
-            ; Flag register operations
-            Case #NS_op_clear
-                PC + 2              ; Eat the opcode
-                FR = False
-                !__print_bc{PC, "clear"}
+      ; Flag register operations
+      Case #NS_op_clear
+        PC + 2              ; Eat the opcode
+        FR = False
+        !__print_bc{PC, "clear"}
 
-            Case #NS_op_set
-                PC + 2              ; Eat the opcode
-                FR = True
-                !__print_bc{PC, "set"}
+      Case #NS_op_set
+        PC + 2              ; Eat the opcode
+        FR = True
+        !__print_bc{PC, "set"}
 
-            Case #NS_op_load; id
-                PC + 2              ; Eat the opcode
-                v1 = Peek.w (*NS_script_data + PC)
-                FR = NS_flags(v1)
-                PC + 2              ; Eat the parameter
-                !__print_bc_v1{PC, "load", v1}
+      Case #NS_op_load; id
+        PC + 2              ; Eat the opcode
+        v1 = Peek.w (*NS_script_data + PC)
+        FR = NS_flags(v1)
+        PC + 2              ; Eat the parameter
+        !__print_bc_v1{PC, "load", v1}
 
-            Case #NS_op_store; id
-                PC + 2              ; Eat the opcode
-                v1 = Peek.w (*NS_script_data + PC)
-                NS_flags(v1) = FR
-                PC + 2              ; Eat the parameter
-                !__print_bc_v1{PC, "store", v1}
+      Case #NS_op_store; id
+        PC + 2              ; Eat the opcode
+        v1 = Peek.w (*NS_script_data + PC)
+        NS_flags(v1) = FR
+        PC + 2              ; Eat the parameter
+        !__print_bc_v1{PC, "store", v1}
 
-            ; Logical operations
-            Case #NS_op_and; id
-                PC + 2              ; Eat the opcode
-                v1 = Peek.w (*NS_script_data + PC)
-                FR AND NS_flags(v1)
-                PC + 2              ; Eat the parameter
-                !__print_bc_v1{PC, "and", v1}
+      ; Logical operations
+      Case #NS_op_and; id
+        PC + 2              ; Eat the opcode
+        v1 = Peek.w (*NS_script_data + PC)
+        FR AND NS_flags(v1)
+        PC + 2              ; Eat the parameter
+        !__print_bc_v1{PC, "and", v1}
 
-            Case #NS_op_or; id
-                PC + 2              ; Eat the opcode
-                v1 = Peek.w (*NS_script_data + PC)
-                FR OR NS_flags(v1)
-                PC + 2              ; Eat the parameter
-                !__print_bc_v1{PC, "or", v1}
+      Case #NS_op_or; id
+        PC + 2              ; Eat the opcode
+        v1 = Peek.w (*NS_script_data + PC)
+        FR OR NS_flags(v1)
+        PC + 2              ; Eat the parameter
+        !__print_bc_v1{PC, "or", v1}
 
-            Case #NS_op_not
-                PC + 2              ; Eat the opcode
-                v1 = Peek.w (*NS_script_data + PC)
-                FR = NOT NS_flags(v1)
-                !__print_bc{PC, "not"}
+      Case #NS_op_not
+        PC + 2              ; Eat the opcode
+        v1 = Peek.w (*NS_script_data + PC)
+        FR = NOT NS_flags(v1)
+        !__print_bc{PC, "not"}
 
-            ; Flow control
-            Case #NS_op_jump; offset
-                PC + 2              ; Eat the opcode
-                v1 = Peek.w (*NS_script_data + PC) - 1
-                PC + (v1 ASL 1)
-                !__print_bc_v1{PC, "jump", v1}
+      ; Flow control
+      Case #NS_op_jump; offset
+        PC + 2              ; Eat the opcode
+        v1 = Peek.w (*NS_script_data + PC) - 1
+        PC + (v1 ASL 1)
+        !__print_bc_v1{PC, "jump", v1}
 
-            Case #NS_op_jift; offset
-                PC + 2              ; Eat the opcode
-                v1 = Peek.w (*NS_script_data + PC) - 1
-                if FR
-                    PC + (v1 ASL 1)
-                Else
-                    PC + 2              ; Eat the parameter
-                End If
-                !__print_bc_v1{PC, "jift", v1}
+      Case #NS_op_jift; offset
+        PC + 2              ; Eat the opcode
+        v1 = Peek.w (*NS_script_data + PC) - 1
+        if FR
+            PC + (v1 ASL 1)
+        Else
+            PC + 2              ; Eat the parameter
+        End If
+        !__print_bc_v1{PC, "jift", v1}
 
-            Case #NS_op_jiff; offset
-                PC + 2              ; Eat the opcode
-                v1 = Peek.w (*NS_script_data + PC) - 1
-                if FR
-                    PC + 2              ; Eat the parameter
-                Else
-                    PC + (v1 ASL 1)
-                End If
-                !__print_bc_v1{PC, "jiff", v1}
+      Case #NS_op_jiff; offset
+        PC + 2              ; Eat the opcode
+        v1 = Peek.w (*NS_script_data + PC) - 1
+        if FR
+            PC + 2              ; Eat the parameter
+        Else
+            PC + (v1 ASL 1)
+        End If
+        !__print_bc_v1{PC, "jiff", v1}
 
-            Case #NS_op_end
-                done = True
-                !__print_bc{PC, "end"}
+      Case #NS_op_end
+        done = True
+        !__print_bc{PC, "end"}
 
-            ; Scene operations
-            Case #NS_op_setbg; id
-                PC + 2              ; Eat the opcode
-                v1 = Peek.w (*NS_script_data + PC)
-                !__print_bc_v1{PC, "setbg", v1}
-                SC_set_bg{v1}
-                PC + 2              ; Eat the parameter
+      ; Scene operations
+      Case #NS_op_setbg; id
+        PC + 2              ; Eat the opcode
+        v1 = Peek.w (*NS_script_data + PC)
+        !__print_bc_v1{PC, "setbg", v1}
+        SC_set_bg{v1}
+        PC + 2              ; Eat the parameter
 
-            ; Shape operations
-            Case #NS_op_draw; id x y
-                PC + 2              ; Eat the opcode
-                v1 = Peek.w (*NS_script_data + PC)
-                v2 = Peek.w (*NS_script_data + PC + 2)
-                v3 = Peek.w (*NS_script_data + PC + 4)
-                !__print_bc{PC, "draw"}
-                SH_draw{v1, v2, v3}
-                PC + 6              ; Eat the parameters
+      ; Shape operations
+      Case #NS_op_draw; id x y
+        PC + 2              ; Eat the opcode
+        v1 = Peek.w (*NS_script_data + PC)
+        v2 = Peek.w (*NS_script_data + PC + 2)
+        v3 = Peek.w (*NS_script_data + PC + 4)
+        !__print_bc{PC, "draw"}
+        SH_draw{v1, v2, v3}
+        PC + 6              ; Eat the parameters
 
-            ; Inventory Operations
-            Case #NS_op_hasi; id
-                PC + 2              ; Eat the opcode
-                v1 = Peek.w (*NS_script_data + PC)
-                !__print_bc_v1{PC, "hasi", v1}
-                FR = IV_has_item{v1}
-                PC + 2              ; Eat the parameter
+      ; Inventory Operations
+      Case #NS_op_hasi; id
+        PC + 2              ; Eat the opcode
+        v1 = Peek.w (*NS_script_data + PC)
+        !__print_bc_v1{PC, "hasi", v1}
+        FR = IV_has_item{v1}
+        PC + 2              ; Eat the parameter
 
-            Case #NS_op_addi; id
-                PC + 2              ; Eat the opcode
-                v1 = Peek.w (*NS_script_data + PC)
-                !__print_bc_v1{PC, "addi", v1}
-                IV_add_item{v1}
-                PC + 2              ; Eat the parameter
+      Case #NS_op_addi; id
+        PC + 2              ; Eat the opcode
+        v1 = Peek.w (*NS_script_data + PC)
+        !__print_bc_v1{PC, "addi", v1}
+        IV_add_item{v1}
+        PC + 2              ; Eat the parameter
 
-            Case #NS_op_remi; id
-                PC + 2              ; Eat the opcode
-                v1 = Peek.w (*NS_script_data + PC)
-                !__print_bc_v1{PC, "remi", v1}
-                IV_remove_item{v1}
-                PC + 2              ; Eat the parameter
+      Case #NS_op_remi; id
+        PC + 2              ; Eat the opcode
+        v1 = Peek.w (*NS_script_data + PC)
+        !__print_bc_v1{PC, "remi", v1}
+        IV_remove_item{v1}
+        PC + 2              ; Eat the parameter
 
-            ; Game operations
-            Case #NS_op_goto; id
-                PC + 2              ; Eat the opcode
-                v1 = Peek.w (*NS_script_data + PC)
-                !__print_bc_v1{PC, "goto", v1}
-                NN_game_set_scene{v1}
-                done = True
+      ; Game operations
+      Case #NS_op_goto; id
+        PC + 2              ; Eat the opcode
+        v1 = Peek.w (*NS_script_data + PC)
+        !__print_bc_v1{PC, "goto", v1}
+        NN_game_set_scene{v1}
+        done = True
 
-            Case #NS_op_map
-                PC + 2              ; Eat the opcode
-                !__print_bc{PC, "map"}
-                NN_game_map{}
-                done = True
+      Case #NS_op_map
+        PC + 2              ; Eat the opcode
+        !__print_bc{PC, "map"}
+        NN_game_map{}
+        done = True
 
-            Case #NS_op_text; id
-                PC + 2              ; Eat the opcode
-                v1 = Peek.w (*NS_script_data + PC)
-                !__print_bc_v1{PC, "text", v1}
-                TX_draw_text_wrapped{!__get_string{v1}, 32, #NN_half_screen_width , #NN_screen_height}
-                PC + 2              ; Eat the parameter
+      Case #NS_op_text; id
+        PC + 2              ; Eat the opcode
+        v1 = Peek.w (*NS_script_data + PC)
+        !__print_bc_v1{PC, "text", v1}
+        TX_draw_text_wrapped{!__get_string{v1}, 32, #NN_half_screen_width , #NN_screen_height}
+        PC + 2              ; Eat the parameter
 
-            Case #NS_op_gameover
-                PC + 2              ; Eat the opcode
-                v1 = Peek.w (*NS_script_data + PC)
-                !__print_bc_v1{PC, "gameover", v1}
-                NN_game_over{v1}
-                done = True
+      Case #NS_op_gameover
+        PC + 2              ; Eat the opcode
+        v1 = Peek.w (*NS_script_data + PC)
+        !__print_bc_v1{PC, "gameover", v1}
+        NN_game_over{v1}
+        done = True
 
-            Default
-                ; Unknown opcode!
-                v1 = Peek.w (*NS_script_data + PC)
-                !DB_log_str{"NS_SCRIPT", "Error! Unknown opcode! PC: $" + Hex$(PC) + " Opcode: $" + Hex$(v1)}
-                done = True
+      ; Dialogue operations
+      Case #NS_op_dlg
+        !__execute_opcode_v1{"dlg"}
+        DG_show_dialog{v1}
 
-        End Select
-    Until done = True
+      Case #NS_op_choff
+        !__execute_opcode_v1{"choff"}
+        DG_enable_choice{v1, False}
+
+      Case #NS_op_chon
+        !__execute_opcode_v1{"chon"}
+        DG_enable_choice{v1, True}
+
+      Case #NS_op_pageoff
+        !__execute_opcode_v1{"pageoff"}
+        DG_enable_page{v1, False}
+
+      Case #NS_op_pageon
+        !__execute_opcode_v1{"pageon"}
+        DG_enable_page{v1, True}
+
+      Case #NS_op_dlgimg
+        !__execute_opcode_v1{"dlgimg"}
+        DG_set_speaker_image{v1}
+
+      Case #NS_op_dlgname
+        !__execute_opcode_v1{"dlgname"}
+        DG_set_speaker_name{v1}
+
+      Case #NS_op_dlgend
+        !__execute_opcode{"dlgend"}
+        DG_end{}
+
+      Default
+        ; Unknown opcode!
+        v1 = Peek.w (*NS_script_data + PC)
+        !DB_log_str{"NS_SCRIPT", "Error! Unknown opcode! PC: $" + Hex$(PC) + " Opcode: $" + Hex$(v1)}
+        done = True
+
+    End Select
+  Until done = True
 End Statement
 
 Statement NS_DEBUG_print_bytecode{}

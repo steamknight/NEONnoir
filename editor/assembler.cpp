@@ -24,6 +24,14 @@ namespace NEONnoir
             { "end",        { (int16_t)0x2F,   {                                                                          }}},
             { "setbg",      { (int16_t)0x30,   {   ParamType::CONST                                                       }}},
             { "draw",       { (int16_t)0x40,   {   ParamType::CONST,       ParamType::NUMBER,      ParamType::NUMBER      }}},
+            { "dlg",        { (int16_t)0x50,   {   ParamType::CONST                                                       }}},
+            { "choff",      { (int16_t)0x51,   {   ParamType::CONST                                                       }}},
+            { "chon",       { (int16_t)0x52,   {   ParamType::CONST                                                       }}},
+            { "pageoff",    { (int16_t)0x53,   {   ParamType::CONST                                                       }}},
+            { "pageon",     { (int16_t)0x54,   {   ParamType::CONST                                                       }}},
+            { "dlgimg",     { (int16_t)0x55,   {   ParamType::CONST                                                       }}},
+            { "dlgname",    { (int16_t)0x5F,   {   ParamType::CONST                                                       }}},
+            { "dlgend",     { (int16_t)0x5F,   {                                                                          }}},
             { "hasi",       { (int16_t)0x60,   {   ParamType::CONST                                                       }}},
             { "addi",       { (int16_t)0x61,   {   ParamType::CONST                                                       }}},
             { "remi",       { (int16_t)0x62,   {   ParamType::CONST                                                       }}},
@@ -39,7 +47,7 @@ namespace NEONnoir
         parse_assembly();
         update_jump_references();
 
-        return { _bytecode, _scripts, _strings };
+        return { _bytecode, _scripts, _strings, _flags };
     }
 
     void assembler::parse_assembly()

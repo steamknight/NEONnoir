@@ -72,6 +72,7 @@ namespace NEONnoir
         bytecode bytecode;
         named_values<script> scripts_meta;
         named_values<string_constant> strings;
+        named_values<int16_t> flags;
     };
 
     class assembler

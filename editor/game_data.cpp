@@ -47,6 +47,38 @@ namespace NEONnoir
         };
     }
 
+    void to_json(json& j, dialogue_choice const& c)
+    {
+        j = json{
+            { "text",           c.text },
+            { "script",         c.script },
+            { "flag",           c.flag },
+            { "next_page_id" ,  c.next_page_id },
+            { "enabled",        c.enabled },
+            { "has_script",     c.has_script },
+            { "has_flag",       c.has_flag },
+        };
+    }
+
+    void to_json(json& j, dialogue_page const& p)
+    {
+        j = json{
+            { "text",           p.text },
+            { "choices",        p.choices },
+            { "next_page_id" ,  p.next_page_id },
+            { "enabled",        p.enabled },
+        };
+    }
+
+    void to_json(json& j, dialogue const& d)
+    {
+        j = json{
+            { "speaker",        d.speaker },
+            { "image_id",       d.image_id },
+            { "pages" ,         d.pages },
+        };
+    }
+
     void from_json(const json& j, game_data_region& r)
     {
         j.at("x").get_to(r.x);
@@ -79,9 +111,36 @@ namespace NEONnoir
         j.at("scenes").get_to(l.scenes);
     }
 
+    void from_json(const json& j, dialogue_choice& c)
+    {
+        j.at("text").get_to(c.text);
+        j.at("script").get_to(c.script);
+        j.at("flag").get_to(c.flag);
+        j.at("next_page_id").get_to(c.next_page_id);
+        j.at("enabled").get_to(c.enabled);
+        j.at("has_script").get_to(c.has_script);
+        j.at("has_flag").get_to(c.has_flag);
+    }
+
+    void from_json(const json& j, dialogue_page& p)
+    {
+        j.at("text").get_to(p.text);
+        j.at("choices").get_to(p.choices);
+        j.at("next_page_id").get_to(p.next_page_id);
+        j.at("enabled").get_to(p.enabled);
+    }
+
+    void from_json(const json& j, dialogue& d)
+    {
+        j.at("speaker").get_to(d.speaker);
+        j.at("image_id").get_to(d.image_id);
+        j.at("pages").get_to(d.pages);
+    }
+
     void from_json(const json& j, game_data& g)
     {
         j.at("locations").get_to(g.locations);
+        j.at("dialogues").get_to(g.dialogues);
     }
 
     void game_data::serialize(std::string const& filename)
@@ -92,7 +151,8 @@ namespace NEONnoir
             auto locs = json(locations);
             auto root = json
             {
-                { "locations", locs}
+                { "locations", locs},
+                { "dialogues", json(dialogues)}
             };
 
             savefile << root;

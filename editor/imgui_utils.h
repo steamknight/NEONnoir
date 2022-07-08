@@ -20,8 +20,8 @@ namespace NEONnoir
     void ToolTip(char const* desc);
 
     void SetCursorCenteredText(ImVec2 center, std::string_view const& text, float wrap_width = -1.f);
-    
-    bool DeleteButton(std::string const& id, std::string_view const& label = "");
+
+    bool DeleteButton(std::string const& id, std::string_view const& label = "", ImVec2 const& size = {0, 0});
     bool DeleteSelectable(std::string const& id, std::string_view const& label = "");
 
     class ImGui_window

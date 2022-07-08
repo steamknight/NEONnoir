@@ -40,6 +40,38 @@ NEWTYPE .NN_location
   last_scene.w
 End NEWTYPE
 
+; Dialogue Choice
+; -----------------------------------------------
+NEWTYPE .DG_choice
+  text_id.w           ; index into string table
+  flag.w              ; flag that determines if criteria is met, $FFFF if none
+  page_id.w           ; id to the next page in the conversation
+  script_offset.w     ; script to run if selected, $FFFF if none
+  enabled.b           ; determine if it should be shown. If this is False, 
+                      ; it overrides the flag property
+  padding.b           ; padding to make this even size
+End NEWTYPE
+
+; Dialogue Page
+; -----------------------------------------------
+NEWTYPE .DG_page
+  text_id.w           ; index into string array, $FFFF if no text
+  page_id.w           ; index to the next page to display, $FFFF if no page
+  first_choice_id.w   ; id of the first choice
+  choice_count.w      ; number of choices in the page
+  enabled.b           ; determine if it should be shown.
+  padding.b           ; padding to make this even size
+End NEWTYPE
+
+; Dialogue
+; -----------------------------------------------
+NEWTYPE .DG_dialogue
+  first_page_id.w     ; id of the first page of dialogue
+  page_count.w        ; number of page in the dialogue
+  speaker_name.w      ; text id for the speaker's name
+  speaker_image.w     ; shape id for the speaker's portrait
+End NEWTYPE
+
 ; =============================================================================
 ; Define all globals and macros
 ; =============================================================================
@@ -71,6 +103,33 @@ Macro __get_location
   (*NN_locations + (SizeOf .NN_location * (`1)))
 End Macro
 
+; DG_choice dynamic array
+; -----------------------------------------------
+DEFTYPE .DG_choice *DG_choices
+DEFTYPE .l DG_choice_count
+
+Macro __get_choice
+  (*DG_choices + (SizeOf .DG_choice * (`1)))
+End Macro
+
+; DG_page dynamic array
+; -----------------------------------------------
+DEFTYPE .DG_page *DG_pages
+DEFTYPE .l DG_page_count
+
+Macro __get_page
+  (*DG_pages + (SizeOf .DG_page * (`1)))
+End Macro
+
+; DG_dialogue dynamic array
+; -----------------------------------------------
+DEFTYPE .DG_dialogue *DG_dialogues
+DEFTYPE .l DG_dialogue_count
+
+Macro __get_dialogue
+  (*DG_dialogues + (SizeOf .DG_dialogue * (`1)))
+End Macro
+
 ; String Table
 ; -----------------------------------------------
 DEFTYPE .w *NN_string_table
@@ -88,6 +147,7 @@ End Macro
 Macro __get_string
   Peek$(!__get_string_addr{(`1)})
 End Macro
+
 
 ; Script
 ; -----------------------------------------------
@@ -123,6 +183,15 @@ DEFTYPE .b NN_current_bmp
 ; Loading NEONpacks
 ; -----------------------------------------------------------------------------
 #NN_NEON_magic = $4E454F4E     ; NEON
+#NN_NEON_locs = $4C4F4352     ; LOCS
+#NN_NEON_scns = $53424E53     ; SCNS
+#NN_NEON_rngs = $52474E53     ; RGNS
+#NN_NEON_dlgs = $444C4753     ; DLGS
+#NN_NEON_page = $50414745     ; PAGE
+#NN_NEON_chce = $43484245     ; CHCE
+#NN_NEON_byte = $42595445     ; BYTE
+#NN_NEON_strg = $53545247     ; STRG
+
 #NN_NEON_success                = -1
 #NN_NEON_file_not_found         = 1
 #NN_NEON_generic_read_error     = 2

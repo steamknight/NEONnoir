@@ -9,6 +9,7 @@
 #include "location_browser.h"
 #include "scene_editor.h"
 #include "script_editor.h"
+#include "dialogue_editor.h"
 
 struct ImFont;
 
@@ -46,7 +47,7 @@ namespace NEONnoir
         location_browser _location_browser{};
         scene_editor _scene_editor{};
         script_editor _script_editor{};
-        TextEditor _text_editor{};
+        dialogue_editor _dialogue_editor{};
     };
 };
 

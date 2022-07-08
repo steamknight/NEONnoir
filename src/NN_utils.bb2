@@ -26,7 +26,7 @@ Function .b IN_update_mouse{}
   ;    1 |    0 | Released
   ;    1 |    1 | Held
   value.b = (prev LSL 1) OR (curr)
-  !DB_printf{"*********** prev %d - curr %d = value %d", prev, curr, value}
+;  !DB_printf{"*********** prev %d - curr %d = value %d", prev, curr, value}
   Function Return value
 End Function
 

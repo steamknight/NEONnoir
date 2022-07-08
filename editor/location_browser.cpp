@@ -52,7 +52,6 @@ namespace NEONnoir
 
     void location_browser::display_editor(std::shared_ptr<game_data> data)
     {
-        auto const origin = ImGui::GetCursorScreenPos();
         auto const size = ImGui::GetContentRegionAvail();
 
         // Add Location button

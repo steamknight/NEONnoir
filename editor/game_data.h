@@ -60,10 +60,38 @@ namespace NEONnoir
         std::vector<game_data_scene> scenes;
     };
 
+    struct dialogue_choice
+    {
+        std::string text;
+        std::string script;
+        std::string flag;
+        uint16_t next_page_id{ 0xFFFF };
+        bool enabled{ true };
+        bool self_disable{ false };
+        bool has_script{ false };
+        bool has_flag{ false };
+    };
+
+    struct dialogue_page
+    {
+        std::string text;
+        std::vector<dialogue_choice> choices;
+        uint16_t next_page_id{ 0xFFFF };
+        bool enabled{ true };
+    };
+
+    struct dialogue
+    {
+        std::string speaker;
+        uint16_t image_id{ 0xFFFF };
+        std::vector<dialogue_page> pages;
+    };
+
     struct game_data
     {
         std::vector<game_data_location> locations;
         std::vector<std::string> flags;
+        std::vector<dialogue> dialogues;
 
         void serialize(std::string const& filename);
 

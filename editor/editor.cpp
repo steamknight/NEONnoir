@@ -19,52 +19,6 @@ namespace fs = std::filesystem;
 
 namespace NEONnoir
 {
-    const TextEditor::LanguageDefinition& NEONscript_language_definition()
-    {
-        static bool inited = false;
-        static TextEditor::LanguageDefinition langDef;
-        if (!inited)
-        {
-            static const char* const keywords[] = {
-                ".FLAGS", ".CONST", ".TEXT", ".SCRIPT"
-            };
-
-            for (auto& k : keywords)
-                langDef.mKeywords.insert(k);
-
-            static const char* const identifiers[] = {
-                "noop", "clear", "set", "load", "store", "and", "or", "not", "jump", "jift", "jiff", 
-                "setbg", "draw", "hasi ", "addi", "remi", "goto", "map", "text", "gameover"
-            };
-            for (auto& k : identifiers)
-            {
-                TextEditor::Identifier id;
-                id.mDeclaration = "Built-in function";
-                langDef.mIdentifiers.insert(std::make_pair(std::string(k), id));
-            }
-
-            langDef.mTokenRegexStrings.push_back(std::make_pair<std::string, TextEditor::PaletteIndex>("L?\\\"(\\\\.|[^\\\"])*\\\"", TextEditor::PaletteIndex::String));
-            langDef.mTokenRegexStrings.push_back(std::make_pair<std::string, TextEditor::PaletteIndex>("\\\'[^\\\']*\\\'", TextEditor::PaletteIndex::String));
-            langDef.mTokenRegexStrings.push_back(std::make_pair<std::string, TextEditor::PaletteIndex>("0[xX][0-9a-fA-F]+[uU]?[lL]?[lL]?", TextEditor::PaletteIndex::Number));
-            langDef.mTokenRegexStrings.push_back(std::make_pair<std::string, TextEditor::PaletteIndex>("[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)([eE][+-]?[0-9]+)?[fF]?", TextEditor::PaletteIndex::Number));
-            langDef.mTokenRegexStrings.push_back(std::make_pair<std::string, TextEditor::PaletteIndex>("[+-]?[0-9]+[Uu]?[lL]?[lL]?", TextEditor::PaletteIndex::Number));
-            langDef.mTokenRegexStrings.push_back(std::make_pair<std::string, TextEditor::PaletteIndex>("[a-zA-Z_][a-zA-Z0-9_]*", TextEditor::PaletteIndex::Identifier));
-            langDef.mTokenRegexStrings.push_back(std::make_pair<std::string, TextEditor::PaletteIndex>("[\\[\\]\\{\\}\\!\\%\\^\\&\\*\\(\\)\\-\\+\\=\\~\\|\\<\\>\\?\\/\\;\\,\\.]", TextEditor::PaletteIndex::Punctuation));
-
-            langDef.mSingleLineComment = ";";
-            langDef.mCommentStart = "/*";
-            langDef.mCommentEnd = "*/";
-
-            langDef.mCaseSensitive = true;
-            langDef.mAutoIndentation = false;
-
-            langDef.mName = "NEONscript";
-
-            inited = true;
-        }
-        return langDef;
-    }
-
     editor::editor(editor::settings const& setting)
     {
         // Initialize GLFW
@@ -149,6 +103,8 @@ namespace NEONnoir
             _scene_editor.display();
 
             _script_editor.display(_script, _monospaced_font);
+
+            _dialogue_editor.display(_game_data);
 
             ImGui::ShowDemoWindow();
 

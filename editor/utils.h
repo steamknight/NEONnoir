@@ -1,6 +1,7 @@
 #pragma once
 #include <optional>
 #include <string_view>
+#include <format>
 
 namespace NEONnoir
 {
@@ -12,5 +13,7 @@ namespace NEONnoir
     {
         return static_cast<size_t>(T);
     }
+
+#define make_id(label, value) std::format(label, (size_t)&value).c_str()
 
 }
