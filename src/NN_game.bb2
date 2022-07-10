@@ -14,6 +14,8 @@ Function .b NN_load_neonpack{filename$}
   SHARED *NS_script_data, NS_script_data_size
   SHARED *DG_dialogues, *DG_pages, *DG_choices
   SHARED DG_dialogue_count, DG_page_count, DG_choice_count
+  SHARED *NN_word_table, NN_word_table_count, NN_word_data_count, *NN_word_data
+
 
   !DB_trace{"NN_GAME", "NN_load_neonpack: " +  filename$}
 

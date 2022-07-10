@@ -72,6 +72,11 @@ NEWTYPE .DG_dialogue
   speaker_image.w     ; shape id for the speaker's portrait
 End NEWTYPE
 
+NEWTYPE .NN_word
+  start_idx.w
+  end_idx.w
+End NEWTYPE
+
 ; =============================================================================
 ; Define all globals and macros
 ; =============================================================================
@@ -148,6 +153,19 @@ Macro __get_string
   Peek$(!__get_string_addr{(`1)})
 End Macro
 
+; Word Table/Data
+; Stores the position of the beginning and end of every work in every string
+; -----------------------------------------------
+DEFTYPE .l *NN_word_table, NN_word_table_count, NN_word_data_count
+DEFTYPE .NN_word *NN_word_data
+
+Macro __get_word_count
+  (Peek.l (*NN_word_table + ((`1) * SizeOf .l)))
+End Macro
+
+Macro __get_words
+  (Peek.l (*NN_word_table + ((`1) * SizeOf .l)) + 4)
+End Macro
 
 ; Script
 ; -----------------------------------------------
@@ -155,6 +173,10 @@ DEFTYPE .w *NS_script_data
 DEFTYPE .l NS_script_data_size
 
 Dim NS_flags.b(256)
+; -----------------------------------------------
+DEFTYPE .b DG_dialogue_is_active
+
+; Dialogue
 
 ; Inventory
 ; -----------------------------------------------
@@ -166,6 +188,17 @@ Dim List IV_user_items(#IV_max_items)
 ; Main
 ; -----------------------------------------------
 DEFTYPE .b NN_current_bmp
+
+; =============================================================================
+; Convenience Macros
+; =============================================================================
+Macro __use_string_table
+  SHARED *NN_string_table
+End Macro
+
+Macro __use_word_table
+  SHARED *NN_word_table
+End Macro
 
 ; =============================================================================
 ; Constants
@@ -207,5 +240,37 @@ DEFTYPE .b NN_current_bmp
 #NN_pointer_interact = 12
 #NN_pointer_exit = 13
 
+; Text
+; -----------------------------------------------------------------------------
+#TX_font_start = 32
+#TX_font_end = 127
+#TX_frame_start = 22
+#TX_frame_end = 30
+#TX_char_per_line = 28
+#TX_lines_per_frame = 2
+
+; Shape ids for the 9-patch for the text frame
+#TX_frame_tl = 22
+#TX_frame_tm = 23
+#TX_frame_tr = 24
+#TX_frame_ml = 25
+#TX_frame_mm = 26
+#TX_frame_mr = 27
+#TX_frame_bl = 28
+#TX_frame_bm = 29
+#TX_frame_br = 30
+
+#TX_frame_size = 8
+#TX_frame_total_size = 16
+
+; This is specific to the font file we're using
+; A more robust approach would be to read this from a file
+#TX_font_width = 6
+#TX_font_height = 8
+
+#TX_scratch_bmp = 10
+#TX_space = 32
+#TX_newline = 10
+#TX_text_shape = 21
 
 #DB_coplist = 0

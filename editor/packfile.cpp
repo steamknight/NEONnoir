@@ -140,7 +140,7 @@ namespace NEONnoir
                         ? 0xFFFF
                         : get_flag_id(choice.flag, result);
 
-                    c.enabled = choice.enabled;
+                    c.enabled = choice.enabled ? 0xFF : 0;
 
                     pak.choices.push_back(c);
 
@@ -148,6 +148,7 @@ namespace NEONnoir
                 }
 
                 p.choice_count = choice_count;
+                p.enabled = page.enabled ? 0xFF : 0;
                 pak.pages.push_back(p);
 
                 page_count++;

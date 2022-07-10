@@ -9,6 +9,87 @@
 ; =============================================================================
 Statement DG_show_dialog{id.w}
   !DB_trace{"DG", "DG_show_dialog:" + Str$(id)}
+  SHARED DG_dialogue_is_active, *DG_dialogues, *DG_pages, *DG_choices
+  !__use_string_table{}
+
+  DEFTYPE .DG_dialogue *current
+  DEFTYPE .DG_page *current_page
+  DEFTYPE .b done, displayed, lmb, page_id, good_page, page_search_done
+
+  DG_dialogue_is_active = True
+  *current = !__get_dialogue{id}
+  page_id = *current\first_page_id
+
+  done = False
+  displayed = False
+  While NOT done
+    VWait
+    DisplaySprite #DB_coplist, 0, MouseX, MouseY, 0
+    lmb = IN_update_mouse{}
+
+    ; Get the current page
+    Repeat
+      *current_page = !__get_page{page_id}
+
+      If *current_page\enabled = True
+        ; We got a good page, let's continue
+        good_page = True
+        page_search_done = True
+      Else
+        ; Not a good page, look for the next page
+        page_id = *current_page\page_id
+        If page_id = -1
+          ; We're out of pages
+          good_page = False
+          page_search_done = True
+          displayed = False
+        End If
+      End If
+    Until page_search_done = True
+
+    If good_page = False
+      DG_dialogue_is_active = False
+    Else
+      *current_page = !__get_page{page_id}
+      If displayed = False
+        UnBuffer 0
+        ; If the page has not been drawn yet, draw it
+        TX_draw_text_wrapped{!__get_string{*current_page\text_id}, 32, #NN_screen_width - 8, 8}
+        displayed = True
+
+        If *current_page\first_choice_id <> -1
+          ; If there are choices, draw those
+          !DB_log_str{"DG", "There are some choices"}
+          For c = *current_page\choice_count - 1 to 0
+            
+          Next
+        Else
+          !DB_log_str{"DG", "There are no choices"}
+        End If
+      End If
+
+      ; Wait for a mouse click
+      If lmb = #IN_mouse_released
+        !DB_log_val{"DB", "Mouse released. Next page id: %d", *current_page\page_id}
+        If *current_page\page_id <> -1
+          ; If there are no choices advance to the next page
+          page_id = *current_page\page_id
+          displayed = False
+        Else
+          ; If there are choices, check if one was selected
+            ; If a choice was selected, follow it
+        End If
+      End If
+    End If
+
+    ; ESCape hatch for debugging
+    If RawStatus($44) Then done = True
+    ; Check if it's been requested to quit the dialogue
+    If DG_dialogue_is_active = False Then done = True
+  Wend
+
+  DG_dialogue_is_active = False
+  UnBuffer 0
 End Statement
 
 ; Enables/Disables a page
@@ -39,4 +120,7 @@ End Statement
 ; =============================================================================
 Statement DG_end{}
   !DB_trace{"DG", "DG_end"}
+  SHARED DG_dialogue_is_active
+
+  DG_dialogue_is_active = False
 End Statement

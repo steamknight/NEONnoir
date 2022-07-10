@@ -7,44 +7,8 @@
 ; Needs two Buffers, 0 and 1. Buffer 0 draws the frame and text
 ; while draws the blinking caret.
 ;
-DEFTYPE .w
-
-;#DB_ENABLE_DEBUG_LOG = -1
-;#DB_ENABLE_DEBUG_TRACE = -1
-
-#TX_text_debug = 0
 
 #primary = 0
-
-#TX_font_start = 32
-#TX_font_end = 127
-#TX_frame_start = 22
-#TX_frame_end = 30
-#TX_char_per_line = 28
-#TX_lines_per_frame = 2
-
-; Shape ids for the 9-patch for the text frame
-#TX_frame_tl = 22
-#TX_frame_tm = 23
-#TX_frame_tr = 24
-#TX_frame_ml = 25
-#TX_frame_mm = 26
-#TX_frame_mr = 27
-#TX_frame_bl = 28
-#TX_frame_bm = 29
-#TX_frame_br = 30
-
-#TX_frame_size = 8
-#TX_frame_total_size = 16
-
-; This is specific to the font file we're using
-; A more robust approach would be to read this from a file
-#TX_font_width = 6
-#TX_font_height = 8
-
-#TX_scratch_bmp = 10
-#TX_space = 32
-#TX_text_shape = 21
 
 DEFTYPE .w TX_frame_x, TX_frame_y
 
@@ -133,7 +97,7 @@ Statement TX_draw_text_centered{text$, cx.w, cy.w}
 
   If cx - halfw < 0 Then cx = halfw
   If cx + halfw >= #NN_screen_width Then cx = #NN_screen_width - halfw
-  If cy - halfh < 0 Then cy = halfy
+  If cy - halfh < 0 Then cy = halfh
   If cy + halfh >= #NN_screen_width Then cy = #NN_screen_width - halfh
 
   x = cx - halfw
@@ -283,7 +247,7 @@ Statement TX_draw_text_wrapped{text$, line_width.w, cx.w, cy.w}
 
   If cx - halfw < 0 Then cx = halfw
   If cx + halfw >= #NN_screen_width Then cx = #NN_screen_width - halfw
-  If cy - halfh < 0 Then cy = halfy
+  If cy - halfh < 0 Then cy = halfh
   If cy + halfh >= #NN_screen_height Then cy = #NN_screen_height - halfh
 
   BBlit 0, #TX_text_shape, cx, cy, %0
@@ -292,63 +256,47 @@ Statement TX_draw_text_wrapped{text$, line_width.w, cx.w, cy.w}
   Free BitMap #TX_scratch_bmp
 End Statement
 
-; ===============================================================================
-; TEST
-; ===============================================================================
+; context = TX_begin{}
+; TX_render{context, "hello"}
+; TX_render_wrapped{context, "hello", 32}
+; TX_end{context, x, y}
 
-CNIF #TX_text_debug=-1
-AMIGA
+; context = TX_begin{}
+; TX_render_wrapped{context, "*Choice 1"}
+; TX_render_wrapped{context, "*Choice 2"}
+; TX_render_wrapped{context, "*Choice 3"}
+; TX_end{context, x, y}
 
-BitMap 0, #NN_screen_width, #NN_screen_width, 8
-Buffer 0, 64000
-Queue 0, 16
+; Hello, this is\na string.
 
-LoadBitMap 0, "data/alleyway2.iff", 0
+; 0 5 7 10 12 13 -1 15 15 17 22
 
-InitCopList 0, 44, #NN_screen_width, $10008, 8, 256, 0
 
-TX_initialize{"display.font", "frame.shape"}
+; NEWTYPE .TX_context
+;   max_width.w
+;   y_position.w
+; End NEWTYPE
 
-BLITZ
-CreateDisplay 0
-DisplayPalette 0, 0
-DisplayBitMap 0, 0
+; NEWTYPE .NN_rect
+;   x.w
+;   y.w
+;   w.w
+;   h.w
+; End NEWTYPE
 
-;TX_draw_single_line{"It was dark..."}
-;TX_draw_overlay{"It was dark..."}
+; Function .l TX_begin{}
+;   BitMap #TX_scratch_bmp, #NN_screen_width, #NN_screen_height, #NN_screen_bpp
+;   Use BitMap #TX_scratch_bmp
 
-;TX_draw_text_wrapped{"While it might prove to be a fun, if expensive diversion, I have far to much to right now.", 28, 160, 160
-a1$ = "Once again I found myself in the neon soaked alleyways of the Gutter. "
-a2$ = "Cheap thrills and violence were the very foundation this place was built on. "
-a3$ = "I needed to be careful, or wind up missing a few vital organs I'd gotten attached to."
+;   Function Return #TX_frame_size
+; End Function
 
-a$ = a1$ + a2$ + a3$
-NPrint a$
-TX_draw_text_wrapped{a$, 28, 160, 100}
+; Function .l TX_get_rect{id.w, wrap_width.w}
+;   !__use_string_table{}
 
-BBlit 0, 22, 0, 0, 0
-BBlit 0, 23, 6, 0, 0
-BBlit 0, 24, 12, 0, 0
-BBlit 0, 25, 0, 9, 0
-BBlit 0, 26, 6, 9, 0
-BBlit 0, 27, 12, 9, 0
-BBlit 0, 28, 0, 18, 0
-BBlit 0, 29, 6, 18, 0
-BBlit 0, 30, 12, 18, 0
+;   DEFTYPE .l addr, strlen
+;   addr = !__get_string_addr{id}
+;   strlen = Peek.w(addr - 2)
 
-Repeat
-  If RawStatus($01) = True
-    !log_str{"*********************"}
-    TX_draw_text_wrapped{a$, 28, 160, 100}
-  End If
 
-  If RawStatus($02) = True
-    !log_str{"---------------------"}
-    ;UnQueue 0
-    UnBuffer 0
-  End If
-Until RawStatus($45) = True
-
-End
-
-CEND
+; End Function
