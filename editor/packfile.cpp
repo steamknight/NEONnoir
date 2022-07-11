@@ -121,7 +121,7 @@ namespace NEONnoir
                 p.page_id = page.next_page_id;
                 if (p.page_id != 0xFFFF) p.page_id += d.first_page_id;
 
-                p.first_choice_id = static_cast<uint16_t>(pak.choices.size());
+                p.first_choice_id = (page.choices.size() > 0) ? static_cast<uint16_t>(pak.choices.size()) : 0xFFFF;
                 auto choice_count = 0;
                 for (auto const& choice : page.choices)
                 {
@@ -147,14 +147,14 @@ namespace NEONnoir
                     choice_count++;
                 }
 
-                p.choice_count = choice_count;
+                p.choice_count = page.choices.size();
                 p.enabled = page.enabled ? 0xFF : 0;
                 pak.pages.push_back(p);
 
                 page_count++;
             }
 
-            d.page_count = page_count;
+            d.page_count = dialogue.pages.size();
             pak.dialogues.push_back(d);
         }
 
@@ -188,10 +188,11 @@ namespace NEONnoir
                     );
                 }
 
-                word_list.word_count = static_cast<uint16_t>(word_list.words.size());
                 start_idx = current + 1;
-                pak.words_table.push_back(word_list);
             }
+
+            word_list.word_count = static_cast<uint16_t>(word_list.words.size());
+            pak.words_table.push_back(word_list);
         }
 
         return pak;
@@ -334,6 +335,13 @@ namespace NEONnoir
 
         // Write words header
         neonpack.write(words_header, 4);
+        write(neonpack, static_cast<uint32_t>(pak.words_table.size()));
+
+        for (auto const& entry : pak.words_table)
+        {
+            write(neonpack, static_cast<uint32_t>(entry.words.size()));
+            neonpack.write(reinterpret_cast<char const*>(entry.words.data()), entry.words.size() * sizeof(neon_word));
+        }
 
         // Add a closing null
         write(neonpack, 0u);
