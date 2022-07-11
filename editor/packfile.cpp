@@ -158,6 +158,42 @@ namespace NEONnoir
             pak.dialogues.push_back(d);
         }
 
+        // Calculate all words
+        for (auto const& text : pak.string_table)
+        {
+            auto word_list = neon_word_list{};
+
+            auto start_idx = 0;
+            auto current = 0;
+
+            while (start_idx < text.size())
+            {
+                current = start_idx;
+                while (current < text.size() && text[current] != ' ' && text[current] != '\n')
+                {
+                    current++;
+                }
+
+                if (text[current] == '\n')
+                {
+                    word_list.words.push_back({});
+                }
+                else
+                {
+                    word_list.words.push_back(
+                        {
+                            static_cast<uint16_t>(start_idx),
+                            static_cast<uint16_t>(current - 1)
+                        }
+                    );
+                }
+
+                word_list.word_count = static_cast<uint16_t>(word_list.words.size());
+                start_idx = current + 1;
+                pak.words_table.push_back(word_list);
+            }
+        }
+
         return pak;
     }
 
@@ -295,6 +331,9 @@ namespace NEONnoir
             write(neonpack, static_cast<uint32_t>(entry.size()));
             neonpack.write(entry.data(), entry.size());
         }
+
+        // Write words header
+        neonpack.write(words_header, 4);
 
         // Add a closing null
         write(neonpack, 0u);

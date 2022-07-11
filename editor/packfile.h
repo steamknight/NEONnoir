@@ -137,6 +137,20 @@ namespace NEONnoir
     };
 
     constexpr char bytecode_header[4] = { 'B', 'Y', 'T', 'E' };
+
+    constexpr char words_header[4] = { 'W', 'O', 'R', 'D' };
+    struct neon_word
+    {
+        uint16_t start_idx{0xFFFF};
+        uint16_t end_idx{0xFFFF};
+    };
+
+    struct neon_word_list
+    {
+        uint16_t word_count;
+        std::vector<neon_word> words;
+    };
+
 #pragma pack(pop)
 
     struct neon_packfile
@@ -149,6 +163,7 @@ namespace NEONnoir
         std::vector<neon_page> pages;
         std::vector<neon_choice> choices;
         std::vector<std::string> string_table;
+        std::vector<neon_word_list> words_table;
     };
 
     void serialize_to_neon_pak(std::filesystem::path file_path, std::shared_ptr<game_data> const& data, assembler_result const& result);

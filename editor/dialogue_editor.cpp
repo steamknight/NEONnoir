@@ -137,7 +137,7 @@ namespace NEONnoir
 
         ImGui::TableNextColumn();
         ImGui::SetNextItemWidth(-FLT_MIN);
-        ImGui::InputText(make_id("##{}", value), & value);
+        ImGui::InputTextMultiline(make_id("##{}", value), & value);
     }
 
     void dialogue_editor::display_pages(dialogue& dialogue, size_t page_start_id)
