@@ -6,7 +6,7 @@ AMIGA
 coplist_flag.l = $10000                 ; AGA mode
 coplist_flag.l +     $8                 ; 8 bitplanes, 256 colors
 screen_offset = 70 - (NTSC * 44)        ; centers the display in PAL mode
-InitCopList #DB_coplist, screen_offset, #NN_screen_height, coplist_flag, #max_sprites, #NN_screen_colors, 0
+InitCopList #CP_coplist, screen_offset, #NN_screen_height, coplist_flag, #max_sprites, #NN_screen_colors, 0
 
 DEFTYPE .b result
 result = NN_initialize{"gutter.neon", "pointers.shape"}
@@ -22,7 +22,7 @@ NN_load_location{0, 0}
 BLITZ
 
 Mouse On
-CreateDisplay #DB_coplist
+CreateDisplay #CP_coplist
 
 #BF_main = 0
 #BF_text = 1
@@ -47,11 +47,11 @@ Repeat
   NN_current_bmp = *NN_current_scene\background_id
 
   ; Show the background image
-  DisplayPalette #DB_coplist, NN_current_bmp
-  DisplayBitMap #DB_coplist, NN_current_bmp
+  DisplayPalette #CP_coplist, NN_current_bmp
+  DisplayBitMap #CP_coplist, NN_current_bmp
 
   ; Update the mouse pointer
-  DisplaySprite #DB_coplist, pointer_id, MouseX, MouseY, 0
+  DisplaySprite #CP_coplist, pointer_id, MouseX, MouseY, 0
 
   overlapped = NN_get_overlapped_region{MouseX, MouseY}
 
@@ -78,7 +78,8 @@ Repeat
     Else
       If overlapped <> prev_overlap
         UnBuffer 0
-        TX_draw_text_wrapped{!__get_string{*region\description_id}, 32, #NN_half_screen_width , #NN_screen_height}
+        ;TX_draw_text_wrapped{!__get_string{*region\description_id}, 32, #NN_half_screen_width , #NN_screen_height}
+        TX_draw_textid_wrapped{*region\description_id, 32, #NN_half_screen_width , #NN_screen_height}
       End If
     End If
   Else

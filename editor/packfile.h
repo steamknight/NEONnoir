@@ -58,6 +58,8 @@ namespace NEONnoir
     struct neon_scene
     {
         uint16_t name_id;
+        uint16_t on_enter;
+        uint16_t on_exit;
         uint16_t background_id;
 
         uint16_t first_region_id;

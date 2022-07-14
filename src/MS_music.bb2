@@ -1,0 +1,35 @@
+; =============================================================================
+; MS_music
+; -----------------------------------------------------------------------------
+; Music and SFX related functionc
+; Prefix MS = Music & Sound
+;
+
+Statement MS_load_module{id.w, position.w}
+  DEFTYPE .b success
+  success = LoadTrackerModule(0, !__get_string{id})
+  If success = True
+
+    ; ModulePositionJump doesn't seem to exist
+    ; If position > 0 Then ModulePositionJump(position)
+
+    success = StartTracker(0)
+    If success = False Then !DB_warn{"MS", "Could not play '" + !__get_string{id} + "'"}
+
+  Else
+    !DB_warn{"MS", "Could not load '" + !__get_string{id} + "'"}
+  End If
+End Statement
+
+Statement MS_pause_module{id.w}
+  PauseModule
+End Statement
+
+Statement MS_unpause_module{id.w}
+  PauseModule
+End Statement
+
+Statement MS_kill_module{id.w}
+  StopTracker
+  FreeTrackerModule id
+End Statement

@@ -1,0 +1,123 @@
+; =============================================================================
+; NN_main
+; -----------------------------------------------------------------------------
+; Where the magic happens.
+; =============================================================================
+
+AMIGA
+
+; PAL has 256 vertical lines, but NTSC only has 200. Center the display
+; so that it doesn't look terrible for PAL.
+DEFTYPE .w screen_offset
+screen_offset = ((DispHeight - 200) LSR 1) + #CP_origin
+!DB_log_val{"MAIN", "screen_offset %d", screen_offset}
+InitCopList #CP_coplist, screen_offset, #NN_screen_height, #CP_flags, #CP_sprites, #NN_screen_colors, 0
+
+; Set up a buffer for blitting into the main screen
+Buffer #BF_main_screen, 64000
+
+; Load the title song
+DEFTYPE .b success
+success = LoadTrackerModule(0, "data/theme.mod")
+If success = True
+  success = StartTracker(0)
+  If success = False Then !DB_warn{"MAIN", "Could not play title song."}
+Else
+  !DB_warn{"MAIN", "Could not load title song."}
+End If
+
+; Load the splash screen
+BitMap #BMP_main, #NN_screen_width, #NN_screen_height, #NN_screen_bpp
+LoadBitMap #BMP_main, "data/mpg.iff", #PAL_main
+
+; Display the splash screen
+BLITZ
+CreateDisplay #CP_coplist
+DisplayBitMap #CP_coplist, #BMP_main
+FadeInScreen{#CP_coplist, #PAL_main, #PAL_fx}
+
+; Load the game
+QAMIGA
+success = NN_initialize{"gutter.neon", "pointers.shape"}
+If success <> #NN_NEON_success
+  !DB_error{"MAIN", "Could not load game file! Aborting."}
+  Goto Finish
+End If
+
+TX_initialize{"display.font", "frame.shape"}
+
+VWait 180
+
+; Fade out the splash screen
+BLITZ
+FadeOutScreen{#CP_coplist, #PAL_main, #PAL_fx}
+
+; Load the title screen
+QAMIGA
+NN_load_location{0, 0}
+
+; Run the game
+DEFTYPE .w pointer_id
+DEFTYPE .w overlapped, prev_overlap
+DEFTYPE .NN_region *region
+DEFTYPE .b done, left_moust
+
+pointer_id = 0
+overlapped = -1
+prev_overlap = -1
+done = False
+
+BLITZ
+Mouse On
+
+Repeat
+  VWait
+
+  left_mouse = IN_update_mouse{}
+
+  NN_current_bmp = *NN_current_scene\background_id
+
+  ; Show the background image
+  DisplayPalette #CP_coplist, NN_current_bmp
+  DisplayBitMap #CP_coplist, NN_current_bmp
+
+  ; Update the mouse pointer
+  DisplaySprite #CP_coplist, pointer_id, MouseX, MouseY, 0
+
+  overlapped = NN_get_overlapped_region{MouseX, MouseY}
+
+  If overlapped <> -1
+    *region = !__get_region{overlapped}
+    pointer_id = *region\pointer_id
+
+    If left_mouse = #IN_mouse_released AND *region\script_offset <> -1
+      UnBuffer #BF_main_screen
+      NS_execute_script{*region\script_offset}
+    Else
+      If overlapped <> prev_overlap AND *region\description_id <> -1
+        UnBuffer #BF_main_screen
+        TX_draw_text_wrapped{!__get_string{*region\description_id}, 32, #NN_half_screen_width , #NN_screen_height}
+        ;TX_draw_textid_wrapped{*region\description_id, 32, #NN_half_screen_width , #NN_screen_height}
+      End If
+    End If
+  Else
+    UnBuffer 0
+    pointer_id = 0
+  End If
+
+  prev_overlap = overlapped
+
+  ; Press ESC to quit
+  If RawStatus($45) Then done = True
+
+Until done
+
+Finish:
+
+If success = #NN_NEON_success
+  TX_uninitialize{}
+  NN_uninitialize{}
+End If
+
+; We're done!
+End

@@ -263,8 +263,6 @@ namespace NEONnoir
         for (auto const& scene : pak.scenes)
         {
             write(neonpack, scene.name_id);
-            write(neonpack, scene.on_enter);
-            write(neonpack, scene.on_exit);
             write(neonpack, scene.background_id);
             write(neonpack, scene.first_region_id);
             write(neonpack, scene.last_region_id);

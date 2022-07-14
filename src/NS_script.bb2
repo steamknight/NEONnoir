@@ -14,6 +14,11 @@ Macro __print_bc_v1
   !DB_printf{"********     %04lx: %02x - %s %d", (`1), (`1), &op$, (`3)}
 End Macro
 
+Macro __print_bc_v2
+  op$ = (`2)
+  !DB_printf{"********     %04lx: %02x - %s %d %d", (`1), (`1), &op$, (`3), (`4)}
+End Macro
+
 Macro __execute_opcode
   PC + 2
   !__print_bc{PC, (`1)}
@@ -23,6 +28,16 @@ Macro __execute_opcode_v1
   PC + 2
   v1 = Peek.w(*NS_script_data + PC)
   !__print_bc{PC - 2, (`1), v1}
+  PC + 2
+End Macro
+
+
+Macro __execute_opcode_v2
+  PC + 2
+  v1 = Peek.w(*NS_script_data + PC)
+  PC + 2
+  v2 = Peek.w(*NS_script_data + PC)
+  !__print_bc_v2{PC - 4, (`1), v1, v2}
   PC + 2
 End Macro
 
@@ -202,12 +217,35 @@ Statement NS_execute_script{script_offset.l}
         TX_draw_text_wrapped{!__get_string{v1}, 32, #NN_half_screen_width , #NN_screen_height}
         PC + 2              ; Eat the parameter
 
+      Case #NS_op_goloc; loc scene
+        !__execute_opcode_v2{"goloc"}
+        QAMIGA
+        NN_load_location{v1, v2}
+        BLITZ
+
       Case #NS_op_gameover
         PC + 2              ; Eat the opcode
         v1 = Peek.w (*NS_script_data + PC)
         !__print_bc_v1{PC, "gameover", v1}
         NN_game_over{v1}
         done = True
+
+      ; Music operations
+      Case #NS_op_mod; id pos
+        !__execute_opcode_v2{"mod"}
+        MS_load_module{v1, v2}
+
+      Case #NS_op_modpause; id
+        !__execute_opcode_v1{"modpause"}
+        MS_pause_module{v1}
+
+      Case #NS_op_modplay; id
+        !__execute_opcode_v1{"modplay"}
+        MS_unpause_module{v1}
+
+      Case #NS_op_modkill; id
+        !__execute_opcode_v1{"modkill"}
+        MS_kill_module{v1}
 
       ; Dialogue operations
       Case #NS_op_dlg

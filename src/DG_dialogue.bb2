@@ -24,7 +24,7 @@ Statement DG_show_dialog{id.w}
   displayed = False
   While NOT done
     VWait
-    DisplaySprite #DB_coplist, 0, MouseX, MouseY, 0
+    DisplaySprite #CP_coplist, 0, MouseX, MouseY, 0
     lmb = IN_update_mouse{}
 
     ; Get the current page

@@ -36,8 +36,14 @@
 #NS_op_hasi         = $60   ;| hasi id     | Sets flag register if player has item ID in inventory
 #NS_op_addi         = $61   ;| addi id     | Adds item ID to inventory
 #NS_op_remi         = $62   ;| remi id     | Remove item ID from inventory
+; Music and SFX
+#NS_op_mod          = $70   ;| mod id pos  | Loads module named "id" at position pos
+#NS_op_modpause     = $71   ;| modpause id | Pauses module id
+#NS_op_modplay      = $72   ;| modplay id  | Resume module id
+#NS_op_modkill      = $73   ;| modkill id  | Unloads module id
 ; Game operations           ;|             |
 #NS_op_goto         = $80   ;| goto id     | Go to location ID, ends script
 #NS_op_map          = $81   ;| map         | Display location selection screen, ends script
 #NS_op_text         = $82   ;| text id     | Display string ID
+#NS_op_goloc        = $83   ;| goloc loc scene| Loads a location and scene
 #NS_op_gameover     = $8F   ;| gameover id | Displays game over with string ID as message, ends script

@@ -125,3 +125,15 @@ Macro DB_printf
     Poke.l $BFFF04, &printf_fmt$
   CEND
 End Macro
+
+Macro DB_warn
+  CNIF #DB_ENABLE_DEBUG_LOG = -1
+    dbugprintstring{(`1) + ": **WARNING** " + (`2)}
+  CEND
+End Macro
+
+Macro DB_error
+  CNIF #DB_ENABLE_DEBUG_LOG = -1
+    dbugprintstring{(`1) + ": **ERROR** " + (`2)}
+  CEND
+End Macro

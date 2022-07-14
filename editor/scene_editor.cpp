@@ -82,6 +82,8 @@ namespace NEONnoir
             {
                 display_prop_string("Name", scene.name);
                 display_prop_background(scene, data->locations[_location_index.value()].backgrounds);
+                display_prop_string("On Enter", scene.on_enter);
+                display_prop_string("On Exit", scene.on_exit);
                 ImGui::EndTable();
             }
             display_prop_regions(scene);

@@ -25,6 +25,8 @@ End NEWTYPE
 ; -----------------------------------------------
 NEWTYPE.NN_scene
   name_id.w
+  on_enter.w
+  on_exit.w
   background_id.w
   first_region.w
   last_region.w
@@ -156,15 +158,15 @@ End Macro
 ; Word Table/Data
 ; Stores the position of the beginning and end of every work in every string
 ; -----------------------------------------------
-DEFTYPE .l *NN_word_table, NN_word_table_count, NN_word_data_count
+DEFTYPE .l *NN_word_table, NN_word_table_count, NN_word_data_size
 DEFTYPE .NN_word *NN_word_data
 
 Macro __get_word_count
-  (Peek.l (*NN_word_table + ((`1) * SizeOf .l)))
+  (Peek.l(Peek.l (*NN_word_table + ((`1) * SizeOf .l))))
 End Macro
 
 Macro __get_words
-  (Peek.l (*NN_word_table + ((`1) * SizeOf .l)) + 4)
+  (Peek.l(Peek.l (*NN_word_table + ((`1) * SizeOf .l)) + 4))
 End Macro
 
 ; Script
@@ -200,6 +202,18 @@ Macro __use_word_table
   SHARED *NN_word_table
 End Macro
 
+Macro __make_size
+  ((`1) LSL 16) + (`2)
+End Macro
+
+Macro __get_size_width
+  (`1) LSR 16
+End Macro
+
+Macro __get_size_height
+  (`1) AND $0000FFFF
+End Macro
+
 ; =============================================================================
 ; Constants
 ; =============================================================================
@@ -212,6 +226,24 @@ End Macro
 #NN_screen_colors = 256
 
 #NN_half_screen_width = #NN_screen_width / 2
+
+; Coplist
+#CP_coplist = 0
+#CP_origin = 44
+#CP_sprites = 8
+
+#CP_flag_agamode = $10000
+#CP_flag_8bit = $8
+
+#CP_flags = #CP_flag_agamode + #CP_flag_8bit
+
+; Main bitmap and main palette
+#BMP_main = 0
+#PAL_main = 0
+#PAL_fx = 10
+; Display buffer
+#BF_main_screen = 0
+
 
 ; Loading NEONpacks
 ; -----------------------------------------------------------------------------
@@ -272,5 +304,3 @@ End Macro
 #TX_space = 32
 #TX_newline = 10
 #TX_text_shape = 21
-
-#DB_coplist = 0

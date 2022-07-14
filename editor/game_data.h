@@ -45,6 +45,8 @@ namespace NEONnoir
     struct game_data_scene
     {
         std::string name;
+        std::string on_enter;
+        std::string on_exit;
         uint16_t image_id{ 0 };
         uint16_t view_x{ 0 }, view_y{ 0 };
         uint16_t view_width{ 0 }, view_height{ 0 };

@@ -14,7 +14,7 @@ Function .b NN_load_neonpack{filename$}
   SHARED *NS_script_data, NS_script_data_size
   SHARED *DG_dialogues, *DG_pages, *DG_choices
   SHARED DG_dialogue_count, DG_page_count, DG_choice_count
-  SHARED *NN_word_table, NN_word_table_count, NN_word_data_count, *NN_word_data
+  SHARED *NN_word_table, NN_word_table_count, NN_word_data_size, *NN_word_data
 
 
   !DB_trace{"NN_GAME", "NN_load_neonpack: " +  filename$}
@@ -118,6 +118,29 @@ Function .b NN_load_neonpack{filename$}
     ptr + string_size
   Next
 
+  ; Read all the word separations and generate a words list table
+  ReadMem id, &header, 4
+  ReadMem id, &NN_word_table_count, 4
+  ReadMem id, &NN_word_data_size, 4
+  *NN_word_table = AllocMem_(NN_word_table_count * SizeOf .l, $10000)
+  *NN_word_data = AllocMem_(NN_word_data_size, $10000)
+  !DB_log_str{"NN_GAME", "    Wrd Table > Addr: $" + Hex$(*NN_word_table) + " Size: " + Str$(NN_word_table_count * SizeOf .l)}
+  !DB_log_str{"NN_GAME", "    Word Data  > Addr: $" + Hex$(*NN_word_data) + " Size: " + Str$(NN_word_data_size)}
+
+  ptr = *NN_word_data
+  DEFTYPE .l word_list_size
+  For i = 0 To NN_word_table_count - 1
+    Poke.l *NN_word_table + (i * 4), ptr
+
+    ReadMem id, &word_list_size, 4
+    Poke.l ptr, word_list_size
+
+    ptr + 4
+    ReadMem id, ptr, word_list_size * SizeOf .NN_word
+
+    ptr + word_list_size
+  Next
+
   Function Return #NN_NEON_success
 End Function
 
@@ -130,6 +153,7 @@ Statement NN_uninitialize{}
   SHARED *NS_script_data, NS_script_data_size
   SHARED *DG_dialogues, *DG_pages, *DG_choices
   SHARED DG_dialogue_count, DG_page_count, DG_choice_count
+  SHARED *NN_word_table, *NN_word_data, NN_word_table_count, NN_word_data_size
 
   FreeMem_ *NN_locations, SizeOf .NN_location * NN_location_count
   !DB_log_str{"NN_GAME", "    FreeMem locations $" + Hex$(*NN_locations) + ", " + Str$(SizeOf .NN_location * NN_location_count)}
@@ -149,14 +173,20 @@ Statement NN_uninitialize{}
   FreeMem_ *DG_choices, SizeOf .DG_choice * DG_choice_count
   !DB_log_str{"NN_GAME", "    FreeMem choices   $" + Hex$(*DG_choices) + ", " + Str$(SizeOf .DG_choice * DG_choice_count)}
 
-  FreeMem_ *NN_string_table, SizeOf .l * NN_string_count
-  !DB_log_str{"NN_GAME", "    FreeMem str table $" + Hex$(*NN_string_table) + ", " + Str$(SizeOf .l * NN_string_count)}
-
   FreeMem_ *NS_script_data, NS_script_data_size
   !DB_log_str{"NN_GAME", "    FreeMem str data  $" + Hex$(*NS_script_data) + ", " + Str$(NS_script_data_size)}
 
+  FreeMem_ *NN_string_table, SizeOf .l * NN_string_count
+  !DB_log_str{"NN_GAME", "    FreeMem str table $" + Hex$(*NN_string_table) + ", " + Str$(SizeOf .l * NN_string_count)}
+
   FreeMem_ *NN_string_data, NN_string_data_size
   !DB_log_str{"NN_GAME", "    FreeMem str data  $" + Hex$(*NN_string_data) + ", " + Str$(NN_string_data_size)}
+
+  FreeMem_ *NN_word_table, SizeOf .l * NN_word_table_count
+  !DB_log_str{"NN_GAME", "    FreeMem wrd table $" + Hex$(*NN_word_table) + ", " + Str$(SizeOf .l * NN_word_table_count)}
+
+  FreeMem_ *NN_word_data, NN_word_data_size
+  !DB_log_str{"NN_GAME", "    FreeMem wrd data  $" + Hex$(*NN_word_data) + ", " + Str$(NN_word_data_size)}
 End Statement
 
 ; Loads the mouse pointers
@@ -204,8 +234,12 @@ Statement NN_load_location{new_loc_id.w, new_scene_id.w}
     LoadBitMap bg, "data/" + bmp$, bg
   Next
 
+  ;BLITZ
   ; Setup the next scene
   *NN_current_scene = !__get_scene{*NN_current_location\first_scene + new_scene_id}
+  ; If *NN_current_scene\on_enter <> -1
+  ;   NS_execute_script{*NN_current_scene\on_enter}
+  ; End If
 End Statement
 
 
@@ -234,14 +268,23 @@ End Function
 ; Sets the currently selected scene
 ; =============================================================================
 Statement NN_game_set_scene{id.w}
-  SHARED *NN_scenes, *NN_current_scene, NN_current_bmp
+  SHARED *NN_scenes, *NN_current_scene, NN_current_bmp, *NN_current_location
   !DB_trace{"NN_GAME", "NN_game_set_scene: " + Str$(id)}
 
-  FadeOutScreen{ #DB_coplist, NN_current_bmp, 10}
-  *NN_current_scene = !__get_scene{id}
+  ; If *NN_current_scene\on_exit <> -1
+  ;   NS_execute_script{*NN_current_scene\on_exit}
+  ; End If
+
+  FadeOutScreen{ #CP_coplist, NN_current_bmp, 10}
+  *NN_current_scene = !__get_scene{*NN_current_location\first_scene + id}
+
+  ; If *NN_current_scene\on_enter <> -1
+  ;   NS_execute_script{*NN_current_scene\on_enter}
+  ; End If
+
   ;NN_current_bmp = *NN_current_scene\background_id
 
-  ;FadeInScreen{ #DB_coplist, NN_current_bmp, 10}
+  ;FadeInScreen{ #CP_coplist, NN_current_bmp, 10}
 
 End Statement
 

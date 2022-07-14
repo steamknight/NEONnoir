@@ -48,17 +48,17 @@ BLITZ
 
 ; Initialize the display
 ;
-#DB_coplist = 0
+#CP_coplist = 0
 #max_sprites = 8                        ; Always 8
 coplist_flag.l = $10000                 ; AGA mode
 coplist_flag.l +     $8                 ; 8 bitplanes, 256 colors
 screen_offset = 70 - (NTSC * 44)        ; centers the display in PAL mode
 num_colors = 2 ^ #screen_depth
 InitPalette #DB_palette, num_colors
-InitCopList #DB_coplist, screen_offset, #screen_height, coplist_flag, #max_sprites, num_colors, 0
+InitCopList #CP_coplist, screen_offset, #screen_height, coplist_flag, #max_sprites, num_colors, 0
 
-CreateDisplay #DB_coplist
-DisplayPalette #DB_coplist, #DB_palette
+CreateDisplay #CP_coplist
+DisplayPalette #CP_coplist, #DB_palette
 
 ; Define the state initialization statements
 ; Only define the states that need to do initialization

@@ -256,6 +256,134 @@ Statement TX_draw_text_wrapped{text$, line_width.w, cx.w, cy.w}
   Free BitMap #TX_scratch_bmp
 End Statement
 
+Function .l TX_calc_text_size{id.w, line_width.w}
+  !DB_trace{"TX_CORE", "TX_calc_text_size: " + Str$(id) + " " + Str$(line_width)}
+  !__use_word_table{}
+
+  DEFTYPE .w word_count
+  word_count = !__get_word_count{id}
+
+  DEFTYPE .NN_word *word
+  *word = !__get_words{id}
+
+  DEFTYPE .w line_count, remaining, max_width, cur_width, word_width
+  line_count = 1
+  remaining = line_width
+  max_width = 0
+
+  For i = 0 To word_count - 1
+    word_width = (*word\end_idx - *word\start_idx + 1)
+
+    If *word\end_idx = -1 OR remaining - word_width < 0
+      line_count + 1
+      remaining = line_width
+      cur_width = 0
+    End If
+
+    remaining - (word_width + 1) ; account for the space
+    cur_width + word_width
+
+    If max_width < cur_width Then max_width = cur_width
+
+    *word + SizeOf .NN_word
+  Next
+
+  DEFTYPE .l size
+  stop
+  size = !__make_size{max_width, line_count}
+
+  Function Return size
+End Function
+
+Statement TX_render_wrapped{id.w, line_width.w, x0.w, y0.w}
+  !DB_trace{"TX_CORE", "TX_render_wrapped: " + Str$(id) + " " + Str$(line_width) + ", " + Str$(x0) + "," + Str$(y0)}
+  !__use_string_table{}
+  !__use_word_table{}
+
+  DEFTYPE .w word_count
+  word_count = !__get_word_count{id}
+
+  DEFTYPE .NN_word *word
+  *word = !__get_words{id}
+
+  DEFTYPE .w remaining, word_width, x, y
+  remaining = line_width
+  x = x0
+  y = y0
+
+  DEFTYPE .b *text
+  *text = !__get_string_addr{id}
+
+  For i = 0 To word_count - 1
+    word_width = (*word\end_idx - *word\start_idx + 1)
+
+    If *word\end_idx = -1 OR remaining - word_width < 0
+      ; Advance to next line
+      x = x0
+      y + #TX_font_height
+      remaining = line_width
+    End If
+
+    ; Print the word
+    For j = *word\start_idx To *word\end_idx
+      Blit Peek.b(*text + j), x, y, %0
+      x + #TX_font_width
+    Next j
+
+    remaining - (word_width + 1) ; account for the space
+    x + #TX_font_width
+  Next i
+End Statement
+
+Statement TX_draw_textid_wrapped{id.w, line_width.w, cx.w, cy.w}
+  !DB_trace{"TX_CORE", "TX_drawid_text_wrapped: " + Str$(id) + " " + Str$(line_width) + ", " + Str$(cx) + "," + Str$(cy)}
+  SHARED NN_current_bmp, *NN_word_table
+stop
+  DEFTYPE .l size
+  size = TX_calc_text_size{id, line_width}
+
+  DEFTYPE .w width, height
+  width = !__get_size_width{size}
+  height = !__get_size_height{size}
+
+  BitMap #TX_scratch_bmp, #NN_screen_width, #NN_screen_height, #NN_screen_bpp
+  Use BitMap #TX_scratch_bmp
+
+  ; Calculate how big a rectangle this will be, including enough
+  ; padding for the text frame
+  DEFTYPE .w rect_width, rect_height
+  rect_width = width * #TX_font_width + #TX_frame_total_size
+  rect_height = height * #TX_font_height + #TX_frame_total_size
+
+  DEFTYPE .w x0, y0
+  x0 = #TX_frame_size
+  y0 = #TX_frame_size
+
+  ; Draw the frame
+  Boxf x0, y0, x0 + rect_width - #TX_frame_total_size, y0 + rect_height - #TX_frame_total_size, 3
+  tx_draw_frame{width, height}
+
+  TX_render_wrapped{id, line_width, x0, y0}
+
+  GetaShape #TX_text_shape, 0, 0, widthr, heightr
+  MidHandle #TX_text_shape
+  Use BitMap NN_current_bmp
+
+  DEFTYPE .w halfw, halfh
+  halfw = widthr LSR 1
+  halfh = heightr LSR 1
+
+  If cx - halfw < 0 Then cx = halfw
+  If cx + halfw >= #NN_screen_width Then cx = #NN_screen_width - halfw
+  If cy - halfh < 0 Then cy = halfh
+  If cy + halfh >= #NN_screen_height Then cy = #NN_screen_height - halfh
+
+  BBlit 0, #TX_text_shape, cx, cy, %0
+
+  Free Shape #TX_text_shape
+  Free BitMap #TX_scratch_bmp
+End Statement
+
 ; context = TX_begin{}
 ; TX_render{context, "hello"}
 ; TX_render_wrapped{context, "hello", 32}

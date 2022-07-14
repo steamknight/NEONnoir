@@ -3,7 +3,7 @@
 
 XINCLUDE "utils.bb2"
 
-#DB_coplist = 0
+#CP_coplist = 0
 #DB_primary = 0
 #DB_secondary = 1
 #DB_palette = 0
@@ -36,9 +36,9 @@ End Statement
 Statement SM_Logo_Tick{}
     Shared SM_next_state, SM_state_quit
 
-    FadeInScreen{#DB_coplist, #DB_palette, 1}
+    FadeInScreen{#CP_coplist, #DB_palette, 1}
     VWait 50
-    FadeOutScreen{#DB_coplist, #DB_palette, 1}
+    FadeOutScreen{#CP_coplist, #DB_palette, 1}
 
     SM_next_state = SM_state_quit
 End Statement
