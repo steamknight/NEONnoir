@@ -166,7 +166,7 @@ Macro __get_word_count
 End Macro
 
 Macro __get_words
-  (Peek.l(Peek.l (*NN_word_table + ((`1) * SizeOf .l)) + 4))
+  (Peek.l (*NN_word_table + ((`1) * SizeOf .l)) + 4)
 End Macro
 
 ; Script
@@ -190,6 +190,7 @@ Dim List IV_user_items(#IV_max_items)
 ; Main
 ; -----------------------------------------------
 DEFTYPE .b NN_current_bmp
+DEFTYPE .b NN_should_quit
 
 ; =============================================================================
 ; Convenience Macros

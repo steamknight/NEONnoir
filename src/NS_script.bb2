@@ -223,6 +223,10 @@ Statement NS_execute_script{script_offset.l}
         NN_load_location{v1, v2}
         BLITZ
 
+      Case #NS_op_quit
+        !__execute_opcode{"quit"}
+        NN_quit_game{}
+
       Case #NS_op_gameover
         PC + 2              ; Eat the opcode
         v1 = Peek.w (*NS_script_data + PC)

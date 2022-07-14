@@ -365,11 +365,7 @@ namespace NEONnoir
         for (auto const& entry : pak.words_table)
         {
             write(neonpack, static_cast<uint32_t>(entry.words.size()));
-            for (auto const& word : entry.words)
-            {
-                write(neonpack, word.start_idx);
-                write(neonpack, word.end_idx);
-            }
+            neonpack.write(reinterpret_cast<char const*>(entry.words.data()), entry.words.size() * sizeof(neon_word));
         }
 
         neonpack.close();

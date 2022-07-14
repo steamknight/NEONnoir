@@ -4,6 +4,35 @@
 ; Contains functions an statement around running the game
 ; =============================================================================
 
+Statement DEBUG_print_words{}
+  !__use_string_table{}
+  !__use_word_table{}
+  SHARED NN_string_count
+
+  Stop
+
+  For i = 0 To NN_string_count - 1
+    Print !__get_string{i}
+    Print ":"
+
+    word_count = !__get_word_count{i}
+    !DB_printf{"Iteration %d. %d words", i, word_count}
+    DEFTYPE .NN_word *word
+    *word = !__get_words{i}
+    For j = 0 to word_count - 1
+
+      !DB_printf{"    *word address: %ld, expected %ld", *word, Peek.l(*NN_word_table + (i * SizeOf .l)) + 4}
+      !DB_printf{"    start %d, end %d", *word\start_idx, *word\end_idx}
+      Print Right$(Hex$(*word\start_idx), 4), "-", Right$(Hex$(*word\end_idx), 4)," "
+      *word + SizeOf .NN_word
+    Next j
+
+    NPrint ""
+  Next i
+
+  Stop
+End Statement
+
 ; Loads a neon pack
 ;
 ; Requires AMIGA or QAMIGA mode
@@ -138,7 +167,7 @@ Function .b NN_load_neonpack{filename$}
     ptr + 4
     ReadMem id, ptr, word_list_size * SizeOf .NN_word
 
-    ptr + word_list_size
+    ptr + word_list_size * SizeOf .NN_word
   Next
 
   Function Return #NN_NEON_success
@@ -295,4 +324,9 @@ End Statement
 
 Statement NN_game_over{id.w}
   !DB_trace{"NN_GAME", "NN_game_over"}
+End Statement
+
+Statement NN_quit_game{}
+  SHARED NN_should_quit
+  NN_should_quit = True
 End Statement

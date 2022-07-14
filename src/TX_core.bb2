@@ -284,12 +284,13 @@ Function .l TX_calc_text_size{id.w, line_width.w}
     cur_width + word_width
 
     If max_width < cur_width Then max_width = cur_width
+    cur_width + 1 ; account for space
 
     *word + SizeOf .NN_word
   Next
 
   DEFTYPE .l size
-  stop
+
   size = !__make_size{max_width, line_count}
 
   Function Return size
@@ -332,13 +333,15 @@ Statement TX_render_wrapped{id.w, line_width.w, x0.w, y0.w}
 
     remaining - (word_width + 1) ; account for the space
     x + #TX_font_width
+
+    *word + SizeOf .NN_word
   Next i
 End Statement
 
 Statement TX_draw_textid_wrapped{id.w, line_width.w, cx.w, cy.w}
   !DB_trace{"TX_CORE", "TX_drawid_text_wrapped: " + Str$(id) + " " + Str$(line_width) + ", " + Str$(cx) + "," + Str$(cy)}
   SHARED NN_current_bmp, *NN_word_table
-stop
+
   DEFTYPE .l size
   size = TX_calc_text_size{id, line_width}
 
@@ -365,13 +368,13 @@ stop
 
   TX_render_wrapped{id, line_width, x0, y0}
 
-  GetaShape #TX_text_shape, 0, 0, widthr, heightr
+  GetaShape #TX_text_shape, 0, 0, rect_width, rect_height
   MidHandle #TX_text_shape
   Use BitMap NN_current_bmp
 
   DEFTYPE .w halfw, halfh
-  halfw = widthr LSR 1
-  halfh = heightr LSR 1
+  halfw = rect_width LSR 1
+  halfh = rect_height  LSR 1
 
   If cx - halfw < 0 Then cx = halfw
   If cx + halfw >= #NN_screen_width Then cx = #NN_screen_width - halfw

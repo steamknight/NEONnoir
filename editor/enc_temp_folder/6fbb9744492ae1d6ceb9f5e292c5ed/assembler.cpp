@@ -43,7 +43,6 @@ namespace NEONnoir
             { "map",        { (int16_t)0x81,   {                                                                          }}},
             { "text",       { (int16_t)0x82,   {   ParamType::TEXT                                                        }}},
             { "goloc",      { (int16_t)0x83,   {   ParamType::CONST,       ParamType::CONST                               }}},
-            { "quit",       { (int16_t)0x8E,   {                                                                          }}},
             { "gameover",   { (int16_t)0x8F,   {   ParamType::TEXT                                                        }}},
         };
     }

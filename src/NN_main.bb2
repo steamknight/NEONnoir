@@ -60,12 +60,12 @@ NN_load_location{0, 0}
 DEFTYPE .w pointer_id
 DEFTYPE .w overlapped, prev_overlap
 DEFTYPE .NN_region *region
-DEFTYPE .b done, left_moust
+DEFTYPE .b left_mouse
 
 pointer_id = 0
 overlapped = -1
 prev_overlap = -1
-done = False
+NN_should_quit = False
 
 BLITZ
 Mouse On
@@ -84,6 +84,7 @@ Repeat
   ; Update the mouse pointer
   DisplaySprite #CP_coplist, pointer_id, MouseX, MouseY, 0
 
+  ; Check if any regions that have been hovered over
   overlapped = NN_get_overlapped_region{MouseX, MouseY}
 
   If overlapped <> -1
@@ -96,8 +97,8 @@ Repeat
     Else
       If overlapped <> prev_overlap AND *region\description_id <> -1
         UnBuffer #BF_main_screen
-        TX_draw_text_wrapped{!__get_string{*region\description_id}, 32, #NN_half_screen_width , #NN_screen_height}
-        ;TX_draw_textid_wrapped{*region\description_id, 32, #NN_half_screen_width , #NN_screen_height}
+        ;TX_draw_text_wrapped{!__get_string{*region\description_id}, 32, #NN_half_screen_width , #NN_screen_height}
+        TX_draw_textid_wrapped{*region\description_id, 32, #NN_half_screen_width , #NN_screen_height}
       End If
     End If
   Else
@@ -108,9 +109,9 @@ Repeat
   prev_overlap = overlapped
 
   ; Press ESC to quit
-  If RawStatus($45) Then done = True
+  If RawStatus($45) Then NN_should_quit = True
 
-Until done
+Until NN_should_quit
 
 Finish:
 
@@ -118,6 +119,8 @@ If success = #NN_NEON_success
   TX_uninitialize{}
   NN_uninitialize{}
 End If
+
+StopTracker
 
 ; We're done!
 End
