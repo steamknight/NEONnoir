@@ -146,23 +146,28 @@ Statement tx_draw_frame{line_width.w, line_count.w}
   !DB_trace{"TX_CORE", "tx_draw_frame: " + Str$(line_width) + ", " + Str$(line_count)}
   ; Top
   Blit #TX_frame_tl, 0, 0, 0
+  DEFTYPE .w x
+  x = #TX_frame_size
   For i = 1 To line_width
-    Blit #TX_frame_tm, #TX_font_width * i, 0, 0
+    Blit #TX_frame_tm, x, 0, 0
+    x + #TX_font_width
   Next
-  Blit #TX_frame_tr, #TX_font_width * (line_width + 1), 0, 0
+  Blit #TX_frame_tr, x, 0, 0
 
   ; Middle
   For i = 1 To line_count
     Blit #TX_frame_ml, 0, #TX_font_height * i, 0
-    Blit #TX_frame_mr, #TX_font_width * (line_width + 1), i * #TX_font_height, 0
+    Blit #TX_frame_mr, x, i * #TX_font_height, 0
   Next i
 
   ; Bottom
   Blit #TX_frame_bl, 0, #TX_font_height * (line_count + 1), 0
+  x = #TX_frame_size
   For i = 1 To line_width
-    Blit #TX_frame_bm, #TX_font_width * i, #TX_font_height * (line_count + 1), 0
+    Blit #TX_frame_bm, x, #TX_font_height * (line_count + 1), 0
+    x + #TX_font_width
   Next
-  Blit #TX_frame_br, #TX_font_width * (line_width + 1), #TX_font_height * (line_count + 1), 0
+  Blit #TX_frame_br, x, #TX_font_height * (line_count + 1), 0
 End Statement
 
 ; Draws a multiline string wrapped a given width. The text is drawn around a
@@ -324,18 +329,22 @@ Statement TX_render_wrapped{id.w, line_width.w, x0.w, y0.w}
       y + #TX_font_height
       remaining = line_width
     End If
+    
+    If *word\end_idx <> -1
+      ; Print the word
+      For j = *word\start_idx To *word\end_idx
+        Blit Peek.b(*text + j), x, y, %0
+        x + #TX_font_width
 
-    ; Print the word
-    For j = *word\start_idx To *word\end_idx
-      Blit Peek.b(*text + j), x, y, %0
+      Next j
+
+      remaining - (word_width + 1) ; account for the space
       x + #TX_font_width
-    Next j
-
-    remaining - (word_width + 1) ; account for the space
-    x + #TX_font_width
+    End If
 
     *word + SizeOf .NN_word
   Next i
+
 End Statement
 
 Statement TX_draw_textid_wrapped{id.w, line_width.w, cx.w, cy.w}
@@ -386,6 +395,76 @@ Statement TX_draw_textid_wrapped{id.w, line_width.w, cx.w, cy.w}
   Free Shape #TX_text_shape
   Free BitMap #TX_scratch_bmp
 End Statement
+
+NEWTYPE .TX_context
+  max_width.w
+  y_position.w
+End NEWTYPE
+
+Statement TX_begin{context.l}
+  BitMap #TX_scratch_bmp, #NN_screen_width, #NN_screen_height, #NN_screen_bpp
+  Use BitMap #TX_scratch_bmp
+
+    ; Draw the frame
+  Boxf 0, 0, #NN_screen_width, #NN_screen_height, 3
+
+  DEFTYPE .TX_context *ctx
+  *ctx = context
+  *ctx\max_width = 0
+  *ctx\y_position = 0
+End Statement
+
+Statement TX_end{context.l, x.w, y.w}
+  SHARED NN_current_bmp
+  DEFTYPE .TX_context *ctx
+  *ctx = context
+
+  ; Draw the frame
+  tx_draw_frame{*ctx\max_width, *ctx\y_position}
+
+  ; Calculate how big a rectangle this will be, including enough
+  ; padding for the text frame
+  DEFTYPE .w rect_width, rect_height
+  rect_width = *ctx\max_width * #TX_font_width + #TX_frame_total_size
+  rect_height = *ctx\y_position * #TX_font_height + #TX_frame_total_size
+
+  GetaShape #TX_text_shape, 0, 0, rect_width, rect_height
+  Use BitMap NN_current_bmp
+
+  If x < 0 Then x = 0
+  If x + rect_width >= #NN_screen_width Then x = #NN_screen_width - rect_width
+  If y < 0 Then y = 0
+  If y + rect_height >= #NN_screen_height Then y = #NN_screen_height - rect_height
+
+  BBlit #BF_main_screen, #TX_text_shape, x, y, %0
+
+  Free Shape #TX_text_shape
+  Free BitMap #TX_scratch_bmp
+End Statement
+
+Function .l TX_put_text{context.l, id.w, line_width.w}
+  DEFTYPE .TX_context *ctx
+  *ctx = context
+
+  DEFTYPE .w x, y
+  x = #TX_frame_size
+  y = *ctx\y_position * #TX_font_height + #TX_frame_size
+
+  DEFTYPE .l size
+  size = TX_calc_text_size{id, line_width}
+
+  TX_render_wrapped{id, line_width, x, y}
+
+  DEFTYPE .w width, height
+  width = !__get_size_width{size}
+  height = !__get_size_height{size}
+
+  If *ctx\max_width < width Then *ctx\max_width = width
+  *ctx\y_position + height
+
+  !DB_printf{">>>>>>>>>>>>>>>>> Size: (%d, %d), Max width %d", width, height, *ctx\max_width}
+  Function Return size
+End Function
 
 ; context = TX_begin{}
 ; TX_render{context, "hello"}

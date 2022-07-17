@@ -9,7 +9,8 @@
 ; =============================================================================
 Statement DG_show_dialog{id.w}
   !DB_trace{"DG", "DG_show_dialog:" + Str$(id)}
-  SHARED DG_dialogue_is_active, *DG_dialogues, *DG_pages, *DG_choices
+  SHARED DG_dialogue_is_active
+  !__use_dialogues{}
   !__use_string_table{}
 
   DEFTYPE .DG_dialogue *current
@@ -54,18 +55,32 @@ Statement DG_show_dialog{id.w}
       If displayed = False
         UnBuffer 0
         ; If the page has not been drawn yet, draw it
-        TX_draw_text_wrapped{!__get_string{*current_page\text_id}, 32, #NN_screen_width - 8, 8}
-        displayed = True
+;        TX_draw_textid_wrapped{*current_page\text_id, 32, #NN_screen_width - 8, 8}
+        DEFTYPE .l size
+        DEFTYPE .TX_context context, *ctx
+        TX_begin{&context}
+        size = TX_put_text{&context, *current_page\text_id, 32}
 
         If *current_page\first_choice_id <> -1
+          *ctx = context
+          *ctx\y_position + 1
+
           ; If there are choices, draw those
           !DB_log_str{"DG", "There are some choices"}
-          For c = *current_page\choice_count - 1 to 0
-            
+          DEFTYPE .DG_choice *choice
+
+          For c = 0 To *current_page\choice_count - 1
+            *choice = !__get_choice{*current_page\first_choice_id + c}
+            size = TX_put_text{&context, *choice\text_id, 32}
+            !DB_printf{"Choice %d. Text %d", *current_page\first_choice_id + c, *choice\text_id}
           Next
         Else
           !DB_log_str{"DG", "There are no choices"}
         End If
+
+        TX_end{&context, 160, 8}
+
+        displayed = True
       End If
 
       ; Wait for a mouse click

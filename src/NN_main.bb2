@@ -16,6 +16,7 @@ InitCopList #CP_coplist, screen_offset, #NN_screen_height, #CP_flags, #CP_sprite
 ; Set up a buffer for blitting into the main screen
 Buffer #BF_main_screen, 64000
 
+Goto SkipSong
 ; Load the title song
 DEFTYPE .b success
 success = LoadTrackerModule(0, "data/theme.mod")
@@ -26,6 +27,7 @@ Else
   !DB_warn{"MAIN", "Could not load title song."}
 End If
 
+SkipSong:
 ; Load the splash screen
 BitMap #BMP_main, #NN_screen_width, #NN_screen_height, #NN_screen_bpp
 LoadBitMap #BMP_main, "data/mpg.iff", #PAL_main
@@ -97,8 +99,8 @@ Repeat
     Else
       If overlapped <> prev_overlap AND *region\description_id <> -1
         UnBuffer #BF_main_screen
-        ;TX_draw_text_wrapped{!__get_string{*region\description_id}, 32, #NN_half_screen_width , #NN_screen_height}
-        TX_draw_textid_wrapped{*region\description_id, 32, #NN_half_screen_width , #NN_screen_height}
+        TX_draw_text_wrapped{!__get_string{*region\description_id}, 32, #NN_half_screen_width , #NN_screen_height}
+        ;TX_draw_textid_wrapped{*region\description_id, 32, #NN_half_screen_width , #NN_screen_height}
       End If
     End If
   Else

@@ -37,7 +37,7 @@ $data_files = @(
 # Location where the built file will reside
 #$output_file = "X:/Disks/Develop/NEONnoir/neonnoir.bb2"
 #$data_dir = "X:/Disks/Develop/NEONnoir/data"
-$output_file = "C:/Users/mass/OneDrive/Amiga/hdf/Development/NEONnoir/neonnoir.bb2"
+$output_dir = "C:/Users/mass/OneDrive/Amiga/hdf/Development/NEONnoir/"
 $data_dir = "C:/Users/mass/OneDrive/Amiga/hdf/Development/NEONnoir/data"
 
 function Copy-GameData {
@@ -46,6 +46,8 @@ function Copy-GameData {
 }
 
 function Copy-Game {
+    $output_file = $output_dir + "neonnoir.bb2"
+
     # Create the file
     Get-Content $bb2_files | Out-File $output_file
     
@@ -56,5 +58,45 @@ function Copy-Game {
 function Publish-Game {
     Copy-Game
     Copy-GameData
+}
+
+function Archive-Game {
+    Read-Host "Press 'Enter' once the project has been built in Blitz"
+
+    if (Test-Path -Path "./build/") {
+        Write-Host "Cleaning up 'build' folder..."
+        Remove-Item -Path "./build/" -Recurse
+    }
+
+    $null = New-Item -ItemType Directory -Path "./build/data" -Force
+
+
+    $compiled = @(
+        ($output_dir + "neonnoir")
+        ($output_dir + "neonnoir.info")
+    )
+
+    Write-Host "Copying files..."
+    Copy-Item -Path $compiled -Destination "./build/"
+    Copy-Item -Path $data_files -Destination "./build/data/"
+
+
+}
+
+# https://stackoverflow.com/questions/4533570/in-powershell-how-do-i-split-a-large-binary-file
+function Split-File($inFile, $outPrefix, [Int32] $bufSize) {
+    $stream = [System.IO.File]::OpenRead($inFile)
+    $chunkNum = 1
+    $bytes = New-Object byte[] $bufSize
+
+    while ($bytesRead = $stream.Read($bytes, 0, $bufSize)) {
+        $outFile = "$outPrefix{0:d2}" -f $chunkNum
+        $ostream = [System.IO.File]::OpenWrite($outFile)
+        $ostream.Write($bytes, 0, $bytesRead)
+        $ostream.Close()
+
+        Write-Host "Writing $outFile"
+        $chunkNum += 1
+    }
 }
 

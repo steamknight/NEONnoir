@@ -41,9 +41,9 @@ Function .b NN_load_neonpack{filename$}
   SHARED *NN_locations, *NN_scenes, *NN_regions, *NN_string_table, *NN_string_data
   SHARED NN_location_count, NN_scene_count, NN_region_count, NN_string_count, NN_string_data_size
   SHARED *NS_script_data, NS_script_data_size
-  SHARED *DG_dialogues, *DG_pages, *DG_choices
-  SHARED DG_dialogue_count, DG_page_count, DG_choice_count
   SHARED *NN_word_table, NN_word_table_count, NN_word_data_size, *NN_word_data
+  !__use_dialogues{}
+  !__use_dialogue_limits{}
 
 
   !DB_trace{"NN_GAME", "NN_load_neonpack: " +  filename$}
@@ -111,9 +111,9 @@ Function .b NN_load_neonpack{filename$}
   ReadMem id, &header, 4
   ReadMem id, &DG_choice_count, 4
   size = DG_choice_count * SizeOf .DG_choice
-  *DG_choice = AllocMem_(size, $10000)
-  ReadMem id, *DG_choice, size
-  !DB_log_str{"NN_GAME", "    Choices   > Addr: $" + Hex$(*DG_choice) + " Size: " + Str$(size)}
+  *DG_choices = AllocMem_(size, $10000)
+  ReadMem id, *DG_choices, size
+  !DB_log_str{"NN_GAME", "    Choices   > Addr: $" + Hex$(*DG_choices) + " Size: " + Str$(size)}
 
   ; Read all the bytecode... I suppose it's more like word-code
   ReadMem id, &header, 4
@@ -180,9 +180,9 @@ Statement NN_uninitialize{}
   SHARED *NN_locations, *NN_scenes, *NN_regions, *NN_string_table, *NN_string_data
   SHARED NN_location_count, NN_scene_count, NN_region_count, NN_string_count, NN_string_data_size
   SHARED *NS_script_data, NS_script_data_size
-  SHARED *DG_dialogues, *DG_pages, *DG_choices
-  SHARED DG_dialogue_count, DG_page_count, DG_choice_count
   SHARED *NN_word_table, *NN_word_data, NN_word_table_count, NN_word_data_size
+  !__use_dialogues{}
+  !__use_dialogue_limits{}
 
   FreeMem_ *NN_locations, SizeOf .NN_location * NN_location_count
   !DB_log_str{"NN_GAME", "    FreeMem locations $" + Hex$(*NN_locations) + ", " + Str$(SizeOf .NN_location * NN_location_count)}

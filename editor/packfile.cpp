@@ -142,7 +142,7 @@ namespace NEONnoir
                 {
                     auto c = neon_choice{};
                     c.text_id = static_cast<uint16_t>(pak.string_table.size());
-                    pak.string_table.push_back(choice.text);
+                    pak.string_table.push_back("* " + choice.text);
 
                     c.page_id = choice.next_page_id;
                     if (c.page_id != 0xFFFF) c.page_id += d.first_page_id;
@@ -189,18 +189,16 @@ namespace NEONnoir
                     current++;
                 }
 
+                word_list.words.push_back(
+                    {
+                        static_cast<uint16_t>(start_idx),
+                        static_cast<uint16_t>(current - 1)
+                    }
+                );
+
                 if (text[current] == '\n')
                 {
                     word_list.words.push_back({});
-                }
-                else
-                {
-                    word_list.words.push_back(
-                        {
-                            static_cast<uint16_t>(start_idx),
-                            static_cast<uint16_t>(current - 1)
-                        }
-                    );
                 }
 
                 start_idx = current + 1;

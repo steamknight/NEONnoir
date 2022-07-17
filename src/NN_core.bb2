@@ -203,6 +203,14 @@ Macro __use_word_table
   SHARED *NN_word_table
 End Macro
 
+Macro __use_dialogues
+  SHARED *DG_dialogues, *DG_pages, *DG_choices
+End Macro
+
+Macro __use_dialogue_limits
+  SHARED DG_dialogue_count, DG_page_count, DG_choice_count
+End Macro
+
 Macro __make_size
   ((`1) LSL 16) + (`2)
 End Macro
