@@ -79,6 +79,15 @@ NEWTYPE .NN_word
   end_idx.w
 End NEWTYPE
 
+; Misc
+; -----------------------------------------------
+NEWTYPE .NN_screen_rect
+  x0.w
+  y0.w
+  x1.w
+  y1.w
+End NEWTYPE
+
 ; =============================================================================
 ; Define all globals and macros
 ; =============================================================================
@@ -171,7 +180,7 @@ End Macro
 
 ; Script
 ; -----------------------------------------------
-DEFTYPE .w *NS_script_data
+DEFTYPE .w *NS_script_data, NS_script_queue
 DEFTYPE .l NS_script_data_size
 
 Dim NS_flags.b(256)

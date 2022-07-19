@@ -11,10 +11,10 @@ $bb2_files = @(
     "./src/SC_scene.bb2"
     "./src/SH_shapes.bb2"
     "./src/IV_inventory.bb2"
-    "./src/DG_dialogue.bb2",
     "./src/MS_music.bb2",
     "./src/NS_opcodes.bb2",
     "./src/NS_script.bb2",
+    "./src/DG_dialogue.bb2",
     "./src/NN_main.bb2"
     #"./src/location_tester.bb2"
 )

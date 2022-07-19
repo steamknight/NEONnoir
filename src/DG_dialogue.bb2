@@ -7,15 +7,19 @@
 
 ; Displays and runs the dialog at the given id
 ; =============================================================================
+#DG_x_pos = 112
 Statement DG_show_dialog{id.w}
   !DB_trace{"DG", "DG_show_dialog:" + Str$(id)}
-  SHARED DG_dialogue_is_active
+  SHARED DG_dialogue_is_active, NS_script_queue
   !__use_dialogues{}
   !__use_string_table{}
 
   DEFTYPE .DG_dialogue *current
   DEFTYPE .DG_page *current_page
   DEFTYPE .b done, displayed, lmb, page_id, good_page, page_search_done
+  DEFTYPE .w pointer_id
+
+  Dim choice_rects.NN_screen_rect(8) ; We won't have more than 8 choices, right?
 
   DG_dialogue_is_active = True
   *current = !__get_dialogue{id}
@@ -23,12 +27,14 @@ Statement DG_show_dialog{id.w}
 
   done = False
   displayed = False
+  pointer_id = 0
   While NOT done
     VWait
-    DisplaySprite #CP_coplist, 0, MouseX, MouseY, 0
+    DisplaySprite #CP_coplist, pointer_id, MouseX, MouseY, 0
     lmb = IN_update_mouse{}
 
     ; Get the current page
+    *current_page = !__get_page{page_id}
     Repeat
       *current_page = !__get_page{page_id}
 
@@ -70,29 +76,66 @@ Statement DG_show_dialog{id.w}
           DEFTYPE .DG_choice *choice
 
           For c = 0 To *current_page\choice_count - 1
+            choice_rects(c)\x0 = #TX_frame_size + #DG_x_pos
+            choice_rects(c)\y0 = (context\y_position + 1) * #TX_font_height + 8
+
             *choice = !__get_choice{*current_page\first_choice_id + c}
             size = TX_put_text{&context, *choice\text_id, 32}
+
+            DEFTYPE .w cwidth, cheight
+            cwidth = !__get_size_width{size}
+            cheight = !__get_size_height{size}
+            choice_rects(c)\x1 = choice_rects(c)\x0 + (cwidth * #TX_font_width)
+            choice_rects(c)\y1 = choice_rects(c)\y0 + (cheight * #TX_font_height)
+
             !DB_printf{"Choice %d. Text %d", *current_page\first_choice_id + c, *choice\text_id}
+            !DB_printf{"Size: %d x %d", cwidth, cheight}
+            !DB_printf{"Actual Size: %d x %d", cwidth * #TX_font_width, cheight * #TX_font_height}
+            !DB_printf{"y0: %d", choice_rects(c)\y0}
+            !DB_printf{"(%d,%d,%d,%d)", choice_rects(c)\x0, choice_rects(c)\y0, choice_rects(c)\x1, choice_rects(c)\y1}
           Next
         Else
           !DB_log_str{"DG", "There are no choices"}
         End If
 
-        TX_end{&context, 160, 8}
+        TX_end{&context, #DG_x_pos, 8}
 
         displayed = True
       End If
 
-      ; Wait for a mouse click
-      If lmb = #IN_mouse_released
-        !DB_log_val{"DB", "Mouse released. Next page id: %d", *current_page\page_id}
-        If *current_page\page_id <> -1
-          ; If there are no choices advance to the next page
-          page_id = *current_page\page_id
-          displayed = False
+      If *current_page\choice_count > 0
+        ;!DB_trace{"DG", "Looking for choices..."}
+        DEFTYPE .w selected
+        DEFTYPE .DG_choice *choice
+        selected = IN_check_mouse{&choice_rects(0), *current_page\choice_count}
+
+        If selected <> -1
+          *choice = !__get_choice{(*current_page\first_choice_id + selected)}
+          pointer_id = #NN_pointer_interact - #NN_pointer_start
+
+          If lmb = #IN_mouse_released
+            !DB_printf{"Choice %d pressed!", selected}
+            NS_script_queue = *choice\script_offset
+            page_id = *choice\page_id
+            displayed = False
+            If page_id = -1 Then DG_dialogue_is_active = False
+          End If
         Else
-          ; If there are choices, check if one was selected
-            ; If a choice was selected, follow it
+          pointer_id = #NN_pointer_default - #NN_pointer_start
+        End If
+      Else
+        ;!DB_trace{"DG", "No choices, wait for click"}
+      ; Wait for a mouse click
+        If lmb = #IN_mouse_released
+          !DB_log_val{"DB", "Mouse released. Next page id: %d", *current_page\page_id}
+          If *current_page\page_id <> -1
+            ; If there are no choices advance to the next page
+            page_id = *current_page\page_id
+            displayed = False
+          Else
+            ; If there are choices, check if one was selected
+              ; If a choice was selected, follow it
+          End If
         End If
       End If
     End If

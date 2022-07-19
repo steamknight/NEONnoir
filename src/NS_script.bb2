@@ -294,6 +294,18 @@ Statement NS_execute_script{script_offset.l}
   Until done = True
 End Statement
 
+Statement NS_process_queue{}
+  SHARED NS_script_queue
+
+  DEFTYPE .w script
+  script = NS_script_queue
+  NS_script_queue = - 1
+
+  If script <> -1
+    NS_execute_script{script}
+  End If
+End Statement
+
 Statement NS_DEBUG_print_bytecode{}
     SHARED NS_script_data, NS_data_size
     DEFTYPE .w num_entries

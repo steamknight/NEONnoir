@@ -72,6 +72,8 @@ NN_should_quit = False
 BLITZ
 Mouse On
 
+NS_script_queue = -1
+
 Repeat
   VWait
 
@@ -88,6 +90,8 @@ Repeat
 
   ; Check if any regions that have been hovered over
   overlapped = NN_get_overlapped_region{MouseX, MouseY}
+
+  NS_process_queue{}
 
   If overlapped <> -1
     *region = !__get_region{overlapped}
