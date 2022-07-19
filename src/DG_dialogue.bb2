@@ -8,6 +8,9 @@
 ; Displays and runs the dialog at the given id
 ; =============================================================================
 #DG_x_pos = 112
+#DG_width = 32
+#DG_x_padding = #DG_x_pos + #TX_frame_size
+#DG_y_padding = 8
 Statement DG_show_dialog{id.w}
   !DB_trace{"DG", "DG_show_dialog:" + Str$(id)}
   SHARED DG_dialogue_is_active, NS_script_queue
@@ -16,137 +19,96 @@ Statement DG_show_dialog{id.w}
 
   DEFTYPE .DG_dialogue *current
   DEFTYPE .DG_page *current_page
-  DEFTYPE .b done, displayed, lmb, page_id, good_page, page_search_done
+  DEFTYPE .b displayed, lmb, page_id
   DEFTYPE .w pointer_id
 
-  Dim choice_rects.NN_screen_rect(8) ; We won't have more than 8 choices, right?
+; We won't have more than 8 choices, right?
+  Dim rects.NN_screen_rect(8) 
 
   DG_dialogue_is_active = True
   *current = !__get_dialogue{id}
   page_id = *current\first_page_id
 
-  done = False
   displayed = False
   pointer_id = 0
-  While NOT done
+
+  While DG_dialogue_is_active
     VWait
     DisplaySprite #CP_coplist, pointer_id, MouseX, MouseY, 0
     lmb = IN_update_mouse{}
 
     ; Get the current page
     *current_page = !__get_page{page_id}
+
+    ; If the page is not enabled, advance until we find one that is.
     Repeat
-      *current_page = !__get_page{page_id}
-
-      If *current_page\enabled = True
-        ; We got a good page, let's continue
-        good_page = True
-        page_search_done = True
-      Else
-        ; Not a good page, look for the next page
+      If *current_page\enabled = False
         page_id = *current_page\page_id
-        If page_id = -1
-          ; We're out of pages
-          good_page = False
-          page_search_done = True
-          displayed = False
-        End If
+        displayed = False
       End If
-    Until page_search_done = True
+    Until page_id <> -1
 
-    If good_page = False
-      DG_dialogue_is_active = False
-    Else
+    If page_id <> -1
       *current_page = !__get_page{page_id}
       If displayed = False
         UnBuffer 0
-        ; If the page has not been drawn yet, draw it
-;        TX_draw_textid_wrapped{*current_page\text_id, 32, #NN_screen_width - 8, 8}
+        DEFTYPE .TX_context ctx
+        TX_begin{&ctx}
+
         DEFTYPE .l size
-        DEFTYPE .TX_context context, *ctx
-        TX_begin{&context}
-        size = TX_put_text{&context, *current_page\text_id, 32}
+        size = TX_put_text{&ctx, *current_page\text_id, #DG_width}
 
         If *current_page\first_choice_id <> -1
-          *ctx = context
-          *ctx\y_position + 1
-
-          ; If there are choices, draw those
-          !DB_log_str{"DG", "There are some choices"}
+          ctx\y_position + 1
           DEFTYPE .DG_choice *choice
+          DEFTYPE .w cwidth, cheight
 
           For c = 0 To *current_page\choice_count - 1
-            choice_rects(c)\x0 = #TX_frame_size + #DG_x_pos
-            choice_rects(c)\y0 = (context\y_position + 1) * #TX_font_height + 8
+            rects(c)\x0 = #DG_x_padding
+            rects(c)\y0 = (ctx\y_position + 1) * #TX_font_height + #DG_y_padding
 
             *choice = !__get_choice{*current_page\first_choice_id + c}
-            size = TX_put_text{&context, *choice\text_id, 32}
+            size = TX_put_text{&ctx, *choice\text_id, #DG_width}
 
-            DEFTYPE .w cwidth, cheight
             cwidth = !__get_size_width{size}
             cheight = !__get_size_height{size}
-            choice_rects(c)\x1 = choice_rects(c)\x0 + (cwidth * #TX_font_width)
-            choice_rects(c)\y1 = choice_rects(c)\y0 + (cheight * #TX_font_height)
-
-            !DB_printf{"Choice %d. Text %d", *current_page\first_choice_id + c, *choice\text_id}
-            !DB_printf{"Size: %d x %d", cwidth, cheight}
-            !DB_printf{"Actual Size: %d x %d", cwidth * #TX_font_width, cheight * #TX_font_height}
-            !DB_printf{"y0: %d", choice_rects(c)\y0}
-            !DB_printf{"(%d,%d,%d,%d)", choice_rects(c)\x0, choice_rects(c)\y0, choice_rects(c)\x1, choice_rects(c)\y1}
+            rects(c)\x1 = rects(c)\x0 + (cwidth * #TX_font_width)
+            rects(c)\y1 = rects(c)\y0 + (cheight * #TX_font_height)
           Next
-        Else
-          !DB_log_str{"DG", "There are no choices"}
         End If
 
-        TX_end{&context, #DG_x_pos, 8}
-
+        TX_end{&ctx, #DG_x_pos, #DG_y_padding}
         displayed = True
       End If
 
       If *current_page\choice_count > 0
-        ;!DB_trace{"DG", "Looking for choices..."}
         DEFTYPE .w selected
         DEFTYPE .DG_choice *choice
-        selected = IN_check_mouse{&choice_rects(0), *current_page\choice_count}
+        selected = IN_check_mouse{&rects(0), *current_page\choice_count}
 
         If selected <> -1
           *choice = !__get_choice{(*current_page\first_choice_id + selected)}
           pointer_id = #NN_pointer_interact - #NN_pointer_start
 
           If lmb = #IN_mouse_released
-            !DB_printf{"Choice %d pressed!", selected}
             NS_script_queue = *choice\script_offset
             page_id = *choice\page_id
             displayed = False
-            If page_id = -1 Then DG_dialogue_is_active = False
           End If
         Else
           pointer_id = #NN_pointer_default - #NN_pointer_start
         End If
       Else
-        ;!DB_trace{"DG", "No choices, wait for click"}
-      ; Wait for a mouse click
         If lmb = #IN_mouse_released
-          !DB_log_val{"DB", "Mouse released. Next page id: %d", *current_page\page_id}
-          If *current_page\page_id <> -1
-            ; If there are no choices advance to the next page
-            page_id = *current_page\page_id
-            displayed = False
-          Else
-            ; If there are choices, check if one was selected
-              ; If a choice was selected, follow it
-          End If
+          page_id = *current_page\page_id
+          displayed = False
         End If
       End If
     End If
 
-    ; ESCape hatch for debugging
-    If RawStatus($44) Then done = True
-    ; Check if it's been requested to quit the dialogue
-    If DG_dialogue_is_active = False Then done = True
+    If page_id = -1 Then DG_dialogue_is_active = False
   Wend
 
-  DG_dialogue_is_active = False
   UnBuffer 0
 End Statement
 
