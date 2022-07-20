@@ -151,19 +151,35 @@ namespace NEONnoir
                         ? 0xFFFF
                         : get_script_offset(choice.script, result);
 
-                    c.flag = !choice.has_flag
+                    c.set_flag = !choice.has_set_flag
                         ? 0xFFFF
-                        : get_flag_id(choice.flag, result);
+                        : get_flag_id(choice.set_flag, result);
+
+                    c.check_flag = !choice.has_check_flag
+                        ? 0xFFFF
+                        : get_flag_id(choice.check_flag, result);
 
                     c.enabled = choice.enabled ? 0xFF : 0;
+
+                    c.self_disable = choice.self_disable ? 0xFF : 0;
 
                     pak.choices.push_back(c);
 
                     choice_count++;
                 }
 
+                p.set_flag = !page.has_set_flag
+                    ? 0xFFFF
+                    : get_flag_id(page.set_flag, result);
+
+                p.check_flag = !page.has_check_flag
+                    ? 0xFFFF
+                    : get_flag_id(page.check_flag, result);
+
                 p.choice_count = page.choices.size();
                 p.enabled = page.enabled ? 0xFF : 0;
+                p.self_disable = page.self_disable ? 0xFF : 0;
+                
                 pak.pages.push_back(p);
 
                 page_count++;
@@ -301,11 +317,13 @@ namespace NEONnoir
         for (auto const& page : pak.pages)
         {
             write(neonpack, page.text_id);
+            write(neonpack, page.set_flag);
+            write(neonpack, page.check_flag);
             write(neonpack, page.page_id);
             write(neonpack, page.first_choice_id);
             write(neonpack, page.choice_count);
             neonpack.write(&page.enabled, 1);
-            neonpack.write(&page.padding, 1);
+            neonpack.write(&page.self_disable, 1);
         }
 
         // Choices
@@ -315,11 +333,12 @@ namespace NEONnoir
         for (auto const& choice : pak.choices)
         {
             write(neonpack, choice.text_id);
-            write(neonpack, choice.flag);
+            write(neonpack, choice.set_flag);
+            write(neonpack, choice.check_flag);
             write(neonpack, choice.page_id);
             write(neonpack, choice.script_offset);
             neonpack.write(&choice.enabled, 1);
-            neonpack.write(&choice.padding, 1);
+            neonpack.write(&choice.self_disable, 1);
         }
 
         // Write the bytecode "header

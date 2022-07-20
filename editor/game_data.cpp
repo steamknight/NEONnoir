@@ -52,11 +52,14 @@ namespace NEONnoir
         j = json{
             { "text",           c.text },
             { "script",         c.script },
-            { "flag",           c.flag },
+            { "set_flag",       c.set_flag },
+            { "check_flag",     c.check_flag },
             { "next_page_id" ,  c.next_page_id },
             { "enabled",        c.enabled },
+            { "self_disable",   c.self_disable },
             { "has_script",     c.has_script },
-            { "has_flag",       c.has_flag },
+            { "has_set_flag",   c.has_set_flag },
+            { "has_check_flag", c.has_check_flag },
         };
     }
 
@@ -64,9 +67,14 @@ namespace NEONnoir
     {
         j = json{
             { "text",           p.text },
+            { "set_flag",       p.set_flag },
+            { "check_flag",     p.check_flag },
             { "choices",        p.choices },
             { "next_page_id" ,  p.next_page_id },
             { "enabled",        p.enabled },
+            { "self_disable",   p.self_disable },
+            { "has_set_flag",   p.has_set_flag },
+            { "has_check_flag", p.has_check_flag },
         };
     }
 
@@ -115,19 +123,26 @@ namespace NEONnoir
     {
         j.at("text").get_to(c.text);
         j.at("script").get_to(c.script);
-        j.at("flag").get_to(c.flag);
+        j.at("set_flag").get_to(c.set_flag);
+        j.at("check_flag").get_to(c.check_flag);
         j.at("next_page_id").get_to(c.next_page_id);
         j.at("enabled").get_to(c.enabled);
+        j.at("self_disable").get_to(c.self_disable);
         j.at("has_script").get_to(c.has_script);
-        j.at("has_flag").get_to(c.has_flag);
+        j.at("has_set_flag").get_to(c.has_set_flag);
+        j.at("has_check_flag").get_to(c.has_check_flag);
     }
 
     void from_json(const json& j, dialogue_page& p)
     {
         j.at("text").get_to(p.text);
+        j.at("set_flag").get_to(p.set_flag);
+        j.at("check_flag").get_to(p.check_flag);
         j.at("choices").get_to(p.choices);
         j.at("next_page_id").get_to(p.next_page_id);
         j.at("enabled").get_to(p.enabled);
+        j.at("has_set_flag").get_to(p.has_set_flag);
+        j.at("has_check_flag").get_to(p.has_check_flag);
     }
 
     void from_json(const json& j, dialogue& d)

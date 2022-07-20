@@ -108,11 +108,13 @@ namespace NEONnoir
     struct neon_page
     {
         uint16_t text_id;
-        uint16_t page_id;
-        uint16_t first_choice_id;
-        uint16_t choice_count;
-        char enabled;
-        char padding;
+        uint16_t set_flag{ 0xFFFF };
+        uint16_t check_flag{ 0xFFFF };
+        uint16_t page_id{ 0xFFFF };
+        uint16_t first_choice_id{ 0xFFFF };
+        uint16_t choice_count{ 0xFFFF };
+        char enabled{ -1 };
+        char self_disable{ 0 };
     };
 
     constexpr char choices_header[4] = { 'C', 'H', 'C', 'E' };
@@ -125,11 +127,12 @@ namespace NEONnoir
     struct neon_choice
     {
         uint16_t text_id;
-        uint16_t flag;
-        uint16_t page_id;
-        uint16_t script_offset;
-        char enabled;
-        char padding;
+        uint16_t set_flag{ 0xFFFF };
+        uint16_t check_flag{ 0xFFFF };
+        uint16_t page_id{ 0xFFFF };
+        uint16_t script_offset{ 0xFFFF };
+        char enabled{ -1 };
+        char self_disable{ 0 };
     };
 
     constexpr char string_header[4] = { 'S', 'T', 'R', 'G' };

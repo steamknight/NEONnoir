@@ -11,69 +11,104 @@
 #DG_width = 32
 #DG_x_padding = #DG_x_pos + #TX_frame_size
 #DG_y_padding = 8
+
+Function .b dg_is_page_enabled{page_ptr.l}
+  SHARED NS_flags()
+  DEFTYPE .DG_page *pag
+  DEFTYPE .b enabled
+  *pag = page_ptr
+
+  enabled = True
+  If *pag\check_flag <> -1
+    enabled = NS_flags(*pag\check_flag)
+  End If
+
+  Function Return enabled AND *pag\enabled
+End Function
+Function .b dg_is_choice_enabled{choice_ptr.l}
+  SHARED NS_flags()
+  DEFTYPE .DG_choice *choice
+  DEFTYPE .b enabled
+  *choice = choice_ptr
+
+  enabled = True
+  If *choice\check_flag <> -1
+    enabled = NS_flags(*choice\check_flag)
+  End If
+
+  Function Return enabled AND *choice\enabled
+End Function
+
 Statement DG_show_dialog{id.w}
   !DB_trace{"DG", "DG_show_dialog:" + Str$(id)}
-  SHARED DG_dialogue_is_active, NS_script_queue
+  SHARED DG_dialogue_is_active, NS_script_queue, NS_flags()
   !__use_dialogues{}
   !__use_string_table{}
 
   DEFTYPE .DG_dialogue *current
-  DEFTYPE .DG_page *current_page
+  DEFTYPE .DG_page *cur_page
   DEFTYPE .b displayed, lmb, page_id
   DEFTYPE .w pointer_id
 
 ; We won't have more than 8 choices, right?
   Dim rects.NN_screen_rect(8) 
 
-  DG_dialogue_is_active = True
   *current = !__get_dialogue{id}
   page_id = *current\first_page_id
 
   displayed = False
   pointer_id = 0
 
+  DG_dialogue_is_active = True
   While DG_dialogue_is_active
     VWait
     DisplaySprite #CP_coplist, pointer_id, MouseX, MouseY, 0
     lmb = IN_update_mouse{}
 
-    ; Get the current page
-    *current_page = !__get_page{page_id}
+    *cur_page = !__get_page{page_id}
 
     ; If the page is not enabled, advance until we find one that is.
     Repeat
-      If *current_page\enabled = False
-        page_id = *current_page\page_id
+      If dg_is_page_enabled{*cur_page} = False
+        page_id = *cur_page\page_id
         displayed = False
       End If
     Until page_id <> -1
 
     If page_id <> -1
-      *current_page = !__get_page{page_id}
+      *cur_page = !__get_page{page_id}
+      ; Display the dialog page
       If displayed = False
         UnBuffer 0
         DEFTYPE .TX_context ctx
         TX_begin{&ctx}
 
         DEFTYPE .l size
-        size = TX_put_text{&ctx, *current_page\text_id, #DG_width}
+        size = TX_put_text{&ctx, *cur_page\text_id, #DG_width}
 
-        If *current_page\first_choice_id <> -1
+        If *cur_page\first_choice_id <> -1
           ctx\y_position + 1
           DEFTYPE .DG_choice *choice
           DEFTYPE .w cwidth, cheight
+          DEFTYPE .b enabled
 
-          For c = 0 To *current_page\choice_count - 1
-            rects(c)\x0 = #DG_x_padding
-            rects(c)\y0 = (ctx\y_position + 1) * #TX_font_height + #DG_y_padding
+          For c = 0 To *cur_page\choice_count - 1
+            *choice = !__get_choice{*cur_page\first_choice_id + c}
 
-            *choice = !__get_choice{*current_page\first_choice_id + c}
-            size = TX_put_text{&ctx, *choice\text_id, #DG_width}
+            If dg_is_choice_enabled{*choice}
+              rects(c)\x0 = #DG_x_padding
+              rects(c)\y0 = (ctx\y_position + 1) * #TX_font_height + #DG_y_padding
 
-            cwidth = !__get_size_width{size}
-            cheight = !__get_size_height{size}
-            rects(c)\x1 = rects(c)\x0 + (cwidth * #TX_font_width)
-            rects(c)\y1 = rects(c)\y0 + (cheight * #TX_font_height)
+              size = TX_put_text{&ctx, *choice\text_id, #DG_width}
+
+              cwidth = !__get_size_width{size}
+              cheight = !__get_size_height{size}
+              rects(c)\x1 = rects(c)\x0 + (cwidth * #TX_font_width)
+              rects(c)\y1 = rects(c)\y0 + (cheight * #TX_font_height)
+            Else
+              rects(c)\x1 = -1
+              rects(c)\y1 = -1
+            End If 
           Next
         End If
 
@@ -81,27 +116,35 @@ Statement DG_show_dialog{id.w}
         displayed = True
       End If
 
-      If *current_page\choice_count > 0
+      ; Handle user interaction
+      If *cur_page\choice_count > 0
         DEFTYPE .w selected
         DEFTYPE .DG_choice *choice
-        selected = IN_check_mouse{&rects(0), *current_page\choice_count}
+        selected = IN_check_mouse{&rects(0), *cur_page\choice_count}
 
         If selected <> -1
-          *choice = !__get_choice{(*current_page\first_choice_id + selected)}
+          *choice = !__get_choice{(*cur_page\first_choice_id + selected)}
           pointer_id = #NN_pointer_interact - #NN_pointer_start
 
           If lmb = #IN_mouse_released
             NS_script_queue = *choice\script_offset
             page_id = *choice\page_id
             displayed = False
+
+            If *choice\self_disable = True Then *choice\enabled = False
+            If *choice\set_flag <> -1 Then NS_flags(*choice\set_flag) = True
+            !DB_printf{"Choice: %d, sf: %d", selected, *choice\set_flag}
           End If
         Else
           pointer_id = #NN_pointer_default - #NN_pointer_start
         End If
       Else
         If lmb = #IN_mouse_released
-          page_id = *current_page\page_id
+          page_id = *cur_page\page_id
           displayed = False
+
+          If *cur_page\self_disable = True Then *cur_page\enabled = False
+          If *cur_page\set_flag <> -1 Then NS_flags(*cur_page\set_flag) = True
         End If
       End If
     End If

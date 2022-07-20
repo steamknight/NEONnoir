@@ -190,9 +190,34 @@ namespace NEONnoir
 
             ImGui::SameLine();
 
-            // Enabled/disable page
-            ImGui::Checkbox(make_id("##pageenabled{}", page.enabled), &page.enabled);
-            ToolTip("Enable/Disable page");
+            if (ImGui::Button(make_id(ICON_MD_MORE_VERT "##more{}", page)))
+            {
+                ImGui::OpenPopup(make_id("##more_options{}", page));
+            }
+
+            ImGui::SetNextItemWidth(256);
+            if (ImGui::BeginPopup(make_id("##more_options{}", page)))
+            {
+                ImGui::Checkbox(make_id("Page enabled##pageenabled{}", page.enabled), &page.enabled);
+
+                ImGui::Checkbox(make_id("Disable when read##{}", page.self_disable), &page.self_disable);
+
+                ImGui::Checkbox(make_id("Set Flag##{}", page.has_set_flag), &page.has_set_flag);
+                if (!page.has_set_flag) ImGui::BeginDisabled();
+                ImGui::SameLine(128);
+                ImGui::SetNextItemWidth(128);
+                ImGui::InputText(make_id("##page_setflag{}", page.set_flag), &page.set_flag);
+                if (!page.has_set_flag) ImGui::EndDisabled();
+
+                ImGui::Checkbox(make_id("Check Flag##{}", page.has_check_flag), &page.has_check_flag);
+                if (!page.has_check_flag) ImGui::BeginDisabled();
+                ImGui::SameLine(128);
+                ImGui::SetNextItemWidth(128);
+                ImGui::InputText(make_id("##page_checkflag{}", page.check_flag), &page.check_flag);
+                if (!page.has_check_flag) ImGui::EndDisabled();
+
+                ImGui::EndPopup();
+            }
 
             ImGui::SameLine();
 
@@ -202,7 +227,7 @@ namespace NEONnoir
             }
             ToolTip("Delete this page");
 
-            ImGui::SameLine(0, 32);
+            ImGui::SameLine(128);
 
             // Set optional page goto
             ImGui::AlignTextToFramePadding();
@@ -268,34 +293,37 @@ namespace NEONnoir
             ImGui::OpenPopup(make_id("##more_options{}", choice));
         }
 
+        ImGui::SetNextItemWidth(256);
         if (ImGui::BeginPopup(make_id("##more_options{}", choice)))
         {
+            ImGui::Checkbox(make_id("Choice enabled##choicenabled{}", choice.enabled), &choice.enabled);
+
             ImGui::Checkbox(make_id("Disable when clicked##{}", choice.self_disable), &choice.self_disable);
             ImGui::Checkbox(make_id("Script##{}", choice.has_script), &choice.has_script);
 
             if (!choice.has_script) ImGui::BeginDisabled();
-            ImGui::SameLine();
+            ImGui::SameLine(128);
             ImGui::SetNextItemWidth(128);
             ImGui::InputText(make_id("##choice_script{}", choice.script), &choice.script);
 
             if (!choice.has_script) ImGui::EndDisabled();
 
-            ImGui::Checkbox(make_id("Flag##{}", choice.has_flag), &choice.has_flag);
-            if (!choice.has_flag) ImGui::BeginDisabled();
-            ImGui::SameLine();
+            ImGui::Checkbox(make_id("Set Flag##{}", choice.has_set_flag), &choice.has_set_flag);
+            if (!choice.has_set_flag) ImGui::BeginDisabled();
+            ImGui::SameLine(128);
             ImGui::SetNextItemWidth(128);
-            ImGui::InputText(make_id("##choice_flag{}", choice.flag), &choice.flag);
+            ImGui::InputText(make_id("##choice_setflag{}", choice.set_flag), &choice.set_flag);
+            if (!choice.has_set_flag) ImGui::EndDisabled();
 
-            if (!choice.has_flag) ImGui::EndDisabled();
+            ImGui::Checkbox(make_id("Check Flag##{}", choice.has_check_flag), &choice.has_check_flag);
+            if (!choice.has_check_flag) ImGui::BeginDisabled();
+            ImGui::SameLine(128);
+            ImGui::SetNextItemWidth(128);
+            ImGui::InputText(make_id("##choice_checkflag{}", choice.check_flag), &choice.check_flag);
+            if (!choice.has_check_flag) ImGui::EndDisabled();
 
             ImGui::EndPopup();
         }
-
-        ImGui::SameLine();
-
-        // Enabled/disable page
-        ImGui::Checkbox(make_id("##choicenabled{}", choice.enabled), &choice.enabled);
-        ToolTip("Enable/Disable choice");
 
         ImGui::SameLine();
 
@@ -305,7 +333,7 @@ namespace NEONnoir
         }
         ToolTip("Delete this choice");
 
-        ImGui::SameLine(0, 32);
+        ImGui::SameLine(128);
 
         // Set optional page goto
         ImGui::AlignTextToFramePadding();

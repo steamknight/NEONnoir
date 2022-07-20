@@ -1,6 +1,8 @@
 ; Setup all the global flags
 .FLAGS
     has_found_body    ; Have we found the body yet?
+    takeshi_backstory ; Do we know what happened to Takeshi?
+    glitch_first_time ; Have we talked to Glitch yet?
 
 .CONST
     ; Locations
@@ -87,6 +89,8 @@
 .SCRIPT dialogue_glitch       ; Talk to Glitch
     dlg #dialogue_glitch
     end
+
+
 
 
 

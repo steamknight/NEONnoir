@@ -46,23 +46,26 @@ End NEWTYPE
 ; -----------------------------------------------
 NEWTYPE .DG_choice
   text_id.w           ; index into string table
-  flag.w              ; flag that determines if criteria is met, $FFFF if none
+  set_flag.w          ; set this flag on selection, $FFFF if none
+  check_flag.w        ; flag that determines if criteria is met, $FFFF if none
   page_id.w           ; id to the next page in the conversation
   script_offset.w     ; script to run if selected, $FFFF if none
   enabled.b           ; determine if it should be shown. If this is False, 
                       ; it overrides the flag property
-  padding.b           ; padding to make this even size
+  self_disable.b      ; Disable itself if true
 End NEWTYPE
 
 ; Dialogue Page
 ; -----------------------------------------------
 NEWTYPE .DG_page
   text_id.w           ; index into string array, $FFFF if no text
+  set_flag.w          ; set this flag on selection, $FFFF if none
+  check_flag.w        ; flag that determines if criteria is met, $FFFF if none
   page_id.w           ; index to the next page to display, $FFFF if no page
   first_choice_id.w   ; id of the first choice
   choice_count.w      ; number of choices in the page
   enabled.b           ; determine if it should be shown.
-  padding.b           ; padding to make this even size
+  self_disable.b      ; Disable itself if true
 End NEWTYPE
 
 ; Dialogue
@@ -185,7 +188,7 @@ DEFTYPE .l NS_script_data_size
 
 Dim NS_flags.b(256)
 ; -----------------------------------------------
-DEFTYPE .b DG_dialogue_is_active
+DEFTYPE .b DG_dialogue_is_active, DB_active_dialogue
 
 ; Dialogue
 
