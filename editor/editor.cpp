@@ -151,6 +151,7 @@ namespace NEONnoir
                 if (!_game_data) ImGui::EndDisabled();
 
                 ImGui::Separator();
+                if (!_game_data) ImGui::BeginDisabled();
                 if (ImGui::MenuItem("Export NEON file..."))
                 {
                     try
@@ -167,24 +168,26 @@ namespace NEONnoir
                         std::cout << ex.what();
                     }
                 }
+                if (!_game_data) ImGui::EndDisabled();
 
                 ImGui::Separator();
                 if (ImGui::MenuItem("Exit", "Alt+F4"))
                 {
                     glfwSetWindowShouldClose(_window.get(), GLFW_TRUE);
                 }
+
                 ImGui::EndMenu();
             }
-            if (ImGui::BeginMenu("Edit"))
-            {
-                if (ImGui::MenuItem("Undo", "CTRL+Z")) {}
-                if (ImGui::MenuItem("Redo", "CTRL+Y", false, false)) {}  // Disabled item
-                ImGui::Separator();
-                if (ImGui::MenuItem("Cut", "CTRL+X")) {}
-                if (ImGui::MenuItem("Copy", "CTRL+C")) {}
-                if (ImGui::MenuItem("Paste", "CTRL+V")) {}
-                ImGui::EndMenu();
-            }
+            //if (ImGui::BeginMenu("Edit"))
+            //{
+            //    if (ImGui::MenuItem("Undo", "CTRL+Z")) {}
+            //    if (ImGui::MenuItem("Redo", "CTRL+Y", false, false)) {}  // Disabled item
+            //    ImGui::Separator();
+            //    if (ImGui::MenuItem("Cut", "CTRL+X")) {}
+            //    if (ImGui::MenuItem("Copy", "CTRL+C")) {}
+            //    if (ImGui::MenuItem("Paste", "CTRL+V")) {}
+            //    ImGui::EndMenu();
+            //}
             if (ImGui::BeginMenu(ICON_MD_CONSTRUCTION " Tools"))
             {
                 if (ImGui::MenuItem("Palette Injector..."))

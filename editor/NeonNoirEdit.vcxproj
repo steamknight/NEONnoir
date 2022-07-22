@@ -188,6 +188,7 @@
     <ClCompile Include="palette_injector.cpp" />
     <ClCompile Include="scene_editor.cpp" />
     <ClCompile Include="script_editor.cpp" />
+    <ClCompile Include="shapes_editor.cpp" />
     <ClCompile Include="utils.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -214,6 +215,7 @@
     <ClInclude Include="palette_injector.h" />
     <ClInclude Include="scene_editor.h" />
     <ClInclude Include="script_editor.h" />
+    <ClInclude Include="shapes_editor.h" />
     <ClInclude Include="stb_image.h" />
     <ClInclude Include="utils.h" />
   </ItemGroup>

@@ -46,8 +46,7 @@ namespace NEONnoir
             data->dialogues.push_back({});
         }
 
-
-        if (ImGui::BeginTable("DialogueTable", 2, ImGuiTableFlags_BordersH | ImGuiTableFlags_SizingStretchProp))
+        if (auto table = imgui::table("DialogueTable", 2, ImGuiTableFlags_BordersH | ImGuiTableFlags_SizingStretchProp))
         {
             auto deletion_index = -1;
             auto count = 0;
@@ -69,8 +68,6 @@ namespace NEONnoir
             {
                 data->dialogues.erase(data->dialogues.begin() + deletion_index);
             }
-
-            ImGui::EndTable();
         }
     }
 
@@ -148,7 +145,7 @@ namespace NEONnoir
     {
         ImGui::TableNextColumn();
         auto deletion_index = -1;
-        if (ImGui::BeginTable(make_id("Pages", dialogue.pages), 1, ImGuiTableFlags_BordersInnerH))
+        if (auto table = imgui::table(make_id("Pages", dialogue.pages), 1, ImGuiTableFlags_BordersInnerH))
         {
             auto count = 0;
             for (auto& page : dialogue.pages)
@@ -160,8 +157,6 @@ namespace NEONnoir
 
                 count++;
             }
-
-            ImGui::EndTable();
         }
 
         if (deletion_index >= 0)
@@ -175,7 +170,7 @@ namespace NEONnoir
         ImGui::TableNextRow();
         ImGui::TableNextColumn();
         bool keep_page = true;
-        if (ImGui::BeginTable(make_id("##Page{}", page), 3, ImGuiTableFlags_SizingStretchProp))
+        if (auto table = imgui::table(make_id("##Page{}", page), 3, ImGuiTableFlags_SizingStretchProp))
         {
             input_text(std::format("Page {}", count), page.text);
             ToolTip(std::format("Page ID: {}", page_start_id + count).c_str());
@@ -243,8 +238,6 @@ namespace NEONnoir
 
 
             display_choices(page);
-
-            ImGui::EndTable();
         }
 
         return keep_page;
@@ -277,11 +270,9 @@ namespace NEONnoir
 
         auto keep_choice = true;
 
-        if (ImGui::BeginTable("foo", 2, ImGuiTableFlags_SizingStretchProp, { ImGui::GetColumnWidth(), 0 }))
+        if (auto table = imgui::table("choicetext", 2, ImGuiTableFlags_SizingStretchProp, { ImGui::GetColumnWidth(), 0 }))
         {
             input_text(std::format("Choice {}", count), choice.text);
-
-            ImGui::EndTable();
         }
 
         ImGui::TableNextColumn();

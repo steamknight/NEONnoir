@@ -84,7 +84,9 @@ Statement DG_show_dialog{id.w}
         TX_begin{&ctx}
 
         DEFTYPE .l size
+        BlitMode InvMode
         size = TX_put_text{&ctx, *cur_page\text_id, #DG_width}
+        BlitMode CookieMode
 
         If *cur_page\first_choice_id <> -1
           ctx\y_position + 1

@@ -100,4 +100,13 @@ namespace NEONnoir
     {
         ImGui::End();
     }
+
+    ImGui_guard imgui::table(std::string_view const& id, int columns_count, ImGuiTableFlags flags, ImVec2 const& outer_size, float inner_width)
+    {
+        return ImGui_guard
+        {
+            &ImGui::EndTable,
+            ImGui::BeginTable(id.data(), columns_count, flags, outer_size, inner_width) 
+        };
+    }
 }

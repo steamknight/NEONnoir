@@ -1,6 +1,7 @@
 #pragma once
 #include "imgui.h"
 #include <string_view>
+#include <functional>
 
 namespace NEONnoir
 {
@@ -33,6 +34,25 @@ namespace NEONnoir
         bool is_closing() const noexcept { return !_is_open; }
     private:
         bool _is_open{ false };
+    };
+
+    typedef void(*cleanup_fn)();
+    class ImGui_guard
+    {
+    public:
+        ImGui_guard(cleanup_fn cleanup, bool is_valid) : _cleanup(cleanup), _is_valid(is_valid) {};
+        ~ImGui_guard() noexcept { if (_is_valid) _cleanup(); }
+
+        operator bool() const noexcept { return _is_valid; }
+    private:
+        cleanup_fn _cleanup;
+        bool _is_valid;
+    };
+
+    class imgui
+    {
+    public:
+        static ImGui_guard table(std::string_view const& id, int columns_count, ImGuiTableFlags flags = 0, ImVec2 const& outer_size = ImVec2(0.0f, 0.0f), float inner_width = 0.0f);
     };
 
 }
