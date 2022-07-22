@@ -33,8 +33,8 @@ namespace NEONnoir
         std::vector<std::string> _flags;
         std::vector<std::string> _consts;
         bytecode _bytecode;
-        bool _has_error;
-        size_t _error_line;
+        bool _has_error{false};
+        size_t _error_line{0};
     };
 }
 

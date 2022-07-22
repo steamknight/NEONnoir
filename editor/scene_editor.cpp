@@ -116,7 +116,7 @@ namespace NEONnoir
         ImGui::TableNextColumn();
         ImGui::SetNextItemWidth(-FLT_MIN);
 
-        ImGui::SliderInt(std::format("##{}", (uint64_t)&selected_value).c_str(), (int*)&selected_value, 0, values.size() - 1, values[selected_value].c_str());
+        ImGui::SliderInt(std::format("##{}", (uint64_t)&selected_value).c_str(), (int*)&selected_value, 0, (int)(values.size() - 1), values[selected_value].c_str());
     }
 
 
@@ -260,7 +260,7 @@ namespace NEONnoir
         ImGuiIO& io = ImGui::GetIO(); (void)io;
 
         auto texture = background_textures[scene.image_id];
-        ImGui::Image((void*)(intptr_t)texture.texture_id, ImVec2(texture.width * _zoom, texture.height * _zoom));
+        ImGui::Image((void*)(intptr_t)texture.texture_id, ImVec2((float)(texture.width * _zoom), (float)(texture.height * _zoom)));
 
         auto image_min = ImGui::GetItemRectMin();
         if (ImGui::IsItemHovered())

@@ -176,7 +176,7 @@ namespace NEONnoir
                     ? 0xFFFF
                     : get_flag_id(page.check_flag, result);
 
-                p.choice_count = page.choices.size();
+                p.choice_count = static_cast<uint16_t>(page.choices.size());
                 p.enabled = page.enabled ? 0xFF : 0;
                 p.self_disable = page.self_disable ? 0xFF : 0;
                 
@@ -185,7 +185,7 @@ namespace NEONnoir
                 page_count++;
             }
 
-            d.page_count = dialogue.pages.size();
+            d.page_count = static_cast<uint16_t>(dialogue.pages.size());
             pak.dialogues.push_back(d);
         }
 

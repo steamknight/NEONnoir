@@ -26,6 +26,7 @@ namespace NEONnoir
         glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
         glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
         glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+        glfwWindowHint(GLFW_SCALE_TO_MONITOR, GLFW_TRUE);
 
         _window = GLFWwindow_ptr{ glfwCreateWindow(setting.width, setting.height, setting.title.c_str(), nullptr, nullptr) };
         ensure_valid(_window.get(), "Unable to create GLFW window");
@@ -51,7 +52,7 @@ namespace NEONnoir
         ImGui_ImplOpenGL3_Init("#version 330");
  
         // Load some custom fonts
-        _ui_font = io.Fonts->AddFontFromFileTTF("data/Roboto-Medium.ttf", 18);
+        _ui_font = io.Fonts->AddFontFromFileTTF("data/Roboto-Medium.ttf", 18 * _dpi_scale_x);
 
         // Add icons to the ui font
         auto config = ImFontConfig{};
@@ -60,10 +61,10 @@ namespace NEONnoir
         config.GlyphOffset = { 0, 4 };
         config.GlyphMinAdvanceX = 18;
         ImWchar const icon_range[] = { ICON_MIN_MD, ICON_MAX_16_MD, 0 };
-        io.Fonts->AddFontFromFileTTF("data/MaterialIcons-Regular.ttf" , 18, &config, icon_range);
+        io.Fonts->AddFontFromFileTTF("data/MaterialIcons-Regular.ttf" , 18 * _dpi_scale_x, &config, icon_range);
         io.Fonts->Build();
 
-        _monospaced_font = io.Fonts->AddFontFromFileTTF("data/CascadiaCode.ttf", 18);
+        _monospaced_font = io.Fonts->AddFontFromFileTTF("data/CascadiaCode.ttf", 18 * _dpi_scale_x);
     }
 
     editor::~editor() noexcept
@@ -105,6 +106,9 @@ namespace NEONnoir
             _script_editor.display(_script, _monospaced_font);
 
             _dialogue_editor.display(_game_data);
+
+            _shapes_editor.display(_game_data,
+                _location_browser.get_selected_location_index());
 
             ImGui::ShowDemoWindow();
 

@@ -8,6 +8,7 @@
 
 #include "utils.h"
 #include "location_browser.h"
+#include "shapes_editor.h"
 
 namespace fs = std::filesystem;
 
@@ -82,6 +83,14 @@ namespace NEONnoir
             display_location_name(location.name, id);
             display_backgrounds(location.backgrounds, location.background_textures, id);
             display_scenes(location.scenes, id, location_index);
+
+            ImGui::TableNextRow();
+            ImGui::TableNextColumn();
+            ImGui::TableNextColumn();
+            if (ImGui::Button(std::format("Shapes Editor##{}", (size_t)&location).c_str(), {-FLT_MIN, 0}))
+            {
+                _selected_location = std::make_optional<size_t>(location_index);
+            }
 
             // End LocationTable
             ImGui::EndTable();
@@ -198,6 +207,5 @@ namespace NEONnoir
         {
             scenes.erase(scenes.begin() + remove_index);
         }
-
     }
 }

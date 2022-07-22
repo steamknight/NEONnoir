@@ -13,25 +13,6 @@ namespace NEONnoir
         items
     };
 
-#pragma pack(push, 1)
-    struct game_data_header
-    {
-        uint8_t magic[4]{ 'N', 'E', 'O', 'N' };
-        uint16_t major_version{ 1 };
-        uint16_t minor_version{ 0 };
-
-        uint16_t location_count{ 0 };
-        uint16_t item_count{ 0 };
-        uint16_t bitecode_size{ 0 };
-        uint16_t string_count{ 0 };
-       
-        uint32_t locations_offset{ 0 };
-        uint32_t items_offset{ 0 };
-        uint32_t bytecode_offset{ 0 };
-        uint32_t strings_offset{ 0 };
-    };
-#pragma pack(pop)
-
     struct game_data_region
     {
         uint16_t x{ 0 }, y{ 0 };
@@ -54,12 +35,26 @@ namespace NEONnoir
         std::vector<game_data_region> regions;
     };
 
+    struct shape
+    {
+        uint16_t x{ 0 }, y{ 0 };
+        uint16_t width{ 0 }, height{ 0 };
+        std::vector<uint8_t> palette;
+    };
+
+    struct shape_container
+    {
+        std::string image_file;
+        std::vector<shape> shapes;
+    };
+
     struct game_data_location
     {
         std::string name;
         std::vector<std::string> backgrounds;
         std::vector<GLtexture> background_textures;
         std::vector<game_data_scene> scenes;
+        std::vector<shape_container> shapes;
     };
 
     struct dialogue_choice

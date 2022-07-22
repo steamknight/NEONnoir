@@ -10,6 +10,7 @@
 #include "scene_editor.h"
 #include "script_editor.h"
 #include "dialogue_editor.h"
+#include "shapes_editor.h"
 
 struct ImFont;
 
@@ -48,6 +49,7 @@ namespace NEONnoir
         scene_editor _scene_editor{};
         script_editor _script_editor{};
         dialogue_editor _dialogue_editor{};
+        shapes_editor _shapes_editor{};
     };
 };
 
