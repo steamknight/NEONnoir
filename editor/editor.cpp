@@ -37,7 +37,13 @@ namespace NEONnoir
         gladLoadGL((GLADloadfunc)glfwGetProcAddress);
         glViewport(0, 0, setting.width, setting.height);
 
-        glfwGetWindowContentScale(_window.get(), &_dpi_scale_x, &_dpi_scale_y);
+        glfwSetWindowUserPointer(_window.get(), this);
+
+        //glfwSetWindowContentScaleCallback(_window.get(), [](GLFWwindow* window, float /*xscale*/, float /*yscale*/)
+        //    {
+        //        auto engine_ptr = reinterpret_cast<editor*>(glfwGetWindowUserPointer(window));
+        //        engine_ptr->load_fonts();
+        //    });
 
         // Intitialize IMGUI
         IMGUI_CHECKVERSION();
@@ -51,20 +57,21 @@ namespace NEONnoir
         ImGui_ImplGlfw_InitForOpenGL(_window.get(), true);
         ImGui_ImplOpenGL3_Init("#version 330");
  
-        // Load some custom fonts
-        _ui_font = io.Fonts->AddFontFromFileTTF("data/Roboto-Medium.ttf", 18 * _dpi_scale_x);
+        //// Load some custom fonts
+        //_ui_font = io.Fonts->AddFontFromFileTTF("data/Roboto-Medium.ttf", 18 * _dpi_scale_x);
 
-        // Add icons to the ui font
-        auto config = ImFontConfig{};
-        config.MergeMode = true;
-        config.PixelSnapH = true;
-        config.GlyphOffset = { 0, 4 };
-        config.GlyphMinAdvanceX = 18;
-        ImWchar const icon_range[] = { ICON_MIN_MD, ICON_MAX_16_MD, 0 };
-        io.Fonts->AddFontFromFileTTF("data/MaterialIcons-Regular.ttf" , 18 * _dpi_scale_x, &config, icon_range);
-        io.Fonts->Build();
+        //// Add icons to the ui font
+        //auto config = ImFontConfig{};
+        //config.MergeMode = true;
+        //config.PixelSnapH = true;
+        //config.GlyphOffset = { 0, 4 };
+        //config.GlyphMinAdvanceX = 18;
+        //ImWchar const icon_range[] = { ICON_MIN_MD, ICON_MAX_16_MD, 0 };
+        //io.Fonts->AddFontFromFileTTF("data/MaterialIcons-Regular.ttf" , 18 * _dpi_scale_x, &config, icon_range);
+        //io.Fonts->Build();
 
-        _monospaced_font = io.Fonts->AddFontFromFileTTF("data/CascadiaCode.ttf", 18 * _dpi_scale_x);
+        //_monospaced_font = io.Fonts->AddFontFromFileTTF("data/CascadiaCode.ttf", 18 * _dpi_scale_x);
+        load_fonts();
     }
 
     editor::~editor() noexcept
@@ -74,6 +81,32 @@ namespace NEONnoir
         ImGui::DestroyContext();
 
         glfwTerminate();
+    }
+
+    void editor::load_fonts() noexcept
+    {
+        glfwGetWindowContentScale(_window.get(), &_dpi_scale_x, &_dpi_scale_y);
+
+        // Load some custom fonts
+        ImGuiIO& io = ImGui::GetIO(); (void)io;
+
+        io.Fonts->Clear();
+
+        _ui_font = io.Fonts->AddFontFromFileTTF("data/Roboto-Medium.ttf", 18 * _dpi_scale_x);
+
+        // Add icons to the ui font
+        auto config = ImFontConfig{};
+        config.MergeMode = true;
+        config.PixelSnapH = true;
+        config.GlyphOffset = { 0, 4 };
+        config.GlyphMinAdvanceX = 18;
+        ImWchar const icon_range[] = { ICON_MIN_MD, ICON_MAX_16_MD, 0 };
+        io.Fonts->AddFontFromFileTTF("data/MaterialIcons-Regular.ttf", 18 * _dpi_scale_x, &config, icon_range);
+
+        _monospaced_font = io.Fonts->AddFontFromFileTTF("data/CascadiaCode.ttf", 18 * _dpi_scale_x);
+        io.Fonts->Build();
+
+        ImGui_ImplGlfw_NewFrame();
     }
 
     void editor::run()
@@ -109,6 +142,42 @@ namespace NEONnoir
 
             _shapes_editor.display(_game_data,
                 _location_browser.get_selected_location_index());
+
+            if (_show_properties_popup)
+            {
+                ImGui::OpenPopup("Properties");
+
+                ImVec2 center = ImGui::GetMainViewport()->GetCenter();
+                ImGui::SetNextWindowPos(center, ImGuiCond_Appearing, ImVec2(0.5f, 0.5f));
+                if (ImGui::BeginPopupModal("Properties", nullptr))
+                {
+                    if (auto table = imgui::table("properties", 2, ImGuiTableFlags_SizingStretchProp))
+                    {
+                        ImGui::TableNextRow();
+                        ImGui::TableNextColumn();
+                        ImGui::AlignTextToFramePadding();
+                        ImGui::TextUnformatted("Shapes Start Id:");
+
+                        ImGui::TableNextColumn();
+                        ImGui::SetNextItemWidth(-FLT_MIN);
+                        ImGui::InputInt(make_id("##{}", _game_data->shape_start_id), &_game_data->shape_start_id);
+                    }
+
+                    ImGui::NewLine();
+                    auto width = ImGui::GetWindowWidth();
+                    auto size = ImVec2{ 120.f * _dpi_scale_x, 0.f };
+
+                    ImGui::Dummy({ width - size.x, 0.f });
+                    ImGui::SameLine();
+                    if (ImGui::Button("Close", ImVec2(120 * _dpi_scale_x, 0))) 
+                    {
+                        _show_properties_popup = false;
+                        ImGui::CloseCurrentPopup(); 
+                    }
+
+                    ImGui::EndPopup();
+                }
+            }
 
             ImGui::ShowDemoWindow();
 
@@ -156,6 +225,10 @@ namespace NEONnoir
 
                 ImGui::Separator();
                 if (!_game_data) ImGui::BeginDisabled();
+                if (ImGui::MenuItem("Properties..."))
+                {
+                    _show_properties_popup = true;
+                }
                 if (ImGui::MenuItem("Export NEON file..."))
                 {
                     try
@@ -205,6 +278,7 @@ namespace NEONnoir
                 ImGui::EndMenu();
             }
             ImGui::EndMainMenuBar();
+
         }
     }
 }

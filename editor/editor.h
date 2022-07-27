@@ -3,6 +3,7 @@
 #include <TextEditor.h>
 #include "glfw_utils.h"
 #include <memory>
+#include <functional>
 
 #include "palette_injector.h"
 #include "game_data.h"
@@ -31,6 +32,7 @@ namespace NEONnoir
         ~editor() noexcept;
 
         void run();
+        void load_fonts() noexcept;
 
         void process_main_menu();
 
@@ -50,6 +52,8 @@ namespace NEONnoir
         script_editor _script_editor{};
         dialogue_editor _dialogue_editor{};
         shapes_editor _shapes_editor{};
+
+        bool _show_properties_popup;
     };
 };
 

@@ -5,6 +5,7 @@
 
 #include "game_data.h"
 #include "assembler.h"
+#include "utils.h"
 
 namespace NEONnoir
 {
@@ -46,6 +47,8 @@ namespace NEONnoir
 
         uint16_t first_scene_id;
         uint16_t last_scene_id;
+
+        uint16_t first_shape_id;
     };
 
     constexpr char scenes_header[4] = { 'S', 'C', 'N', 'S' };
@@ -156,6 +159,16 @@ namespace NEONnoir
         std::vector<neon_word> words;
     };
 
+    constexpr char shapes_header[4] = { 'S', 'H', 'P', 'E' };
+    struct neon_shape
+    {
+        uint16_t shape_id{ 0 };
+        uint16_t palette_id{ 0xFFFF };
+    };
+
+    constexpr char palettes_header[4] = { 'P', 'A', 'L', 'S' };
+
+        
 #pragma pack(pop)
 
     struct neon_packfile
@@ -169,6 +182,8 @@ namespace NEONnoir
         std::vector<neon_choice> choices;
         std::vector<std::string> string_table;
         std::vector<neon_word_list> words_table;
+        std::vector<neon_shape> shapes;
+        std::vector<std::vector<rgb_color>> palettes;
     };
 
     void serialize_to_neon_pak(std::filesystem::path file_path, std::shared_ptr<game_data> const& data, assembler_result const& result);

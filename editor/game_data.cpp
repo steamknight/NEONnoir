@@ -9,6 +9,26 @@ namespace fs = std::filesystem;
 
 namespace NEONnoir
 {
+
+    void to_json(json& j, shape const& s)
+    {
+        j = json{
+            { "x",              s.x },
+            { "y",              s.y },
+            { "width",          s.width },
+            { "height",         s.height },
+        };
+    }
+
+    void to_json(json& j, shape_container const& s)
+    {
+        j = json{
+            { "image_file",     s.image_file },
+            { "has_palette",    s.has_palette },
+            { "shapes",         s.shapes }
+        };
+    }
+
     void to_json(json& j, game_data_region const& r)
     {
         j = json{
@@ -43,7 +63,8 @@ namespace NEONnoir
         j = json{
             { "name", l.name },
             { "backgrounds", l.backgrounds },
-            { "scenes", l.scenes}
+            { "scenes", l.scenes },
+            { "shapes", l.shapes }
         };
     }
 
@@ -112,11 +133,28 @@ namespace NEONnoir
         j.at("regions").get_to(s.regions);
     }
 
+    void from_json(const json& j, shape& s)
+    {
+        j.at("x").get_to(s.x);
+        j.at("y").get_to(s.y);
+        j.at("width").get_to(s.width);
+        j.at("height").get_to(s.height);
+    }
+
+    void from_json(const json& j, shape_container& s)
+    {
+        j.at("image_file").get_to(s.image_file);
+        j.at("has_palette").get_to(s.has_palette);
+        j.at("shapes").get_to(s.shapes);
+    }
+
     void from_json(const json& j, game_data_location& l)
     {
         j.at("name").get_to(l.name);
         j.at("backgrounds").get_to(l.backgrounds);
         j.at("scenes").get_to(l.scenes);
+        if (j.contains("shapes"))
+            j.at("shapes").get_to(l.shapes);
     }
 
     void from_json(const json& j, dialogue_choice& c)
@@ -197,7 +235,14 @@ namespace NEONnoir
                 {
                     location.background_textures.push_back(load_texture(background));
                 }
+
+                for (auto& container : location.shapes)
+                {
+                    location.shapes_textures.push_back(load_texture(container.image_file));
+                    container.palette = read_bmp_palette(container.image_file);
+                }
             }
+
 
             return std::make_shared<game_data>(data);
         }

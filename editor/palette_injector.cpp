@@ -135,7 +135,7 @@ namespace NEONnoir
         {
             auto offset = ImVec2
             {
-                color_p0.x + ((fmodf(count, colors_per_run)) * color_sz),
+                color_p0.x + ((fmodf(to<float>(count), colors_per_run)) * color_sz),
                 color_p0.y + (floorf(count / colors_per_col) * color_sz)
             };
 

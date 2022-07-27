@@ -3,6 +3,8 @@
 #include <iomanip>
 #include <fstream>
 
+#include "utils.h"
+
 namespace NEONnoir
 {
     assembler::assembler(std::string const& source) : _source(source)
@@ -115,7 +117,7 @@ namespace NEONnoir
                 throw assembler_error("Missing label: " + placeholder.name, 0);
             }
 
-            _bytecode[placeholder.index] = _labels[placeholder.name] - placeholder.index + 1;
+            _bytecode[placeholder.index] = to<int32_t>(_labels[placeholder.name] - placeholder.index + 1);
         }
     }
 
@@ -389,7 +391,7 @@ namespace NEONnoir
                     throw assembler_error("Duplicate label: @" + label, _scan_line);
                 }
 
-                _labels.insert({ label, _bytecode.size() });
+                _labels.insert({ label, to<int32_t>(_bytecode.size())});
             }
             else if (is_at_end() || peek() == '.')
             {

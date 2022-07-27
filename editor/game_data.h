@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include "glfw_utils.h"
+#include "utils.h"
 
 namespace NEONnoir
 {
@@ -39,13 +40,14 @@ namespace NEONnoir
     {
         uint16_t x{ 0 }, y{ 0 };
         uint16_t width{ 0 }, height{ 0 };
-        std::vector<uint8_t> palette;
     };
 
     struct shape_container
     {
         std::string image_file;
         std::vector<shape> shapes;
+        std::vector<rgb_color> palette;
+        bool has_palette{ true };
     };
 
     struct game_data_location
@@ -55,6 +57,7 @@ namespace NEONnoir
         std::vector<GLtexture> background_textures;
         std::vector<game_data_scene> scenes;
         std::vector<shape_container> shapes;
+        std::vector<GLtexture> shapes_textures;
     };
 
     struct dialogue_choice
@@ -98,6 +101,7 @@ namespace NEONnoir
         std::vector<dialogue> dialogues;
 
         void serialize(std::string const& filename);
+        int32_t shape_start_id{ 10 };
 
         static std::shared_ptr<game_data> deserialize(std::string const& filename);
     };
