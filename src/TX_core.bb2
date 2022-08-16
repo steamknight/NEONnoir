@@ -461,8 +461,6 @@ Function .l TX_put_text{context.l, id.w, line_width.w}
 
   If *ctx\max_width < width Then *ctx\max_width = width
   *ctx\y_position + height
-
-  !DB_printf{">>>>>>>>>>>>>>>>> Size: (%d, %d), Max width %d", width, height, *ctx\max_width}
   Function Return size
 End Function
 

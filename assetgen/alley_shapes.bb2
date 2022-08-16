@@ -1,0 +1,19 @@
+; Shape generator
+
+BitMap 0, 320, 200, 5
+
+LoadBitmap 0, "Sandy.iff", 0
+GetaShape 10, 0, 0, 100, 100
+
+SaveShapes 10, 10, "1.shapes"
+
+
+
+InitCopList 0, 44, 200, $10005, 8, 32, 0
+BLITZ
+CreateDisplay 0
+DisplayPalette 0, 0
+DisplayBitMap 0, 0
+
+MouseWait
+End

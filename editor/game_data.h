@@ -58,6 +58,7 @@ namespace NEONnoir
         std::vector<game_data_scene> scenes;
         std::vector<shape_container> shapes;
         std::vector<GLtexture> shapes_textures;
+        std::string shapes_file;
     };
 
     struct dialogue_choice

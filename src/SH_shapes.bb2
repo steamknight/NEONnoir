@@ -5,5 +5,48 @@
 ; Prefix SH = SHape
 
 Statement SH_draw {id.w, x.w, y.w}
-    NPrint "Drawing shape #", id, " at ", x, ",", y
+  !DB_trace{"SHAPE", "SH_draw"}
+  SHARED NN_current_bmp
+  !__use_shapes{}
+  !__use_palettes{}
+
+  DEFTYPE .NN_shape *sh
+  *sh = !__get_shape{id}
+
+  If *sh\palette_id <> NN_current_palette AND *sh\palette_id > -1
+    NN_current_palette = *sh\palette_id
+    DEFTYPE .NN_pal_entry *pal
+    *pal = !__get_palette{*sh\palette_id}
+
+    DEFTYPE .w r, g, b
+    For pidx = 224 to 255
+      r = *pal\r
+      g = *pal\g
+      b = *pal\b
+
+      ; pal members are byte and blitz will put negative values if they are over
+      ; 127, even though bounds checking is turned off.
+      If r < 0 Then r + 256
+      If g < 0 Then g + 256
+      If b < 0 Then b + 256
+      !DB_printf{"I: %d = %d, %d, %d", pidx, r, g, b}
+      AGAPalRGB NN_current_bmp, pidx, r, g, b
+      *pal + SizeOf .NN_pal_entry
+    Next
+
+    AGAPalRGB NN_current_bmp, 224, 255, 255, 255
+
+    ; For j = 0 to 7
+    ;   For i = 0 to 31
+    ;     AGAPalRGB NN_current_bmp, i + (j * 32), (j * 32), (j * 32), (j * 32)
+    ;   Next i
+    ; Next j
+
+    DisplayPalette #CP_coplist, NN_current_bmp
+    VWait
+  End If
+
+  Boxf 4, 4, 104, 104, 224
+  Blit *sh\shape_id, x, y
+
 End Statement

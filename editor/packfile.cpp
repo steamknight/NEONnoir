@@ -114,17 +114,28 @@ namespace NEONnoir
                 pak.scenes.push_back(s);
             }
 
-            uint16_t shape_id = data->shape_start_id;
-            loc.first_shape_id = to<uint16_t>(pak.shapes.size());
-            for (auto const& container : location.shapes)
+            if (location.shapes.size() > 0)
             {
-                for (auto const& shape : container.shapes)
+                uint16_t shape_id = data->shape_start_id;
+                loc.first_shape_id = to<uint16_t>(pak.shapes.size());
+                for (auto const& container : location.shapes)
                 {
-                    pak.shapes.push_back({ shape_id, to<uint16_t>(pak.palettes.size()) });
-                    shape_id++;
-                }
+                    for (auto const& shape : container.shapes)
+                    {
+                        pak.shapes.push_back({ shape_id, to<uint16_t>(pak.palettes.size()) });
+                        shape_id++;
+                    }
 
-                pak.palettes.push_back(container.palette);
+                    pak.palettes.push_back(container.palette);
+                }
+                loc.last_shape_id = to<uint16_t>(pak.shapes.size()) - 1; // compensate for the extra +1 at the end of loop
+
+                if (location.shapes_file == "")
+                {
+                    throw std::runtime_error("Missing shapes file name.");
+                }
+                loc.shapes_file = to<uint16_t>(pak.string_table.size());
+                pak.string_table.push_back(location.shapes_file);
             }
 
             pak.locations.push_back(loc);
@@ -283,6 +294,8 @@ namespace NEONnoir
             write(neonpack, location.first_scene_id);
             write(neonpack, location.last_scene_id);
             write(neonpack, location.first_shape_id);
+            write(neonpack, location.last_shape_id);
+            write(neonpack, location.shapes_file);
         }
 
         // Write all scenes
@@ -424,6 +437,7 @@ namespace NEONnoir
                 neonpack.write(reinterpret_cast<char*>(&entry.red), 1);
                 neonpack.write(reinterpret_cast<char*>(&entry.green), 1);
                 neonpack.write(reinterpret_cast<char*>(&entry.blue), 1);
+                neonpack.write(reinterpret_cast<char*>(&entry.alpha), 1);
             }
         }
 

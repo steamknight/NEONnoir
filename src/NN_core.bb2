@@ -40,6 +40,16 @@ NEWTYPE .NN_location
   last_bg.w
   first_scene.w
   last_scene.w
+  first_shape.w
+  last_shape.w
+  shapes_file.w
+End NEWTYPE
+
+; Shape
+; -----------------------------------------------
+NEWTYPE .NN_shape
+  shape_id.w
+  palette_id.w
 End NEWTYPE
 
 ; Dialogue Choice
@@ -91,6 +101,13 @@ NEWTYPE .NN_screen_rect
   y1.w
 End NEWTYPE
 
+NEWTYPE .NN_pal_entry
+  r.b
+  g.b
+  b.b
+  padding.b
+End NEWTYPE
+
 ; =============================================================================
 ; Define all globals and macros
 ; =============================================================================
@@ -122,6 +139,16 @@ Macro __get_location
   (*NN_locations + (SizeOf .NN_location * (`1)))
 End Macro
 
+; NN_shape dynamic array
+; -----------------------------------------------
+DEFTYPE .NN_shape *NN_shape
+DEFTYPE .l NN_shape_count
+
+Macro __get_shape
+  (*NN_shapes + (SizeOf .NN_shape * (`1)))
+End Macro
+
+; NN
 ; DG_choice dynamic array
 ; -----------------------------------------------
 DEFTYPE .DG_choice *DG_choices
@@ -181,6 +208,19 @@ Macro __get_words
   (Peek.l (*NN_word_table + ((`1) * SizeOf .l)) + 4)
 End Macro
 
+; Custom Palettes
+; -----------------------------------------------
+DEFTYPE .NN_pal_entry *NN_palettes
+DEFTYPE .l NN_palette_count, palette_offset
+DEFTYPE .w NN_current_palette
+
+; Each custom palette has exactly 32 entries
+palette_offset = SizeOf .NN_pal_entry * 32
+
+Macro __get_palette
+  (*NN_palettes + (palette_offset * (`1)))
+End Macro
+
 ; Script
 ; -----------------------------------------------
 DEFTYPE .w *NS_script_data, NS_script_queue
@@ -221,6 +261,14 @@ End Macro
 
 Macro __use_dialogue_limits
   SHARED DG_dialogue_count, DG_page_count, DG_choice_count
+End Macro
+
+Macro __use_shapes
+  SHARED *NN_shapes, NN_shape_count
+End Macro
+
+Macro __use_palettes
+  SHARED *NN_palettes, NN_palette_count, NN_current_palette
 End Macro
 
 Macro __make_size
@@ -264,6 +312,7 @@ End Macro
 #PAL_fx = 10
 ; Display buffer
 #BF_main_screen = 0
+#BF_shapes = 1
 
 
 ; Loading NEONpacks

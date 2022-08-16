@@ -46,7 +46,7 @@ namespace NEONnoir
             data->dialogues.push_back({});
         }
 
-        if (auto table = imgui::table("DialogueTable", 2, ImGuiTableFlags_BordersH | ImGuiTableFlags_SizingStretchProp))
+        if (auto table = imgui::table("DialogueTable", 2, ImGuiTableFlags_BordersH | ImGuiTableFlags_SizingStretchProp | ImGuiTableFlags_Resizable))
         {
             auto deletion_index = -1;
             auto count = 0;
@@ -88,7 +88,7 @@ namespace NEONnoir
 
         auto request_deletion = false;
 
-        if (ImGui::BeginTable(std::format("DialogOptions##{}", (size_t)&dialogue).c_str(), 2, ImGuiTableFlags_SizingStretchProp, {300, 0}))
+        if (ImGui::BeginTable(std::format("DialogOptions##{}", (size_t)&dialogue).c_str(), 2, ImGuiTableFlags_SizingStretchProp))
         {
             // Speaker name
             input_text("Speaker", dialogue.speaker);

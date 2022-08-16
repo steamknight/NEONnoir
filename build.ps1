@@ -11,10 +11,10 @@ $bb2_files = @(
     "./src/SC_scene.bb2"
     "./src/SH_shapes.bb2"
     "./src/IV_inventory.bb2"
+    "./src/DG_dialogue.bb2",
     "./src/MS_music.bb2",
     "./src/NS_opcodes.bb2",
     "./src/NS_script.bb2",
-    "./src/DG_dialogue.bb2",
     "./src/NN_main.bb2"
     #"./src/location_tester.bb2"
 )
@@ -31,14 +31,20 @@ $data_files = @(
     "./data/frame.shape",
     "./data/pointers.shape",
     "./data/gutter.neon",
-    "./data/theme.mod"
+    "./data/theme.mod",
+    "./data/mpg.iff",
+    "./data/1.shapes"
 )
 
 # Location where the built file will reside
-#$output_file = "X:/Disks/Develop/NEONnoir/neonnoir.bb2"
-#$data_dir = "X:/Disks/Develop/NEONnoir/data"
-$output_dir = "C:/Users/mass/OneDrive/Amiga/hdf/Development/NEONnoir/"
-$data_dir = "C:/Users/mass/OneDrive/Amiga/hdf/Development/NEONnoir/data"
+$output_dir = "C:/Users/mass/tools/WinUAE/HardDrives/Develop/NEONnoir/"
+$data_dir = "C:/Users/mass/tools/WinUAE/HardDrives/Develop/NEONnoir/data"
+#$output_dir = "C:/Users/mass/OneDrive/Amiga/hdf/Development/NEONnoir/"
+#$data_dir = "C:/Users/mass/OneDrive/Amiga/hdf/Development/NEONnoir/data"
+
+function Set-ToolPath($path) {
+    $ENV:Path = "$path\external;$path\external\NConvert;" + $ENV:Path
+}
 
 function Copy-GameData {
     # Copy all the data files
@@ -58,6 +64,14 @@ function Copy-Game {
 function Publish-Game {
     Copy-Game
     Copy-GameData
+}
+
+function Convert-EOL($file) {
+    Invoke-Expression "& ConvertEOL unix $file $output_dir$file"
+}
+
+function Get-GeneratedShapes {
+    Copy-Item -Path "$output_dir\\assetgen\\*.shapes" -Destination ".\data"
 }
 
 function Archive-Game {

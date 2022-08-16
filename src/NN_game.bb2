@@ -44,6 +44,8 @@ Function .b NN_load_neonpack{filename$}
   SHARED *NN_word_table, NN_word_table_count, NN_word_data_size, *NN_word_data
   !__use_dialogues{}
   !__use_dialogue_limits{}
+  !__use_shapes{}
+  !__use_palettes{}
 
 
   !DB_trace{"NN_GAME", "NN_load_neonpack: " +  filename$}
@@ -73,7 +75,7 @@ Function .b NN_load_neonpack{filename$}
   size = NN_location_count * SizeOf .NN_location
   *NN_locations = AllocMem_(size, $10000)  ; Best available memory and clear
   ReadMem id, *NN_locations, size
-  !DB_log_str{"NN_GAME", "    Locations > Addr: $" + Hex$(*NN_locations) + " Size: " + Str$(size)}
+  !DB_log_str{"NN_GAME", "  Locations > $" + Hex$(*NN_locations) + "+" + Str$(size)}
 
   ; Read in all the scenes
   ReadMem id, &header, 4
@@ -81,7 +83,7 @@ Function .b NN_load_neonpack{filename$}
   size = NN_scene_count * SizeOf .NN_scene
   *NN_scenes = AllocMem_(size, $10000)  ; Best available memory and clear
   ReadMem id, *NN_scenes, size
-  !DB_log_str{"NN_GAME", "    Scenes    > Addr: $" + Hex$(*NN_scenes) + " Size: " + Str$(size)}
+  !DB_log_str{"NN_GAME", "  Scenes    > $" + Hex$(*NN_scenes) + "+" + Str$(size)}
 
   ; Read in all the regions
   ReadMem id, &header, 4
@@ -89,7 +91,7 @@ Function .b NN_load_neonpack{filename$}
   size = NN_region_count * SizeOf .NN_region
   *NN_regions = AllocMem_(size, $10000)  ; Best available memory and clear
   ReadMem id, *NN_regions, size
-  !DB_log_str{"NN_GAME", "    Regions   > Addr: $" + Hex$(*NN_regions) + " Size: " + Str$(size)}
+  !DB_log_str{"NN_GAME", "  Regions   > $" + Hex$(*NN_regions) + "+" + Str$(size)}
 
   ; Read all dialogues
   ReadMem id, &header, 4
@@ -97,7 +99,7 @@ Function .b NN_load_neonpack{filename$}
   size = DG_dialogue_count * SizeOf .DG_dialogue
   *DG_dialogues = AllocMem_(size, $10000)
   ReadMem id, *DG_dialogues, size
-  !DB_log_str{"NN_GAME", "    Dialogues > Addr: $" + Hex$(*DG_dialogues) + " Size: " + Str$(size)}
+  !DB_log_str{"NN_GAME", "  Dialogues > $" + Hex$(*DG_dialogues) + "+" + Str$(size)}
 
   ; Read all pages
   ReadMem id, &header, 4
@@ -105,7 +107,7 @@ Function .b NN_load_neonpack{filename$}
   size = DG_page_count * SizeOf .DG_page
   *DG_pages = AllocMem_(size, $10000)
   ReadMem id, *DG_pages, size
-  !DB_log_str{"NN_GAME", "    Pages     > Addr: $" + Hex$(*DG_pages) + " Size: " + Str$(size)}
+  !DB_log_str{"NN_GAME", "  Pages     > $" + Hex$(*DG_pages) + "+" + Str$(size)}
 
   ; Read all choices
   ReadMem id, &header, 4
@@ -113,7 +115,7 @@ Function .b NN_load_neonpack{filename$}
   size = DG_choice_count * SizeOf .DG_choice
   *DG_choices = AllocMem_(size, $10000)
   ReadMem id, *DG_choices, size
-  !DB_log_str{"NN_GAME", "    Choices   > Addr: $" + Hex$(*DG_choices) + " Size: " + Str$(size)}
+  !DB_log_str{"NN_GAME", "  Choices   > $" + Hex$(*DG_choices) + "+" + Str$(size)}
 
   ; Read all the bytecode... I suppose it's more like word-code
   ReadMem id, &header, 4
@@ -121,7 +123,7 @@ Function .b NN_load_neonpack{filename$}
   NS_script_data_size * SizeOf .w
   *NS_script_data = AllocMem_(NS_script_data_size, $10000)
   ReadMem id, *NS_script_data, NS_script_data_size
-  !DB_log_str{"NN_GAME", "    Script    > Addr: $" + Hex$(*NS_script_data) + " Size: " + Str$(NS_script_data_size)}
+  !DB_log_str{"NN_GAME", "  Script    > $" + Hex$(*NS_script_data) + "+" + Str$(NS_script_data_size)}
 
   ; Read all the strings and generate a string table
   ReadMem id, &header, 4
@@ -129,8 +131,8 @@ Function .b NN_load_neonpack{filename$}
   ReadMem id, &NN_string_data_size, 4
   *NN_string_table = AllocMem_(NN_string_count * SizeOf .l, $10000)
   *NN_string_data = AllocMem_(NN_string_data_size, $10000)
-  !DB_log_str{"NN_GAME", "    Str Table > Addr: $" + Hex$(*NN_string_table) + " Size: " + Str$(NN_string_count * SizeOf .l)}
-  !DB_log_str{"NN_GAME", "    Str Data  > Addr: $" + Hex$(*NN_string_data) + " Size: " + Str$(NN_string_data_size)}
+  !DB_log_str{"NN_GAME", "  Str Table > $" + Hex$(*NN_string_table) + "+" + Str$(NN_string_count * SizeOf .l)}
+  !DB_log_str{"NN_GAME", "  Str Data  > $" + Hex$(*NN_string_data) + "+" + Str$(NN_string_data_size)}
 
   DEFTYPE .l ptr
   ptr = *NN_string_data
@@ -153,8 +155,8 @@ Function .b NN_load_neonpack{filename$}
   ReadMem id, &NN_word_data_size, 4
   *NN_word_table = AllocMem_(NN_word_table_count * SizeOf .l, $10000)
   *NN_word_data = AllocMem_(NN_word_data_size, $10000)
-  !DB_log_str{"NN_GAME", "    Wrd Table > Addr: $" + Hex$(*NN_word_table) + " Size: " + Str$(NN_word_table_count * SizeOf .l)}
-  !DB_log_str{"NN_GAME", "    Word Data  > Addr: $" + Hex$(*NN_word_data) + " Size: " + Str$(NN_word_data_size)}
+  !DB_log_str{"NN_GAME", "  Wrd Table > $" + Hex$(*NN_word_table) + "+" + Str$(NN_word_table_count * SizeOf .l)}
+  !DB_log_str{"NN_GAME", "  Word Data  > $" + Hex$(*NN_word_data) + "+" + Str$(NN_word_data_size)}
 
   ptr = *NN_word_data
   DEFTYPE .l word_list_size
@@ -170,6 +172,21 @@ Function .b NN_load_neonpack{filename$}
     ptr + word_list_size * SizeOf .NN_word
   Next
 
+  ; Read all the shapes
+  ReadMem id, &header, 4
+  ReadMem id, &NN_shape_count, 4
+  size = NN_shape_count * SizeOf .NN_shape
+  *NN_shapes = AllocMem_(size, $10000)
+  ReadMem id, *NN_shapes, size
+  !DB_log_str{"NN_GAME", "  Shapes    > $" + Hex$(*NN_shapes) + "+" + Str$(size)}
+
+  ; Read all the palettes
+  ReadMem id, &header, 4
+  ReadMem id, &NN_palette_count, 4
+  size = NN_palette_count * SizeOf .NN_pal_entry * 32 ; There are 32 palette entries
+  *NN_palettes = AllocMem_(size, $10000)
+  ReadMem id, *NN_palettes, size
+  !DB_log_str{"NN_GAME", "  Palettes  > $" + Hex$(*NN_shapes) + "+" + Str$(size)}
   Function Return #NN_NEON_success
 End Function
 
@@ -183,39 +200,62 @@ Statement NN_uninitialize{}
   SHARED *NN_word_table, *NN_word_data, NN_word_table_count, NN_word_data_size
   !__use_dialogues{}
   !__use_dialogue_limits{}
+  !__use_shapes{}
+  !__use_palettes{}
 
-  FreeMem_ *NN_locations, SizeOf .NN_location * NN_location_count
-  !DB_log_str{"NN_GAME", "    FreeMem locations $" + Hex$(*NN_locations) + ", " + Str$(SizeOf .NN_location * NN_location_count)}
+  DEFTYPE .l size
 
-  FreeMem_ *NN_scenes, SizeOf .NN_scene * NN_scene_count
-  !DB_log_str{"NN_GAME", "    FreeMem scenes    $" + Hex$(*NN_scenes) + ", " + Str$(SizeOf .NN_scene * NN_scene_count)}
+  size = SizeOf .NN_location * NN_location_count
+  FreeMem_ *NN_locations, size
+  !DB_log_str{"NN_GAME", "  Free locations $" + Hex$(*NN_locations) + ", " + Str$(size)}
 
-  FreeMem_ *NN_regions, SizeOf .NN_region * NN_region_count
-  !DB_log_str{"NN_GAME", "    FreeMem regions   $" + Hex$(*NN_regions) + ", " + Str$(SizeOf .NN_region * NN_region_count)}
+  size = SizeOf .NN_scene * NN_scene_count
+  FreeMem_ *NN_scenes, size
+  !DB_log_str{"NN_GAME", "  Free scenes    $" + Hex$(*NN_scenes) + ", " + Str$(size)}
 
-  FreeMem_ *DG_dialogues, SizeOf .DG_dialogue * DG_dialogue_count
-  !DB_log_str{"NN_GAME", "    FreeMem dialogues $" + Hex$(*DG_dialogues) + ", " + Str$(SizeOf .DG_dialogue * DG_dialogue_count)}
+  size = SizeOf .NN_region * NN_region_count
+  FreeMem_ *NN_regions, size
+  !DB_log_str{"NN_GAME", "  Free regions   $" + Hex$(*NN_regions) + ", " + Str$(size)}
 
-  FreeMem_ *DG_pages, SizeOf .DG_page * DG_page_count
-  !DB_log_str{"NN_GAME", "    FreeMem pages     $" + Hex$(*DG_pages) + ", " + Str$(SizeOf .DG_page * DG_page_count)}
+  size = SizeOf .DG_dialogue * DG_dialogue_count
+  FreeMem_ *DG_dialogues, size
+  !DB_log_str{"NN_GAME", "  Free dialogues $" + Hex$(*DG_dialogues) + ", " + Str$(size)}
 
-  FreeMem_ *DG_choices, SizeOf .DG_choice * DG_choice_count
-  !DB_log_str{"NN_GAME", "    FreeMem choices   $" + Hex$(*DG_choices) + ", " + Str$(SizeOf .DG_choice * DG_choice_count)}
+  size = SizeOf .DG_page * DG_page_count
+  FreeMem_ *DG_pages, size
+  !DB_log_str{"NN_GAME", "  Free pages     $" + Hex$(*DG_pages) + ", " + Str$(size)}
 
-  FreeMem_ *NS_script_data, NS_script_data_size
-  !DB_log_str{"NN_GAME", "    FreeMem str data  $" + Hex$(*NS_script_data) + ", " + Str$(NS_script_data_size)}
+  size = SizeOf .DG_choice * DG_choice_count
+  FreeMem_ *DG_choices, size
+  !DB_log_str{"NN_GAME", "  Free choices   $" + Hex$(*DG_choices) + ", " + Str$(size)}
 
-  FreeMem_ *NN_string_table, SizeOf .l * NN_string_count
-  !DB_log_str{"NN_GAME", "    FreeMem str table $" + Hex$(*NN_string_table) + ", " + Str$(SizeOf .l * NN_string_count)}
+  size = NS_script_data_size
+  FreeMem_ *NS_script_data, size
+  !DB_log_str{"NN_GAME", "  Free str data  $" + Hex$(*NS_script_data) + ", " + Str$(size)}
 
-  FreeMem_ *NN_string_data, NN_string_data_size
-  !DB_log_str{"NN_GAME", "    FreeMem str data  $" + Hex$(*NN_string_data) + ", " + Str$(NN_string_data_size)}
+  size = SizeOf .l * NN_string_count
+  FreeMem_ *NN_string_table, size
+  !DB_log_str{"NN_GAME", "  Free str table $" + Hex$(*NN_string_table) + ", " + Str$(size)}
 
-  FreeMem_ *NN_word_table, SizeOf .l * NN_word_table_count
-  !DB_log_str{"NN_GAME", "    FreeMem wrd table $" + Hex$(*NN_word_table) + ", " + Str$(SizeOf .l * NN_word_table_count)}
+  size = NN_string_data_size
+  FreeMem_ *NN_string_data, size
+  !DB_log_str{"NN_GAME", "  Free str data  $" + Hex$(*NN_string_data) + ", " + Str$(size)}
 
-  FreeMem_ *NN_word_data, NN_word_data_size
-  !DB_log_str{"NN_GAME", "    FreeMem wrd data  $" + Hex$(*NN_word_data) + ", " + Str$(NN_word_data_size)}
+  size = SizeOf .l * NN_word_table_count
+  FreeMem_ *NN_word_table, size
+  !DB_log_str{"NN_GAME", "  Free wrd table $" + Hex$(*NN_word_table) + ", " + Str$(size)}
+
+  size = NN_word_data_size
+  FreeMem_ *NN_word_data, size
+  !DB_log_str{"NN_GAME", "  Free wrd data  $" + Hex$(*NN_word_data) + ", " + Str$(size)}
+
+  size = SizeOf .NN_shape * NN_shape_count
+  FreeMem_ *NN_shapes, size
+  !DB_log_str{"NN_GAME", "  Free shapes    $" + Hex$(*NN_shapes) + ", " + Str$(size)}
+
+  size = SizeOf .NN_pal_entry * 32 * NN_palette_count
+  FreeMem_ *NN_palettes, size
+  !DB_log_str{"NN_GAME", "  Free palettes  $" + Hex$(*NN_palettes) + ", " + Str$(size)}
 End Statement
 
 ; Loads the mouse pointers
@@ -253,6 +293,7 @@ Statement NN_load_location{new_loc_id.w, new_scene_id.w}
   !DB_trace{"NN_GAME", "NN_load_location{" + Str$(new_loc_id) + ", " + Str$(new_scene_id) + "}"}
   SHARED *NN_current_location, *NN_current_scene
   SHARED *NN_locations, *NN_scenes, *NN_string_table, *NN_string_data
+  !__use_shapes{}
   *NN_current_location = !__get_location{new_loc_id}
 
   ; Load all the backgrounds
@@ -262,6 +303,14 @@ Statement NN_load_location{new_loc_id.w, new_scene_id.w}
     NPrint bmp$
     LoadBitMap bg, "data/" + bmp$, bg
   Next
+
+  ; Load the shapes if there are any
+  If *NN_current_location\shapes_file <> -1
+    DEFTYPE .NN_shape *first_shape, *last_shape
+    *first_shape = !__get_shape{*NN_current_location\first_shape}
+    *last_shape = !__get_shape{*NN_current_location\last_shape}
+    LoadShapes *first_shape\shape_id, *last_shape\shape_id, "data/" + !__get_string{*NN_current_location\shapes_file}
+  End If
 
   ;BLITZ
   ; Setup the next scene
@@ -299,6 +348,9 @@ End Function
 Statement NN_game_set_scene{id.w}
   SHARED *NN_scenes, *NN_current_scene, NN_current_bmp, *NN_current_location
   !DB_trace{"NN_GAME", "NN_game_set_scene: " + Str$(id)}
+  SHARED NN_current_palette
+
+  NN_current_palette = -1
 
   ; If *NN_current_scene\on_exit <> -1
   ;   NS_execute_script{*NN_current_scene\on_exit}

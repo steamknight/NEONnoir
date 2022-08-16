@@ -64,7 +64,8 @@ namespace NEONnoir
             { "name", l.name },
             { "backgrounds", l.backgrounds },
             { "scenes", l.scenes },
-            { "shapes", l.shapes }
+            { "shapes", l.shapes },
+            { "shapes_file", l.shapes_file },
         };
     }
 
@@ -155,6 +156,7 @@ namespace NEONnoir
         j.at("scenes").get_to(l.scenes);
         if (j.contains("shapes"))
             j.at("shapes").get_to(l.shapes);
+        j.at("shapes_file").get_to(l.shapes_file);
     }
 
     void from_json(const json& j, dialogue_choice& c)

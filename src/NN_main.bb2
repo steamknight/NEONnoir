@@ -15,6 +15,7 @@ InitCopList #CP_coplist, screen_offset, #NN_screen_height, #CP_flags, #CP_sprite
 
 ; Set up a buffer for blitting into the main screen
 Buffer #BF_main_screen, 64000
+Buffer #BF_shapes, 64000
 
 Goto SkipSong
 ; Load the title song

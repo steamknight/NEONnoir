@@ -51,12 +51,13 @@ namespace NEONnoir
 
         script << "; Shape generator\n\nBitMap 0, 320, 200, 5\n";
 
+
         auto shape_id = shape_start_id;
         for (auto const& container : location.shapes)
         {
             auto start_id = shape_id;
             auto filename = std::filesystem::path{ container.image_file }.stem().string();
-            script << "\nLoadBitmap 0, \"" << filename << ".iff\"\n";
+            script << "\nLoadBitmap 0, \"" << filename << ".iff\", 0\n";
 
             for (auto const& shape : container.shapes)
             {
@@ -66,11 +67,20 @@ namespace NEONnoir
 
         }
 
-        auto filename = location.name;
+        auto filename = location.shapes_file;
         std::replace(filename.begin(), filename.end(), ' ', '_');
 
-        script << "\nSaveShapes " << shape_start_id << ", " << shape_id - 1 << " \""  << filename << ".shapes\"\n\n";
+        script << "\nSaveShapes " << shape_start_id << ", " << shape_id - 1 << ", \""  << filename << "\"\n\n";
 
+        script << "\n\n";
+        script << "InitCopList 0, 44, 200, $10005, 8, 32, 0\n\
+BLITZ\n\
+CreateDisplay 0\n\
+DisplayPalette 0, 0\n\
+DisplayBitMap 0, 0\n\
+\n\
+MouseWait\n\
+End\n";
         return script.str();
     }
 
@@ -96,7 +106,7 @@ namespace NEONnoir
 
             if (ImGui::Button(ICON_MD_SAVE_AS " Save Script", { -FLT_MIN, 0.f }))
             {
-                auto filename = save_file_dialog("*.bb2");
+                auto filename = save_file_dialog("bb2");
                 if (filename)
                 {
                     auto script_file = std::ofstream{ filename.value().data(), std::ios::trunc};
@@ -106,11 +116,14 @@ namespace NEONnoir
                 }
             }
 
+            ImGui::SetNextItemWidth(-FLT_MIN);
+            ImGui::InputText(make_id("##shapefile{}", location.shapes_file), &location.shapes_file);
+            ToolTip("Name of the shapes file.");
+
             auto count = 0u;
             auto shape_id = shape_start_id;
             for (auto& container : location.shapes)
             {
-
                 if (DeleteButton(std::format("##ShapeContainderDelete{}", (size_t)&container)))
                 {
 

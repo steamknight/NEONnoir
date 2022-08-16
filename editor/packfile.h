@@ -40,15 +40,17 @@ namespace NEONnoir
 
     struct neon_location
     {
-        uint16_t name_id;
+        uint16_t name_id{ 0xFFFF };
 
-        uint16_t first_bg_id;
-        uint16_t last_bg_id;
+        uint16_t first_bg_id{ 0xFFFF };
+        uint16_t last_bg_id{ 0xFFFF };
 
-        uint16_t first_scene_id;
-        uint16_t last_scene_id;
+        uint16_t first_scene_id{ 0xFFFF };
+        uint16_t last_scene_id{ 0xFFFF };
 
-        uint16_t first_shape_id;
+        uint16_t first_shape_id{ 0xFFFF };
+        uint16_t last_shape_id{ 0xFFFF };
+        uint16_t shapes_file{ 0xFFFF };
     };
 
     constexpr char scenes_header[4] = { 'S', 'C', 'N', 'S' };
@@ -60,19 +62,19 @@ namespace NEONnoir
 
     struct neon_scene
     {
-        uint16_t name_id;
-        uint16_t on_enter;
-        uint16_t on_exit;
-        uint16_t background_id;
+        uint16_t name_id{ 0xFFFF };
+        uint16_t on_enter{ 0xFFFF };
+        uint16_t on_exit{ 0xFFFF };
+        uint16_t background_id{ 0xFFFF };
 
-        uint16_t first_region_id;
-        uint16_t last_region_id;
+        uint16_t first_region_id{ 0xFFFF };
+        uint16_t last_region_id{ 0xFFFF };
     };
 
     struct neon_regions_header
     {
         char name[4] = { 'R', 'G', 'N', 'S' };
-        uint16_t region_count;
+        uint16_t region_count{ 0xFFFF };
     };
 
     constexpr char regions_header[4] = { 'R', 'G', 'N', 'S' };
@@ -80,9 +82,9 @@ namespace NEONnoir
     {
         uint16_t x1, y1;
         uint16_t x2, y2;
-        uint16_t pointer_id;
-        uint16_t description_id;
-        uint16_t script_offset;
+        uint16_t pointer_id{ 0xFFFF };
+        uint16_t description_id{ 0xFFFF };
+        uint16_t script_offset{ 0xFFFF };
     };
 
     struct neon_dialogues_header
@@ -95,10 +97,10 @@ namespace NEONnoir
 
     struct neon_dialogue
     {
-        uint16_t first_page_id;
-        uint16_t page_count;
-        uint16_t speaker_name;
-        uint16_t speaker_image;
+        uint16_t first_page_id{ 0xFFFF };
+        uint16_t page_count{ 0xFFFF };
+        uint16_t speaker_name{ 0xFFFF };
+        uint16_t speaker_image{ 0xFFFF };
     };
 
     constexpr char pages_header [4] = { 'P', 'A', 'G', 'E' };
@@ -110,7 +112,7 @@ namespace NEONnoir
 
     struct neon_page
     {
-        uint16_t text_id;
+        uint16_t text_id{ 0xFFFF };
         uint16_t set_flag{ 0xFFFF };
         uint16_t check_flag{ 0xFFFF };
         uint16_t page_id{ 0xFFFF };
