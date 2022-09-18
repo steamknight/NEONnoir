@@ -60,6 +60,7 @@ function Copy-Game {
     $date = Get-Date -Format "yyMM"
     $fileVersion = [version](Get-Content $file_in | Select-Object -First 1)
     $newVersion = "{0}.{1}.{2}.{3}" -f $fileVersion.Major, $fileVersion.Minor, $date, ($fileVersion.Revision + 1)
+    $newVersion | Set-Content $file_in
     "; $newVersion" | Set-Content $file_out
 
     # Create the file

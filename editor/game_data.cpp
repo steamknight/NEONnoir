@@ -240,8 +240,8 @@ namespace NEONnoir
 
                 for (auto& container : location.shapes)
                 {
-                    location.shapes_textures.push_back(load_texture(container.image_file));
                     container.image = MPG::load_image(container.image_file);
+                    location.shapes_textures.push_back(load_texture(container.image));
                 }
             }
 
