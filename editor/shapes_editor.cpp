@@ -45,43 +45,18 @@ namespace NEONnoir
         ImGui::TextColored({ 16.f / 255.f, 64.f / 255.f, 128.f / 255.f, 1.f }, text);
     }
 
-    std::string shapes_editor::generate_script(game_data_location& location, int32_t shape_start_id) const
+    void shapes_editor::save_shapes(std::filesystem::path const& shapes_file_path, game_data_location& location) const
     {
-        auto script = std::stringstream{};
-
-        script << "; Shape generator\n\nBitMap 0, 320, 200, 5\n";
-
-
-        auto shape_id = shape_start_id;
-        for (auto const& container : location.shapes)
+        auto all_shapes = std::vector<MPG::simple_image>{};
+        for (auto const& shape_container : location.shapes)
         {
-            auto start_id = shape_id;
-            auto filename = std::filesystem::path{ container.image_file }.stem().string();
-            script << "\nLoadBitmap 0, \"" << filename << ".iff\", 0\n";
-
-            for (auto const& shape : container.shapes)
+            for (auto const& shape : shape_container.shapes)
             {
-                script << "GetaShape " << shape_id << ", " << shape.x << ", " << shape.y << ", " << shape.width << ", " << shape.height << "\n";
-                shape_id++;
+                all_shapes.push_back(MPG::crop(shape_container.image, shape.x, shape.y, shape.width, shape.height));
             }
-
         }
 
-        auto filename = location.shapes_file;
-        std::replace(filename.begin(), filename.end(), ' ', '_');
-
-        script << "\nSaveShapes " << shape_start_id << ", " << shape_id - 1 << ", \""  << filename << "\"\n\n";
-
-        script << "\n\n";
-        script << "InitCopList 0, 44, 200, $10005, 8, 32, 0\n\
-BLITZ\n\
-CreateDisplay 0\n\
-DisplayPalette 0, 0\n\
-DisplayBitMap 0, 0\n\
-\n\
-MouseWait\n\
-End\n";
-        return script.str();
+        MPG::save_blitz_shapes(shapes_file_path, all_shapes);
     }
 
     void shapes_editor::display_editor(game_data_location& location, int32_t shape_start_id)
@@ -95,24 +70,21 @@ End\n";
 
             if (ImGui::Button(ICON_MD_ADD_PHOTO_ALTERNATE " Add source image", { -FLT_MIN, 0.f }))
             {
-                if (auto file = open_file_dialog("bmp; Bitmap file"))
+                if (auto file = open_file_dialog("bmp;iff"))
                 {
                     auto container = shape_container{ file.value().data() };
-                    container.palette = read_bmp_palette(file.value());
+                    container.image = MPG::load_image(file.value());
                     location.shapes.push_back(container);
-                    location.shapes_textures.push_back(load_texture(file.value()));
+                    location.shapes_textures.push_back(load_texture(container.image));
                 }
             }
 
-            if (ImGui::Button(ICON_MD_SAVE_AS " Save Script", { -FLT_MIN, 0.f }))
+            if (ImGui::Button(ICON_MD_SAVE_AS " Export Shapes", { -FLT_MIN, 0.f }))
             {
-                auto filename = save_file_dialog("bb2");
+                auto filename = save_file_dialog("shapes");
                 if (filename)
                 {
-                    auto script_file = std::ofstream{ filename.value().data(), std::ios::trunc};
-                    auto script = generate_script(location, shape_start_id);
-                    script_file << script;
-                    script_file.close();
+                    save_shapes(filename.value(), location);
                 }
             }
 
@@ -126,7 +98,7 @@ End\n";
             {
                 if (DeleteButton(std::format("##ShapeContainderDelete{}", (size_t)&container)))
                 {
-
+                    _shape_container_to_delete = count;
                 }
 
                 ImGui::SameLine();
@@ -162,7 +134,7 @@ End\n";
                         ImGui::SameLine(avail.x - ImGui::CalcTextSize(ICON_MD_DELETE).x - (1 * spacing));
                         if (DeleteButton(make_id("##{}", shape)))
                         {
-
+                            _shape_to_delete = region_count;
                         }
 
                         uint16_t const step_size = 1;
@@ -189,6 +161,21 @@ End\n";
                     }
                 }
                 count++;
+            }
+
+            if (_shape_container_to_delete)
+            {
+                location.shapes.erase(location.shapes.begin() + _shape_container_to_delete.value());
+                _shape_container_to_delete = std::nullopt;
+                _selected_image = std::nullopt;
+            }
+
+            if (_shape_to_delete && _selected_image)
+            {
+                auto& container = location.shapes[_selected_image.value()].shapes;
+                container.erase(container.begin() + _shape_to_delete.value());
+
+                _shape_to_delete = std::nullopt;
             }
 
             ImGui::TableNextColumn();

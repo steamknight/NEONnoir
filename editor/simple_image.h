@@ -6,15 +6,15 @@
 
 namespace MPG
 {
+    // Represents a color in the color palette
     struct rgba_color
     {
         uint8_t r{ 0 };
         uint8_t g{ 0 };
         uint8_t b{ 0 };
         uint8_t a{ 255 };
+        operator uint32_t() { return a << 24 | r << 16 | g << 8 | static_cast<uint32_t>(b); }
     };
-
-    uint32_t color_to_u32(rgba_color const& color);
 
     using color_palette = std::vector<rgba_color>;
     using pixel_data = std::vector<uint8_t>;
@@ -32,7 +32,7 @@ namespace MPG
 
     // Applies the palette to the image and returns a new 32-bit image.
     // Useful to use the image as a texture.
-    simple_image depalettize_8bit_image(simple_image const& source);
+    simple_image depalettize_image(simple_image const& source);
 
     // Returns a new image that is flipped vertically.
     simple_image flip_vertical(simple_image const& source);
@@ -51,22 +51,15 @@ namespace MPG
         unknown
     };
 
+    // Determines what type of image we're trying to read.
     simple_image_format determine_image_format(std::filesystem::path const& image_path);
-}
 
-#include <filesystem>
+    // Loads an image provided it's one of the supported formats
+    simple_image load_image(std::filesystem::path const& filename);
 
-namespace MPG
-{
     simple_image load_simple_bitmap(std::filesystem::path const& filename);
     void save_simple_bitmap(std::filesystem::path const& filename, simple_image const& image);
-}
 
-#include <filesystem>
-#include <vector>
-
-namespace MPG
-{
     // Loads an ILBM/IFF image
     // The only supported chunks are:
     //   * FORM
@@ -110,9 +103,8 @@ namespace MPG
 
 #ifdef SIMPLE_IMAGE_IMPL
 
-// -> stitch <-
-
 #include <fstream>
+#include <stdexcept>
 
 namespace MPG
 {
@@ -300,11 +292,7 @@ namespace MPG
             }
         }
     }
-}
-#include <fstream>
 
-namespace MPG
-{
     constexpr uint32_t iff_form_name = 0x464F524D;
     constexpr uint32_t iff_ilbm_name = 0x494C424D;
     constexpr uint32_t ilbm_bmhd_name = 0x424D4844;
@@ -834,19 +822,8 @@ namespace MPG
             }
         }
     }
-}
 
-#include <stdexcept>
-
-namespace MPG
-{
-    uint32_t color_to_u32(rgba_color const& color)
-    {
-        // Abuse some pointers...
-        return *(reinterpret_cast<uint32_t const*>(&color));
-    }
-
-    simple_image depalettize_8bit_image(simple_image const& source)
+    simple_image depalettize_image(simple_image const& source)
     {
         auto result = simple_image{ source.width, source.height, 32 };
 
@@ -988,6 +965,21 @@ namespace MPG
             return simple_image_format::bitmap;
 
         return simple_image_format::unknown;
+    }
+
+    simple_image load_image(std::filesystem::path const& filename)
+    {
+        switch (determine_image_format(filename))
+        {
+        case simple_image_format::bitmap:
+            return load_simple_bitmap(filename);
+
+        case simple_image_format::ilbm:
+            return load_simple_ilbm(filename);
+
+        default:
+            throw std::runtime_error("File is not a recognized image format.");
+        }
     }
 }
 

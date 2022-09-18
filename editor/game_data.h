@@ -3,6 +3,7 @@
 #include <string>
 #include "glfw_utils.h"
 #include "utils.h"
+#include "simple_image.h"
 
 namespace NEONnoir
 {
@@ -46,7 +47,7 @@ namespace NEONnoir
     {
         std::string image_file;
         std::vector<shape> shapes;
-        std::vector<rgb_color> palette;
+        MPG::simple_image image;
         bool has_palette{ true };
     };
 

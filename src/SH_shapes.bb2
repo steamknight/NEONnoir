@@ -34,18 +34,11 @@ Statement SH_draw {id.w, x.w, y.w}
       *pal + SizeOf .NN_pal_entry
     Next
 
-    AGAPalRGB NN_current_bmp, 224, 255, 255, 255
-
-    ; For j = 0 to 7
-    ;   For i = 0 to 31
-    ;     AGAPalRGB NN_current_bmp, i + (j * 32), (j * 32), (j * 32), (j * 32)
-    ;   Next i
-    ; Next j
-
     DisplayPalette #CP_coplist, NN_current_bmp
-    VWait
   End If
 
+  Use BitMap NN_current_bmp
+  BBlit #BF_faces, *sh\shape_id, x, y
   Boxf 4, 4, 104, 104, 224
   Blit *sh\shape_id, x, y
 

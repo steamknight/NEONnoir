@@ -44,7 +44,7 @@ namespace NEONnoir
         auto depalettized = MPG::simple_image{ image };
         if (depalettized.bit_depth < 24)
         {
-            depalettized = MPG::depalettize_8bit_image(depalettized);
+            depalettized = MPG::depalettize_image(depalettized);
         }
 
         // Create a OpenGL texture identifier

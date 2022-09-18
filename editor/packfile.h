@@ -185,7 +185,7 @@ namespace NEONnoir
         std::vector<std::string> string_table;
         std::vector<neon_word_list> words_table;
         std::vector<neon_shape> shapes;
-        std::vector<std::vector<rgb_color>> palettes;
+        std::vector<MPG::color_palette> palettes;
     };
 
     void serialize_to_neon_pak(std::filesystem::path file_path, std::shared_ptr<game_data> const& data, assembler_result const& result);

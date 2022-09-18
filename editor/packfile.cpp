@@ -126,7 +126,7 @@ namespace NEONnoir
                         shape_id++;
                     }
 
-                    pak.palettes.push_back(container.palette);
+                    pak.palettes.push_back(container.image.color_palette);
                 }
                 loc.last_shape_id = to<uint16_t>(pak.shapes.size()) - 1; // compensate for the extra +1 at the end of loop
 
@@ -434,10 +434,10 @@ namespace NEONnoir
         {
             for (auto& entry : palette)
             {
-                neonpack.write(reinterpret_cast<char*>(&entry.red), 1);
-                neonpack.write(reinterpret_cast<char*>(&entry.green), 1);
-                neonpack.write(reinterpret_cast<char*>(&entry.blue), 1);
-                neonpack.write(reinterpret_cast<char*>(&entry.alpha), 1);
+                neonpack.write(reinterpret_cast<char*>(&entry.r), 1);
+                neonpack.write(reinterpret_cast<char*>(&entry.g), 1);
+                neonpack.write(reinterpret_cast<char*>(&entry.b), 1);
+                neonpack.write(reinterpret_cast<char*>(&entry.a), 1);
             }
         }
 

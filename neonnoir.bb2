@@ -425,6 +425,7 @@ End Macro
 #PAL_fx = 10
 ; Display buffer
 #BF_main_screen = 0
+#BF_faces = 1
 
 
 ; Loading NEONpacks

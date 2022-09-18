@@ -2,6 +2,7 @@
 #include <memory>
 #include <optional>
 #include <string>
+#include <filesystem>
 
 #include "game_data.h"
 #include "image_viewer.h"
@@ -18,10 +19,12 @@ namespace NEONnoir
     private:
         void display_editor(game_data_location& location, int32_t shape_start_id);
         void display_placeholder(bool have_data, std::optional<size_t> const& location_index) const noexcept;
-        std::string generate_script(game_data_location& location, int32_t shape_start_id) const;
+        void save_shapes(std::filesystem::path const& shapes_file_path, game_data_location& location) const;
 
     private:
-        std::optional<size_t> _selected_image;
+        std::optional<size_t> _selected_image{ std::nullopt };
+        std::optional<size_t> _shape_container_to_delete{ std::nullopt };
+        std::optional<size_t> _shape_to_delete{ std::nullopt };
         image_viewer _shape_image;
     };
 }

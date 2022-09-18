@@ -313,6 +313,7 @@ End Macro
 ; Display buffer
 #BF_main_screen = 0
 #BF_shapes = 1
+#BF_faces = 2
 
 
 ; Loading NEONpacks
