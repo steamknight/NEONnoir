@@ -2,6 +2,7 @@
 # in the output file
 
 $bb2_files = @(
+    "./src/NN_build.bb2",
     "./src/NN_startup.bb2",
     "./src/DB_log.bb2",
     "./src/NN_core.bb2",
@@ -54,6 +55,13 @@ function Copy-GameData {
 function Copy-Game {
     $output_file = $output_dir + "neonnoir.bb2"
 
+    $file_in = "BUILD_NUM"
+    $file_out = "./src/NN_build.bb2"
+    $date = Get-Date -Format "yyMM"
+    $fileVersion = [version](Get-Content $file_in | Select-Object -First 1)
+    $newVersion = "{0}.{1}.{2}.{3}" -f $fileVersion.Major, $fileVersion.Minor, $date, ($fileVersion.Revision + 1)
+    "; $newVersion" | Set-Content $file_out
+
     # Create the file
     Get-Content $bb2_files | Out-File $output_file
     
@@ -104,7 +112,7 @@ function Split-File($inFile, $outPrefix, [Int32] $bufSize) {
     $bytes = New-Object byte[] $bufSize
 
     while ($bytesRead = $stream.Read($bytes, 0, $bufSize)) {
-        $outFile = "$outPrefix{0:d2}" -f $chunkNum
+        $outFile = "$outPrefix{ 0:d2 }" -f $chunkNum
         $ostream = [System.IO.File]::OpenWrite($outFile)
         $ostream.Write($bytes, 0, $bytesRead)
         $ostream.Close()

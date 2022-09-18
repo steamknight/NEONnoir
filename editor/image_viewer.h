@@ -13,6 +13,7 @@ namespace NEONnoir
         image_viewer() = default;
         ~image_viewer() = default;
 
+        void display(GLtexture const& texture) noexcept;
         void display(GLtexture const&, std::vector<shape>& regions) noexcept;
         void selected_region(int32_t selected_region) { _selected_region_index = selected_region; }
 

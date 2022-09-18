@@ -315,6 +315,10 @@ End Macro
 #BF_shapes = 1
 #BF_faces = 2
 
+; Palette
+#PAL_portrait_start = 64
+#PAL_portrait_end = 95
+
 
 ; Loading NEONpacks
 ; -----------------------------------------------------------------------------

@@ -11,7 +11,7 @@
 
 namespace NEONnoir
 {
-    auto const button_size = ImVec2{ 200.f, 0 };
+    auto const button_size = ImVec2{ -FLT_MIN, 0 };
     bool image_converter::display()
     {
         auto image_converter_window = ImGui_window(ICON_MD_IMAGE " Image Converter", true, ImGuiWindowFlags_NoCollapse);
@@ -60,8 +60,9 @@ namespace NEONnoir
 
         if (_source_texture)
         {
-            ImGui::Text("Source image: %d-bit", _source_image.bit_depth);
-            display_image(_source_texture);
+            ImGui::Text("Source image");
+            //display_image(_source_texture);
+            _image_viewer.display(_source_texture.value());
 
             ImGui::NewLine();
 

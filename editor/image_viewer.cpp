@@ -3,6 +3,40 @@
 
 #include "imgui_utils.h"
 
+void NEONnoir::image_viewer::display(GLtexture const& texture) noexcept
+{
+    // Toolbar
+    ImGui::PushStyleColor(ImGuiCol_Button, ImGui::GetStyleColorVec4(ImGuiCol_WindowBg));
+
+    if (ImGui::SmallButton(ICON_MD_ZOOM_IN))
+    {
+        _zoom++;
+    }
+    ToolTip("Zoom In");
+
+    ImGui::SameLine();
+
+    if (ImGui::SmallButton(ICON_MD_ZOOM_OUT) && _zoom > 1)
+    {
+        _zoom--;
+    }
+    ToolTip("Zoom Out");
+
+    ImGui::PopStyleColor();
+
+    // Stats
+    ImGui::Text(ICON_MD_NEAR_ME " %.0f, %.0f\t" ICON_MD_ZOOM_IN " %d00%%", _last_mouse.x, _last_mouse.y, _zoom);
+    ImGui::Image((void*)(intptr_t)texture.texture_id, ImVec2((float)(texture.width * _zoom), (float)(texture.height * _zoom)));
+
+    // Image
+    ImGuiIO& io = ImGui::GetIO(); (void)io;
+    auto image_min = ImGui::GetItemRectMin();
+    if (ImGui::IsItemHovered())
+    {
+        _last_mouse = (io.MousePos - image_min) / _zoom;
+    }
+}
+
 void NEONnoir::image_viewer::display(GLtexture const& texture, std::vector<shape>& regions) noexcept
 {
     // Toolbar

@@ -19,7 +19,7 @@ Statement SH_draw {id.w, x.w, y.w}
     *pal = !__get_palette{*sh\palette_id}
 
     DEFTYPE .w r, g, b
-    For pidx = 224 to 255
+    For pidx = 64 to 95
       r = *pal\r
       g = *pal\g
       b = *pal\b
@@ -39,7 +39,54 @@ Statement SH_draw {id.w, x.w, y.w}
 
   Use BitMap NN_current_bmp
   BBlit #BF_faces, *sh\shape_id, x, y
-  Boxf 4, 4, 104, 104, 224
+  Boxf x, y, x + ShapeWidth(*sh\shape_id), y + ShapeHeight(*sh\shape_id), 64
   Blit *sh\shape_id, x, y
+
+End Statement
+
+; Portraits always have a custom palette
+Statement SH_draw_portrait {id.w, x.w, y.w}
+  !DB_trace{"SHAPE", "SH_draw_portrait " + Str$(id)}
+  SHARED NN_current_bmp
+  !__use_shapes{}
+  !__use_palettes{}
+
+  DEFTYPE .NN_shape *sh
+  DEFTYPE .w sid, pid
+  *sh = !__get_shape{id}
+  sid = *sh\shape_id
+  pid = *sh\palette_id
+
+  If pid <> NN_current_palette AND pid > -1
+    NN_current_palette = pid
+    DEFTYPE .NN_pal_entry *pal
+    *pal = !__get_palette{pid}
+
+    DEFTYPE .w r, g, b
+
+    For pidx = #PAL_portrait_start to #PAL_portrait_end
+      r = *pal\r
+      g = *pal\g
+      b = *pal\b
+
+      ; pal members are byte and blitz will put negative values if they are over
+      ; 127, even though bounds checking is turned off.
+      If r < 0 Then r + 256
+      If g < 0 Then g + 256
+      If b < 0 Then b + 256
+      !DB_printf{"I: %d = %d, %d, %d", pidx, r, g, b}
+      AGAPalRGB NN_current_bmp, pidx, r, g, b
+      *pal + SizeOf .NN_pal_entry
+    Next
+
+    DisplayPalette #CP_coplist, NN_current_bmp
+  End If
+
+  ;Use BitMap NN_current_bmp
+  ; Dummy BBlit to preserve the background
+  !DB_printf{"SID: %d", sid}
+  BBlit #BF_faces, sid, x, y
+  Boxf x, y, x + ShapeWidth(sid), y + ShapeHeight(sid) - 1, #PAL_portrait_start
+  Blit sid, x, y
 
 End Statement

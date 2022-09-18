@@ -60,7 +60,7 @@ Statement DG_show_dialog{id.w}
   pointer_id = 0
 
   If *current\speaker_image > -1
-    SH_draw{*current\speaker_image, 4, 4}
+    SH_draw_portrait{*current\speaker_image, 4, 4}
   End If
 
   DG_dialogue_is_active = True
@@ -159,6 +159,7 @@ Statement DG_show_dialog{id.w}
   Wend
 
   UnBuffer 0
+  UnBuffer #BF_faces
 End Statement
 
 ; Enables/Disables a page
