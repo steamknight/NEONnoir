@@ -6,6 +6,7 @@
 #include <functional>
 
 #include "palette_injector.h"
+#include "image_converter.h"
 #include "game_data.h"
 #include "location_browser.h"
 #include "scene_editor.h"
@@ -44,6 +45,7 @@ namespace NEONnoir
         float _dpi_scale_y;
 
         std::unique_ptr<palette_injector> _palette_injector;
+        std::unique_ptr<image_converter> _image_converter;
         std::shared_ptr<game_data> _game_data;
         std::string _script;
 

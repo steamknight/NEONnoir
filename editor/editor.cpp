@@ -128,6 +128,11 @@ namespace NEONnoir
                 _palette_injector.reset();
             }
 
+            if (_image_converter && !_image_converter->display())
+            {
+                _image_converter.reset();
+            }
+
             _location_browser.display();
 
             _scene_editor.use(_game_data,
@@ -267,13 +272,22 @@ namespace NEONnoir
             //}
             if (ImGui::BeginMenu(ICON_MD_CONSTRUCTION " Tools"))
             {
-                if (ImGui::MenuItem("Palette Injector..."))
+                if (ImGui::MenuItem(ICON_MD_PALETTE " Palette Injector..."))
                 {
                     if (!_palette_injector)
                     {
                         _palette_injector = std::make_unique<palette_injector>();
                     }
                     _palette_injector->display();
+                }
+
+                if (ImGui::MenuItem(ICON_MD_IMAGE " Image Converter..."))
+                {
+                    if (!_image_converter)
+                    {
+                        _image_converter = std::make_unique<image_converter>();
+                    }
+                    _image_converter->display();
                 }
                 ImGui::EndMenu();
             }

@@ -18,7 +18,7 @@ namespace NEONnoir
     bool palette_injector::display()
     {
         ImGui::SetNextWindowContentSize({ 520, 0 });
-        ImGui::Begin("Palette Injector", &_is_open, ImGuiWindowFlags_NoCollapse);
+        ImGui::Begin(ICON_MD_PALETTE " Palette Injector", &_is_open, ImGuiWindowFlags_NoCollapse);
 
         if (!_is_open)
         {

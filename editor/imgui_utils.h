@@ -33,7 +33,7 @@ namespace NEONnoir
 
         bool is_closing() const noexcept { return !_is_open; }
     private:
-        bool _is_open{ false };
+        bool _is_open{ true };
     };
 
     typedef void(*cleanup_fn)();

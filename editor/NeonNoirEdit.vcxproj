@@ -172,6 +172,7 @@
     <ClCompile Include="game_data.cpp" />
     <ClCompile Include="gl.c" />
     <ClCompile Include="glfw_utils.cpp" />
+    <ClCompile Include="image_converter.cpp" />
     <ClCompile Include="image_viewer.cpp" />
     <ClCompile Include="imgui\imgui.cpp" />
     <ClCompile Include="imgui\imgui_demo.cpp" />
@@ -201,6 +202,7 @@
     <ClInclude Include="glfw_utils.h" />
     <ClInclude Include="IconsFontAwesome6.h" />
     <ClInclude Include="IconsMaterialDesign.h" />
+    <ClInclude Include="image_converter.h" />
     <ClInclude Include="image_viewer.h" />
     <ClInclude Include="imgui\imconfig.h" />
     <ClInclude Include="imgui\imgui.h" />
@@ -218,6 +220,7 @@
     <ClInclude Include="scene_editor.h" />
     <ClInclude Include="script_editor.h" />
     <ClInclude Include="shapes_editor.h" />
+    <ClInclude Include="simple_image.h" />
     <ClInclude Include="stb_image.h" />
     <ClInclude Include="utils.h" />
   </ItemGroup>

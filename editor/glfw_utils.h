@@ -5,6 +5,7 @@
 #include <string_view>
 #include <exception>
 #include <memory>
+#include "simple_image.h"
 
 namespace NEONnoir
 {
@@ -64,4 +65,6 @@ namespace NEONnoir
     };
 
     GLtexture load_texture(std::string_view const& image_path);
+    GLtexture load_texture(MPG::simple_image const& image);
+    void free_texture(GLtexture& texture);
 }

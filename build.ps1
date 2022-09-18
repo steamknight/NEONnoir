@@ -37,10 +37,10 @@ $data_files = @(
 )
 
 # Location where the built file will reside
-$output_dir = "C:/Users/mass/tools/WinUAE/HardDrives/Develop/NEONnoir/"
-$data_dir = "C:/Users/mass/tools/WinUAE/HardDrives/Develop/NEONnoir/data"
-#$output_dir = "C:/Users/mass/OneDrive/Amiga/hdf/Development/NEONnoir/"
-#$data_dir = "C:/Users/mass/OneDrive/Amiga/hdf/Development/NEONnoir/data"
+# $output_dir = "C:/Users/mass/tools/WinUAE/HardDrives/Develop/NEONnoir/"
+# $data_dir = "C:/Users/mass/tools/WinUAE/HardDrives/Develop/NEONnoir/data"
+$output_dir = "C:/Users/mass/OneDrive/Amiga/hdf/Development/NEONnoir/"
+$data_dir = "C:/Users/mass/OneDrive/Amiga/hdf/Development/NEONnoir/data"
 
 function Set-ToolPath($path) {
     $ENV:Path = "$path\external;$path\external\NConvert;" + $ENV:Path
