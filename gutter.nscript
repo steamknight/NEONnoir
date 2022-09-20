@@ -25,6 +25,27 @@
     title_module              0
 
 .TEXT
+    intro01_01                "The acid rain washed the city's neon blood into the Gutter; home for those who ran out of Options."
+    intro01_02                "The Gutter wasn't just a cliche metaphor, it was the city's most ruthless and dangerous district. Few chose to live there willingly; when your credits ran dry, there was nowhere else to go."
+    intro02_01                "The police kept their distance from the Gutter as it didn't serve their corporate interests."
+    intro02_02                "If you wanted justice, you either took matters into your own hand or scrounged together enough to hire someone like me."
+    intro03_01                "Blake Steel: private investigator."
+    intro03_02                "I took the name from a trashy"
+    intro03_03                "crime serial."
+    intro03_04                "To a lost kid from"
+    intro03_05                "the Gutter, that"
+    intro03_06                "two-credit detective"
+    intro03_07                "novel promised a new"
+    intro03_08                "life away from all"
+    intro03_09                "the filth."
+    intro03_10                "It became my blueprint,"
+    intro03_11                "my bible, until I made"
+    intro03_12                "it out alive."
+    intro03_13                "Now I was back, walking"
+    intro03_14                "alone down these familiar"
+    intro03_15                "alleys brimming with"
+    intro03_16                "human waste and wasted humans,"
+    intro03_17                "looking for someone else who got lost."
     enter_alleycat            "A quick peek can't hurt, right?"
     job_to_do                 "I don't have time for that, I got a job to do."
     takeshi                   "Takeshi's Noodles used to be the best place in the Gutter for a late meal. Too bad old Takeshi closed up shop for good."
@@ -52,6 +73,50 @@
 .SCRIPT start_game
     goloc #location_start #alley_takeshi_noodles
     modkill #title_module
+    end
+
+.SCRIPT intro01_text
+    txtstart            ; Start a text section 
+    txtput $intro01_01 26
+    txtnl
+    txtnl
+    txtput $intro01_02 26
+    txtend 10 33
+    end
+
+.SCRIPT intro02_text
+    txtstart
+    txtput $intro02_01 47
+    txtend 10 10
+    txtstart
+    txtput $intro02_02 25
+    txtend 160 136
+    end
+
+.SCRIPT intro03_text
+    txtstart
+    txtput $intro03_01 40
+    txtput $intro03_02 40
+    txtput $intro03_03 40
+    txtnl
+    txtput $intro03_04 40
+    txtput $intro03_05 40
+    txtput $intro03_06 40
+    txtput $intro03_07 40
+    txtput $intro03_08 40
+    txtput $intro03_09 40
+    txtnl
+    txtput $intro03_10 40
+    txtput $intro03_11 40
+    txtput $intro03_12 40
+    txtnl
+    txtnl
+    txtput $intro03_13 40
+    txtput $intro03_14 40
+    txtput $intro03_15 40
+    txtput $intro03_16 40
+    txtput $intro03_17 40
+    txtend 10 10
     end
 
 ; ALLEYWAY
@@ -89,6 +154,8 @@
 .SCRIPT dialogue_glitch       ; Talk to Glitch
     dlg #dialogue_glitch
     end
+
+
 
 
 

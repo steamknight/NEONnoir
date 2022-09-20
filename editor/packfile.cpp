@@ -36,9 +36,21 @@ namespace NEONnoir
     {
         auto pak = neon_packfile{};
 
+        auto script_strings = std::vector<string_constant>{};
         for (auto& [k, v] : result.strings)
         {
-            pak.string_table.push_back(v.value);
+            script_strings.push_back(v);
+        }
+
+        std::sort(script_strings.begin(), script_strings.end(),
+            [](string_constant a, string_constant b)
+            {
+                return a.id < b.id;
+            });
+
+        for (auto& text : script_strings)
+        {
+            pak.string_table.push_back(text.value);
         }
 
         for (auto const& location : data->locations)

@@ -47,6 +47,8 @@ namespace NEONnoir
     {
         j = json{
             { "name", s.name },
+            { "on_enter", s.on_enter },
+            { "on_exit", s.on_exit },
             { "image_id", s.image_id },
             { "view_x", s.view_x},
             { "view_y", s.view_y},
@@ -124,6 +126,8 @@ namespace NEONnoir
     void from_json(const json& j, game_data_scene& s)
     {
         j.at("name").get_to(s.name);
+        j.at("on_enter").get_to(s.on_enter);
+        j.at("on_exit").get_to(s.on_exit);
         j.at("image_id").get_to(s.image_id);
         j.at("view_x").get_to(s.view_x);
         j.at("view_y").get_to(s.view_y);

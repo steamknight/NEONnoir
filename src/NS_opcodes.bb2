@@ -48,3 +48,9 @@
 #NS_op_goloc        = $83   ;| goloc loc scene| Loads a location and scene
 #NS_op_quit         = $8E   ;| quit        | Quits the game
 #NS_op_gameover     = $8F   ;| gameover id | Displays game over with string ID as message, ends script
+; Text operations           ;|             ;
+#NS_op_text         = $90   ;| text id     | Display string ID
+#NS_op_txtstart     = $91   ;| txtstart width | Begins a text section with a wrap width
+#NS_op_txtend       = $92   ;| txtend x y  | Draw the text section at x, y
+#NS_op_txtput       = $93   ;| txtput id   | Add the text into the active text section
+#NS_op_txtnl        = $94   ;| txtnl       | Adds a new line to the text section

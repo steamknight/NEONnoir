@@ -43,10 +43,14 @@ namespace NEONnoir
             { "modkill",    { (int16_t)0x73,   {   ParamType::CONST                                                       }}},
             { "goto",       { (int16_t)0x80,   {   ParamType::CONST                                                       }}},
             { "map",        { (int16_t)0x81,   {                                                                          }}},
-            { "text",       { (int16_t)0x82,   {   ParamType::TEXT                                                        }}},
             { "goloc",      { (int16_t)0x83,   {   ParamType::CONST,       ParamType::CONST                               }}},
             { "quit",       { (int16_t)0x8E,   {                                                                          }}},
             { "gameover",   { (int16_t)0x8F,   {   ParamType::TEXT                                                        }}},
+            { "text",       { (int16_t)0x90,   {   ParamType::TEXT                                                        }}},
+            { "txtstart",   { (int16_t)0x91,   {                                                                          }}},
+            { "txtend",     { (int16_t)0x92,   {   ParamType::NUMBER,      ParamType::NUMBER                              }}},
+            { "txtput",     { (int16_t)0x93,   {   ParamType::TEXT,        ParamType::NUMBER                              }}},
+            { "txtnl",      { (int16_t)0x94,   {                                                                          }}},
         };
     }
 

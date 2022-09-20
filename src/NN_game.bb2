@@ -284,6 +284,32 @@ Function NN_initialize{neonpack$, pointers$}
   Function Return NN_load_neonpack{"data/" + neonpack$}
 End Function
 
+; Sets the currently selected scene
+; =============================================================================
+Statement NN_game_set_scene{id.w}
+  SHARED *NN_scenes, *NN_current_scene, NN_current_bmp, *NN_current_location
+  !DB_trace{"NN_GAME", "NN_game_set_scene: " + Str$(id)}
+  SHARED NN_current_palette, NS_script_queue
+
+  NN_current_palette = -1
+
+  ; If *NN_current_scene\on_exit <> -1
+  ;   NS_execute_script{*NN_current_scene\on_exit}
+  ; End If
+
+  ;FadeOutScreen{ #CP_coplist, NN_current_bmp, 10}
+  *NN_current_scene = !__get_scene{*NN_current_location\first_scene + id}
+
+  If *NN_current_scene\on_enter > -1
+   NS_script_queue = *NN_current_scene\on_enter
+  End If
+
+  ;NN_current_bmp = *NN_current_scene\background_id
+
+  ;FadeInScreen{ #CP_coplist, NN_current_bmp, 10}
+
+End Statement
+
 ; Loads the bitmaps for the new location and set the current
 ; scene to the selected one.
 ;
@@ -300,7 +326,7 @@ Statement NN_load_location{new_loc_id.w, new_scene_id.w}
   For bg = 0 To *NN_current_location\last_bg - *NN_current_location\first_bg
     BitMap bg, #NN_screen_width, #NN_screen_height, #NN_screen_bpp
     bmp$ = !__get_string{bg + *NN_current_location\first_bg}
-    NPrint bmp$
+    ;NPrint bmp$
     LoadBitMap bg, "data/" + bmp$, bg
   Next
 
@@ -312,9 +338,10 @@ Statement NN_load_location{new_loc_id.w, new_scene_id.w}
     LoadShapes *first_shape\shape_id, *last_shape\shape_id, "data/" + !__get_string{*NN_current_location\shapes_file}
   End If
 
-  ;BLITZ
+  ; BLITZ
   ; Setup the next scene
-  *NN_current_scene = !__get_scene{*NN_current_location\first_scene + new_scene_id}
+  NN_game_set_scene{new_scene_id}
+  ;*NN_current_scene = !__get_scene{*NN_current_location\first_scene + new_scene_id}
   ; If *NN_current_scene\on_enter <> -1
   ;   NS_execute_script{*NN_current_scene\on_enter}
   ; End If
@@ -342,32 +369,6 @@ Function.w NN_get_overlapped_region{mx.w, my.w}
 
   Function Return -1
 End Function
-
-; Sets the currently selected scene
-; =============================================================================
-Statement NN_game_set_scene{id.w}
-  SHARED *NN_scenes, *NN_current_scene, NN_current_bmp, *NN_current_location
-  !DB_trace{"NN_GAME", "NN_game_set_scene: " + Str$(id)}
-  SHARED NN_current_palette
-
-  NN_current_palette = -1
-
-  ; If *NN_current_scene\on_exit <> -1
-  ;   NS_execute_script{*NN_current_scene\on_exit}
-  ; End If
-
-  FadeOutScreen{ #CP_coplist, NN_current_bmp, 10}
-  *NN_current_scene = !__get_scene{*NN_current_location\first_scene + id}
-
-  ; If *NN_current_scene\on_enter <> -1
-  ;   NS_execute_script{*NN_current_scene\on_enter}
-  ; End If
-
-  ;NN_current_bmp = *NN_current_scene\background_id
-
-  ;FadeInScreen{ #CP_coplist, NN_current_bmp, 10}
-
-End Statement
 
 Statement NN_game_map{}
   !DB_trace{"NN_GAME", "NN_game_map"}

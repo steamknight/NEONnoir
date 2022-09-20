@@ -19,6 +19,11 @@ Macro __print_bc_v2
   !DB_printf{"********     %04lx: %02x - %s %d %d", (`1), (`1), &op$, (`3), (`4)}
 End Macro
 
+Macro __print_bc_v3
+  op$ = (`2)
+  !DB_printf{"********     %04lx: %02x - %s %d %d", (`1), (`1), &op$, (`3), (`4), (`5)}
+End Macro
+
 Macro __execute_opcode
   PC + 2
   !__print_bc{PC, (`1)}
@@ -31,7 +36,6 @@ Macro __execute_opcode_v1
   PC + 2
 End Macro
 
-
 Macro __execute_opcode_v2
   PC + 2
   v1 = Peek.w(*NS_script_data + PC)
@@ -40,6 +44,19 @@ Macro __execute_opcode_v2
   !__print_bc_v2{PC - 4, (`1), v1, v2}
   PC + 2
 End Macro
+
+Macro __execute_opcode_v3
+  PC + 2
+  v1 = Peek.w(*NS_script_data + PC)
+  PC + 2
+  v2 = Peek.w(*NS_script_data + PC)
+  PC + 2
+  v3 = Peek.w(*NS_script_data + PC)
+  !__print_bc_v2{PC - 4, (`1), v1, v2, v3}
+  PC + 2
+End Macro
+
+DEFTYPE .TX_context ns_text_context
 
 ; Executes the bytecode pointed to in the script
 ; Assumes the existence of this global data:
@@ -58,7 +75,7 @@ End Macro
 Statement NS_execute_script{script_offset.l}
   !DB_trace{"NS_SCRIPT", "NS_exectute_script: $" + Hex$(script_offset)}
   SHARED *NS_script_data, NS_script_data_size, NS_flags()    ; get a reference to the script data and game flags
-  SHARED *NN_string_table
+  SHARED *NN_string_table, ns_text_context
   ; Get the referenced script
   If script_offset > NS_script_data_size
     NPrint "Script offset", script_offset, " out of bounds";
@@ -284,6 +301,22 @@ Statement NS_execute_script{script_offset.l}
         !__execute_opcode{"dlgend"}
         DG_end{}
 
+      Case #NS_op_txtstart
+        !__execute_opcode{"txtstart"}
+        TX_begin{&ns_text_context, False}
+
+      Case #NS_op_txtend
+        !__execute_opcode_v2{"txtend"}
+        TX_end{&ns_text_context, v1, v2}
+
+      Case #NS_op_txtput
+        !__execute_opcode_v2{"txtput"}
+        size = TX_put_text{&ns_text_context, v1, v2}
+
+      Case #NS_op_txtnl
+        !__execute_opcode{"txtnl"}
+        ns_text_context\y_position + 1 
+
       Default
         ; Unknown opcode!
         v1 = Peek.w (*NS_script_data + PC)
@@ -296,6 +329,7 @@ End Statement
 
 Statement NS_process_queue{}
   SHARED NS_script_queue
+  ;!DB_trace("NS_SCRIPT", "NS_process_queue: " + Str$(NS_script_queue))
 
   DEFTYPE .w script
   script = NS_script_queue

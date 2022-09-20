@@ -85,7 +85,7 @@ Statement DG_show_dialog{id.w}
       If displayed = False
         UnBuffer 0
         DEFTYPE .TX_context ctx
-        TX_begin{&ctx}
+        TX_begin{&ctx, True}
 
         DEFTYPE .l size
         BlitMode InvMode

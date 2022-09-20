@@ -399,19 +399,21 @@ End Statement
 NEWTYPE .TX_context
   max_width.w
   y_position.w
+  add_frame.b
 End NEWTYPE
 
-Statement TX_begin{context.l}
+Statement TX_begin{context.l, add_frame.b}
   BitMap #TX_scratch_bmp, #NN_screen_width, #NN_screen_height, #NN_screen_bpp
   Use BitMap #TX_scratch_bmp
 
     ; Draw the frame
-  Boxf 0, 0, #NN_screen_width, #NN_screen_height, 3
+  If add_frame = True Then Boxf 0, 0, #NN_screen_width, #NN_screen_height, 3
 
   DEFTYPE .TX_context *ctx
   *ctx = context
   *ctx\max_width = 0
   *ctx\y_position = 0
+  *ctx\add_frame = add_frame
 End Statement
 
 Statement TX_end{context.l, x.w, y.w}
@@ -420,7 +422,7 @@ Statement TX_end{context.l, x.w, y.w}
   *ctx = context
 
   ; Draw the frame
-  tx_draw_frame{*ctx\max_width, *ctx\y_position}
+  If *ctx\add_frame = True Then tx_draw_frame{*ctx\max_width, *ctx\y_position}
 
   ; Calculate how big a rectangle this will be, including enough
   ; padding for the text frame
