@@ -200,6 +200,9 @@ namespace NEONnoir
     {
         j.at("locations").get_to(g.locations);
         j.at("dialogues").get_to(g.dialogues);
+
+        if (j.contains("script_name"))
+            j.at("script_name").get_to(g.script_name);
     }
 
     void game_data::serialize(std::string const& filename)
@@ -211,7 +214,8 @@ namespace NEONnoir
             auto root = json
             {
                 { "locations", locs},
-                { "dialogues", json(dialogues)}
+                { "dialogues", json(dialogues)},
+                { "script_name", script_name}
             };
 
             savefile << root;

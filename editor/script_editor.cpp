@@ -13,10 +13,15 @@
 
 namespace NEONnoir
 {
-    void script_editor::display(std::string& script, ImFont* font)
+    void script_editor::display(std::weak_ptr<game_data> game_data, ImFont* font)
     {
         auto script_window = ImGui_window(ICON_MD_CODE " NOIRscript");
-        display_toolbar();
+
+        auto data = game_data.lock();
+        if (!data)
+            return;
+
+        display_toolbar(data->script_name);
 
         if (ImGui::BeginTable("Layout", 2, ImGuiTableFlags_SizingStretchProp | ImGuiTableFlags_Resizable))
         {
@@ -26,7 +31,6 @@ namespace NEONnoir
 
             if (_text_editor.IsTextChanged())
             {
-                script = _text_editor.GetText();
                 extract_metadata();
             }
 
@@ -40,7 +44,19 @@ namespace NEONnoir
         }
     }
 
-    void script_editor::display_toolbar()
+    void script_editor::load_script(std::string_view const& file)
+    {
+        auto script_file = std::ifstream{ file.data() };
+        if (script_file)
+        {
+            auto script_buffer = std::stringstream{};
+            script_buffer << script_file.rdbuf();
+
+            _text_editor.SetText(script_buffer.str());
+        }
+    }
+
+    void script_editor::display_toolbar(std::string& script_name)
     {
         ImGui::PushStyleColor(ImGuiCol_Button, ImGui::GetStyleColorVec4(ImGuiCol_WindowBg));
         if (ImGui::SmallButton(ICON_MD_FILE_OPEN))
@@ -48,14 +64,8 @@ namespace NEONnoir
             auto file = open_file_dialog("nscript");
             if (file)
             {
-                auto script_file = std::ifstream{ file.value().data() };
-                if (script_file)
-                {
-                    auto script_buffer = std::stringstream{};
-                    script_buffer << script_file.rdbuf();
-
-                    _text_editor.SetText(script_buffer.str());
-                }
+                load_script(file.value());
+                script_name = file.value();
             }
         }
         ToolTip("Open NOIRscript...");

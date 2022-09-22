@@ -102,6 +102,8 @@ namespace NEONnoir
         std::vector<std::string> flags;
         std::vector<dialogue> dialogues;
 
+        std::string script_name{};
+
         void serialize(std::string const& filename);
         int32_t shape_start_id{ 10 };
 

@@ -141,7 +141,7 @@ namespace NEONnoir
 
             _scene_editor.display();
 
-            _script_editor.display(_script, _monospaced_font);
+            _script_editor.display(_game_data, _monospaced_font);
 
             _dialogue_editor.display(_game_data);
 
@@ -215,6 +215,11 @@ namespace NEONnoir
                         _game_data = game_data::deserialize(file.value().data());
                         _game_data->filename = file.value();
                         _location_browser.use(_game_data);
+
+                        if (_game_data->script_name != "")
+                        {
+                            _script_editor.load_script(_game_data->script_name);
+                        }
                     }
                 }
 
