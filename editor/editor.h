@@ -38,6 +38,9 @@ namespace NEONnoir
         void process_main_menu();
 
     private:
+        void save_project();
+
+    private:
         GLFWwindow_ptr _window;
         ImFont* _ui_font;
         ImFont* _monospaced_font;

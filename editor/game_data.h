@@ -106,6 +106,7 @@ namespace NEONnoir
 
         void serialize(std::string const& filename);
         int32_t shape_start_id{ 10 };
+        bool save_on_export{ true };
 
         std::string filename{};
 

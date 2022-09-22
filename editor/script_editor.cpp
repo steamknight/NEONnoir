@@ -56,6 +56,15 @@ namespace NEONnoir
         }
     }
 
+    void script_editor::save_script(std::string_view const& file)
+    {
+        auto script_file = std::ofstream{ file.data(), std::ios::trunc };
+        if (script_file)
+        {
+            script_file << _text_editor.GetText();
+        }
+    }
+
     void script_editor::display_toolbar(std::string& script_name)
     {
         ImGui::PushStyleColor(ImGuiCol_Button, ImGui::GetStyleColorVec4(ImGuiCol_WindowBg));
@@ -77,11 +86,8 @@ namespace NEONnoir
             auto file = save_file_dialog("nscript");
             if (file)
             {
-                auto script_file = std::ofstream{ file.value().data(), std::ios::trunc };
-                if (script_file)
-                {
-                    script_file << _text_editor.GetText();
-                }
+                save_script(file.value());
+                script_name = file.value();
             }
         }
         ToolTip("Save NOIRscript...");
