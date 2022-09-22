@@ -13,6 +13,8 @@
     start_intro               1
     intro_2                   2
     intro_3                   3
+    intro_4                   4
+    intro_5                   5
 
     ; Scenes in the Alley location
     alley_takeshi_noodles     1 
@@ -25,10 +27,15 @@
     title_module              0
 
 .TEXT
+    ; Intro Page 1
     intro01_01                "The acid rain washed the city's neon blood into the Gutter; home for those who ran out of Options."
     intro01_02                "The Gutter wasn't just a cliche metaphor, it was the city's most ruthless and dangerous district. Few chose to live there willingly; when your credits ran dry, there was nowhere else to go."
+
+    ; Intro Page 2
     intro02_01                "The police kept their distance from the Gutter as it didn't serve their corporate interests."
-    intro02_02                "If you wanted justice, you either took matters into your own hand or scrounged together enough to hire someone like me."
+    intro02_02                "If you wanted justice, you either took matters into your own hands or scrounged together enough to hire someone like me."
+
+    ; Intro Page 3
     intro03_01                "Blake Steel: private investigator."
     intro03_02                "I took the name from a trashy"
     intro03_03                "crime serial."
@@ -46,6 +53,25 @@
     intro03_15                "alleys brimming with"
     intro03_16                "human waste and wasted humans,"
     intro03_17                "looking for someone else who got lost."
+
+    ; Intro Page 4
+    intro04_01                "Danni Ashton fell in with some"
+    intro04_02                "less than savory friends and then"
+    intro04_03                "fell off the face of the Earth."
+    intro04_04                "Her father, Jacob, is paying me"
+    intro04_05                "very well to find her."
+    intro04_06                "Too well."
+    intro04_07                "Something didn't smell right"
+    intro04_08                "but I was leaking green and"
+    intro04_09                "had bills to pay, so I"
+    intro04_10                "plugged my nose and took"
+    intro04_11                "the job."
+    intro04_12                "She was addicted to Coral, the latest in designer drugs, and anyone chasing the ruby slippers would invariably end up..."
+
+    ; Intro Page 5
+    intro05_01                "... in the Gutter."
+
+    ; Location: Alley
     enter_alleycat            "A quick peek can't hurt, right?"
     job_to_do                 "I don't have time for that, I got a job to do."
     takeshi                   "Takeshi's Noodles used to be the best place in the Gutter for a late meal. Too bad old Takeshi closed up shop for good."
@@ -68,6 +94,14 @@
 
 .SCRIPT goto_intro_3
     goto #intro_3
+    end
+
+.SCRIPT goto_intro_4
+    goto #intro_4
+    end
+
+.SCRIPT goto_intro_5
+    goto #intro_5
     end
 
 .SCRIPT start_game
@@ -119,6 +153,32 @@
     txtend 10 10
     end
 
+.SCRIPT intro04_text
+    txtstart
+    txtput $intro04_01 40
+    txtput $intro04_02 40
+    txtput $intro04_03 40
+    txtnl
+    txtput $intro04_04 40
+    txtput $intro04_05 40
+    txtput $intro04_06 40
+    txtnl
+    txtput $intro04_07 40
+    txtput $intro04_08 40
+    txtput $intro04_09 40
+    txtput $intro04_10 40
+    txtput $intro04_11 40
+    txtnl
+    txtput $intro04_12 26
+    txtend 10 10
+    end
+
+.SCRIPT intro05_text
+    txtstart
+    txtput $intro05_01 40
+    txtend 106 96
+    end
+
 ; ALLEYWAY
 ; =====================================================
 
@@ -154,6 +214,7 @@
 .SCRIPT dialogue_glitch       ; Talk to Glitch
     dlg #dialogue_glitch
     end
+
 
 
 

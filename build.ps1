@@ -25,6 +25,8 @@ $data_files = @(
     "./data/intro01.iff",
     "./data/intro02.iff",
     "./data/intro03.iff",
+    "./data/intro04.iff",
+    "./data/blank.iff",
     "./data/alleyway1.iff",
     "./data/alleyway2.iff",
     "./data/alleyway3.iff",

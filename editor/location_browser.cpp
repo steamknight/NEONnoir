@@ -123,10 +123,11 @@ namespace NEONnoir
         ImGui::SetNextItemWidth(-FLT_MIN);
         if (ImGui::Button((ICON_MD_ADD_PHOTO_ALTERNATE " Add##BG" + id).c_str(), { -FLT_MIN, 0 }))
         {
-            if (auto file = open_file_dialog("bmp; Bitmap file"))
+            if (auto file = open_file_dialog("bmp;iff"))
             {
                 backgrounds.push_back(file.value().data());
-                background_textures.push_back(load_texture(file.value()));
+                auto background = MPG::load_image(file.value());
+                background_textures.push_back(load_texture(background));
             }
         }
 
