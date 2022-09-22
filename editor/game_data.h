@@ -105,6 +105,8 @@ namespace NEONnoir
         void serialize(std::string const& filename);
         int32_t shape_start_id{ 10 };
 
+        std::string filename{};
+
         static std::shared_ptr<game_data> deserialize(std::string const& filename);
     };
 }

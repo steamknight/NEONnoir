@@ -213,6 +213,7 @@ namespace NEONnoir
                     if (file)
                     {
                         _game_data = game_data::deserialize(file.value().data());
+                        _game_data->filename = file.value();
                         _location_browser.use(_game_data);
                     }
                 }
@@ -220,10 +221,27 @@ namespace NEONnoir
                 if (!_game_data) ImGui::BeginDisabled();
                 if (ImGui::MenuItem("Save", "Ctrl+S")) 
                 {
+                    if (_game_data->filename == "")
+                    {
+                        auto file = save_file_dialog("json");
+                        if (file)
+                        {
+                            _game_data->filename = file.value();
+                        }
+                    }
+
+                    if (_game_data->filename != "")
+                    {
+                        _game_data->serialize(_game_data->filename);
+                    }
+                }
+                if (ImGui::MenuItem("Save As..."))
+                {
                     auto file = save_file_dialog("json");
                     if (file.has_value())
                     {
-                        _game_data->serialize(file.value().data());
+                        _game_data->filename = file.value();
+                        _game_data->serialize(_game_data->filename);
                     }
                 }
                 if (!_game_data) ImGui::EndDisabled();
