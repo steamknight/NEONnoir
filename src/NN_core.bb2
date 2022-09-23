@@ -218,7 +218,7 @@ DEFTYPE .w NN_current_palette
 palette_offset = SizeOf .NN_pal_entry * 32
 
 Macro __get_palette
-  (*NN_palettes + (palette_offset * (`1)))
+  (*NN_palettes + (SizeOf .NN_pal_entry * 32 * (`1)))
 End Macro
 
 ; Script

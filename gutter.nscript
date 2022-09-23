@@ -3,6 +3,13 @@
     has_found_body    ; Have we found the body yet?
     takeshi_backstory ; Do we know what happened to Takeshi?
     glitch_first_time ; Have we talked to Glitch yet?
+    glitch_asked_about_alleycat
+    glitch_accept_atm_quest
+    glitch_accept_ticket_quest
+
+    has_alleycat_ticket    ; Gotten from Tweaker
+    has_alleycat_password  ; Gotten from Glitch
+    has_passed_tank        ; Tank let us in
 
 .CONST
     ; Locations
@@ -22,6 +29,7 @@
     alley_empty_lot           2
     alley_alleycat_interior   3
     dialogue_glitch           0
+    dialogue_tank             1
 
     ; Music and sound
     title_module              0
@@ -185,14 +193,14 @@
 ; Attempt to enter the Alleycat. If we've haven't found the body
 ; we have no reason to go in
 .SCRIPT enter_alleycat
-    load !has_found_body
-    jiff @no_body
+    load !has_passed_tank
+    jiff @not_yet
     text $enter_alleycat
     goto #alley_alleycat_interior
     end
 
-@no_body
-    text $job_to_do
+@not_yet
+    dlg #dialogue_tank
     end 
 
 .SCRIPT goto_alleycat         ; Move from Takeshi's/Empty lot to the Alleycat
@@ -214,6 +222,13 @@
 .SCRIPT dialogue_glitch       ; Talk to Glitch
     dlg #dialogue_glitch
     end
+
+.SCRIPT dialogue_tank         ; Talk to Tank, the bouncer at the Alleycat
+    dlg #dialogue_tank
+    ; goto #alley_alleycat_interior
+    end
+
+
 
 
 
