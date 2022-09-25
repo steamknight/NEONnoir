@@ -243,7 +243,8 @@ namespace NEONnoir
             {
                 for (auto & background : location.backgrounds)
                 {
-                    location.background_textures.push_back(load_texture(background));
+                    auto bg_image = MPG::load_image(background);
+                    location.background_textures.push_back(load_texture(bg_image));
                 }
 
                 for (auto& container : location.shapes)

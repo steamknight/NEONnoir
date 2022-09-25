@@ -5,7 +5,10 @@
     glitch_first_time ; Have we talked to Glitch yet?
     glitch_asked_about_alleycat
     glitch_accept_atm_quest
+    glitch_complete_atm_quest
     glitch_accept_ticket_quest
+    got_takeshi_key   ; Key to takeshi's place, found in the dumpster
+    got_noods         ; Got the noodles from Takeshi's
 
     has_alleycat_ticket    ; Gotten from Tweaker
     has_alleycat_password  ; Gotten from Glitch
@@ -27,7 +30,12 @@
     alley_takeshi_noodles     1 
     alley_alleycat            0
     alley_empty_lot           2
-    alley_alleycat_interior   3
+    alley_atm                 3
+    alley_trash               4
+    alley_subway_entrance     5
+    alley_subway_interior     6
+    alley_alleycat_interior   7
+
     dialogue_glitch           0
     dialogue_tank             1
 
@@ -83,6 +91,15 @@
     enter_alleycat            "A quick peek can't hurt, right?"
     job_to_do                 "I don't have time for that, I got a job to do."
     takeshi                   "Takeshi's Noodles used to be the best place in the Gutter for a late meal. Too bad old Takeshi closed up shop for good."
+    check_takeshi_alley       "A garbage filled alleyway that leads to the back of Takeshi's place. No need to go there."
+    enter_takeshis            "I used the keycard to entry Takeshi's place. It looked like a tornado hit the place. I checked the friedge and against all hope, I found the last container of noodles. I wouldn't eat them, but that's not my problem."
+    enter_takeshis_again      "I got what I needed. There was nothing else to be found there."
+
+    alley_check_dumpster          "This particular dumpster was especially foul. Something was putrefying in there."
+    glich_atm_check_trash1         "Against my better judgement, I opened the dumpster. The smell was so powerful I gagged."
+    glich_atm_check_trash2         "Under a pile of decomposing trash bags, was Takeshi's body. They did a dreking numbder on him."
+    glich_atm_check_trash3         "More importantly, I found his key card. I don't like to steal from the dead, but he's not using it."
+    glitch_atm_already_complete    "I wouldn't dive into that dumpster again even if the secret to Danni's disappearance was in there."
 
 ; TITLE
 ; =====================================================
@@ -215,8 +232,62 @@
     goto #alley_empty_lot
     end
 
+.SCRIPT goto_atm
+    goto #alley_atm
+    end
+
+.SCRIPT goto_alley_trash
+    goto #alley_trash
+    end
+
+.SCRIPT goto_alley_subway_entrance
+    goto #alley_subway_entrance
+    end
+
+.SCRIPT goto_alley_subway_interior
+    goto #alley_subway_interior
+    end
+
 .SCRIPT examine_takeshi       ; Describe the noodle join
     text $takeshi
+    end
+
+.SCRIPT enter_takeshis        ; Search Takeshi's Place
+    load !got_noods           ; Do we already have the noods?
+    jiff @check_for_noods
+    text $enter_takeshis_again
+    end
+
+@check_for_noods
+    load !got_takeshi_key    ; Do we have the key to come in?
+    jiff @dont_enter_takeshis
+    text $enter_takeshis
+    end
+
+@dont_enter_takeshis
+    text $check_takeshi_alley
+    load !got_noods
+    set
+    end
+
+.SCRIPT use_alley_dumpster
+    load !glitch_complete_atm_quest
+    jiff @not_completed
+    text $glitch_atm_already_complete
+    end
+
+@not_completed
+    load !glitch_accept_atm_quest
+    jiff @not_started
+    text $glich_atm_check_trash1
+    text $glich_atm_check_trash2
+    text $glich_atm_check_trash3
+    load !got_takeshi_key
+    set
+    end
+
+@not_started
+    text $alley_check_dumpster
     end
 
 .SCRIPT dialogue_glitch       ; Talk to Glitch
@@ -227,6 +298,7 @@
     dlg #dialogue_tank
     ; goto #alley_alleycat_interior
     end
+
 
 
 
