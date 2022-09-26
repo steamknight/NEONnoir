@@ -61,12 +61,11 @@ QAMIGA
 NN_load_location{0, 0}
 
 ; Run the game
-DEFTYPE .w pointer_id
 DEFTYPE .w overlapped, prev_overlap
 DEFTYPE .NN_region *region
 DEFTYPE .b left_mouse
 
-pointer_id = 0
+NN_pointer_id = 0
 overlapped = -1
 prev_overlap = -1
 NN_should_quit = False
@@ -88,7 +87,7 @@ Repeat
   DisplayBitMap #CP_coplist, NN_current_bmp
 
   ; Update the mouse pointer
-  DisplaySprite #CP_coplist, pointer_id, MouseX, MouseY, 0
+  DisplaySprite #CP_coplist, NN_pointer_id, MouseX, MouseY, 0
 
   ; Check if any regions that have been hovered over
   overlapped = NN_get_overlapped_region{MouseX, MouseY}
@@ -97,7 +96,7 @@ Repeat
 
   If overlapped <> -1
     *region = !__get_region{overlapped}
-    pointer_id = *region\pointer_id
+    NN_pointer_id = *region\pointer_id
 
     If left_mouse = #IN_mouse_released AND *region\script_offset <> -1
       UnBuffer #BF_main_screen
@@ -105,13 +104,13 @@ Repeat
     Else
       If overlapped <> prev_overlap AND *region\description_id <> -1
         UnBuffer #BF_main_screen
-        TX_draw_text_wrapped{!__get_string{*region\description_id}, 32, #NN_half_screen_width , #NN_screen_height}
+        TX_draw_text_wrapped{!__get_string{*region\description_id}, 32, #NN_half_screen_width , #NN_screen_height, False}
         ;TX_draw_textid_wrapped{*region\description_id, 32, #NN_half_screen_width , #NN_screen_height}
       End If
     End If
   Else
     UnBuffer 0
-    pointer_id = 0
+    NN_pointer_id = 0
   End If
 
   prev_overlap = overlapped

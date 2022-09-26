@@ -5,6 +5,7 @@
     glitch_first_time ; Have we talked to Glitch yet?
     glitch_asked_about_alleycat
     glitch_accept_atm_quest
+    glitch_continue_atm_quest
     glitch_complete_atm_quest
     glitch_accept_ticket_quest
     got_takeshi_key   ; Key to takeshi's place, found in the dumpster
@@ -38,6 +39,7 @@
 
     dialogue_glitch           0
     dialogue_tank             1
+    dialogue_alley_tinman     2
 
     ; Music and sound
     title_module              0
@@ -100,6 +102,15 @@
     glich_atm_check_trash2         "Under a pile of decomposing trash bags, was Takeshi's body. They did a dreking numbder on him."
     glich_atm_check_trash3         "More importantly, I found his key card. I don't like to steal from the dead, but he's not using it."
     glitch_atm_already_complete    "I wouldn't dive into that dumpster again even if the secret to Danni's disappearance was in there."
+
+    alley_atm_description      "ATMs. Cash Machines. Cred Dispensers. Unarmed Bandits. Take your pick. These jackpots let your retrieve your credits... for a fee."
+    alley_atm_quest_start      "Better deal with that tin man before I try anything. They're not the forgiving type."
+    alley_atm_quest_do1        "While the tin man looked away, I went through the motions of withdrawing credits and scaned Glitch's chip instead. Graphical anomalies multiplied on the screen like bacteria on a petri dish."
+    alley_atm_quest_do2        "Panic griped me as I tried to act natural, keenly aware of the guard standing nearby. As the screen became more corrupted, a bead of sweat dripped from my brow."
+    alley_atm_quest_do3        "Fortunately, the screen returned to normal just as quickly as it glitched. 'TRANSACTION COMPLETE' it happily chimed."
+    alley_atm_quest_complete   "The deed's done, better not bring any more attention to it."
+    alley_atm_security_desc    "Looks like this bank's hired security to babysit the jackpot. These tin men contracts were usually given to lowest bidders."
+    alley_atm_security_done    "Better leave him to his brain drain duties."
 
 ; TITLE
 ; =====================================================
@@ -266,8 +277,8 @@
 
 @dont_enter_takeshis
     text $check_takeshi_alley
-    load !got_noods
     set
+    store !got_noods
     end
 
 .SCRIPT use_alley_dumpster
@@ -282,12 +293,55 @@
     text $glich_atm_check_trash1
     text $glich_atm_check_trash2
     text $glich_atm_check_trash3
-    load !got_takeshi_key
     set
+    store !got_takeshi_key
     end
 
 @not_started
     text $alley_check_dumpster
+    end
+
+.SCRIPT use_alley_atm
+    load !glitch_complete_atm_quest
+    jiff @not_completed
+    text $alley_atm_quest_complete
+    end
+
+@not_completed
+    load !glitch_accept_atm_quest
+    jiff @not_started
+    text $alley_atm_quest_start
+    end
+
+@not_started
+    text $alley_atm_description
+    end
+
+.SCRIPT use_alley_tinman
+    load !glitch_complete_atm_quest
+    jiff @not_completed
+    text $alley_atm_security_done
+    end
+
+@not_completed
+    load !glitch_accept_atm_quest
+    jiff @not_started
+    dlg #dialogue_alley_tinman
+
+    load !glitch_continue_atm_quest
+    jift @passed_guard
+    end
+
+@passed_guard
+    text $alley_atm_quest_do1
+    text $alley_atm_quest_do2
+    text $alley_atm_quest_do3
+    set
+    store !glitch_complete_atm_quest
+    end
+
+@not_started
+    text $alley_atm_security_desc
     end
 
 .SCRIPT dialogue_glitch       ; Talk to Glitch
@@ -298,6 +352,7 @@
     dlg #dialogue_tank
     ; goto #alley_alleycat_interior
     end
+
 
 
 

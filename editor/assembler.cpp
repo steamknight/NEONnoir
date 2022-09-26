@@ -44,6 +44,7 @@ namespace NEONnoir
             { "goto",       { (int16_t)0x80,   {   ParamType::CONST                                                       }}},
             { "map",        { (int16_t)0x81,   {                                                                          }}},
             { "goloc",      { (int16_t)0x83,   {   ParamType::CONST,       ParamType::CONST                               }}},
+            { "mousewait",  { (int16_t)0x84,   {                                                                          }}},
             { "quit",       { (int16_t)0x8E,   {                                                                          }}},
             { "gameover",   { (int16_t)0x8F,   {   ParamType::TEXT                                                        }}},
             { "text",       { (int16_t)0x90,   {   ParamType::TEXT                                                        }}},
@@ -346,7 +347,7 @@ namespace NEONnoir
                     {
                         auto label = get_param('@');
 
-                        _placeholders.push_back({ _bytecode.size(), label });
+                        _placeholders.push_back({ _bytecode.size(), script_name + label });
 
                         // Place a temporary value
                         _bytecode.push_back(static_cast<int32_t>(0x7FFF));
@@ -389,13 +390,14 @@ namespace NEONnoir
             {
                 advance();
                 auto label = identifier();
+                auto qualified_label = script_name + label;
 
-                if (_labels.count(label))
+                if (_labels.count(qualified_label))
                 {
                     throw assembler_error("Duplicate label: @" + label, _scan_line);
                 }
 
-                _labels.insert({ label, to<int32_t>(_bytecode.size())});
+                _labels.insert({ qualified_label, to<int32_t>(_bytecode.size())});
             }
             else if (is_at_end() || peek() == '.')
             {

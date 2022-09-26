@@ -243,6 +243,7 @@ Dim List IV_user_items(#IV_max_items)
 ; -----------------------------------------------
 DEFTYPE .b NN_current_bmp
 DEFTYPE .b NN_should_quit
+DEFTYPE .w NN_pointer_id
 
 ; =============================================================================
 ; Convenience Macros

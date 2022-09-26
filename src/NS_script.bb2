@@ -231,7 +231,7 @@ Statement NS_execute_script{script_offset.l}
         PC + 2              ; Eat the opcode
         v1 = Peek.w (*NS_script_data + PC)
         !__print_bc_v1{PC, "text", v1}
-        TX_draw_text_wrapped{!__get_string{v1}, 32, #NN_half_screen_width , #NN_screen_height}
+        TX_draw_text_wrapped{!__get_string{v1}, 32, #NN_half_screen_width , #NN_screen_height, True}
         PC + 2              ; Eat the parameter
 
       Case #NS_op_goloc; loc scene
@@ -239,6 +239,13 @@ Statement NS_execute_script{script_offset.l}
         QAMIGA
         NN_load_location{v1, v2}
         BLITZ
+
+      Case #NS_op_mousewait
+        !__execute_opcode{"mousewait"}
+        Repeat
+          VWait
+          left_mouse = IN_update_mouse{}
+        Until left_mouse = #IN_mouse_released
 
       Case #NS_op_quit
         !__execute_opcode{"quit"}

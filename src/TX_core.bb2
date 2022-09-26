@@ -107,7 +107,7 @@ Statement TX_draw_text_centered{text$, cx.w, cy.w}
   Next
 End Statement
 
-#TX_max_words = 64 ; Assume no more than 64 words in one go
+#TX_max_words = 128 ; Assume no more than 128 words in one go
 Dim tx_word_begin.w(#TX_max_words)
 Dim tx_word_end.w(#TX_max_words)
 DEFTYPE .w tx_word_count
@@ -173,9 +173,9 @@ End Statement
 ; Draws a multiline string wrapped a given width. The text is drawn around a
 ; center point.
 ; =============================================================================
-Statement TX_draw_text_wrapped{text$, line_width.w, cx.w, cy.w}
+Statement TX_draw_text_wrapped{text$, line_width.w, cx.w, cy.w, should_wait.b}
   !DB_trace{"TX_CORE", "TX_draw_text_wrapped: " + text$ + " " + Str$(line_width) + ", " + Str$(x) + "," + Str$(y)}
-  SHARED tx_word_begin(), tx_word_end(), tx_word_count, NN_current_bmp
+  SHARED tx_word_begin(), tx_word_end(), tx_word_count, NN_current_bmp, NN_pointer_id
   DEFTYPE .w widthw, line_count
   DEFTYPE .w remaining
   DEFTYPE .w x0, y0, x, y, widthr, heightr, max_len, cur_len
@@ -259,6 +259,16 @@ Statement TX_draw_text_wrapped{text$, line_width.w, cx.w, cy.w}
 
   Free Shape #TX_text_shape
   Free BitMap #TX_scratch_bmp
+
+  If should_wait = True
+    DEFTYPE .b left_mouse
+    Repeat
+      VWait
+      left_mouse = IN_update_mouse{}
+      DisplaySprite #CP_coplist, NN_pointer_id, MouseX, MouseY, 0
+    Until left_mouse = #IN_mouse_released
+    UnBuffer 0
+  End If
 End Statement
 
 Function .l TX_calc_text_size{id.w, line_width.w}

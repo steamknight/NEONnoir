@@ -46,6 +46,7 @@
 #NS_op_map          = $81   ;| map         | Display location selection screen, ends script
 #NS_op_text         = $82   ;| text id     | Display string ID
 #NS_op_goloc        = $83   ;| goloc loc scene| Loads a location and scene
+#NS_op_mousewait    = $84   ;| mousewait   | Halts execution until the mouse is clicked
 #NS_op_quit         = $8E   ;| quit        | Quits the game
 #NS_op_gameover     = $8F   ;| gameover id | Displays game over with string ID as message, ends script
 ; Text operations           ;|             ;
