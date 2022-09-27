@@ -185,6 +185,7 @@ namespace NEONnoir
         j.at("choices").get_to(p.choices);
         j.at("next_page_id").get_to(p.next_page_id);
         j.at("enabled").get_to(p.enabled);
+        j.at("self_disable").get_to(p.self_disable);
         j.at("has_set_flag").get_to(p.has_set_flag);
         j.at("has_check_flag").get_to(p.has_check_flag);
     }

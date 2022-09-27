@@ -93,7 +93,6 @@ Statement DG_show_dialog{id.w}
         BlitMode CookieMode
 
         If *cur_page\first_choice_id <> -1
-          ctx\y_position + 1
           DEFTYPE .DG_choice *choice
           DEFTYPE .w cwidth, cheight
           DEFTYPE .b enabled
@@ -102,6 +101,7 @@ Statement DG_show_dialog{id.w}
             *choice = !__get_choice{*cur_page\first_choice_id + c}
 
             If dg_is_choice_enabled{*choice}
+              ctx\y_position + 1
               rects(c)\x0 = #DG_x_padding
               rects(c)\y0 = (ctx\y_position + 1) * #TX_font_height + #DG_y_padding
 

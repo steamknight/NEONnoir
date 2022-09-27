@@ -34,6 +34,7 @@ $data_files = @(
     "./data/alleyway_atm.iff",
     "./data/subway_entrance.iff",
     "./data/subway_interior.iff",
+    "./data/alleycat1.iff",
     "./data/display.font",
     "./data/frame.shape",
     "./data/pointers.shape",
