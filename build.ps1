@@ -40,6 +40,7 @@ $data_files = @(
     "./data/pointers.shape",
     "./data/gutter.neon",
     "./data/theme.mod",
+    "./data/ambient.mod",
     "./data/mpg.iff",
     "./data/1.shapes"
 )

@@ -6,18 +6,22 @@
 ;
 
 Statement MS_load_module{id.w, position.w}
+  !__use_string_table{}
+  DEFTYPE .s file_name$
+  file_name$ = !__get_string{id}
+  !DB_trace{"MS", "MS_load_module: " + file_name$}
   DEFTYPE .b success
-  success = LoadTrackerModule(0, !__get_string{id})
+  success = LoadTrackerModule(0, file_name$)
   If success = True
 
     ; ModulePositionJump doesn't seem to exist
     ; If position > 0 Then ModulePositionJump(position)
 
     success = StartTracker(0)
-    If success = False Then !DB_warn{"MS", "Could not play '" + !__get_string{id} + "'"}
+    If success = False Then !DB_warn{"MS", "Could not play '" + file_name$ + "'"}
 
   Else
-    !DB_warn{"MS", "Could not load '" + !__get_string{id} + "'"}
+    !DB_warn{"MS", "Could not load '" + file_name$ + "'"}
   End If
 End Statement
 

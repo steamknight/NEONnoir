@@ -49,9 +49,12 @@
     dialogue_alley_tweaker    3
 
     ; Music and sound
-    title_module              0
+    mod_theme                 0
+    mod_ambient               1
 
 .TEXT
+    mod_ambient               "data/ambient.mod"
+
     ; Intro Page 1
     intro01_01                "The acid rain washed the city's neon blood into the Gutter; home for those who ran out of Options."
     intro01_02                "The Gutter wasn't just a cliche metaphor, it was the city's most ruthless and dangerous district. Few chose to live there willingly; when your credits ran dry, there was nowhere else to go."
@@ -155,7 +158,8 @@
 
 .SCRIPT start_game
     goloc #location_start #alley_takeshi_noodles
-    modkill #title_module
+    modkill #mod_theme
+    mod $mod_ambient 0
     end
 
 .SCRIPT intro01_text
@@ -394,6 +398,7 @@
 @not_started
     text $alley_subway_tweaker_desc
     end
+
 
 
 

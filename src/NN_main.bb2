@@ -18,8 +18,8 @@ Buffer #BF_main_screen, 64000
 Buffer #BF_shapes, 64000
 Buffer #BF_faces, 16000
 
-Goto SkipSong
-; Load the title song
+;Goto SkipSong
+;Load the title song
 DEFTYPE .b success
 success = LoadTrackerModule(0, "data/theme.mod")
 If success = True
