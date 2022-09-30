@@ -226,7 +226,8 @@ End Macro
 DEFTYPE .w *NS_script_data, NS_script_queue
 DEFTYPE .l NS_script_data_size
 
-Dim NS_flags.b(256)
+#NS_flag_count = 256
+Dim NS_flags.b(#NS_flag_count)
 ; -----------------------------------------------
 DEFTYPE .b DG_dialogue_is_active, DB_active_dialogue
 
@@ -342,11 +343,12 @@ End Macro
 ; Mouse pointers
 ; -----------------------------------------------------------------------------
 #NN_pointer_start = 10
-#NN_pointer_end = 13
+#NN_pointer_end = 14
 #NN_pointer_default = 10
 #NN_pointer_examine = 11
 #NN_pointer_interact = 12
 #NN_pointer_exit = 13
+#NN_pointer_wait = 14
 
 ; Text
 ; -----------------------------------------------------------------------------

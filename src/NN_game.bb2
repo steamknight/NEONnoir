@@ -317,6 +317,12 @@ End Statement
 ; =============================================================================
 Statement NN_load_location{new_loc_id.w, new_scene_id.w}
   !DB_trace{"NN_GAME", "NN_load_location{" + Str$(new_loc_id) + ", " + Str$(new_scene_id) + "}"}
+
+  BLITZ
+  DisplaySprite #CP_coplist, #NN_pointer_wait - #NN_pointer_start, #NN_screen_width LSR 1, #NN_screen_height LSR 1, 0
+
+  QAMIGA
+
   SHARED *NN_current_location, *NN_current_scene
   SHARED *NN_locations, *NN_scenes, *NN_string_table, *NN_string_data
   !__use_shapes{}
@@ -346,7 +352,6 @@ Statement NN_load_location{new_loc_id.w, new_scene_id.w}
   ;   NS_execute_script{*NN_current_scene\on_enter}
   ; End If
 End Statement
-
 
 ; Checks if a point is inside one of the regions
 ; =============================================================================
@@ -382,4 +387,45 @@ End Statement
 Statement NN_quit_game{}
   SHARED NN_should_quit
   NN_should_quit = True
+End Statement
+
+; Saves the game
+; =============================================================================
+Statement NN_save_game{}
+  SHARED NN_current_location, NN_current_scene, *NS_flags
+
+  DEFTYPE .w id
+  id = 0
+  If OpenFile(id, "save.neon") = 0 Then Statement Return
+
+  ; Write the player's current location
+  WriteMem id, &NN_current_location, SizeOf .w
+  WriteMem id, &NN_current_scene, SizeOf .w
+
+  ; Write all the flags!
+  WriteMem id, *NS_flags, (SizeOf .b * #NS_flag_count)
+
+  CloseFile id
+End Statement
+
+; Loads the game
+; =============================================================================
+Statement NN_load_game{}
+  SHARED NN_current_location, NN_current_scene, *NS_flags
+
+  DEFTYPE .w id
+  id = 0
+  If OpenFile(id, "save.neon") = 0 Then Statement Return
+
+  ; Write the player's current location
+  ReadMem id, &NN_current_location, SizeOf .w
+  ReadMem id, &NN_current_scene, SizeOf .w
+
+  ; Write all the flags!
+  ReadMem id, *NS_flags, (SizeOf .b * #NS_flag_count)
+
+  CloseFile id
+
+  ; Move to the current location
+  NN_load_location{NN_current_location, NN_current_scene}
 End Statement

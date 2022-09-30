@@ -51,6 +51,8 @@ $data_files = @(
 $output_dir = "C:/Users/mass/OneDrive/Amiga/hdf/Development/NEONnoir/"
 $data_dir = "C:/Users/mass/OneDrive/Amiga/hdf/Development/NEONnoir/data"
 
+$Env:PATH = "C:\Users\mass\AppData\Roaming\Python\Python37\Scripts\;" + $Env:PATH
+
 function Set-ToolPath($path) {
     $ENV:Path = "$path\external;$path\external\NConvert;" + $ENV:Path
 }
@@ -92,36 +94,41 @@ function Get-GeneratedShapes {
 }
 
 function Archive-Game {
-    Read-Host "Press 'Enter' once the project has been built in Blitz"
+    Read-Host "Press 'Enter' once the project has been built in Blitz\"
 
     if (Test-Path -Path "./build/") {
         Write-Host "Cleaning up 'build' folder..."
         Remove-Item -Path "./build/" -Recurse
     }
 
-    $null = New-Item -ItemType Directory -Path "./build/data" -Force
-
-
-    $compiled = @(
-        ($output_dir + "neonnoir")
-        ($output_dir + "neonnoir.info")
-    )
+    $null = New-Item -ItemType Directory -Path "./build/parts" -Force
 
     Write-Host "Copying files..."
-    Copy-Item -Path $compiled -Destination "./build/"
-    Copy-Item -Path $data_files -Destination "./build/data/"
+    Copy-Item -Path ($output_dir + "build/NEONnoir.lha") -Destination "./build/"
 
+    Split-File -Filename "./build/NEONnoir.lha" -Prefix "./build/parts/NEONnoir" -Size (800 * 1024)
 
+    $count = 1
+    Get-ChildItem ".\build\parts" | ForEach-Object {
+        $name = $_.BaseName
+        $volume = "NN{0:d2}" -f $count
+
+        Invoke-Expression "& xdftool .\build\$volume.adf format '$volume' + write .\build\parts\$name"
+        $count += 1
+    }
 }
 
 # https://stackoverflow.com/questions/4533570/in-powershell-how-do-i-split-a-large-binary-file
-function Split-File($inFile, $outPrefix, [Int32] $bufSize) {
-    $stream = [System.IO.File]::OpenRead($inFile)
+function Split-File {
+    param (
+        $Filename, $Prefix, [Int32] $Size
+    )
+    $stream = [System.IO.File]::OpenRead($Filename)
     $chunkNum = 1
-    $bytes = New-Object byte[] $bufSize
+    $bytes = New-Object byte[] $Size
 
-    while ($bytesRead = $stream.Read($bytes, 0, $bufSize)) {
-        $outFile = "$outPrefix{ 0:d2 }" -f $chunkNum
+    while ($bytesRead = $stream.Read($bytes, 0, $Size)) {
+        $outFile = "$Prefix{0:d2}" -f $chunkNum
         $ostream = [System.IO.File]::OpenWrite($outFile)
         $ostream.Write($bytes, 0, $bytesRead)
         $ostream.Close()

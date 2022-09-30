@@ -247,6 +247,14 @@ Statement NS_execute_script{script_offset.l}
           left_mouse = IN_update_mouse{}
         Until left_mouse = #IN_mouse_released
 
+      Case #NS_op_loadgame
+        !__execute_opcode{"loadgame"}
+        NN_load_game{}
+
+      Case #NS_op_savegame
+        !__execute_opcode{"savegame"}
+        NN_save_game{}
+
       Case #NS_op_quit
         !__execute_opcode{"quit"}
         NN_quit_game{}

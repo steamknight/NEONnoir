@@ -47,6 +47,8 @@
 #NS_op_text         = $82   ;| text id     | Display string ID
 #NS_op_goloc        = $83   ;| goloc loc scene| Loads a location and scene
 #NS_op_mousewait    = $84   ;| mousewait   | Halts execution until the mouse is clicked
+#NS_op_loadgame     = $8C   ;| loadgame    | Loads the current state from disk
+#NS_op_savegame     = $8D   ;| savegame    | Saves the current state to disk
 #NS_op_quit         = $8E   ;| quit        | Quits the game
 #NS_op_gameover     = $8F   ;| gameover id | Displays game over with string ID as message, ends script
 ; Text operations           ;|             ;
