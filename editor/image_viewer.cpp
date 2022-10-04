@@ -47,6 +47,75 @@ void NEONnoir::image_viewer::display(GLtexture const& texture, std::vector<shape
         _add_region_mode = true;
     }
     ToolTip("Add region");
+    ImGui::SameLine();
+
+    if (ImGui::Button(ICON_MD_GRID_4X4))
+    {
+        _show_autogrid_popup = true;
+    }
+    ToolTip("Auto-grid");
+
+    if (_show_autogrid_popup)
+    {
+        ImGui::OpenPopup("Autogrid");
+
+        ImVec2 center = ImGui::GetMainViewport()->GetCenter();
+        ImGui::SetNextWindowPos(center, ImGuiCond_Appearing, ImVec2(0.5f, 0.5f));
+        if (ImGui::BeginPopupModal("Autogrid", nullptr, ImGuiWindowFlags_AlwaysAutoResize))
+        {
+            if (auto table = imgui::table("properties", 2, ImGuiTableFlags_SizingStretchProp))
+            {
+                ImGui::TableNextRow();
+                ImGui::TableNextColumn();
+                ImGui::AlignTextToFramePadding();
+                ImGui::TextUnformatted("Cell Width");
+
+                ImGui::TableNextColumn();
+                ImGui::SetNextItemWidth(100);
+                ImGui::InputInt(make_id("##{}", _cell_width), &_cell_width);
+
+                ImGui::TableNextRow();
+                ImGui::TableNextColumn();
+                ImGui::AlignTextToFramePadding();
+                ImGui::TextUnformatted("Cell Height");
+
+                ImGui::TableNextColumn();
+                ImGui::SetNextItemWidth(100);
+                ImGui::InputInt(make_id("##{}", _cell_height), &_cell_height);
+            }
+
+            ImGui::NewLine();
+
+            if (ImGui::Button("Cancel"))
+            {
+                _show_autogrid_popup = false;
+                ImGui::CloseCurrentPopup();
+            }
+
+            ImGui::SameLine();
+
+            if (ImGui::Button("Autogrid"))
+            {
+                for (auto y = 0; y < texture.height / _cell_height; y++)
+                {
+                    for (auto x = 0; x < texture.width / _cell_width; x++)
+                    {
+                        regions.push_back(shape
+                        { 
+                            static_cast<uint16_t>(x * _cell_width), 
+                            static_cast<uint16_t>(y * _cell_height),
+                            static_cast<uint16_t>(_cell_width), 
+                            static_cast<uint16_t>(_cell_height)
+                        });
+                    }
+                }
+                _show_autogrid_popup = false;
+                ImGui::CloseCurrentPopup();
+            }
+
+            ImGui::EndPopup();
+        }
+    }
 
     ImGui::SameLine();
 

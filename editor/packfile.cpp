@@ -85,6 +85,8 @@ namespace NEONnoir
                 s.on_enter = get_script_offset(scene.on_enter, result);
                 s.on_exit = get_script_offset(scene.on_exit, result);
 
+                s.music_id = scene.music_id;
+
                 for (auto const& region : scene.regions)
                 {
                     auto r = neon_region{};
@@ -178,7 +180,7 @@ namespace NEONnoir
                 {
                     auto c = neon_choice{};
                     c.text_id = to<uint16_t>(pak.string_table.size());
-                    pak.string_table.push_back("* " + choice.text);
+                    pak.string_table.push_back("*" + choice.text);
 
                     c.page_id = choice.next_page_id;
                     if (c.page_id != 0xFFFF) c.page_id += d.first_page_id;
@@ -321,6 +323,7 @@ namespace NEONnoir
             write(neonpack, scene.background_id);
             write(neonpack, scene.first_region_id);
             write(neonpack, scene.last_region_id);
+            write(neonpack, scene.music_id);
         }
 
         // Write all regions

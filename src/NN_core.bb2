@@ -30,6 +30,7 @@ NEWTYPE.NN_scene
   background_id.w
   first_region.w
   last_region.w
+  music_id.w
 End NEWTYPE
 
 ; Location
@@ -112,6 +113,9 @@ End NEWTYPE
 ; Define all globals and macros
 ; =============================================================================
 
+DEFTYPE .b NN_is_in_title
+NN_is_in_title = True
+
 ; NN_region dynamic array
 ; -----------------------------------------------
 DEFTYPE .NN_region *NN_regions, *NN_current_region
@@ -125,6 +129,7 @@ End Macro
 ; -----------------------------------------------
 DEFTYPE .NN_scene *NN_scenes, *NN_current_scene
 DEFTYPE .l NN_scene_count
+DEFTYPE .w NN_current_scene_id
 
 Macro __get_scene
   (*NN_scenes + (SizeOf .NN_scene * (`1)))
@@ -134,6 +139,7 @@ End Macro
 ; -----------------------------------------------
 DEFTYPE .NN_location *NN_locations, *NN_current_location
 DEFTYPE .l NN_location_count
+DEFTYPE .w NN_current_location_id
 
 Macro __get_location
   (*NN_locations + (SizeOf .NN_location * (`1)))
@@ -246,6 +252,8 @@ DEFTYPE .b NN_current_bmp
 DEFTYPE .b NN_should_quit
 DEFTYPE .w NN_pointer_id
 
+DEFTYPE .w MS_current_track_id
+
 ; =============================================================================
 ; Convenience Macros
 ; =============================================================================
@@ -349,6 +357,8 @@ End Macro
 #NN_pointer_interact = 12
 #NN_pointer_exit = 13
 #NN_pointer_wait = 14
+
+#NN_menu_shape = 1
 
 ; Text
 ; -----------------------------------------------------------------------------

@@ -52,6 +52,7 @@ namespace NEONnoir
         // Enable Docking
         ImGuiIO& io = ImGui::GetIO(); (void)io;
         io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
+        io.ConfigWindowsMoveFromTitleBarOnly = true;
 
         ImGui::StyleColorsDark();
         ImGui_ImplGlfw_InitForOpenGL(_window.get(), true);
@@ -131,6 +132,11 @@ namespace NEONnoir
             if (_image_converter && !_image_converter->display())
             {
                 _image_converter.reset();
+            }
+
+            if (_shape_editor_tool && !_shape_editor_tool->display())
+            {
+                _shape_editor_tool.reset();
             }
 
             _location_browser.display();
@@ -330,6 +336,15 @@ namespace NEONnoir
                         _image_converter = std::make_unique<image_converter>();
                     }
                     _image_converter->display();
+                }
+
+                if (ImGui::MenuItem(ICON_MD_CROP " Shape Editor..."))
+                {
+                    if (!_shape_editor_tool)
+                    {
+                        _shape_editor_tool = std::make_unique<shape_editor_tool>();
+                    }
+                    _shape_editor_tool->display();
                 }
                 ImGui::EndMenu();
             }

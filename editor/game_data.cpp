@@ -56,6 +56,7 @@ namespace NEONnoir
             { "view_height", s.view_height},
             { "offset_x", s.offset_x},
             { "offset_y", s.offset_y},
+            { "music_id", s.music_id },
             { "regions", s.regions}
         };
     }
@@ -123,6 +124,7 @@ namespace NEONnoir
         j.at("script").get_to(r.script);
     }
 
+
     void from_json(const json& j, game_data_scene& s)
     {
         j.at("name").get_to(s.name);
@@ -135,7 +137,10 @@ namespace NEONnoir
         j.at("view_height").get_to(s.view_height);
         j.at("offset_x").get_to(s.offset_x);
         j.at("offset_y").get_to(s.offset_y);
+        if (j.contains("music_id"))
+            j.at("music_id").get_to(s.music_id);
         j.at("regions").get_to(s.regions);
+
     }
 
     void from_json(const json& j, shape& s)

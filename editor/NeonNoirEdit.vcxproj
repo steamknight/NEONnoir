@@ -191,6 +191,7 @@
     <ClCompile Include="scene_editor.cpp" />
     <ClCompile Include="script_editor.cpp" />
     <ClCompile Include="shapes_editor.cpp" />
+    <ClCompile Include="shape_editor_tool.cpp" />
     <ClCompile Include="utils.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -220,6 +221,7 @@
     <ClInclude Include="scene_editor.h" />
     <ClInclude Include="script_editor.h" />
     <ClInclude Include="shapes_editor.h" />
+    <ClInclude Include="shape_editor_tool.h" />
     <ClInclude Include="simple_image.h" />
     <ClInclude Include="stb_image.h" />
     <ClInclude Include="utils.h" />

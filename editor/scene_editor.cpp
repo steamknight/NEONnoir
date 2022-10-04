@@ -84,6 +84,7 @@ namespace NEONnoir
                 display_prop_background(scene, data->locations[_location_index.value()].backgrounds);
                 display_prop_string("On Enter", scene.on_enter);
                 display_prop_string("On Exit", scene.on_exit);
+                display_prop_int("Music ID", scene.music_id);
                 ImGui::EndTable();
             }
             display_prop_regions(scene);
@@ -103,6 +104,21 @@ namespace NEONnoir
         ImGui::TableNextColumn();
         ImGui::SetNextItemWidth(-FLT_MIN);
         ImGui::InputText(std::format("##{}", (uint64_t)&value).c_str(), &value);
+    }
+
+    void scene_editor::display_prop_int(std::string_view const& label, uint16_t& value)
+    {
+        ImGui::TableNextRow();
+
+        ImGui::TableNextColumn();
+        ImGui::AlignTextToFramePadding();
+        ImGui::TextUnformatted(label.data());
+
+        ImGui::TableNextColumn();
+        ImGui::SetNextItemWidth(-FLT_MIN);
+        int v = value;
+        ImGui::InputInt(std::format("##{}", (uint64_t)&value).c_str(), &v);
+        value = static_cast<uint16_t>(v);
     }
 
     void scene_editor::display_prop_enum(std::string_view const& label, std::vector<std::string> const& values, uint16_t & selected_value)

@@ -69,6 +69,8 @@ namespace NEONnoir
 
         uint16_t first_region_id{ 0xFFFF };
         uint16_t last_region_id{ 0xFFFF };
+
+        uint16_t music_id{ 0xFFFF };
     };
 
     struct neon_regions_header

@@ -34,6 +34,8 @@ SkipSong:
 BitMap #BMP_main, #NN_screen_width, #NN_screen_height, #NN_screen_bpp
 LoadBitMap #BMP_main, "data/mpg.iff", #PAL_main
 
+LoadShapes #NN_menu_shape, #NN_menu_shape, "data/menu.shapes"
+
 ; Display the splash screen
 BLITZ
 CreateDisplay #CP_coplist
@@ -61,7 +63,7 @@ QAMIGA
 NN_load_location{0, 0}
 
 ; Run the game
-DEFTYPE .w overlapped, prev_overlap
+DEFTYPE .w overlapped, prev_overlap, menu_x, menu_y
 DEFTYPE .NN_region *region
 DEFTYPE .b left_mouse
 
@@ -74,6 +76,10 @@ BLITZ
 Mouse On
 
 NS_script_queue = -1
+MS_current_track_id = -1
+
+menu_x = 320 - ShapeWidth(#NN_menu_shape) - 4
+menu_y = 200 - ShapeHeight(#NN_menu_shape) - 4
 
 Repeat
   VWait
@@ -89,28 +95,36 @@ Repeat
   ; Update the mouse pointer
   DisplaySprite #CP_coplist, NN_pointer_id, MouseX, MouseY, 0
 
-  ; Check if any regions that have been hovered over
-  overlapped = NN_get_overlapped_region{MouseX, MouseY}
-
-  NS_process_queue{}
-
-  If overlapped <> -1
-    *region = !__get_region{overlapped}
-    NN_pointer_id = *region\pointer_id
-
-    If left_mouse = #IN_mouse_released AND *region\script_offset <> -1
-      UnBuffer #BF_main_screen
-      NS_execute_script{*region\script_offset}
-    Else
-      If overlapped <> prev_overlap AND *region\description_id <> -1
-        UnBuffer #BF_main_screen
-        TX_draw_text_wrapped{!__get_string{*region\description_id}, 32, #NN_half_screen_width , #NN_screen_height, False}
-        ;TX_draw_textid_wrapped{*region\description_id, 32, #NN_half_screen_width , #NN_screen_height}
-      End If
+  ; Check if menu icon is clicked
+  If MouseX > menu_x AND MouseY > menu_y
+    DisplaySprite #CP_coplist, #NN_pointer_interact - #NN_pointer_start, MouseX, MouseY, 0
+    If left_mouse = #IN_mouse_released
+      DG_show_dialog{0}
     End If
   Else
-    UnBuffer 0
-    NN_pointer_id = 0
+    ; Check if any regions that have been hovered over
+    overlapped = NN_get_overlapped_region{MouseX, MouseY}
+
+    NS_process_queue{}
+
+    If overlapped <> -1
+      *region = !__get_region{overlapped}
+      NN_pointer_id = *region\pointer_id
+
+      If left_mouse = #IN_mouse_released AND *region\script_offset <> -1
+        UnBuffer #BF_main_screen
+        NS_execute_script{*region\script_offset}
+      Else
+        If overlapped <> prev_overlap AND *region\description_id <> -1
+          UnBuffer #BF_main_screen
+          TX_draw_text_wrapped{!__get_string{*region\description_id}, 32, #NN_half_screen_width , #NN_screen_height, False}
+          ;TX_draw_textid_wrapped{*region\description_id, 32, #NN_half_screen_width , #NN_screen_height}
+        End If
+      End If
+    Else
+      UnBuffer 0
+      NN_pointer_id = 0
+    End If
   End If
 
   prev_overlap = overlapped

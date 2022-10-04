@@ -23,6 +23,11 @@ namespace NEONnoir
 
         bool _add_region_mode{ false };
         bool _add_region_dragging{ false };
+
+        bool _show_autogrid_popup{ false };
+        int32_t _cell_width{ 1 };
+        int32_t _cell_height{ 1 };
+
         int32_t _selected_region_index{ -1 };
         ImVec2 _add_region_p0{ -1, -1 };
     };

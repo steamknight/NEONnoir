@@ -287,9 +287,11 @@ End Function
 ; Sets the currently selected scene
 ; =============================================================================
 Statement NN_game_set_scene{id.w}
-  SHARED *NN_scenes, *NN_current_scene, NN_current_bmp, *NN_current_location
   !DB_trace{"NN_GAME", "NN_game_set_scene: " + Str$(id)}
-  SHARED NN_current_palette, NS_script_queue
+  SHARED *NN_scenes, *NN_current_scene, NN_current_bmp, *NN_current_location
+  SHARED NN_current_palette, NS_script_queue, NN_current_scene_id
+
+  NN_current_scene_id = id
 
   NN_current_palette = -1
 
@@ -304,6 +306,10 @@ Statement NN_game_set_scene{id.w}
    NS_script_queue = *NN_current_scene\on_enter
   End If
 
+  If *NN_current_scene\music_id > -1
+    MS_load_module{*NN_current_scene\music_id, 0}
+  End If
+
   ;NN_current_bmp = *NN_current_scene\background_id
 
   ;FadeInScreen{ #CP_coplist, NN_current_bmp, 10}
@@ -316,11 +322,12 @@ End Statement
 ; Requires AMIGA or QAMIGA mode
 ; =============================================================================
 Statement NN_load_location{new_loc_id.w, new_scene_id.w}
+  SHARED NN_current_location_id
   !DB_trace{"NN_GAME", "NN_load_location{" + Str$(new_loc_id) + ", " + Str$(new_scene_id) + "}"}
+  NN_current_location_id = new_loc_id
 
   BLITZ
   DisplaySprite #CP_coplist, #NN_pointer_wait - #NN_pointer_start, #NN_screen_width LSR 1, #NN_screen_height LSR 1, 0
-
   QAMIGA
 
   SHARED *NN_current_location, *NN_current_scene
@@ -344,13 +351,24 @@ Statement NN_load_location{new_loc_id.w, new_scene_id.w}
     LoadShapes *first_shape\shape_id, *last_shape\shape_id, "data/" + !__get_string{*NN_current_location\shapes_file}
   End If
 
-  ; BLITZ
+  BLITZ
+  If new_loc_id > 0
+    For bg = 0 To *NN_current_location\last_bg - *NN_current_location\first_bg
+      Use BitMap bg
+      Blit #NN_menu_shape, 320 - ShapeWidth(#NN_menu_shape) - 4, 200 - ShapeHeight(#NN_menu_shape) - 4, 0
+    Next
+  End If
+
+  QAMIGA
+
   ; Setup the next scene
   NN_game_set_scene{new_scene_id}
   ;*NN_current_scene = !__get_scene{*NN_current_location\first_scene + new_scene_id}
   ; If *NN_current_scene\on_enter <> -1
   ;   NS_execute_script{*NN_current_scene\on_enter}
   ; End If
+
+  If new_loc_id > 0 Then NN_is_in_title = False
 End Statement
 
 ; Checks if a point is inside one of the regions
@@ -392,18 +410,27 @@ End Statement
 ; Saves the game
 ; =============================================================================
 Statement NN_save_game{}
-  SHARED NN_current_location, NN_current_scene, *NS_flags
+  !DB_trace{"NN_GAME", "NN_save_game"}
+  SHARED NN_current_location_id, NN_current_scene_id, NS_flags()
+  !__use_dialogues{}
+  !__use_dialogue_limits{}
 
   DEFTYPE .w id
   id = 0
   If OpenFile(id, "save.neon") = 0 Then Statement Return
 
   ; Write the player's current location
-  WriteMem id, &NN_current_location, SizeOf .w
-  WriteMem id, &NN_current_scene, SizeOf .w
+  WriteMem id, &NN_current_location_id, SizeOf .w
+  WriteMem id, &NN_current_scene_id, SizeOf .w
 
   ; Write all the flags!
-  WriteMem id, *NS_flags, (SizeOf .b * #NS_flag_count)
+  For i = 0 To #NS_flag_count
+    WriteMem id, &NS_flags(i), (SizeOf .b)
+  Next
+
+  ; Write the pages and choices
+  WriteMem id, *DG_pages, (SizeOf .DG_page * DG_page_count)
+  WriteMem id, *DG_choices, (SizeOf .DG_choice * DG_choice_count)
 
   CloseFile id
 End Statement
@@ -411,21 +438,34 @@ End Statement
 ; Loads the game
 ; =============================================================================
 Statement NN_load_game{}
-  SHARED NN_current_location, NN_current_scene, *NS_flags
+  !DB_trace{"NN_GAME", "NN_load_game"}
+  SHARED NN_current_location_id, NN_current_scene_id, NS_flags()
+  !__use_dialogues{}
+  !__use_dialogue_limits{}
 
   DEFTYPE .w id
   id = 0
   If OpenFile(id, "save.neon") = 0 Then Statement Return
 
-  ; Write the player's current location
-  ReadMem id, &NN_current_location, SizeOf .w
-  ReadMem id, &NN_current_scene, SizeOf .w
+  ; Read the player's current location
+  ReadMem id, &NN_current_location_id, SizeOf .w
+  ReadMem id, &NN_current_scene_id, SizeOf .w
 
-  ; Write all the flags!
-  ReadMem id, *NS_flags, (SizeOf .b * #NS_flag_count)
+  !DB_printf{"******** Loading location %d, scene %d", loc_id, scene_id}
+
+  ; Read all the flags!
+  DEFTYPE .b flag
+  For i = 0 To #NS_flag_count
+    ReadMem id, &flag, (SizeOf .b)
+    NS_flags(i) = flag
+  Next
+
+  ; Read the pages and choices
+  ReadMem id, *DG_pages, (SizeOf .DG_page * DG_page_count)
+  ReadMem id, *DG_choices, (SizeOf .DG_choice * DG_choice_count)
 
   CloseFile id
 
   ; Move to the current location
-  NN_load_location{NN_current_location, NN_current_scene}
+  NN_load_location{NN_current_location_id, NN_current_scene_id}
 End Statement

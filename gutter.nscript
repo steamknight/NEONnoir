@@ -43,17 +43,26 @@
     alley_subway_interior     6
     alley_alleycat_entrance   7
 
-    dialogue_glitch           0
-    dialogue_tank             1
-    dialogue_alley_tinman     2
-    dialogue_alley_tweaker    3
+    dialogue_blake            0
+    dialogue_glitch           1
+    dialogue_tank             2
+    dialogue_alley_tinman     3
+    dialogue_alley_tweaker    4
 
     ; Music and sound
     mod_theme                 0
     mod_ambient               1
 
+    ; Textbox options
+    frame_on                 -1
+    frame_off                 0
+    wait_on                  -1
+    wait_off                  0
+
 .TEXT
     mod_ambient               "data/ambient.mod"
+    
+    game_saved                "Game Saved."
 
     ; Intro Page 1
     intro01_01                "The acid rain washed the city's neon blood into the Gutter; home for those who ran out of Options."
@@ -128,6 +137,54 @@
     cant_leave_alley           "I couldn't leave just yet, not when I still didn't have a lead."
     alley_subway_tweaker_desc  "His blue hair almost distracted you from his facial cybernetics. Almost."
 
+    ; Log strings
+    log_find_danni                        "I need to find Danni. Someone around here must know something."
+    log_know_about_acid_nova              "Acid Nova deals Coral and does business at the Alleycat. Only people with a ticket and a password can get in."
+    log_alleycat_have_ticket              "Fortunately, I got a ticket off of Tweaker."
+    log_alleycat_have_password            "Good for me that Glitch kept her word and gave me the password."
+    log_alleycat_have_both                "With a ticket burning a hole in my pocket and a password burning on my tongue, it's time to enter the Alleycat."
+    log_alleycat_need_ticket              "Glitch said a guy named Tweaker could get me a ticket."
+    log_alleycat_need_password            "If I want the password, I'm going to have to put this dubious cred stick in the Jackpot nearby."
+    log_alleycat_need_noods               "Tweaker will give me a ticket only if I give bring him some of Takeshi's noodles. Problem is, Takeshi's dead."
+    log_alleycat_noods_got_key            "I found the Takeshi's corpse in a dumpster but more imporantly, I found his key card. I should pay his place a visit."
+    log_alleycat_noods_got_em             "Against all odds, I found the last box of noodles at Takeshi's. Better hurry them to Tweaker."
+
+; IN-GAME MENU
+; =====================================================
+.SCRIPT menu_review_facts
+    load !glitch_asked_about_alleycat
+    jift @knows_about_alleycat
+    txtstart #frame_on
+    txtput $log_find_danni 32
+    txtend 64 16 #wait_on
+    end
+
+ @knows_about_alleycat
+    txtstart #frame_on
+
+    load !got_alleycat_ticket
+    and !got_alleycat_password
+    jiff @cant_get_into_alleycat
+    txtnl
+    txtput $log_alleycat_have_both 32
+    txtend 64 16 #wait_on
+    end
+
+@cant_get_into_alleycat
+    
+
+    end
+
+.SCRIPT menu_save_game
+    savegame
+    text $game_saved
+    end
+
+.SCRIPT menu_quit_game
+    quit
+    end
+
+
 ; TITLE
 ; =====================================================
 .SCRIPT title_start_game
@@ -135,9 +192,11 @@
     end
 
 .SCRIPT title_load_game
+    loadgame
     end
 
 .SCRIPT title_quit_game
+    quit
     end
 
 .SCRIPT goto_intro_2
@@ -158,30 +217,30 @@
 
 .SCRIPT start_game
     goloc #location_start #alley_takeshi_noodles
-    modkill #mod_theme
-    mod $mod_ambient 0
+    ;modkill #mod_theme
+    ;mod $mod_ambient 0
     end
 
 .SCRIPT intro01_text
-    txtstart            ; Start a text section 
+    txtstart #frame_off            ; Start a text section 
     txtput $intro01_01 26
     txtnl
     txtnl
     txtput $intro01_02 26
-    txtend 10 33
+    txtend 10 33 #wait_off
     end
 
 .SCRIPT intro02_text
-    txtstart
+    txtstart #frame_off
     txtput $intro02_01 47
-    txtend 10 10
-    txtstart
+    txtend 10 10 #wait_off
+    txtstart #frame_off
     txtput $intro02_02 25
-    txtend 160 136
+    txtend 160 136 #wait_off
     end
 
 .SCRIPT intro03_text
-    txtstart
+    txtstart #frame_off
     txtput $intro03_01 40
     txtput $intro03_02 40
     txtput $intro03_03 40
@@ -203,11 +262,11 @@
     txtput $intro03_15 40
     txtput $intro03_16 40
     txtput $intro03_17 40
-    txtend 10 10
+    txtend 10 10 #wait_off
     end
 
 .SCRIPT intro04_text
-    txtstart
+    txtstart #frame_off
     txtput $intro04_01 40
     txtput $intro04_02 40
     txtput $intro04_03 40
@@ -223,13 +282,13 @@
     txtput $intro04_11 40
     txtnl
     txtput $intro04_12 26
-    txtend 10 10
+    txtend 10 10 #wait_off
     end
 
 .SCRIPT intro05_text
-    txtstart
+    txtstart #frame_off
     txtput $intro05_01 40
-    txtend 106 96
+    txtend 106 96 #wait_off
     end
 
 ; ALLEYWAY
@@ -398,6 +457,12 @@
 @not_started
     text $alley_subway_tweaker_desc
     end
+
+
+
+
+
+
 
 
 

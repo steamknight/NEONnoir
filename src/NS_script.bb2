@@ -249,11 +249,15 @@ Statement NS_execute_script{script_offset.l}
 
       Case #NS_op_loadgame
         !__execute_opcode{"loadgame"}
+        QAMIGA
         NN_load_game{}
+        BLITZ 
 
       Case #NS_op_savegame
         !__execute_opcode{"savegame"}
+        QAMIGA
         NN_save_game{}
+        BLITZ
 
       Case #NS_op_quit
         !__execute_opcode{"quit"}
@@ -317,12 +321,12 @@ Statement NS_execute_script{script_offset.l}
         DG_end{}
 
       Case #NS_op_txtstart
-        !__execute_opcode{"txtstart"}
-        TX_begin{&ns_text_context, False}
+        !__execute_opcode_v1{"txtstart"}
+        TX_begin{&ns_text_context, v1}
 
       Case #NS_op_txtend
-        !__execute_opcode_v2{"txtend"}
-        TX_end{&ns_text_context, v1, v2}
+        !__execute_opcode_v3{"txtend"}
+        TX_end{&ns_text_context, v1, v2, v3}
 
       Case #NS_op_txtput
         !__execute_opcode_v2{"txtput"}

@@ -13,6 +13,7 @@
 #include "script_editor.h"
 #include "dialogue_editor.h"
 #include "shapes_editor.h"
+#include "shape_editor_tool.h"
 
 struct ImFont;
 
@@ -49,6 +50,7 @@ namespace NEONnoir
 
         std::unique_ptr<palette_injector> _palette_injector;
         std::unique_ptr<image_converter> _image_converter;
+        std::unique_ptr<shape_editor_tool> _shape_editor_tool;
         std::shared_ptr<game_data> _game_data;
         std::string _script;
 

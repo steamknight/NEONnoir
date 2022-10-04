@@ -45,11 +45,13 @@ namespace NEONnoir
             { "map",        { (int16_t)0x81,   {                                                                          }}},
             { "goloc",      { (int16_t)0x83,   {   ParamType::CONST,       ParamType::CONST                               }}},
             { "mousewait",  { (int16_t)0x84,   {                                                                          }}},
+            { "loadgame",   { (int16_t)0x8C,   {                                                                          }}},
+            { "savegame",   { (int16_t)0x8D,   {                                                                          }}},
             { "quit",       { (int16_t)0x8E,   {                                                                          }}},
             { "gameover",   { (int16_t)0x8F,   {   ParamType::TEXT                                                        }}},
             { "text",       { (int16_t)0x90,   {   ParamType::TEXT                                                        }}},
-            { "txtstart",   { (int16_t)0x91,   {                                                                          }}},
-            { "txtend",     { (int16_t)0x92,   {   ParamType::NUMBER,      ParamType::NUMBER                              }}},
+            { "txtstart",   { (int16_t)0x91,   {   ParamType::CONST                                                       }}},
+            { "txtend",     { (int16_t)0x92,   {   ParamType::NUMBER,      ParamType::NUMBER,      ParamType::CONST       }}},
             { "txtput",     { (int16_t)0x93,   {   ParamType::TEXT,        ParamType::NUMBER                              }}},
             { "txtnl",      { (int16_t)0x94,   {                                                                          }}},
         };
@@ -424,6 +426,9 @@ namespace NEONnoir
     int16_t assembler::number()
     {
         _scan_start = _scan_current;
+        if (peek() == '-' || is_digit(peek()))
+            advance();
+
         while (is_digit(peek()))
             advance();
 

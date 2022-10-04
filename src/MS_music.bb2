@@ -6,7 +6,14 @@
 ;
 
 Statement MS_load_module{id.w, position.w}
+  SHARED MS_current_track_id
   !__use_string_table{}
+
+  ; If we're already playing the right track, don't restart it
+  If MS_current_track_id = id Then Statement Return
+
+  MS_current_track_id = id
+
   DEFTYPE .s file_name$
   file_name$ = !__get_string{id}
   !DB_trace{"MS", "MS_load_module: " + file_name$}

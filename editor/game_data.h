@@ -34,6 +34,7 @@ namespace NEONnoir
         uint16_t view_x{ 0 }, view_y{ 0 };
         uint16_t view_width{ 0 }, view_height{ 0 };
         uint16_t offset_x{ 0 }, offset_y{ 0 };
+        uint16_t music_id{ 0xFFFF };
         std::vector<game_data_region> regions;
     };
 

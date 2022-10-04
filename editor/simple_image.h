@@ -101,6 +101,7 @@ namespace MPG
     pixel_data chunky_to_planar(simple_image const& image);
 }
 
+//#define SIMPLE_IMAGE_IMPL
 #ifdef SIMPLE_IMAGE_IMPL
 
 #include <fstream>
@@ -914,11 +915,8 @@ namespace MPG
     {
         auto const color_count = 1 << bit_depth;
 
-        if (bit_depth > 7)
-            throw std::runtime_error("Bit-depth can't be more than 7");
-
-        if (source.color_palette.size() < color_count || source.bit_depth <= bit_depth)
-            throw std::runtime_error("The source image has is of a smaller bit-depth then requested");
+        if (bit_depth > 8)
+            throw std::runtime_error("Bit-depth can't be more than 8");
 
         auto result = simple_image
         {
@@ -926,14 +924,24 @@ namespace MPG
             source.height,
             bit_depth
         };
-        
+
         // Create a new palette with the requested colors
+        auto const max_colors = std::min(color_count, static_cast<int>(source.color_palette.size()));
+
         result.color_palette.resize(color_count);
         std::copy(
             source.color_palette.begin(),
-            source.color_palette.begin() + color_count,
+            source.color_palette.begin() + max_colors,
             result.color_palette.begin()
         );
+
+        if (source.color_palette.size() < color_count || source.bit_depth <= bit_depth)
+        {
+            for (auto i = source.color_palette.size(); i < color_count; i++)
+            {
+                result.color_palette[i] = rgba_color{};
+            }
+        }
 
         // Adjust any colors that are out of range
         result.pixel_data.resize(static_cast<size_t>(source.width) * source.height);

@@ -426,7 +426,7 @@ Statement TX_begin{context.l, add_frame.b}
   *ctx\add_frame = add_frame
 End Statement
 
-Statement TX_end{context.l, x.w, y.w}
+Statement TX_end{context.l, x.w, y.w, should_wait.b}
   SHARED NN_current_bmp
   DEFTYPE .TX_context *ctx
   *ctx = context
@@ -452,6 +452,16 @@ Statement TX_end{context.l, x.w, y.w}
 
   Free Shape #TX_text_shape
   Free BitMap #TX_scratch_bmp
+
+  If should_wait = True
+    DEFTYPE .b left_mouse
+    Repeat
+      VWait
+      left_mouse = IN_update_mouse{}
+      DisplaySprite #CP_coplist, NN_pointer_id, MouseX, MouseY, 0
+    Until left_mouse = #IN_mouse_released
+    UnBuffer 0
+  End If
 End Statement
 
 Function .l TX_put_text{context.l, id.w, line_width.w}
