@@ -26,6 +26,13 @@
     location_title            0
     location_start            1
 
+    ; Inventory
+    inv_glitch_cred_stick       0
+    inv_alleycat_password       1
+    inv_alleycat_ticket         2
+    inv_takeshi_key             3
+    inv_takeshi_noods           4
+
     ; Scenes in the title section
     start_intro               1
     intro_2                   2
@@ -149,6 +156,13 @@
     log_alleycat_noods_got_key            "I found the Takeshi's corpse in a dumpster but more imporantly, I found his key card. I should pay his place a visit."
     log_alleycat_noods_got_em             "Against all odds, I found the last box of noodles at Takeshi's. Better hurry them to Tweaker."
 
+    ; Inventory string
+    inv_start                             "I have..."
+    inv_takeshi_key                       "*A keycard to Takeshi's Noodle's."
+    inv_noods                             "*An extremely questionable bowl of noodles."
+    inv_alleycat_ticket                   "*A ticket granting entrance to the Alleycat."
+    inv_alleycat_password                 "*The password to the Alleycat."
+
 ; IN-GAME MENU
 ; =====================================================
 .SCRIPT menu_review_facts
@@ -171,8 +185,35 @@
     end
 
 @cant_get_into_alleycat
-    
+  
+    end
 
+.SCRIPT menu_inventory
+    txtstart #frame_on
+    txtput $inv_start 32
+    txtnl
+
+    load !got_alleycat_ticket
+    jiff @check_password
+    txtput $inv_alleycat_ticket 32
+
+@check_password
+    load !got_alleycat_password
+    jiff @check_takeshi_key
+    txtput $inv_alleycat_password 32
+
+@check_takeshi_key
+    load !got_takeshi_key
+    jiff @check_noods
+    txtput $inv_takeshi_key 32
+
+@check_noods
+    load !got_noods
+    jiff @done
+    txtput $inv_noods 32
+
+@done
+    txtend 64 16 #wait_on
     end
 
 .SCRIPT menu_save_game
@@ -457,6 +498,7 @@
 @not_started
     text $alley_subway_tweaker_desc
     end
+
 
 
 
