@@ -32,10 +32,6 @@
 #NS_op_dlgimg       = $55   ;| dlgimg id   | Changes the speaker's portrait
 #NS_op_dlgname      = $5F   ;| dlgname id  | Changes the speaker's name 
 #NS_op_dlgend       = $5F   ;| dlgend      | Closes the dialogue 
-; Inventory Operations      ;|             |
-#NS_op_hasi         = $60   ;| hasi id     | Sets flag register if player has item ID in inventory
-#NS_op_addi         = $61   ;| addi id     | Adds item ID to inventory
-#NS_op_remi         = $62   ;| remi id     | Remove item ID from inventory
 ; Music and SFX
 #NS_op_mod          = $70   ;| mod id pos  | Loads module named "id" at position pos
 #NS_op_modpause     = $71   ;| modpause id | Pauses module id

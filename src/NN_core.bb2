@@ -58,6 +58,7 @@ End NEWTYPE
 NEWTYPE .DG_choice
   text_id.w           ; index into string table
   set_flag.w          ; set this flag on selection, $FFFF if none
+  clear_flag.w        ; clear this flag on selection, $FFFF if none
   check_flag.w        ; flag that determines if criteria is met, $FFFF if none
   page_id.w           ; id to the next page in the conversation
   script_offset.w     ; script to run if selected, $FFFF if none
@@ -71,6 +72,7 @@ End NEWTYPE
 NEWTYPE .DG_page
   text_id.w           ; index into string array, $FFFF if no text
   set_flag.w          ; set this flag on selection, $FFFF if none
+  clear_flag.w        ; clear this flag on selection, $FFFF if none
   check_flag.w        ; flag that determines if criteria is met, $FFFF if none
   page_id.w           ; index to the next page to display, $FFFF if no page
   first_choice_id.w   ; id of the first choice
@@ -238,13 +240,6 @@ Dim NS_flags.b(#NS_flag_count)
 DEFTYPE .b DG_dialogue_is_active, DB_active_dialogue
 
 ; Dialogue
-
-; Inventory
-; -----------------------------------------------
-; Inventory items in the player's possessions
-; 32 is probably enough
-#IV_max_items = 32
-Dim List IV_user_items(#IV_max_items)
 
 ; Main
 ; -----------------------------------------------

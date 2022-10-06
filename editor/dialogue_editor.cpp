@@ -177,14 +177,6 @@ namespace NEONnoir
             
             ImGui::TableNextColumn();
 
-            if (ImGui::Button(ICON_MD_LIST))
-            {
-                page.choices.push_back({});
-            }
-            ToolTip("Add a new choice");
-
-            ImGui::SameLine();
-
             if (ImGui::Button(make_id(ICON_MD_MORE_VERT "##more{}", page)))
             {
                 ImGui::OpenPopup(make_id("##more_options{}", page));
@@ -204,6 +196,13 @@ namespace NEONnoir
                 ImGui::InputText(make_id("##page_setflag{}", page.set_flag), &page.set_flag);
                 if (!page.has_set_flag) ImGui::EndDisabled();
 
+                ImGui::Checkbox(make_id("Clear Flag##{}", page.has_clear_flag), &page.has_clear_flag);
+                if (!page.has_clear_flag) ImGui::BeginDisabled();
+                ImGui::SameLine(128);
+                ImGui::SetNextItemWidth(128);
+                ImGui::InputText(make_id("##page_clearflag{}", page.clear_flag), &page.clear_flag);
+                if (!page.has_clear_flag) ImGui::EndDisabled();
+
                 ImGui::Checkbox(make_id("Check Flag##{}", page.has_check_flag), &page.has_check_flag);
                 if (!page.has_check_flag) ImGui::BeginDisabled();
                 ImGui::SameLine(128);
@@ -213,6 +212,14 @@ namespace NEONnoir
 
                 ImGui::EndPopup();
             }
+
+            ImGui::SameLine();
+
+            if (ImGui::Button(ICON_MD_LIST))
+            {
+                page.choices.push_back({});
+            }
+            ToolTip("Add a new choice");
 
             ImGui::SameLine();
 
@@ -305,6 +312,13 @@ namespace NEONnoir
             ImGui::SetNextItemWidth(128);
             ImGui::InputText(make_id("##choice_setflag{}", choice.set_flag), &choice.set_flag);
             if (!choice.has_set_flag) ImGui::EndDisabled();
+
+            ImGui::Checkbox(make_id("Clear Flag##{}", choice.has_clear_flag), &choice.has_clear_flag);
+            if (!choice.has_clear_flag) ImGui::BeginDisabled();
+            ImGui::SameLine(128);
+            ImGui::SetNextItemWidth(128);
+            ImGui::InputText(make_id("##choice_clearflag{}", choice.clear_flag), &choice.clear_flag);
+            if (!choice.has_clear_flag) ImGui::EndDisabled();
 
             ImGui::Checkbox(make_id("Check Flag##{}", choice.has_check_flag), &choice.has_check_flag);
             if (!choice.has_check_flag) ImGui::BeginDisabled();

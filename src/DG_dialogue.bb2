@@ -18,25 +18,26 @@ Function .b dg_is_page_enabled{page_ptr.l}
   DEFTYPE .b enabled
   *pag = page_ptr
 
-  enabled = True
+  enabled = *pag\enabled
   If *pag\check_flag <> -1
-    enabled = NS_flags(*pag\check_flag)
+    enabled = enabled AND NS_flags(*pag\check_flag)
   End If
 
-  Function Return enabled AND *pag\enabled
+  Function Return enabled
 End Function
+
 Function .b dg_is_choice_enabled{choice_ptr.l}
   SHARED NS_flags()
   DEFTYPE .DG_choice *choice
   DEFTYPE .b enabled
   *choice = choice_ptr
 
-  enabled = True
+  enabled = *choice\enabled
   If *choice\check_flag <> -1
-    enabled = NS_flags(*choice\check_flag)
+    enabled = enabled AND NS_flags(*choice\check_flag)
   End If
 
-  Function Return enabled AND *choice\enabled
+  Function Return enabled
 End Function
 
 Statement DG_show_dialog{id.w}
@@ -139,7 +140,11 @@ Statement DG_show_dialog{id.w}
 
             If *choice\self_disable = True Then *choice\enabled = False
             If *choice\set_flag <> -1 Then NS_flags(*choice\set_flag) = True
-            !DB_printf{"Choice: %d, sf: %d", selected, *choice\set_flag}
+            If *choice\clear_flag <> -1 Then NS_flags(*choice\clear_flag) = False
+
+            If *cur_page\self_disable = True Then *cur_page\enabled = False
+            If *cur_page\set_flag <> -1 Then NS_flags(*cur_page\set_flag) = True
+            If *cur_page\clear_flag <> -1 Then NS_flags(*cur_page\clear_flag) = False
           End If
         Else
           pointer_id = #NN_pointer_default - #NN_pointer_start
@@ -151,6 +156,7 @@ Statement DG_show_dialog{id.w}
 
           If *cur_page\self_disable = True Then *cur_page\enabled = False
           If *cur_page\set_flag <> -1 Then NS_flags(*cur_page\set_flag) = True
+          If *cur_page\clear_flag <> -1 Then NS_flags(*cur_page\clear_flag) = False
         End If
       End If
     End If

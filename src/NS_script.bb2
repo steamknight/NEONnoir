@@ -67,7 +67,7 @@ DEFTYPE .TX_context ns_text_context
 ;   NN_display_text: Show text on the screen
 ;   IV_has_item: Check if an item is in the inventory
 ;   IV_add_item: Adds an item to the inventory
-;   IV_remvoe_item: Removes and item from the inventory
+;   IV_remove_item: Removes and item from the inventory
 ;   SH_draw: Draws a shape
 ;   SC_set_bg: Sets the background in a scene
 ;   NN_game_set_scene: Goes to a new scene
@@ -190,28 +190,6 @@ Statement NS_execute_script{script_offset.l}
         !__print_bc{PC, "draw"}
         SH_draw{v1, v2, v3}
         PC + 6              ; Eat the parameters
-
-      ; Inventory Operations
-      Case #NS_op_hasi; id
-        PC + 2              ; Eat the opcode
-        v1 = Peek.w (*NS_script_data + PC)
-        !__print_bc_v1{PC, "hasi", v1}
-        FR = IV_has_item{v1}
-        PC + 2              ; Eat the parameter
-
-      Case #NS_op_addi; id
-        PC + 2              ; Eat the opcode
-        v1 = Peek.w (*NS_script_data + PC)
-        !__print_bc_v1{PC, "addi", v1}
-        IV_add_item{v1}
-        PC + 2              ; Eat the parameter
-
-      Case #NS_op_remi; id
-        PC + 2              ; Eat the opcode
-        v1 = Peek.w (*NS_script_data + PC)
-        !__print_bc_v1{PC, "remi", v1}
-        IV_remove_item{v1}
-        PC + 2              ; Eat the parameter
 
       ; Game operations
       Case #NS_op_goto; id

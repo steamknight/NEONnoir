@@ -73,6 +73,7 @@ namespace NEONnoir
         named_values<script> scripts_meta;
         named_values<string_constant> strings;
         named_values<int16_t> flags;
+        named_values<numeric_constant> constants;
     };
 
     class assembler

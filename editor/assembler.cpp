@@ -34,9 +34,9 @@ namespace NEONnoir
             { "dlgimg",     { (int16_t)0x55,   {   ParamType::CONST                                                       }}},
             { "dlgname",    { (int16_t)0x5F,   {   ParamType::CONST                                                       }}},
             { "dlgend",     { (int16_t)0x5F,   {                                                                          }}},
-            { "hasi",       { (int16_t)0x60,   {   ParamType::CONST                                                       }}},
-            { "addi",       { (int16_t)0x61,   {   ParamType::CONST                                                       }}},
-            { "remi",       { (int16_t)0x62,   {   ParamType::CONST                                                       }}},
+            //{ "hasi",       { (int16_t)0x60,   {   ParamType::CONST                                                       }}},
+            //{ "addi",       { (int16_t)0x61,   {   ParamType::CONST                                                       }}},
+            //{ "remi",       { (int16_t)0x62,   {   ParamType::CONST                                                       }}},
             { "mod",        { (int16_t)0x70,   {   ParamType::TEXT,        ParamType::NUMBER                              }}},
             { "modpause",   { (int16_t)0x71,   {   ParamType::CONST                                                       }}},
             { "modplay",    { (int16_t)0x72,   {   ParamType::CONST                                                       }}},
@@ -62,7 +62,7 @@ namespace NEONnoir
         parse_assembly();
         update_jump_references();
 
-        return { _bytecode, _scripts, _strings, _flags };
+        return { _bytecode, _scripts, _strings, _flags, _constants };
     }
 
     void assembler::parse_assembly()

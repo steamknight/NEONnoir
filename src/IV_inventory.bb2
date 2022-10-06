@@ -6,38 +6,38 @@
 ;
 
 Function.b IV_has_item{id.w}
-    SHARED IV_user_items()
-    ResetList IV_user_items()
+  !DB_trace{"IV", "IV_has_item " + Str$(id)}
+  SHARED IV_user_items()
+  ResetList IV_user_items()
 
-    While NextItem(IV_user_items())
-        If IV_user_items() = iv Then Function Return True
-    WEnd
+  While NextItem(IV_user_items())
+    If IV_user_items() = id Then Function Return True
+  WEnd
 
-    Function Return False
+  Function Return False
 End Function
 
 Statement IV_add_item{id.w}
-    SHARED IV_user_items()
-    If IV_has_item{id}
-        NPrint "Player already has item ", id
-    Else
-        NPrint "Added ", id, " to inventory."
-        AddLast IV_user_items()
-        IV_user_items() = id
-    End If
+  !DB_trace{"IV", "IV_add_item " + Str$(id)}
+  SHARED IV_user_items()
+
+  If NOT IV_has_item{id}
+    AddLast IV_user_items()
+    IV_user_items() = id
+  End If
 End Statement
 
 Statement IV_remove_item{id.w}
-    SHARED IV_user_items()
-    If NOT IV_has_item{id}
-        NPrint "Player doesn't have item ", id
-        Return
-    End If
+  !DB_trace{"IV", "IV_remove_item " + Str$(id)}
+  SHARED IV_user_items()
 
-    ResetList IV_user_items()
-    While NextItem(IV_user_items())
-        If IV_user_items() = id Then KillItem IV_user_items()
-    WEnd
+  If NOT IV_has_item{id}
+    !DB_printf {"Player doesn't have item ", id}
+    Statement Return
+  End If
+
+  ResetList IV_user_items()
+  While NextItem(IV_user_items())
+    If IV_user_items() = id Then KillItem IV_user_items()
+  WEnd
 End Statement
-
-

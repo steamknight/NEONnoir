@@ -68,12 +68,15 @@ namespace NEONnoir
         std::string text;
         std::string script;
         std::string set_flag;
+        std::string clear_flag;
         std::string check_flag;
+        std::string add_item;
         uint16_t next_page_id{ 0xFFFF };
         bool enabled{ true };
         bool self_disable{ false };
         bool has_script{ false };
         bool has_set_flag{ false };
+        bool has_clear_flag{ false };
         bool has_check_flag{ false };
     };
 
@@ -81,15 +84,17 @@ namespace NEONnoir
     {
         std::string text;
         std::string set_flag;
+        std::string clear_flag;
         std::string check_flag;
         std::vector<dialogue_choice> choices;
         uint16_t next_page_id{ 0xFFFF };
         bool enabled{ true };
         bool self_disable{ false };
         bool has_set_flag{ false };
+        bool has_clear_flag{ false };
         bool has_check_flag{ false };
     };
-
+    
     struct dialogue
     {
         std::string speaker;

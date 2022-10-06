@@ -32,6 +32,16 @@ namespace NEONnoir
         return result.flags.at(flag);
     }
 
+    uint16_t get_const_id(std::string const& constant, assembler_result const& result)
+    {
+        if (result.constants.count(constant) == 0)
+        {
+            throw packer_error(std::format("Reference to non-existing constant '{}'", constant));
+        }
+
+        return result.constants.at(constant).value;
+    }
+
     neon_packfile generate_packfile(std::shared_ptr<game_data> const& data, assembler_result const& result)
     {
         auto pak = neon_packfile{};
@@ -193,6 +203,10 @@ namespace NEONnoir
                         ? 0xFFFF
                         : get_flag_id(choice.set_flag, result);
 
+                    c.clear_flag = !choice.has_clear_flag
+                        ? 0xFFFF
+                        : get_flag_id(choice.clear_flag, result);
+
                     c.check_flag = !choice.has_check_flag
                         ? 0xFFFF
                         : get_flag_id(choice.check_flag, result);
@@ -209,6 +223,10 @@ namespace NEONnoir
                 p.set_flag = !page.has_set_flag
                     ? 0xFFFF
                     : get_flag_id(page.set_flag, result);
+
+                p.clear_flag = !page.has_clear_flag
+                    ? 0xFFFF
+                    : get_flag_id(page.clear_flag, result);
 
                 p.check_flag = !page.has_check_flag
                     ? 0xFFFF
@@ -360,6 +378,7 @@ namespace NEONnoir
         {
             write(neonpack, page.text_id);
             write(neonpack, page.set_flag);
+            write(neonpack, page.clear_flag);
             write(neonpack, page.check_flag);
             write(neonpack, page.page_id);
             write(neonpack, page.first_choice_id);
@@ -376,6 +395,7 @@ namespace NEONnoir
         {
             write(neonpack, choice.text_id);
             write(neonpack, choice.set_flag);
+            write(neonpack, choice.clear_flag);
             write(neonpack, choice.check_flag);
             write(neonpack, choice.page_id);
             write(neonpack, choice.script_offset);

@@ -26,6 +26,6 @@ namespace NEONnoir
     std::vector<rgb_color> read_bmp_palette(std::string_view const& path);
 
 
-#define make_id(label, value) std::format(label, (size_t)&value).c_str()
+#define make_id(label, value) std::format((label), (size_t)&value).c_str()
 
 }

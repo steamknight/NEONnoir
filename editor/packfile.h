@@ -116,6 +116,7 @@ namespace NEONnoir
     {
         uint16_t text_id{ 0xFFFF };
         uint16_t set_flag{ 0xFFFF };
+        uint16_t clear_flag{ 0xFFFF };
         uint16_t check_flag{ 0xFFFF };
         uint16_t page_id{ 0xFFFF };
         uint16_t first_choice_id{ 0xFFFF };
@@ -135,6 +136,7 @@ namespace NEONnoir
     {
         uint16_t text_id;
         uint16_t set_flag{ 0xFFFF };
+        uint16_t clear_flag{ 0xFFFF };
         uint16_t check_flag{ 0xFFFF };
         uint16_t page_id{ 0xFFFF };
         uint16_t script_offset{ 0xFFFF };

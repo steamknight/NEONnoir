@@ -1,9 +1,10 @@
 ; Setup all the global flags
+
 .FLAGS
-    has_found_body    ; Have we found the body yet?
-    takeshi_backstory ; Do we know what happened to Takeshi?
-    glitch_first_time ; Have we talked to Glitch yet?
-    glitch_asked_about_alleycat
+    has_found_body                  ; Have we found the body yet?
+    takeshi_backstory               ; Do we know what happened to Takeshi?
+    glitch_first_time               ; Have we talked to Glitch yet?
+    glitch_asked_about_danni
     glitch_accept_atm_quest
     glitch_continue_atm_quest
     glitch_complete_atm_quest
@@ -11,27 +12,25 @@
     glitch_continue_ticket_quest
     glitch_complete_ticket_quest
 
-    has_passed_tank        ; Tank let us in
+    alleycat_gained_access          ; Tank let us in
 
-    knows_about_acid_house ; Has been told about Acid Nova's house
+    knows_about_acid_house          ; Has been told about Acid Nova's house
 
-    ; "Inventory"
-    got_takeshi_key           ; Key to takeshi's place, found in the dumpster
-    got_noods                 ; Got the noodles from Takeshi's
-    got_alleycat_ticket       ; Ticket to the Alleycat
-    got_alleycat_password     ; Password to the Alleycat
+; Inventory items
+; ==============================================================================
+.FLAGS
+    inv_glitch_cred_stick       ; Glitch's hacked cred-stick
+    inv_alleycat_password       ; Password to the Alleycat
+    inv_alleycat_ticket         ; Ticket to the Alleycat
+    inv_takeshi_key             ; Key to takeshi's place, found in the dumpster
+    inv_takeshi_noods           ; Last bowl of Takeshi's noodles
 
+; Game constants
+; ==============================================================================
 .CONST
     ; Locations
     location_title            0
     location_start            1
-
-    ; Inventory
-    inv_glitch_cred_stick       0
-    inv_alleycat_password       1
-    inv_alleycat_ticket         2
-    inv_takeshi_key             3
-    inv_takeshi_noods           4
 
     ; Scenes in the title section
     start_intro               1
@@ -66,11 +65,20 @@
     wait_on                  -1
     wait_off                  0
 
+; Generic game text
+; ==============================================================================
 .TEXT
+    ; Music
     mod_ambient               "data/ambient.mod"
-    
+
+    ; Sound effects
+
+    ; Other
     game_saved                "Game Saved."
 
+; Intro screen text
+; ==============================================================================
+.TEXT
     ; Intro Page 1
     intro01_01                "The acid rain washed the city's neon blood into the Gutter; home for those who ran out of Options."
     intro01_02                "The Gutter wasn't just a cliche metaphor, it was the city's most ruthless and dangerous district. Few chose to live there willingly; when your credits ran dry, there was nowhere else to go."
@@ -115,8 +123,10 @@
     ; Intro Page 5
     intro05_01                "... in the Gutter."
 
+; Location: Alley
+; ==============================================================================
+.TEXT
     ; Location: Alley
-    enter_alleycat            "A quick peek can't hurt, right?"
     job_to_do                 "I don't have time for that, I got a job to do."
     takeshi                   "Takeshi's Noodles used to be the best place in the Gutter for a late meal. Too bad old Takeshi closed up shop for good."
     check_takeshi_alley       "A garbage filled alleyway that leads to the back of Takeshi's place. No need to go there."
@@ -124,7 +134,8 @@
     enter_takeshis2           "I tossed the container in the microwave in the hopes that it would kill anything that started growing. In the pale light of the microwave, amid the drone of its magnatron, I contemplated the absurdity of this situation."
     enter_takeshis3           "A girl goes missing and I'm dumpster diving, robbing corpses, and now making a bowl of r-"
     enter_takeshis4           " *DING*"
-    enter_takeshis_again      "I got what I needed. There was nothing else to be found there."
+    enter_takeshis_again      "I got what I needed. There's nothing else to be found there."
+    cant_enter_takeshis       "The door is locked. Hmm... What are the odds that there're still some nasty noodles in there?"
 
     alley_check_dumpster       "This particular dumpster was especially foul. Something was putrefying in there."
     glich_check_trash1         "Against my better judgement, I opened the dumpster. The smell was so powerful I gagged."
@@ -138,83 +149,56 @@
     alley_atm_quest_do2        "Panic griped me as I tried to act natural, keenly aware of the guard standing nearby. As the screen became more corrupted, a bead of sweat dripped from my brow."
     alley_atm_quest_do3        "Fortunately, the screen returned to normal just as quickly as it glitched. 'TRANSACTION COMPLETE' it happily chimed."
     alley_atm_quest_complete   "The deed's done, better not bring any more attention to it."
-    alley_atm_security_desc    "Looks like this bank's hired security to babysit the jackpot. These tin men contracts were usually given to lowest bidders."
+    alley_atm_security_desc    "Looks like this bank's hired security to babysit the jackpot. These tin men contracts are usually given to lowest bidders."
     alley_atm_security_done    "Better leave him to his brain drain duties."
 
     cant_leave_alley           "I couldn't leave just yet, not when I still didn't have a lead."
-    alley_subway_tweaker_desc  "His blue hair almost distracted you from his facial cybernetics. Almost."
-
-    ; Log strings
-    log_find_danni                        "I need to find Danni. Someone around here must know something."
-    log_know_about_acid_nova              "Acid Nova deals Coral and does business at the Alleycat. Only people with a ticket and a password can get in."
-    log_alleycat_have_ticket              "Fortunately, I got a ticket off of Tweaker."
-    log_alleycat_have_password            "Good for me that Glitch kept her word and gave me the password."
-    log_alleycat_have_both                "With a ticket burning a hole in my pocket and a password burning on my tongue, it's time to enter the Alleycat."
-    log_alleycat_need_ticket              "Glitch said a guy named Tweaker could get me a ticket."
-    log_alleycat_need_password            "If I want the password, I'm going to have to put this dubious cred stick in the Jackpot nearby."
-    log_alleycat_need_noods               "Tweaker will give me a ticket only if I give bring him some of Takeshi's noodles. Problem is, Takeshi's dead."
-    log_alleycat_noods_got_key            "I found the Takeshi's corpse in a dumpster but more imporantly, I found his key card. I should pay his place a visit."
-    log_alleycat_noods_got_em             "Against all odds, I found the last box of noodles at Takeshi's. Better hurry them to Tweaker."
+    alley_subway_tweaker_desc  "His blue hair almost distracts from his facial cybernetics. Almost."
 
     ; Inventory string
-    inv_start                             "I have..."
-    inv_takeshi_key                       "*A keycard to Takeshi's Noodle's."
-    inv_noods                             "*An extremely questionable bowl of noodles."
-    inv_alleycat_ticket                   "*A ticket granting entrance to the Alleycat."
-    inv_alleycat_password                 "*The password to the Alleycat."
+    inv_start                       "I have..."
+    inv_danni_picture               "*A picture of Danni Ashton."
+    inv_glitch_cred_stick           "*A cred-stick of dubious origins."
+    inv_takeshi_key                 "*A keycard to Takeshi's Noodle's."
+    inv_takeshi_noods               "*An extremely questionable bowl of noodles."
+    inv_alleycat_ticket             "*A ticket granting entrance to the Alleycat."
+    inv_alleycat_password           "*The password to the Alleycat."
 
 ; IN-GAME MENU
-; =====================================================
-.SCRIPT menu_review_facts
-    load !glitch_asked_about_alleycat
-    jift @knows_about_alleycat
-    txtstart #frame_on
-    txtput $log_find_danni 32
-    txtend 64 16 #wait_on
-    end
-
- @knows_about_alleycat
-    txtstart #frame_on
-
-    load !got_alleycat_ticket
-    and !got_alleycat_password
-    jiff @cant_get_into_alleycat
-    txtnl
-    txtput $log_alleycat_have_both 32
-    txtend 64 16 #wait_on
-    end
-
-@cant_get_into_alleycat
-  
-    end
-
+; ==============================================================================
 .SCRIPT menu_inventory
-    txtstart #frame_on
-    txtput $inv_start 32
-    txtnl
+        txtstart #frame_on
+        txtput $inv_start 32
+        txtnl
+        txtput $inv_danni_picture 32
 
-    load !got_alleycat_ticket
-    jiff @check_password
-    txtput $inv_alleycat_ticket 32
+        load !inv_glitch_cred_stick     ; Do we have Glitch's credstick?
+        jiff @check_alleycat_ticket
+        txtput $inv_glitch_cred_stick 32
 
-@check_password
-    load !got_alleycat_password
-    jiff @check_takeshi_key
-    txtput $inv_alleycat_password 32
+    @check_alleycat_ticket
+        load !inv_alleycat_ticket       ; Do we have the Alleycat ticket?
+        jiff @check_password
+        txtput $inv_alleycat_ticket 32
 
-@check_takeshi_key
-    load !got_takeshi_key
-    jiff @check_noods
-    txtput $inv_takeshi_key 32
+    @check_password
+        load !inv_alleycat_password     ; Do we have the Alleycat password?
+        jiff @check_takeshi_key
+        txtput $inv_alleycat_password 32
 
-@check_noods
-    load !got_noods
-    jiff @done
-    txtput $inv_noods 32
+    @check_takeshi_key                  ; Do we have Takeshi's key?
+        load !inv_takeshi_key
+        jiff @check_noods
+        txtput $inv_takeshi_key 32
 
-@done
-    txtend 64 16 #wait_on
-    end
+    @check_noods                        ; Do we have Takeshi's noodles?
+        load !inv_takeshi_noods
+        jiff @done
+        txtput $inv_takeshi_noods 32
+
+    @done
+        txtend 64 16 #wait_on
+        end
 
 .SCRIPT menu_save_game
     savegame
@@ -225,9 +209,8 @@
     quit
     end
 
-
 ; TITLE
-; =====================================================
+; ==============================================================================
 .SCRIPT title_start_game
     goto #start_intro
     end
@@ -258,8 +241,6 @@
 
 .SCRIPT start_game
     goloc #location_start #alley_takeshi_noodles
-    ;modkill #mod_theme
-    ;mod $mod_ambient 0
     end
 
 .SCRIPT intro01_text
@@ -338,166 +319,204 @@
 ; Attempt to enter the Alleycat. If we've haven't found the body
 ; we have no reason to go in
 .SCRIPT enter_alleycat
-    load !has_passed_tank
-    jiff @not_yet
-    text $enter_alleycat
-    goto #alley_alleycat_entrance
-    end
+        load !alleycat_gained_access
+        jiff @not_yet
+        goto #alley_alleycat_entrance
+        end
 
-@not_yet
-    dlg #dialogue_tank
-    end 
+    @not_yet
+        dlg #dialogue_tank
+        end 
 
-.SCRIPT goto_alleycat         ; Move from Takeshi's/Empty lot to the Alleycat
-    goto #alley_alleycat
-    end
+; Move to alley near Alleycat
+.SCRIPT goto_alleycat
+        goto #alley_alleycat
+        end
 
-.SCRIPT goto_takeshi          ; Move from the Alleycat to Takeshi's
-    goto #alley_takeshi_noodles
-    end
+; Move to alley near Takeshi's Noodles
+.SCRIPT goto_takeshi
+        goto #alley_takeshi_noodles
+        end
 
-.SCRIPT goto_empty_lot        ; Move from the Alleycat to the emtpy lot
-    goto #alley_empty_lot
-    end
+; Move to the emtpy lot
+.SCRIPT goto_empty_lot
+        goto #alley_empty_lot
+        end
 
+; Move to alley near ATM
 .SCRIPT goto_atm
-    goto #alley_atm
-    end
+        goto #alley_atm
+        end
 
+; Move to alley with dumpsters
 .SCRIPT goto_alley_trash
-    goto #alley_trash
-    end
+        goto #alley_trash
+        end
 
+; Move to the subway entrance
 .SCRIPT goto_alley_subway_entrance
-    goto #alley_subway_entrance
-    end
+        goto #alley_subway_entrance
+        end
 
+; Move to the subway interior
 .SCRIPT goto_alley_subway_interior
-    goto #alley_subway_interior
-    end
+        goto #alley_subway_interior
+        end
 
-.SCRIPT examine_takeshi       ; Describe the noodle joint
-    text $takeshi
-    end
+; Describe the noodle joint
+.SCRIPT examine_takeshi       
+        text $takeshi
+        end
 
-.SCRIPT enter_takeshis        ; Search Takeshi's Place
-    load !got_noods           ; Do we already have the noods?
-    jiff @check_for_noods
-    text $enter_takeshis_again
-    end
+; Search Takeshi's Place
+; if (have noodles) -> dont' go back in
+; else if (have key) -> enter and get noodles
+; else if (looking for noodles) -> mention locked door
+; else -> describe alleyway
+.SCRIPT enter_takeshis
+        load !glitch_complete_ticket_quest       ; Do we already have the noods?
+        or !inv_takeshi_noods
+        jiff @check_for_noods
+        text $enter_takeshis_again
+        end
 
-@check_for_noods
-    load !got_takeshi_key    ; Do we have the key to come in?
-    jiff @dont_enter_takeshis
-    text $enter_takeshis1
-    text $enter_takeshis2
-    text $enter_takeshis3
-    text $enter_takeshis4
-    set
-    store !got_noods
-    end
+    @check_for_noods
+        load !inv_takeshi_key           ; Do we have the key to come in?
+        jiff @cant_enter_takeshis
+        text $enter_takeshis1
+        text $enter_takeshis2
+        text $enter_takeshis3
+        text $enter_takeshis4
+        set
+        store !inv_takeshi_noods
+        end
 
-@dont_enter_takeshis
-    text $check_takeshi_alley
-    end
+    @cant_enter_takeshis
+        load !glitch_continue_ticket_quest
+        jiff @dont_enter_takeshis
+        text $cant_enter_takeshis
+        end
 
+    @dont_enter_takeshis
+        text $check_takeshi_alley
+        end
+
+; Search the dumpster
+; if (have takeshi's key) -> don't go back in
+; else if (need takeshi's key) -> dumpster dive
+; else -> describe dumpster
 .SCRIPT use_alley_dumpster
-    load !glitch_complete_ticket_quest
-    jiff @not_completed
-    text $glitch_trash_complete
-    end
+        load !inv_takeshi_key
+        jiff @needs_key
+        text $glitch_trash_complete
+        end
 
-@not_completed
-    load !got_takeshi_key
-    jiff @needs_key
-    text $glitch_trash_complete
-    end
+    @needs_key
+        load !glitch_continue_ticket_quest
+        jiff @not_started
+        text $glich_check_trash1
+        text $glich_check_trash2
+        text $glich_check_trash3
+        set
+        store !inv_takeshi_key
+        end
 
-@needs_key
-    load !glitch_continue_ticket_quest
-    jiff @not_started
-    text $glich_check_trash1
-    text $glich_check_trash2
-    text $glich_check_trash3
-    set
-    store !got_takeshi_key
-    end
+    @not_started
+        text $alley_check_dumpster
+        end
 
-@not_started
-    text $alley_check_dumpster
-    end
-
+; Use the jackpot 
+; if (already used) -> leave it alone
+; else if (need to use it) -> mention the tin man
+; else -> describe the jackpot
 .SCRIPT use_alley_atm
-    load !glitch_complete_atm_quest
-    jiff @not_completed
-    text $alley_atm_quest_complete
-    end
+        load !glitch_complete_atm_quest
+        jiff @not_completed
+        text $alley_atm_quest_complete
+        end
 
-@not_completed
-    load !glitch_accept_atm_quest
-    jiff @not_started
-    text $alley_atm_quest_start
-    end
+    @not_completed
+        load !glitch_accept_atm_quest
+        jiff @not_started
+        text $alley_atm_quest_start
+        end
 
-@not_started
-    text $alley_atm_description
-    end
+    @not_started
+        text $alley_atm_description
+        end
 
+; Interact with the tin man
+; if (already used atm) -> leave him alone
+; else if (need to use atm) -> talk to him
+; else -> describe him
 .SCRIPT use_alley_tinman
-    load !glitch_complete_atm_quest
-    jiff @not_completed
-    text $alley_atm_security_done
-    end
+        load !glitch_complete_atm_quest
+        jiff @not_completed
+        text $alley_atm_security_done
+        end
 
-@not_completed
-    load !glitch_accept_atm_quest
-    jiff @not_started
-    dlg #dialogue_alley_tinman
+    @not_completed
+        load !glitch_accept_atm_quest
+        jiff @not_started
+        dlg #dialogue_alley_tinman
 
-    load !glitch_continue_atm_quest
-    jift @passed_guard
-    end
+        load !glitch_continue_atm_quest
+        jift @passed_guard
+        end
 
-@passed_guard
-    text $alley_atm_quest_do1
-    text $alley_atm_quest_do2
-    text $alley_atm_quest_do3
-    set
-    store !glitch_complete_atm_quest
-    end
+    @passed_guard
+        text $alley_atm_quest_do1
+        text $alley_atm_quest_do2
+        text $alley_atm_quest_do3
+        set
+        store !glitch_complete_atm_quest
+        end
 
-@not_started
-    text $alley_atm_security_desc
-    end
+    @not_started
+        text $alley_atm_security_desc
+        end
 
-.SCRIPT dialogue_glitch       ; Talk to Glitch
-    dlg #dialogue_glitch
-    end
+; Talk to Glitch
+.SCRIPT dialogue_glitch
+        dlg #dialogue_glitch
+        end
 
-.SCRIPT dialogue_tank         ; Talk to Tank, the bouncer at the Alleycat
-    dlg #dialogue_tank
-    ; goto #alley_alleycat_interior
-    end
+; Talk to Tank, the bouncer at the Alleycat
+.SCRIPT dialogue_tank
+        dlg #dialogue_tank
+        end
 
+; Use the subway to leave
+; if (knows acid nova's house) -> bring up map
+; else -> don't leave
 .SCRIPT use_alley_subway
-    load !knows_about_acid_house
-    jiff @doesnt_know
-    map
-    end
+        load !knows_about_acid_house
+        jiff @doesnt_know
+        map
+        end
 
-@doesnt_know
-    text $cant_leave_alley
-    end
+    @doesnt_know
+        text $cant_leave_alley
+        end
 
+; Talk to Tweaker
+; if (looking for ticket) -> talk to Tweaker
+; else -> describe him
 .SCRIPT dialogue_tweaker
-    load !glitch_accept_ticket_quest
-    jiff @not_started
-    dlg #dialogue_alley_tweaker
-    end
+        load !glitch_accept_ticket_quest
+        jiff @not_started
+        dlg #dialogue_alley_tweaker
+        end
 
-@not_started
-    text $alley_subway_tweaker_desc
-    end
+    @not_started
+        text $alley_subway_tweaker_desc
+        end
+
+
+
+
+
+
 
 
 

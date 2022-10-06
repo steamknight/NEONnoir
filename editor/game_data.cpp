@@ -72,36 +72,37 @@ namespace NEONnoir
         };
     }
 
-    void to_json(json& j, dialogue_choice const& c)
-    {
-        j = json{
-            { "text",           c.text },
-            { "script",         c.script },
-            { "set_flag",       c.set_flag },
-            { "check_flag",     c.check_flag },
-            { "next_page_id" ,  c.next_page_id },
-            { "enabled",        c.enabled },
-            { "self_disable",   c.self_disable },
-            { "has_script",     c.has_script },
-            { "has_set_flag",   c.has_set_flag },
-            { "has_check_flag", c.has_check_flag },
-        };
-    }
+    NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(
+        dialogue_choice,
+        text,
+        script,
+        set_flag,
+        clear_flag,
+        check_flag,
+        next_page_id,
+        enabled,
+        self_disable,
+        has_script,
+        has_set_flag,
+        has_clear_flag,
+        has_check_flag
+    );
 
-    void to_json(json& j, dialogue_page const& p)
-    {
-        j = json{
-            { "text",           p.text },
-            { "set_flag",       p.set_flag },
-            { "check_flag",     p.check_flag },
-            { "choices",        p.choices },
-            { "next_page_id" ,  p.next_page_id },
-            { "enabled",        p.enabled },
-            { "self_disable",   p.self_disable },
-            { "has_set_flag",   p.has_set_flag },
-            { "has_check_flag", p.has_check_flag },
-        };
-    }
+    NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(
+        dialogue_page,
+        text,
+        set_flag,
+        clear_flag,
+        check_flag,
+        next_page_id,
+        choices,
+        enabled,
+        self_disable,
+        has_set_flag,
+        has_clear_flag,
+        has_check_flag
+    );
+
 
     void to_json(json& j, dialogue const& d)
     {
@@ -168,33 +169,6 @@ namespace NEONnoir
         j.at("shapes_file").get_to(l.shapes_file);
     }
 
-    void from_json(const json& j, dialogue_choice& c)
-    {
-        j.at("text").get_to(c.text);
-        j.at("script").get_to(c.script);
-        j.at("set_flag").get_to(c.set_flag);
-        j.at("check_flag").get_to(c.check_flag);
-        j.at("next_page_id").get_to(c.next_page_id);
-        j.at("enabled").get_to(c.enabled);
-        j.at("self_disable").get_to(c.self_disable);
-        j.at("has_script").get_to(c.has_script);
-        j.at("has_set_flag").get_to(c.has_set_flag);
-        j.at("has_check_flag").get_to(c.has_check_flag);
-    }
-
-    void from_json(const json& j, dialogue_page& p)
-    {
-        j.at("text").get_to(p.text);
-        j.at("set_flag").get_to(p.set_flag);
-        j.at("check_flag").get_to(p.check_flag);
-        j.at("choices").get_to(p.choices);
-        j.at("next_page_id").get_to(p.next_page_id);
-        j.at("enabled").get_to(p.enabled);
-        j.at("self_disable").get_to(p.self_disable);
-        j.at("has_set_flag").get_to(p.has_set_flag);
-        j.at("has_check_flag").get_to(p.has_check_flag);
-    }
-
     void from_json(const json& j, dialogue& d)
     {
         j.at("speaker").get_to(d.speaker);
@@ -224,7 +198,7 @@ namespace NEONnoir
                 { "script_name", script_name}
             };
 
-            savefile << root;
+            savefile << root.dump(2);
             savefile.close();
         }
     }

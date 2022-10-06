@@ -12,7 +12,6 @@ $bb2_files = @(
     "./src/TX_core.bb2",
     "./src/SC_scene.bb2"
     "./src/SH_shapes.bb2"
-    "./src/IV_inventory.bb2"
     "./src/DG_dialogue.bb2",
     "./src/NS_opcodes.bb2",
     "./src/NS_script.bb2",
