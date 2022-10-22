@@ -417,7 +417,10 @@ Statement NN_save_game{}
 
   DEFTYPE .w id
   id = 0
-  If OpenFile(id, "save.neon") = 0 Then Statement Return
+  If OpenFile(id, "save.neon") = 0
+    !DB_trace{"NN_GAME", "Could not save game."}
+    Statement Return
+  End If
 
   ; Write the player's current location
   WriteMem id, &NN_current_location_id, SizeOf .w
@@ -431,6 +434,10 @@ Statement NN_save_game{}
   ; Write the pages and choices
   WriteMem id, *DG_pages, (SizeOf .DG_page * DG_page_count)
   WriteMem id, *DG_choices, (SizeOf .DG_choice * DG_choice_count)
+
+  DEFTYPE .DG_choice *choice
+  *choise = *DG_choices
+  !DB_printf{"************** Saving Choice 0 text id: %d", Peek.w(*DG_choices)}
 
   CloseFile id
 End Statement
@@ -463,6 +470,10 @@ Statement NN_load_game{}
   ; Read the pages and choices
   ReadMem id, *DG_pages, (SizeOf .DG_page * DG_page_count)
   ReadMem id, *DG_choices, (SizeOf .DG_choice * DG_choice_count)
+
+  DEFTYPE .DG_choice *choice
+  *choise = *DG_choices
+  !DB_printf{"************** Loading Choice 0 text id: %d", Peek.w(*DG_choices)}
 
   CloseFile id
 

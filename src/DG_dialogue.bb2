@@ -70,12 +70,12 @@ Statement DG_show_dialog{id.w}
     DisplaySprite #CP_coplist, pointer_id, MouseX, MouseY, 0
     lmb = IN_update_mouse{}
 
-    *cur_page = !__get_page{page_id}
 
     ; If the page is not enabled, advance until we find one that is.
     Repeat
+      *cur_page = !__get_page{page_id}
       If dg_is_page_enabled{*cur_page} = False
-        page_id = *cur_page\page_id
+        page_id + 1
         displayed = False
       End If
     Until page_id <> -1

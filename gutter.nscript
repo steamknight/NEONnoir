@@ -14,7 +14,11 @@
 
     alleycat_gained_access          ; Tank let us in
 
-    knows_about_acid_house          ; Has been told about Acid Nova's house
+    acid_nova_first_time            ; Has talked to Acid Nova
+    acid_nova_denies_danni          ; Acid Nova denies that he knows Danni
+    knows_about_danni_house         ; Knows where Danni lives
+
+    danni_apartment_first_time      ; First time entering Danni's apartment
 
 ; Inventory items
 ; ==============================================================================
@@ -25,12 +29,17 @@
     inv_takeshi_key             ; Key to takeshi's place, found in the dumpster
     inv_takeshi_noods           ; Last bowl of Takeshi's noodles
 
+    inv_visser_photo            ; Photo of Johan Visser
+
 ; Game constants
 ; ==============================================================================
 .CONST
     ; Locations
     location_title            0
-    location_start            1
+    location_alleyway         1
+    location_alleycat         2
+    location_danni_apartment  3
+    location_blake_apartment  4
 
     ; Scenes in the title section
     start_intro               1
@@ -47,17 +56,27 @@
     alley_trash               4
     alley_subway_entrance     5
     alley_subway_interior     6
-    alley_alleycat_entrance   7
+
+    ; Scenes in Alleycat
+    scene_alleycat_entrance   0
+    scene_alleycat_bar        1
+
+    ; Scenes in Danni's apartment
+    scene_danni_interior      0
+    scene_danni_bedroom       1
 
     dialogue_blake            0
     dialogue_glitch           1
     dialogue_tank             2
     dialogue_alley_tinman     3
     dialogue_alley_tweaker    4
+    dialogue_acid_nova        5
+    dialogue_crystal_alley    6
 
     ; Music and sound
     mod_theme                 0
     mod_ambient               1
+    mod_dancemix              2
 
     ; Textbox options
     frame_on                 -1
@@ -69,7 +88,9 @@
 ; ==============================================================================
 .TEXT
     ; Music
+    mod_theme                 "data/theme.mod"
     mod_ambient               "data/ambient.mod"
+    mod_dancemix              "data/dance.mod"
 
     ; Sound effects
 
@@ -154,6 +175,13 @@
 
     cant_leave_alley           "I couldn't leave just yet, not when I still didn't have a lead."
     alley_subway_tweaker_desc  "His blue hair almost distracts from his facial cybernetics. Almost."
+
+    approached_by_crystal1      "I stepped out of the Alleycat no wiser than when I came in. My gut was telling me that Acid Nova was dirty and knew something, but then again, my gut's been saying a lot of things since that dumpster dive."
+    approached_by_crystal2      "As I stepped away from the neon bacchanalia, a woman approached me from the shadows with the practiced saunter of a predator. One look and I had to force myself not to blush brighter than her neon pink dress. Without hesitation, she hooked her arm on mine, and started walking down the alley."
+    approached_by_crystal3      "We headed for the subway and rode that steel serpent for a few stops until we arrived at our destination."
+
+    ; Location: Danni's appartment
+    danni_apartment_first_time  "Danni and Crystal's apartment was on the nicer part of the Gutter, if such a place even existed. The apartment was small but modern and looked more expensive than I could afford."
 
     ; Inventory string
     inv_start                       "I have..."
@@ -240,7 +268,7 @@
     end
 
 .SCRIPT start_game
-    goloc #location_start #alley_takeshi_noodles
+    goloc #location_alleyway #alley_takeshi_noodles
     end
 
 .SCRIPT intro01_text
@@ -321,7 +349,7 @@
 .SCRIPT enter_alleycat
         load !alleycat_gained_access
         jiff @not_yet
-        goto #alley_alleycat_entrance
+        goloc #location_alleycat #scene_alleycat_entrance
         end
 
     @not_yet
@@ -490,7 +518,7 @@
 ; if (knows acid nova's house) -> bring up map
 ; else -> don't leave
 .SCRIPT use_alley_subway
-        load !knows_about_acid_house
+        load !knows_about_danni_house
         jiff @doesnt_know
         map
         end
@@ -512,29 +540,54 @@
         text $alley_subway_tweaker_desc
         end
 
+; Once we leave the alleycat, Crystal will approach us
+.SCRIPT meet_crystal
+        load !acid_nova_denies_danni
+        jiff @not_yet
+        text $approached_by_crystal1
+        text $approached_by_crystal2
+        dlg #dialogue_crystal_alley
+        goloc #location_danni_apartment #scene_danni_interior
 
+    @not_yet
+        end
 
+; ALLEYCAT
+; =====================================================
 
+.SCRIPT goto_alleycat_bar
+        goto #scene_alleycat_bar
+        end
 
+.SCRIPT exit_alleycat
+        goloc #location_alleyway #alley_alleycat
+        end
 
+.SCRIPT goto_alleycat_entrance
+        goto #scene_alleycat_entrance
+        end
 
+.SCRIPT dialogue_acid_nova
+        dlg #dialogue_acid_nova
+        end
 
+; DANNO'S APARTMENT
+; =====================================================
+.SCRIPT enter_danni_apartment_first_time
+        load !danni_apartment_first_time
+        jift @been_here_before
+        text $danni_apartment_first_time
 
+    @been_here_before
+        end
 
+.SCRIPT goto_danni_bedroom
+        goto #scene_danni_bedroom
+        end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+.SCRIPT goto_danni_entrance
+        goto #scene_danni_interior
+        end
 
 
 

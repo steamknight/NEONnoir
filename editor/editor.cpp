@@ -199,6 +199,30 @@ namespace NEONnoir
                 }
             }
 
+            if (_show_error_popup)
+            {
+                ImGui::OpenPopup("Error");
+                ImVec2 center = ImGui::GetMainViewport()->GetCenter();
+                ImGui::SetNextWindowPos(center, ImGuiCond_Appearing, ImVec2(0.5f, 0.5f));
+                if (ImGui::BeginPopupModal("Error"))
+                {
+                    ImGui::Text(_error_message.c_str());
+
+                    ImGui::NewLine();
+                    auto width = ImGui::GetWindowWidth();
+                    auto size = ImVec2{ 120.f * _dpi_scale_x, 0.f };
+
+                    ImGui::Dummy({ width - size.x - 25.f, 0.f });
+                    ImGui::SameLine();
+                    if (ImGui::Button("Bummer", size))
+                    {
+                        _show_error_popup = false;
+                        ImGui::CloseCurrentPopup();
+                    }
+                    ImGui::EndPopup();
+                }
+            }
+
             ImGui::ShowDemoWindow();
 
             ImGui::Render();
@@ -296,6 +320,8 @@ namespace NEONnoir
                     catch (std::exception const& ex)
                     {
                         std::cout << ex.what();
+                        _show_error_popup = true;
+                        _error_message = ex.what();
                     }
                 }
                 if (!_game_data) ImGui::EndDisabled();

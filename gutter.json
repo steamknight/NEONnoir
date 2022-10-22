@@ -1722,6 +1722,1136 @@
         }
       ],
       "speaker": "Tweaker"
+    },
+    {
+      "image_id": 7,
+      "pages": [
+        {
+          "check_flag": "acid_nova_first_time",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": true,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 7,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Oh great! You're back."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 2,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "The name's..."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": true,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "acid_nova_first_time",
+          "text": "What do we have here?\n\nNo body armor, so you're no\ncop. Ya got no hardware, so you're no chrome job.\n\nSo... who are you?\n"
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 3,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Nah, man. I'm keen to guess."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 4,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Not even close."
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 6,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "I don't have time for this."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "You go door to door selling drek?"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 5,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Wrong again."
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 6,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "I've had enough of this drek."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "You're an out of luck ambulance chaser?"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 3,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "It's like you're not even trying!"
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 6,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Look, I'm..."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "You're the health inspector come to shut us down?"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 7,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Finally talking sense!"
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 7,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "... the coat's not that cheap."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Judging from your cheap trenchcoat, I'm guessing you're going to be a pain in my ass."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 8,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "The name's Blake. I heard you're the guy to talk to about Coral."
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 16,
+              "script": "",
+              "self_disable": true,
+              "set_flag": "",
+              "text": "I'm a PI who's looking for a girl."
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Just looking at you, I can tell this is going to be pointless. Bye."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "What do you want?"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 9,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "People keep saying that. What in the drek are you talking about?"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "What could you possibly want from Coral? You don't have the hardware to enjoy it."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 10,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Why don't you educate me, then."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "You for real asking me for Coral when you clearly have no idea what it is?"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 11,
+              "script": "",
+              "self_disable": true,
+              "set_flag": "",
+              "text": "What is it, exactly?"
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 12,
+              "script": "",
+              "self_disable": true,
+              "set_flag": "",
+              "text": "Is it addictive?"
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 13,
+              "script": "",
+              "self_disable": true,
+              "set_flag": "",
+              "text": "How does one take it?"
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 14,
+              "script": "",
+              "self_disable": true,
+              "set_flag": "",
+              "text": "Where does it come from?"
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 7,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Actually, I wanted to talk to you about something else."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Coral's a \"simstim\". It's a digital drug. You need hardware, you need cybernetics in order to partake, my unmodified friend."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 10,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "All that from a computer program? Huh."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Exactly what I said. When you insert the coral in your socket, it downloads a program that parties on your neural interface. It messes with the signals that are coming from your cybernetics, giving you a full body high. You feel drek that isn't even happening. It shuts you down while you're chasing those ruby slippers so you don't go running around while stoned out of your mind."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 10,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "... ergo, you can't get chemically dependent on it, right."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "It feels great but it's no more addictive than really good sex. Some people can't help themselves and will chase those ruby slippers. It's a simstim, there are no chemicals..."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 15,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "But if it's just a program on a data chip, can't people copy it and put you out of a job?"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "It's all in this little red chip. You plug into your socket and it does the rest."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 10,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "KryptoKool? What a stupid name."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "They say it's the brainchild of a biohacker by the name of KryptoKool. As for where I get it, well, I don't think we're close enough friends."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 10,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "... Good to see that your retirement is secure."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Your concern for my livelyhood is touching, it really is. But that's the clever bit. The data chip destroys itself when it downloads into you. Or if you tamper with it. It even deletes itself from your system after a random amount of time. Nah, this drek is clever. "
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 17,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Look at this picture, you recognize her?"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Aren't we all?"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 18,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "I thought we were just becoming friends and you have to lie to my face?"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "... never seen her in my life."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 19,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Her name is Danni Ashton. She did Coral. You are the only Coral dealer in the Gutter.  I'm just trying to find her."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "How do you figure?"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 20,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Now listen here, you..."
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 20,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Really? Look at the photo again, she's not that forgettable."
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 20,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Fine. How many credits will it take to jog your RAM?"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "I don't keep track of every chrome job junkie that crosses my path. Get lost."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": true,
+              "next_page_id": 7,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "acid_nova_denies_danni",
+              "text": "This isn't over."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Let me stop you right there, while I'm still in a good mood. I don't like to be called a liar by a two-bit walking cliche with the aforementioned cheap coat. So you can drop this now and enjoy the delights the Alleycat has to offer, or I can ask Tank, who I believe you already met on your way in to show you the way out.\n\nAm I coming through clear?"
+        }
+      ],
+      "speaker": "Acid Nova"
+    },
+    {
+      "image_id": 5,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 1,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "It seems you have me at a disadvantage, miss...?"
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 1,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Ba... err.. uhm... oof... ah..."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Act natural, we're just two friends going for a walk. We can't afford to stick out."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 2,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Yes."
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 2,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Err... *cough* uhm, who? Oh right, yes. Yes I am."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "My name's Crystal. I overheard you talking to that skeez, Acid. Is it true what you said? That you're looking for Danni?"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 3,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "I understand she went missing  a few days ago. I'm a private investigator and her father's paying me to find her."
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 3,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Uhm... err... her father is, uhm looking for her. Is it me or is it getting unseasonably warm?"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Why? What's your angle?"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 4,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "You know my interest in Danni, what about yours?"
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 4,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "How do you, uh... how do you know her?"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Her father, huh? Danni never talks about her family."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 5,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Do you know anything about what happened to her?"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Danni's a good friend of mine."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 6,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "What makes you so sure of that?"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "I don't, but it's got to be something bad."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 7,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "When she didn't come home?"
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 7,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Do you, uhm, live together?"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "These are dangerous times. We had a system: if one of use stayed out the night, we'd send a message the next morning that all was clear. When she didn't come home and didn't message, I knew something wasn't right."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 8,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Room mates?! Can we head back to your place then?"
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 8,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Can we... go back to your place?"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Yes. We're room mates."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 9,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "What? No. I want to search her place, your place, for any clue or indication as to what could have happened."
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 9,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "*cough* Erm.. *blush* No... uh... I mean... *cough* uhm clues..."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "You can't afford me, slick."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "You don't seem that defenceless to me. Lead the way."
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "But being funny is one of my strong suits. Oh well."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Oh... right! That' makes sense. But don't try anything funny. I'm not as defenceless as I seem."
+        }
+      ],
+      "speaker": "Crystal"
     }
   ],
   "locations": [
@@ -1918,18 +3048,17 @@
         "C:\\Users\\mass\\source\\NEONnoir\\data\\alleyway_atm.iff",
         "C:\\Users\\mass\\source\\NEONnoir\\data\\alleyway_trash.iff",
         "C:\\Users\\mass\\source\\NEONnoir\\data\\subway_entrance.iff",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\subway_interior.iff",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\alleycat1.iff"
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\subway_interior.iff"
       ],
       "name": "Alley",
       "scenes": [
         {
           "image_id": 0,
-          "music_id": 0,
+          "music_id": 1,
           "name": "Seedy Joint",
           "offset_x": 0,
           "offset_y": 0,
-          "on_enter": "",
+          "on_enter": "meet_crystal",
           "on_exit": "",
           "regions": [
             {
@@ -1980,7 +3109,7 @@
         },
         {
           "image_id": 1,
-          "music_id": 0,
+          "music_id": 1,
           "name": "Takeshi's",
           "offset_x": 0,
           "offset_y": 0,
@@ -2035,7 +3164,7 @@
         },
         {
           "image_id": 2,
-          "music_id": 0,
+          "music_id": 1,
           "name": "Empty Lot",
           "offset_x": 0,
           "offset_y": 0,
@@ -2080,7 +3209,7 @@
         },
         {
           "image_id": 3,
-          "music_id": 0,
+          "music_id": 1,
           "name": "ATM Lot",
           "offset_x": 0,
           "offset_y": 0,
@@ -2125,7 +3254,7 @@
         },
         {
           "image_id": 4,
-          "music_id": 0,
+          "music_id": 1,
           "name": "Outside Subway",
           "offset_x": 0,
           "offset_y": 0,
@@ -2170,7 +3299,7 @@
         },
         {
           "image_id": 5,
-          "music_id": 0,
+          "music_id": 1,
           "name": "Subway Entrance",
           "offset_x": 0,
           "offset_y": 0,
@@ -2205,7 +3334,7 @@
         },
         {
           "image_id": 6,
-          "music_id": 0,
+          "music_id": 1,
           "name": "Subway Interior",
           "offset_x": 0,
           "offset_y": 0,
@@ -2243,20 +3372,6 @@
               "y": 58
             }
           ],
-          "view_height": 0,
-          "view_width": 0,
-          "view_x": 0,
-          "view_y": 0
-        },
-        {
-          "image_id": 7,
-          "music_id": 65535,
-          "name": "Alleycat Entrance",
-          "offset_x": 0,
-          "offset_y": 0,
-          "on_enter": "",
-          "on_exit": "",
-          "regions": [],
           "view_height": 0,
           "view_width": 0,
           "view_x": 0,
@@ -2323,9 +3438,251 @@
               "y": 0
             }
           ]
+        },
+        {
+          "has_palette": true,
+          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\crystal.iff",
+          "shapes": [
+            {
+              "height": 100,
+              "width": 100,
+              "x": 0,
+              "y": 0
+            }
+          ]
         }
       ],
       "shapes_file": "1.shapes"
+    },
+    {
+      "backgrounds": [
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_alleycat_bar.iff",
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_alleycat_entrance.iff"
+      ],
+      "name": "Alleycat",
+      "scenes": [
+        {
+          "image_id": 1,
+          "music_id": 2,
+          "name": "Alleycat Entrance",
+          "offset_x": 0,
+          "offset_y": 0,
+          "on_enter": "",
+          "on_exit": "",
+          "regions": [
+            {
+              "description": "Deeper inside",
+              "height": 54,
+              "pointer_id": 3,
+              "script": "goto_alleycat_bar",
+              "shape_id": 65535,
+              "width": 55,
+              "x": 215,
+              "y": 80
+            },
+            {
+              "description": "People having a good time. No gods, no kings, no rules.",
+              "height": 48,
+              "pointer_id": 1,
+              "script": "",
+              "shape_id": 65535,
+              "width": 146,
+              "x": 40,
+              "y": 87
+            },
+            {
+              "description": "Back to the Alley",
+              "height": 200,
+              "pointer_id": 3,
+              "script": "exit_alleycat",
+              "shape_id": 65535,
+              "width": 32,
+              "x": 0,
+              "y": 0
+            }
+          ],
+          "view_height": 0,
+          "view_width": 0,
+          "view_x": 0,
+          "view_y": 0
+        },
+        {
+          "image_id": 0,
+          "music_id": 65535,
+          "name": "Alleycat Bar",
+          "offset_x": 0,
+          "offset_y": 0,
+          "on_enter": "",
+          "on_exit": "",
+          "regions": [
+            {
+              "description": "Acid Nova",
+              "height": 88,
+              "pointer_id": 2,
+              "script": "dialogue_acid_nova",
+              "shape_id": 65535,
+              "width": 55,
+              "x": 11,
+              "y": 82
+            },
+            {
+              "description": "Back to the entrance",
+              "height": 65,
+              "pointer_id": 3,
+              "script": "goto_alleycat_entrance",
+              "shape_id": 65535,
+              "width": 53,
+              "x": 70,
+              "y": 65
+            },
+            {
+              "description": "Hmm... The bar looks fully stocked...",
+              "height": 71,
+              "pointer_id": 1,
+              "script": "",
+              "shape_id": 65535,
+              "width": 130,
+              "x": 187,
+              "y": 78
+            }
+          ],
+          "view_height": 0,
+          "view_width": 0,
+          "view_x": 0,
+          "view_y": 0
+        }
+      ],
+      "shapes": [
+        {
+          "has_palette": true,
+          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\blake.iff",
+          "shapes": [
+            {
+              "height": 100,
+              "width": 100,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "has_palette": true,
+          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\acidnova.iff",
+          "shapes": [
+            {
+              "height": 100,
+              "width": 100,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        }
+      ],
+      "shapes_file": "2.shapes"
+    },
+    {
+      "backgrounds": [
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_apartment_bedroom.iff",
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_apartment_interior2.iff"
+      ],
+      "name": "Danni's Apartment",
+      "scenes": [
+        {
+          "image_id": 1,
+          "music_id": 65535,
+          "name": "Entrance",
+          "offset_x": 0,
+          "offset_y": 0,
+          "on_enter": "enter_danni_apartment_first_time",
+          "on_exit": "",
+          "regions": [
+            {
+              "description": "Crystal",
+              "height": 93,
+              "pointer_id": 2,
+              "script": "",
+              "shape_id": 65535,
+              "width": 49,
+              "x": 19,
+              "y": 48
+            },
+            {
+              "description": "Back to the Subway",
+              "height": 87,
+              "pointer_id": 3,
+              "script": "",
+              "shape_id": 65535,
+              "width": 26,
+              "x": 99,
+              "y": 71
+            },
+            {
+              "description": "If you squint, the view is really nice.",
+              "height": 75,
+              "pointer_id": 1,
+              "script": "",
+              "shape_id": 65535,
+              "width": 43,
+              "x": 174,
+              "y": 69
+            },
+            {
+              "description": "To Danni's Room",
+              "height": 200,
+              "pointer_id": 0,
+              "script": "",
+              "shape_id": 65535,
+              "width": 30,
+              "x": 290,
+              "y": 0
+            }
+          ],
+          "view_height": 0,
+          "view_width": 0,
+          "view_x": 0,
+          "view_y": 0
+        },
+        {
+          "image_id": 0,
+          "music_id": 65535,
+          "name": "Bedroom",
+          "offset_x": 0,
+          "offset_y": 0,
+          "on_enter": "",
+          "on_exit": "",
+          "regions": [],
+          "view_height": 0,
+          "view_width": 0,
+          "view_x": 0,
+          "view_y": 0
+        }
+      ],
+      "shapes": [],
+      "shapes_file": ""
+    },
+    {
+      "backgrounds": [
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_blake_apartment.iff"
+      ],
+      "name": "Blake's Apartment",
+      "scenes": [
+        {
+          "image_id": 0,
+          "music_id": 65535,
+          "name": "Apartment",
+          "offset_x": 0,
+          "offset_y": 0,
+          "on_enter": "",
+          "on_exit": "",
+          "regions": [],
+          "view_height": 0,
+          "view_width": 0,
+          "view_x": 0,
+          "view_y": 0
+        }
+      ],
+      "shapes": [],
+      "shapes_file": ""
     }
   ],
   "script_name": "C:\\Users\\mass\\source\\NEONnoir\\gutter.nscript"

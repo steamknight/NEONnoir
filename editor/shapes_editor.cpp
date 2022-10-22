@@ -170,7 +170,7 @@ namespace NEONnoir
                 _selected_image = std::nullopt;
             }
 
-            if (_shape_to_delete && _selected_image)
+            if (_shape_to_delete && _selected_image && _selected_image.value() < location.shapes.size())
             {
                 auto& container = location.shapes[_selected_image.value()].shapes;
                 container.erase(container.begin() + _shape_to_delete.value());
@@ -179,7 +179,7 @@ namespace NEONnoir
             }
 
             ImGui::TableNextColumn();
-            if (_selected_image.has_value())
+            if (_selected_image.has_value() && _selected_image.value() < location.shapes_textures.size())
             {
                 auto& texture = location.shapes_textures[_selected_image.value()];
                 _shape_image.display(texture, location.shapes[_selected_image.value()].shapes);

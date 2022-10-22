@@ -60,7 +60,9 @@ namespace NEONnoir
         dialogue_editor _dialogue_editor{};
         shapes_editor _shapes_editor{};
 
-        bool _show_properties_popup;
+        bool _show_properties_popup{ false };
+        bool _show_error_popup{ false };
+        std::string _error_message{};
     };
 };
 

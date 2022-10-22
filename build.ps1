@@ -34,14 +34,21 @@ $data_files = @(
     "./data/subway_entrance.iff",
     "./data/subway_interior.iff",
     "./data/alleycat1.iff",
+    "./data/locations/loc_alleycat_bar.iff",
+    "./data/locations/loc_alleycat_entrance.iff",
+    "./data/locations/loc_apartment_bedroom.iff",
+    "./data/locations/loc_apartment_interior2.iff",
+    "./data/locations/loc_blake_apartment.iff",
     "./data/display.font",
     "./data/frame.shape",
     "./data/pointers.shape",
     "./data/gutter.neon",
     "./data/theme.mod",
     "./data/ambient.mod",
+    "./data/dance.mod",
     "./data/mpg.iff",
     "./data/1.shapes",
+    "./data/2.shapes",
     "./data/menu.shapes"
 )
 
