@@ -119,6 +119,82 @@
       "speaker": "Blake"
     },
     {
+      "image_id": 65535,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": true,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "map_blake_apartment",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "My apartment."
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": true,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "map_alleycat",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "The Alleycat."
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": true,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "map_danni_apartment",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Danni and Crystal's apartment."
+            },
+            {
+              "check_flag": "loc_lost_sock",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": true,
+              "has_clear_flag": false,
+              "has_script": true,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "map_lost_sock",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "The Lost Sock Laundromat."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Where to?"
+        }
+      ],
+      "speaker": "Map"
+    },
+    {
       "image_id": 1,
       "pages": [
         {
@@ -2852,6 +2928,874 @@
         }
       ],
       "speaker": "Crystal"
+    },
+    {
+      "image_id": 9,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 1,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Actually, could you tell me about Danni?"
+            },
+            {
+              "check_flag": "inv_note_from_gladys",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": true,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 7,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "I found this note in her room, what do you make of it?"
+            },
+            {
+              "check_flag": "inv_danni_id",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": true,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 12,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "I found her id."
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Nothing more for now."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Have you found anything yet, Blake?"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 2,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "How do you two meet?"
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 3,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "What does Danni do for a living, exactly..."
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 11,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Has she ever mentioned her family to you?"
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 0,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Thanks, that was helpful."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Sure, what do you want to know?"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 3,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "What kind of shop?"
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 1,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "I have other questions."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "We met two years ago. She came into... uh... the shop, looking for work. We started chatting and we've been friends ever since. Eventually we got this place together so that we wouldn't have to live in a dreking hole."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 5,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "I see... and where is this business?"
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 4,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Cyber courtesans, digital doxies, purchased paramours?"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Danni and I work for a business that caters to the *very expensive* tastes of very wealthy people. Particularly when those tastes have to do with companionship."
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 5,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Don't be an ass, Blake. Everyone's doing what they can to survive."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 6,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Hmm... I may have to have a chat with this Gladys."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": true,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "loc_lost_sock",
+          "text": "There's a laundromat called the \"The Left Sock\". While it's a real, functional, laundromat, it's actually a front for the real business. I don't know who runs it, but Gladys Aubergine is who both Danni and I report up to. She sends us on... assignments."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 1,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Ugh... that was terrible. Anyway, a have a few more questions."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "I don't know... she may not be *snicker* \"Gladys\" to see you. "
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 8,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "It mentions someone named \"15.\" Any idea who that is?"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "It's a note from Gladys... Danni must have received this just before she went missing."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 9,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Has she ever mentioned who he is?"
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 10,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "15? That seems pretty impersonal."
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 1,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "A have a few more questions."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "15... Danni mentioned him quite a few times. He's got a thing for her. I'd say three quarters of her assignments are with him."
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 8,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Never. All I know is that he's a big spender. Whatever he wants, he gets."
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 8,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "As you can imagine, discression is very important in this business. Normally we use code names, and 15 chose his."
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 1,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "No, she never has. But to be fair, neither have I to her. Many people come to the Gutter to get away from their past."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 0,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "It's a long shot, but I still have access to a GovLink machine. If I run her ID, we might be able to turn something up."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Her ID? How's that useful?"
+        }
+      ],
+      "speaker": "Crystal"
+    },
+    {
+      "image_id": 0,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "inv_danni_id",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": true,
+              "has_clear_flag": false,
+              "has_script": true,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "govlink_search",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Run Danni's ID card."
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 1,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Run a Database Search."
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Log off."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "What should I do?"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 0,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Nothing else."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "What should I search for?"
+        }
+      ],
+      "speaker": "GovLink"
+    },
+    {
+      "image_id": 11,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 1,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Hey girl, want a treat?"
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 2,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Who's a good girl?"
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 6,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Let me run some stuff by you, girl."
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Ok, I got to get back to work"
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 3,
+              "script": "",
+              "self_disable": true,
+              "set_flag": "",
+              "text": "                       "
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Boof."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 0,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Here you go, girl."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Bark!"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 0,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "That's right! You're a good girl!"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "*Covers her face with her paws*"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 4,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Daisy, I was afraid I would not be a good dog parent but when you walked up to me the first time, I knew I had to try. I want to tell you that you've brought me immeasurable joy and happiness, that you're a ray of sunlight that pierces these dark clouds, that you stirred something in my heart that I never thought I'd feel. I want to tell you these things but I lack an adequate way to express it, so I'll do the best I can and give you all the hugs, walks, and treats that you can take."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "..."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 5,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "It breaks me to think of a future without you, without your goofy smile or long walks, without the joy it brings me when you keep me company in my office or when you fall asleep at my feet. I hope you know how much I love you, even when I  make you get off the couch or keep you from eating my breakfast. I hope you know you left a big paw print on my heart that will never dull. "
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "..."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 0,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "No matter what happens, I'll always be your dad. I love you sweetie."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "..."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "knows_danni_identity",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": true,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 7,
+              "script": "",
+              "self_disable": true,
+              "set_flag": "",
+              "text": "Danni was an orphan and as she was never adopted, she was given the last name 'Null'. Two years ago, she reinvents herself as 'Danni Ashton'... that's about when she met Crystal."
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 0,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Nevermind, how about a treat instead?"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "*Cocks her head*"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 8,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "But what bothers me is that if she chose the name 'Danni Ashton' for herself, then who the drek is 'Jacob', the man who hired me and posed as her concerned father?"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Boof."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Exactly, something here stinks."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Grrr..."
+        }
+      ],
+      "speaker": "Daisy"
     }
   ],
   "locations": [
@@ -3508,7 +4452,7 @@
         },
         {
           "image_id": 0,
-          "music_id": 65535,
+          "music_id": 2,
           "name": "Alleycat Bar",
           "offset_x": 0,
           "offset_y": 0,
@@ -3600,7 +4544,7 @@
               "description": "Crystal",
               "height": 93,
               "pointer_id": 2,
-              "script": "",
+              "script": "dialogue_crystal",
               "shape_id": 65535,
               "width": 49,
               "x": 19,
@@ -3610,7 +4554,7 @@
               "description": "Back to the Subway",
               "height": 87,
               "pointer_id": 3,
-              "script": "",
+              "script": "use_danni_exit",
               "shape_id": 65535,
               "width": 26,
               "x": 99,
@@ -3629,8 +4573,8 @@
             {
               "description": "To Danni's Room",
               "height": 200,
-              "pointer_id": 0,
-              "script": "",
+              "pointer_id": 3,
+              "script": "goto_danni_bedroom",
               "shape_id": 65535,
               "width": 30,
               "x": 290,
@@ -3650,15 +4594,81 @@
           "offset_y": 0,
           "on_enter": "",
           "on_exit": "",
-          "regions": [],
+          "regions": [
+            {
+              "description": "Back to the entrance",
+              "height": 200,
+              "pointer_id": 3,
+              "script": "goto_danni_entrance",
+              "shape_id": 65535,
+              "width": 30,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "description": "Nightstand",
+              "height": 39,
+              "pointer_id": 1,
+              "script": "use_bedroom_nightstand",
+              "shape_id": 65535,
+              "width": 32,
+              "x": 267,
+              "y": 128
+            },
+            {
+              "description": "Danni's bed. Looks real comfortable.",
+              "height": 38,
+              "pointer_id": 1,
+              "script": "",
+              "shape_id": 65535,
+              "width": 129,
+              "x": 125,
+              "y": 126
+            },
+            {
+              "description": "Clutter",
+              "height": 14,
+              "pointer_id": 2,
+              "script": "use_bedroom_clutter",
+              "shape_id": 65535,
+              "width": 40,
+              "x": 158,
+              "y": 110
+            }
+          ],
           "view_height": 0,
           "view_width": 0,
           "view_x": 0,
           "view_y": 0
         }
       ],
-      "shapes": [],
-      "shapes_file": ""
+      "shapes": [
+        {
+          "has_palette": true,
+          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\blake.iff",
+          "shapes": [
+            {
+              "height": 100,
+              "width": 100,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "has_palette": true,
+          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\crystal.iff",
+          "shapes": [
+            {
+              "height": 100,
+              "width": 100,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        }
+      ],
+      "shapes_file": "3.shapes"
     },
     {
       "backgrounds": [
@@ -3674,15 +4684,71 @@
           "offset_y": 0,
           "on_enter": "",
           "on_exit": "",
-          "regions": [],
+          "regions": [
+            {
+              "description": "Daisy",
+              "height": 28,
+              "pointer_id": 2,
+              "script": "dialogue_daisy",
+              "shape_id": 65535,
+              "width": 75,
+              "x": 113,
+              "y": 134
+            },
+            {
+              "description": "GovLink",
+              "height": 35,
+              "pointer_id": 2,
+              "script": "use_govlink",
+              "shape_id": 65535,
+              "width": 53,
+              "x": 5,
+              "y": 86
+            },
+            {
+              "description": "Exit to subway",
+              "height": 200,
+              "pointer_id": 3,
+              "script": "exit_to_subway",
+              "shape_id": 65535,
+              "width": 30,
+              "x": 290,
+              "y": 0
+            }
+          ],
           "view_height": 0,
           "view_width": 0,
           "view_x": 0,
           "view_y": 0
         }
       ],
-      "shapes": [],
-      "shapes_file": ""
+      "shapes": [
+        {
+          "has_palette": true,
+          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\blake.iff",
+          "shapes": [
+            {
+              "height": 100,
+              "width": 100,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "has_palette": true,
+          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\daisy.iff",
+          "shapes": [
+            {
+              "height": 100,
+              "width": 100,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        }
+      ],
+      "shapes_file": "4.shapes"
     }
   ],
   "script_name": "C:\\Users\\mass\\source\\NEONnoir\\gutter.nscript"

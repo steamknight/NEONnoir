@@ -46,8 +46,8 @@ namespace NEONnoir
             data->dialogues.push_back({});
         }
 
-        if (auto table = imgui::table("DialogueTable", 2, ImGuiTableFlags_BordersH | ImGuiTableFlags_SizingStretchProp | ImGuiTableFlags_Resizable))
-        {
+        //if (auto table = imgui::table("DialogueTable", 2, ImGuiTableFlags_BordersH | ImGuiTableFlags_SizingStretchProp | ImGuiTableFlags_Resizable))
+        //{
             auto deletion_index = -1;
             auto count = 0;
             size_t page_count = 0;
@@ -55,9 +55,14 @@ namespace NEONnoir
             // Display all the dialogues
             for (auto& dialogue : data->dialogues)
             {
-                if (display_dialogue(dialogue, page_count))
+                if (ImGui::TreeNode(std::format(("Dialogue {}:{}"), count, dialogue.speaker).c_str()))
                 {
-                    deletion_index = count;
+                    if (display_dialogue(dialogue, page_count))
+                    {
+                        deletion_index = count;
+                    }
+
+                    ImGui::TreePop();
                 }
 
                 count++;
@@ -68,12 +73,12 @@ namespace NEONnoir
             {
                 data->dialogues.erase(data->dialogues.begin() + deletion_index);
             }
-        }
+        //}
     }
 
     bool dialogue_editor::display_dialogue(dialogue& dialogue, size_t page_start_id)
     {
-        ImGui::TableNextRow();
+        //ImGui::TableNextRow();
 
         auto request_deletion = display_dialogue_options(dialogue);
 
@@ -84,7 +89,7 @@ namespace NEONnoir
 
     bool dialogue_editor::display_dialogue_options(dialogue& dialogue)
     {
-        ImGui::TableNextColumn();
+        //ImGui::TableNextColumn();
 
         auto request_deletion = false;
 
@@ -113,6 +118,7 @@ namespace NEONnoir
             {
                 dialogue.pages.push_back({});
             }
+            ImGui::SameLine();
 
             // Delete
             ImGui::SetNextItemWidth(-FLT_MIN);

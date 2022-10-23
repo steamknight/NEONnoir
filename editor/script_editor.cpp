@@ -106,6 +106,26 @@ namespace NEONnoir
         }
         ToolTip("Compile");
 
+        if (!_show_editor)
+        {
+            ImGui::SameLine();
+            if (ImGui::SmallButton(ICON_MD_VISIBILITY))
+            {
+                _show_editor = true;
+            }
+            ToolTip("Show the editor");
+        }
+
+        if (_show_editor)
+        {
+            ImGui::SameLine();
+            if (ImGui::SmallButton(ICON_MD_VISIBILITY_OFF))
+            {
+                _show_editor = false;
+            }
+            ToolTip("Hide the editor");
+        }
+
         if (_has_error)
         {
             ImGui::SameLine();
@@ -142,12 +162,16 @@ namespace NEONnoir
     void script_editor::display_editor(ImFont* font)
     {
         ImGui::TableNextColumn();
-        // Render text editor
-        ImGui::PushFont(font);
-        _text_editor.SetLanguageDefinition(NEONscript_language_definition());
-        _text_editor.Render(ICON_MD_MEMORY "NOIRscript", ImVec2(), true);
 
-        ImGui::PopFont();
+        if (_show_editor)
+        {
+            // Render text editor
+            ImGui::PushFont(font);
+            _text_editor.SetLanguageDefinition(NEONscript_language_definition());
+            _text_editor.Render(ICON_MD_MEMORY "NOIRscript", ImVec2(), true);
+
+            ImGui::PopFont();
+        }
     }
 
     void script_editor::display_metadata(std::vector<std::string>const & data, std::string_view const& label)

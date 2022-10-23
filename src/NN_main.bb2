@@ -56,7 +56,7 @@ VWait 180
 
 ; Fade out the splash screen
 BLITZ
-FadeOutScreen{#CP_coplist, #PAL_main, #PAL_fx}
+FadeOutScreen{#CP_coplist, #PAL_fx, #PAL_main}
 
 ; Load the title screen
 QAMIGA
@@ -81,6 +81,9 @@ MS_current_track_id = -1
 menu_x = 320 - ShapeWidth(#NN_menu_shape) - 4
 menu_y = 200 - ShapeHeight(#NN_menu_shape) - 4
 
+NN_fade_in = False
+NN_fade_out = False
+
 Repeat
   VWait
 
@@ -104,6 +107,9 @@ Repeat
   Else
     ; Check if any regions that have been hovered over
     overlapped = NN_get_overlapped_region{MouseX, MouseY}
+
+    If NN_fade_in Then FadeInScreen{#CP_coplist, NN_current_bmp, #PAL_fx}
+    If NN_fade_out Then FadeOutScreen{#CP_coplist, NN_current_bmp, #PAL_fx}
 
     NS_process_queue{}
 

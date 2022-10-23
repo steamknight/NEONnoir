@@ -49,6 +49,15 @@ void NEONnoir::image_viewer::display(GLtexture const& texture, std::vector<shape
     ToolTip("Add region");
     ImGui::SameLine();
 
+    if (ImGui::Button(ICON_MD_CROP_SQUARE))
+    {
+        regions.push_back(shape{
+            0, 0, static_cast<uint16_t>(texture.width), static_cast<uint16_t>(texture.height)
+            });
+    }
+    ToolTip("Select whole image");
+    ImGui::SameLine();
+
     if (ImGui::Button(ICON_MD_GRID_4X4))
     {
         _show_autogrid_popup = true;

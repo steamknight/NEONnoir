@@ -322,12 +322,13 @@ End Statement
 ; Requires AMIGA or QAMIGA mode
 ; =============================================================================
 Statement NN_load_location{new_loc_id.w, new_scene_id.w}
-  SHARED NN_current_location_id
+  SHARED NN_current_location_id, NN_fade_out, NN_current_bmp
   !DB_trace{"NN_GAME", "NN_load_location{" + Str$(new_loc_id) + ", " + Str$(new_scene_id) + "}"}
   NN_current_location_id = new_loc_id
 
   BLITZ
   DisplaySprite #CP_coplist, #NN_pointer_wait - #NN_pointer_start, #NN_screen_width LSR 1, #NN_screen_height LSR 1, 0
+  FadeOutScreen {#CP_coplist, NN_current_bmp, #PAL_fx}
   QAMIGA
 
   SHARED *NN_current_location, *NN_current_scene
@@ -468,8 +469,8 @@ Statement NN_load_game{}
   Next
 
   ; Read the pages and choices
-  ReadMem id, *DG_pages, (SizeOf .DG_page * DG_page_count)
-  ReadMem id, *DG_choices, (SizeOf .DG_choice * DG_choice_count)
+  ;ReadMem id, *DG_pages, (SizeOf .DG_page * DG_page_count)
+  ;ReadMem id, *DG_choices, (SizeOf .DG_choice * DG_choice_count)
 
   DEFTYPE .DG_choice *choice
   *choise = *DG_choices

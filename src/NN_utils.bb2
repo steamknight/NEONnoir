@@ -63,21 +63,27 @@ Function .b IN_check_mouse{screen_rects.l, count.w}
 End Function
 
 Statement FadeInScreen{cop, source, dest}
+  SHARED NN_fade_in
   InitPalette dest, 256
   For i = 25 To 0 Step -1
     FadePalette source, dest, 1-i/25
     VWait
     DisplayPalette cop, dest
   Next
+
+  NN_fade_in = False
 End Statement
 
 Statement FadeOutScreen{cop, source, dest}
+  SHARED NN_fade_out
   InitPalette dest, 256
   For i = 0 To 25
     FadePalette source, dest, 1-i/25
     VWait
     DisplayPalette cop, dest
   Next
+
+  NN_fade_out = False
 End Statement
 
 AMIGA

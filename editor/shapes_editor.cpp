@@ -70,7 +70,7 @@ namespace NEONnoir
 
             if (ImGui::Button(ICON_MD_ADD_PHOTO_ALTERNATE " Add source image", { -FLT_MIN, 0.f }))
             {
-                if (auto file = open_file_dialog("bmp;iff"))
+                if (auto file = open_file_dialog("iff"))
                 {
                     auto container = shape_container{ file.value().data() };
                     container.image = MPG::load_image(file.value());

@@ -249,6 +249,8 @@ DEFTYPE .w NN_pointer_id
 
 DEFTYPE .w MS_current_track_id
 
+DEFTYPE .b NN_fade_in, NN_fade_out
+
 ; =============================================================================
 ; Convenience Macros
 ; =============================================================================

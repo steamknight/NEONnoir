@@ -49,6 +49,8 @@ $data_files = @(
     "./data/mpg.iff",
     "./data/1.shapes",
     "./data/2.shapes",
+    "./data/3.shapes",
+    "./data/4.shapes",
     "./data/menu.shapes"
 )
 

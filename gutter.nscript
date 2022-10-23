@@ -19,6 +19,8 @@
     knows_about_danni_house         ; Knows where Danni lives
 
     danni_apartment_first_time      ; First time entering Danni's apartment
+    knows_about_laundromat          ; Blake knows about the laundromat
+    knows_danni_identity            ; Knows Danni identity
 
 ; Inventory items
 ; ==============================================================================
@@ -28,162 +30,198 @@
     inv_alleycat_ticket         ; Ticket to the Alleycat
     inv_takeshi_key             ; Key to takeshi's place, found in the dumpster
     inv_takeshi_noods           ; Last bowl of Takeshi's noodles
+    inv_note_from_gladys        ; A note from Glady to Danni
+    inv_danni_id                ; Danni's ID card
 
     inv_visser_photo            ; Photo of Johan Visser
+
+; Known locations
+; ==============================================================================
+.FLAGS
+    loc_lost_sock               ; The Lost Soc Laundromat
 
 ; Game constants
 ; ==============================================================================
 .CONST
     ; Locations
-    location_title            0
-    location_alleyway         1
-    location_alleycat         2
-    location_danni_apartment  3
-    location_blake_apartment  4
+    location_title              0
+    location_alleyway           1
+    location_alleycat           2
+    location_danni_apartment    3
+    location_blake_apartment    4
+    location_left_sock          5
 
     ; Scenes in the title section
-    start_intro               1
-    intro_2                   2
-    intro_3                   3
-    intro_4                   4
-    intro_5                   5
+    start_intro                 1
+    intro_2                     2
+    intro_3                     3
+    intro_4                     4
+    intro_5                     5
 
     ; Scenes in the Alley location
-    alley_takeshi_noodles     1 
-    alley_alleycat            0
-    alley_empty_lot           2
-    alley_atm                 3
-    alley_trash               4
-    alley_subway_entrance     5
-    alley_subway_interior     6
+    alley_takeshi_noodles       1 
+    alley_alleycat              0
+    alley_empty_lot             2
+    alley_atm                   3
+    alley_trash                 4
+    alley_subway_entrance       5
+    alley_subway_interior       6
 
     ; Scenes in Alleycat
-    scene_alleycat_entrance   0
-    scene_alleycat_bar        1
+    scene_alleycat_entrance     0
+    scene_alleycat_bar          1
 
     ; Scenes in Danni's apartment
-    scene_danni_interior      0
-    scene_danni_bedroom       1
+    scene_danni_interior        0
+    scene_danni_bedroom         1
 
-    dialogue_blake            0
-    dialogue_glitch           1
-    dialogue_tank             2
-    dialogue_alley_tinman     3
-    dialogue_alley_tweaker    4
-    dialogue_acid_nova        5
-    dialogue_crystal_alley    6
+    ; Scenes in Blake's apartment
+    scene_blake_apartment       0
+
+    ; Dialogues
+    dialogue_blake              0
+    dialogue_map                1
+    dialogue_glitch             2
+    dialogue_tank               3
+    dialogue_alley_tinman       4
+    dialogue_alley_tweaker      5
+    dialogue_acid_nova          6
+    dialogue_crystal_alley      7
+    dialogue_crystal            8
+    dialogue_govlink            9
+    dialogue_daisy             10
 
     ; Music and sound
-    mod_theme                 0
-    mod_ambient               1
-    mod_dancemix              2
+    mod_theme                   0
+    mod_ambient                 1
+    mod_dancemix                2
 
     ; Textbox options
-    frame_on                 -1
-    frame_off                 0
-    wait_on                  -1
-    wait_off                  0
+    frame_on                   -1
+    frame_off                   0
+    wait_on                    -1
+    wait_off                    0
 
 ; Generic game text
 ; ==============================================================================
 .TEXT
     ; Music
-    mod_theme                 "data/theme.mod"
-    mod_ambient               "data/ambient.mod"
-    mod_dancemix              "data/dance.mod"
+    mod_theme                   "data/theme.mod"
+    mod_ambient                 "data/ambient.mod"
+    mod_dancemix                "data/dance.mod"
 
     ; Sound effects
 
     ; Other
-    game_saved                "Game Saved."
+    game_saved                  "Game Saved."
 
 ; Intro screen text
 ; ==============================================================================
 .TEXT
     ; Intro Page 1
-    intro01_01                "The acid rain washed the city's neon blood into the Gutter; home for those who ran out of Options."
-    intro01_02                "The Gutter wasn't just a cliche metaphor, it was the city's most ruthless and dangerous district. Few chose to live there willingly; when your credits ran dry, there was nowhere else to go."
+    intro01_01                  "The acid rain washed the city's neon blood into the Gutter; home for those who ran out of Options."
+    intro01_02                  "The Gutter wasn't just a cliche metaphor, it was the city's most ruthless and dangerous district. Few chose to live there willingly; when your credits ran dry, there was nowhere else to go."
 
     ; Intro Page 2
-    intro02_01                "The police kept their distance from the Gutter as it didn't serve their corporate interests."
-    intro02_02                "If you wanted justice, you either took matters into your own hands or scrounged together enough to hire someone like me."
+    intro02_01                  "The police kept their distance from the Gutter as it didn't serve their corporate interests."
+    intro02_02                  "If you wanted justice, you either took matters into your own hands or scrounged together enough to hire someone like me."
 
     ; Intro Page 3
-    intro03_01                "Blake Steel: private investigator."
-    intro03_02                "I took the name from a trashy"
-    intro03_03                "crime serial."
-    intro03_04                "To a lost kid from"
-    intro03_05                "the Gutter, that"
-    intro03_06                "two-credit detective"
-    intro03_07                "novel promised a new"
-    intro03_08                "life away from all"
-    intro03_09                "the filth."
-    intro03_10                "It became my blueprint,"
-    intro03_11                "my bible, until I made"
-    intro03_12                "it out alive."
-    intro03_13                "Now I was back, walking"
-    intro03_14                "alone down these familiar"
-    intro03_15                "alleys brimming with"
-    intro03_16                "human waste and wasted humans,"
-    intro03_17                "looking for someone else who got lost."
+    intro03_01                  "Blake Steel: private investigator."
+    intro03_02                  "I took the name from a trashy"
+    intro03_03                  "crime serial."
+    intro03_04                  "To a lost kid from"
+    intro03_05                  "the Gutter, that"
+    intro03_06                  "two-credit detective"
+    intro03_07                  "novel promised a new"
+    intro03_08                  "life away from all"
+    intro03_09                  "the filth."
+    intro03_10                  "It became my blueprint,"
+    intro03_11                  "my bible, until I made"
+    intro03_12                  "it out alive."
+    intro03_13                  "Now I was back, walking"
+    intro03_14                  "alone down these familiar"
+    intro03_15                  "alleys brimming with"
+    intro03_16                  "human waste and wasted humans,"
+    intro03_17                  "looking for someone else who got lost."
 
     ; Intro Page 4
-    intro04_01                "Danni Ashton fell in with some"
-    intro04_02                "less than savory friends and then"
-    intro04_03                "fell off the face of the Earth."
-    intro04_04                "Her father, Jacob, is paying me"
-    intro04_05                "very well to find her."
-    intro04_06                "Too well."
-    intro04_07                "Something didn't smell right"
-    intro04_08                "but I was leaking green and"
-    intro04_09                "had bills to pay, so I"
-    intro04_10                "plugged my nose and took"
-    intro04_11                "the job."
-    intro04_12                "She was addicted to Coral, the latest in designer drugs, and anyone chasing the ruby slippers would invariably end up..."
+    intro04_01                  "Danni Ashton fell in with some"
+    intro04_02                  "less than savory friends and then"
+    intro04_03                  "fell off the face of the Earth."
+    intro04_04                  "Her father, Jacob, is paying me"
+    intro04_05                  "very well to find her."
+    intro04_06                  "Too well."
+    intro04_07                  "Something didn't smell right"
+    intro04_08                  "but I was leaking green and"
+    intro04_09                  "had bills to pay, so I"
+    intro04_10                  "plugged my nose and took"
+    intro04_11                  "the job."
+    intro04_12                  "She was addicted to Coral, the latest in designer drugs, and anyone chasing the ruby slippers would invariably end up..."
 
     ; Intro Page 5
-    intro05_01                "... in the Gutter."
+    intro05_01                  "... in the Gutter."
 
 ; Location: Alley
 ; ==============================================================================
 .TEXT
-    ; Location: Alley
-    job_to_do                 "I don't have time for that, I got a job to do."
-    takeshi                   "Takeshi's Noodles used to be the best place in the Gutter for a late meal. Too bad old Takeshi closed up shop for good."
-    check_takeshi_alley       "A garbage filled alleyway that leads to the back of Takeshi's place. No need to go there."
-    enter_takeshis1           "I used the keycard to gain entry to Takeshi's. The place looked like it had been hit by a tornado. I checked the fridge and, against all hope, I found the last container of noodles. Who can say how long they've been there?"
-    enter_takeshis2           "I tossed the container in the microwave in the hopes that it would kill anything that started growing. In the pale light of the microwave, amid the drone of its magnatron, I contemplated the absurdity of this situation."
-    enter_takeshis3           "A girl goes missing and I'm dumpster diving, robbing corpses, and now making a bowl of r-"
-    enter_takeshis4           " *DING*"
-    enter_takeshis_again      "I got what I needed. There's nothing else to be found there."
-    cant_enter_takeshis       "The door is locked. Hmm... What are the odds that there're still some nasty noodles in there?"
+    job_to_do                   "I don't have time for that, I got a job to do."
+    takeshi                     "Takeshi's Noodles used to be the best place in the Gutter for a late meal. Too bad old Takeshi closed up shop for good."
+    check_takeshi_alley         "A garbage filled alleyway that leads to the back of Takeshi's place. No need to go there."
+    enter_takeshis1             "I used the keycard to gain entry to Takeshi's. The place looked like it had been hit by a tornado. I checked the fridge and, against all hope, I found the last container of noodles. Who can say how long they've been there?"
+    enter_takeshis2             "I tossed the container in the microwave in the hopes that it would kill anything that started growing. In the pale light of the microwave, amid the drone of its magnatron, I contemplated the absurdity of this situation."
+    enter_takeshis3             "A girl goes missing and I'm dumpster diving, robbing corpses, and now making a bowl of r-"
+    enter_takeshis4             " *DING*"
+    enter_takeshis_again        "I got what I needed. There's nothing else to be found there."
+    cant_enter_takeshis         "The door is locked. Hmm... What are the odds that there're still some nasty noodles in there?"
 
-    alley_check_dumpster       "This particular dumpster was especially foul. Something was putrefying in there."
-    glich_check_trash1         "Against my better judgement, I opened the dumpster. The smell was so powerful I gagged."
-    glich_check_trash2         "Under a pile of decomposing trash bags, was Takeshi's body. They did a dreking number on him."
-    glich_check_trash3         "More importantly, I found his key card. I don't like to steal from the dead, but he's not using it."
-    glitch_trash_complete      "I wouldn't dive into that dumpster again even if the secret to Danni's disappearance was in there."
+    alley_check_dumpster        "This particular dumpster was especially foul. Something was putrefying in there."
+    glich_check_trash1          "Against my better judgement, I opened the dumpster. The smell was so powerful I gagged."
+    glich_check_trash2          "Under a pile of decomposing trash bags, was Takeshi's body. They did a dreking number on him."
+    glich_check_trash3          "More importantly, I found his key card. I don't like to steal from the dead, but he's not using it."
+    glitch_trash_complete       "I wouldn't dive into that dumpster again even if the secret to Danni's disappearance was in there."
 
-    alley_atm_description      "ATMs. Cash Machines. Cred Dispensers. Unarmed Bandits. Take your pick. These jackpots let your retrieve your credits... for a fee."
-    alley_atm_quest_start      "Better deal with that tin man before I try anything. They're not the forgiving type."
-    alley_atm_quest_do1        "While the tin man looked away, I went through the motions of withdrawing credits and scaned Glitch's chip instead. Graphical anomalies multiplied on the screen like bacteria on a petri dish."
-    alley_atm_quest_do2        "Panic griped me as I tried to act natural, keenly aware of the guard standing nearby. As the screen became more corrupted, a bead of sweat dripped from my brow."
-    alley_atm_quest_do3        "Fortunately, the screen returned to normal just as quickly as it glitched. 'TRANSACTION COMPLETE' it happily chimed."
-    alley_atm_quest_complete   "The deed's done, better not bring any more attention to it."
-    alley_atm_security_desc    "Looks like this bank's hired security to babysit the jackpot. These tin men contracts are usually given to lowest bidders."
-    alley_atm_security_done    "Better leave him to his brain drain duties."
+    alley_atm_description       "ATMs. Cash Machines. Cred Dispensers. Unarmed Bandits. Take your pick. These jackpots let your retrieve your credits... for a fee."
+    alley_atm_quest_start       "Better deal with that tin man before I try anything. They're not the forgiving type."
+    alley_atm_quest_do1         "While the tin man looked away, I went through the motions of withdrawing credits and scaned Glitch's chip instead. Graphical anomalies multiplied on the screen like bacteria on a petri dish."
+    alley_atm_quest_do2         "Panic griped me as I tried to act natural, keenly aware of the guard standing nearby. As the screen became more corrupted, a bead of sweat dripped from my brow."
+    alley_atm_quest_do3         "Fortunately, the screen returned to normal just as quickly as it glitched. 'TRANSACTION COMPLETE' it happily chimed."
+    alley_atm_quest_complete    "The deed's done, better not bring any more attention to it."
+    alley_atm_security_desc     "Looks like this bank's hired security to babysit the jackpot. These tin men contracts are usually given to lowest bidders."
+    alley_atm_security_done     "Better leave him to his brain drain duties."
 
-    cant_leave_alley           "I couldn't leave just yet, not when I still didn't have a lead."
-    alley_subway_tweaker_desc  "His blue hair almost distracts from his facial cybernetics. Almost."
+    cant_leave_alley            "I couldn't leave just yet, not when I still didn't have a lead."
+    alley_subway_tweaker_desc   "His blue hair almost distracts from his facial cybernetics. Almost."
 
     approached_by_crystal1      "I stepped out of the Alleycat no wiser than when I came in. My gut was telling me that Acid Nova was dirty and knew something, but then again, my gut's been saying a lot of things since that dumpster dive."
     approached_by_crystal2      "As I stepped away from the neon bacchanalia, a woman approached me from the shadows with the practiced saunter of a predator. One look and I had to force myself not to blush brighter than her neon pink dress. Without hesitation, she hooked her arm on mine, and started walking down the alley."
     approached_by_crystal3      "We headed for the subway and rode that steel serpent for a few stops until we arrived at our destination."
 
-    ; Location: Danni's appartment
+; Location: Danni's appartment
+; ==============================================================================
+.TEXT
     danni_apartment_first_time  "Danni and Crystal's apartment was on the nicer part of the Gutter, if such a place even existed. The apartment was small but modern and looked more expensive than I could afford."
+    danni_clutter_desc          "Next to Danni's bed is small pile of clutter. It's mostly clothes, but there are also some papers."
+    danni_note_from_gladys      "There's a note dated two days ago, addressed to Danni from somone named Gladys. It reads '15 wants to see you tonight, I don't need to remind you that you better bring your A game.'"
+    danni_nightstand_desc       "What's this... her ID card! I can run a background check on her with GovLink computer back at my apartment."
+    danni_nightstand_desc_after "There's nothing else of interest in the nightstand."
+    dont_leave_danni_apt        "Mmm... I got a feeling there's more to uncover here."
 
-    ; Inventory string
+; Location: Blake's appartment
+; ==============================================================================
+.TEXT
+    danni_id_trace1             "Cassandra Null: ID#721077"
+    danni_id_trace2             "Age: 25"
+    danni_id_trace3             "Sex: Female."
+    danni_id_trace4             "Known aliases: Danni Ashton"
+    danni_id_trace5             "Parents: Unknown."
+    danni_id_trace6             "Notes:"
+    danni_id_trace7             "Cassandra was taken into the care of KidCo Orphanages when she was approximately 2 months old. She was never successfully adopted and graduated from KidCo Orphanages at the age of 18."
+    danni_id_trace8             "The alias 'Danni Ashton' has been tied to her approximately 2 years ago."
+
+; Inventory strings
+; ==============================================================================
+.TEXT
     inv_start                       "I have..."
     inv_danni_picture               "*A picture of Danni Ashton."
     inv_glitch_cred_stick           "*A cred-stick of dubious origins."
@@ -191,6 +229,8 @@
     inv_takeshi_noods               "*An extremely questionable bowl of noodles."
     inv_alleycat_ticket             "*A ticket granting entrance to the Alleycat."
     inv_alleycat_password           "*The password to the Alleycat."
+    inv_note_from_gladys            "*A note to Danni from Glady about someone named '15'."
+    inv_danni_id                    "*Danni's government issued ID."
 
 ; IN-GAME MENU
 ; ==============================================================================
@@ -200,6 +240,16 @@
         txtnl
         txtput $inv_danni_picture 32
 
+        load !inv_danni_id              ; Do we have Danni's ID?
+        jiff @check_note_from_gladys
+        txtput $inv_danni_id 32
+
+    @check_note_from_gladys
+        load !inv_note_from_gladys      ; Do we have Gladys's note?
+        jiff @check_glitch_credstick
+        txtput $inv_note_from_gladys 32
+
+    @check_glitch_credstick
         load !inv_glitch_cred_stick     ; Do we have Glitch's credstick?
         jiff @check_alleycat_ticket
         txtput $inv_glitch_cred_stick 32
@@ -229,13 +279,34 @@
         end
 
 .SCRIPT menu_save_game
-    savegame
-    text $game_saved
-    end
+        savegame
+        text $game_saved
+        end
 
 .SCRIPT menu_quit_game
-    quit
-    end
+        quit
+        end
+
+; MAP
+; ==============================================================================
+.SCRIPT use_map
+        dlg #dialogue_map
+        end
+
+.SCRIPT map_blake_apartment
+        goloc #location_blake_apartment #scene_blake_apartment
+        end
+
+.SCRIPT map_alleycat
+        goloc #location_alleyway #alley_subway_interior
+        end
+
+.SCRIPT map_danni_apartment
+        goloc #location_danni_apartment #scene_danni_interior
+        end
+
+.SCRIPT map_lost_sock
+        end
 
 ; TITLE
 ; ==============================================================================
@@ -571,12 +642,14 @@
         dlg #dialogue_acid_nova
         end
 
-; DANNO'S APARTMENT
+; DANNI'S APARTMENT
 ; =====================================================
 .SCRIPT enter_danni_apartment_first_time
         load !danni_apartment_first_time
         jift @been_here_before
         text $danni_apartment_first_time
+        set
+        store !danni_apartment_first_time 
 
     @been_here_before
         end
@@ -589,8 +662,76 @@
         goto #scene_danni_interior
         end
 
+.SCRIPT use_bedroom_clutter
+        text $danni_clutter_desc
 
+        load !inv_note_from_gladys
+        jift @already_got_note
+        text $danni_note_from_gladys
+        set
+        store !inv_note_from_gladys
+        end
 
+    @already_got_note
+        end
+
+.SCRIPT use_bedroom_nightstand
+        load !inv_danni_id
+        jift @already_got_id
+        text $danni_nightstand_desc
+        set
+        store !inv_danni_id
+        end
+
+    @already_got_id
+        text $danni_nightstand_desc_after
+        end
+
+.SCRIPT dialogue_crystal
+        dlg #dialogue_crystal
+        end
+
+.SCRIPT use_danni_exit
+        ; Only let the player out if they got both clues
+        load !inv_danni_id
+        and !inv_note_from_gladys
+        jiff @cant_leave_yet
+        dlg #dialogue_map
+        end
+
+    @cant_leave_yet
+        text $dont_leave_danni_apt
+        end
+
+; BLAKE'S APARTMENT
+; =====================================================
+.SCRIPT use_govlink
+        dlg #dialogue_govlink
+        end
+
+.SCRIPT govlink_search
+        txtstart #frame_on
+        txtput $danni_id_trace1 45
+        txtput $danni_id_trace2 45
+        txtput $danni_id_trace3 45
+        txtput $danni_id_trace4 45
+        txtput $danni_id_trace5 45
+        txtnl
+        txtput $danni_id_trace6 45
+        txtput $danni_id_trace7 45
+        txtend 20 10 #wait_on
+
+        set
+        store !knows_danni_identity
+        end
+
+.SCRIPT dialogue_daisy
+        dlg #dialogue_daisy
+        end
+
+.SCRIPT exit_to_subway
+        dlg #dialogue_map
+        end
 
 
 
