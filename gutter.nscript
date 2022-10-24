@@ -22,6 +22,14 @@
     knows_about_laundromat          ; Blake knows about the laundromat
     knows_danni_identity            ; Knows Danni identity
 
+    knows_about_xantech             ; Knows about the existance of Xantech Cybernetics
+    has_distraction_for_gladys      ; Got Crystal to agree to distract Gladys
+    has_thanked_crystal             ; Thanked Crystal for distracting Gladys
+    has_hacked_computer             ; Has placed the hacktool on Gladys's computer
+    
+    act2_started                    ; Set when act 2 starts
+    act3_started                    ; Set when act 3 starts
+
 ; Inventory items
 ; ==============================================================================
 .FLAGS
@@ -32,6 +40,7 @@
     inv_takeshi_noods           ; Last bowl of Takeshi's noodles
     inv_note_from_gladys        ; A note from Glady to Danni
     inv_danni_id                ; Danni's ID card
+    inv_glitch_hacktool         ; Got a hacktool from Glitch
 
     inv_visser_photo            ; Photo of Johan Visser
 
@@ -49,7 +58,7 @@
     location_alleycat           2
     location_danni_apartment    3
     location_blake_apartment    4
-    location_left_sock          5
+    location_lost_sock          5
 
     ; Scenes in the title section
     start_intro                 1
@@ -78,6 +87,10 @@
     ; Scenes in Blake's apartment
     scene_blake_apartment       0
 
+    ; Scenes in the Laundromat
+    scene_laundry_exterior      0
+    scene_laundry_interior      1
+
     ; Dialogues
     dialogue_blake              0
     dialogue_map                1
@@ -90,6 +103,8 @@
     dialogue_crystal            8
     dialogue_govlink            9
     dialogue_daisy             10
+    dialogue_gladys            11
+    dialogue_gladys_computer   12
 
     ; Music and sound
     mod_theme                   0
@@ -219,6 +234,16 @@
     danni_id_trace7             "Cassandra was taken into the care of KidCo Orphanages when she was approximately 2 months old. She was never successfully adopted and graduated from KidCo Orphanages at the age of 18."
     danni_id_trace8             "The alias 'Danni Ashton' has been tied to her approximately 2 years ago."
 
+; Location: The Lost Sock Laundromat
+; ==============================================================================
+    laundromat_closed            "Odd... the door is locked. Through the window, I can see an old woman. When she notices me, she waves me away. I'll come back later."
+    laundry_xantech_poster1      "The poster's announcing the yearly XanCon expo, hosted by Xantech Cybernetics. All of Xantech's latest excercise in planned obsolescence will be on display tomorrow night."
+    laundry_xantech_poster2      "I'll add Xantech Cybernetics to my GovLink search database."
+    crystal_gladys_fight         "As I step back into the Lost Sock, Crystal's already here yelling at Gladys, who's hasn't even noticed me enter. Crystal's unbridled creativing in the insults she's hurling at Gladys is the second time this woman's caused me to blush. Gladys is no slouch, and what she can't muster in youthful creativity, she more than makes up with her ancient wealth of experience. As much as I would love to watch this, I have a job to do."
+    hack_gladys_computer         "Sneaking behind a very occupied Gladys, I plug Glitch's hacktool on the back of her computer. A green light blinks twice letting me know that the device is ready. I slink away, winking at Crystal to let her know my work here is done."
+    need_gladys_distraction      "That old witch will never let me get close enough to place the hacktool. I need to find a way to distract her."
+    thank_crystal_for_help       "A few moments after I stepped out of the Lost Sock, Crystal leaves in huff. She's either an accomplished actress or perhaps the argurment between them was a long time coming."
+
 ; Inventory strings
 ; ==============================================================================
 .TEXT
@@ -229,8 +254,9 @@
     inv_takeshi_noods               "*An extremely questionable bowl of noodles."
     inv_alleycat_ticket             "*A ticket granting entrance to the Alleycat."
     inv_alleycat_password           "*The password to the Alleycat."
-    inv_note_from_gladys            "*A note to Danni from Glady about someone named '15'."
+    inv_note_from_gladys            "*A note to Danni from Gladys about someone named '15'."
     inv_danni_id                    "*Danni's government issued ID."
+    inv_glitch_hacktool             "*A hacktool I got from Glitch."
 
 ; IN-GAME MENU
 ; ==============================================================================
@@ -618,6 +644,7 @@
         text $approached_by_crystal1
         text $approached_by_crystal2
         dlg #dialogue_crystal_alley
+        text $approached_by_crystal3
         goloc #location_danni_apartment #scene_danni_interior
 
     @not_yet
@@ -733,8 +760,46 @@
         dlg #dialogue_map
         end
 
+; LAUNDROMAT
+; =====================================================
+.SCRIPT enter_laundromat
+        load !act2_started            ; Laundromat is closed before act 2
+        jiff @not_yet
+        goto #scene_laundry_interior
+        end
 
+    @not_yet
+        text $laundromat_closed
+        end
 
+.SCRIPT use_xantech_poster
+        text $laundry_xantech_poster1
+        text $laundry_xantech_poster2
+        end
 
+.SCRIPT exit_laundromat
+        goto #scene_laundry_exterior
+        end
 
+.SCRIPT dialogue_gladys
+        dlg #dialogue_gladys
+        end
 
+.SCRIPT use_gladys_computer
+        load !has_distraction_for_gladys
+        and !inv_glitch_hacktool
+        jiff @only_tool
+        text $hack_gladys_computer
+        end
+
+    @only_tool
+        load !inv_glitch_hacktool
+        jiff @dont_touch_computer
+        text $need_gladys_distraction
+        end
+    
+    @dont_touch_computer
+        dlg #dialogue_gladys_computer
+        end
+
+.SCRIPT on_enter_lost_sock_exterior

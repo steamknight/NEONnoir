@@ -1,10 +1,11 @@
 .KEY destination/A
 
-COPY NEONnoir01:NEONnoir01 TO <destination>
-COPY NEONnoir02:NEONnoir02 TO <destination>
+COPY NN01:NEONnoir01 TO RAM:
+COPY NN02:NEONnoir02 TO RAM:
 
-JOIN <destination>/NEONnoir01 <destination>/NEONnoir02 AS <destination>/NEONnoir.lha
-LHA x <destination>/NEONnoir.lha <destination>/
+JOIN RAM:NEONnoir01 RAM:NEONnoir02 AS RAM:NEONnoir.lha
+LHA x RAM:NEONnoir.lha <destination>/
 
-DELETE <destination>/NEONnoir01
-DELETE <destination>/NEONnoir02
+DELETE RAM:NEONnoir01
+DELETE RAM:NEONnoir02
+DELETE RAM:NEONnoir.lha

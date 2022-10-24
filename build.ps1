@@ -125,6 +125,10 @@ function Archive-Game {
         Invoke-Expression "& xdftool .\build\$volume.adf format '$volume' + write .\build\parts\$name"
         $count += 1
     }
+    Invoke-Expression "& xdftool .\build\NN01.adf write .\src\install.sh"
+
+    $drive = Read-Host "Enter the drive to copy the ADFs to"
+    Copy-Item -Path "./build/*.adf" -Destination $drive
 }
 
 # https://stackoverflow.com/questions/4533570/in-powershell-how-do-i-split-a-large-binary-file
