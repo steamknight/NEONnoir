@@ -22,13 +22,24 @@
     knows_about_laundromat          ; Blake knows about the laundromat
     knows_danni_identity            ; Knows Danni identity
 
+    first_time_blake_act2
+
     knows_about_xantech             ; Knows about the existance of Xantech Cybernetics
+    laundry_first_time_outside      ; First time outside the laundry
+    laundry_first_time_inside       ; First time inside the laundry
+    gladys_wont_help                ; Gladys, that old bag, won't help you.
+    needs_distraction_for_gladys    ; Needs to find a distraction for Gladys
     has_distraction_for_gladys      ; Got Crystal to agree to distract Gladys
     has_thanked_crystal             ; Thanked Crystal for distracting Gladys
     has_hacked_computer             ; Has placed the hacktool on Gladys's computer
-    
+    knows_about_15_and_jv           ; Knows that JV is the pickup guy for 15
+    just_got_visser_photo           ; Just received JV's photo
+
     act2_started                    ; Set when act 2 starts
     act3_started                    ; Set when act 3 starts
+
+    knows_about_xander
+    knows_about_cygnus
 
 ; Inventory items
 ; ==============================================================================
@@ -41,6 +52,7 @@
     inv_note_from_gladys        ; A note from Glady to Danni
     inv_danni_id                ; Danni's ID card
     inv_glitch_hacktool         ; Got a hacktool from Glitch
+    inv_glitch_hacktool_full    ; Got a hacktool full of data
 
     inv_visser_photo            ; Photo of Johan Visser
 
@@ -86,6 +98,7 @@
 
     ; Scenes in Blake's apartment
     scene_blake_apartment       0
+    scene_end_act1_cutscene     1
 
     ; Scenes in the Laundromat
     scene_laundry_exterior      0
@@ -105,6 +118,8 @@
     dialogue_daisy             10
     dialogue_gladys            11
     dialogue_gladys_computer   12
+    dialogue_crystal_laundry   13
+    dialogue_visser_act1       14
 
     ; Music and sound
     mod_theme                   0
@@ -233,16 +248,31 @@
     danni_id_trace6             "Notes:"
     danni_id_trace7             "Cassandra was taken into the care of KidCo Orphanages when she was approximately 2 months old. She was never successfully adopted and graduated from KidCo Orphanages at the age of 18."
     danni_id_trace8             "The alias 'Danni Ashton' has been tied to her approximately 2 years ago."
+    make_a_drink                "It was time to review the facts. I poured myself a drink and focused my thoughts."
+    end_act1_a                  "Danni was an orphan and as she was never adopted, she was given the last name 'Null'. Two years ago, she reinvents herself as 'Danni Ashton'... that's about when she met Crystal."
+    end_act1_b                  "But what bothers me is that if she chose the name 'Danni Ashton' for herself, then who the drek is 'Jacob', the man who hired me and posed as her concerned father?"
+    end_act1_c                  "Considering everything I've uncovered, I'm even more worried for her safety. The problem is that I'm not any closer to finding her."
+    end_act1_d                  "Perhaps I should pay her employer, Gladys Aubergine a visit. If I can find out who she was with last, I might get the lead I need."
+    end_act1_e                  "*RING RING*"
+    blake_start_act2            "Time to hit streets. Daisy, be a good girl while I'm out."
+    just_got_visser_photo1      "Holy dreking hell! This is a photo of Jacob Ashton! Danni was with 15, whoever they are, and Jacob- I mean JV picked her up! What did they do to her? Why do they want to find her?"
+    just_got_visser_photo2      "I need to show this photograph around and see if anyone recognizes him. Finally, progress!"
 
 ; Location: The Lost Sock Laundromat
 ; ==============================================================================
-    laundromat_closed            "Odd... the door is locked. Through the window, I can see an old woman. When she notices me, she waves me away. I'll come back later."
-    laundry_xantech_poster1      "The poster's announcing the yearly XanCon expo, hosted by Xantech Cybernetics. All of Xantech's latest excercise in planned obsolescence will be on display tomorrow night."
-    laundry_xantech_poster2      "I'll add Xantech Cybernetics to my GovLink search database."
-    crystal_gladys_fight         "As I step back into the Lost Sock, Crystal's already here yelling at Gladys, who's hasn't even noticed me enter. Crystal's unbridled creativing in the insults she's hurling at Gladys is the second time this woman's caused me to blush. Gladys is no slouch, and what she can't muster in youthful creativity, she more than makes up with her ancient wealth of experience. As much as I would love to watch this, I have a job to do."
-    hack_gladys_computer         "Sneaking behind a very occupied Gladys, I plug Glitch's hacktool on the back of her computer. A green light blinks twice letting me know that the device is ready. I slink away, winking at Crystal to let her know my work here is done."
-    need_gladys_distraction      "That old witch will never let me get close enough to place the hacktool. I need to find a way to distract her."
-    thank_crystal_for_help       "A few moments after I stepped out of the Lost Sock, Crystal leaves in huff. She's either an accomplished actress or perhaps the argurment between them was a long time coming."
+    laundry_outside_desc        "The Lost Sock laundromat was on Merchant's Row, not too far from Danni and Crystal's apartment. Like everywhere else is the Gutter, the streets were slick with undefined liquids."
+    laundry_inside_desc         "For a laundromat, it was surprisingly hazy and dark in here. While a few laundy machines are spinning, there's nobody here other than an old woman sitting next to a computer. This must be Gladys."
+    gladys_is_too_mean          "I don't think I'm going get anywhere with that museum exhibit. I bet that if I could get my hands on her computer, I could learn a few interesting things."
+    laundromat_closed           "Odd... the door is locked. Through the window, I can see an old woman. When she notices me, she waves me away. I'll come back later."
+    laundry_xantech_poster1     "The poster's announcing the yearly XanCon expo, hosted by Xantech Cybernetics. All of Xantech's latest excercise in planned obsolescence will be on display tomorrow night."
+    laundry_xantech_poster2     "I'll add Xantech Cybernetics to my GovLink search database."
+    crystal_gladys_fight        "As I step back into the Lost Sock, Crystal's already here yelling at Gladys, who's hasn't even noticed me enter. Crystal's unbridled creativing in the insults she's hurling at Gladys is the second time this woman's caused me to blush. Gladys is no slouch, and what she can't muster in youthful creativity, she more than makes up with her ancient wealth of experience. As much as I would love to watch this, I have a job to do."
+    hack_gladys_computer        "Sneaking behind a very occupied Gladys, I plug Glitch's hacktool on the back of her computer. A green light blinks twice letting me know that the device is ready. I slink away, winking at Crystal to let her know my work here is done."
+    need_gladys_distraction     "That old witch will never let me get close enough to place the hacktool. I need to find a way to distract her."
+    thank_crystal_for_help      "A few moments after I stepped out of the Lost Sock, Crystal leaves in huff. She's either an accomplished actress or perhaps the argurment between them was a long time coming."
+    laundry_fight               "I can hear Crystal before I even entered this house of laundered promises. She'll yelling furiously at Gladys. However, it seems like Gladys is not going down without a fight. This is my moment."
+    laundromat_never_again      "I better stay away. I don't want Gladys get suspicious."
+
 
 ; Inventory strings
 ; ==============================================================================
@@ -257,6 +287,7 @@
     inv_note_from_gladys            "*A note to Danni from Gladys about someone named '15'."
     inv_danni_id                    "*Danni's government issued ID."
     inv_glitch_hacktool             "*A hacktool I got from Glitch."
+    inv_glitch_hacktool_full        "*A hacktool I got from Glitch. It has data from Gladys's computer."
 
 ; IN-GAME MENU
 ; ==============================================================================
@@ -266,6 +297,16 @@
         txtnl
         txtput $inv_danni_picture 32
 
+        load !inv_glitch_hacktool_full       ; Do we have the hacktool
+        jiff @check_danni_id
+        txtput $inv_glitch_hacktool_full 32
+        jump @check_danni_id
+
+        load !inv_glitch_hacktool       ; Do we have the hacktool
+        jiff @check_danni_id
+        txtput $inv_glitch_hacktool 32
+
+    @check_danni_id
         load !inv_danni_id              ; Do we have Danni's ID?
         jiff @check_note_from_gladys
         txtput $inv_danni_id 32
@@ -332,6 +373,7 @@
         end
 
 .SCRIPT map_lost_sock
+        goloc #location_lost_sock #scene_laundry_exterior
         end
 
 ; TITLE
@@ -615,9 +657,9 @@
 ; if (knows acid nova's house) -> bring up map
 ; else -> don't leave
 .SCRIPT use_alley_subway
-        load !knows_about_danni_house
+        load !act2_started
         jiff @doesnt_know
-        map
+        dlg #dialogue_map
         end
 
     @doesnt_know
@@ -734,6 +776,17 @@
 ; =====================================================
 .SCRIPT use_govlink
         dlg #dialogue_govlink
+
+        ; Did we just get Visser's photo?
+        load !just_got_visser_photo
+        jiff @done
+        text $just_got_visser_photo1
+        text $just_got_visser_photo2
+        set
+        store !just_got_visser_photo
+        end
+
+    @done
         end
 
 .SCRIPT govlink_search
@@ -746,10 +799,16 @@
         txtnl
         txtput $danni_id_trace6 45
         txtput $danni_id_trace7 45
+        txtnl
+        txtput $danni_id_trace8 45
         txtend 20 10 #wait_on
 
         set
         store !knows_danni_identity
+
+        text $make_a_drink
+
+        goto #scene_end_act1_cutscene
         end
 
 .SCRIPT dialogue_daisy
@@ -760,15 +819,55 @@
         dlg #dialogue_map
         end
 
+.SCRIPT on_enter_end_act1
+        txtstart #frame_off
+        txtput $end_act1_a 24
+        txtnl
+        txtput $end_act1_b 24
+        txtend 4 4 #wait_on
+
+        txtstart #frame_off
+        txtput $end_act1_c 24
+        txtnl
+        txtput $end_act1_d 24
+        txtend 4 4 #wait_on
+
+        text $end_act1_e
+        dlg #dialogue_visser_act1
+
+        set
+        store !act2_started
+
+        set
+        store !first_time_blake_act2
+
+        goto #scene_blake_apartment
+        end
+
+.SCRIPT on_enter_blake
+        load !act2_started
+        and !first_time_blake_act2
+        jiff @done
+        text $blake_start_act2
+
+    @done
+        end
+
+
 ; LAUNDROMAT
 ; =====================================================
 .SCRIPT enter_laundromat
         load !act2_started            ; Laundromat is closed before act 2
-        jiff @not_yet
+        jiff @check_if_needed
         goto #scene_laundry_interior
         end
 
-    @not_yet
+    @check_if_needed
+        load !has_thanked_crystal
+        jiff @done
+        text $laundromat_never_again
+
+    @done
         text $laundromat_closed
         end
 
@@ -783,6 +882,13 @@
 
 .SCRIPT dialogue_gladys
         dlg #dialogue_gladys
+
+        ; Was Gladys mean?
+        load !gladys_wont_help
+        jiff @done
+        text $gladys_is_too_mean
+
+    @done
         end
 
 .SCRIPT use_gladys_computer
@@ -790,6 +896,10 @@
         and !inv_glitch_hacktool
         jiff @only_tool
         text $hack_gladys_computer
+        set
+        store !inv_glitch_hacktool_full
+        clear
+        store !inv_glitch_hacktool
         end
 
     @only_tool
@@ -803,3 +913,48 @@
         end
 
 .SCRIPT on_enter_lost_sock_exterior
+        ; is it the first time here?
+        load !laundry_first_time_outside
+        jift @not_first_time
+        text $laundry_outside_desc
+        set
+        store !laundry_first_time_outside
+
+    @not_first_time
+        ; if not thanked Crystal and has hacked computer
+        load !has_thanked_crystal
+        not
+        and !has_hacked_computer
+        jiff @not_yet
+        text $thank_crystal_for_help
+        dlg #dialogue_crystal_laundry
+        set
+        store !has_thanked_crystal
+
+    @not_yet
+        end
+
+.SCRIPT on_enter_lost_sock_interior
+        load !laundry_first_time_inside
+        jift @not_first_time
+        text $laundry_inside_desc
+        set
+        store !laundry_first_time_inside
+        end
+
+    @not_first_time
+        load !has_distraction_for_gladys
+        jiff @done
+        text $laundry_fight
+        end
+
+    @done
+        end
+
+
+
+
+
+
+
+

@@ -39,6 +39,9 @@ $data_files = @(
     "./data/locations/loc_apartment_bedroom.iff",
     "./data/locations/loc_apartment_interior2.iff",
     "./data/locations/loc_blake_apartment.iff",
+    "./data/locations/loc_laundry_exterior.iff",
+    "./data/locations/loc_laundry_interior.iff",
+    "./data/cutscenes/end_act_1.iff",
     "./data/display.font",
     "./data/frame.shape",
     "./data/pointers.shape",
@@ -51,6 +54,7 @@ $data_files = @(
     "./data/2.shapes",
     "./data/3.shapes",
     "./data/4.shapes",
+    "./data/5.shapes",
     "./data/menu.shapes"
 )
 

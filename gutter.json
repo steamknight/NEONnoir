@@ -60,7 +60,7 @@
               "script": "",
               "self_disable": false,
               "set_flag": "",
-              "text": "Nevermind."
+              "text": "Never mind."
             }
           ],
           "clear_flag": "",
@@ -179,6 +179,20 @@
               "self_disable": false,
               "set_flag": "",
               "text": "The Lost Sock Laundromat."
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Never mind."
             }
           ],
           "clear_flag": "",
@@ -283,6 +297,20 @@
               "text": "Let me put it another way, where could I get my hands on some Coral?"
             },
             {
+              "check_flag": "glitch_complete_atm_quest",
+              "clear_flag": "inv_glitch_cred_stick",
+              "enabled": true,
+              "has_check_flag": true,
+              "has_clear_flag": true,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 19,
+              "script": "",
+              "self_disable": true,
+              "set_flag": "",
+              "text": "Alright Glitch, I did what you asked. Now tell me the password."
+            },
+            {
               "check_flag": "",
               "clear_flag": "",
               "enabled": true,
@@ -297,18 +325,18 @@
               "text": "See you around."
             },
             {
-              "check_flag": "glitch_complete_atm_quest",
-              "clear_flag": "inv_glitch_cred_stick",
+              "check_flag": "gladys_wont_help",
+              "clear_flag": "",
               "enabled": true,
               "has_check_flag": true,
-              "has_clear_flag": true,
+              "has_clear_flag": false,
               "has_script": false,
               "has_set_flag": false,
-              "next_page_id": 19,
+              "next_page_id": 20,
               "script": "",
-              "self_disable": true,
+              "self_disable": false,
               "set_flag": "",
-              "text": "Alright Glitch, I did what you asked. Now tell me the password."
+              "text": "I need your special brand of help."
             }
           ],
           "clear_flag": "",
@@ -719,6 +747,201 @@
           "self_disable": false,
           "set_flag": "",
           "text": "And how! Man, that's a lot of credits...\n\nOh right! The password is Dyonisus. Good luck my friend, and if you need anything else, you just let me know!"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 22,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "I need to get access to someone's computer."
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 21,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "1 n33d y0ur l33t h4xx0r sk1llz p0wn1ng b00m3r's 'put3r lolz"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "I'm intrigued, what do you need?"
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 22,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "*SWOON* You sure know how to speak to a girl."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 23,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "And then what?"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": true,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "inv_glitch_hacktool",
+          "text": "Alright, I got some thing for ya. If you can get physical access to the computer and plug this data stick in any port, it'll clone all of its data."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 24,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "What's it going to cost me?"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Then you plug it into your computer and you can view all the data!"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 25,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Or you can just give it to me because you made lots of credits off my back."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Well, you see, I need you to get me special McGuffin that's in the possession of some guy who'll be happy to trade it for you if you can solve his problem..."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 26,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Wait... how do I know it's safe to plug in to my computer, that it's not going to do something else?"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Fine, fine. You're no fun."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": true,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "needs_distraction_for_gladys",
+              "text": "Looks like I got no choice... Very well, now to find a way to access the computer without that fossil noticing..."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "You're just going to have to trust me!"
         }
       ],
       "speaker": "Glitch"
@@ -954,7 +1177,7 @@
               "script": "",
               "self_disable": false,
               "set_flag": "",
-              "text": "Nevermind..."
+              "text": "Never mind..."
             }
           ],
           "clear_flag": "",
@@ -1077,7 +1300,7 @@
           "next_page_id": 65535,
           "self_disable": false,
           "set_flag": "",
-          "text": "*Ksssh* I'M PROTECTING THIS CASH MACHINE. IF NOBODY USES IT, NOBODY CAN VANDELIZE IT. *Ksssh*"
+          "text": "*Ksssh* I'M PROTECTING THIS CASH MACHINE. IF NOBODY USES IT, NOBODY CAN VANDALIZE IT. *Ksssh*"
         },
         {
           "check_flag": "",
@@ -1201,7 +1424,7 @@
           "next_page_id": 65535,
           "self_disable": false,
           "set_flag": "",
-          "text": "*Ksssh* ERR... AH... WELL... AT LEAST IT'S NOT GETTING VANDELIZED *Ksssh*"
+          "text": "*Ksssh* ERR... AH... WELL... AT LEAST IT'S NOT GETTING VANDALIZED *Ksssh*"
         },
         {
           "check_flag": "",
@@ -1514,7 +1737,7 @@
           "next_page_id": 10,
           "self_disable": false,
           "set_flag": "",
-          "text": "*laughs* Good drecking luck with that."
+          "text": "*laughs* Good dreking luck with that."
         },
         {
           "check_flag": "",
@@ -1640,7 +1863,7 @@
           "next_page_id": 65535,
           "self_disable": false,
           "set_flag": "",
-          "text": "Alright, let's say I had a ticket to sell you, you couldn't affort it."
+          "text": "Alright, let's say I had a ticket to sell you, you couldn't afford it."
         },
         {
           "check_flag": "",
@@ -1685,7 +1908,7 @@
               "script": "",
               "self_disable": false,
               "set_flag": "glitch_continue_ticket_quest",
-              "text": "I think you underestimate how resorceful I am."
+              "text": "I think you underestimate how resourceful I am."
             }
           ],
           "clear_flag": "",
@@ -1713,7 +1936,7 @@
               "script": "",
               "self_disable": false,
               "set_flag": "",
-              "text": "I told you I am pretty resorceful. This is the last bowl in existence. So if you want it, I'll take one of those tickets."
+              "text": "I told you I am pretty resourceful. This is the last bowl in existence. So if you want it, I'll take one of those tickets."
             }
           ],
           "clear_flag": "",
@@ -1800,7 +2023,7 @@
       "speaker": "Tweaker"
     },
     {
-      "image_id": 7,
+      "image_id": 8,
       "pages": [
         {
           "check_flag": "acid_nova_first_time",
@@ -2022,7 +2245,7 @@
           "next_page_id": 65535,
           "self_disable": false,
           "set_flag": "",
-          "text": "Judging from your cheap trenchcoat, I'm guessing you're going to be a pain in my ass."
+          "text": "Judging from your cheap trench coat, I'm guessing you're going to be a pain in my ass."
         },
         {
           "check_flag": "",
@@ -2358,7 +2581,7 @@
           "next_page_id": 65535,
           "self_disable": false,
           "set_flag": "",
-          "text": "Your concern for my livelyhood is touching, it really is. But that's the clever bit. The data chip destroys itself when it downloads into you. Or if you tamper with it. It even deletes itself from your system after a random amount of time. Nah, this drek is clever. "
+          "text": "Your concern for my livelihood is touching, it really is. But that's the clever bit. The data chip destroys itself when it downloads into you. Or if you tamper with it. It even deletes itself from your system after a random amount of time. Nah, this drek is clever. "
         },
         {
           "check_flag": "",
@@ -2899,7 +3122,7 @@
               "script": "",
               "self_disable": false,
               "set_flag": "",
-              "text": "You don't seem that defenceless to me. Lead the way."
+              "text": "You don't seem that defenseless to me. Lead the way."
             },
             {
               "check_flag": "",
@@ -2924,7 +3147,7 @@
           "next_page_id": 65535,
           "self_disable": false,
           "set_flag": "",
-          "text": "Oh... right! That' makes sense. But don't try anything funny. I'm not as defenceless as I seem."
+          "text": "Oh... right! That' makes sense. But don't try anything funny. I'm not as defenseless as I seem."
         }
       ],
       "speaker": "Crystal"
@@ -3320,7 +3543,7 @@
               "has_clear_flag": false,
               "has_script": false,
               "has_set_flag": false,
-              "next_page_id": 1,
+              "next_page_id": 0,
               "script": "",
               "self_disable": false,
               "set_flag": "",
@@ -3361,7 +3584,7 @@
           "next_page_id": 8,
           "self_disable": false,
           "set_flag": "",
-          "text": "As you can imagine, discression is very important in this business. Normally we use code names, and 15 chose his."
+          "text": "As you can imagine, discretion is very important in this business. Normally we use code names, and 15 chose his."
         },
         {
           "check_flag": "",
@@ -3443,7 +3666,7 @@
               "has_clear_flag": false,
               "has_script": false,
               "has_set_flag": false,
-              "next_page_id": 65091,
+              "next_page_id": 15,
               "script": "",
               "self_disable": false,
               "set_flag": "",
@@ -3582,11 +3805,11 @@
               "has_check_flag": false,
               "has_clear_flag": false,
               "has_script": false,
-              "has_set_flag": false,
+              "has_set_flag": true,
               "next_page_id": 65535,
               "script": "",
               "self_disable": false,
-              "set_flag": "",
+              "set_flag": "has_distraction_for_gladys",
               "text": "Sounds like a plan. Meet you at the Lost Sock."
             }
           ],
@@ -3610,11 +3833,11 @@
               "has_check_flag": false,
               "has_clear_flag": false,
               "has_script": false,
-              "has_set_flag": false,
+              "has_set_flag": true,
               "next_page_id": 65535,
               "script": "",
               "self_disable": false,
-              "set_flag": "",
+              "set_flag": "has_distraction_for_gladys",
               "text": "Uhm... Sounds like a plan. Meet you at the Lost Sock."
             }
           ],
@@ -3706,6 +3929,34 @@
               "self_disable": false,
               "set_flag": "",
               "text": "Log off."
+            },
+            {
+              "check_flag": "inv_glitch_hacktool",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": true,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 2,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Plug in Glitch's datastick."
+            },
+            {
+              "check_flag": "inv_glitch_hacktool_full",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": true,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 3,
+              "script": "",
+              "self_disable": true,
+              "set_flag": "",
+              "text": "Plug in Glitch's datastick."
             }
           ],
           "clear_flag": "",
@@ -3734,6 +3985,48 @@
               "self_disable": false,
               "set_flag": "",
               "text": "Nothing else."
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 10,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Xantech Cybernetics"
+            },
+            {
+              "check_flag": "knows_about_xander",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": true,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 11,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Xander Vane"
+            },
+            {
+              "check_flag": "knows_about_cygnus",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": true,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 12,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Cygnus Holdings"
             }
           ],
           "clear_flag": "",
@@ -3745,6 +4038,339 @@
           "self_disable": false,
           "set_flag": "",
           "text": "What should I search for?"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 0,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "No entries."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "DATAVAULT 9000"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 4,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "List personnel"
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 7,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "List customers"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "DATAVAULT 9000\n\nUser: Gladys Aubergine\nPassword: gladys1\n\nAccess granted..."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 5,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Crystal Shard"
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 6,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Danni Ashton"
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 3,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Return"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Lost Sock Personnel List\n\n(About a dozen names scroll by, but only two stand out.)"
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 3,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Name: Crystal Shard\nAge: 28\nCurrent Assignment: None"
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 3,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Name: Danni Ashton\nAge: 24\nCurrent Assignment: 15"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 8,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "15"
+            },
+            {
+              "check_flag": "knows_about_15_and_jv",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": true,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 9,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "JV"
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 3,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Return"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "(A meaningless list of codenames scrolls by the screen. Eventually I find what I'm looking for."
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": true,
+          "next_page_id": 7,
+          "self_disable": false,
+          "set_flag": "knows_about_15_and_jv",
+          "text": "Customer ID: 15\nPreferred Server: DA\n\nNotes:\n15 doesn't like to get their hands dirty. They girls are always picked up by one of his subordinates, JV."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": true,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "just_got_visser_photo",
+              "text": "Download photograph"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": true,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "inv_visser_photo",
+          "text": "Customer ID: JV\nPreferred Server: N/A\n\nNotes:\nJV picks up the girls for 15. He's real slipper and I don't trust him, but at least the credits are always good.\n\nPhotograph attached."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": true,
+              "next_page_id": 1,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "knows_about_cygnus",
+              "text": "Return"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": true,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "knows_about_xander",
+          "text": "Entry: Xantech Cybernetics\nSummary: Formed 15 years ago by Xander Vane, Xantech Cybernetics has become the world leader in consumer-level cybernetics owning 93% of the markershare. Xander Cybernetics is a subsidiary of Cygnus Holdings."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 1,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Return"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Entry: Xander Vane\nSummary: Billionaire genius, is CEO and majority stakeholder of Xantech Cybernetics."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 1,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Return"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Entry: Cygnus Holdings\nSummary: Cygnus Holdings is [REDACTED] and are resposible for [REDACTED]. Their subsidiaries include [LIST REDACTED]"
         }
       ],
       "speaker": "GovLink"
@@ -3782,20 +4408,6 @@
               "self_disable": false,
               "set_flag": "",
               "text": "Who's a good girl?"
-            },
-            {
-              "check_flag": "",
-              "clear_flag": "",
-              "enabled": true,
-              "has_check_flag": false,
-              "has_clear_flag": false,
-              "has_script": false,
-              "has_set_flag": false,
-              "next_page_id": 6,
-              "script": "",
-              "self_disable": false,
-              "set_flag": "",
-              "text": "Let me run some stuff by you, girl."
             },
             {
               "check_flag": "",
@@ -3975,23 +4587,42 @@
           "self_disable": false,
           "set_flag": "",
           "text": "..."
+        }
+      ],
+      "speaker": "Daisy"
+    },
+    {
+      "image_id": 16,
+      "pages": [
+        {
+          "check_flag": "gladys_wont_help",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": true,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Go play on some train tracks."
         },
         {
           "check_flag": "",
           "choices": [
             {
-              "check_flag": "knows_danni_identity",
+              "check_flag": "",
               "clear_flag": "",
               "enabled": true,
-              "has_check_flag": true,
+              "has_check_flag": false,
               "has_clear_flag": false,
               "has_script": false,
               "has_set_flag": false,
-              "next_page_id": 7,
+              "next_page_id": 2,
               "script": "",
-              "self_disable": true,
+              "self_disable": false,
               "set_flag": "",
-              "text": "Danni was an orphan and as she was never adopted, she was given the last name 'Null'. Two years ago, she reinvents herself as 'Danni Ashton'... that's about when she met Crystal."
+              "text": "Those are very competitive prices."
             },
             {
               "check_flag": "",
@@ -4001,11 +4632,25 @@
               "has_clear_flag": false,
               "has_script": false,
               "has_set_flag": false,
-              "next_page_id": 0,
+              "next_page_id": 3,
               "script": "",
               "self_disable": false,
               "set_flag": "",
-              "text": "Nevermind, how about a treat instead?"
+              "text": "I'm looking for a girl."
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Thanks."
             }
           ],
           "clear_flag": "",
@@ -4016,7 +4661,132 @@
           "next_page_id": 65535,
           "self_disable": false,
           "set_flag": "",
-          "text": "*Cocks her head*"
+          "text": "Welcome to the Lost Sock. Laundry and dryer services are 5 credits each, detergent is 2 credits."
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "At the Lost Sock we strive to make sure that customers leave with a smile.\n\nSo smile. And leave me alone."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 4,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Actually, yes."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Do I look like a dating service to you?"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 5,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "The name's Steel, Blake Steel. I'm looking for the girl in this photo."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "...Who are you?"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 6,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "You're going to have to do better than that, Gladys."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Never seen her."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 7,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "I know a lot of things. I know that her name is Danni Ashton and that she works for you providing... private laundry services."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "How do you know my name?"
         },
         {
           "check_flag": "",
@@ -4033,7 +4803,7 @@
               "script": "",
               "self_disable": false,
               "set_flag": "",
-              "text": "But what bothers me is that if she chose the name 'Danni Ashton' for herself, then who the drek is 'Jacob', the man who hired me and posed as her concerned father?"
+              "text": "Blake, the name's Blake."
             }
           ],
           "clear_flag": "",
@@ -4044,7 +4814,7 @@
           "next_page_id": 65535,
           "self_disable": false,
           "set_flag": "",
-          "text": "Boof."
+          "text": "Listen here, Bloke--"
         },
         {
           "check_flag": "",
@@ -4057,11 +4827,11 @@
               "has_clear_flag": false,
               "has_script": false,
               "has_set_flag": false,
-              "next_page_id": 65535,
+              "next_page_id": 9,
               "script": "",
               "self_disable": false,
               "set_flag": "",
-              "text": "Exactly, something here stinks."
+              "text": "Are you trying to intimidate me?"
             }
           ],
           "clear_flag": "",
@@ -4072,18 +4842,26 @@
           "next_page_id": 65535,
           "self_disable": false,
           "set_flag": "",
-          "text": "Grrr..."
+          "text": "I don't care what your name is. You have no idea what you're dealing with so take this bit of free advice and leave. Our laundry machines can get even the most stubborn stains out, but they can't wash away broken bones."
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": true,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "gladys_wont_help",
+          "text": "No, Brett. There is no reason to intimidate someone who isn't a threat. Good day."
         }
       ],
-      "speaker": "Daisy"
-    },
-    {
-      "image_id": 15,
-      "pages": [],
       "speaker": "Gladys"
     },
     {
-      "image_id": 15,
+      "image_id": 16,
       "pages": [
         {
           "check_flag": "",
@@ -4096,13 +4874,13 @@
           "next_page_id": 65535,
           "self_disable": false,
           "set_flag": "",
-          "text": "Get your mitts off my computer, Bucko. You even think of getting close to my terminal and it'll be your disposition that will become terminal."
+          "text": "Get your mitts off my computer, Bucko. You even think of getting close to it and you'll find out why they call it a \"terminal.\""
         }
       ],
       "speaker": "Gladys"
     },
     {
-      "image_id": 14,
+      "image_id": 15,
       "pages": [
         {
           "check_flag": "",
@@ -4260,6 +5038,96 @@
         }
       ],
       "speaker": "Crystal"
+    },
+    {
+      "image_id": 13,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 1,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "(Better to play long for now) Mr. Ashton, I can't say I have much of a status report for you quite yet."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Mr. Steel, have you any news for me?"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 2,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Mr. Ashton, I assure you that you came to the right person. "
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Unacceptable, Mr. Steel. I'm paying good credits for top results. You assured me you could get those results. Am I mistaken to put my trust in you?"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Don't worry, I won't stop until she's safe. You can be sure of it."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Then get out there and find my Danni!"
+        }
+      ],
+      "speaker": "Jacob Ashton"
     }
   ],
   "locations": [
@@ -5009,7 +5877,7 @@
       "scenes": [
         {
           "image_id": 1,
-          "music_id": 65535,
+          "music_id": 1,
           "name": "Entrance",
           "offset_x": 0,
           "offset_y": 0,
@@ -5064,7 +5932,7 @@
         },
         {
           "image_id": 0,
-          "music_id": 65535,
+          "music_id": 1,
           "name": "Bedroom",
           "offset_x": 0,
           "offset_y": 0,
@@ -5148,17 +6016,18 @@
     },
     {
       "backgrounds": [
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_blake_apartment.iff"
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_blake_apartment.iff",
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\cutscenes\\end_act_1.iff"
       ],
       "name": "Blake's Apartment",
       "scenes": [
         {
           "image_id": 0,
-          "music_id": 65535,
+          "music_id": 0,
           "name": "Apartment",
           "offset_x": 0,
           "offset_y": 0,
-          "on_enter": "",
+          "on_enter": "on_enter_blake",
           "on_exit": "",
           "regions": [
             {
@@ -5196,6 +6065,20 @@
           "view_width": 0,
           "view_x": 0,
           "view_y": 0
+        },
+        {
+          "image_id": 1,
+          "music_id": 0,
+          "name": "End Act 1",
+          "offset_x": 0,
+          "offset_y": 0,
+          "on_enter": "on_enter_end_act1",
+          "on_exit": "",
+          "regions": [],
+          "view_height": 0,
+          "view_width": 0,
+          "view_x": 0,
+          "view_y": 0
         }
       ],
       "shapes": [
@@ -5222,6 +6105,18 @@
               "y": 0
             }
           ]
+        },
+        {
+          "has_palette": true,
+          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\visser.iff",
+          "shapes": [
+            {
+              "height": 100,
+              "width": 100,
+              "x": 0,
+              "y": 0
+            }
+          ]
         }
       ],
       "shapes_file": "4.shapes"
@@ -5235,11 +6130,11 @@
       "scenes": [
         {
           "image_id": 0,
-          "music_id": 65535,
+          "music_id": 1,
           "name": "Exterior",
           "offset_x": 0,
           "offset_y": 0,
-          "on_enter": "",
+          "on_enter": "on_enter_lost_sock_exterior",
           "on_exit": "",
           "regions": [
             {
@@ -5256,7 +6151,7 @@
               "description": "Enter the laundromat",
               "height": 56,
               "pointer_id": 3,
-              "script": "",
+              "script": "enter_laundromat",
               "shape_id": 65535,
               "width": 37,
               "x": 237,
@@ -5290,11 +6185,11 @@
         },
         {
           "image_id": 1,
-          "music_id": 65535,
+          "music_id": 1,
           "name": "Interior",
           "offset_x": 0,
           "offset_y": 0,
-          "on_enter": "",
+          "on_enter": "on_enter_lost_sock_interior",
           "on_exit": "",
           "regions": [
             {
@@ -5308,7 +6203,7 @@
               "y": 0
             },
             {
-              "description": "Gladys, I presume",
+              "description": "Gladys, I presume.",
               "height": 69,
               "pointer_id": 2,
               "script": "dialogue_gladys",

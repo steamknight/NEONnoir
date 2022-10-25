@@ -48,8 +48,8 @@ Statement DG_show_dialog{id.w}
 
   DEFTYPE .DG_dialogue *current
   DEFTYPE .DG_page *cur_page
-  DEFTYPE .b displayed, lmb, page_id
-  DEFTYPE .w pointer_id
+  DEFTYPE .b displayed, lmb 
+  DEFTYPE .w pointer_id, page_id
 
 ; We won't have more than 8 choices, right?
   Dim rects.NN_screen_rect(8) 
@@ -69,7 +69,6 @@ Statement DG_show_dialog{id.w}
     VWait
     DisplaySprite #CP_coplist, pointer_id, MouseX, MouseY, 0
     lmb = IN_update_mouse{}
-
 
     ; If the page is not enabled, advance until we find one that is.
     Repeat
