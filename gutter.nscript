@@ -24,7 +24,7 @@
 
     first_time_blake_act2
 
-    knows_about_xantech             ; Knows about the existance of Xantech Cybernetics
+    knows_about_xantech             ; Knows about the existence of Xantech Cybernetics
     laundry_first_time_outside      ; First time outside the laundry
     laundry_first_time_inside       ; First time inside the laundry
     gladys_wont_help                ; Gladys, that old bag, won't help you.
@@ -37,6 +37,16 @@
 
     act2_started                    ; Set when act 2 starts
     act3_started                    ; Set when act 3 starts
+
+    knows_about_acid_nova_and_visser; Glitch has spied the two talking.
+    call_visser
+    knows_411_first_bit
+    knows_411_second_bit
+    banned_from_alleycat
+
+    b19_been_here
+    b19_storage_been_here
+    b19_office_been_here
 
     knows_about_xander
     knows_about_cygnus
@@ -53,13 +63,15 @@
     inv_danni_id                ; Danni's ID card
     inv_glitch_hacktool         ; Got a hacktool from Glitch
     inv_glitch_hacktool_full    ; Got a hacktool full of data
-
     inv_visser_photo            ; Photo of Johan Visser
+    inv_coral                   ; A capsule of Coral
+    inv_parcel_number           ; A paper with B19's parcel number.
 
 ; Known locations
 ; ==============================================================================
 .FLAGS
     loc_lost_sock               ; The Lost Soc Laundromat
+    loc_b19
 
 ; Game constants
 ; ==============================================================================
@@ -71,6 +83,7 @@
     location_danni_apartment    3
     location_blake_apartment    4
     location_lost_sock          5
+    location_b19                6
 
     ; Scenes in the title section
     start_intro                 1
@@ -104,6 +117,12 @@
     scene_laundry_exterior      0
     scene_laundry_interior      1
 
+    ; Scenes at B19
+    scene_b19_exterior          0
+    scene_b19_office            1
+    scene_b19_storage           2
+    scene_fade_to_black         3
+
     ; Dialogues
     dialogue_blake              0
     dialogue_map                1
@@ -120,6 +139,12 @@
     dialogue_gladys_computer   12
     dialogue_crystal_laundry   13
     dialogue_visser_act1       14
+    dialogue_visser_ruse1      15
+    dialogue_acid_nova_ruse1   16
+    dialogue_visser_ruse2      17
+    dialogue_acid_nova_ruse2   18
+    dialogue_danni_intro1      19
+    dialogue_danni_intro2      20
 
     ; Music and sound
     mod_theme                   0
@@ -213,31 +238,35 @@
 
     alley_atm_description       "ATMs. Cash Machines. Cred Dispensers. Unarmed Bandits. Take your pick. These jackpots let your retrieve your credits... for a fee."
     alley_atm_quest_start       "Better deal with that tin man before I try anything. They're not the forgiving type."
-    alley_atm_quest_do1         "While the tin man looked away, I went through the motions of withdrawing credits and scaned Glitch's chip instead. Graphical anomalies multiplied on the screen like bacteria on a petri dish."
+    alley_atm_quest_do1         "While the tin man looked away, I went through the motions of withdrawing credits and scan!ned Glitch's chip instead. Graphical anomalies multiplied on the screen like bacteria on a petri dish."
     alley_atm_quest_do2         "Panic griped me as I tried to act natural, keenly aware of the guard standing nearby. As the screen became more corrupted, a bead of sweat dripped from my brow."
     alley_atm_quest_do3         "Fortunately, the screen returned to normal just as quickly as it glitched. 'TRANSACTION COMPLETE' it happily chimed."
     alley_atm_quest_complete    "The deed's done, better not bring any more attention to it."
     alley_atm_security_desc     "Looks like this bank's hired security to babysit the jackpot. These tin men contracts are usually given to lowest bidders."
     alley_atm_security_done     "Better leave him to his brain drain duties."
 
-    cant_leave_alley            "I couldn't leave just yet, not when I still didn't have a lead."
+    cant_leave_alley            "I can't leave just yet, not when I still don't have a lead."
     alley_subway_tweaker_desc   "His blue hair almost distracts from his facial cybernetics. Almost."
 
     approached_by_crystal1      "I stepped out of the Alleycat no wiser than when I came in. My gut was telling me that Acid Nova was dirty and knew something, but then again, my gut's been saying a lot of things since that dumpster dive."
     approached_by_crystal2      "As I stepped away from the neon bacchanalia, a woman approached me from the shadows with the practiced saunter of a predator. One look and I had to force myself not to blush brighter than her neon pink dress. Without hesitation, she hooked her arm on mine, and started walking down the alley."
     approached_by_crystal3      "We headed for the subway and rode that steel serpent for a few stops until we arrived at our destination."
 
-; Location: Danni's appartment
+    call_visser1                "I pull out my phone and dial the number for the man claiming to be Jacob Ashton."
+    call_visser2                "*RING RING*"
+    call_visser3                "Two rings and JV, whoever he really is, picks up the phone."
+
+; Location: Danni's apartment
 ; ==============================================================================
 .TEXT
     danni_apartment_first_time  "Danni and Crystal's apartment was on the nicer part of the Gutter, if such a place even existed. The apartment was small but modern and looked more expensive than I could afford."
     danni_clutter_desc          "Next to Danni's bed is small pile of clutter. It's mostly clothes, but there are also some papers."
-    danni_note_from_gladys      "There's a note dated two days ago, addressed to Danni from somone named Gladys. It reads '15 wants to see you tonight, I don't need to remind you that you better bring your A game.'"
+    danni_note_from_gladys      "There's a note dated two days ago, addressed to Danni from someone named Gladys. It reads '15 wants to see you tonight, I don't need to remind you that you better bring your A game.'"
     danni_nightstand_desc       "What's this... her ID card! I can run a background check on her with GovLink computer back at my apartment."
     danni_nightstand_desc_after "There's nothing else of interest in the nightstand."
     dont_leave_danni_apt        "Mmm... I got a feeling there's more to uncover here."
 
-; Location: Blake's appartment
+; Location: Blake's apartment
 ; ==============================================================================
 .TEXT
     danni_id_trace1             "Cassandra Null: ID#721077"
@@ -256,24 +285,46 @@
     end_act1_e                  "*RING RING*"
     blake_start_act2            "Time to hit streets. Daisy, be a good girl while I'm out."
     just_got_visser_photo1      "Holy dreking hell! This is a photo of Jacob Ashton! Danni was with 15, whoever they are, and Jacob- I mean JV picked her up! What did they do to her? Why do they want to find her?"
-    just_got_visser_photo2      "I need to show this photograph around and see if anyone recognizes him. Finally, progress!"
+    just_got_visser_photo2      "I need to show this photograph around and see if anyone recognizes him. Finally, some progress!"
 
 ; Location: The Lost Sock Laundromat
 ; ==============================================================================
     laundry_outside_desc        "The Lost Sock laundromat was on Merchant's Row, not too far from Danni and Crystal's apartment. Like everywhere else is the Gutter, the streets were slick with undefined liquids."
-    laundry_inside_desc         "For a laundromat, it was surprisingly hazy and dark in here. While a few laundy machines are spinning, there's nobody here other than an old woman sitting next to a computer. This must be Gladys."
+    laundry_inside_desc         "For a laundromat, it was surprisingly hazy and dark in here. While a few laundry machines are spinning, there's nobody here other than an old woman sitting next to a computer. This must be Gladys."
     gladys_is_too_mean          "I don't think I'm going get anywhere with that museum exhibit. I bet that if I could get my hands on her computer, I could learn a few interesting things."
     laundromat_closed           "Odd... the door is locked. Through the window, I can see an old woman. When she notices me, she waves me away. I'll come back later."
-    laundry_xantech_poster1     "The poster's announcing the yearly XanCon expo, hosted by Xantech Cybernetics. All of Xantech's latest excercise in planned obsolescence will be on display tomorrow night."
+    laundry_xantech_poster1     "The poster's announcing the yearly XanCon expo, hosted by Xantech Cybernetics. All of Xantech's latest exercise in planned obsolescence will be on display tomorrow night."
     laundry_xantech_poster2     "I'll add Xantech Cybernetics to my GovLink search database."
-    crystal_gladys_fight        "As I step back into the Lost Sock, Crystal's already here yelling at Gladys, who's hasn't even noticed me enter. Crystal's unbridled creativing in the insults she's hurling at Gladys is the second time this woman's caused me to blush. Gladys is no slouch, and what she can't muster in youthful creativity, she more than makes up with her ancient wealth of experience. As much as I would love to watch this, I have a job to do."
+    crystal_gladys_fight        "As I step back into the Lost Sock, Crystal's already here yelling at Gladys, who's hasn't even noticed me enter. Crystal's unbridled creativity in the insults she's hurling at Gladys is the second time this woman's caused me to blush. Gladys is no slouch, and what she can't muster in youthful creativity, she more than makes up with her ancient wealth of experience. As much as I would love to watch this, I have a job to do."
     hack_gladys_computer        "Sneaking behind a very occupied Gladys, I plug Glitch's hacktool on the back of her computer. A green light blinks twice letting me know that the device is ready. I slink away, winking at Crystal to let her know my work here is done."
     need_gladys_distraction     "That old witch will never let me get close enough to place the hacktool. I need to find a way to distract her."
-    thank_crystal_for_help      "A few moments after I stepped out of the Lost Sock, Crystal leaves in huff. She's either an accomplished actress or perhaps the argurment between them was a long time coming."
+    thank_crystal_for_help      "A few moments after I stepped out of the Lost Sock, Crystal leaves in a huff. She's either an accomplished actress or perhaps the argument between them was a long time coming."
     laundry_fight               "I can hear Crystal before I even entered this house of laundered promises. She'll yelling furiously at Gladys. However, it seems like Gladys is not going down without a fight. This is my moment."
-    laundromat_never_again      "I better stay away. I don't want Gladys get suspicious."
+    laundromat_never_again      "I better stay away. I don't want Gladys to get suspicious."
+    gladys_busy_fighting        "Gladys is exploding forth a geyser of invectives at Crystal. She's not paying me any attention and I better keep it that way."
 
-
+; Location: Building 19
+; ==============================================================================
+    b19_exterior_desc1          "The industrial district was a sprawling hellscape of warehouses, factories, and pipes of all shapes and sizes stretching for hundreds of miles like a basket of venomous snakes."
+    b19_exterior_desc2          "The air quality here was even worse than the Gutter's. Worker safety cut into the bottom line of the fat cats running the place, and they could always get more workers."
+    b19_exterior_desc3          "Lucky for me, Building 19 was in a fairly secluded area at the edge of the industrial district. Like many building here, there was no outward indication as to who owned it. I guess it was time I applied my carefully honed detective skills."
+    b19_storage_desc1           "Something about this place seemed weird. There should be people working, but the place was empty. Even the various boxes piled high in this facility looked like they hadn't been touched in a long time."
+    b19_storage_desc2           "This place was definitely a front, all right."
+    b19_pick_storage_lock       "Typing the keycode I got from Acid Nova, the door opens without any issues."
+    b19_pick_office_lock        "You don't become a PI without picking your fair share of locks. I guess I can add this one to my list of conquests."
+    get_coral                   "The red plastic capsule catches my attention, its ruby red color in sharp contrast to the gloom of the storeroom. I've been hearing a lot about this little capsule all night and with my lack of cybernetics, its siren's song falls on deaf ears. I don't know why I picked it up, but I pocket the capsule of Coral."
+    open_boxes1                 "I pull out a pocket knife and open ones of these boxes. I don't know what I was expecting to find, but nothing could prepare me for what was inside."
+    open_boxes2                 "Flattened out boxes and other packing materials."
+    get_parcel_number1          "Looking through garbage has better not become a habit. Fortunately, there's nothing rancid in here, just papers."
+    get_parcel_number2          "What's this? An old permit. It contains the parcel number for this building. I should be able to check it out on the GovLink."
+    empty_trash                 "Nothing else of value in there."
+    look_at_lockers             "The lockers aren't locked. Unfortunately, they're also empty."
+    look_at_papers              "There are some papers and brochures on the small table. Nothing interesting, I'm afraid."
+    get_call_from_danni1        "The cool night air carrying the acrid fumes of this district caresses my face like a vengeful lover. The distant industrial music is pierced by a much closer, higher pitched sound."
+    get_call_from_danni2        "*RING RING*"
+    get_call_from_danni3        "I don't recognize the number, and sensing my hesitation, it chimes again like a child demanding attention."
+    we_should_meet              "'... and I think we should meet.'"
+    
 ; Inventory strings
 ; ==============================================================================
 .TEXT
@@ -288,6 +339,8 @@
     inv_danni_id                    "*Danni's government issued ID."
     inv_glitch_hacktool             "*A hacktool I got from Glitch."
     inv_glitch_hacktool_full        "*A hacktool I got from Glitch. It has data from Gladys's computer."
+    inv_coral                       "*A capsule of Coral."
+    inv_parcel_number               "*A paper with Building 19's parcel number."
 
 ; IN-GAME MENU
 ; ==============================================================================
@@ -298,10 +351,11 @@
         txtput $inv_danni_picture 32
 
         load !inv_glitch_hacktool_full       ; Do we have the hacktool
-        jiff @check_danni_id
+        jiff @check_hack_tool
         txtput $inv_glitch_hacktool_full 32
         jump @check_danni_id
 
+    @check_hack_tool
         load !inv_glitch_hacktool       ; Do we have the hacktool
         jiff @check_danni_id
         txtput $inv_glitch_hacktool 32
@@ -374,6 +428,10 @@
 
 .SCRIPT map_lost_sock
         goloc #location_lost_sock #scene_laundry_exterior
+        end
+
+.SCRIPT map_loc_b19
+        goloc #location_b19 #scene_b19_exterior
         end
 
 ; TITLE
@@ -657,7 +715,7 @@
 ; if (knows acid nova's house) -> bring up map
 ; else -> don't leave
 .SCRIPT use_alley_subway
-        load !act2_started
+        load !knows_about_danni_house
         jiff @doesnt_know
         dlg #dialogue_map
         end
@@ -681,15 +739,20 @@
 
 ; Once we leave the alleycat, Crystal will approach us
 .SCRIPT meet_crystal
+        load !knows_about_danni_house
+        jift @done
+        
         load !acid_nova_denies_danni
-        jiff @not_yet
+        jiff @done
         text $approached_by_crystal1
         text $approached_by_crystal2
         dlg #dialogue_crystal_alley
         text $approached_by_crystal3
+        set
+        store !knows_about_danni_house
         goloc #location_danni_apartment #scene_danni_interior
 
-    @not_yet
+    @done
         end
 
 ; ALLEYCAT
@@ -709,6 +772,23 @@
 
 .SCRIPT dialogue_acid_nova
         dlg #dialogue_acid_nova
+
+        ; Have we just called Visser in the middle of the conversation?
+        load !call_visser
+        jiff @done
+        text $call_visser1
+        text $call_visser2
+        text $call_visser3
+
+        dlg #dialogue_visser_ruse1
+        dlg #dialogue_acid_nova_ruse1
+        dlg #dialogue_visser_ruse2
+        dlg #dialogue_acid_nova_ruse2
+
+        set
+        store !banned_from_alleycat
+
+    @done
         end
 
 ; DANNI'S APARTMENT
@@ -777,13 +857,19 @@
 .SCRIPT use_govlink
         dlg #dialogue_govlink
 
+        ; Skip this section if we already have the photo
+        load !inv_visser_photo
+        jift @done
+
         ; Did we just get Visser's photo?
         load !just_got_visser_photo
         jiff @done
         text $just_got_visser_photo1
         text $just_got_visser_photo2
-        set
-        store !just_got_visser_photo
+        
+        set 
+        store !inv_visser_photo
+
         end
 
     @done
@@ -849,23 +935,25 @@
         and !first_time_blake_act2
         jiff @done
         text $blake_start_act2
+        set
+        store !first_time_blake_act2
 
     @done
         end
 
-
 ; LAUNDROMAT
 ; =====================================================
 .SCRIPT enter_laundromat
-        load !act2_started            ; Laundromat is closed before act 2
-        jiff @check_if_needed
-        goto #scene_laundry_interior
+        load !has_thanked_crystal
+        jiff @check_is_act2
+        text $laundromat_never_again
         end
 
-    @check_if_needed
-        load !has_thanked_crystal
+    @check_is_act2
+        load !act2_started            ; Laundromat is closed before act 2
         jiff @done
-        text $laundromat_never_again
+        goto #scene_laundry_interior
+        end
 
     @done
         text $laundromat_closed
@@ -881,6 +969,13 @@
         end
 
 .SCRIPT dialogue_gladys
+        ; Gladys is too busy to talk if she's yelling at Crystal
+        load !has_distraction_for_gladys
+        jiff @talk_to_gladys
+        text $gladys_busy_fighting
+        end
+
+    @talk_to_gladys
         dlg #dialogue_gladys
 
         ; Was Gladys mean?
@@ -900,6 +995,8 @@
         store !inv_glitch_hacktool_full
         clear
         store !inv_glitch_hacktool
+        set
+        store !has_hacked_computer
         end
 
     @only_tool
@@ -950,6 +1047,114 @@
 
     @done
         end
+
+; BUILDING 19
+; =====================================================
+.SCRIPT on_enter_b19
+        load !b19_been_here
+        jift @check_danni
+        text $b19_exterior_desc1
+        text $b19_exterior_desc2
+        text $b19_exterior_desc3
+        set
+        store !b19_been_here
+
+    @check_danni
+        ; If we have both the Coral and parcel number, then Danni's going to call us
+        load !inv_parcel_number
+        and !inv_coral
+        jiff @done
+        text $get_call_from_danni1
+        text $get_call_from_danni2
+        text $get_call_from_danni3
+
+        text $get_call_from_danni2
+        dlg #dialogue_danni_intro1
+        dlg #dialogue_danni_intro2
+        goto #scene_fade_to_black
+
+    @done
+        end
+
+.SCRIPT goto_b19_entrance
+        goto #scene_b19_exterior
+        end
+
+.SCRIPT goto_b19_storage
+        load !b19_storage_been_here
+        jift @done
+        text $b19_pick_storage_lock
+
+    @done
+        goto #scene_b19_storage
+        end
+
+.SCRIPT goto_b19_office
+        load !b19_office_been_here
+        jift @done
+        text $b19_pick_office_lock
+
+    @done
+        goto #scene_b19_office
+        end
+
+.SCRIPT on_enter_b19_storage
+        load !b19_storage_been_here
+        jift @done
+        text $b19_storage_desc1
+        text $b19_storage_desc2
+        set
+        store !b19_storage_been_here
+
+    @done
+        end
+
+.SCRIPT get_coral
+        load !inv_coral
+        jift @done
+        set
+        store !inv_coral
+
+        text $get_coral
+
+    @done
+        end
+
+.SCRIPT use_boxes
+        text $open_boxes1
+        text $open_boxes2
+        end
+
+.SCRIPT use_lockers
+        text $look_at_lockers
+        end
+
+.SCRIPT use_papers
+        text $look_at_papers
+        end
+
+.SCRIPT use_trashcan
+        load !inv_parcel_number
+        jift @done
+        text $get_parcel_number1
+        text $get_parcel_number2
+        set
+        store !inv_parcel_number
+        end
+
+    @done
+        text $empty_trash
+        end
+
+.SCRIPT on_enter_blank
+        text $we_should_meet
+
+
+
+
+
+
+
 
 
 

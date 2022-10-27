@@ -27,12 +27,12 @@ $data_files = @(
     "./data/intro04.iff",
     "./data/blank.iff",
     "./data/alleyway1a.iff",
-    "./data/alleyway2.iff",
+    "./data/locations/loc_alley_alleycat.iff",
     "./data/alleyway3a.iff",
     "./data/alleyway_trash.iff",
     "./data/alleyway_atm.iff",
     "./data/subway_entrance.iff",
-    "./data/subway_interior.iff",
+    "./data/locations/loc_subway_interior.iff",
     "./data/alleycat1.iff",
     "./data/locations/loc_alleycat_bar.iff",
     "./data/locations/loc_alleycat_entrance.iff",
@@ -41,6 +41,9 @@ $data_files = @(
     "./data/locations/loc_blake_apartment.iff",
     "./data/locations/loc_laundry_exterior.iff",
     "./data/locations/loc_laundry_interior.iff",
+    "./data/locations/loc_b19_entrance.iff",
+    "./data/locations/loc_b19_office.iff",
+    "./data/locations/loc_b19_storage.iff",
     "./data/cutscenes/end_act_1.iff",
     "./data/display.font",
     "./data/frame.shape",
@@ -55,6 +58,7 @@ $data_files = @(
     "./data/3.shapes",
     "./data/4.shapes",
     "./data/5.shapes",
+    "./data/6.shapes",
     "./data/menu.shapes"
 )
 

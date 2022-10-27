@@ -55,7 +55,7 @@ namespace NEONnoir
             // Display all the dialogues
             for (auto& dialogue : data->dialogues)
             {
-                if (ImGui::TreeNode(std::format(("Dialogue {}:{}"), count, dialogue.speaker).c_str()))
+                if (ImGui::TreeNode(std::format(("Dialogue {}:{}###dialogue{}"), count, dialogue.speaker, count).c_str()))
                 {
                     if (display_dialogue(dialogue, page_count))
                     {

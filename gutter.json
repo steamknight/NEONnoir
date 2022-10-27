@@ -150,7 +150,7 @@
               "script": "map_alleycat",
               "self_disable": false,
               "set_flag": "",
-              "text": "The Alleycat."
+              "text": "The alleyway near the Alleycat."
             },
             {
               "check_flag": "",
@@ -179,6 +179,20 @@
               "self_disable": false,
               "set_flag": "",
               "text": "The Lost Sock Laundromat."
+            },
+            {
+              "check_flag": "loc_b19",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": true,
+              "has_clear_flag": false,
+              "has_script": true,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "map_loc_b19",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Building 19, Industrial District."
             },
             {
               "check_flag": "",
@@ -311,6 +325,34 @@
               "text": "Alright Glitch, I did what you asked. Now tell me the password."
             },
             {
+              "check_flag": "gladys_wont_help",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": true,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 20,
+              "script": "",
+              "self_disable": true,
+              "set_flag": "",
+              "text": "I need your special brand of help."
+            },
+            {
+              "check_flag": "inv_visser_photo",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": true,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 27,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Do you know who the man in this photo is?"
+            },
+            {
               "check_flag": "",
               "clear_flag": "",
               "enabled": true,
@@ -323,20 +365,6 @@
               "self_disable": false,
               "set_flag": "",
               "text": "See you around."
-            },
-            {
-              "check_flag": "gladys_wont_help",
-              "clear_flag": "",
-              "enabled": true,
-              "has_check_flag": true,
-              "has_clear_flag": false,
-              "has_script": false,
-              "has_set_flag": false,
-              "next_page_id": 20,
-              "script": "",
-              "self_disable": false,
-              "set_flag": "",
-              "text": "I need your special brand of help."
             }
           ],
           "clear_flag": "",
@@ -942,6 +970,62 @@
           "self_disable": false,
           "set_flag": "",
           "text": "You're just going to have to trust me!"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 28,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "No. Bad Glitch. No more fetch quests. Just tell me."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "I can't say I do... however, I have heard something. If you could get me--"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": true,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "knows_about_acid_nova_and_visser",
+              "text": "Thanks Glitch."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Fine. Fine. I saw him talking to Acid Nova about some kind of deal. I don't have any other details, I swear."
         }
       ],
       "speaker": "Glitch"
@@ -2291,6 +2375,20 @@
               "self_disable": false,
               "set_flag": "",
               "text": "Just looking at you, I can tell this is going to be pointless. Bye."
+            },
+            {
+              "check_flag": "inv_visser_photo",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": true,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 21,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Do you know the man on this photo?"
             }
           ],
           "clear_flag": "",
@@ -2750,6 +2848,160 @@
           "self_disable": false,
           "set_flag": "",
           "text": "Let me stop you right there, while I'm still in a good mood. I don't like to be called a liar by a two-bit walking cliche with the aforementioned cheap coat. So you can drop this now and enjoy the delights the Alleycat has to offer, or I can ask Tank, who I believe you already met on your way in to show you the way out.\n\nAm I coming through clear?"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "knows_about_acid_nova_and_visser",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": true,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 22,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "I know you know him."
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Nevermind."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "What is it with you and showing me photos of people I've never seen?"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 23,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "(Bluff) I know all about you deal."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "You don't know drek about anything."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 24,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "I didn't, but thanks for confirming it for me."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "*Goes Pale* How do you know about the Coral?"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 25,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "I don't think so. Instead you're going to tell me what I want to know or I'll give JV here a call. I'm sure he'd love to know how loose lipped you are about his involvment with Coral."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "You dreking drek! You stick your nose in my business, you die!"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": true,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "call_visser",
+              "text": "I'm not bluffing this time."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "I'm not falling for another one of your bluffs."
         }
       ],
       "speaker": "Acid Nova"
@@ -3153,7 +3405,7 @@
       "speaker": "Crystal"
     },
     {
-      "image_id": 10,
+      "image_id": 11,
       "pages": [
         {
           "check_flag": "",
@@ -3182,7 +3434,7 @@
               "has_set_flag": false,
               "next_page_id": 7,
               "script": "",
-              "self_disable": false,
+              "self_disable": true,
               "set_flag": "",
               "text": "I found this note in her room, what do you make of it?"
             },
@@ -3199,20 +3451,6 @@
               "self_disable": true,
               "set_flag": "",
               "text": "I found her id."
-            },
-            {
-              "check_flag": "",
-              "clear_flag": "",
-              "enabled": true,
-              "has_check_flag": false,
-              "has_clear_flag": false,
-              "has_script": false,
-              "has_set_flag": false,
-              "next_page_id": 65535,
-              "script": "",
-              "self_disable": false,
-              "set_flag": "",
-              "text": "Nothing more for now."
             },
             {
               "check_flag": "act2_started",
@@ -3241,6 +3479,20 @@
               "self_disable": true,
               "set_flag": "",
               "text": "I need your help."
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Nothing more for now."
             }
           ],
           "clear_flag": "",
@@ -3898,7 +4150,7 @@
               "has_set_flag": false,
               "next_page_id": 65535,
               "script": "govlink_search",
-              "self_disable": false,
+              "self_disable": true,
               "set_flag": "",
               "text": "Run Danni's ID card."
             },
@@ -3915,20 +4167,6 @@
               "self_disable": false,
               "set_flag": "",
               "text": "Run a Database Search."
-            },
-            {
-              "check_flag": "",
-              "clear_flag": "",
-              "enabled": true,
-              "has_check_flag": false,
-              "has_clear_flag": false,
-              "has_script": false,
-              "has_set_flag": false,
-              "next_page_id": 65535,
-              "script": "",
-              "self_disable": false,
-              "set_flag": "",
-              "text": "Log off."
             },
             {
               "check_flag": "inv_glitch_hacktool",
@@ -3957,6 +4195,20 @@
               "self_disable": true,
               "set_flag": "",
               "text": "Plug in Glitch's datastick."
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Log off."
             }
           ],
           "clear_flag": "",
@@ -3972,20 +4224,6 @@
         {
           "check_flag": "",
           "choices": [
-            {
-              "check_flag": "",
-              "clear_flag": "",
-              "enabled": true,
-              "has_check_flag": false,
-              "has_clear_flag": false,
-              "has_script": false,
-              "has_set_flag": false,
-              "next_page_id": 0,
-              "script": "",
-              "self_disable": false,
-              "set_flag": "",
-              "text": "Nothing else."
-            },
             {
               "check_flag": "",
               "clear_flag": "",
@@ -4027,6 +4265,20 @@
               "self_disable": false,
               "set_flag": "",
               "text": "Cygnus Holdings"
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 0,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Nothing else."
             }
           ],
           "clear_flag": "",
@@ -4282,10 +4534,10 @@
           "enabled": true,
           "has_check_flag": false,
           "has_clear_flag": false,
-          "has_set_flag": true,
+          "has_set_flag": false,
           "next_page_id": 65535,
           "self_disable": false,
-          "set_flag": "inv_visser_photo",
+          "set_flag": "",
           "text": "Customer ID: JV\nPreferred Server: N/A\n\nNotes:\nJV picks up the girls for 15. He's real slipper and I don't trust him, but at least the credits are always good.\n\nPhotograph attached."
         },
         {
@@ -4376,7 +4628,7 @@
       "speaker": "GovLink"
     },
     {
-      "image_id": 12,
+      "image_id": 13,
       "pages": [
         {
           "check_flag": "",
@@ -4592,7 +4844,7 @@
       "speaker": "Daisy"
     },
     {
-      "image_id": 16,
+      "image_id": 17,
       "pages": [
         {
           "check_flag": "gladys_wont_help",
@@ -4861,7 +5113,7 @@
       "speaker": "Gladys"
     },
     {
-      "image_id": 16,
+      "image_id": 17,
       "pages": [
         {
           "check_flag": "",
@@ -4880,7 +5132,7 @@
       "speaker": "Gladys"
     },
     {
-      "image_id": 15,
+      "image_id": 16,
       "pages": [
         {
           "check_flag": "",
@@ -5040,7 +5292,7 @@
       "speaker": "Crystal"
     },
     {
-      "image_id": 13,
+      "image_id": 14,
       "pages": [
         {
           "check_flag": "",
@@ -5128,6 +5380,344 @@
         }
       ],
       "speaker": "Jacob Ashton"
+    },
+    {
+      "image_id": 9,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Mr. Steel, I trust you have an update for me?"
+        }
+      ],
+      "speaker": "Visser Ruse 1"
+    },
+    {
+      "image_id": 8,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "*whispering* OK, you win, just hang up!"
+        }
+      ],
+      "speaker": "Acid Nova Ruse 2"
+    },
+    {
+      "image_id": 9,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "My apologies, I dialed you on accident. I'll report in later. Good bye."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "I can't hear you, it's very loud where you are."
+        }
+      ],
+      "speaker": "Visser Ruse 2"
+    },
+    {
+      "image_id": 8,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 1,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "I told you, I'm Blake Steel, PI. I'm looking for Danni who I know you sold Coral too, and JV is somehow playing a part in it. And you were just about to tell me what you know."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Who the drek are you?"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": true,
+              "next_page_id": 4,
+              "script": "",
+              "self_disable": true,
+              "set_flag": "knows_411_first_bit",
+              "text": "What do you know about Danni?"
+            },
+            {
+              "check_flag": "knows_411_first_bit",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": true,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": true,
+              "next_page_id": 5,
+              "script": "",
+              "self_disable": true,
+              "set_flag": "knows_411_second_bit",
+              "text": "Tell me everything you know about JV."
+            },
+            {
+              "check_flag": "knows_411_second_bit",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": true,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 2,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "That wasn't so hard, was it?"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Alright fine what do you want to know?"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 3,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Aww.. What happened to your friendly disposition?"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": true,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "banned_from_alleycat",
+          "text": "Happy? Good, get the drek out of my club and never come back!"
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "OUT!"
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 1,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "It's true, I sold Coral to Danni every now and again. As far as I know, she got most of it from the people she was frequenting. That's all I know, I swear!"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 6,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "What can you tell me about him?"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "JV... Johan Visser. As you've guessed, he's my Coral contact."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": true,
+              "next_page_id": 1,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "loc_b19",
+              "text": "Building 19, huh. I should give that place a look."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Not much, he's a very dangerous man. We meet at Building 19 in the industrial district. He tells me when and I show up with lots of credits and no questions. There's a code to get in: 3141."
+        }
+      ],
+      "speaker": "Acid Nova Ruse 2"
+    },
+    {
+      "image_id": 19,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 1,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Who's this?"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Hello, Mr. Steel."
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "The person you've been looking for."
+        }
+      ],
+      "speaker": "Unknown"
+    },
+    {
+      "image_id": 20,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": true,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "act3_started",
+          "text": "My name is Danni Ashton..."
+        }
+      ],
+      "speaker": "Danni"
     }
   ],
   "locations": [
@@ -5318,13 +5908,13 @@
     },
     {
       "backgrounds": [
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\alleyway2.iff",
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_alley_alleycat.iff",
         "C:\\Users\\mass\\source\\NEONnoir\\data\\alleyway1a.iff",
         "C:\\Users\\mass\\source\\NEONnoir\\data\\alleyway3a.iff",
         "C:\\Users\\mass\\source\\NEONnoir\\data\\alleyway_atm.iff",
         "C:\\Users\\mass\\source\\NEONnoir\\data\\alleyway_trash.iff",
         "C:\\Users\\mass\\source\\NEONnoir\\data\\subway_entrance.iff",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\subway_interior.iff"
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_subway_interior.iff"
       ],
       "name": "Alley",
       "scenes": [
@@ -5629,23 +6219,23 @@
             },
             {
               "description": "Board the Subway",
-              "height": 28,
+              "height": 61,
               "pointer_id": 2,
               "script": "use_alley_subway",
               "shape_id": 65535,
-              "width": 44,
-              "x": 122,
-              "y": 62
+              "width": 74,
+              "x": 108,
+              "y": 52
             },
             {
               "description": "Blue-haired man",
               "height": 117,
-              "pointer_id": 0,
+              "pointer_id": 2,
               "script": "dialogue_tweaker",
               "shape_id": 65535,
               "width": 42,
               "x": 212,
-              "y": 58
+              "y": 76
             }
           ],
           "view_height": 0,
@@ -5864,6 +6454,18 @@
               "y": 0
             }
           ]
+        },
+        {
+          "has_palette": true,
+          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\visser.iff",
+          "shapes": [
+            {
+              "height": 100,
+              "width": 100,
+              "x": 0,
+              "y": 0
+            }
+          ]
         }
       ],
       "shapes_file": "2.shapes"
@@ -5952,7 +6554,7 @@
             {
               "description": "Nightstand",
               "height": 39,
-              "pointer_id": 1,
+              "pointer_id": 2,
               "script": "use_bedroom_nightstand",
               "shape_id": 65535,
               "width": 32,
@@ -6268,6 +6870,245 @@
         }
       ],
       "shapes_file": "5.shapes"
+    },
+    {
+      "backgrounds": [
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_b19_entrance.iff",
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_b19_office.iff",
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_b19_storage.iff",
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\blank.bmp"
+      ],
+      "name": "B19",
+      "scenes": [
+        {
+          "image_id": 0,
+          "music_id": 65535,
+          "name": "Entrance",
+          "offset_x": 0,
+          "offset_y": 0,
+          "on_enter": "on_enter_b19",
+          "on_exit": "",
+          "regions": [
+            {
+              "description": "Doors to the storage facility.",
+              "height": 79,
+              "pointer_id": 2,
+              "script": "goto_b19_storage",
+              "shape_id": 65535,
+              "width": 39,
+              "x": 56,
+              "y": 86
+            },
+            {
+              "description": "Doors to the upper level office.",
+              "height": 37,
+              "pointer_id": 2,
+              "script": "goto_b19_office",
+              "shape_id": 65535,
+              "width": 42,
+              "x": 12,
+              "y": 0
+            },
+            {
+              "description": "Exit to subway.",
+              "height": 200,
+              "pointer_id": 3,
+              "script": "exit_to_subway",
+              "shape_id": 65535,
+              "width": 30,
+              "x": 290,
+              "y": 0
+            }
+          ],
+          "view_height": 0,
+          "view_width": 0,
+          "view_x": 0,
+          "view_y": 0
+        },
+        {
+          "image_id": 1,
+          "music_id": 65535,
+          "name": "Office",
+          "offset_x": 0,
+          "offset_y": 0,
+          "on_enter": "",
+          "on_exit": "",
+          "regions": [
+            {
+              "description": "Leave the office.",
+              "height": 117,
+              "pointer_id": 3,
+              "script": "goto_b19_entrance",
+              "shape_id": 65535,
+              "width": 74,
+              "x": 206,
+              "y": 40
+            },
+            {
+              "description": "Some lockers.",
+              "height": 67,
+              "pointer_id": 2,
+              "script": "use_lockers",
+              "shape_id": 65535,
+              "width": 43,
+              "x": 126,
+              "y": 74
+            },
+            {
+              "description": "Some papers on a small table.",
+              "height": 19,
+              "pointer_id": 2,
+              "script": "use_papers",
+              "shape_id": 65535,
+              "width": 72,
+              "x": 12,
+              "y": 133
+            },
+            {
+              "description": "Looking out the window, I see the industrial wasteland outside.",
+              "height": 51,
+              "pointer_id": 1,
+              "script": "",
+              "shape_id": 65535,
+              "width": 64,
+              "x": 17,
+              "y": 47
+            },
+            {
+              "description": "A trashcan.",
+              "height": 34,
+              "pointer_id": 2,
+              "script": "use_trashcan",
+              "shape_id": 65535,
+              "width": 20,
+              "x": 170,
+              "y": 113
+            },
+            {
+              "description": "Let's hope they're bluffing.",
+              "height": 33,
+              "pointer_id": 1,
+              "script": "",
+              "shape_id": 65535,
+              "width": 44,
+              "x": 21,
+              "y": 12
+            }
+          ],
+          "view_height": 0,
+          "view_width": 0,
+          "view_x": 0,
+          "view_y": 0
+        },
+        {
+          "image_id": 2,
+          "music_id": 65535,
+          "name": "Storage",
+          "offset_x": 0,
+          "offset_y": 0,
+          "on_enter": "on_enter_b19_storage",
+          "on_exit": "",
+          "regions": [
+            {
+              "description": "Small plastic capsule",
+              "height": 11,
+              "pointer_id": 2,
+              "script": "get_coral",
+              "shape_id": 65535,
+              "width": 25,
+              "x": 127,
+              "y": 137
+            },
+            {
+              "description": "Lots of boxes",
+              "height": 65,
+              "pointer_id": 2,
+              "script": "use_boxes",
+              "shape_id": 65535,
+              "width": 59,
+              "x": 7,
+              "y": 82
+            },
+            {
+              "description": "More and more boxes.",
+              "height": 69,
+              "pointer_id": 1,
+              "script": "",
+              "shape_id": 65535,
+              "width": 108,
+              "x": 89,
+              "y": 31
+            },
+            {
+              "description": "Exit the building.",
+              "height": 200,
+              "pointer_id": 3,
+              "script": "goto_b19_entrance",
+              "shape_id": 65535,
+              "width": 30,
+              "x": 290,
+              "y": 0
+            }
+          ],
+          "view_height": 0,
+          "view_width": 0,
+          "view_x": 0,
+          "view_y": 0
+        },
+        {
+          "image_id": 3,
+          "music_id": 65535,
+          "name": "Fade to black",
+          "offset_x": 0,
+          "offset_y": 0,
+          "on_enter": "on_enter_blank",
+          "on_exit": "",
+          "regions": [],
+          "view_height": 0,
+          "view_width": 0,
+          "view_x": 0,
+          "view_y": 0
+        }
+      ],
+      "shapes": [
+        {
+          "has_palette": true,
+          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\blake.iff",
+          "shapes": [
+            {
+              "height": 100,
+              "width": 100,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "has_palette": true,
+          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\unknown.iff",
+          "shapes": [
+            {
+              "height": 100,
+              "width": 100,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "has_palette": true,
+          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\danni.iff",
+          "shapes": [
+            {
+              "height": 100,
+              "width": 100,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        }
+      ],
+      "shapes_file": "6.shapes"
     }
   ],
   "script_name": "C:\\Users\\mass\\source\\NEONnoir\\gutter.nscript"

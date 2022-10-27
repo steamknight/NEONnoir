@@ -37,6 +37,8 @@ Function .b dg_is_choice_enabled{choice_ptr.l}
     enabled = enabled AND NS_flags(*choice\check_flag)
   End If
 
+  ;!DB_printf{"************ [%ld] flag %d=%d:%d", choice_ptr, *choice\check_flag, NS_flags(*choice\check_flag), enabled}
+
   Function Return enabled
 End Function
 

@@ -139,7 +139,7 @@ Statement NS_execute_script{script_offset.l}
       Case #NS_op_not
         PC + 2              ; Eat the opcode
         v1 = Peek.w (*NS_script_data + PC)
-        FR = NOT NS_flags(v1)
+        FR = NOT FR
         !__print_bc{PC, "not"}
 
       ; Flow control
