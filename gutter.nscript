@@ -24,7 +24,6 @@
 
     first_time_blake_act2
 
-    knows_about_xantech             ; Knows about the existence of Xantech Cybernetics
     laundry_first_time_outside      ; First time outside the laundry
     laundry_first_time_inside       ; First time inside the laundry
     gladys_wont_help                ; Gladys, that old bag, won't help you.
@@ -48,8 +47,11 @@
     b19_storage_been_here
     b19_office_been_here
 
+    knows_about_xantech
     knows_about_xander
     knows_about_cygnus
+    knows_summervault
+    knows_sumerian
 
 ; Inventory items
 ; ==============================================================================
@@ -112,6 +114,7 @@
     ; Scenes in Blake's apartment
     scene_blake_apartment       0
     scene_end_act1_cutscene     1
+    scene_fade_to_black         2
 
     ; Scenes in the Laundromat
     scene_laundry_exterior      0
@@ -121,7 +124,6 @@
     scene_b19_exterior          0
     scene_b19_office            1
     scene_b19_storage           2
-    scene_fade_to_black         3
 
     ; Dialogues
     dialogue_blake              0
@@ -145,6 +147,8 @@
     dialogue_acid_nova_ruse2   18
     dialogue_danni_intro1      19
     dialogue_danni_intro2      20
+    dialogue_tank_banned       21
+    dialogue_tank_and_stay_out 22
 
     ; Music and sound
     mod_theme                   0
@@ -256,6 +260,9 @@
     call_visser2                "*RING RING*"
     call_visser3                "Two rings and JV, whoever he really is, picks up the phone."
 
+    tank_shove1                 "Mustering more bravado than was prudent, I attempted to shove the bouncer aside and quickly came to understand why they call him 'Tank'."
+    tank_shove2                 "With the force that a only man born to be a living door might possess, Tank unceremoniously shoves me onto the alleyway floor."
+
 ; Location: Danni's apartment
 ; ==============================================================================
 .TEXT
@@ -286,10 +293,16 @@
     blake_start_act2            "Time to hit streets. Daisy, be a good girl while I'm out."
     just_got_visser_photo1      "Holy dreking hell! This is a photo of Jacob Ashton! Danni was with 15, whoever they are, and Jacob- I mean JV picked her up! What did they do to her? Why do they want to find her?"
     just_got_visser_photo2      "I need to show this photograph around and see if anyone recognizes him. Finally, some progress!"
+    parcel_trace1               "Parcel #3,735,928,559"
+    parcel_trace2               "Address: 2833 Pipeline St, Unit B19"
+    parcel_trace3               "Owner: SummerVault"
+    parcel_trace4               "Listed Use: Storage"
+    parcel_trace5               "SummerVault? Let's add the to the database search."
 
 ; Location: The Lost Sock Laundromat
 ; ==============================================================================
-    laundry_outside_desc        "The Lost Sock laundromat was on Merchant's Row, not too far from Danni and Crystal's apartment. Like everywhere else is the Gutter, the streets were slick with undefined liquids."
+    laundry_outside_desc1       "The Lost Sock laundromat was on Merchant's Row, not too far from Danni and Crystal's apartment. Like everywhere else is the Gutter, the streets were slick with undefined liquids."
+    laundry_outside_desc2       "Down the street is poster that stands out as being the only thing here not covered in filth."
     laundry_inside_desc         "For a laundromat, it was surprisingly hazy and dark in here. While a few laundry machines are spinning, there's nobody here other than an old woman sitting next to a computer. This must be Gladys."
     gladys_is_too_mean          "I don't think I'm going get anywhere with that museum exhibit. I bet that if I could get my hands on her computer, I could learn a few interesting things."
     laundromat_closed           "Odd... the door is locked. Through the window, I can see an old woman. When she notices me, she waves me away. I'll come back later."
@@ -362,8 +375,18 @@
 
     @check_danni_id
         load !inv_danni_id              ; Do we have Danni's ID?
-        jiff @check_note_from_gladys
+        jiff @check_coral
         txtput $inv_danni_id 32
+
+    @check_coral
+        load !inv_coral                 ; Do we have the Coral
+        jiff @check_parcel
+        txtput $inv_coral 32
+
+    @check_parcel
+        load !inv_parcel_number
+        jiff @check_note_from_gladys
+        txtput $inv_parcel_number 32
 
     @check_note_from_gladys
         load !inv_note_from_gladys      ; Do we have Gladys's note?
@@ -544,6 +567,12 @@
 ; Attempt to enter the Alleycat. If we've haven't found the body
 ; we have no reason to go in
 .SCRIPT enter_alleycat
+        load !banned_from_alleycat
+        jiff @check_have_access
+        dlg #dialogue_tank_banned
+        end
+
+    @check_have_access
         load !alleycat_gained_access
         jiff @not_yet
         goloc #location_alleycat #scene_alleycat_entrance
@@ -551,7 +580,16 @@
 
     @not_yet
         dlg #dialogue_tank
-        end 
+
+        ; Ok, but did Tank let us in?
+        load !alleycat_gained_access
+        jiff @done
+        goloc #location_alleycat #scene_alleycat_entrance
+        end
+
+    @done
+        end
+        
 
 ; Move to alley near Alleycat
 .SCRIPT goto_alleycat
@@ -755,6 +793,13 @@
     @done
         end
 
+.SCRIPT tank_shove
+        text $tank_shove1
+        text $tank_shove2
+
+        dlg #dialogue_tank_and_stay_out
+        end
+
 ; ALLEYCAT
 ; =====================================================
 
@@ -789,6 +834,10 @@
         store !banned_from_alleycat
 
     @done
+        end
+
+.SCRIPT kicked_out_of_club
+        goloc #location_alleyway #alley_alleycat
         end
 
 ; DANNI'S APARTMENT
@@ -859,11 +908,11 @@
 
         ; Skip this section if we already have the photo
         load !inv_visser_photo
-        jift @done
+        jift @danni_call
 
         ; Did we just get Visser's photo?
         load !just_got_visser_photo
-        jiff @done
+        jiff @danni_call
         text $just_got_visser_photo1
         text $just_got_visser_photo2
         
@@ -872,6 +921,25 @@
 
         end
 
+    @danni_call
+        load !inv_coral
+        and !inv_parcel_number
+        and !knows_about_xander
+        jiff @done
+        
+    @check_danni
+        ; If we have both the Coral and parcel number, then Danni's going to call us
+        load !inv_parcel_number
+        and !inv_coral
+        jiff @done
+        ;text $get_call_from_danni1
+        text $get_call_from_danni2
+        text $get_call_from_danni3
+
+        text $get_call_from_danni2
+        dlg #dialogue_danni_intro1
+        dlg #dialogue_danni_intro2
+        goto #scene_fade_to_black
     @done
         end
 
@@ -895,6 +963,19 @@
         text $make_a_drink
 
         goto #scene_end_act1_cutscene
+        end
+
+.SCRIPT govlink_search_parcel
+        txtstart #frame_on
+        txtput $parcel_trace1 45
+        txtput $parcel_trace2 45
+        txtput $parcel_trace3 45
+        txtput $parcel_trace4 45
+        txtend 20 10 #wait_on
+
+        text $parcel_trace5
+        set
+        store !knows_summervault
         end
 
 .SCRIPT dialogue_daisy
@@ -935,7 +1016,7 @@
         and !first_time_blake_act2
         jiff @done
         text $blake_start_act2
-        set
+        clear
         store !first_time_blake_act2
 
     @done
@@ -962,6 +1043,8 @@
 .SCRIPT use_xantech_poster
         text $laundry_xantech_poster1
         text $laundry_xantech_poster2
+        set
+        store !knows_about_xantech
         end
 
 .SCRIPT exit_laundromat
@@ -1013,7 +1096,8 @@
         ; is it the first time here?
         load !laundry_first_time_outside
         jift @not_first_time
-        text $laundry_outside_desc
+        text $laundry_outside_desc1
+        text $laundry_outside_desc2
         set
         store !laundry_first_time_outside
 
@@ -1052,26 +1136,12 @@
 ; =====================================================
 .SCRIPT on_enter_b19
         load !b19_been_here
-        jift @check_danni
+        jift @done
         text $b19_exterior_desc1
         text $b19_exterior_desc2
         text $b19_exterior_desc3
         set
         store !b19_been_here
-
-    @check_danni
-        ; If we have both the Coral and parcel number, then Danni's going to call us
-        load !inv_parcel_number
-        and !inv_coral
-        jiff @done
-        text $get_call_from_danni1
-        text $get_call_from_danni2
-        text $get_call_from_danni3
-
-        text $get_call_from_danni2
-        dlg #dialogue_danni_intro1
-        dlg #dialogue_danni_intro2
-        goto #scene_fade_to_black
 
     @done
         end
@@ -1148,6 +1218,14 @@
 
 .SCRIPT on_enter_blank
         text $we_should_meet
+
+
+
+
+
+
+
+
 
 
 

@@ -53,6 +53,8 @@ namespace NEONnoir
             script_buffer << script_file.rdbuf();
 
             _text_editor.SetText(script_buffer.str());
+
+            _filename = file;
         }
     }
 
@@ -124,6 +126,16 @@ namespace NEONnoir
                 _show_editor = false;
             }
             ToolTip("Hide the editor");
+        }
+
+        if (_filename != "")
+        {
+            ImGui::SameLine();
+            if (ImGui::SmallButton(ICON_MD_REFRESH))
+            {
+                load_script(_filename);
+            }
+            ToolTip("Reload the script");
         }
 
         if (_has_error)

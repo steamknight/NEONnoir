@@ -39,6 +39,7 @@ namespace NEONnoir
         bool _has_error{ false };
         bool _show_editor{ false };
         size_t _error_line{0};
+        std::string _filename{};
     };
 }
 

@@ -3493,6 +3493,20 @@
               "self_disable": false,
               "set_flag": "",
               "text": "Nothing more for now."
+            },
+            {
+              "check_flag": "inv_visser_photo",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": true,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 21,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Tell me, have you seen the man in this photo before?"
             }
           ],
           "clear_flag": "",
@@ -4130,6 +4144,90 @@
           "self_disable": false,
           "set_flag": "",
           "text": "Are you serious?"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 22,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "I'd say so. He's the one that hired me."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Let me see... yeah. I've seen him a few times. He's picked up Danni whenever she's with 15. Is he related to Danni's disappearance?"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 23,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Exactly. I get the feeling something bad happened that night Danni was with 15. Remember how I said that I think she doesn't want to be found?"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "You mean, he's the one that tried to pass as her father?"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "I think these are the people she doesn't want to be found by."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Yeah?"
         }
       ],
       "speaker": "Crystal"
@@ -4209,6 +4307,20 @@
               "self_disable": false,
               "set_flag": "",
               "text": "Log off."
+            },
+            {
+              "check_flag": "inv_parcel_number",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": true,
+              "has_clear_flag": false,
+              "has_script": true,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "govlink_search_parcel",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Run B19's parcel number."
             }
           ],
           "clear_flag": "",
@@ -4225,10 +4337,10 @@
           "check_flag": "",
           "choices": [
             {
-              "check_flag": "",
+              "check_flag": "knows_about_xantech",
               "clear_flag": "",
               "enabled": true,
-              "has_check_flag": false,
+              "has_check_flag": true,
               "has_clear_flag": false,
               "has_script": false,
               "has_set_flag": false,
@@ -4279,6 +4391,34 @@
               "self_disable": false,
               "set_flag": "",
               "text": "Nothing else."
+            },
+            {
+              "check_flag": "knows_summervault",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": true,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 13,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "SummerVault"
+            },
+            {
+              "check_flag": "knows_sumerian",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": true,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 14,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Sumerian Collective"
             }
           ],
           "clear_flag": "",
@@ -4415,7 +4555,7 @@
           "next_page_id": 65535,
           "self_disable": false,
           "set_flag": "",
-          "text": "Lost Sock Personnel List\n\n(About a dozen names scroll by, but only two stand out.)"
+          "text": "Lost Sock Personnel List\n\n(About a dozen names scroll by but only two stand out.)"
         },
         {
           "check_flag": "",
@@ -4510,7 +4650,7 @@
           "next_page_id": 7,
           "self_disable": false,
           "set_flag": "knows_about_15_and_jv",
-          "text": "Customer ID: 15\nPreferred Server: DA\n\nNotes:\n15 doesn't like to get their hands dirty. They girls are always picked up by one of his subordinates, JV."
+          "text": "Customer ID: 15\nPreferred Server: DA\n\nNotes:\n15 doesn't like to get their hands dirty. Their girls are always picked up by one of his subordinates, JV."
         },
         {
           "check_flag": "",
@@ -4538,7 +4678,7 @@
           "next_page_id": 65535,
           "self_disable": false,
           "set_flag": "",
-          "text": "Customer ID: JV\nPreferred Server: N/A\n\nNotes:\nJV picks up the girls for 15. He's real slipper and I don't trust him, but at least the credits are always good.\n\nPhotograph attached."
+          "text": "Customer ID: JV\nPreferred Server: N/A\n\nNotes:\nJV picks up the girls for 15. He's real slippery and I don't trust him, but at least the credits are always good.\n\nPhotograph attached."
         },
         {
           "check_flag": "",
@@ -4606,11 +4746,11 @@
               "has_check_flag": false,
               "has_clear_flag": false,
               "has_script": false,
-              "has_set_flag": false,
+              "has_set_flag": true,
               "next_page_id": 1,
               "script": "",
               "self_disable": false,
-              "set_flag": "",
+              "set_flag": "knows_about_xantech",
               "text": "Return"
             }
           ],
@@ -4622,7 +4762,63 @@
           "next_page_id": 65535,
           "self_disable": false,
           "set_flag": "",
-          "text": "Entry: Cygnus Holdings\nSummary: Cygnus Holdings is [REDACTED] and are resposible for [REDACTED]. Their subsidiaries include [LIST REDACTED]"
+          "text": "Entry: Cygnus Holdings\nSummary: Cygnus Holdings is [REDACTED] and are resposible for [REDACTED]. Their subsidiaries include [LIST REDACTED] and Xantech Cybernetics."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": true,
+              "next_page_id": 1,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "knows_sumerian",
+              "text": "Return"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Entry: SummerVault\nSummary: SummerVault was formed 4 years ago. Since its inception, SummerVault has specialized in the sale of personal protection vaults and bunkers. Recently it fought off a contronversy relating to their vault subscription service, as the capacity they have is a fraction of the lucritive subscriptions they sold.\nLast year they were aquired by the Sumerian Collective."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": true,
+              "next_page_id": 1,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "knows_about_cygnus",
+              "text": "Return"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Entry: Sumerian Collective\nSummary: Establised 7 years ago, the Sumerian Collective have purchased several companies in varied industries. Ironically, they themselves are now a wholy owned subsidiary of Cygnus Holdings."
         }
       ],
       "speaker": "GovLink"
@@ -4844,7 +5040,7 @@
       "speaker": "Daisy"
     },
     {
-      "image_id": 17,
+      "image_id": 19,
       "pages": [
         {
           "check_flag": "gladys_wont_help",
@@ -5113,7 +5309,7 @@
       "speaker": "Gladys"
     },
     {
-      "image_id": 17,
+      "image_id": 19,
       "pages": [
         {
           "check_flag": "",
@@ -5132,7 +5328,7 @@
       "speaker": "Gladys"
     },
     {
-      "image_id": 16,
+      "image_id": 18,
       "pages": [
         {
           "check_flag": "",
@@ -5549,10 +5745,10 @@
               "enabled": true,
               "has_check_flag": false,
               "has_clear_flag": false,
-              "has_script": false,
+              "has_script": true,
               "has_set_flag": false,
               "next_page_id": 3,
-              "script": "",
+              "script": "kicked_out_of_club",
               "self_disable": false,
               "set_flag": "",
               "text": "Aww.. What happened to your friendly disposition?"
@@ -5654,7 +5850,7 @@
       "speaker": "Acid Nova Ruse 2"
     },
     {
-      "image_id": 19,
+      "image_id": 15,
       "pages": [
         {
           "check_flag": "",
@@ -5695,13 +5891,13 @@
           "next_page_id": 65535,
           "self_disable": false,
           "set_flag": "",
-          "text": "The person you've been looking for."
+          "text": "The person you've been looking for, Blake."
         }
       ],
       "speaker": "Unknown"
     },
     {
-      "image_id": 20,
+      "image_id": 16,
       "pages": [
         {
           "check_flag": "",
@@ -5718,6 +5914,73 @@
         }
       ],
       "speaker": "Danni"
+    },
+    {
+      "image_id": 2,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Yeah, no. I get it."
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": true,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "tank_shove",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Stand aside. Nobody tells Blake Steel where he can go."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Sorry, you can't come in. Boss's orders."
+        }
+      ],
+      "speaker": "Tank"
+    },
+    {
+      "image_id": 2,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "AND STAY OUT!"
+        }
+      ],
+      "speaker": "Tank"
     }
   ],
   "locations": [
@@ -6619,7 +6882,8 @@
     {
       "backgrounds": [
         "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_blake_apartment.iff",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\cutscenes\\end_act_1.iff"
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\cutscenes\\end_act_1.iff",
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\blank.bmp"
       ],
       "name": "Blake's Apartment",
       "scenes": [
@@ -6681,6 +6945,20 @@
           "view_width": 0,
           "view_x": 0,
           "view_y": 0
+        },
+        {
+          "image_id": 2,
+          "music_id": 65535,
+          "name": "Fade to black",
+          "offset_x": 0,
+          "offset_y": 0,
+          "on_enter": "on_enter_blank",
+          "on_exit": "",
+          "regions": [],
+          "view_height": 0,
+          "view_width": 0,
+          "view_x": 0,
+          "view_y": 0
         }
       ],
       "shapes": [
@@ -6711,6 +6989,30 @@
         {
           "has_palette": true,
           "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\visser.iff",
+          "shapes": [
+            {
+              "height": 100,
+              "width": 100,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "has_palette": true,
+          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\unknown.iff",
+          "shapes": [
+            {
+              "height": 100,
+              "width": 100,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "has_palette": true,
+          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\danni.iff",
           "shapes": [
             {
               "height": 100,
@@ -6875,8 +7177,7 @@
       "backgrounds": [
         "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_b19_entrance.iff",
         "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_b19_office.iff",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_b19_storage.iff",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\blank.bmp"
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_b19_storage.iff"
       ],
       "name": "B19",
       "scenes": [
@@ -7050,20 +7351,6 @@
               "y": 0
             }
           ],
-          "view_height": 0,
-          "view_width": 0,
-          "view_x": 0,
-          "view_y": 0
-        },
-        {
-          "image_id": 3,
-          "music_id": 65535,
-          "name": "Fade to black",
-          "offset_x": 0,
-          "offset_y": 0,
-          "on_enter": "on_enter_blank",
-          "on_exit": "",
-          "regions": [],
           "view_height": 0,
           "view_width": 0,
           "view_x": 0,
