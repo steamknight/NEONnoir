@@ -89,7 +89,7 @@ Repeat
 
   left_mouse = IN_update_mouse{}
 
-  NN_current_bmp = *NN_current_scene\background_id
+  ;NN_current_bmp = *NN_current_scene\background_id
 
   ; Show the background image
   DisplayPalette #CP_coplist, NN_current_bmp

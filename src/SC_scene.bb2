@@ -7,5 +7,8 @@
 
 ; Set the background image for a scene
 Statement SC_set_bg{id.w}
-    NPrint "Setting #", id, " as the scene background"
+    SHARED NN_current_bmp
+    NN_current_bmp = id
+    DisplayPalette #CP_coplist, NN_current_bmp
+    DisplayBitMap #CP_coplist, NN_current_bmp
 End Statement

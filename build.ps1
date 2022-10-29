@@ -44,7 +44,12 @@ $data_files = @(
     "./data/locations/loc_b19_entrance.iff",
     "./data/locations/loc_b19_office.iff",
     "./data/locations/loc_b19_storage.iff",
+    "./data/locations/loc_segs_place.iff",
+    "./data/cutscenes/end_act_2.iff",
     "./data/cutscenes/end_act_1.iff",
+    "./data/cutscenes/danni1.iff",
+    "./data/cutscenes/danni2.iff",
+    "./data/cutscenes/danni3.iff",
     "./data/display.font",
     "./data/frame.shape",
     "./data/pointers.shape",
@@ -59,6 +64,7 @@ $data_files = @(
     "./data/4.shapes",
     "./data/5.shapes",
     "./data/6.shapes",
+    "./data/7.shapes",
     "./data/menu.shapes"
 )
 

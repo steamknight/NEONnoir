@@ -175,11 +175,8 @@ Statement NS_execute_script{script_offset.l}
 
       ; Scene operations
       Case #NS_op_setbg; id
-        PC + 2              ; Eat the opcode
-        v1 = Peek.w (*NS_script_data + PC)
-        !__print_bc_v1{PC, "setbg", v1}
+        !__execute_opcode_v1{"setbg"}
         SC_set_bg{v1}
-        PC + 2              ; Eat the parameter
 
       ; Shape operations
       Case #NS_op_draw; id x y

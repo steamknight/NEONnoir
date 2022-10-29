@@ -5981,6 +5981,725 @@
         }
       ],
       "speaker": "Tank"
+    },
+    {
+      "image_id": 25,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 1,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "You and Glitch would get along."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "... SegF4ult. With a '4' in the place of the 'A'."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Totally. Anyway, Ms. Ashton?"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "You know Glitch? She's rad!"
+        }
+      ],
+      "speaker": "SegF4ult"
+    },
+    {
+      "image_id": 24,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 1,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Very well, Danni. Can you tell me what happened?"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Please, call me Danni."
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Sure thing. It all started two nights ago..."
+        }
+      ],
+      "speaker": "Danni"
+    },
+    {
+      "image_id": 24,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "What did you find? "
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "That's when I reached out to my friend SegF4ult who's an expert cyberneticist. Once we figured out what was in there, I knew that they'd come looking for me, so I didn't dare reach out to Crystal and put her in danger."
+        }
+      ],
+      "speaker": "Danni"
+    },
+    {
+      "image_id": 25,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Xantec Cybernetics? Hold on a minute. That means that 15 is..."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Danni had gigabytes of proof that Xantech Cybernetics created Coral for the specific purpose of getting people who bought cybernetics to continue to pay them money... indirectly. They've made billions already."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 2,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Johan Visser"
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 2,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Gladys Aubergine"
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Xander Vane"
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 2,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Acid Nova"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": ""
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "What? No. It's Xander Vane, Xantech's CEO!"
+        }
+      ],
+      "speaker": "SegF4ult"
+    },
+    {
+      "image_id": 24,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "I bet he thought was real clever for that one. So, how did you find out about me?"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Xander Vane. XV. 15."
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "I heard that someone was looking for me. But I couldn't risk reaching out in case my phone was being traced."
+        }
+      ],
+      "speaker": "Danni"
+    },
+    {
+      "image_id": 25,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Fortunately, there's no way that Xander could have my phone tracked. So an hour ago, we called Crystal on it and she told us all about you."
+        }
+      ],
+      "speaker": "SegF4ult"
+    },
+    {
+      "image_id": 24,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 1,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Really? What did she say?"
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 2,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "What now?"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "What she said, led us to believe we can trust you."
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 2,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "*Smirking* Let's just say you made a good impression on her."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 3,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "But what can we do?"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Now I need you help. Xander knows I have this data... and he knows that I'm not dead. He's not going to stop until we make him stop."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 4,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Hmm... If that data is as damaging as you say, it could possibly take him down. Or at the very least cause so many problems for him that you would be the least of them. What's the plan? Leak it to the press?"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "We have to destroy him. With this data."
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 5,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Eventually, but that's not going to be enough. He'll deny it and his lawyers will suppress it. Instead we have to go big."
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 6,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Real big."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 7,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "... then he's dreked. He won't be able to spin it or surpress it!"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Tomorrow night, Xander will give a keynote at XanCon, unveiling his latest line of cybernetics. If we replace the demo reel that's supposed to play with this data..."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Sounds like you have a perfect plan."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Exactly. He'll be publicly ruined."
+        }
+      ],
+      "speaker": "Danni"
+    },
+    {
+      "image_id": 25,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 1,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "I have a feeling I'm not going to like this."
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 1,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "I can't wait to take this piece of drek down."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "This is where you come in. We can't risk exposing Danni and I'm, well, I'm more of a coder than a fighter."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 2,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Cakewalk."
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 2,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "And how am I supposed to break into Xantech?"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "You're going to need to break into the server room at XanTech and plug in a data stick that will override the demo reel."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "So I guess it's high time to have a meeting with Danni's... \"dad.\""
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "I'm not going to lie, it's not going to be easy. Other than Xander, only Visser has the access codes for the inner sanctum of the data center. Xander doesn't trust anyone else."
+        }
+      ],
+      "speaker": "SegF4ult"
+    },
+    {
+      "image_id": 24,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Yes."
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 1,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "...no?"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Do you have a plan?"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "No wait! It think I got an idea..."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "This is hopeless..."
+        }
+      ],
+      "speaker": "Danni"
     }
   ],
   "locations": [
@@ -6883,7 +7602,8 @@
       "backgrounds": [
         "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_blake_apartment.iff",
         "C:\\Users\\mass\\source\\NEONnoir\\data\\cutscenes\\end_act_1.iff",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\blank.bmp"
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\blank.bmp",
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\cutscenes\\end_act_2.iff"
       ],
       "name": "Blake's Apartment",
       "scenes": [
@@ -6953,6 +7673,20 @@
           "offset_x": 0,
           "offset_y": 0,
           "on_enter": "on_enter_blank",
+          "on_exit": "",
+          "regions": [],
+          "view_height": 0,
+          "view_width": 0,
+          "view_x": 0,
+          "view_y": 0
+        },
+        {
+          "image_id": 3,
+          "music_id": 65535,
+          "name": "End Act 2",
+          "offset_x": 0,
+          "offset_y": 0,
+          "on_enter": "on_enter_end_act2",
           "on_exit": "",
           "regions": [],
           "view_height": 0,
@@ -7396,6 +8130,71 @@
         }
       ],
       "shapes_file": "6.shapes"
+    },
+    {
+      "backgrounds": [
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_segs_place.iff",
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\blank.bmp",
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\cutscenes\\danni1.iff",
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\cutscenes\\danni2.iff",
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\cutscenes\\danni3.iff"
+      ],
+      "name": "SegF4ult's Place",
+      "scenes": [
+        {
+          "image_id": 0,
+          "music_id": 65535,
+          "name": "Seg's Place",
+          "offset_x": 0,
+          "offset_y": 0,
+          "on_enter": "on_enter_segs_place",
+          "on_exit": "",
+          "regions": [],
+          "view_height": 0,
+          "view_width": 0,
+          "view_x": 0,
+          "view_y": 0
+        }
+      ],
+      "shapes": [
+        {
+          "has_palette": true,
+          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\blake.iff",
+          "shapes": [
+            {
+              "height": 100,
+              "width": 100,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "has_palette": true,
+          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\danni.iff",
+          "shapes": [
+            {
+              "height": 100,
+              "width": 100,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "has_palette": true,
+          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\segf4ult.iff",
+          "shapes": [
+            {
+              "height": 100,
+              "width": 100,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        }
+      ],
+      "shapes_file": "7.shapes"
     }
   ],
   "script_name": "C:\\Users\\mass\\source\\NEONnoir\\gutter.nscript"

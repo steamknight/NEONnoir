@@ -41,18 +41,10 @@ Function .b IN_check_mouse{screen_rects.l, count.w}
   y = MouseY
   result = -1
 
-  ;!DB_printf{"Mouse Pos (%d, %d)", x, y}
-
   *rect = screen_rects
   For r = 0 To count - 1
-    ;!DB_printf{"    rect %d: %d,%d %d,%d", r,  *rect\x0, *rect\y0, *rect\x1, *rect\y1}
     If x >= *rect\x0 AND x < *rect\x1 AND y >= *rect\y0 AND y < *rect\y1
-      ; DEFTYPE .w x0, x1, y0, y1
-      ; x0 =  *rect\x0
-      ; x1 =  *rect\x1
-      ; y0 =  *rect\y0
-      ; y1 =  *rect\y1
-      ; Box x0, y0, x1, y1, 2
+
       Function Return r
     End If
 

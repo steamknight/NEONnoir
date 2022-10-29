@@ -310,7 +310,7 @@ Statement NN_game_set_scene{id.w}
     MS_load_module{*NN_current_scene\music_id, 0}
   End If
 
-  ;NN_current_bmp = *NN_current_scene\background_id
+  NN_current_bmp = *NN_current_scene\background_id
 
   ;FadeInScreen{ #CP_coplist, NN_current_bmp, 10}
 

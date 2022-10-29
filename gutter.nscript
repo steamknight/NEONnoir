@@ -53,6 +53,8 @@
     knows_summervault
     knows_sumerian
 
+    segs_place_been_here
+
 ; Inventory items
 ; ==============================================================================
 .FLAGS
@@ -86,6 +88,7 @@
     location_blake_apartment    4
     location_lost_sock          5
     location_b19                6
+    location_seg_place          7
 
     ; Scenes in the title section
     start_intro                 1
@@ -115,6 +118,7 @@
     scene_blake_apartment       0
     scene_end_act1_cutscene     1
     scene_fade_to_black         2
+    scene_end_act2_cutscene     3
 
     ; Scenes in the Laundromat
     scene_laundry_exterior      0
@@ -124,6 +128,13 @@
     scene_b19_exterior          0
     scene_b19_office            1
     scene_b19_storage           2
+
+    ; Scenes at Seg's Place
+    scene_seg_place             0
+    scene_seg_blank             1
+    scene_danni1                2
+    scene_danni2                3
+    scene_danni3                4
 
     ; Dialogues
     dialogue_blake              0
@@ -149,6 +160,15 @@
     dialogue_danni_intro2      20
     dialogue_tank_banned       21
     dialogue_tank_and_stay_out 22
+    dialogue_exposition1       23
+    dialogue_exposition2       24
+    dialogue_exposition3       25
+    dialogue_exposition4       26
+    dialogue_exposition5       27
+    dialogue_exposition6       28
+    dialogue_exposition7       29
+    dialogue_exposition8       30
+    dialogue_exposition9       31
 
     ; Music and sound
     mod_theme                   0
@@ -298,6 +318,10 @@
     parcel_trace3               "Owner: SummerVault"
     parcel_trace4               "Listed Use: Storage"
     parcel_trace5               "SummerVault? Let's add the to the database search."
+    end_act2_a                  "My mind raced faster than Coral through a junkie's wetware. The woman I've been spending all night looking for had found me instead."
+    end_act2_b                  "While I was sneaking around the industrial district, she called Crystal who vouched for me."
+    end_act2_c                  "Danni gave me the address a friend's safehouse, someone who helped her lie low until now."
+    end_act2_d                  "It was finally time to meet Danni Ashton and find out why Johan Visser has been looking for her."
 
 ; Location: The Lost Sock Laundromat
 ; ==============================================================================
@@ -337,7 +361,23 @@
     get_call_from_danni2        "*RING RING*"
     get_call_from_danni3        "I don't recognize the number, and sensing my hesitation, it chimes again like a child demanding attention."
     we_should_meet              "'... and I think we should meet.'"
-    
+
+; Location: SegF4ult's Place
+; ==============================================================================
+    seg_place_desc1             "The safehouse was in the Gutter, not too far away from the Alleycat, in fact. I suppose she was hiding in plain sight."
+    seg_place_desc2             "The glow from countless computer screens washed over us as I regarded my hosts. Danni Ashton looked just like her photo. She was standing near her friend, a bearded man wearing a shirt that must have some significance to middle-aged nerds. He called himself..."
+    danni_story1                "... my client had just thrown a large party and he wanted me to be the eye-candy hanging off of his arm."
+    danni_story2                "After people left, we retired to his bedroom to... rest."
+    danni_story3                "Before we could get down to business, he got a call. I don't know what it was about, but he sounded anxious and left the room."
+    danni_story4                "Bored, I looked through his nightstand to find something fun and saw some Coral. I figured he wouldn't mind, so I jacked it in."
+    danni_story5                "But it wasn't Coral and I started convulsing."
+    danni_story6                "The next thing I know, I wake up naked in a dumpster. That drek must have thought I died and threw me in the garbage."
+    danni_story7                "The data I thought was Coral was still in my head. I didn't know what it contained but I knew I wasn't supposed to have it."
+    visser_plot1                "Flipping through my recent calls, I find the number I'm looking for."
+    visser_plot2                "Mr. Ashton? Good news. I've found Danni."
+    visser_plot3                "Yes. Uh huh. She's been hiding in the industrial district. Building 19. Yes, that's the one."
+    visser_plot4                "See you soon."
+
 ; Inventory strings
 ; ==============================================================================
 .TEXT
@@ -1022,6 +1062,31 @@
     @done
         end
 
+.SCRIPT on_enter_blank
+        text $we_should_meet
+        goto #scene_end_act2_cutscene
+        end
+
+.SCRIPT .SCRIPT on_enter_end_act2
+        txtstart #frame_off
+        txtput $end_act2_a 45
+        txtend 4 170 #wait_on
+
+        txtstart #frame_off
+        txtput $end_act2_b 45
+        txtend 4 170 #wait_on
+
+        txtstart #frame_off
+        txtput $end_act2_c 45
+        txtend 4 170 #wait_on
+
+        txtstart #frame_off
+        txtput $end_act2_d 45
+        txtend 4 170 #wait_on
+
+        goloc #location_seg_place #scene_seg_place
+        end
+
 ; LAUNDROMAT
 ; =====================================================
 .SCRIPT enter_laundromat
@@ -1216,8 +1281,59 @@
         text $empty_trash
         end
 
-.SCRIPT on_enter_blank
-        text $we_should_meet
+; SEGF4ULT'S PLACE
+; ==============================================================================
+.SCRIPT on_enter_segs_place
+        load !segs_place_been_here
+        jift @done
+        set
+        store !segs_place_been_here
+        
+        text $seg_place_desc1
+        text $seg_place_desc2
+
+        dlg #dialogue_exposition1
+        dlg #dialogue_exposition2
+
+        setbg #scene_danni1
+        text $danni_story1
+        text $danni_story2
+
+        setbg #scene_danni2
+        text $danni_story3
+        text $danni_story4
+        text $danni_story5
+
+        setbg #scene_danni3
+        text $danni_story6
+        text $danni_story7
+
+        setbg #scene_seg_place
+
+        dlg #dialogue_exposition3
+        dlg #dialogue_exposition4
+        dlg #dialogue_exposition5
+        dlg #dialogue_exposition6
+        dlg #dialogue_exposition7
+        dlg #dialogue_exposition8
+        dlg #dialogue_exposition9
+
+        setbg #scene_seg_blank
+
+        text $visser_plot1
+        text $visser_plot2
+        text $visser_plot3
+        text $visser_plot4
+
+    @done
+        end
+
+
+
+
+
+
+
 
 
 
