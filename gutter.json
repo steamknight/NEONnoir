@@ -6139,7 +6139,7 @@
               "has_clear_flag": false,
               "has_script": false,
               "has_set_flag": false,
-              "next_page_id": 65535,
+              "next_page_id": 1,
               "script": "",
               "self_disable": false,
               "set_flag": "",
