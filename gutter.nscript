@@ -55,6 +55,8 @@
 
     segs_place_been_here
 
+    b19r_entrance_been_here
+
 ; Inventory items
 ; ==============================================================================
 .FLAGS
@@ -89,6 +91,7 @@
     location_lost_sock          5
     location_b19                6
     location_seg_place          7
+    location_b19_revisit        8
 
     ; Scenes in the title section
     start_intro                 1
@@ -136,6 +139,13 @@
     scene_danni2                3
     scene_danni3                4
 
+    ; Scenes at B19 Revisit
+    scene_b19r_entrance         0
+    scene_b19r_office_a         1
+    scene_b19r_office_b         2
+    scene_b19r_catwalk          3
+    scene_b19r_cutscene         4
+
     ; Dialogues
     dialogue_blake              0
     dialogue_map                1
@@ -169,11 +179,21 @@
     dialogue_exposition7       29
     dialogue_exposition8       30
     dialogue_exposition9       31
+    dialogue_ransom1           32
+    dialogue_ransom2           33
+    dialogue_ransom3           34
+    dialogue_ransom4           35
+    dialogue_ransom5           36
+    dialogue_ransom6           37
+    dialogue_crystal_b19r      38
 
     ; Music and sound
     mod_theme                   0
     mod_ambient                 1
     mod_dancemix                2
+    mod_intrigue                3
+    mod_boss_intro              4
+    mod_boss_theme              5
 
     ; Textbox options
     frame_on                   -1
@@ -188,6 +208,9 @@
     mod_theme                   "data/theme.mod"
     mod_ambient                 "data/ambient.mod"
     mod_dancemix                "data/dance.mod"
+    mod_intrigue                "data/intrigue.mod"
+    mod_boss_intro              "data/boss_intro.mod"
+    mod_boss_theme              "data/boss_theme.mod"
 
     ; Sound effects
 
@@ -318,6 +341,10 @@
     parcel_trace3               "Owner: SummerVault"
     parcel_trace4               "Listed Use: Storage"
     parcel_trace5               "SummerVault? Let's add the to the database search."
+    get_call_from_danni1        "The cool night air carrying the acrid fumes of this district caresses my face like a vengeful lover. The distant industrial music is pierced by a much closer, higher pitched sound."
+    get_call_from_danni2        "*RING RING*"
+    get_call_from_danni3        "I don't recognize the number, and sensing my hesitation, it chimes again like a child demanding attention."
+    we_should_meet              "'... and I think we should meet.'"
     end_act2_a                  "My mind raced faster than Coral through a junkie's wetware. The woman I've been spending all night looking for had found me instead."
     end_act2_b                  "While I was sneaking around the industrial district, she called Crystal who vouched for me."
     end_act2_c                  "Danni gave me the address a friend's safehouse, someone who helped her lie low until now."
@@ -357,10 +384,6 @@
     empty_trash                 "Nothing else of value in there."
     look_at_lockers             "The lockers aren't locked. Unfortunately, they're also empty."
     look_at_papers              "There are some papers and brochures on the small table. Nothing interesting, I'm afraid."
-    get_call_from_danni1        "The cool night air carrying the acrid fumes of this district caresses my face like a vengeful lover. The distant industrial music is pierced by a much closer, higher pitched sound."
-    get_call_from_danni2        "*RING RING*"
-    get_call_from_danni3        "I don't recognize the number, and sensing my hesitation, it chimes again like a child demanding attention."
-    we_should_meet              "'... and I think we should meet.'"
 
 ; Location: SegF4ult's Place
 ; ==============================================================================
@@ -373,10 +396,19 @@
     danni_story5                "But it wasn't Coral and I started convulsing."
     danni_story6                "The next thing I know, I wake up naked in a dumpster. That drek must have thought I died and threw me in the garbage."
     danni_story7                "The data I thought was Coral was still in my head. I didn't know what it contained but I knew I wasn't supposed to have it."
-    visser_plot1                "Flipping through my recent calls, I find the number I'm looking for."
-    visser_plot2                "Mr. Ashton? Good news. I've found Danni."
-    visser_plot3                "Yes. Uh huh. She's been hiding in the industrial district. Building 19. Yes, that's the one."
-    visser_plot4                "See you soon."
+    visser_plot1                "*RING RING*"
+    visser_plot2                "It was Johan Visser!"
+    visser_hung_up              "He hung up."
+
+; Location: B19 Revisit
+; ==============================================================================
+    b19r_intro1                 "With no time to waste, I'm' my way back to that snake nest. Building 19's in sight and I need to be careful if Crystal and I are to make it out alive. Whatever happens, one thing is for sure."
+    b19r_intro2                 "Visser is going to regret this."
+    b19r_crystal_on_catwalk     "Looking up, Visser and Crystal are on the catwalk. Need to hurry!"
+    b19r_use_storage            "No time to waste looking on this floor, I need to go up!"
+    b19r_goto_entrance          "I'm sure Crystal can wait."
+    b19r_goto_catwalk           "Throwing caution to the wind, I step onto the catwalk."
+    b19r_vending_machine        "Somehow, I'm not hungry at the moment."
 
 ; Inventory strings
 ; ==============================================================================
@@ -1318,36 +1350,81 @@
         dlg #dialogue_exposition8
         dlg #dialogue_exposition9
 
+        mod $mod_intrigue 0
         setbg #scene_seg_blank
 
         text $visser_plot1
         text $visser_plot2
-        text $visser_plot3
-        text $visser_plot4
+
+
+        dlg #dialogue_ransom1
+        dlg #dialogue_ransom2
+        dlg #dialogue_ransom3
+        dlg #dialogue_ransom4
+        dlg #dialogue_ransom5
+
+        setbg #scene_seg_place
+
+        text $visser_hung_up
+
+        dlg #dialogue_ransom6
+
+        goloc #location_b19_revisit #scene_b19r_cutscene
 
     @done
         end
 
+; B19 REVISIT
+; ==============================================================================
+.SCRIPT on_enter_b19_revisit
+        txtstart #frame_off
+        txtput $b19r_intro1 45
+        txtend 4 170 #wait_on
+        
+        txtstart #frame_off
+        txtput $b19r_intro2 45
+        txtend 4 170 #wait_on
 
+        goto #scene_b19r_entrance
+        end
 
+.SCRIPT on_enter_b19r_entrance
+        load !b19r_entrance_been_here
+        jift @done
+        dlg #dialogue_crystal_b19r
+        text $b19r_crystal_on_catwalk
 
+        set
+        store !b19r_entrance_been_here
 
+    @done
+        end
 
+.SCRIPT goto_b19r_office
+        goto #scene_b19r_office_a
+        end
 
+.SCRIPT use_b19r_storage
+        text $b19r_use_storage
+        end
 
+.SCRIPT goto_b19r_entrance
+        text $b19r_goto_entrance
+        goto #scene_b19r_entrance
+        end
 
+.SCRIPT goto_b19r_office_b
+        goto #scene_b19r_office_b
+        end
 
+.SCRIPT goto_b19r_catwalk
+        text $b19r_goto_catwalk
+        goto #scene_b19r_catwalk
+        end
 
-
-
-
-
-
-
-
-
-
-
+.SCRIPT use_b19r_vending_machine
+        text $b19r_vending_machine
+        end
 
 
 

@@ -5505,7 +5505,7 @@
               "script": "",
               "self_disable": false,
               "set_flag": "",
-              "text": "(Better to play long for now) Mr. Ashton, I can't say I have much of a status report for you quite yet."
+              "text": "(Better to play long for now) Mr. Ashton, I've investigated Danni's apartment, but it was a dead end."
             }
           ],
           "clear_flag": "",
@@ -5533,7 +5533,7 @@
               "script": "",
               "self_disable": false,
               "set_flag": "",
-              "text": "Mr. Ashton, I assure you that you came to the right person. "
+              "text": "Do not worry. I was just about to hit the street for more information. If she's out there, I'll find her."
             }
           ],
           "clear_flag": "",
@@ -5544,7 +5544,7 @@
           "next_page_id": 65535,
           "self_disable": false,
           "set_flag": "",
-          "text": "Unacceptable, Mr. Steel. I'm paying good credits for top results. You assured me you could get those results. Am I mistaken to put my trust in you?"
+          "text": "Unacceptable, Mr. Steel. I'm paying good credits for top results. You assured me you could get those results. "
         },
         {
           "check_flag": "",
@@ -6643,8 +6643,28 @@
               "script": "",
               "self_disable": false,
               "set_flag": "",
-              "text": "Yes."
-            },
+              "text": "Hmm... What If I call him and--"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "We're going to need a good plan."
+        }
+      ],
+      "speaker": "Danni"
+    },
+    {
+      "image_id": 26,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [
             {
               "check_flag": "",
               "clear_flag": "",
@@ -6657,7 +6677,7 @@
               "script": "",
               "self_disable": false,
               "set_flag": "",
-              "text": "...no?"
+              "text": "Mr... Ashton. What a coincidence. I was just thinking about you."
             }
           ],
           "clear_flag": "",
@@ -6668,7 +6688,63 @@
           "next_page_id": 65535,
           "self_disable": false,
           "set_flag": "",
-          "text": "Do you have a plan?"
+          "text": "Mr. Steel. I hope I didn't catch you at a bad time."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 2,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Then I know that you know that I know who you are."
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 2,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "A loving father?"
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 2,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "A creep?"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "You can drop the pretenses, Mr. Steel. I know that you know who I am."
         },
         {
           "check_flag": "",
@@ -6685,7 +6761,7 @@
               "script": "",
               "self_disable": false,
               "set_flag": "",
-              "text": "No wait! It think I got an idea..."
+              "text": "How do you figure?"
             }
           ],
           "clear_flag": "",
@@ -6696,10 +6772,223 @@
           "next_page_id": 65535,
           "self_disable": false,
           "set_flag": "",
-          "text": "This is hopeless..."
+          "text": "Do not play games with me, Mr. Steel. You are in no position to do so."
+        }
+      ],
+      "speaker": "Visser"
+    },
+    {
+      "image_id": 27,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Blake!"
+        }
+      ],
+      "speaker": "Crystal"
+    },
+    {
+      "image_id": 0,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Crystal!!"
+        }
+      ],
+      "speaker": "Blake"
+    },
+    {
+      "image_id": 24,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Crystal!"
         }
       ],
       "speaker": "Danni"
+    },
+    {
+      "image_id": 26,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 1,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "I swear, you maniac, if you hurt a single hair on her--"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "How touching."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 2,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "What... what do you want?"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Mind the theatrics, Mr. Steel. I won't need to injure a single follicle on her head if you and Danni do exactly as I say."
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Isn't it obvious? I want Danni and my client's data. Your friend's health is completely out of my hands now.\n\nMeet me at Building 19 in an hour. I trust you know the way."
+        }
+      ],
+      "speaker": "Visser"
+    },
+    {
+      "image_id": 24,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 1,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "You are going  to do nothing. I'll rescue Crystal."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Drek! Drek! Drek! What are we going to do?"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Don't worry, I'll think of something."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "How are you going to do that?"
+        }
+      ],
+      "speaker": "Danni"
+    },
+    {
+      "image_id": 29,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Blake!"
+        }
+      ],
+      "speaker": "Crystal"
     }
   ],
   "locations": [
@@ -8192,9 +8481,279 @@
               "y": 0
             }
           ]
+        },
+        {
+          "has_palette": true,
+          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\visser.iff",
+          "shapes": [
+            {
+              "height": 100,
+              "width": 100,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "has_palette": true,
+          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\crystal.iff",
+          "shapes": [
+            {
+              "height": 100,
+              "width": 100,
+              "x": 0,
+              "y": 0
+            }
+          ]
         }
       ],
       "shapes_file": "7.shapes"
+    },
+    {
+      "backgrounds": [
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_b19_entrance.iff",
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_b19_office.iff",
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_b19_office2.iff",
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_b19_catwalk.iff",
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\cutscenes\\b19.iff"
+      ],
+      "name": "B19 Revisit",
+      "scenes": [
+        {
+          "image_id": 0,
+          "music_id": 1,
+          "name": "Entrance",
+          "offset_x": 0,
+          "offset_y": 0,
+          "on_enter": "on_enter_b19r_entrance",
+          "on_exit": "",
+          "regions": [
+            {
+              "description": "The upstairs office.",
+              "height": 45,
+              "pointer_id": 3,
+              "script": "goto_b19r_office",
+              "shape_id": 65535,
+              "width": 45,
+              "x": 14,
+              "y": 0
+            },
+            {
+              "description": "Door to storage",
+              "height": 79,
+              "pointer_id": 2,
+              "script": "use_b19r_storage",
+              "shape_id": 65535,
+              "width": 38,
+              "x": 57,
+              "y": 86
+            }
+          ],
+          "view_height": 0,
+          "view_width": 0,
+          "view_x": 0,
+          "view_y": 0
+        },
+        {
+          "image_id": 1,
+          "music_id": 1,
+          "name": "Office1",
+          "offset_x": 0,
+          "offset_y": 0,
+          "on_enter": "",
+          "on_exit": "",
+          "regions": [
+            {
+              "description": "Leave the building",
+              "height": 117,
+              "pointer_id": 3,
+              "script": "goto_b19r_entrance",
+              "shape_id": 65535,
+              "width": 70,
+              "x": 205,
+              "y": 40
+            },
+            {
+              "description": "Other side of the office.",
+              "height": 200,
+              "pointer_id": 3,
+              "script": "goto_b19r_office_b",
+              "shape_id": 65535,
+              "width": 30,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "description": "A trashcan. Nothing more of interest there.",
+              "height": 31,
+              "pointer_id": 1,
+              "script": "",
+              "shape_id": 65535,
+              "width": 17,
+              "x": 170,
+              "y": 116
+            },
+            {
+              "description": "A bunch of empty lockers.",
+              "height": 73,
+              "pointer_id": 1,
+              "script": "",
+              "shape_id": 65535,
+              "width": 44,
+              "x": 123,
+              "y": 70
+            },
+            {
+              "description": "I can't see them from this window.",
+              "height": 53,
+              "pointer_id": 1,
+              "script": "",
+              "shape_id": 65535,
+              "width": 51,
+              "x": 31,
+              "y": 38
+            }
+          ],
+          "view_height": 0,
+          "view_width": 0,
+          "view_x": 0,
+          "view_y": 0
+        },
+        {
+          "image_id": 2,
+          "music_id": 3,
+          "name": "Office2",
+          "offset_x": 0,
+          "offset_y": 0,
+          "on_enter": "",
+          "on_exit": "",
+          "regions": [
+            {
+              "description": "To the catwalk",
+              "height": 130,
+              "pointer_id": 3,
+              "script": "goto_b19r_catwalk",
+              "shape_id": 65535,
+              "width": 86,
+              "x": 51,
+              "y": 30
+            },
+            {
+              "description": "Vending machine",
+              "height": 98,
+              "pointer_id": 2,
+              "script": "use_b19r_vending_machine",
+              "shape_id": 65535,
+              "width": 54,
+              "x": 185,
+              "y": 58
+            },
+            {
+              "description": "Other side of the office",
+              "height": 200,
+              "pointer_id": 3,
+              "script": "goto_b19r_office",
+              "shape_id": 65535,
+              "width": 30,
+              "x": 290,
+              "y": 0
+            },
+            {
+              "description": "No! No more looking in the trash!",
+              "height": 42,
+              "pointer_id": 1,
+              "script": "",
+              "shape_id": 65535,
+              "width": 32,
+              "x": 1,
+              "y": 135
+            }
+          ],
+          "view_height": 0,
+          "view_width": 0,
+          "view_x": 0,
+          "view_y": 0
+        },
+        {
+          "image_id": 3,
+          "music_id": 5,
+          "name": "Catwalk",
+          "offset_x": 0,
+          "offset_y": 0,
+          "on_enter": "",
+          "on_exit": "",
+          "regions": [],
+          "view_height": 0,
+          "view_width": 0,
+          "view_x": 0,
+          "view_y": 0
+        },
+        {
+          "image_id": 4,
+          "music_id": 1,
+          "name": "Cutscene",
+          "offset_x": 0,
+          "offset_y": 0,
+          "on_enter": "on_enter_b19_revisit",
+          "on_exit": "",
+          "regions": [],
+          "view_height": 0,
+          "view_width": 0,
+          "view_x": 0,
+          "view_y": 0
+        }
+      ],
+      "shapes": [
+        {
+          "has_palette": true,
+          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\blake.iff",
+          "shapes": [
+            {
+              "height": 100,
+              "width": 100,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "has_palette": true,
+          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\crystal.iff",
+          "shapes": [
+            {
+              "height": 100,
+              "width": 100,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "has_palette": true,
+          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\visser.iff",
+          "shapes": [
+            {
+              "height": 100,
+              "width": 100,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "has_palette": true,
+          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\danni.iff",
+          "shapes": [
+            {
+              "height": 100,
+              "width": 100,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        }
+      ],
+      "shapes_file": "8.shapes"
     }
   ],
   "script_name": "C:\\Users\\mass\\source\\NEONnoir\\gutter.nscript"
