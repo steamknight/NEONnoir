@@ -6989,6 +6989,1369 @@
         }
       ],
       "speaker": "Crystal"
+    },
+    {
+      "image_id": 30,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 1,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Mr. Ashton... or should I say Johan Visser. Xander Vane's lapdog. "
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Yes, Mr. Steel. Be very careful."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 2,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "How did you know I'd found Danni?"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Aren't you resourceful."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 3,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "You drek."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Do you think you're the only one conducting their investigation tonight? No. I've been one step ahead of you this whole time."
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "It seems you came alone. How disappointing. After I dispose if your two corpses, I guess I'll --"
+        }
+      ],
+      "speaker": "Visser"
+    },
+    {
+      "image_id": 29,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Blake! Be careful, he's got a gun!"
+        }
+      ],
+      "speaker": "Crystal"
+    },
+    {
+      "image_id": 31,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Hey, you dreking ball gag!"
+        }
+      ],
+      "speaker": "Danni"
+    },
+    {
+      "image_id": 30,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 1,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "(Punch to the face)"
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 2,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "(Puch to the stomach)"
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 1,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "(Kick)"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "*GRUNT*"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 0,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "(Punch to the face)"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "You'll need to do better than that."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 0,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "(Punch to the face)"
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 3,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "(Puch to the stomach)"
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 4,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "(Slam against the pipes)"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "You drek! *Punches me in the face*"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 2,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "(Headbutt)"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "*Dodges my blow* I'm not falling for that again. *Hits me in the stomach*"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 0,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "(Punch to the face)"
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 5,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "(Spit in his eye)"
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 6,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "(Knee to the groin)"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "ARGH! Don't think you've won yet."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 2,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "(Punch to the stomach)"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Ugh. You dreking animal. *Hits me in the face*"
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "*Gasps* If that's how you want to play it..."
+        }
+      ],
+      "speaker": "Visser Fight"
+    },
+    {
+      "image_id": 30,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 1,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Did you know that in a PG-13 rated movie you're allowed one F-bomb?"
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 2,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "I think you'd look good in ruby slippers."
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "No."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Any last words, Mr. Steel?"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Fuck you. (Inject him with Coral)"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "What?"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "You first. (Inject him with Coral)"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Now's hardly the time to flatter me. Die!"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "(Inject him with Coral)"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Have it your way!"
+        }
+      ],
+      "speaker": "Visser Final"
+    },
+    {
+      "image_id": 29,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "I could ask you the same thing."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Blake, are you hurt?"
+        }
+      ],
+      "speaker": "Crystal"
+    },
+    {
+      "image_id": 31,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "I think we're good. Stay there, we'll be right over."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Are you two ok, up there?"
+        }
+      ],
+      "speaker": "Danni"
+    },
+    {
+      "image_id": 29,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 1,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "*ahem*"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Oh Danni I'm so glad you're safe!"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Well, if it wasn't for Danni's timely distraction and your quick thinking, I'd have been done for. Thank you both."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "And you too, Blake!"
+        }
+      ],
+      "speaker": "Crystal"
+    },
+    {
+      "image_id": 31,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "No kidding. By the way, Danni. I thought I told you to stay with SegF4ult, where it was safe!"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "He shouldn't have underestimated us."
+        }
+      ],
+      "speaker": "Danni"
+    },
+    {
+      "image_id": 31,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 1,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Yeah, no. And a good thing too."
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": true,
+              "next_page_id": 2,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "inv_visser_keycard",
+              "text": "Visser's keycard!"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "By the way, I found this."
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Drek that guy."
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Take this datastick. It's got all the data primed for viewing. Seg says to just plug it in and it'll do the rest."
+        }
+      ],
+      "speaker": "Danni"
+    },
+    {
+      "image_id": 28,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Great! Since Xander is still going to be looking for you, I need you two to head back to safety while I--"
+        }
+      ],
+      "speaker": "Blake"
+    },
+    {
+      "image_id": 29,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 1,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Not going to be able to change your mind, am I?"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "While I go with you. No way I'm staying out of this now."
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Nope."
+        }
+      ],
+      "speaker": "Crystal"
+    },
+    {
+      "image_id": 31,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Be careful, you two! I'll head back to Seg's."
+        }
+      ],
+      "speaker": "Danni"
+    },
+    {
+      "image_id": 28,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Crystal, would you like to go on a date to Xantech Cybernetics?"
+        }
+      ],
+      "speaker": "Blake"
+    },
+    {
+      "image_id": 29,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "I thought you'd never ask."
+        }
+      ],
+      "speaker": "Crystal"
+    },
+    {
+      "image_id": 34,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 1,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "I need to enter the server room"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "*Ksssh* HALT. *Ksssh*"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 2,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Hmm... Yes, I do."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "*Ksssh* NO, YOU DON'T. *Ksssh*"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 3,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Why do you think I'm not?"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "*Ksssh* I DON'T CARE. AUTHORIZED PERSONNEL ONLY. AND YOU'RE NOT AUTHORIZED PERSONNEL. *Ksssh*"
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "*Ksssh* YOU'RE NEITHER MR. VISSER NOR ONE OF THE NERDS. BEGONE! *Ksssh*"
+        }
+      ],
+      "speaker": "Xantech Tinman"
+    },
+    {
+      "image_id": 33,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Oh hey there. How are you?"
+        }
+      ],
+      "speaker": "Crystal"
+    },
+    {
+      "image_id": 34,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 1,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "*Ksssh* BA... ERR... UHM... OOF... AH... *Ksssh*"
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "*Ksssh* HOW CAN I HELP YOU? *Ksssh*"
+        }
+      ],
+      "speaker": "Xantech Tinman"
+    },
+    {
+      "image_id": 33,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 1,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "It's the other way around. It's not easy keeping us all safe."
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 2,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "It's such a thankless job..."
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "... and I want to show you my gratitude..."
+        }
+      ],
+      "speaker": "Crystal"
+    },
+    {
+      "image_id": 34,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "*Ksssh* UHHHH...*Ksssh*"
+        }
+      ],
+      "speaker": "Xantech Tinman"
+    },
+    {
+      "image_id": 33,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 1,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "... personally..."
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "..."
+        }
+      ],
+      "speaker": "Crystal"
+    },
+    {
+      "image_id": 34,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "..."
+        }
+      ],
+      "speaker": "Xantech Tinman"
+    },
+    {
+      "image_id": 33,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "So I made you fresh cup of coffe!"
+        }
+      ],
+      "speaker": "Crystal"
+    },
+    {
+      "image_id": 34,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "*Ksssh* OH!... THANK YOU! *Ksssh*"
+        }
+      ],
+      "speaker": "Xantech Tinman"
+    },
+    {
+      "image_id": 0,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Remind me to stay on your good side."
+        }
+      ],
+      "speaker": "Blake"
+    },
+    {
+      "image_id": 33,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "*Winks* Who said you were on my good side?"
+        }
+      ],
+      "speaker": "Crystal"
+    },
+    {
+      "image_id": 0,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "What a rack!"
+        }
+      ],
+      "speaker": "Blake"
+    },
+    {
+      "image_id": 33,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Thank you."
+        }
+      ],
+      "speaker": "Crystal"
+    },
+    {
+      "image_id": 35,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 1,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Hey Seg, it's working?"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Great news, Blade!"
+        },
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Bye, Seg."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Yes! I'm monitoring it from my place. We're good to go on our end. See you soon."
+        }
+      ],
+      "speaker": "SegF4ult"
     }
   ],
   "locations": [
@@ -8680,7 +10043,7 @@
           "name": "Catwalk",
           "offset_x": 0,
           "offset_y": 0,
-          "on_enter": "",
+          "on_enter": "on_enter_catwalk",
           "on_exit": "",
           "regions": [],
           "view_height": 0,
@@ -8754,6 +10117,310 @@
         }
       ],
       "shapes_file": "8.shapes"
+    },
+    {
+      "backgrounds": [
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_xantech_entrance.iff",
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_xantech_lobby.iff",
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_xantech_corridor.iff",
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_xantech_cafe.iff",
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_xantech_medical.iff",
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_xantech_servers.iff"
+      ],
+      "name": "Xantech",
+      "scenes": [
+        {
+          "image_id": 0,
+          "music_id": 1,
+          "name": "Entrance",
+          "offset_x": 0,
+          "offset_y": 0,
+          "on_enter": "on_enter_xantech_entrance",
+          "on_exit": "",
+          "regions": [
+            {
+              "description": "Enter Xantech Cybernetics",
+              "height": 37,
+              "pointer_id": 3,
+              "script": "goto_xantech_lobby",
+              "shape_id": 65535,
+              "width": 76,
+              "x": 146,
+              "y": 131
+            },
+            {
+              "description": "Xantech Cybernetics. This was it. The beginning of the end for Xander Vane.",
+              "height": 129,
+              "pointer_id": 1,
+              "script": "",
+              "shape_id": 65535,
+              "width": 90,
+              "x": 136,
+              "y": 1
+            }
+          ],
+          "view_height": 0,
+          "view_width": 0,
+          "view_x": 0,
+          "view_y": 0
+        },
+        {
+          "image_id": 1,
+          "music_id": 3,
+          "name": "Lobby",
+          "offset_x": 0,
+          "offset_y": 0,
+          "on_enter": "on_enter_xantech_lobby",
+          "on_exit": "",
+          "regions": [
+            {
+              "description": "Just great, a tinman.",
+              "height": 76,
+              "pointer_id": 2,
+              "script": "use_xantech_tinman",
+              "shape_id": 65535,
+              "width": 29,
+              "x": 167,
+              "y": 66
+            },
+            {
+              "description": "To the server rooms.",
+              "height": 55,
+              "pointer_id": 3,
+              "script": "goto_xantech_servers",
+              "shape_id": 65535,
+              "width": 36,
+              "x": 95,
+              "y": 65
+            },
+            {
+              "description": "Corridor",
+              "height": 171,
+              "pointer_id": 3,
+              "script": "goto_xantech_corridor",
+              "shape_id": 65535,
+              "width": 42,
+              "x": 276,
+              "y": 21
+            }
+          ],
+          "view_height": 0,
+          "view_width": 0,
+          "view_x": 0,
+          "view_y": 0
+        },
+        {
+          "image_id": 2,
+          "music_id": 1,
+          "name": "Corridor",
+          "offset_x": 0,
+          "offset_y": 0,
+          "on_enter": "on_enter_xantech_corridor",
+          "on_exit": "",
+          "regions": [
+            {
+              "description": "Back to lobby",
+              "height": 30,
+              "pointer_id": 3,
+              "script": "goto_xantech_lobby",
+              "shape_id": 65535,
+              "width": 320,
+              "x": 0,
+              "y": 170
+            },
+            {
+              "description": "Medical bay",
+              "height": 79,
+              "pointer_id": 3,
+              "script": "goto_xantech_medical",
+              "shape_id": 65535,
+              "width": 40,
+              "x": 188,
+              "y": 62
+            },
+            {
+              "description": "Breakroom",
+              "height": 97,
+              "pointer_id": 3,
+              "script": "goto_xantech_cafe",
+              "shape_id": 65535,
+              "width": 47,
+              "x": 266,
+              "y": 56
+            }
+          ],
+          "view_height": 0,
+          "view_width": 0,
+          "view_x": 0,
+          "view_y": 0
+        },
+        {
+          "image_id": 4,
+          "music_id": 65535,
+          "name": "Medical",
+          "offset_x": 0,
+          "offset_y": 0,
+          "on_enter": "",
+          "on_exit": "",
+          "regions": [
+            {
+              "description": "Medicine closet",
+              "height": 49,
+              "pointer_id": 2,
+              "script": "use_medicine_closet",
+              "shape_id": 65535,
+              "width": 49,
+              "x": 89,
+              "y": 50
+            },
+            {
+              "description": "Back to the corridor",
+              "height": 96,
+              "pointer_id": 3,
+              "script": "goto_xantech_corridor",
+              "shape_id": 65535,
+              "width": 72,
+              "x": 185,
+              "y": 48
+            },
+            {
+              "description": "A medical bed. I wonder how often they need it.",
+              "height": 62,
+              "pointer_id": 1,
+              "script": "",
+              "shape_id": 65535,
+              "width": 133,
+              "x": 19,
+              "y": 104
+            }
+          ],
+          "view_height": 0,
+          "view_width": 0,
+          "view_x": 0,
+          "view_y": 0
+        },
+        {
+          "image_id": 3,
+          "music_id": 1,
+          "name": "Cafe",
+          "offset_x": 0,
+          "offset_y": 0,
+          "on_enter": "",
+          "on_exit": "",
+          "regions": [
+            {
+              "description": "Back to the corridor",
+              "height": 46,
+              "pointer_id": 3,
+              "script": "goto_xantech_corridor",
+              "shape_id": 65535,
+              "width": 30,
+              "x": 186,
+              "y": 83
+            },
+            {
+              "description": "A coffee machine",
+              "height": 55,
+              "pointer_id": 2,
+              "script": "use_coffee_machine",
+              "shape_id": 65535,
+              "width": 37,
+              "x": 243,
+              "y": 100
+            },
+            {
+              "description": "A view of the city. Nothing but the best for Xantech employees.",
+              "height": 54,
+              "pointer_id": 1,
+              "script": "",
+              "shape_id": 65535,
+              "width": 105,
+              "x": 0,
+              "y": 55
+            }
+          ],
+          "view_height": 0,
+          "view_width": 0,
+          "view_x": 0,
+          "view_y": 0
+        },
+        {
+          "image_id": 5,
+          "music_id": 3,
+          "name": "Servers",
+          "offset_x": 0,
+          "offset_y": 0,
+          "on_enter": "on_enter_xantech_servers",
+          "on_exit": "",
+          "regions": [
+            {
+              "description": "Datablade",
+              "height": 48,
+              "pointer_id": 2,
+              "script": "use_datablade",
+              "shape_id": 65535,
+              "width": 33,
+              "x": 191,
+              "y": 85
+            }
+          ],
+          "view_height": 0,
+          "view_width": 0,
+          "view_x": 0,
+          "view_y": 0
+        }
+      ],
+      "shapes": [
+        {
+          "has_palette": true,
+          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\blake.iff",
+          "shapes": [
+            {
+              "height": 100,
+              "width": 100,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "has_palette": true,
+          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\crystal.iff",
+          "shapes": [
+            {
+              "height": 100,
+              "width": 100,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "has_palette": true,
+          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\tinman.iff",
+          "shapes": [
+            {
+              "height": 100,
+              "width": 100,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "has_palette": true,
+          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\segf4ult.iff",
+          "shapes": [
+            {
+              "height": 100,
+              "width": 100,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        }
+      ],
+      "shapes_file": "9.shapes"
     }
   ],
   "script_name": "C:\\Users\\mass\\source\\NEONnoir\\gutter.nscript"

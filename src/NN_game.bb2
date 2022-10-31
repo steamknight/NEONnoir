@@ -469,8 +469,8 @@ Statement NN_load_game{}
   Next
 
   ; Read the pages and choices
-  ;ReadMem id, *DG_pages, (SizeOf .DG_page * DG_page_count)
-  ;ReadMem id, *DG_choices, (SizeOf .DG_choice * DG_choice_count)
+  ReadMem id, *DG_pages, (SizeOf .DG_page * DG_page_count)
+  ReadMem id, *DG_choices, (SizeOf .DG_choice * DG_choice_count)
 
   DEFTYPE .DG_choice *choice
   *choise = *DG_choices

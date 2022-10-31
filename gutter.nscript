@@ -57,6 +57,11 @@
 
     b19r_entrance_been_here
 
+    xantech_lobby_been_here
+    xantech_corridor_been_here
+    xantech_medical_been_here
+    xantech_cafe_been_here
+
 ; Inventory items
 ; ==============================================================================
 .FLAGS
@@ -72,6 +77,9 @@
     inv_visser_photo            ; Photo of Johan Visser
     inv_coral                   ; A capsule of Coral
     inv_parcel_number           ; A paper with B19's parcel number.
+    inv_visser_keycard          ; Visser's keycard
+    inv_laxative                ; A strong inv_laxative
+    inv_coffee                  ; Fresh cup of coffee
 
 ; Known locations
 ; ==============================================================================
@@ -92,6 +100,7 @@
     location_b19                6
     location_seg_place          7
     location_b19_revisit        8
+    location_xantech            9
 
     ; Scenes in the title section
     start_intro                 1
@@ -146,6 +155,14 @@
     scene_b19r_catwalk          3
     scene_b19r_cutscene         4
 
+    ; Scenes at Xantech Cybernetics
+    scene_xantech_entrance      0
+    scene_xantech_lobby         1
+    scene_xantech_corridor      2
+    scene_xantech_medical       3
+    scene_xantech_cafe          4
+    scene_xantech_servers       5
+
     ; Dialogues
     dialogue_blake              0
     dialogue_map                1
@@ -186,6 +203,35 @@
     dialogue_ransom5           36
     dialogue_ransom6           37
     dialogue_crystal_b19r      38
+    dialogue_b19r_confront1    40 ; This is out of order on purpose
+    dialogue_b19r_confront2    39
+    dialogue_b19r_confront3    41
+    dialogue_b19r_fight1       42
+    dialogue_b19r_fight2       43
+    dialogue_b19r_after_fight1 44
+    dialogue_b19r_after_fight2 45
+    dialogue_b19r_next1        46
+    dialogue_b19r_next2        47
+    dialogue_b19r_next3        48
+    dialogue_b19r_next4        49
+    dialogue_b19r_next5        50
+    dialogue_b19r_next6        51
+    dialogue_b19r_next7        52
+    dialogue_b19r_next8        53
+    dialogue_tinman            54
+    dialogue_lax1              55
+    dialogue_lax2              56
+    dialogue_lax3              57
+    dialogue_lax4              58
+    dialogue_lax5              59
+    dialogue_lax6              60
+    dialogue_lax7              61
+    dialogue_lax8              62
+    dialogue_post_lax1         63
+    dialogue_post_lax2         64
+    dialogue_server1           65
+    dialogue_server2           66
+    dialogue_seg_server        67
 
     ; Music and sound
     mod_theme                   0
@@ -402,13 +448,50 @@
 
 ; Location: B19 Revisit
 ; ==============================================================================
-    b19r_intro1                 "With no time to waste, I'm' my way back to that snake nest. Building 19's in sight and I need to be careful if Crystal and I are to make it out alive. Whatever happens, one thing is for sure."
+    b19r_intro1                 "Wasting no time, I'm on my way back to that snake nest. Building 19's in sight and I need to be careful if Crystal and I are to make it out alive. Whatever happens, one thing is for sure."
     b19r_intro2                 "Visser is going to regret this."
     b19r_crystal_on_catwalk     "Looking up, Visser and Crystal are on the catwalk. Need to hurry!"
     b19r_use_storage            "No time to waste looking on this floor, I need to go up!"
     b19r_goto_entrance          "I'm sure Crystal can wait."
     b19r_goto_catwalk           "Throwing caution to the wind, I step onto the catwalk."
     b19r_vending_machine        "Somehow, I'm not hungry at the moment."
+    b19r_catwalk_desc           "Visser's holding Crystal close to him, a chrome glint catching the moonlight between them."
+    b19r_danni_surprise1        "It's Danni!"
+    b19r_danni_surprise2        "Visser, distracted, doesn't notice Crystal as she rams her elbow right into his chest. He drops the gun and she kicks it away, unfortunately, over the railing."
+    b19r_danni_surprise3        "He takes second too long to recover and I close our distance with a punch to his face."
+    b19r_visser_knife1          "Grabbing something from his pocket, Visser leaps at me brandishing a knife."
+    b19r_visser_knife2          "Instinctively, I step back and I feel the low railing pressing against my back as he slams against me."
+    b19r_visser_knife3          "Unexpectedly, Visser is a lot stronger than he looks... Too strong. It's taking everything I have to keep his knife from my face."
+    b19r_visser_knife4          "Then I notice it, right below his left ear: a port. Visser's got cybernetics. Suddenly, I become hyper-aware of the ruby capsule in my jacket pocket."
+    b19r_visser_death1          "I reach into my pocket and in one perfect motion, jab the Coral's outlet right into Visser's port. The effect is immediate."
+    b19r_visser_death2          "Even through his glasses, I see his eyes instantly dilate. He let's go of me as he starts trashing about with his knife."
+    b19r_visser_death3          "I move away keeping between this lunatic and Crystal. He screams, trying to retain control. He lunges forward with all his enhanced might, but misses me and overextends himself."
+    b19r_visser_death4          "Visser trips over the railing, but the Coral must have taken effect now since the only sound we hear is the wet thump of yesterday's garbage dropping to the bottom of the dumpster."
+    b19r_back_danni             "Wasting no time, we make our way back to the ground floor and meet with Danni."
+
+; Location: Xantech Cybernetics
+; ==============================================================================
+    xantech_entrance_desc       "Xantech Cybernetics' ostentatious building rises above us all like a giant middle finger to our hardships."
+    xantech_lobby_desc1         "The elevator dings the 53rd floor, where the Xantech's datacenter is supposed to be."
+    xantech_lobby_desc2         "*DING*"
+    xantech_lobby_desc3         "Drek. There's a tinman guarding the server room."
+    xantech_fail_enter_servers  "The tinman steps in front of us, blocking the entrance."
+    xantech_crystal_lax         "Crystal nudges me to give her the coffee and laxative. After mixing them together, she walks to the tinman while I hide around the corner."
+    xantech_laxative1           "The tinman takes the coffee from Crystal, eager to make her happy. A few moment pass when he can hear a horrible sound coming from his stomach."
+    xantech_laxative2           "In a show of complete dereliction of duty, the tinman abandons his post and runs out of the room as quickly as the coffee is running through him."
+    xantech_corridor_desc       "Endless corridors crisscross this floor."
+    xantech_medicine_closet1    "Medicines of all kinds. Nothing immediate useful."
+    xantech_medicine_closet2    "Wait. What's this? KwikyLax?"
+    xantech_medicine_closet3    "'World's first military-grade laxative. Declare war on constipation!'"
+    xantech_medicine_closet4    "I think we all know where this going."
+    xantech_medicine_closet_end "Nothing else of use in here."
+    xantech_coffee_machine      "The coffee from this machine smells real good. I'd better take a cup."
+    xantech_has_coffee          "One cup is enough for now. I can always come back."
+    xantech_servers_desc        "The server room has an enormous server rack, clearly all of Xantech's data flowed through here."
+    xantech_datablade1          "Using Visser's keycard, I unlock the terminal from the main data blade. I take SegF4ault's data stick and insert it in the expectant port."
+    xantech_datablade2          "I wait a few moments, but nothing seems to be happening."
+    xantech_datablade3          "*RING RING*"
+    xantech_datablade4          "The trap is set. Now we wait."
 
 ; Inventory strings
 ; ==============================================================================
@@ -426,6 +509,9 @@
     inv_glitch_hacktool_full        "*A hacktool I got from Glitch. It has data from Gladys's computer."
     inv_coral                       "*A capsule of Coral."
     inv_parcel_number               "*A paper with Building 19's parcel number."
+    inv_visser_keycard              "*A keycard belonging to Johan Visser."
+    inv_laxative                    "*KwikyLax. A military-grade laxative."
+    inv_coffee                      "*A fresh cup of coffee."
 
 ; IN-GAME MENU
 ; ==============================================================================
@@ -435,15 +521,30 @@
         txtnl
         txtput $inv_danni_picture 32
 
-        load !inv_glitch_hacktool_full       ; Do we have the hacktool
+        load !inv_glitch_hacktool_full  ; Do we have the hacktool
         jiff @check_hack_tool
         txtput $inv_glitch_hacktool_full 32
-        jump @check_danni_id
+        jump @check_laxative
 
     @check_hack_tool
         load !inv_glitch_hacktool       ; Do we have the hacktool
-        jiff @check_danni_id
+        jiff @check_laxative
         txtput $inv_glitch_hacktool 32
+
+    @check_laxative
+        load !inv_laxative              ; Do we have the laxative
+        jiff @check_coffee
+        txtput $inv_laxative 32
+
+    @check_coffee
+        load !inv_coffee                ; Do we have the coffee
+        jiff @check_visser_keycard
+        txtput $inv_coffee 32
+
+    @check_visser_keycard
+        load !inv_visser_keycard        ; Do we have Visser's keycard?
+        jiff @check_danni_id
+        txtput $inv_visser_keycard 32
 
     @check_danni_id
         load !inv_danni_id              ; Do we have Danni's ID?
@@ -1426,8 +1527,168 @@
         text $b19r_vending_machine
         end
 
+.SCRIPT on_enter_catwalk
+        text $b19r_catwalk_desc
 
+        dlg #dialogue_b19r_confront1
+        dlg #dialogue_b19r_confront2
+        dlg #dialogue_b19r_confront3
 
+        text $b19r_danni_surprise1
+        text $b19r_danni_surprise2
+        text $b19r_danni_surprise3
+
+        dlg #dialogue_b19r_fight1
+
+        text $b19r_visser_knife1
+        text $b19r_visser_knife2
+        text $b19r_visser_knife3
+        text $b19r_visser_knife4
+
+        dlg #dialogue_b19r_fight2
+
+        text $b19r_visser_death1
+        text $b19r_visser_death2
+        text $b19r_visser_death3
+        text $b19r_visser_death4
+
+        dlg #dialogue_b19r_after_fight1
+        dlg #dialogue_b19r_after_fight2
+
+        setbg #scene_b19r_entrance
+        text $b19r_back_danni
+
+        dlg #dialogue_b19r_next1
+        dlg #dialogue_b19r_next2
+        dlg #dialogue_b19r_next3
+        dlg #dialogue_b19r_next4
+        dlg #dialogue_b19r_next5
+        dlg #dialogue_b19r_next6
+        dlg #dialogue_b19r_next7
+        dlg #dialogue_b19r_next8
+
+        goloc #location_xantech #scene_xantech_entrance
+
+        end
+
+; XANTECH CYBERNETICS
+; ==============================================================================
+.SCRIPT on_enter_xantech_entrance
+        text $xantech_entrance_desc
+        end
+
+.SCRIPT on_enter_xantech_lobby
+        load !xantech_lobby_been_here
+        jift @done
+        set
+        store !xantech_lobby_been_here
+        text $xantech_lobby_desc1
+        text $xantech_lobby_desc2
+        text $xantech_lobby_desc3
+
+    @done
+        end
+
+.SCRIPT goto_xantech_lobby
+        goto #scene_xantech_lobby
+        end
+
+.SCRIPT goto_xantech_corridor
+        goto #scene_xantech_corridor
+        end
+
+.SCRIPT goto_xantech_medical
+        goto #scene_xantech_medical
+        end
+
+.SCRIPT goto_xantech_cafe
+        goto #scene_xantech_cafe
+        end
+
+.SCRIPT goto_xantech_servers
+        text $xantech_fail_enter_servers
+        dlg #dialogue_tinman
+        end
+
+.SCRIPT use_xantech_tinman
+        load !inv_coffee
+        and !inv_laxative
+        jiff @not_yet
+
+        text $xantech_crystal_lax
+
+        dlg #dialogue_lax1
+        dlg #dialogue_lax2
+        dlg #dialogue_lax3
+        dlg #dialogue_lax4
+        dlg #dialogue_lax5
+        dlg #dialogue_lax6
+        dlg #dialogue_lax7
+        dlg #dialogue_lax8
+
+        text $xantech_laxative1
+        text $xantech_laxative2
+
+        dlg #dialogue_post_lax1
+        dlg #dialogue_post_lax2
+        goto #scene_xantech_servers
+        end
+        
+    @not_yet
+        text $xantech_fail_enter_servers
+        dlg #dialogue_tinman
+        end
+
+.SCRIPT on_enter_xantech_corridor
+        load !xantech_corridor_been_here
+        jift @done
+        set
+        store !xantech_corridor_been_here
+        text $xantech_corridor_desc
+
+    @done
+        end
+
+.SCRIPT use_medicine_closet
+        load !inv_laxative
+        jift @has_lax
+        text $xantech_medicine_closet1
+        text $xantech_medicine_closet2
+        text $xantech_medicine_closet3
+        text $xantech_medicine_closet4
+        set
+        store !inv_laxative
+        end
+
+    @has_lax
+        text $xantech_medicine_closet_end
+        end
+
+.SCRIPT use_coffee_machine
+        load !inv_coffee
+        jift @has_coffee
+        text $xantech_coffee_machine
+        set
+        store !inv_coffee
+        end
+
+    @has_coffee
+        text $xantech_has_coffee
+        end
+
+.SCRIPT on_enter_xantech_servers
+        text $xantech_servers_desc
+        dlg #dialogue_server1
+        dlg #dialogue_server2
+        end
+
+.SCRIPT use_datablade
+        text $xantech_datablade1
+        text $xantech_datablade2
+        text $xantech_datablade3
+        dlg #dialogue_seg_server
+        text $xantech_datablade4
+        end
 
 
 

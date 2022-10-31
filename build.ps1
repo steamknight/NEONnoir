@@ -47,6 +47,12 @@ $data_files = @(
     "./data/locations/loc_b19_storage.iff",
     "./data/locations/loc_b19_catwalk.iff",
     "./data/locations/loc_segs_place.iff",
+    "./data/locations/loc_xantech_entrance.iff",
+    "./data/locations/loc_xantech_lobby.iff",
+    "./data/locations/loc_xantech_medical.iff",
+    "./data/locations/loc_xantech_cafe.iff",
+    "./data/locations/loc_xantech_corridor.iff",
+    "./data/locations/loc_xantech_servers.iff",
     "./data/cutscenes/end_act_2.iff",
     "./data/cutscenes/end_act_1.iff",
     "./data/cutscenes/danni1.iff",
@@ -72,6 +78,7 @@ $data_files = @(
     "./data/6.shapes",
     "./data/7.shapes",
     "./data/8.shapes",
+    "./data/9.shapes",
     "./data/menu.shapes"
 )
 
