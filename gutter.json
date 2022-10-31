@@ -2363,20 +2363,6 @@
               "text": "I'm a PI who's looking for a girl."
             },
             {
-              "check_flag": "",
-              "clear_flag": "",
-              "enabled": true,
-              "has_check_flag": false,
-              "has_clear_flag": false,
-              "has_script": false,
-              "has_set_flag": false,
-              "next_page_id": 65535,
-              "script": "",
-              "self_disable": false,
-              "set_flag": "",
-              "text": "Just looking at you, I can tell this is going to be pointless. Bye."
-            },
-            {
               "check_flag": "inv_visser_photo",
               "clear_flag": "",
               "enabled": true,
@@ -2389,6 +2375,20 @@
               "self_disable": false,
               "set_flag": "",
               "text": "Do you know the man on this photo?"
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Just looking at you, I can tell this is going to be pointless. Bye."
             }
           ],
           "clear_flag": "",
@@ -2962,7 +2962,7 @@
               "script": "",
               "self_disable": false,
               "set_flag": "",
-              "text": "I don't think so. Instead you're going to tell me what I want to know or I'll give JV here a call. I'm sure he'd love to know how loose lipped you are about his involvment with Coral."
+              "text": "I don't think so. Instead you're going to tell me what I want to know or I'll give JV here a call. I'm sure he'd love to know how loose lipped you are about his involvement with Coral."
             }
           ],
           "clear_flag": "",
@@ -4295,20 +4295,6 @@
               "text": "Plug in Glitch's datastick."
             },
             {
-              "check_flag": "",
-              "clear_flag": "",
-              "enabled": true,
-              "has_check_flag": false,
-              "has_clear_flag": false,
-              "has_script": false,
-              "has_set_flag": false,
-              "next_page_id": 65535,
-              "script": "",
-              "self_disable": false,
-              "set_flag": "",
-              "text": "Log off."
-            },
-            {
               "check_flag": "inv_parcel_number",
               "clear_flag": "",
               "enabled": true,
@@ -4321,6 +4307,20 @@
               "self_disable": false,
               "set_flag": "",
               "text": "Run B19's parcel number."
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Log off."
             }
           ],
           "clear_flag": "",
@@ -4379,20 +4379,6 @@
               "text": "Cygnus Holdings"
             },
             {
-              "check_flag": "",
-              "clear_flag": "",
-              "enabled": true,
-              "has_check_flag": false,
-              "has_clear_flag": false,
-              "has_script": false,
-              "has_set_flag": false,
-              "next_page_id": 0,
-              "script": "",
-              "self_disable": false,
-              "set_flag": "",
-              "text": "Nothing else."
-            },
-            {
               "check_flag": "knows_summervault",
               "clear_flag": "",
               "enabled": true,
@@ -4419,6 +4405,20 @@
               "self_disable": false,
               "set_flag": "",
               "text": "Sumerian Collective"
+            },
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 0,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Nothing else."
             }
           ],
           "clear_flag": "",
@@ -4706,7 +4706,7 @@
           "next_page_id": 65535,
           "self_disable": false,
           "set_flag": "knows_about_xander",
-          "text": "Entry: Xantech Cybernetics\nSummary: Formed 15 years ago by Xander Vane, Xantech Cybernetics has become the world leader in consumer-level cybernetics owning 93% of the markershare. Xander Cybernetics is a subsidiary of Cygnus Holdings."
+          "text": "Entry: Xantech Cybernetics\nSummary: Formed 15 years ago by Xander Vane, Xantech Cybernetics has become the world leader in consumer-level cybernetics owning 93% of the market share. Xander Cybernetics is a subsidiary of Cygnus Holdings."
         },
         {
           "check_flag": "",
@@ -4762,7 +4762,7 @@
           "next_page_id": 65535,
           "self_disable": false,
           "set_flag": "",
-          "text": "Entry: Cygnus Holdings\nSummary: Cygnus Holdings is [REDACTED] and are resposible for [REDACTED]. Their subsidiaries include [LIST REDACTED] and Xantech Cybernetics."
+          "text": "Entry: Cygnus Holdings\nSummary: Cygnus Holdings is [REDACTED] and are responsible for [REDACTED]. Their subsidiaries include [LIST REDACTED] and Xantech Cybernetics."
         },
         {
           "check_flag": "",
@@ -4790,7 +4790,7 @@
           "next_page_id": 65535,
           "self_disable": false,
           "set_flag": "",
-          "text": "Entry: SummerVault\nSummary: SummerVault was formed 4 years ago. Since its inception, SummerVault has specialized in the sale of personal protection vaults and bunkers. Recently it fought off a contronversy relating to their vault subscription service, as the capacity they have is a fraction of the lucritive subscriptions they sold.\nLast year they were aquired by the Sumerian Collective."
+          "text": "Entry: SummerVault\nSummary: SummerVault was formed 4 years ago. Since its inception, SummerVault has specialized in the sale of personal protection vaults and bunkers. Recently it fought off a controversy relating to their vault subscription service, as the capacity they have is a fraction of the lucrative subscriptions they sold.\nLast year they were acquired by the Sumerian Collective."
         },
         {
           "check_flag": "",
@@ -4818,7 +4818,7 @@
           "next_page_id": 65535,
           "self_disable": false,
           "set_flag": "",
-          "text": "Entry: Sumerian Collective\nSummary: Establised 7 years ago, the Sumerian Collective have purchased several companies in varied industries. Ironically, they themselves are now a wholy owned subsidiary of Cygnus Holdings."
+          "text": "Entry: Sumerian Collective\nSummary: Established 7 years ago, the Sumerian Collective have purchased several companies in varied industries. Ironically, they themselves are now a wholly owned subsidiary of Cygnus Holdings."
         }
       ],
       "speaker": "GovLink"
@@ -6143,7 +6143,7 @@
               "script": "",
               "self_disable": false,
               "set_flag": "",
-              "text": "Xantec Cybernetics? Hold on a minute. That means that 15 is..."
+              "text": "Xantech Cybernetics? Hold on a minute. That means..."
             }
           ],
           "clear_flag": "",
@@ -6224,7 +6224,7 @@
           "next_page_id": 65535,
           "self_disable": false,
           "set_flag": "",
-          "text": ""
+          "text": "15 is..."
         },
         {
           "check_flag": "",
@@ -6463,7 +6463,7 @@
               "script": "",
               "self_disable": false,
               "set_flag": "",
-              "text": "... then he's dreked. He won't be able to spin it or surpress it!"
+              "text": "... then he's dreked. He won't be able to spin it or supress it!"
             }
           ],
           "clear_flag": "",
@@ -7163,7 +7163,7 @@
               "script": "",
               "self_disable": false,
               "set_flag": "",
-              "text": "(Puch to the stomach)"
+              "text": "(Punch to the stomach)"
             },
             {
               "check_flag": "",
@@ -7247,7 +7247,7 @@
               "script": "",
               "self_disable": false,
               "set_flag": "",
-              "text": "(Puch to the stomach)"
+              "text": "(Punch to the stomach)"
             },
             {
               "check_flag": "",
@@ -8191,7 +8191,7 @@
           "next_page_id": 65535,
           "self_disable": false,
           "set_flag": "",
-          "text": "So I made you fresh cup of coffe!"
+          "text": "So I made you fresh cup of coffee!"
         }
       ],
       "speaker": "Crystal"
@@ -10260,7 +10260,7 @@
           "name": "Medical",
           "offset_x": 0,
           "offset_y": 0,
-          "on_enter": "",
+          "on_enter": "on_enter_xantech_medical",
           "on_exit": "",
           "regions": [
             {
@@ -10305,7 +10305,7 @@
           "name": "Cafe",
           "offset_x": 0,
           "offset_y": 0,
-          "on_enter": "",
+          "on_enter": "on_enter_xantech_cafe",
           "on_exit": "",
           "regions": [
             {

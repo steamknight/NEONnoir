@@ -430,6 +430,7 @@
     empty_trash                 "Nothing else of value in there."
     look_at_lockers             "The lockers aren't locked. Unfortunately, they're also empty."
     look_at_papers              "There are some papers and brochures on the small table. Nothing interesting, I'm afraid."
+    b19_cant_leave_yet          "I got the feeling there's more for me to learn here."
 
 ; Location: SegF4ult's Place
 ; ==============================================================================
@@ -472,21 +473,25 @@
 ; Location: Xantech Cybernetics
 ; ==============================================================================
     xantech_entrance_desc       "Xantech Cybernetics' ostentatious building rises above us all like a giant middle finger to our hardships."
-    xantech_lobby_desc1         "The elevator dings the 53rd floor, where the Xantech's datacenter is supposed to be."
+    xantech_lobby_desc1         "The elevator dings at the 53rd floor, where the Xantech's datacenter is supposed to be."
     xantech_lobby_desc2         "*DING*"
     xantech_lobby_desc3         "Drek. There's a tinman guarding the server room."
     xantech_fail_enter_servers  "The tinman steps in front of us, blocking the entrance."
     xantech_crystal_lax         "Crystal nudges me to give her the coffee and laxative. After mixing them together, she walks to the tinman while I hide around the corner."
-    xantech_laxative1           "The tinman takes the coffee from Crystal, eager to make her happy. A few moment pass when he can hear a horrible sound coming from his stomach."
+    xantech_laxative1           "The tinman takes the coffee from Crystal, eager to make her happy. A few moment pass when we can hear a horrible sound coming from his stomach."
     xantech_laxative2           "In a show of complete dereliction of duty, the tinman abandons his post and runs out of the room as quickly as the coffee is running through him."
     xantech_corridor_desc       "Endless corridors crisscross this floor."
-    xantech_medicine_closet1    "Medicines of all kinds. Nothing immediate useful."
+    xantech_medical_desc        "A spotless medical bay. Everything here is state-of-the-art."
+    xantech_medicine_closet1    "Medicines of all kinds. Nothing immediately useful."
     xantech_medicine_closet2    "Wait. What's this? KwikyLax?"
     xantech_medicine_closet3    "'World's first military-grade laxative. Declare war on constipation!'"
     xantech_medicine_closet4    "I think we all know where this going."
     xantech_medicine_closet_end "Nothing else of use in here."
+    xantech_cafe_desc1          "The breakroom on this floor is a fully stocked cafe. Perhaps working for Xantech wouldn't be the worst thing..."
+    xantech_cafe_desc2          "Better not to be seduced by their corporate perks. I had a job to do."
     xantech_coffee_machine      "The coffee from this machine smells real good. I'd better take a cup."
     xantech_has_coffee          "One cup is enough for now. I can always come back."
+    xantech_move_to_server      "With the tinman gone, we move into the server room"
     xantech_servers_desc        "The server room has an enormous server rack, clearly all of Xantech's data flowed through here."
     xantech_datablade1          "Using Visser's keycard, I unlock the terminal from the main data blade. I take SegF4ault's data stick and insert it in the expectant port."
     xantech_datablade2          "I wait a few moments, but nothing seems to be happening."
@@ -1172,6 +1177,8 @@
         txtput $end_act1_d 24
         txtend 4 4 #wait_on
 
+        mod $mod_intrigue 0
+
         text $end_act1_e
         dlg #dialogue_visser_act1
 
@@ -1200,7 +1207,7 @@
         goto #scene_end_act2_cutscene
         end
 
-.SCRIPT .SCRIPT on_enter_end_act2
+.SCRIPT on_enter_end_act2
         txtstart #frame_off
         txtput $end_act2_a 45
         txtend 4 170 #wait_on
@@ -1342,6 +1349,17 @@
         store !b19_been_here
 
     @done
+        end
+
+.SCRIPT leave_b19
+        load !inv_parcel_number
+        and !inv_coral
+        jiff @wait
+        dlg #dialogue_map
+        end
+
+    @wait
+        text $b19_cant_leave_yet
         end
 
 .SCRIPT goto_b19_entrance
@@ -1631,6 +1649,7 @@
 
         dlg #dialogue_post_lax1
         dlg #dialogue_post_lax2
+        text $xantech_move_to_server
         goto #scene_xantech_servers
         end
         
@@ -1690,7 +1709,26 @@
         text $xantech_datablade4
         end
 
+.SCRIPT on_enter_xantech_medical
+        load !xantech_medical_been_here
+        jift @done
+        set
+        store !xantech_medical_been_here
+        text $xantech_medical_desc
 
+    @done
+        end
+
+.SCRIPT on_enter_xantech_cafe
+        load !xantech_cafe_been_here
+        jift @done
+        set
+        store !xantech_cafe_been_here
+        text $xantech_cafe_desc1
+        text $xantech_cafe_desc2
+
+    @done
+        end
 
 
 
