@@ -4268,10 +4268,10 @@
             },
             {
               "check_flag": "inv_glitch_hacktool",
-              "clear_flag": "",
+              "clear_flag": "inv_glitch_hacktool",
               "enabled": true,
               "has_check_flag": true,
-              "has_clear_flag": false,
+              "has_clear_flag": true,
               "has_script": false,
               "has_set_flag": false,
               "next_page_id": 2,
@@ -4304,7 +4304,7 @@
               "has_set_flag": false,
               "next_page_id": 65535,
               "script": "govlink_search_parcel",
-              "self_disable": false,
+              "self_disable": true,
               "set_flag": "",
               "text": "Run B19's parcel number."
             },
@@ -8320,7 +8320,7 @@
           "next_page_id": 65535,
           "self_disable": false,
           "set_flag": "",
-          "text": "Great news, Blade!"
+          "text": "Great news, Blake!"
         },
         {
           "check_flag": "",
@@ -8352,6 +8352,603 @@
         }
       ],
       "speaker": "SegF4ult"
+    },
+    {
+      "image_id": 38,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "-- And this is my new Kickstart 4 cybernetic legs will change the world of sports."
+        }
+      ],
+      "speaker": "Xander"
+    },
+    {
+      "image_id": 38,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 1,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "They are available for purchase..."
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Right now!"
+        }
+      ],
+      "speaker": "Xander"
+    },
+    {
+      "image_id": 0,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Do it, Seg."
+        }
+      ],
+      "speaker": "Blake"
+    },
+    {
+      "image_id": 38,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Up next, we have an innovation you won't believe--"
+        }
+      ],
+      "speaker": "Xander"
+    },
+    {
+      "image_id": 40,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 1,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "-- and these dreking animals will eat it up."
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 2,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "-- Why should they stop paying us just because they got the product? With Coral, I *OWN* them."
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 3,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "-- They will give me every last credit and thank me, well, thank \"KryptoKool\" for it."
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "-- We're making billions!"
+        }
+      ],
+      "speaker": "Xander Recording"
+    },
+    {
+      "image_id": 38,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "What is going on?!"
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 1,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "What is the meaning of this?"
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 2,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Visser?! Visser?! Where are you."
+        }
+      ],
+      "speaker": "Xander"
+    },
+    {
+      "image_id": 38,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "YOU!!!"
+        }
+      ],
+      "speaker": "Xander"
+    },
+    {
+      "image_id": 38,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 1,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "You!? Do you you realize what you've done?! You ruined me!"
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "And after all I've done for you?! You'd still be gutter trash if it wasn't for me!"
+        }
+      ],
+      "speaker": "Xander"
+    },
+    {
+      "image_id": 37,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "You.."
+        }
+      ],
+      "speaker": "Danni"
+    },
+    {
+      "image_id": 37,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "...Threw me..."
+        }
+      ],
+      "speaker": "Danni"
+    },
+    {
+      "image_id": 37,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "... In the TRASH..."
+        }
+      ],
+      "speaker": "Danni"
+    },
+    {
+      "image_id": 37,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "You left me to die."
+        }
+      ],
+      "speaker": "Danni"
+    },
+    {
+      "image_id": 38,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "You drek... You and your friends are dreking fishined! I will--"
+        }
+      ],
+      "speaker": "Xander"
+    },
+    {
+      "image_id": 39,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Mr. Vane. The Board is displeased and demands your presence immediately."
+        }
+      ],
+      "speaker": "MIB"
+    },
+    {
+      "image_id": 37,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Who were they?"
+        }
+      ],
+      "speaker": "Danni"
+    },
+    {
+      "image_id": 0,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 1,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Enforcers for Cygnus Holdings, I'd imagine."
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 2,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "I almost feel bad for Xander."
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Almost."
+        }
+      ],
+      "speaker": "Blake"
+    },
+    {
+      "image_id": 0,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Who's a good girl, Daisy?"
+        }
+      ],
+      "speaker": "Blake End"
+    },
+    {
+      "image_id": 42,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "That's right, you are!"
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Boof!"
+        }
+      ],
+      "speaker": "Daisy"
+    },
+    {
+      "image_id": 0,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Sorry, we're clos--"
+        }
+      ],
+      "speaker": "Blake"
+    },
+    {
+      "image_id": 43,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [
+            {
+              "check_flag": "",
+              "clear_flag": "",
+              "enabled": true,
+              "has_check_flag": false,
+              "has_clear_flag": false,
+              "has_script": false,
+              "has_set_flag": false,
+              "next_page_id": 65535,
+              "script": "",
+              "self_disable": false,
+              "set_flag": "",
+              "text": "Oh, hi Crystal! Come in."
+            }
+          ],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Even for a friendly face?"
+        }
+      ],
+      "speaker": "Crystal"
+    },
+    {
+      "image_id": 42,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Boof!"
+        }
+      ],
+      "speaker": "Daisy"
+    },
+    {
+      "image_id": 43,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 1,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "I didn't know you had a dog! She's beautiful."
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "Is she a good girl?"
+        }
+      ],
+      "speaker": "Crystal"
+    },
+    {
+      "image_id": 0,
+      "pages": [
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 65535,
+          "self_disable": false,
+          "set_flag": "",
+          "text": "The best."
+        }
+      ],
+      "speaker": "Blake"
     }
   ],
   "locations": [
@@ -8404,6 +9001,16 @@
               "width": 31,
               "x": 78,
               "y": 180
+            },
+            {
+              "description": "",
+              "height": 14,
+              "pointer_id": 2,
+              "script": "credits",
+              "shape_id": 65535,
+              "width": 46,
+              "x": 245,
+              "y": 175
             }
           ],
           "view_height": 0,
@@ -9600,7 +10207,7 @@
               "description": "Exit to subway.",
               "height": 200,
               "pointer_id": 3,
-              "script": "exit_to_subway",
+              "script": "leave_b19",
               "shape_id": 65535,
               "width": 30,
               "x": 290,
@@ -10421,6 +11028,236 @@
         }
       ],
       "shapes_file": "9.shapes"
+    },
+    {
+      "backgrounds": [
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\blank.bmp",
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\cutscenes\\xancon1.iff",
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\cutscenes\\xancon2.iff",
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\cutscenes\\xancon3.iff"
+      ],
+      "name": "XanCon",
+      "scenes": [
+        {
+          "image_id": 0,
+          "music_id": 5,
+          "name": "Cutscene1",
+          "offset_x": 0,
+          "offset_y": 0,
+          "on_enter": "on_enter_xancon_cut1",
+          "on_exit": "",
+          "regions": [],
+          "view_height": 0,
+          "view_width": 0,
+          "view_x": 0,
+          "view_y": 0
+        },
+        {
+          "image_id": 1,
+          "music_id": 65535,
+          "name": "Cutscene2",
+          "offset_x": 0,
+          "offset_y": 0,
+          "on_enter": "on_enter_xancon_cut2",
+          "on_exit": "",
+          "regions": [],
+          "view_height": 0,
+          "view_width": 0,
+          "view_x": 0,
+          "view_y": 0
+        },
+        {
+          "image_id": 2,
+          "music_id": 65535,
+          "name": "Cutscene3",
+          "offset_x": 0,
+          "offset_y": 0,
+          "on_enter": "on_enter_xancon_cut3",
+          "on_exit": "",
+          "regions": [],
+          "view_height": 0,
+          "view_width": 0,
+          "view_x": 0,
+          "view_y": 0
+        },
+        {
+          "image_id": 0,
+          "music_id": 65535,
+          "name": "Cutscene4",
+          "offset_x": 0,
+          "offset_y": 0,
+          "on_enter": "",
+          "on_exit": "",
+          "regions": [],
+          "view_height": 0,
+          "view_width": 0,
+          "view_x": 0,
+          "view_y": 0
+        },
+        {
+          "image_id": 3,
+          "music_id": 65535,
+          "name": "Cutscene5",
+          "offset_x": 0,
+          "offset_y": 0,
+          "on_enter": "on_enter_xancon_cut5",
+          "on_exit": "",
+          "regions": [],
+          "view_height": 0,
+          "view_width": 0,
+          "view_x": 0,
+          "view_y": 0
+        }
+      ],
+      "shapes": [
+        {
+          "has_palette": true,
+          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\blake.iff",
+          "shapes": [
+            {
+              "height": 100,
+              "width": 100,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "has_palette": true,
+          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\danni.iff",
+          "shapes": [
+            {
+              "height": 100,
+              "width": 100,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "has_palette": true,
+          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\xander.iff",
+          "shapes": [
+            {
+              "height": 100,
+              "width": 100,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "has_palette": true,
+          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\mib3.iff",
+          "shapes": [
+            {
+              "height": 100,
+              "width": 100,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "has_palette": true,
+          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\xander2.iff",
+          "shapes": [
+            {
+              "height": 100,
+              "width": 100,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        }
+      ],
+      "shapes_file": "10.shapes"
+    },
+    {
+      "backgrounds": [
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_blake_apartment.iff",
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\blank.bmp"
+      ],
+      "name": "End",
+      "scenes": [
+        {
+          "image_id": 0,
+          "music_id": 1,
+          "name": "End",
+          "offset_x": 0,
+          "offset_y": 0,
+          "on_enter": "on_enter_end",
+          "on_exit": "",
+          "regions": [],
+          "view_height": 0,
+          "view_width": 0,
+          "view_x": 0,
+          "view_y": 0
+        }
+      ],
+      "shapes": [
+        {
+          "has_palette": true,
+          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\blake.iff",
+          "shapes": [
+            {
+              "height": 100,
+              "width": 100,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "has_palette": true,
+          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\daisy.iff",
+          "shapes": [
+            {
+              "height": 100,
+              "width": 100,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "has_palette": true,
+          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\crystal.iff",
+          "shapes": [
+            {
+              "height": 100,
+              "width": 100,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        }
+      ],
+      "shapes_file": "11.shapes"
+    },
+    {
+      "backgrounds": [
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\cutscenes\\end.iff"
+      ],
+      "name": "Credits",
+      "scenes": [
+        {
+          "image_id": 0,
+          "music_id": 65535,
+          "name": "Credits",
+          "offset_x": 0,
+          "offset_y": 0,
+          "on_enter": "on_enter_credits",
+          "on_exit": "",
+          "regions": [],
+          "view_height": 0,
+          "view_width": 0,
+          "view_x": 0,
+          "view_y": 0
+        }
+      ],
+      "shapes": [],
+      "shapes_file": ""
     }
   ],
   "script_name": "C:\\Users\\mass\\source\\NEONnoir\\gutter.nscript"

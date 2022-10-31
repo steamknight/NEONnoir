@@ -101,8 +101,12 @@
     location_seg_place          7
     location_b19_revisit        8
     location_xantech            9
+    location_xancon            10
+    location_end               11
+    location_credits           12
 
     ; Scenes in the title section
+    scene_title                 0
     start_intro                 1
     intro_2                     2
     intro_3                     3
@@ -162,6 +166,19 @@
     scene_xantech_medical       3
     scene_xantech_cafe          4
     scene_xantech_servers       5
+
+    ; Scenes at XanCon
+    scene_xancon_cut1           0
+    scene_xancon_cut2           1
+    scene_xancon_cut3           2
+    scene_xancon_cut4           3
+    scene_xancon_cut5           4
+
+    ; Scenes at End
+    scene_end                   0
+    scene_end2                  1
+
+    scene_credits               0
 
     ; Dialogues
     dialogue_blake              0
@@ -232,6 +249,29 @@
     dialogue_server1           65
     dialogue_server2           66
     dialogue_seg_server        67
+    dialogue_xander_cut1       68
+    dialogue_xander_cut2       69
+    dialogue_xander_cut3       70
+    dialogue_xander_cut4       71
+    dialogue_xander_cut5       72
+    dialogue_xander_cut6       73
+    dialogue_xander_cut7       74
+    dialogue_xander_cut8       75
+    dialogue_xander_cut9       76
+    dialogue_xander_cut10      77
+    dialogue_xander_cut11      78
+    dialogue_xander_cut12      79
+    dialogue_xander_cut13      80
+    dialogue_xander_cut14      81
+    dialogue_xander_cut15      82
+    dialogue_xander_cut16      83
+    dialogue_end1              84
+    dialogue_end2              85
+    dialogue_end3              86
+    dialogue_end4              87
+    dialogue_end5              88
+    dialogue_end6              89
+    dialogue_end7              90
 
     ; Music and sound
     mod_theme                   0
@@ -498,6 +538,65 @@
     xantech_datablade3          "*RING RING*"
     xantech_datablade4          "The trap is set. Now we wait."
 
+; Location: XanCon
+; ==============================================================================
+    xancon_desc1                "For the next day, we lay low."
+    xancon_desc2                "It's anyone's guess if Xander is worried about Visser. If he is, he doesn't show it as XanCon is in full swing."
+    xancon_desc3                "SegF4ult forges us tickets allowing us to sneak on to the expo floor. We get there just as the Keynote is underway."
+
+    xancon_desc4                "Xander Vane, one of the wealthiest men on the planet."
+    xancon_desc5                "Xander Vane, trying to squeeze every single credit from those who have none."
+    xancon_desc6                "Like Icarus before him, Xander Vane's flying too close to the sun and it's time for him to fall."
+
+    xancon_desc7                "The crowd erupts in raucous applause."
+    xancon_desc8                "More applause from the crowd."
+
+    xancon_desc9                "The screen behind Xander flickers and the contents is replaced with video clips, and audio logs, playing in quick succession."
+    xancon_desc10               "The crowd begins to roar at this, at first confused -- is this a joke?"
+    xancon_desc11               "But as horror creeps on Xander's face, they realize this all too real."
+    xancon_desc12               "Xander looks into the crowd, and with almost supernatural precision, his eyes lock onto Danni's."
+    xancon_desc13               "Like a salmon swimming upstream, Xander pushes his way through the crowd as he makes his way to us in a blinding rage."
+
+    xancon_danni1               "Danni punches him in the face."
+    xancon_danni2               "As Xander reel from the hit, she knees him in the groin."
+    xancon_danni3               "As he double over, she kicks him in the face as he lands on his ass."
+    xancon_desc14               "Mid sentence, three men dressed in black, wearing sunglasses and earpieces appear behind Xander."
+    xancon_desc15               "Exhibiting a gross misunderstanding of the situation, Xander orders them to arrest us."
+
+    xancon_desc16               "Xander begins to struggle and attempts to make a run for it to no avail."
+    xancon_desc17               "Almost bored, the lead man in black jabs Xander with a something and he goes limp."
+    xancon_desc18               "Just as quickly as they arrived, they left."
+    xancon_desc19               "It was now time for us to do the same."
+
+; Location: End
+; ==============================================================================
+    end1                        "In the days that followed, Cygnus Holdings publicly denounced Xantech Cybernetics' actions and took control of the company"
+    end2                        "Nobody had seen or heard from Xander Vane."
+    end3                        "Things were beginning to back to normal, or whatever passes for normal around here."
+
+    end4                        "To my surprise, there was a knock at the door."
+
+    end5                        "The End."
+
+    credits_mass1               "Programming and Story"
+    credits_mass2               "Massimo Loi"
+    credits_mass3               "massproduced.games"
+
+    credits_art1                "Art"
+    credits_art2                "Sandy Loi"
+    credits_art3                "MidJourney"
+
+    credits_music1              "Music"
+    credits_music2              "Matias Sosa"
+    credits_music3              "matiasosa.itch.io"
+
+    credits_thanks1             "Special thanks to all the member of the"
+    credits_thanks2             "Amiga Blitz Basic Game Jam Discord server"
+
+    credits_daisy1              "In loving Memory"
+    credits_daisy2              "Daisy 2009-2022"
+    credits_daisy3              "You'll always be the goodest girl"
+
 ; Inventory strings
 ; ==============================================================================
 .TEXT
@@ -667,6 +766,10 @@
 
 .SCRIPT start_game
     goloc #location_alleyway #alley_takeshi_noodles
+    end
+
+.SCRIPT credits
+    goloc #location_credits #scene_credits
     end
 
 .SCRIPT intro01_text
@@ -1707,6 +1810,9 @@
         text $xantech_datablade3
         dlg #dialogue_seg_server
         text $xantech_datablade4
+
+        goloc #location_xancon #scene_xancon_cut1
+
         end
 
 .SCRIPT on_enter_xantech_medical
@@ -1729,6 +1835,147 @@
 
     @done
         end
+
+; XANCON
+; ==============================================================================
+.SCRIPT on_enter_xancon_cut1
+        text $xancon_desc1
+        text $xancon_desc2
+        text $xancon_desc3
+        text $xancon_desc4
+        text $xancon_desc5
+        text $xancon_desc6
+
+        goto #scene_xancon_cut2
+
+        end
+
+.SCRIPT on_enter_xancon_cut2
+        dlg #dialogue_xander_cut1
+        text $xancon_desc7
+        dlg #dialogue_xander_cut2
+        text $xancon_desc8
+        dlg #dialogue_xander_cut3
+        dlg #dialogue_xander_cut4
+
+        goto #scene_xancon_cut3
+        end
+
+.SCRIPT on_enter_xancon_cut3
+        text $xancon_desc9
+        dlg #dialogue_xander_cut5
+        text $xancon_desc10
+        text $xancon_desc11
+        dlg #dialogue_xander_cut6
+        text $xancon_desc12
+        dlg #dialogue_xander_cut7
+        text $xancon_desc13
+
+;        goto #scene_xancon_cut4
+;        end
+
+;.SCRIPT on_enter_xancon_cut4
+        dlg #dialogue_xander_cut8
+        dlg #dialogue_xander_cut9
+        text $xancon_danni1
+        dlg #dialogue_xander_cut10
+        text $xancon_danni2
+        dlg #dialogue_xander_cut11
+        text $xancon_danni3
+        dlg #dialogue_xander_cut12
+
+        dlg #dialogue_xander_cut13
+
+        text $xancon_desc14
+        text $xancon_desc15
+
+        dlg #dialogue_xander_cut14
+        goto #scene_xancon_cut5
+
+.SCRIPT on_enter_xancon_cut5
+        text $xancon_desc16
+        text $xancon_desc17
+        text $xancon_desc18
+
+        dlg #dialogue_xander_cut15
+        dlg #dialogue_xander_cut16
+        text $xancon_desc19
+
+        goloc #location_end #scene_end
+        end
+
+.SCRIPT on_enter_end
+        text $end1
+        text $end2
+        text $end3
+        dlg #dialogue_end1
+        dlg #dialogue_end2
+
+        text $end4
+        dlg #dialogue_end3
+        dlg #dialogue_end4
+        dlg #dialogue_end5
+        dlg #dialogue_end6
+        dlg #dialogue_end7
+
+        setbg #scene_end2
+        txtstart #frame_off
+        txtput $end5 10
+        txtend 94 96 #wait_on
+
+        goloc #location_credits #scene_credits
+
+        end
+
+.SCRIPT on_enter_credits
+        txtstart #frame_off
+        txtput $credits_mass1 25
+        txtput $credits_mass2 25
+        txtput $credits_mass3 25
+        txtnl
+        txtnl
+        txtput $credits_art1 25
+        txtput $credits_mass2 25
+        txtnl
+        txtput $credits_art2 25
+        txtnl
+        txtput $credits_art3 25
+        txtnl
+        txtnl
+        txtput $credits_music1 25
+        txtput $credits_music2 25
+        txtput $credits_music3 25
+        txtnl
+        txtnl
+        txtnl
+        txtput $credits_thanks1 42
+        txtput $credits_thanks2 42
+
+        txtend 10 10 #wait_on
+
+        txtstart #frame_off
+        txtput $credits_daisy1 35
+        txtput $credits_daisy2 35
+        txtnl
+        txtput $credits_daisy3 35
+        txtend 10 84 #wait_on
+
+        goloc #location_title #scene_title
+        end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -59,6 +59,10 @@ $data_files = @(
     "./data/cutscenes/danni2.iff",
     "./data/cutscenes/danni3.iff",
     "./data/cutscenes/b19.iff",
+    "./data/cutscenes/xancon1.iff",
+    "./data/cutscenes/xancon2.iff",
+    "./data/cutscenes/xancon3.iff",
+    "./data/cutscenes/end.iff",
     "./data/display.font",
     "./data/frame.shape",
     "./data/pointers.shape",
@@ -79,6 +83,8 @@ $data_files = @(
     "./data/7.shapes",
     "./data/8.shapes",
     "./data/9.shapes",
+    "./data/10.shapes",
+    "./data/11.shapes",
     "./data/menu.shapes"
 )
 
