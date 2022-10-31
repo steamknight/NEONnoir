@@ -136,16 +136,16 @@ Repeat
   prev_overlap = overlapped
 
   ; Press ESC to quit
-  If RawStatus($45) Then NN_should_quit = True
-  If RawStatus($01)
-    For f = 0 to 16
-      l$ = Str$(f * 4   ) + ": " + Str$(NS_flags(f* 4    )) + "    "
-      l$ + Str$(f* 4 +  1) + ": " + Str$(NS_flags(f* 4 +  1)) + "    "
-      l$ + Str$(f* 4 +  2) + ": " + Str$(NS_flags(f* 4 +  2)) + "    "
-      l$ + Str$(f* 4 + 3) + ": " + Str$(NS_flags(f* 4 + 3)) + "    "
-      !DB_log_str{"MAIN", l$}
-    Next
-  End If
+  ; If RawStatus($45) Then NN_should_quit = True
+  ; If RawStatus($01)
+  ;   For f = 0 to 16
+  ;     l$ = Str$(f * 4   ) + ": " + Str$(NS_flags(f* 4    )) + "    "
+  ;     l$ + Str$(f* 4 +  1) + ": " + Str$(NS_flags(f* 4 +  1)) + "    "
+  ;     l$ + Str$(f* 4 +  2) + ": " + Str$(NS_flags(f* 4 +  2)) + "    "
+  ;     l$ + Str$(f* 4 + 3) + ": " + Str$(NS_flags(f* 4 + 3)) + "    "
+  ;     !DB_log_str{"MAIN", l$}
+  ;   Next
+  ; End If
 
 Until NN_should_quit
 

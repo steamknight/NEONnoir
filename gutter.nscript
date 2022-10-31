@@ -546,33 +546,33 @@
 
     xancon_desc4                "Xander Vane, one of the wealthiest men on the planet."
     xancon_desc5                "Xander Vane, trying to squeeze every single credit from those who have none."
-    xancon_desc6                "Like Icarus before him, Xander Vane's flying too close to the sun and it's time for him to fall."
+    xancon_desc6                "Like Icarus before him, he's flying too close to the sun and it's time for him to fall."
 
     xancon_desc7                "The crowd erupts in raucous applause."
     xancon_desc8                "More applause from the crowd."
 
-    xancon_desc9                "The screen behind Xander flickers and the contents is replaced with video clips, and audio logs, playing in quick succession."
-    xancon_desc10               "The crowd begins to roar at this, at first confused -- is this a joke?"
+    xancon_desc9                "The screen behind Xander flickers and the contents is replaced with video clips and audio logs playing in quick succession."
+    xancon_desc10               "The crowd begins to roar, confused -- is this a joke?"
     xancon_desc11               "But as horror creeps on Xander's face, they realize this all too real."
     xancon_desc12               "Xander looks into the crowd, and with almost supernatural precision, his eyes lock onto Danni's."
     xancon_desc13               "Like a salmon swimming upstream, Xander pushes his way through the crowd as he makes his way to us in a blinding rage."
 
     xancon_danni1               "Danni punches him in the face."
-    xancon_danni2               "As Xander reel from the hit, she knees him in the groin."
-    xancon_danni3               "As he double over, she kicks him in the face as he lands on his ass."
+    xancon_danni2               "As Xander reels from the hit, she knees him in the groin."
+    xancon_danni3               "He double over, she kicks him in the face as he lands on his ass."
     xancon_desc14               "Mid sentence, three men dressed in black, wearing sunglasses and earpieces appear behind Xander."
     xancon_desc15               "Exhibiting a gross misunderstanding of the situation, Xander orders them to arrest us."
 
-    xancon_desc16               "Xander begins to struggle and attempts to make a run for it to no avail."
-    xancon_desc17               "Almost bored, the lead man in black jabs Xander with a something and he goes limp."
+    xancon_desc16               "Xander struggles and attempts to make a run for it to no avail."
+    xancon_desc17               "Almost bored, the lead man in black jabs Xander with something and he goes limp."
     xancon_desc18               "Just as quickly as they arrived, they left."
-    xancon_desc19               "It was now time for us to do the same."
+    xancon_desc19               "It was now time for us make our exit."
 
 ; Location: End
 ; ==============================================================================
-    end1                        "In the days that followed, Cygnus Holdings publicly denounced Xantech Cybernetics' actions and took control of the company"
-    end2                        "Nobody had seen or heard from Xander Vane."
-    end3                        "Things were beginning to back to normal, or whatever passes for normal around here."
+    end1                        "In the days that followed, Cygnus Holdings publicly denounced Xantech Cybernetics' actions and took control of the company."
+    end2                        "Nobody had seen or heard from Xander Vane since."
+    end3                        "Things were beginning to go back to normal, or whatever passes for normal around here."
 
     end4                        "To my surprise, there was a knock at the door."
 
@@ -1962,6 +1962,7 @@
 
         goloc #location_title #scene_title
         end
+
 
 
 

@@ -9,8 +9,6 @@ Statement DEBUG_print_words{}
   !__use_word_table{}
   SHARED NN_string_count
 
-  Stop
-
   For i = 0 To NN_string_count - 1
     Print !__get_string{i}
     Print ":"
@@ -30,7 +28,6 @@ Statement DEBUG_print_words{}
     NPrint ""
   Next i
 
-  Stop
 End Statement
 
 ; Loads a neon pack

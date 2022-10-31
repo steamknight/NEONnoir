@@ -17,6 +17,6 @@ WBStartup
 DEFTYPE .w
 
 ; Enable/Disable debug logging
-#DB_ENABLE_DEBUG_LOG = -1
-#DB_ENABLE_DEBUG_TRACE = -1
+#DB_ENABLE_DEBUG_LOG = 0
+#DB_ENABLE_DEBUG_TRACE = 0
 
