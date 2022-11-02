@@ -223,7 +223,8 @@ namespace NEONnoir
                 }
             }
 
-            ImGui::ShowDemoWindow();
+            // Vairn, Removed Demo Window.
+            //ImGui::ShowDemoWindow();
 
             ImGui::Render();
             ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
