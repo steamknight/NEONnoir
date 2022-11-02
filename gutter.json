@@ -8954,12 +8954,12 @@
   "locations": [
     {
       "backgrounds": [
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\title.bmp",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\intro01.bmp",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\intro02.bmp",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\intro03.bmp",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\intro04.bmp",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\blank.bmp"
+        "data\\title.bmp",
+        "data\\intro01.bmp",
+        "data\\intro02.bmp",
+        "data\\intro03.bmp",
+        "data\\intro04.bmp",
+        "data\\blank.bmp"
       ],
       "name": "Title",
       "scenes": [
@@ -9149,13 +9149,13 @@
     },
     {
       "backgrounds": [
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_alley_alleycat.iff",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\alleyway1a.iff",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\alleyway3a.iff",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\alleyway_atm.iff",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\alleyway_trash.iff",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\subway_entrance.iff",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_subway_interior.iff"
+        "data\\locations\\loc_alley_alleycat.iff",
+        "data\\alleyway1a.iff",
+        "data\\alleyway3a.iff",
+        "data\\alleyway_atm.iff",
+        "data\\alleyway_trash.iff",
+        "data\\subway_entrance.iff",
+        "data\\locations\\loc_subway_interior.iff"
       ],
       "name": "Alley",
       "scenes": [
@@ -9488,7 +9488,7 @@
       "shapes": [
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\blake.iff",
+          "image_file": "data\\people\\blake.iff",
           "shapes": [
             {
               "height": 100,
@@ -9500,7 +9500,7 @@
         },
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\Sandy.iff",
+          "image_file": "data\\Sandy.iff",
           "shapes": [
             {
               "height": 100,
@@ -9512,7 +9512,7 @@
         },
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\bouncer.iff",
+          "image_file": "data\\people\\bouncer.iff",
           "shapes": [
             {
               "height": 100,
@@ -9524,7 +9524,7 @@
         },
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\tweaker01.iff",
+          "image_file": "data\\people\\tweaker01.iff",
           "shapes": [
             {
               "height": 100,
@@ -9536,7 +9536,7 @@
         },
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\tinman.iff",
+          "image_file": "data\\people\\tinman.iff",
           "shapes": [
             {
               "height": 100,
@@ -9548,7 +9548,7 @@
         },
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\crystal.iff",
+          "image_file": "data\\people\\crystal.iff",
           "shapes": [
             {
               "height": 100,
@@ -9560,7 +9560,7 @@
         },
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\visser.iff",
+          "image_file": "data\\people\\visser.iff",
           "shapes": [
             {
               "height": 100,
@@ -9575,8 +9575,8 @@
     },
     {
       "backgrounds": [
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_alleycat_bar.iff",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_alleycat_entrance.iff"
+        "data\\locations\\loc_alleycat_bar.iff",
+        "data\\locations\\loc_alleycat_entrance.iff"
       ],
       "name": "Alleycat",
       "scenes": [
@@ -9674,7 +9674,7 @@
       "shapes": [
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\blake.iff",
+          "image_file": "data\\people\\blake.iff",
           "shapes": [
             {
               "height": 100,
@@ -9686,7 +9686,7 @@
         },
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\acidnova.iff",
+          "image_file": "data\\people\\acidnova.iff",
           "shapes": [
             {
               "height": 100,
@@ -9698,7 +9698,7 @@
         },
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\visser.iff",
+          "image_file": "data\\people\\visser.iff",
           "shapes": [
             {
               "height": 100,
@@ -9713,8 +9713,8 @@
     },
     {
       "backgrounds": [
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_apartment_bedroom.iff",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_apartment_interior2.iff"
+        "data\\locations\\loc_apartment_bedroom.iff",
+        "data\\locations\\loc_apartment_interior2.iff"
       ],
       "name": "Danni's Apartment",
       "scenes": [
@@ -9832,7 +9832,7 @@
       "shapes": [
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\blake.iff",
+          "image_file": "data\\people\\blake.iff",
           "shapes": [
             {
               "height": 100,
@@ -9844,7 +9844,7 @@
         },
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\crystal.iff",
+          "image_file": "data\\people\\crystal.iff",
           "shapes": [
             {
               "height": 100,
@@ -9859,10 +9859,10 @@
     },
     {
       "backgrounds": [
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_blake_apartment.iff",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\cutscenes\\end_act_1.iff",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\blank.bmp",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\cutscenes\\end_act_2.iff"
+        "data\\locations\\loc_blake_apartment.iff",
+        "data\\cutscenes\\end_act_1.iff",
+        "data\\blank.bmp",
+        "data\\cutscenes\\end_act_2.iff"
       ],
       "name": "Blake's Apartment",
       "scenes": [
@@ -9957,7 +9957,7 @@
       "shapes": [
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\blake.iff",
+          "image_file": "data\\people\\blake.iff",
           "shapes": [
             {
               "height": 100,
@@ -9969,7 +9969,7 @@
         },
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\daisy.iff",
+          "image_file": "data\\people\\daisy.iff",
           "shapes": [
             {
               "height": 100,
@@ -9981,7 +9981,7 @@
         },
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\visser.iff",
+          "image_file": "data\\people\\visser.iff",
           "shapes": [
             {
               "height": 100,
@@ -9993,7 +9993,7 @@
         },
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\unknown.iff",
+          "image_file": "data\\people\\unknown.iff",
           "shapes": [
             {
               "height": 100,
@@ -10005,7 +10005,7 @@
         },
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\danni.iff",
+          "image_file": "data\\people\\danni.iff",
           "shapes": [
             {
               "height": 100,
@@ -10020,8 +10020,8 @@
     },
     {
       "backgrounds": [
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_laundry_exterior.iff",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_laundry_interior.iff"
+        "data\\locations\\loc_laundry_exterior.iff",
+        "data\\locations\\loc_laundry_interior.iff"
       ],
       "name": "Lost Sock Laundromat",
       "scenes": [
@@ -10129,7 +10129,7 @@
       "shapes": [
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\blake.iff",
+          "image_file": "data\\people\\blake.iff",
           "shapes": [
             {
               "height": 100,
@@ -10141,7 +10141,7 @@
         },
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\crystal.iff",
+          "image_file": "data\\people\\crystal.iff",
           "shapes": [
             {
               "height": 100,
@@ -10153,7 +10153,7 @@
         },
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\gladys.iff",
+          "image_file": "data\\people\\gladys.iff",
           "shapes": [
             {
               "height": 100,
@@ -10168,9 +10168,9 @@
     },
     {
       "backgrounds": [
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_b19_entrance.iff",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_b19_office.iff",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_b19_storage.iff"
+        "data\\locations\\loc_b19_entrance.iff",
+        "data\\locations\\loc_b19_office.iff",
+        "data\\locations\\loc_b19_storage.iff"
       ],
       "name": "B19",
       "scenes": [
@@ -10353,7 +10353,7 @@
       "shapes": [
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\blake.iff",
+          "image_file": "data\\people\\blake.iff",
           "shapes": [
             {
               "height": 100,
@@ -10365,7 +10365,7 @@
         },
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\unknown.iff",
+          "image_file": "data\\people\\unknown.iff",
           "shapes": [
             {
               "height": 100,
@@ -10377,7 +10377,7 @@
         },
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\danni.iff",
+          "image_file": "data\\people\\danni.iff",
           "shapes": [
             {
               "height": 100,
@@ -10392,11 +10392,11 @@
     },
     {
       "backgrounds": [
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_segs_place.iff",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\blank.bmp",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\cutscenes\\danni1.iff",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\cutscenes\\danni2.iff",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\cutscenes\\danni3.iff"
+        "data\\locations\\loc_segs_place.iff",
+        "data\\blank.bmp",
+        "data\\cutscenes\\danni1.iff",
+        "data\\cutscenes\\danni2.iff",
+        "data\\cutscenes\\danni3.iff"
       ],
       "name": "SegF4ult's Place",
       "scenes": [
@@ -10418,7 +10418,7 @@
       "shapes": [
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\blake.iff",
+          "image_file": "data\\people\\blake.iff",
           "shapes": [
             {
               "height": 100,
@@ -10430,7 +10430,7 @@
         },
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\danni.iff",
+          "image_file": "data\\people\\danni.iff",
           "shapes": [
             {
               "height": 100,
@@ -10442,7 +10442,7 @@
         },
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\segf4ult.iff",
+          "image_file": "data\\people\\segf4ult.iff",
           "shapes": [
             {
               "height": 100,
@@ -10454,7 +10454,7 @@
         },
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\visser.iff",
+          "image_file": "data\\people\\visser.iff",
           "shapes": [
             {
               "height": 100,
@@ -10466,7 +10466,7 @@
         },
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\crystal.iff",
+          "image_file": "data\\people\\crystal.iff",
           "shapes": [
             {
               "height": 100,
@@ -10481,11 +10481,11 @@
     },
     {
       "backgrounds": [
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_b19_entrance.iff",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_b19_office.iff",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_b19_office2.iff",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_b19_catwalk.iff",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\cutscenes\\b19.iff"
+        "data\\locations\\loc_b19_entrance.iff",
+        "data\\locations\\loc_b19_office.iff",
+        "data\\locations\\loc_b19_office2.iff",
+        "data\\locations\\loc_b19_catwalk.iff",
+        "data\\cutscenes\\b19.iff"
       ],
       "name": "B19 Revisit",
       "scenes": [
@@ -10676,7 +10676,7 @@
       "shapes": [
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\blake.iff",
+          "image_file": "data\\people\\blake.iff",
           "shapes": [
             {
               "height": 100,
@@ -10688,7 +10688,7 @@
         },
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\crystal.iff",
+          "image_file": "data\\people\\crystal.iff",
           "shapes": [
             {
               "height": 100,
@@ -10700,7 +10700,7 @@
         },
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\visser.iff",
+          "image_file": "data\\people\\visser.iff",
           "shapes": [
             {
               "height": 100,
@@ -10712,7 +10712,7 @@
         },
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\danni.iff",
+          "image_file": "data\\people\\danni.iff",
           "shapes": [
             {
               "height": 100,
@@ -10727,12 +10727,12 @@
     },
     {
       "backgrounds": [
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_xantech_entrance.iff",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_xantech_lobby.iff",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_xantech_corridor.iff",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_xantech_cafe.iff",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_xantech_medical.iff",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_xantech_servers.iff"
+        "data\\locations\\loc_xantech_entrance.iff",
+        "data\\locations\\loc_xantech_lobby.iff",
+        "data\\locations\\loc_xantech_corridor.iff",
+        "data\\locations\\loc_xantech_cafe.iff",
+        "data\\locations\\loc_xantech_medical.iff",
+        "data\\locations\\loc_xantech_servers.iff"
       ],
       "name": "Xantech",
       "scenes": [
@@ -10980,7 +10980,7 @@
       "shapes": [
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\blake.iff",
+          "image_file": "data\\people\\blake.iff",
           "shapes": [
             {
               "height": 100,
@@ -10992,7 +10992,7 @@
         },
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\crystal.iff",
+          "image_file": "data\\people\\crystal.iff",
           "shapes": [
             {
               "height": 100,
@@ -11004,7 +11004,7 @@
         },
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\tinman.iff",
+          "image_file": "data\\people\\tinman.iff",
           "shapes": [
             {
               "height": 100,
@@ -11016,7 +11016,7 @@
         },
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\segf4ult.iff",
+          "image_file": "data\\people\\segf4ult.iff",
           "shapes": [
             {
               "height": 100,
@@ -11031,10 +11031,10 @@
     },
     {
       "backgrounds": [
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\blank.bmp",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\cutscenes\\xancon1.iff",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\cutscenes\\xancon2.iff",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\cutscenes\\xancon3.iff"
+        "data\\blank.bmp",
+        "data\\cutscenes\\xancon1.iff",
+        "data\\cutscenes\\xancon2.iff",
+        "data\\cutscenes\\xancon3.iff"
       ],
       "name": "XanCon",
       "scenes": [
@@ -11112,7 +11112,7 @@
       "shapes": [
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\blake.iff",
+          "image_file": "data\\people\\blake.iff",
           "shapes": [
             {
               "height": 100,
@@ -11124,7 +11124,7 @@
         },
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\danni.iff",
+          "image_file": "data\\people\\danni.iff",
           "shapes": [
             {
               "height": 100,
@@ -11136,7 +11136,7 @@
         },
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\xander.iff",
+          "image_file": "data\\people\\xander.iff",
           "shapes": [
             {
               "height": 100,
@@ -11148,7 +11148,7 @@
         },
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\mib3.iff",
+          "image_file": "data\\people\\mib3.iff",
           "shapes": [
             {
               "height": 100,
@@ -11160,7 +11160,7 @@
         },
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\xander2.iff",
+          "image_file": "data\\people\\xander2.iff",
           "shapes": [
             {
               "height": 100,
@@ -11175,8 +11175,8 @@
     },
     {
       "backgrounds": [
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_blake_apartment.iff",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\blank.bmp"
+        "data\\locations\\loc_blake_apartment.iff",
+        "data\\blank.bmp"
       ],
       "name": "End",
       "scenes": [
@@ -11198,7 +11198,7 @@
       "shapes": [
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\blake.iff",
+          "image_file": "data\\people\\blake.iff",
           "shapes": [
             {
               "height": 100,
@@ -11210,7 +11210,7 @@
         },
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\daisy.iff",
+          "image_file": "data\\people\\daisy.iff",
           "shapes": [
             {
               "height": 100,
@@ -11222,7 +11222,7 @@
         },
         {
           "has_palette": true,
-          "image_file": "C:\\Users\\mass\\source\\NEONnoir\\data\\people\\crystal.iff",
+          "image_file": "data\\people\\crystal.iff",
           "shapes": [
             {
               "height": 100,
@@ -11237,7 +11237,7 @@
     },
     {
       "backgrounds": [
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\cutscenes\\end.iff"
+        "data\\cutscenes\\end.iff"
       ],
       "name": "Credits",
       "scenes": [
@@ -11260,5 +11260,5 @@
       "shapes_file": ""
     }
   ],
-  "script_name": "C:\\Users\\mass\\source\\NEONnoir\\gutter.nscript"
+  "script_name": "gutter.nscript"
 }
