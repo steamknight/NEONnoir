@@ -2003,7 +2003,7 @@
           "next_page_id": 65535,
           "self_disable": false,
           "set_flag": "",
-          "text": "Not just any noods! Takeshi's! The man was a master of his craft, and he alway left a small surprise printed on bottom of the bowls... heh heh...\n\nAnyway, no Takeshi, no noods."
+          "text": "Not just any noods! Takeshi's! The man was a master of his craft, and he always left a small surprise printed on bottom of the bowls... heh heh...\n\nAnyway, no Takeshi, no noods."
         },
         {
           "check_flag": "",
@@ -3534,7 +3534,7 @@
               "script": "",
               "self_disable": false,
               "set_flag": "",
-              "text": "How do you two meet?"
+              "text": "How did you two meet?"
             },
             {
               "check_flag": "",
@@ -6392,7 +6392,7 @@
           "next_page_id": 65535,
           "self_disable": false,
           "set_flag": "",
-          "text": "Now I need you help. Xander knows I have this data... and he knows that I'm not dead. He's not going to stop until we make him stop."
+          "text": "Now I need your help. Xander knows I have this data... and he knows that I'm not dead. He's not going to stop until we make him stop."
         },
         {
           "check_flag": "",

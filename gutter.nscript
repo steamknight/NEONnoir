@@ -371,7 +371,7 @@
 
     alley_atm_description       "ATMs. Cash Machines. Cred Dispensers. Unarmed Bandits. Take your pick. These jackpots let your retrieve your credits... for a fee."
     alley_atm_quest_start       "Better deal with that tin man before I try anything. They're not the forgiving type."
-    alley_atm_quest_do1         "While the tin man looked away, I went through the motions of withdrawing credits and scan!ned Glitch's chip instead. Graphical anomalies multiplied on the screen like bacteria on a petri dish."
+    alley_atm_quest_do1         "While the tin man looked away, I went through the motions of withdrawing credits and scanned Glitch's chip instead. Graphical anomalies multiplied on the screen like bacteria on a petri dish."
     alley_atm_quest_do2         "Panic griped me as I tried to act natural, keenly aware of the guard standing nearby. As the screen became more corrupted, a bead of sweat dripped from my brow."
     alley_atm_quest_do3         "Fortunately, the screen returned to normal just as quickly as it glitched. 'TRANSACTION COMPLETE' it happily chimed."
     alley_atm_quest_complete    "The deed's done, better not bring any more attention to it."
@@ -458,7 +458,7 @@
     b19_exterior_desc1          "The industrial district was a sprawling hellscape of warehouses, factories, and pipes of all shapes and sizes stretching for hundreds of miles like a basket of venomous snakes."
     b19_exterior_desc2          "The air quality here was even worse than the Gutter's. Worker safety cut into the bottom line of the fat cats running the place, and they could always get more workers."
     b19_exterior_desc3          "Lucky for me, Building 19 was in a fairly secluded area at the edge of the industrial district. Like many building here, there was no outward indication as to who owned it. I guess it was time I applied my carefully honed detective skills."
-    b19_storage_desc1           "Something about this place seemed weird. There should be people working, but the place was empty. Even the various boxes piled high in this facility looked like they hadn't been touched in a long time."
+    b19_storage_desc1           "Something about this place seemed weird. There should have been people working, but the place was empty. Even the various boxes piled high in this facility looked like they hadn't been touched in a long time."
     b19_storage_desc2           "This place was definitely a front, all right."
     b19_pick_storage_lock       "Typing the keycode I got from Acid Nova, the door opens without any issues."
     b19_pick_office_lock        "You don't become a PI without picking your fair share of locks. I guess I can add this one to my list of conquests."
@@ -1962,6 +1962,7 @@
 
         goloc #location_title #scene_title
         end
+
 
 
 
