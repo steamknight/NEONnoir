@@ -1,3 +1,5 @@
+[![CC BY 4.0][cc-by-shield]][cc-by]
+[![CC BY-NC-ND 4.0][cc-by-nc-nd-shield]][by-nc-nd]
 # NEONnoir
 
 # License
@@ -12,6 +14,7 @@ Everything else, including all assets, are licensed under
 [cc-by-shield]: https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg
 
 [by-nc-nd]: https://creativecommons.org/licenses/by-nc-nd/4.0/
+[cc-by-nc-nd-shield]: https://img.shields.io/badge/License-CC%20BY%20NC%20ND%204.0-lightgrey.svg
 
 The license info in this file is from https://github.com/santisoler/cc-licenses
  

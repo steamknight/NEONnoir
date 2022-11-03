@@ -93,61 +93,42 @@ Statement NS_execute_script{script_offset.l}
   Repeat
     Select Peek.w (*NS_script_data + PC)
       Case #NS_op_noop
-        PC + 2              ; Eat the opcode
-        !__print_bc{PC, "noop"}
+        !__execute_opcode{"noop"}
 
       ; Flag register operations
       Case #NS_op_clear
-        PC + 2              ; Eat the opcode
+        !__execute_opcode{"clear"}
         FR = False
-        !__print_bc{PC, "clear"}
 
       Case #NS_op_set
-        PC + 2              ; Eat the opcode
+        !__execute_opcode{"ser"}
         FR = True
-        !__print_bc{PC, "set"}
 
       Case #NS_op_load; id
-        PC + 2              ; Eat the opcode
-        v1 = Peek.w (*NS_script_data + PC)
+        !__execute_opcode_v1{"load"}
         FR = NS_flags(v1)
-        PC + 2              ; Eat the parameter
-        !__print_bc_v1{PC, "load", v1}
 
       Case #NS_op_store; id
-        PC + 2              ; Eat the opcode
-        v1 = Peek.w (*NS_script_data + PC)
+        !__execute_opcode_v1{"store"}
         NS_flags(v1) = FR
-        PC + 2              ; Eat the parameter
-        !__print_bc_v1{PC, "store", v1}
 
       ; Logical operations
       Case #NS_op_and; id
-        PC + 2              ; Eat the opcode
-        v1 = Peek.w (*NS_script_data + PC)
+        !__execute_opcode_v1{"and"}
         FR AND NS_flags(v1)
-        PC + 2              ; Eat the parameter
-        !__print_bc_v1{PC, "and", v1}
 
       Case #NS_op_or; id
-        PC + 2              ; Eat the opcode
-        v1 = Peek.w (*NS_script_data + PC)
+      !__execute_opcode_v1{"or"}
         FR OR NS_flags(v1)
-        PC + 2              ; Eat the parameter
-        !__print_bc_v1{PC, "or", v1}
 
       Case #NS_op_not
-        PC + 2              ; Eat the opcode
-        v1 = Peek.w (*NS_script_data + PC)
+        !__execute_opcode{"not"}
         FR = NOT FR
-        !__print_bc{PC, "not"}
 
       ; Flow control
       Case #NS_op_jump; offset
-        PC + 2              ; Eat the opcode
-        v1 = Peek.w (*NS_script_data + PC) - 1
+        !__execute_opcode_v1{"jump"}
         PC + (v1 ASL 1)
-        !__print_bc_v1{PC, "jump", v1}
 
       Case #NS_op_jift; offset
         PC + 2              ; Eat the opcode
@@ -170,8 +151,8 @@ Statement NS_execute_script{script_offset.l}
         !__print_bc_v1{PC, "jiff", v1}
 
       Case #NS_op_end
+        !__execute_opcode_v1{"end"}
         done = True
-        !__print_bc{PC, "end"}
 
       ; Scene operations
       Case #NS_op_setbg; id
@@ -180,34 +161,23 @@ Statement NS_execute_script{script_offset.l}
 
       ; Shape operations
       Case #NS_op_draw; id x y
-        PC + 2              ; Eat the opcode
-        v1 = Peek.w (*NS_script_data + PC)
-        v2 = Peek.w (*NS_script_data + PC + 2)
-        v3 = Peek.w (*NS_script_data + PC + 4)
-        !__print_bc{PC, "draw"}
+        !__execute_opcode_v3{"draw"}
         SH_draw{v1, v2, v3}
-        PC + 6              ; Eat the parameters
 
       ; Game operations
       Case #NS_op_goto; id
-        PC + 2              ; Eat the opcode
-        v1 = Peek.w (*NS_script_data + PC)
-        !__print_bc_v1{PC, "goto", v1}
+        !__execute_opcode_v1{"goto"}
         NN_game_set_scene{v1}
         done = True
 
       Case #NS_op_map
-        PC + 2              ; Eat the opcode
-        !__print_bc{PC, "map"}
+        !__execute_opcode{"map"}
         NN_game_map{}
         done = True
 
       Case #NS_op_text; id
-        PC + 2              ; Eat the opcode
-        v1 = Peek.w (*NS_script_data + PC)
-        !__print_bc_v1{PC, "text", v1}
+        !__execute_opcode_v1{"text"}
         TX_draw_text_wrapped{!__get_string{v1}, 32, #NN_half_screen_width , #NN_screen_height, True}
-        PC + 2              ; Eat the parameter
 
       Case #NS_op_goloc; loc scene
         !__execute_opcode_v2{"goloc"}
