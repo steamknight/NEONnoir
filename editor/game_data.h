@@ -118,8 +118,6 @@ namespace NEONnoir
         std::string filename{};
 
         static std::shared_ptr<game_data> deserialize(std::string const& filename);
-    private:
-        static std::string GetPathFromFilename(std::string const& filename);
     };
 }
 

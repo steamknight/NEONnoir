@@ -2,7 +2,6 @@
 #include <fstream>
 #include <filesystem>
 #include <sstream>
-#include <direct.h>
 #include "game_data.h"
 
 using json = nlohmann::json;
@@ -214,9 +213,8 @@ namespace NEONnoir
         auto savefile = std::ifstream{ filename };
         if (savefile)
         {
-            // Vairn, get the path of the script, and set it as the working directory, so we no longer need to use full paths.
-            std::string filepath = GetPathFromFilename(filename);
-            _chdir(filepath.c_str());
+            auto data_path = fs::path{ filename }.parent_path();
+            fs::current_path(data_path);
 
             auto buffer = std::stringstream{};
             buffer << savefile.rdbuf();
@@ -245,50 +243,4 @@ namespace NEONnoir
 
         throw std::runtime_error{ "Could not read file" };
     }
-
-    std::string game_data::GetPathFromFilename(std::string const& filename)
-    {
-        const unsigned int length = (unsigned int)filename.length();
-
-        std::string::size_type end_pos_a, end_pos_b, end_pos;
-
-        end_pos_a = filename.find_last_of('\\');
-        end_pos_b = filename.find_last_of('/');
-
-        if (end_pos_a == filename.npos)
-        {
-            if (end_pos_b == filename.npos)
-            {
-                end_pos = 0;
-            }
-
-            else
-            {
-                end_pos = end_pos_b;
-            }
-        }
-
-        else
-        {
-            if (end_pos_b == filename.npos)
-            {
-                end_pos = end_pos_a;
-            }
-
-            else
-            {
-                if (end_pos_a > end_pos_b)
-                {
-                    end_pos = end_pos_a;
-                }
-
-                else
-                {
-                    end_pos = end_pos_b;
-                }
-            }
-        }
-        return filename.substr(0, end_pos + 1);
-    }
-
 }
