@@ -88,16 +88,30 @@ $data_files = @(
     "./data/menu.shapes"
 )
 
+$lang_files = @(
+    "./data/lang/en.noir"
+)
+
 function Set-ToolPath($path) {
     $ENV:Path = "$path\external;$path\external\NConvert;" + $ENV:Path
 }
 
 function Copy-GameData {
     $data_dir = "$ENV:NEONnoir_path\data"
+    $lang_dir = "$data_dir\lang"
+
+    # Create the output directories
+    if (!(Test-Path $data_dir)) {
+        New-Item -ItemType Directory -Path $data_dir
+        New-Item -ItemType Directory -Path $loc_dir
+    }
 
     # Copy all the data files
     Write-Host "Copying game data to $data_dir..."
     Copy-Item -Path $data_files -Destination $data_dir
+
+    Write-Host "Copying language files to $lang_dir..."
+    Copy-Item -Path $lang_files -Destination $lang_dir
 }
 
 function Copy-Game {

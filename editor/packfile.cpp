@@ -448,7 +448,7 @@ namespace NEONnoir
     void serialize_neon_loc(std::filesystem::path file_path, std::vector<std::string>& const string_table, std::vector<neon_word_list>& const words_table)
     {
         // Save the default language pack (en)
-        auto locpack_path = file_path / "loc/en.noir";
+        auto locpack_path = file_path / "lang/en.noir";
         locpack_path = locpack_path.make_preferred();
         fs::create_directories(locpack_path.parent_path());
 
