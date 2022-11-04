@@ -309,6 +309,10 @@ namespace NEONnoir
         }
 
         auto neonpack = std::ofstream{ file_path, std::ios::binary | std::ios::trunc };
+        if (!neonpack)
+        {
+            throw std::runtime_error{ std::format("Could not open/create '{}'", file_path.string()) };
+        }
 
         // Write the header
         neonpack.write((char*)&pak.header.magic, 4);
@@ -411,46 +415,6 @@ namespace NEONnoir
             write(neonpack, to<uint16_t>(code));
         }
 
-        // Write the string table "header"
-        neonpack.write(string_header, 4);
-        write(neonpack, to<uint32_t>(pak.string_table.size()));
-
-        auto string_size = 0u;
-        for (auto const& entry : pak.string_table)
-        {
-            string_size += to<uint32_t>(entry.size());
-            string_size += 4;
-        }
-        write(neonpack, string_size);
-
-        for (auto const& entry : pak.string_table)
-        {
-            write(neonpack, to<uint32_t>(entry.size()));
-            neonpack.write(entry.data(), entry.size());
-        }
-
-        // Write words header
-        neonpack.write(words_header, 4);
-        write(neonpack, to<uint32_t>(pak.words_table.size()));
-
-        auto words_size = 0u;
-        for (auto const& entry : pak.words_table)
-        {
-            words_size += 4; // size of word list
-            words_size += to<uint32_t>(entry.words.size() * sizeof(neon_word));
-        }
-        write(neonpack, words_size);
-
-        for (auto const& entry : pak.words_table)
-        {
-            write(neonpack, to<uint32_t>(entry.words.size()));
-            for (auto const& word : entry.words)
-            {
-                write(neonpack, word.start_idx);
-                write(neonpack, word.end_idx);
-            }
-        }
-
         // Write the shapes header
         neonpack.write(shapes_header, 4);
         write(neonpack, to<uint32_t>(pak.shapes.size()));
@@ -477,5 +441,70 @@ namespace NEONnoir
         }
 
         neonpack.close();
+
+        serialize_neon_loc(file_path.parent_path(), pak.string_table, pak.words_table);
+    }
+
+    void serialize_neon_loc(std::filesystem::path file_path, std::vector<std::string>& const string_table, std::vector<neon_word_list>& const words_table)
+    {
+        // Save the default language pack (en)
+        auto locpack_path = file_path / "loc/en.noir";
+        locpack_path = locpack_path.make_preferred();
+        fs::create_directories(locpack_path.parent_path());
+
+        auto locpack = std::ofstream{ locpack_path, std::ios::binary | std::ios::trunc };
+
+        if (!locpack)
+        {
+            throw std::runtime_error{ std::format("Could not open/create '{}'", locpack_path.string()) };
+        }
+
+        // Write the pack header
+        auto header = loc_header{};
+        header.version = 1;                             // Eventually this will be updated
+        header.language = 1;                            // Eventually this will be a language code
+        locpack.write(header.magic, 4);
+        write(locpack, header.version);
+        write(locpack, header.language);
+
+        // Write the string table "header"
+        locpack.write(string_header, 4);
+        write(locpack, to<uint32_t>(string_table.size()));
+
+        auto string_size = 0u;
+        for (auto const& entry : string_table)
+        {
+            string_size += to<uint32_t>(entry.size());
+            string_size += 4;
+        }
+        write(locpack, string_size);
+
+        for (auto const& entry : string_table)
+        {
+            write(locpack, to<uint32_t>(entry.size()));
+            locpack.write(entry.data(), entry.size());
+        }
+
+        // Write words header
+        locpack.write(words_header, 4);
+        write(locpack, to<uint32_t>(words_table.size()));
+
+        auto words_size = 0u;
+        for (auto const& entry : words_table)
+        {
+            words_size += 4; // size of word list
+            words_size += to<uint32_t>(entry.words.size() * sizeof(neon_word));
+        }
+        write(locpack, words_size);
+
+        for (auto const& entry : words_table)
+        {
+            write(locpack, to<uint32_t>(entry.words.size()));
+            for (auto const& word : entry.words)
+            {
+                write(locpack, word.start_idx);
+                write(locpack, word.end_idx);
+            }
+        }
     }
 }

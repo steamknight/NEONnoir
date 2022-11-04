@@ -174,6 +174,13 @@ namespace NEONnoir
 
     constexpr char palettes_header[4] = { 'P', 'A', 'L', 'S' };
 
+    struct loc_header
+    {
+        char const magic[4] = { 'N', 'O', 'I', 'R' };
+        uint16_t version{ 0 };
+        uint16_t language{ 0 };
+    };
+
         
 #pragma pack(pop)
 
@@ -193,5 +200,6 @@ namespace NEONnoir
     };
 
     void serialize_to_neon_pak(std::filesystem::path file_path, std::shared_ptr<game_data> const& data, assembler_result const& result);
+    void serialize_neon_loc(std::filesystem::path file_path, std::vector<std::string>& const string_table, std::vector<neon_word_list>& const words_table);
 
 }

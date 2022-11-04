@@ -107,7 +107,6 @@ namespace NEONnoir
         std::vector<game_data_location> locations;
         std::vector<std::string> flags;
         std::vector<dialogue> dialogues;
-        std::vector<std::string> extra_files{ "data/theme.mod", "data/ambient.mod" };
 
         std::string script_name{};
 
