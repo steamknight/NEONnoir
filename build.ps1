@@ -88,25 +88,20 @@ $data_files = @(
     "./data/menu.shapes"
 )
 
-# Location where the built file will reside
-# $output_dir = "C:/Users/mass/tools/WinUAE/HardDrives/Develop/NEONnoir/"
-# $data_dir = "C:/Users/mass/tools/WinUAE/HardDrives/Develop/NEONnoir/data"
-$output_dir = "C:/Users/mass/OneDrive/Amiga/hdf/Development/NEONnoir/"
-$data_dir = "C:/Users/mass/OneDrive/Amiga/hdf/Development/NEONnoir/data"
-
-$Env:PATH = "C:\Users\mass\AppData\Roaming\Python\Python37\Scripts\;" + $Env:PATH
-
 function Set-ToolPath($path) {
     $ENV:Path = "$path\external;$path\external\NConvert;" + $ENV:Path
 }
 
 function Copy-GameData {
+    $data_dir = "$ENV:NEONnoir_path\data"
+
     # Copy all the data files
+    Write-Host "Copying game data to $data_dir..."
     Copy-Item -Path $data_files -Destination $data_dir
 }
 
 function Copy-Game {
-    $output_file = $output_dir + "neonnoir.bb2"
+    $output_file = "$ENV:NEONnoir_path\neonnoir.bb2"
 
     $file_in = "BUILD_NUM"
     $file_out = "./src/NN_build.bb2"
@@ -129,11 +124,7 @@ function Publish-Game {
 }
 
 function Convert-EOL($file) {
-    Invoke-Expression "& ConvertEOL unix $file $output_dir$file"
-}
-
-function Get-GeneratedShapes {
-    Copy-Item -Path "$output_dir\\assetgen\\*.shapes" -Destination ".\data"
+    Invoke-Expression "& external/ConvertEOL unix $file $ENV:NEONnoir_path\$file"
 }
 
 function Archive-Game {
@@ -147,7 +138,7 @@ function Archive-Game {
     $null = New-Item -ItemType Directory -Path "./build/parts" -Force
 
     Write-Host "Copying files..."
-    Copy-Item -Path ($output_dir + "build/NEONnoir.lha") -Destination "./build/"
+    Copy-Item -Path ("$ENV:NEONnoir_path\build\NEONnoir.lha") -Destination "./build/"
 
     Split-File -Filename "./build/NEONnoir.lha" -Prefix "./build/parts/NEONnoir" -Size (800 * 1024)
 
@@ -185,3 +176,26 @@ function Split-File {
     }
 }
 
+# Make sure we have a valid output directory.
+# Save it to the user's environment variables.
+if ($null -eq $ENV:NEONnoir_path) {
+    Write-Host "Initializing build environment."
+    Write-Host
+
+    Add-Type -AssemblyName 'System.Windows.Forms'
+
+    while ($null -eq $ENV:NEONnoir_path) {
+        Write-Host "Please select an output directory."
+        $dialog = New-Object System.Windows.Forms.FolderBrowserDialog
+        if ($dialog.ShowDialog() -eq [System.Windows.Forms.DialogResult]::OK) {
+            $directory_name = $dialog.SelectedPath
+            Write-Host "Writing output directory $directory_name to NEONnoir_path environment variable."
+            $ENV:NEONnoir_path = $directory_name
+        }
+    }
+}
+
+# Add the python scripts to the path so we can use xdftool
+if (-1 -eq $ENV:PATH.IndexOf("$ENV:APPDATA\Python\Python37\Scripts")) {
+    $Env:PATH = "$ENV:APPDATA\Python\Python37\Scripts\;" + $Env:PATH
+}
