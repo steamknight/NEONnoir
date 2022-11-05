@@ -135,5 +135,6 @@ End Macro
 Macro DB_error
   CNIF #DB_ENABLE_DEBUG_LOG = -1
     dbugprintstring{(`1) + ": **ERROR** " + (`2)}
+    NPrint (`1) + ": **ERROR** " + (`2)
   CEND
 End Macro

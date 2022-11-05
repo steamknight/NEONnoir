@@ -4,6 +4,7 @@
 ; Contains functions an statement around running the game
 ; =============================================================================
 
+CNIF #DEBUG = -1
 Statement DEBUG_print_words{}
   !__use_string_table{}
   !__use_word_table{}
@@ -29,16 +30,93 @@ Statement DEBUG_print_words{}
   Next i
 
 End Statement
+CEND
+
+; Loads a lang pack which contains all the strings for one language
+;
+; Requires AMIGA or QAMIGA mode
+; =============================================================================
+Function .b NN_load_langpack{filename$}
+  !__use_string_table_all{}
+  !__use_word_table_all{}
+
+  If Exists(filename$) = 0 Then Function Return #NN_NEON_lang_not_found
+
+  DEFTYPE .w id
+  id = 0
+  If ReadFile(id, filename$) = 0 Then Function Return #NN_NEON_generic_read_error
+
+  FileInput id
+
+  ; Read the header
+  DEFTYPE .l magic
+  ReadMem id, &magic, 4
+  If magic <> #NN_NEON_lang_magic Then Function Return #NN_NEON_not_a_neon_file
+
+  DEFTYPE .w version, lang_id
+  ReadMem id, &version, 2
+  ReadMem id, &lang_id, 2
+
+    ; Read all the strings and generate a string table
+  ReadMem id, &header, 4
+  ReadMem id, &NN_string_count, 4
+  ReadMem id, &NN_string_data_size, 4
+  *NN_string_table = AllocMem_(NN_string_count * SizeOf .l, $10000)
+  *NN_string_data = AllocMem_(NN_string_data_size, $10000)
+  !DB_log_str{"NN_GAME", "  Str Table > $" + Hex$(*NN_string_table) + "+" + Str$(NN_string_count * SizeOf .l)}
+  !DB_log_str{"NN_GAME", "  Str Data  > $" + Hex$(*NN_string_data) + "+" + Str$(NN_string_data_size)}
+
+  DEFTYPE .l ptr
+  ptr = *NN_string_data
+  DEFTYPE .l string_size
+  For i = 0 To NN_string_count - 1
+    Poke.l *NN_string_table + (i * 4), ptr
+
+    ReadMem id, &string_size, 4
+    Poke.l ptr, string_size
+
+    ptr + 4
+    ReadMem id, ptr, string_size
+
+    ptr + string_size
+  Next
+
+  ; Read all the word separations and generate a words list table
+  ReadMem id, &header, 4
+  ReadMem id, &NN_word_table_count, 4
+  ReadMem id, &NN_word_data_size, 4
+  *NN_word_table = AllocMem_(NN_word_table_count * SizeOf .l, $10000)
+  *NN_word_data = AllocMem_(NN_word_data_size, $10000)
+  !DB_log_str{"NN_GAME", "  Wrd Table > $" + Hex$(*NN_word_table) + "+" + Str$(NN_word_table_count * SizeOf .l)}
+  !DB_log_str{"NN_GAME", "  Word Data  > $" + Hex$(*NN_word_data) + "+" + Str$(NN_word_data_size)}
+
+  ptr = *NN_word_data
+  DEFTYPE .l word_list_size
+  For i = 0 To NN_word_table_count - 1
+    Poke.l *NN_word_table + (i * 4), ptr
+
+    ReadMem id, &word_list_size, 4
+    Poke.l ptr, word_list_size
+
+    ptr + 4
+    ReadMem id, ptr, word_list_size * SizeOf .NN_word
+
+    ptr + word_list_size * SizeOf .NN_word
+  Next
+
+  Function Return #NN_NEON_success
+End Function
 
 ; Loads a neon pack
 ;
 ; Requires AMIGA or QAMIGA mode
 ; =============================================================================
 Function .b NN_load_neonpack{filename$}
-  SHARED *NN_locations, *NN_scenes, *NN_regions, *NN_string_table, *NN_string_data
-  SHARED NN_location_count, NN_scene_count, NN_region_count, NN_string_count, NN_string_data_size
+  SHARED *NN_locations, *NN_scenes, *NN_regions
+  SHARED NN_location_count, NN_scene_count, NN_region_count
   SHARED *NS_script_data, NS_script_data_size
-  SHARED *NN_word_table, NN_word_table_count, NN_word_data_size, *NN_word_data
+  !__use_string_table_all{}
+  !__use_word_table_all{}
   !__use_dialogues{}
   !__use_dialogue_limits{}
   !__use_shapes{}
@@ -121,53 +199,6 @@ Function .b NN_load_neonpack{filename$}
   *NS_script_data = AllocMem_(NS_script_data_size, $10000)
   ReadMem id, *NS_script_data, NS_script_data_size
   !DB_log_str{"NN_GAME", "  Script    > $" + Hex$(*NS_script_data) + "+" + Str$(NS_script_data_size)}
-
-  ; Read all the strings and generate a string table
-  ReadMem id, &header, 4
-  ReadMem id, &NN_string_count, 4
-  ReadMem id, &NN_string_data_size, 4
-  *NN_string_table = AllocMem_(NN_string_count * SizeOf .l, $10000)
-  *NN_string_data = AllocMem_(NN_string_data_size, $10000)
-  !DB_log_str{"NN_GAME", "  Str Table > $" + Hex$(*NN_string_table) + "+" + Str$(NN_string_count * SizeOf .l)}
-  !DB_log_str{"NN_GAME", "  Str Data  > $" + Hex$(*NN_string_data) + "+" + Str$(NN_string_data_size)}
-
-  DEFTYPE .l ptr
-  ptr = *NN_string_data
-  DEFTYPE .l string_size
-  For i = 0 To NN_string_count - 1
-    Poke.l *NN_string_table + (i * 4), ptr
-
-    ReadMem id, &string_size, 4
-    Poke.l ptr, string_size
-
-    ptr + 4
-    ReadMem id, ptr, string_size
-
-    ptr + string_size
-  Next
-
-  ; Read all the word separations and generate a words list table
-  ReadMem id, &header, 4
-  ReadMem id, &NN_word_table_count, 4
-  ReadMem id, &NN_word_data_size, 4
-  *NN_word_table = AllocMem_(NN_word_table_count * SizeOf .l, $10000)
-  *NN_word_data = AllocMem_(NN_word_data_size, $10000)
-  !DB_log_str{"NN_GAME", "  Wrd Table > $" + Hex$(*NN_word_table) + "+" + Str$(NN_word_table_count * SizeOf .l)}
-  !DB_log_str{"NN_GAME", "  Word Data  > $" + Hex$(*NN_word_data) + "+" + Str$(NN_word_data_size)}
-
-  ptr = *NN_word_data
-  DEFTYPE .l word_list_size
-  For i = 0 To NN_word_table_count - 1
-    Poke.l *NN_word_table + (i * 4), ptr
-
-    ReadMem id, &word_list_size, 4
-    Poke.l ptr, word_list_size
-
-    ptr + 4
-    ReadMem id, ptr, word_list_size * SizeOf .NN_word
-
-    ptr + word_list_size * SizeOf .NN_word
-  Next
 
   ; Read all the shapes
   ReadMem id, &header, 4
@@ -275,10 +306,26 @@ End Statement
 ; pointers$: Game's mouse cursors, relative to the data/ directory
 ; =============================================================================
 Function NN_initialize{neonpack$, pointers$}
+  SHARED NN_error_codes$()
   !DB_trace{"NN_GAME", "NEONpack: " + neonpack$ + " Mouse Pointers: " + pointers$}
   NN_load_pointers{"data/" + pointers$}
 
-  Function Return NN_load_neonpack{"data/" + neonpack$}
+  DEFTYPE .b success
+  success = NN_load_neonpack{"data/" + neonpack$}
+  If success <> #NN_NEON_success
+    !DB_error{"MAIN", "Could not load data/" + neonpack$}
+    !DB_error{"MAIN", NN_error_codes$(success)}
+    Function Return success
+  End If
+
+  success = NN_load_langpack{"data/lang/en.noir"}
+  If success <> #NN_NEON_success
+    !DB_error{"MAIN", "Could not load data/lang/en.noir"}
+    !DB_error{"MAIN", NN_error_codes$(success)}
+    Function Return success
+  End If
+
+  Function Return success
 End Function
 
 ; Sets the currently selected scene

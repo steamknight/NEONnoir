@@ -258,8 +258,16 @@ Macro __use_string_table
   SHARED *NN_string_table
 End Macro
 
+Macro __use_string_table_all
+  SHARED *NN_string_table, *NN_string_data, NN_string_count, NN_string_data_size
+End Macro
+
 Macro __use_word_table
   SHARED *NN_word_table
+End Macro
+
+Macro __use_word_table_all
+  SHARED *NN_word_table, NN_word_table_count, NN_word_data_size, *NN_word_data
 End Macro
 
 Macro __use_dialogues
@@ -329,21 +337,30 @@ End Macro
 
 ; Loading NEONpacks
 ; -----------------------------------------------------------------------------
-#NN_NEON_magic = $4E454F4E     ; NEON
-#NN_NEON_locs = $4C4F4352     ; LOCS
-#NN_NEON_scns = $53424E53     ; SCNS
-#NN_NEON_rngs = $52474E53     ; RGNS
-#NN_NEON_dlgs = $444C4753     ; DLGS
-#NN_NEON_page = $50414745     ; PAGE
-#NN_NEON_chce = $43484245     ; CHCE
-#NN_NEON_byte = $42595445     ; BYTE
-#NN_NEON_strg = $53545247     ; STRG
+#NN_NEON_magic = $4E454F4E          ; NEON
+#NN_NEON_lang_magic = $4E4F4952     ; NOIR
+#NN_NEON_locs = $4C4F4352           ; LOCS
+#NN_NEON_scns = $53424E53           ; SCNS
+#NN_NEON_rngs = $52474E53           ; RGNS
+#NN_NEON_dlgs = $444C4753           ; DLGS
+#NN_NEON_page = $50414745           ; PAGE
+#NN_NEON_chce = $43484245           ; CHCE
+#NN_NEON_byte = $42595445           ; BYTE
+#NN_NEON_strg = $53545247           ; STRG
 
 #NN_NEON_success                = -1
 #NN_NEON_file_not_found         = 1
 #NN_NEON_generic_read_error     = 2
 #NN_NEON_not_a_neon_file        = 3
 #NN_NEON_version_not_supported  = 4
+#NN_NEON_lang_not_found         = 5
+
+Dim NN_error_codes$(5)
+NN_error_codes$(1) = "File not found"
+NN_error_codes$(2) = "Generic read error"
+NN_error_codes$(3) = "Not a NEON file"
+NN_error_codes$(4) = "Version not supported"
+NN_error_codes$(5) = "Language file not found"
 
 ; Mouse pointers
 ; -----------------------------------------------------------------------------

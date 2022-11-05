@@ -18,7 +18,6 @@ Buffer #BF_main_screen, 64000
 Buffer #BF_shapes, 64000
 Buffer #BF_faces, 16000
 
-;Goto SkipSong
 ;Load the title song
 DEFTYPE .b success
 success = LoadTrackerModule(0, "data/theme.mod")
@@ -29,7 +28,6 @@ Else
   !DB_warn{"MAIN", "Could not load title song."}
 End If
 
-SkipSong:
 ; Load the splash screen
 BitMap #BMP_main, #NN_screen_width, #NN_screen_height, #NN_screen_bpp
 LoadBitMap #BMP_main, "data/mpg.iff", #PAL_main
@@ -46,7 +44,7 @@ FadeInScreen{#CP_coplist, #PAL_main, #PAL_fx}
 QAMIGA
 success = NN_initialize{"gutter.neon", "pointers.shape"}
 If success <> #NN_NEON_success
-  !DB_error{"MAIN", "Could not load game file! Aborting."}
+  !DB_error{"MAIN", "Aborting."}
   Goto Finish
 End If
 
@@ -135,17 +133,19 @@ Repeat
 
   prev_overlap = overlapped
 
-  ; Press ESC to quit
-  ; If RawStatus($45) Then NN_should_quit = True
-  ; If RawStatus($01)
-  ;   For f = 0 to 16
-  ;     l$ = Str$(f * 4   ) + ": " + Str$(NS_flags(f* 4    )) + "    "
-  ;     l$ + Str$(f* 4 +  1) + ": " + Str$(NS_flags(f* 4 +  1)) + "    "
-  ;     l$ + Str$(f* 4 +  2) + ": " + Str$(NS_flags(f* 4 +  2)) + "    "
-  ;     l$ + Str$(f* 4 + 3) + ": " + Str$(NS_flags(f* 4 + 3)) + "    "
-  ;     !DB_log_str{"MAIN", l$}
-  ;   Next
-  ; End If
+  ; Debug commands
+CNIF #DEBUG = -1
+  If RawStatus($45) Then NN_should_quit = True
+  If RawStatus($01)
+    For f = 0 to 16
+      l$ = Str$(f * 4   ) + ": " + Str$(NS_flags(f* 4    )) + "    "
+      l$ + Str$(f* 4 +  1) + ": " + Str$(NS_flags(f* 4 +  1)) + "    "
+      l$ + Str$(f* 4 +  2) + ": " + Str$(NS_flags(f* 4 +  2)) + "    "
+      l$ + Str$(f* 4 + 3) + ": " + Str$(NS_flags(f* 4 + 3)) + "    "
+      !DB_log_str{"MAIN", l$}
+    Next
+  End If
+CEND
 
 Until NN_should_quit
 

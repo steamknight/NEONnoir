@@ -103,7 +103,7 @@ function Copy-GameData {
     # Create the output directories
     if (!(Test-Path $data_dir)) {
         New-Item -ItemType Directory -Path $data_dir
-        New-Item -ItemType Directory -Path $loc_dir
+        New-Item -ItemType Directory -Path $lang_dir
     }
 
     # Copy all the data files

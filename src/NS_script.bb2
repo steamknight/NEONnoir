@@ -304,6 +304,7 @@ Statement NS_process_queue{}
   End If
 End Statement
 
+CNIF #DEBUG = -1
 Statement NS_DEBUG_print_bytecode{}
     SHARED NS_script_data, NS_data_size
     DEFTYPE .w num_entries
@@ -320,4 +321,5 @@ Statement NS_DEBUG_print_bytecode{}
         End If
     Next
 End Statement
+CEND
 
