@@ -138,3 +138,28 @@ Macro DB_error
     NPrint (`1) + ": **ERROR** " + (`2)
   CEND
 End Macro
+
+; Memory defines
+#MEMF_ANY       = 0
+#MEMF_PUBLIC    = 1 LSL 0
+#MEMF_CHIP      = 1 LSL 1
+#MEMF_FAST      = 1 LSL 2
+#MEMF_LOCAL     = 1 LSL 8
+#MEMF_24BITDMA  = 1 LSL 9
+#MEMF_CLEAR     = 1 LSL 16
+#MEMF_LARGEST   = 1 LSL 17
+#MEMF_REVERSE   = 1 LSL 18
+#MEMF_TOTAL     = 1 LSL 19 
+
+!DB_printf {"******************************** GAME START ********************************"}
+
+Statement PrintFreeMem{}
+  !DB_printf {"******************************** FREE RAM ********************************"}
+  memchip$ = Str$(AvailMem_(#MEMF_CHIP OR #MEMF_LARGEST) LSR 10)
+  memfast$ = Str$(AvailMem_(#MEMF_FAST OR #MEMF_LARGEST) LSR 10)
+  !DB_printf {"Free Chip RAM: " + memchip$ + "kb"}
+  !DB_printf {"Free Fast RAM: " + memfast$ + "kb"}
+  !DB_printf {"**************************************************************************"}
+End Statement
+
+PrintFreeMem{}

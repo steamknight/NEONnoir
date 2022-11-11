@@ -414,6 +414,8 @@ Statement NN_load_location{new_loc_id.w, new_scene_id.w}
   ; End If
 
   If new_loc_id > 0 Then NN_is_in_title = False
+
+  PrintFreeMem{}
 End Statement
 
 ; Checks if a point is inside one of the regions

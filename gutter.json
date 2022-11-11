@@ -4268,10 +4268,10 @@
             },
             {
               "check_flag": "inv_glitch_hacktool",
-              "clear_flag": "inv_glitch_hacktool",
+              "clear_flag": "",
               "enabled": true,
               "has_check_flag": true,
-              "has_clear_flag": true,
+              "has_clear_flag": false,
               "has_script": false,
               "has_set_flag": false,
               "next_page_id": 2,
