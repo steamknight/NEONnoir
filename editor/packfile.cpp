@@ -439,13 +439,24 @@ namespace NEONnoir
                 neonpack.write(reinterpret_cast<char*>(&entry.a), 1);
             }
         }
+        
+        // Write palettes header
+        neonpack.write(ui_palette_header, 4);
+        write(neonpack, to<uint32_t>(data->ui_palette.size()));
+        for (auto& entry : data->ui_palette)
+        {
+            neonpack.write(reinterpret_cast<char*>(&entry.r), 1);
+            neonpack.write(reinterpret_cast<char*>(&entry.g), 1);
+            neonpack.write(reinterpret_cast<char*>(&entry.b), 1);
+            neonpack.write(reinterpret_cast<char*>(&entry.a), 1);
+        }
 
         neonpack.close();
 
         serialize_neon_loc(file_path.parent_path(), pak.string_table, pak.words_table);
     }
 
-    void serialize_neon_loc(std::filesystem::path file_path, std::vector<std::string>& const string_table, std::vector<neon_word_list>& const words_table)
+    void serialize_neon_loc(std::filesystem::path file_path, std::vector<std::string> const& string_table, std::vector<neon_word_list> const& words_table)
     {
         // Save the default language pack (en)
         auto locpack_path = file_path / "lang/en.noir";

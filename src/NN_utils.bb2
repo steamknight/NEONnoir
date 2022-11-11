@@ -54,6 +54,31 @@ Function .b IN_check_mouse{screen_rects.l, count.w}
   Function Return result
 End Function
 
+Statement NN_set_ui_colors{dest_pal}
+  SHARED *NN_ui_palette
+  !DB_printf{"*********NN_ui_palette %lx", *NN_ui_palette}
+
+  DEFTYPE .NN_pal_entry *pal
+  *pal = *NN_ui_palette
+
+  DEFTYPE .w r, g, b
+  For pidx = 17 to 24
+    r = *pal\r
+    g = *pal\g
+    b = *pal\b
+
+    ; pal members are byte and blitz will put negative values if they are over
+    ; 127, even though bounds checking is turned off.
+    If r < 0 Then r + 256
+    If g < 0 Then g + 256
+    If b < 0 Then b + 256
+
+    !DB_printf{"NN_ui_palette %lx Pal %d, id: %d = %x, %x, %x", *NN_ui_palette, dest_pal, pidx, r, g, b}
+    AGAPalRGB dest_pal, pidx, r, g, b
+    *pal + SizeOf .NN_pal_entry
+  Next
+End Statement
+
 Statement FadeInScreen{cop, source, dest}
   SHARED NN_fade_in
   InitPalette dest, 256
@@ -61,7 +86,7 @@ Statement FadeInScreen{cop, source, dest}
     FadePalette source, dest, 1-i/25
     VWait
     DisplayPalette cop, dest
-  Next
+  Next i
 
   NN_fade_in = False
 End Statement

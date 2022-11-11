@@ -218,7 +218,7 @@ End Macro
 
 ; Custom Palettes
 ; -----------------------------------------------
-DEFTYPE .NN_pal_entry *NN_palettes
+DEFTYPE .NN_pal_entry *NN_palettes, *NN_ui_palette
 DEFTYPE .l NN_palette_count, palette_offset
 DEFTYPE .w NN_current_palette
 
@@ -324,6 +324,7 @@ End Macro
 ; Main bitmap and main palette
 #BMP_main = 0
 #PAL_main = 0
+#PAL_ui = 9
 #PAL_fx = 10
 ; Display buffer
 #BF_main_screen = 0

@@ -145,7 +145,7 @@ namespace NEONnoir
     };
 
     constexpr char string_header[4] = { 'S', 'T', 'R', 'G' };
-    struct string_table
+    struct neon_string_table
     {
         uint16_t string_count;
     };
@@ -173,6 +173,7 @@ namespace NEONnoir
     };
 
     constexpr char palettes_header[4] = { 'P', 'A', 'L', 'S' };
+    constexpr char ui_palette_header[4] = { 'P', 'A', 'L', 'U' };
 
     struct loc_header
     {
@@ -200,6 +201,6 @@ namespace NEONnoir
     };
 
     void serialize_to_neon_pak(std::filesystem::path file_path, std::shared_ptr<game_data> const& data, assembler_result const& result);
-    void serialize_neon_loc(std::filesystem::path file_path, std::vector<std::string>& const string_table, std::vector<neon_word_list>& const words_table);
+    void serialize_neon_loc(std::filesystem::path file_path, std::vector<std::string> const& string_table, std::vector<neon_word_list> const& words_table);
 
 }

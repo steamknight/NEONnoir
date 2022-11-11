@@ -85,7 +85,8 @@ $data_files = @(
     "./data/9.shapes",
     "./data/10.shapes",
     "./data/11.shapes",
-    "./data/menu.shapes"
+    "./data/menu.shapes",
+    "./data/ui.pal"
 )
 
 $lang_files = @(

@@ -11260,5 +11260,6 @@
       "shapes_file": ""
     }
   ],
+  "save_on_export": "gutter.nscript",
   "script_name": "gutter.nscript"
 }

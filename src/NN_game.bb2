@@ -115,6 +115,7 @@ Function .b NN_load_neonpack{filename$}
   SHARED *NN_locations, *NN_scenes, *NN_regions
   SHARED NN_location_count, NN_scene_count, NN_region_count
   SHARED *NS_script_data, NS_script_data_size
+  SHARED *NN_ui_palette
   !__use_string_table_all{}
   !__use_word_table_all{}
   !__use_dialogues{}
@@ -214,7 +215,16 @@ Function .b NN_load_neonpack{filename$}
   size = NN_palette_count * SizeOf .NN_pal_entry * 32 ; There are 32 palette entries
   *NN_palettes = AllocMem_(size, $10000)
   ReadMem id, *NN_palettes, size
-  !DB_log_str{"NN_GAME", "  Palettes  > $" + Hex$(*NN_shapes) + "+" + Str$(size)}
+  !DB_log_str{"NN_GAME", "  Palettes  > $" + Hex$(*NN_palettes) + "+" + Str$(size)}
+
+  ; Read the UI palette
+  ReadMem id, &header, 4
+  ReadMem id, &header, 4
+  size = 32 * SizeOf .NN_pal_entry
+  *NN_ui_palette = AllocMem_(size, $10000)
+  ReadMem id, *NN_ui_palette, size
+  !DB_log_str{"NN_GAME", "  UI Pal    > $" + Hex$(*NN_ui_palette) + "+" + Str$(size)}
+
   Function Return #NN_NEON_success
 End Function
 
@@ -226,6 +236,7 @@ Statement NN_uninitialize{}
   SHARED NN_location_count, NN_scene_count, NN_region_count, NN_string_count, NN_string_data_size
   SHARED *NS_script_data, NS_script_data_size
   SHARED *NN_word_table, *NN_word_data, NN_word_table_count, NN_word_data_size
+  SHARED *NN_ui_palette
   !__use_dialogues{}
   !__use_dialogue_limits{}
   !__use_shapes{}
@@ -284,6 +295,10 @@ Statement NN_uninitialize{}
   size = SizeOf .NN_pal_entry * 32 * NN_palette_count
   FreeMem_ *NN_palettes, size
   !DB_log_str{"NN_GAME", "  Free palettes  $" + Hex$(*NN_palettes) + ", " + Str$(size)}
+
+  size = SizeOf .NN_pal_entry * 32
+  FreeMem_ *NN_ui_palette, size
+  !DB_log_str{"NN_GAME", "  Free ui pal    $" + Hex$(*NN_ui_palette) + ", " + Str$(size)}
 End Statement
 
 ; Loads the mouse pointers
@@ -307,6 +322,7 @@ End Statement
 ; =============================================================================
 Function NN_initialize{neonpack$, pointers$}
   SHARED NN_error_codes$()
+
   !DB_trace{"NN_GAME", "NEONpack: " + neonpack$ + " Mouse Pointers: " + pointers$}
   NN_load_pointers{"data/" + pointers$}
 
@@ -366,27 +382,24 @@ End Statement
 ; Requires AMIGA or QAMIGA mode
 ; =============================================================================
 Statement NN_load_location{new_loc_id.w, new_scene_id.w}
-  SHARED NN_current_location_id, NN_fade_out, NN_current_bmp
   !DB_trace{"NN_GAME", "NN_load_location{" + Str$(new_loc_id) + ", " + Str$(new_scene_id) + "}"}
+  SHARED NN_current_location_id, NN_fade_out, NN_current_bmp
+  SHARED *NN_current_location, *NN_current_scene
+  SHARED *NN_locations, *NN_scenes
+  !__use_string_table{}
+  !__use_shapes{}
+
   NN_current_location_id = new_loc_id
 
   BLITZ
-  DisplaySprite #CP_coplist, #NN_pointer_wait - #NN_pointer_start, #NN_screen_width LSR 1, #NN_screen_height LSR 1, 0
   FadeOutScreen {#CP_coplist, NN_current_bmp, #PAL_fx}
+
+  DisplaySprite #CP_coplist, #NN_pointer_wait - #NN_pointer_start, #NN_screen_width LSR 1, #NN_screen_height LSR 1, 0
+  NN_set_ui_colors{#PAL_fx}
+  DisplayPalette #CP_coplist, #PAL_fx
   QAMIGA
 
-  SHARED *NN_current_location, *NN_current_scene
-  SHARED *NN_locations, *NN_scenes, *NN_string_table, *NN_string_data
-  !__use_shapes{}
   *NN_current_location = !__get_location{new_loc_id}
-
-  ; Load all the backgrounds
-  For bg = 0 To *NN_current_location\last_bg - *NN_current_location\first_bg
-    BitMap bg, #NN_screen_width, #NN_screen_height, #NN_screen_bpp
-    bmp$ = !__get_string{bg + *NN_current_location\first_bg}
-    ;NPrint bmp$
-    LoadBitMap bg, "data/" + bmp$, bg
-  Next
 
   ; Load the shapes if there are any
   If *NN_current_location\shapes_file <> -1
@@ -396,9 +409,19 @@ Statement NN_load_location{new_loc_id.w, new_scene_id.w}
     LoadShapes *first_shape\shape_id, *last_shape\shape_id, "data/" + !__get_string{*NN_current_location\shapes_file}
   End If
 
+  ; Load all the backgrounds
+  DEFTYPE .w bg_count
+  bg_count = *NN_current_location\last_bg - *NN_current_location\first_bg
+  For bg = 0 To bg_count
+    BitMap bg, #NN_screen_width, #NN_screen_height, #NN_screen_bpp
+    bmp$ = !__get_string{bg + *NN_current_location\first_bg}
+    ;NPrint bmp$
+    LoadBitMap bg, "data/" + bmp$, bg
+  Next
+
   BLITZ
   If new_loc_id > 0
-    For bg = 0 To *NN_current_location\last_bg - *NN_current_location\first_bg
+    For bg = 0 To bg_count
       Use BitMap bg
       Blit #NN_menu_shape, 320 - ShapeWidth(#NN_menu_shape) - 4, 200 - ShapeHeight(#NN_menu_shape) - 4, 0
     Next
