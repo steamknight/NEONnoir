@@ -236,6 +236,9 @@ DEFTYPE .l NS_script_data_size
 
 #NS_flag_count = 256
 Dim NS_flags.b(#NS_flag_count)
+Dim NS_page_flags.b(#NS_flag_count)
+Dim NS_choice_flags.b(#NS_flag_count)
+
 ; -----------------------------------------------
 DEFTYPE .b DG_dialogue_is_active, DB_active_dialogue
 

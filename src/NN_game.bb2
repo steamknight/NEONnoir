@@ -321,7 +321,7 @@ End Statement
 ; pointers$: Game's mouse cursors, relative to the data/ directory
 ; =============================================================================
 Function NN_initialize{neonpack$, pointers$}
-  SHARED NN_error_codes$()
+  SHARED NN_error_codes$(), NS_page_flags(), NS_choice_flags()
 
   !DB_trace{"NN_GAME", "NEONpack: " + neonpack$ + " Mouse Pointers: " + pointers$}
   NN_load_pointers{"data/" + pointers$}
@@ -340,6 +340,11 @@ Function NN_initialize{neonpack$, pointers$}
     !DB_error{"MAIN", NN_error_codes$(success)}
     Function Return success
   End If
+
+  For f = 0 to #NS_flag_count
+    NS_page_flags(f) = True
+    NS_choice_flags(f) = True
+  Next
 
   Function Return success
 End Function
@@ -481,7 +486,8 @@ End Statement
 ; =============================================================================
 Statement NN_save_game{}
   !DB_trace{"NN_GAME", "NN_save_game"}
-  SHARED NN_current_location_id, NN_current_scene_id, NS_flags()
+  SHARED NN_current_location_id, NN_current_scene_id
+  SHARED NS_flags(), NS_page_flags(), NS_choice_flags()
   !__use_dialogues{}
   !__use_dialogue_limits{}
 
@@ -501,13 +507,13 @@ Statement NN_save_game{}
     WriteMem id, &NS_flags(i), (SizeOf .b)
   Next
 
-  ; Write the pages and choices
-  WriteMem id, *DG_pages, (SizeOf .DG_page * DG_page_count)
-  WriteMem id, *DG_choices, (SizeOf .DG_choice * DG_choice_count)
+  For i = 0 To #NS_flag_count
+    WriteMem id, &NS_page_flags(i), (SizeOf .b)
+  Next
 
-  DEFTYPE .DG_choice *choice
-  *choise = *DG_choices
-  !DB_printf{"************** Saving Choice 0 text id: %d", Peek.w(*DG_choices)}
+  For i = 0 To #NS_flag_count
+    WriteMem id, &NS_choice_flags(i), (SizeOf .b)
+  Next
 
   CloseFile id
 End Statement
@@ -516,7 +522,8 @@ End Statement
 ; =============================================================================
 Statement NN_load_game{}
   !DB_trace{"NN_GAME", "NN_load_game"}
-  SHARED NN_current_location_id, NN_current_scene_id, NS_flags()
+  SHARED NN_current_location_id, NN_current_scene_id
+  SHARED NS_flags(), NS_page_flags(), NS_choice_flags()
   !__use_dialogues{}
   !__use_dialogue_limits{}
 
@@ -528,8 +535,6 @@ Statement NN_load_game{}
   ReadMem id, &NN_current_location_id, SizeOf .w
   ReadMem id, &NN_current_scene_id, SizeOf .w
 
-  !DB_printf{"******** Loading location %d, scene %d", loc_id, scene_id}
-
   ; Read all the flags!
   DEFTYPE .b flag
   For i = 0 To #NS_flag_count
@@ -537,13 +542,15 @@ Statement NN_load_game{}
     NS_flags(i) = flag
   Next
 
-  ; Read the pages and choices
-  ReadMem id, *DG_pages, (SizeOf .DG_page * DG_page_count)
-  ReadMem id, *DG_choices, (SizeOf .DG_choice * DG_choice_count)
+  For i = 0 To #NS_flag_count
+    ReadMem id, &flag, (SizeOf .b)
+    NS_page_flags(i) = flag
+  Next
 
-  DEFTYPE .DG_choice *choice
-  *choise = *DG_choices
-  !DB_printf{"************** Loading Choice 0 text id: %d", Peek.w(*DG_choices)}
+  For i = 0 To #NS_flag_count
+    ReadMem id, &flag, (SizeOf .b)
+    NS_choice_flags(i) = flag
+  Next
 
   CloseFile id
 

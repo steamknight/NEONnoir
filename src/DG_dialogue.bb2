@@ -12,13 +12,13 @@
 #DG_x_padding = #DG_x_pos + #TX_frame_size
 #DG_y_padding = 8
 
-Function .b dg_is_page_enabled{page_ptr.l}
-  SHARED NS_flags()
+Function .b dg_is_page_enabled{pid.w, page_ptr.l}
+  SHARED NS_flags(), NS_page_flags()
   DEFTYPE .DG_page *pag
   DEFTYPE .b enabled
   *pag = page_ptr
 
-  enabled = *pag\enabled
+  enabled = NS_page_flags(pid)
   If *pag\check_flag <> -1
     enabled = enabled AND NS_flags(*pag\check_flag)
   End If
@@ -26,25 +26,24 @@ Function .b dg_is_page_enabled{page_ptr.l}
   Function Return enabled
 End Function
 
-Function .b dg_is_choice_enabled{choice_ptr.l}
-  SHARED NS_flags()
+Function .b dg_is_choice_enabled{cid.w, choice_ptr.l}
+  SHARED NS_flags(), NS_choice_flags()
   DEFTYPE .DG_choice *choice
   DEFTYPE .b enabled
   *choice = choice_ptr
 
-  enabled = *choice\enabled
+  enabled = NS_choice_flags(cid)
   If *choice\check_flag <> -1
     enabled = enabled AND NS_flags(*choice\check_flag)
   End If
-
-  ;!DB_printf{"************ [%ld] flag %d=%d:%d", choice_ptr, *choice\check_flag, NS_flags(*choice\check_flag), enabled}
 
   Function Return enabled
 End Function
 
 Statement DG_show_dialog{id.w}
   !DB_trace{"DG", "DG_show_dialog:" + Str$(id)}
-  SHARED DG_dialogue_is_active, NS_script_queue, NS_flags()
+  SHARED DG_dialogue_is_active, NS_script_queue
+  SHARED NS_flags(), NS_page_flags(), NS_choice_flags()
   !__use_dialogues{}
   !__use_string_table{}
 
@@ -75,7 +74,7 @@ Statement DG_show_dialog{id.w}
     ; If the page is not enabled, advance until we find one that is.
     Repeat
       *cur_page = !__get_page{page_id}
-      If dg_is_page_enabled{*cur_page} = False
+      If dg_is_page_enabled{page_id, *cur_page} = False
         page_id + 1
         displayed = False
       End If
@@ -96,13 +95,13 @@ Statement DG_show_dialog{id.w}
 
         If *cur_page\first_choice_id <> -1
           DEFTYPE .DG_choice *choice
-          DEFTYPE .w cwidth, cheight
-          DEFTYPE .b enabled
+          DEFTYPE .w cwidth, cheight, choice_id
 
           For c = 0 To *cur_page\choice_count - 1
-            *choice = !__get_choice{*cur_page\first_choice_id + c}
+            choice_id = *cur_page\first_choice_id + c
+            *choice = !__get_choice{choice_id}
 
-            If dg_is_choice_enabled{*choice}
+            If dg_is_choice_enabled{choice_id, *choice}
               ctx\y_position + 1
               rects(c)\x0 = #DG_x_padding
               rects(c)\y0 = (ctx\y_position + 1) * #TX_font_height + #DG_y_padding
@@ -126,38 +125,40 @@ Statement DG_show_dialog{id.w}
 
       ; Handle user interaction
       If *cur_page\choice_count > 0
-        DEFTYPE .w selected
+        DEFTYPE .w selected, choice_id
         DEFTYPE .DG_choice *choice
         selected = IN_check_mouse{&rects(0), *cur_page\choice_count}
 
         If selected <> -1
-          *choice = !__get_choice{(*cur_page\first_choice_id + selected)}
+          choice_id = *cur_page\first_choice_id + selected
+          *choice = !__get_choice{choice_id}
           pointer_id = #NN_pointer_interact - #NN_pointer_start
 
           If lmb = #IN_mouse_released
             NS_script_queue = *choice\script_offset
-            page_id = *choice\page_id
             displayed = False
 
-            If *choice\self_disable = True Then *choice\enabled = False
+            If *choice\self_disable = True Then NS_choice_flags(choice_id) = False
             If *choice\set_flag <> -1 Then NS_flags(*choice\set_flag) = True
             If *choice\clear_flag <> -1 Then NS_flags(*choice\clear_flag) = False
 
-            If *cur_page\self_disable = True Then *cur_page\enabled = False
+            If *cur_page\self_disable = True Then NS_page_flags(page_id) = False
             If *cur_page\set_flag <> -1 Then NS_flags(*cur_page\set_flag) = True
             If *cur_page\clear_flag <> -1 Then NS_flags(*cur_page\clear_flag) = False
+
+            page_id = *choice\page_id
           End If
         Else
           pointer_id = #NN_pointer_default - #NN_pointer_start
         End If
       Else
         If lmb = #IN_mouse_released
-          page_id = *cur_page\page_id
           displayed = False
 
-          If *cur_page\self_disable = True Then *cur_page\enabled = False
+          If *cur_page\self_disable = True Then NS_page_flags(page_id) = False
           If *cur_page\set_flag <> -1 Then NS_flags(*cur_page\set_flag) = True
           If *cur_page\clear_flag <> -1 Then NS_flags(*cur_page\clear_flag) = False
+          page_id = *cur_page\page_id
         End If
       End If
     End If

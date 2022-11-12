@@ -12,6 +12,9 @@ Statement MS_load_module{id.w, position.w}
   ; If we're already playing the right track, don't restart it
   If MS_current_track_id = id Then Statement Return
 
+  StopTracker
+  FreeTrackerModule 0
+
   MS_current_track_id = id
 
   DEFTYPE .s file_name$
