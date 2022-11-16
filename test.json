@@ -1,0 +1,49 @@
+{
+  "dialogues": [],
+  "locations": [
+    {
+      "backgrounds": [
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\alleycat1.iff"
+      ],
+      "name": "Location 1",
+      "scenes": [
+        {
+          "description": [
+            "fff"
+          ],
+          "image_id": 0,
+          "music_id": 65535,
+          "name": "Scene 1",
+          "offset_x": 0,
+          "offset_y": 0,
+          "on_enter": "",
+          "on_exit": "",
+          "regions": [],
+          "view_height": 0,
+          "view_width": 0,
+          "view_x": 0,
+          "view_y": 0
+        },
+        {
+          "description": [],
+          "image_id": 0,
+          "music_id": 65535,
+          "name": "Scene 2",
+          "offset_x": 0,
+          "offset_y": 0,
+          "on_enter": "",
+          "on_exit": "",
+          "regions": [],
+          "view_height": 0,
+          "view_width": 0,
+          "view_x": 0,
+          "view_y": 0
+        }
+      ],
+      "shapes": [],
+      "shapes_file": ""
+    }
+  ],
+  "save_on_export": "",
+  "script_name": ""
+}

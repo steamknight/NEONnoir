@@ -87,6 +87,19 @@ namespace NEONnoir
                 s.name_id = to<uint16_t>(pak.string_table.size());
                 pak.string_table.push_back(scene.name);
 
+                if (scene.description.size() > 0)
+                {
+                    s.first_desc_id = to<uint16_t>(pak.string_table.size());
+
+                    for (auto& desc : scene.description)
+                    {
+                       pak.string_table.push_back(desc);
+                    }
+
+                    // Compensate for the extra string added to the table
+                    s.last_desc_id = to<uint16_t>(pak.string_table.size()) - 1;
+                }
+
                 s.background_id = scene.image_id;
 
                 s.first_region_id = to<uint16_t>(pak.regions.size());
@@ -340,6 +353,8 @@ namespace NEONnoir
         for (auto const& scene : pak.scenes)
         {
             write(neonpack, scene.name_id);
+            write(neonpack, scene.first_desc_id);
+            write(neonpack, scene.last_desc_id);
             write(neonpack, scene.on_enter);
             write(neonpack, scene.on_exit);
             write(neonpack, scene.background_id);

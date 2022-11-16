@@ -14,6 +14,7 @@
 #include "utils.h"
 #include "editor.h"
 #include "packfile.h"
+#include "lang_pack_util.h"
 
 namespace fs = std::filesystem;
 
@@ -269,13 +270,22 @@ namespace NEONnoir
                     auto file = open_file_dialog("json");
                     if (file)
                     {
-                        _game_data = game_data::deserialize(file.value().data());
-                        _game_data->filename = file.value();
-                        _location_browser.use(_game_data);
-
-                        if (_game_data->script_name != "")
+                        try
                         {
-                            _script_editor.load_script(_game_data->script_name);
+                            _game_data = game_data::deserialize(file.value().data());
+                            _game_data->filename = file.value();
+                            _location_browser.use(_game_data);
+
+                            if (_game_data->script_name != "")
+                            {
+                                _script_editor.load_script(_game_data->script_name);
+                            }
+                        }
+                        catch (std::exception const& ex)
+                        {
+                            std::cout << ex.what();
+                            _show_error_popup = true;
+                            _error_message = ex.what();
                         }
                     }
                 }
@@ -372,6 +382,24 @@ namespace NEONnoir
                         _shape_editor_tool = std::make_unique<shape_editor_tool>();
                     }
                     _shape_editor_tool->display();
+                }
+
+                if (ImGui::MenuItem(ICON_MD_FILE_DOWNLOAD " Lang pack to CSV"))
+                {
+                    auto file = open_file_dialog("noir");
+                    if (file.has_value())
+                    {
+                        lang_pack_to_csv(file.value());
+                    }
+                }
+
+                if (ImGui::MenuItem(ICON_MD_FILE_UPLOAD " CSV to Lang pack"))
+                {
+                    auto file = open_file_dialog("noir");
+                    if (file.has_value())
+                    {
+                        csv_to_lang_pack(file.value());
+                    }
                 }
                 ImGui::EndMenu();
             }

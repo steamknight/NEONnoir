@@ -188,6 +188,7 @@
     <ClCompile Include="imgui\imgui_tables.cpp" />
     <ClCompile Include="imgui\imgui_widgets.cpp" />
     <ClCompile Include="imgui_utils.cpp" />
+    <ClCompile Include="lang_pack_util.cpp" />
     <ClCompile Include="libraries\TextEditor.cpp" />
     <ClCompile Include="location_browser.cpp" />
     <ClCompile Include="main.cpp" />
@@ -220,6 +221,7 @@
     <ClInclude Include="imgui\imstb_textedit.h" />
     <ClInclude Include="imgui\imstb_truetype.h" />
     <ClInclude Include="imgui_utils.h" />
+    <ClInclude Include="lang_pack_util.h" />
     <ClInclude Include="location_browser.h" />
     <ClInclude Include="packfile.h" />
     <ClInclude Include="palette_injector.h" />

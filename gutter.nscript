@@ -18,14 +18,11 @@
     acid_nova_denies_danni          ; Acid Nova denies that he knows Danni
     knows_about_danni_house         ; Knows where Danni lives
 
-    danni_apartment_first_time      ; First time entering Danni's apartment
     knows_about_laundromat          ; Blake knows about the laundromat
     knows_danni_identity            ; Knows Danni identity
 
     first_time_blake_act2
 
-    laundry_first_time_outside      ; First time outside the laundry
-    laundry_first_time_inside       ; First time inside the laundry
     gladys_wont_help                ; Gladys, that old bag, won't help you.
     needs_distraction_for_gladys    ; Needs to find a distraction for Gladys
     has_distraction_for_gladys      ; Got Crystal to agree to distract Gladys
@@ -56,11 +53,6 @@
     segs_place_been_here
 
     b19r_entrance_been_here
-
-    xantech_lobby_been_here
-    xantech_corridor_been_here
-    xantech_medical_been_here
-    xantech_cafe_been_here
 
 ; Inventory items
 ; ==============================================================================
@@ -395,7 +387,6 @@
 ; Location: Danni's apartment
 ; ==============================================================================
 .TEXT
-    danni_apartment_first_time  "Danni and Crystal's apartment was on the nicer part of the Gutter, if such a place even existed. The apartment was small but modern and looked more expensive than I could afford."
     danni_clutter_desc          "Next to Danni's bed is small pile of clutter. It's mostly clothes, but there are also some papers."
     danni_note_from_gladys      "There's a note dated two days ago, addressed to Danni from someone named Gladys. It reads '15 wants to see you tonight, I don't need to remind you that you better bring your A game.'"
     danni_nightstand_desc       "What's this... her ID card! I can run a background check on her with GovLink computer back at my apartment."
@@ -438,9 +429,6 @@
 
 ; Location: The Lost Sock Laundromat
 ; ==============================================================================
-    laundry_outside_desc1       "The Lost Sock laundromat was on Merchant's Row, not too far from Danni and Crystal's apartment. Like everywhere else is the Gutter, the streets were slick with undefined liquids."
-    laundry_outside_desc2       "Down the street is poster that stands out as being the only thing here not covered in filth."
-    laundry_inside_desc         "For a laundromat, it was surprisingly hazy and dark in here. While a few laundry machines are spinning, there's nobody here other than an old woman sitting next to a computer. This must be Gladys."
     gladys_is_too_mean          "I don't think I'm going get anywhere with that museum exhibit. I bet that if I could get my hands on her computer, I could learn a few interesting things."
     laundromat_closed           "Odd... the door is locked. Through the window, I can see an old woman. When she notices me, she waves me away. I'll come back later."
     laundry_xantech_poster1     "The poster's announcing the yearly XanCon expo, hosted by Xantech Cybernetics. All of Xantech's latest exercise in planned obsolescence will be on display tomorrow night."
@@ -455,11 +443,6 @@
 
 ; Location: Building 19
 ; ==============================================================================
-    b19_exterior_desc1          "The industrial district was a sprawling hellscape of warehouses, factories, and pipes of all shapes and sizes stretching for hundreds of miles like a basket of venomous snakes."
-    b19_exterior_desc2          "The air quality here was even worse than the Gutter's. Worker safety cut into the bottom line of the fat cats running the place, and they could always get more workers."
-    b19_exterior_desc3          "Lucky for me, Building 19 was in a fairly secluded area at the edge of the industrial district. Like many building here, there was no outward indication as to who owned it. I guess it was time I applied my carefully honed detective skills."
-    b19_storage_desc1           "Something about this place seemed weird. There should have been people working, but the place was empty. Even the various boxes piled high in this facility looked like they hadn't been touched in a long time."
-    b19_storage_desc2           "This place was definitely a front, all right."
     b19_pick_storage_lock       "Typing the keycode I got from Acid Nova, the door opens without any issues."
     b19_pick_office_lock        "You don't become a PI without picking your fair share of locks. I guess I can add this one to my list of conquests."
     get_coral                   "The red plastic capsule catches my attention, its ruby red color in sharp contrast to the gloom of the storeroom. I've been hearing a lot about this little capsule all night and with my lack of cybernetics, its siren's song falls on deaf ears. I don't know why I picked it up, but I pocket the capsule of Coral."
@@ -512,23 +495,15 @@
 
 ; Location: Xantech Cybernetics
 ; ==============================================================================
-    xantech_entrance_desc       "Xantech Cybernetics' ostentatious building rises above us all like a giant middle finger to our hardships."
-    xantech_lobby_desc1         "The elevator dings at the 53rd floor, where the Xantech's datacenter is supposed to be."
-    xantech_lobby_desc2         "*DING*"
-    xantech_lobby_desc3         "Drek. There's a tinman guarding the server room."
     xantech_fail_enter_servers  "The tinman steps in front of us, blocking the entrance."
     xantech_crystal_lax         "Crystal nudges me to give her the coffee and laxative. After mixing them together, she walks to the tinman while I hide around the corner."
     xantech_laxative1           "The tinman takes the coffee from Crystal, eager to make her happy. A few moment pass when we can hear a horrible sound coming from his stomach."
     xantech_laxative2           "In a show of complete dereliction of duty, the tinman abandons his post and runs out of the room as quickly as the coffee is running through him."
-    xantech_corridor_desc       "Endless corridors crisscross this floor."
-    xantech_medical_desc        "A spotless medical bay. Everything here is state-of-the-art."
     xantech_medicine_closet1    "Medicines of all kinds. Nothing immediately useful."
     xantech_medicine_closet2    "Wait. What's this? KwikyLax?"
     xantech_medicine_closet3    "'World's first military-grade laxative. Declare war on constipation!'"
     xantech_medicine_closet4    "I think we all know where this going."
     xantech_medicine_closet_end "Nothing else of use in here."
-    xantech_cafe_desc1          "The breakroom on this floor is a fully stocked cafe. Perhaps working for Xantech wouldn't be the worst thing..."
-    xantech_cafe_desc2          "Better not to be seduced by their corporate perks. I had a job to do."
     xantech_coffee_machine      "The coffee from this machine smells real good. I'd better take a cup."
     xantech_has_coffee          "One cup is enough for now. I can always come back."
     xantech_move_to_server      "With the tinman gone, we move into the server room"
@@ -1123,16 +1098,6 @@
 
 ; DANNI'S APARTMENT
 ; =====================================================
-.SCRIPT enter_danni_apartment_first_time
-        load !danni_apartment_first_time
-        jift @been_here_before
-        text $danni_apartment_first_time
-        set
-        store !danni_apartment_first_time 
-
-    @been_here_before
-        end
-
 .SCRIPT goto_danni_bedroom
         goto #scene_danni_bedroom
         end
@@ -1401,15 +1366,6 @@
         end
 
 .SCRIPT on_enter_lost_sock_exterior
-        ; is it the first time here?
-        load !laundry_first_time_outside
-        jift @not_first_time
-        text $laundry_outside_desc1
-        text $laundry_outside_desc2
-        set
-        store !laundry_first_time_outside
-
-    @not_first_time
         ; if not thanked Crystal and has hacked computer
         load !has_thanked_crystal
         not
@@ -1424,14 +1380,6 @@
         end
 
 .SCRIPT on_enter_lost_sock_interior
-        load !laundry_first_time_inside
-        jift @not_first_time
-        text $laundry_inside_desc
-        set
-        store !laundry_first_time_inside
-        end
-
-    @not_first_time
         load !has_distraction_for_gladys
         jiff @done
         text $laundry_fight
@@ -1442,18 +1390,6 @@
 
 ; BUILDING 19
 ; =====================================================
-.SCRIPT on_enter_b19
-        load !b19_been_here
-        jift @done
-        text $b19_exterior_desc1
-        text $b19_exterior_desc2
-        text $b19_exterior_desc3
-        set
-        store !b19_been_here
-
-    @done
-        end
-
 .SCRIPT leave_b19
         load !inv_parcel_number
         and !inv_coral
@@ -1485,17 +1421,6 @@
 
     @done
         goto #scene_b19_office
-        end
-
-.SCRIPT on_enter_b19_storage
-        load !b19_storage_been_here
-        jift @done
-        text $b19_storage_desc1
-        text $b19_storage_desc2
-        set
-        store !b19_storage_been_here
-
-    @done
         end
 
 .SCRIPT get_coral
@@ -1694,22 +1619,6 @@
 
 ; XANTECH CYBERNETICS
 ; ==============================================================================
-.SCRIPT on_enter_xantech_entrance
-        text $xantech_entrance_desc
-        end
-
-.SCRIPT on_enter_xantech_lobby
-        load !xantech_lobby_been_here
-        jift @done
-        set
-        store !xantech_lobby_been_here
-        text $xantech_lobby_desc1
-        text $xantech_lobby_desc2
-        text $xantech_lobby_desc3
-
-    @done
-        end
-
 .SCRIPT goto_xantech_lobby
         goto #scene_xantech_lobby
         end
@@ -1761,16 +1670,6 @@
         dlg #dialogue_tinman
         end
 
-.SCRIPT on_enter_xantech_corridor
-        load !xantech_corridor_been_here
-        jift @done
-        set
-        store !xantech_corridor_been_here
-        text $xantech_corridor_desc
-
-    @done
-        end
-
 .SCRIPT use_medicine_closet
         load !inv_laxative
         jift @has_lax
@@ -1813,27 +1712,6 @@
 
         goloc #location_xancon #scene_xancon_cut1
 
-        end
-
-.SCRIPT on_enter_xantech_medical
-        load !xantech_medical_been_here
-        jift @done
-        set
-        store !xantech_medical_been_here
-        text $xantech_medical_desc
-
-    @done
-        end
-
-.SCRIPT on_enter_xantech_cafe
-        load !xantech_cafe_been_here
-        jift @done
-        set
-        store !xantech_cafe_been_here
-        text $xantech_cafe_desc1
-        text $xantech_cafe_desc2
-
-    @done
         end
 
 ; XANCON
@@ -1962,6 +1840,9 @@
 
         goloc #location_title #scene_title
         end
+
+
+
 
 
 

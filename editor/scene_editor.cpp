@@ -55,7 +55,7 @@ namespace NEONnoir
 
     void scene_editor::display_editor(std::shared_ptr<game_data>& data)
     {
-        if (ImGui::BeginTable("Layout", 2, ImGuiTableFlags_SizingFixedFit))
+        if (ImGui::BeginTable("Layout", 2, ImGuiTableFlags_SizingStretchProp | ImGuiTableFlags_Resizable))
         {
             ImGui::TableNextRow();
 
@@ -74,13 +74,14 @@ namespace NEONnoir
 
     void scene_editor::display_scene_properties(std::shared_ptr<game_data>& data)
     {
-        if (ImGui::BeginChild("SceneProps", { 256, 0 }, true))
+        if (ImGui::BeginChild("SceneProps", { 0, 0 }, true))
         {
             auto& scene = data->locations[_location_index.value()].scenes[_scene_index.value()];
 
             if (ImGui::BeginTable("PropsLayout", 2, ImGuiTableFlags_SizingStretchProp))
             {
                 display_prop_string("Name", scene.name);
+                display_prop_multistring("Description", scene.description);
                 display_prop_background(scene, data->locations[_location_index.value()].backgrounds);
                 display_prop_string("On Enter", scene.on_enter);
                 display_prop_string("On Exit", scene.on_exit);
@@ -104,6 +105,31 @@ namespace NEONnoir
         ImGui::TableNextColumn();
         ImGui::SetNextItemWidth(-FLT_MIN);
         ImGui::InputText(std::format("##{}", (uint64_t)&value).c_str(), &value);
+    }
+
+    void scene_editor::display_prop_multistring(std::string_view const& label, std::vector<std::string>& values)
+    {
+        ImGui::TableNextRow();
+
+        ImGui::TableNextColumn();
+        ImGui::AlignTextToFramePadding();
+        ImGui::TextUnformatted(label.data());
+
+        ImGui::TableNextColumn();
+        ImGui::SetNextItemWidth(-FLT_MIN);
+
+        if (ImGui::Button("Add description"))
+        {
+            values.push_back({});
+        }
+
+        for (auto& value : values)
+        {
+            ImGui::PushID(static_cast<void*>(&value));
+            ImGui::SetNextItemWidth(-FLT_MIN);
+            ImGui::InputTextMultiline("##", &value, { 0, 60 });
+            ImGui::PopID();
+        }
     }
 
     void scene_editor::display_prop_int(std::string_view const& label, uint16_t& value)

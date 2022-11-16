@@ -102,6 +102,9 @@
     <ClCompile Include="shape_editor_tool.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="lang_pack_util.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="imgui\imconfig.h">
@@ -193,6 +196,9 @@
     </ClInclude>
     <ClInclude Include="shape_editor_tool.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lang_pack_util.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

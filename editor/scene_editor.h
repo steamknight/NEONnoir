@@ -20,6 +20,7 @@ namespace NEONnoir
         void display_scene_properties(std::shared_ptr<game_data>& data);
 
         void display_prop_string(std::string_view const& label, std::string& name);
+        void display_prop_multistring(std::string_view const& label, std::vector<std::string>& values);
         void display_prop_int(std::string_view const& label, uint16_t& value);
         void display_prop_background(game_data_scene& scene, std::vector<std::string> const& backgrounds);
         void display_prop_regions(game_data_scene& scene);

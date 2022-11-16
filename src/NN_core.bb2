@@ -25,6 +25,8 @@ End NEWTYPE
 ; -----------------------------------------------
 NEWTYPE.NN_scene
   name_id.w
+  first_desc_id.w
+  last_desc_id.w
   on_enter.w
   on_exit.w
   background_id.w
@@ -131,7 +133,13 @@ End Macro
 ; -----------------------------------------------
 DEFTYPE .NN_scene *NN_scenes, *NN_current_scene
 DEFTYPE .l NN_scene_count
-DEFTYPE .w NN_current_scene_id
+
+; The current scene id, is the id of the scene local to the location. For example
+; in if the Location 3, scene 2 was loaded, the "local" scene id would be 2
+; The global scene id is the actual index of that scene in the scenes array. In
+; the previous example, scene 2 might be the 8th scene in the array, so the "global"
+; scene id would be 7 (zero-based index)
+DEFTYPE .w NN_current_scene_id, NN_current_global_scene_id
 
 Macro __get_scene
   (*NN_scenes + (SizeOf .NN_scene * (`1)))
@@ -238,6 +246,7 @@ DEFTYPE .l NS_script_data_size
 Dim NS_flags.b(#NS_flag_count)
 Dim NS_page_flags.b(#NS_flag_count)
 Dim NS_choice_flags.b(#NS_flag_count)
+Dim NS_scene_flags.b(#NS_flag_count)
 
 ; -----------------------------------------------
 DEFTYPE .b DG_dialogue_is_active, DB_active_dialogue

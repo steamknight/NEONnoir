@@ -9,68 +9,54 @@ namespace fs = std::filesystem;
 
 namespace NEONnoir
 {
+    NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(
+        shape,
+        x, y,
+        width, height
+    );
 
-    void to_json(json& j, shape const& s)
-    {
-        j = json{
-            { "x",              s.x },
-            { "y",              s.y },
-            { "width",          s.width },
-            { "height",         s.height },
-        };
-    }
+    NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(
+        shape_container,
+        image_file,
+        has_palette,
+        shapes
+    );
 
-    void to_json(json& j, shape_container const& s)
-    {
-        j = json{
-            { "image_file",     s.image_file },
-            { "has_palette",    s.has_palette },
-            { "shapes",         s.shapes }
-        };
-    }
+    NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(
+        game_data_region,
+        x, y,
+        width, height,
+        shape_id,
+        pointer_id,
+        description,
+        script
+    );
 
-    void to_json(json& j, game_data_region const& r)
-    {
-        j = json{
-            { "x", r.x },
-            { "y", r.y },
-            { "width", r.width },
-            { "height", r.height },
-            { "shape_id", r.shape_id },
-            { "pointer_id", r.pointer_id },
-            { "description", r.description },
-            { "script", r.script }
-        };
-    }
+    NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(
+        game_data_scene,
+        name,
+        description,
+        on_enter,
+        on_exit,
+        image_id,
+        view_x,
+        view_y,
+        view_width,
+        view_height,
+        offset_x,
+        offset_y,
+        music_id,
+        regions
+    );
 
-    void to_json(json& j, game_data_scene const& s)
-    {
-        j = json{
-            { "name", s.name },
-            { "on_enter", s.on_enter },
-            { "on_exit", s.on_exit },
-            { "image_id", s.image_id },
-            { "view_x", s.view_x},
-            { "view_y", s.view_y},
-            { "view_width", s.view_width},
-            { "view_height", s.view_height},
-            { "offset_x", s.offset_x},
-            { "offset_y", s.offset_y},
-            { "music_id", s.music_id },
-            { "regions", s.regions}
-        };
-    }
-
-    void to_json(json& j, game_data_location const& l)
-    {
-        j = json{
-            { "name", l.name },
-            { "backgrounds", l.backgrounds },
-            { "scenes", l.scenes },
-            { "shapes", l.shapes },
-            { "shapes_file", l.shapes_file },
-        };
-    }
+    NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(
+        game_data_location,
+        name,
+        backgrounds,
+        scenes,
+        shapes,
+        shapes_file
+    );
 
     NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(
         dialogue_choice,
@@ -103,87 +89,16 @@ namespace NEONnoir
         has_check_flag
     );
 
+    NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(
+        dialogue, speaker, image_id, pages
+    );
 
-    void to_json(json& j, dialogue const& d)
-    {
-        j = json{
-            { "speaker",        d.speaker },
-            { "image_id",       d.image_id },
-            { "pages" ,         d.pages },
-        };
-    }
-
-    void from_json(const json& j, game_data_region& r)
-    {
-        j.at("x").get_to(r.x);
-        j.at("y").get_to(r.y);
-        j.at("width").get_to(r.width);
-        j.at("height").get_to(r.height);
-        j.at("shape_id").get_to(r.shape_id);
-        j.at("pointer_id").get_to(r.pointer_id);
-        j.at("description").get_to(r.description);
-        j.at("script").get_to(r.script);
-    }
-
-
-    void from_json(const json& j, game_data_scene& s)
-    {
-        j.at("name").get_to(s.name);
-        j.at("on_enter").get_to(s.on_enter);
-        j.at("on_exit").get_to(s.on_exit);
-        j.at("image_id").get_to(s.image_id);
-        j.at("view_x").get_to(s.view_x);
-        j.at("view_y").get_to(s.view_y);
-        j.at("view_width").get_to(s.view_width);
-        j.at("view_height").get_to(s.view_height);
-        j.at("offset_x").get_to(s.offset_x);
-        j.at("offset_y").get_to(s.offset_y);
-        if (j.contains("music_id"))
-            j.at("music_id").get_to(s.music_id);
-        j.at("regions").get_to(s.regions);
-
-    }
-
-    void from_json(const json& j, shape& s)
-    {
-        j.at("x").get_to(s.x);
-        j.at("y").get_to(s.y);
-        j.at("width").get_to(s.width);
-        j.at("height").get_to(s.height);
-    }
-
-    void from_json(const json& j, shape_container& s)
-    {
-        j.at("image_file").get_to(s.image_file);
-        j.at("has_palette").get_to(s.has_palette);
-        j.at("shapes").get_to(s.shapes);
-    }
-
-    void from_json(const json& j, game_data_location& l)
-    {
-        j.at("name").get_to(l.name);
-        j.at("backgrounds").get_to(l.backgrounds);
-        j.at("scenes").get_to(l.scenes);
-        if (j.contains("shapes"))
-            j.at("shapes").get_to(l.shapes);
-        j.at("shapes_file").get_to(l.shapes_file);
-    }
-
-    void from_json(const json& j, dialogue& d)
-    {
-        j.at("speaker").get_to(d.speaker);
-        j.at("image_id").get_to(d.image_id);
-        j.at("pages").get_to(d.pages);
-    }
-
-    void from_json(const json& j, game_data& g)
-    {
-        j.at("locations").get_to(g.locations);
-        j.at("dialogues").get_to(g.dialogues);
-
-        if (j.contains("script_name"))
-            j.at("script_name").get_to(g.script_name);
-    }
+    NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(
+        game_data,
+        locations,
+        dialogues,
+        script_name
+    );
 
     void game_data::serialize(std::string const& filename)
     {
@@ -195,7 +110,8 @@ namespace NEONnoir
             {
                 { "locations", locs},
                 { "dialogues", json(dialogues)},
-                { "script_name", script_name}
+                { "script_name", script_name},
+                { "save_on_export", script_name},
             };
 
             savefile << root.dump(2);

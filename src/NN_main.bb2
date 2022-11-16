@@ -5,13 +5,15 @@
 ; =============================================================================
 
 AMIGA
+If NOT NTSC Then Poke $DFF1DC, $000
 
 ; PAL has 256 vertical lines, but NTSC only has 200. Center the display
 ; so that it doesn't look terrible for PAL.
 DEFTYPE .w screen_offset
 screen_offset = ((DispHeight - 200) LSR 1) + #CP_origin
 !DB_log_val{"MAIN", "screen_offset %d", screen_offset}
-InitCopList #CP_coplist, screen_offset, #NN_screen_height, #CP_flags, #CP_sprites, #NN_screen_colors, 0
+InitCopList #CP_coplist, 44, #NN_screen_height, #CP_flags, #CP_sprites, #NN_screen_colors, 0
+
 
 ; Set up a buffer for blitting into the main screen
 Buffer #BF_main_screen, 64000
@@ -37,6 +39,9 @@ LoadShapes #NN_menu_shape, #NN_menu_shape, "data/menu.shapes"
 ; Display the splash screen
 BLITZ
 CreateDisplay #CP_coplist
+Poke $DFF1DC, $000
+; Force the machine to enter NTSC mode
+
 DisplayBitMap #CP_coplist, #BMP_main
 FadeInScreen{#CP_coplist, #PAL_main, #PAL_fx}
 
@@ -63,7 +68,8 @@ NN_load_location{0, 0}
 ; Run the game
 DEFTYPE .w overlapped, prev_overlap, menu_x, menu_y
 DEFTYPE .NN_region *region
-DEFTYPE .b left_mouse
+DEFTYPE .b left_mouse, prev_bmp
+DEFTYPE .s scene_description
 
 NN_pointer_id = 0
 overlapped = -1
@@ -82,6 +88,8 @@ menu_y = 200 - ShapeHeight(#NN_menu_shape) - 4
 NN_fade_in = False
 NN_fade_out = False
 
+prev_bmp = NN_current_bmp
+
 Repeat
   VWait
 
@@ -89,12 +97,29 @@ Repeat
 
   ;NN_current_bmp = *NN_current_scene\background_id
 
+  ; If we changed locations, let's kill any text that might be hanging around
+  If prev_bmp <> NN_current_bmp
+    UnBuffer 0
+    prev_bmp = NN_current_bmp
+  End If
+
   ; Show the background image
   DisplayPalette #CP_coplist, NN_current_bmp
   DisplayBitMap #CP_coplist, NN_current_bmp
 
   ; Update the mouse pointer
   DisplaySprite #CP_coplist, NN_pointer_id, MouseX, MouseY, 0
+
+  ; Check if we should display the scene's first time description
+  If NOT NS_scene_flags(NN_current_global_scene_id)
+    If *NN_current_scene\first_desc_id <> -1
+      For d = *NN_current_scene\first_desc_id to *NN_current_scene\last_desc_id
+        scene_description = !__get_string{d}
+        TX_draw_text_wrapped{scene_description, 32, #NN_half_screen_width , #NN_screen_height, True}
+      Next
+    End If
+    NS_scene_flags(NN_current_global_scene_id) = True
+  End If
 
   ; Check if menu icon is clicked
   If MouseX > menu_x AND MouseY > menu_y

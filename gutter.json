@@ -8964,6 +8964,7 @@
       "name": "Title",
       "scenes": [
         {
+          "description": [],
           "image_id": 0,
           "music_id": 65535,
           "name": "Title",
@@ -9019,6 +9020,7 @@
           "view_y": 0
         },
         {
+          "description": [],
           "image_id": 1,
           "music_id": 65535,
           "name": "Intro1",
@@ -9044,6 +9046,7 @@
           "view_y": 0
         },
         {
+          "description": [],
           "image_id": 2,
           "music_id": 65535,
           "name": "Intro2",
@@ -9069,6 +9072,7 @@
           "view_y": 0
         },
         {
+          "description": [],
           "image_id": 3,
           "music_id": 65535,
           "name": "Intro3",
@@ -9094,6 +9098,7 @@
           "view_y": 0
         },
         {
+          "description": [],
           "image_id": 4,
           "music_id": 65535,
           "name": "Intro4",
@@ -9119,6 +9124,7 @@
           "view_y": 0
         },
         {
+          "description": [],
           "image_id": 5,
           "music_id": 65535,
           "name": "Intro5",
@@ -9160,6 +9166,9 @@
       "name": "Alley",
       "scenes": [
         {
+          "description": [
+            "Muffled music thumps loudly outside of the club."
+          ],
           "image_id": 0,
           "music_id": 1,
           "name": "Seedy Joint",
@@ -9215,6 +9224,9 @@
           "view_y": 0
         },
         {
+          "description": [
+            "The earthy smell of compost fills my nostrils as I walk past the alley behind Takeshi's Noodles."
+          ],
           "image_id": 1,
           "music_id": 1,
           "name": "Takeshi's",
@@ -9270,6 +9282,10 @@
           "view_y": 0
         },
         {
+          "description": [
+            "Probably the cleanest place in the Gutter, this empty lot is next to the subway.",
+            "Its emptiness is broken only by a shady person leaning against the hard work of a contemporary artist."
+          ],
           "image_id": 2,
           "music_id": 1,
           "name": "Empty Lot",
@@ -9315,6 +9331,9 @@
           "view_y": 0
         },
         {
+          "description": [
+            "It's hard to tell on account of the helmet, but I have a feeling the tinman was eyeing me with suspicion."
+          ],
           "image_id": 3,
           "music_id": 1,
           "name": "ATM Lot",
@@ -9360,6 +9379,9 @@
           "view_y": 0
         },
         {
+          "description": [
+            "The putrefying garbage in the nearby dumpsters gives this area its iconic aroma."
+          ],
           "image_id": 4,
           "music_id": 1,
           "name": "Outside Subway",
@@ -9405,6 +9427,7 @@
           "view_y": 0
         },
         {
+          "description": [],
           "image_id": 5,
           "music_id": 1,
           "name": "Subway Entrance",
@@ -9440,6 +9463,9 @@
           "view_y": 0
         },
         {
+          "description": [
+            "I can hear the subway trains' torutured shrieks from above the platform. "
+          ],
           "image_id": 6,
           "music_id": 1,
           "name": "Subway Interior",
@@ -9581,6 +9607,9 @@
       "name": "Alleycat",
       "scenes": [
         {
+          "description": [
+            "The music hits me harder that the bouncer ever could. Finally, time to find Acid Nova."
+          ],
           "image_id": 1,
           "music_id": 2,
           "name": "Alleycat Entrance",
@@ -9626,6 +9655,7 @@
           "view_y": 0
         },
         {
+          "description": [],
           "image_id": 0,
           "music_id": 2,
           "name": "Alleycat Bar",
@@ -9719,12 +9749,15 @@
       "name": "Danni's Apartment",
       "scenes": [
         {
+          "description": [
+            "Danni and Crystal's apartment is in the nicer part of the Gutter, if such a place even exists. It's small but modern and looks more expensive than I could afford."
+          ],
           "image_id": 1,
           "music_id": 1,
           "name": "Entrance",
           "offset_x": 0,
           "offset_y": 0,
-          "on_enter": "enter_danni_apartment_first_time",
+          "on_enter": "",
           "on_exit": "",
           "regions": [
             {
@@ -9774,6 +9807,10 @@
           "view_y": 0
         },
         {
+          "description": [
+            "Danni bedroom was sparse and tidy, the only clutter being near her bed.",
+            "She was either very neat or didn't spend much time here."
+          ],
           "image_id": 0,
           "music_id": 1,
           "name": "Bedroom",
@@ -9867,6 +9904,10 @@
       "name": "Blake's Apartment",
       "scenes": [
         {
+          "description": [
+            "I spent a lot of time trying to make my basement apartment look professional.",
+            "As always, Daisy was napping rather than guarding the place."
+          ],
           "image_id": 0,
           "music_id": 0,
           "name": "Apartment",
@@ -9904,6 +9945,16 @@
               "width": 30,
               "x": 290,
               "y": 0
+            },
+            {
+              "description": "My SimWin, a simulated windows. Penthouse views for basement prices.",
+              "height": 61,
+              "pointer_id": 1,
+              "script": "",
+              "shape_id": 65535,
+              "width": 120,
+              "x": 144,
+              "y": 26
             }
           ],
           "view_height": 0,
@@ -9912,6 +9963,7 @@
           "view_y": 0
         },
         {
+          "description": [],
           "image_id": 1,
           "music_id": 0,
           "name": "End Act 1",
@@ -9926,6 +9978,7 @@
           "view_y": 0
         },
         {
+          "description": [],
           "image_id": 2,
           "music_id": 65535,
           "name": "Fade to black",
@@ -9940,6 +9993,7 @@
           "view_y": 0
         },
         {
+          "description": [],
           "image_id": 3,
           "music_id": 65535,
           "name": "End Act 2",
@@ -10026,6 +10080,10 @@
       "name": "Lost Sock Laundromat",
       "scenes": [
         {
+          "description": [
+            "The Lost Sock laundromat was on Merchant's Row, not too far from Danni and Crystal's apartment. Like everywhere else is the Gutter, the streets were slick with undefined liquids.",
+            "Down the street is poster that stands out as being the only thing here not covered in filth."
+          ],
           "image_id": 0,
           "music_id": 1,
           "name": "Exterior",
@@ -10081,6 +10139,9 @@
           "view_y": 0
         },
         {
+          "description": [
+            "For a laundromat, it was surprisingly hazy and dark in here. While a few laundry machines are spinning, there's nobody here other than an old woman sitting next to a computer. This must be Gladys."
+          ],
           "image_id": 1,
           "music_id": 1,
           "name": "Interior",
@@ -10175,12 +10236,17 @@
       "name": "B19",
       "scenes": [
         {
+          "description": [
+            "The industrial district was a sprawling hellscape of warehouses, factories, and pipes of all shapes and sizes stretching for hundreds of miles like a basket of venomous snakes.",
+            "The air quality here was even worse than the Gutter's. Worker safety cut into the bottom line of the fat cats running the place, and they could always get more workers.",
+            "Lucky for me, Building 19 was in a fairly secluded area at the edge of the industrial district. Like many building here, there was no outward indication as to who owned it. I guess it was time I applied my carefully honed detective skills."
+          ],
           "image_id": 0,
           "music_id": 65535,
           "name": "Entrance",
           "offset_x": 0,
           "offset_y": 0,
-          "on_enter": "on_enter_b19",
+          "on_enter": "",
           "on_exit": "",
           "regions": [
             {
@@ -10220,6 +10286,7 @@
           "view_y": 0
         },
         {
+          "description": [],
           "image_id": 1,
           "music_id": 65535,
           "name": "Office",
@@ -10295,12 +10362,16 @@
           "view_y": 0
         },
         {
+          "description": [
+            "Something about this place seemed weird. There should have been people working, but the place was empty. Even the various boxes piled high in this facility looked like they hadn't been touched in a long time.",
+            "This place was definitely a front, all right."
+          ],
           "image_id": 2,
           "music_id": 65535,
           "name": "Storage",
           "offset_x": 0,
           "offset_y": 0,
-          "on_enter": "on_enter_b19_storage",
+          "on_enter": "",
           "on_exit": "",
           "regions": [
             {
@@ -10401,6 +10472,7 @@
       "name": "SegF4ult's Place",
       "scenes": [
         {
+          "description": [],
           "image_id": 0,
           "music_id": 65535,
           "name": "Seg's Place",
@@ -10490,6 +10562,10 @@
       "name": "B19 Revisit",
       "scenes": [
         {
+          "description": [
+            "Wasting no time, I'm on my way back to that snake nest. Building 19's in sight and I need to be careful if Crystal and I are to make it out alive. Whatever happens, one thing is for sure.",
+            "Visser is going to regret this."
+          ],
           "image_id": 0,
           "music_id": 1,
           "name": "Entrance",
@@ -10525,6 +10601,7 @@
           "view_y": 0
         },
         {
+          "description": [],
           "image_id": 1,
           "music_id": 1,
           "name": "Office1",
@@ -10590,6 +10667,7 @@
           "view_y": 0
         },
         {
+          "description": [],
           "image_id": 2,
           "music_id": 3,
           "name": "Office2",
@@ -10645,6 +10723,7 @@
           "view_y": 0
         },
         {
+          "description": [],
           "image_id": 3,
           "music_id": 5,
           "name": "Catwalk",
@@ -10659,6 +10738,7 @@
           "view_y": 0
         },
         {
+          "description": [],
           "image_id": 4,
           "music_id": 1,
           "name": "Cutscene",
@@ -10737,12 +10817,15 @@
       "name": "Xantech",
       "scenes": [
         {
+          "description": [
+            "Xantech Cybernetics' ostentatious building rises above us all like a giant middle finger to our hardships."
+          ],
           "image_id": 0,
           "music_id": 1,
           "name": "Entrance",
           "offset_x": 0,
           "offset_y": 0,
-          "on_enter": "on_enter_xantech_entrance",
+          "on_enter": "",
           "on_exit": "",
           "regions": [
             {
@@ -10772,12 +10855,17 @@
           "view_y": 0
         },
         {
+          "description": [
+            "The elevator dings at the 53rd floor, where the Xantech's datacenter is supposed to be.",
+            "*DING*",
+            "Drek. There's a tinman guarding the server room."
+          ],
           "image_id": 1,
           "music_id": 3,
           "name": "Lobby",
           "offset_x": 0,
           "offset_y": 0,
-          "on_enter": "on_enter_xantech_lobby",
+          "on_enter": "",
           "on_exit": "",
           "regions": [
             {
@@ -10817,12 +10905,15 @@
           "view_y": 0
         },
         {
+          "description": [
+            "Endless corridors crisscross this floor."
+          ],
           "image_id": 2,
           "music_id": 1,
           "name": "Corridor",
           "offset_x": 0,
           "offset_y": 0,
-          "on_enter": "on_enter_xantech_corridor",
+          "on_enter": "",
           "on_exit": "",
           "regions": [
             {
@@ -10862,12 +10953,15 @@
           "view_y": 0
         },
         {
+          "description": [
+            "A spotless medical bay. Everything here is state-of-the-art."
+          ],
           "image_id": 4,
           "music_id": 65535,
           "name": "Medical",
           "offset_x": 0,
           "offset_y": 0,
-          "on_enter": "on_enter_xantech_medical",
+          "on_enter": "",
           "on_exit": "",
           "regions": [
             {
@@ -10907,12 +11001,16 @@
           "view_y": 0
         },
         {
+          "description": [
+            "The breakroom on this floor is a fully stocked cafe. Perhaps working for Xantech wouldn't be the worst thing...",
+            "Better not to be seduced by their corporate perks. I had a job to do."
+          ],
           "image_id": 3,
           "music_id": 1,
           "name": "Cafe",
           "offset_x": 0,
           "offset_y": 0,
-          "on_enter": "on_enter_xantech_cafe",
+          "on_enter": "",
           "on_exit": "",
           "regions": [
             {
@@ -10952,6 +11050,7 @@
           "view_y": 0
         },
         {
+          "description": [],
           "image_id": 5,
           "music_id": 3,
           "name": "Servers",
@@ -11039,6 +11138,7 @@
       "name": "XanCon",
       "scenes": [
         {
+          "description": [],
           "image_id": 0,
           "music_id": 5,
           "name": "Cutscene1",
@@ -11053,6 +11153,7 @@
           "view_y": 0
         },
         {
+          "description": [],
           "image_id": 1,
           "music_id": 65535,
           "name": "Cutscene2",
@@ -11067,6 +11168,7 @@
           "view_y": 0
         },
         {
+          "description": [],
           "image_id": 2,
           "music_id": 65535,
           "name": "Cutscene3",
@@ -11081,6 +11183,7 @@
           "view_y": 0
         },
         {
+          "description": [],
           "image_id": 0,
           "music_id": 65535,
           "name": "Cutscene4",
@@ -11095,6 +11198,7 @@
           "view_y": 0
         },
         {
+          "description": [],
           "image_id": 3,
           "music_id": 65535,
           "name": "Cutscene5",
@@ -11181,6 +11285,7 @@
       "name": "End",
       "scenes": [
         {
+          "description": [],
           "image_id": 0,
           "music_id": 1,
           "name": "End",
@@ -11242,6 +11347,7 @@
       "name": "Credits",
       "scenes": [
         {
+          "description": [],
           "image_id": 0,
           "music_id": 65535,
           "name": "Credits",
@@ -11260,5 +11366,6 @@
       "shapes_file": ""
     }
   ],
+  "save_on_export": "gutter.nscript",
   "script_name": "gutter.nscript"
 }

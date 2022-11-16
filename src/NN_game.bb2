@@ -354,9 +354,11 @@ End Function
 Statement NN_game_set_scene{id.w}
   !DB_trace{"NN_GAME", "NN_game_set_scene: " + Str$(id)}
   SHARED *NN_scenes, *NN_current_scene, NN_current_bmp, *NN_current_location
-  SHARED NN_current_palette, NS_script_queue, NN_current_scene_id
+  SHARED NN_current_palette, NS_script_queue
+  SHARED NN_current_scene_id, NN_current_global_scene_id
 
   NN_current_scene_id = id
+  NN_current_global_scene_id = *NN_current_location\first_scene + id
 
   NN_current_palette = -1
 
@@ -365,7 +367,7 @@ Statement NN_game_set_scene{id.w}
   ; End If
 
   ;FadeOutScreen{ #CP_coplist, NN_current_bmp, 10}
-  *NN_current_scene = !__get_scene{*NN_current_location\first_scene + id}
+  *NN_current_scene = !__get_scene{NN_current_global_scene_id}
 
   If *NN_current_scene\on_enter > -1
    NS_script_queue = *NN_current_scene\on_enter
@@ -487,7 +489,7 @@ End Statement
 Statement NN_save_game{}
   !DB_trace{"NN_GAME", "NN_save_game"}
   SHARED NN_current_location_id, NN_current_scene_id
-  SHARED NS_flags(), NS_page_flags(), NS_choice_flags()
+  SHARED NS_flags(), NS_page_flags(), NS_choice_flags(), NS_scene_flags()
   !__use_dialogues{}
   !__use_dialogue_limits{}
 
@@ -515,6 +517,10 @@ Statement NN_save_game{}
     WriteMem id, &NS_choice_flags(i), (SizeOf .b)
   Next
 
+  For i = 0 To #NS_flag_count
+    WriteMem id, &NS_scene_flags(i), (SizeOf .b)
+  Next
+
   CloseFile id
 End Statement
 
@@ -523,7 +529,7 @@ End Statement
 Statement NN_load_game{}
   !DB_trace{"NN_GAME", "NN_load_game"}
   SHARED NN_current_location_id, NN_current_scene_id
-  SHARED NS_flags(), NS_page_flags(), NS_choice_flags()
+  SHARED NS_flags(), NS_page_flags(), NS_choice_flags(), NS_scene_flags()
   !__use_dialogues{}
   !__use_dialogue_limits{}
 
@@ -550,6 +556,11 @@ Statement NN_load_game{}
   For i = 0 To #NS_flag_count
     ReadMem id, &flag, (SizeOf .b)
     NS_choice_flags(i) = flag
+  Next
+
+  For i = 0 To #NS_flag_count
+    ReadMem id, &flag, (SizeOf .b)
+    NS_scene_flags(i) = flag
   Next
 
   CloseFile id
