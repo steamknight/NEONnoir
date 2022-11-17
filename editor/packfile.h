@@ -88,6 +88,7 @@ namespace NEONnoir
         uint16_t x2, y2;
         uint16_t pointer_id{ 0xFFFF };
         uint16_t description_id{ 0xFFFF };
+        uint16_t goto_scene{ 0xFFFF };
         uint16_t script_offset{ 0xFFFF };
     };
 

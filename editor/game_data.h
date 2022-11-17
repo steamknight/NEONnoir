@@ -22,6 +22,7 @@ namespace NEONnoir
         uint16_t width{ 0 }, height{ 0 };
         uint16_t shape_id{ 0 };
         uint16_t pointer_id{ 0 };
+        uint16_t goto_scene{ 0xFFFF };
         std::string description;
         std::string script;
     };

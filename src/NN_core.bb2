@@ -17,6 +17,7 @@ NEWTYPE .NN_region
   x2.w
   y2.w
   pointer_id.w
+  goto_scene.w
   description_id.w
   script_offset.w
 End NEWTYPE

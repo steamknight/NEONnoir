@@ -28,6 +28,7 @@ namespace NEONnoir
         width, height,
         shape_id,
         pointer_id,
+        goto_scene,
         description,
         script
     );

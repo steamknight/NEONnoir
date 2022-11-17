@@ -118,6 +118,7 @@ namespace NEONnoir
                     r.x2 = region.x + region.width;
                     r.y2 = region.y + region.height;
                     r.pointer_id = region.pointer_id;
+                    r.goto_scene = region.goto_scene;
 
                     if (region.description.size() > 0)
                     {
@@ -373,6 +374,7 @@ namespace NEONnoir
             write(neonpack, region.x2);
             write(neonpack, region.y2);
             write(neonpack, region.pointer_id);
+            write(neonpack, region.goto_scene);
             write(neonpack, region.description_id);
             write(neonpack, region.script_offset);
         }

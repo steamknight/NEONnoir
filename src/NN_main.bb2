@@ -140,9 +140,15 @@ Repeat
       *region = !__get_region{overlapped}
       NN_pointer_id = *region\pointer_id
 
-      If left_mouse = #IN_mouse_released AND *region\script_offset <> -1
-        UnBuffer #BF_main_screen
-        NS_execute_script{*region\script_offset}
+      If left_mouse = #IN_mouse_released
+        If *region\script_offset <> -1
+          UnBuffer #BF_main_screen
+          NS_execute_script{*region\script_offset}
+        End If
+
+        If *region\goto_scene <> -1
+          NN_game_set_scene{*region\goto_scene}
+        End If
       Else
         If overlapped <> prev_overlap AND *region\description_id <> -1
           UnBuffer #BF_main_screen

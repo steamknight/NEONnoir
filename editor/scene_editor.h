@@ -23,12 +23,13 @@ namespace NEONnoir
         void display_prop_multistring(std::string_view const& label, std::vector<std::string>& values);
         void display_prop_int(std::string_view const& label, uint16_t& value);
         void display_prop_background(game_data_scene& scene, std::vector<std::string> const& backgrounds);
-        void display_prop_regions(game_data_scene& scene);
+        void display_prop_regions(game_data_scene& scene, std::vector<std::string> const& exit_regions);
         void display_prop_region_scalar(std::string_view const& label, uint16_t& value);
+        void display_prop_combo(std::string_view const& label, std::vector<std::string> const& values, uint16_t& selected_value);
         void display_prop_enum(std::string_view const& label, std::vector<std::string> const& values, uint16_t& selected_value);
         void display_prop_list(std::string_view const& label, std::vector<std::string>const& values, std::string& selected);
 
-        void display_scene(game_data_scene& scene, std::vector<GLtexture> const& background_textures);
+        void display_scene(game_data_scene& scene, game_data_location const& location);
         void display_scene_toolbar() noexcept;
 
     private:

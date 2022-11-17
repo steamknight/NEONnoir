@@ -723,22 +723,6 @@
     quit
     end
 
-.SCRIPT goto_intro_2
-    goto #intro_2
-    end
-
-.SCRIPT goto_intro_3
-    goto #intro_3
-    end
-
-.SCRIPT goto_intro_4
-    goto #intro_4
-    end
-
-.SCRIPT goto_intro_5
-    goto #intro_5
-    end
-
 .SCRIPT start_game
     goloc #location_alleyway #alley_takeshi_noodles
     end
@@ -844,42 +828,6 @@
         end
 
     @done
-        end
-        
-
-; Move to alley near Alleycat
-.SCRIPT goto_alleycat
-        goto #alley_alleycat
-        end
-
-; Move to alley near Takeshi's Noodles
-.SCRIPT goto_takeshi
-        goto #alley_takeshi_noodles
-        end
-
-; Move to the emtpy lot
-.SCRIPT goto_empty_lot
-        goto #alley_empty_lot
-        end
-
-; Move to alley near ATM
-.SCRIPT goto_atm
-        goto #alley_atm
-        end
-
-; Move to alley with dumpsters
-.SCRIPT goto_alley_trash
-        goto #alley_trash
-        end
-
-; Move to the subway entrance
-.SCRIPT goto_alley_subway_entrance
-        goto #alley_subway_entrance
-        end
-
-; Move to the subway interior
-.SCRIPT goto_alley_subway_interior
-        goto #alley_subway_interior
         end
 
 ; Describe the noodle joint
@@ -1059,16 +1007,8 @@
 ; ALLEYCAT
 ; =====================================================
 
-.SCRIPT goto_alleycat_bar
-        goto #scene_alleycat_bar
-        end
-
 .SCRIPT exit_alleycat
         goloc #location_alleyway #alley_alleycat
-        end
-
-.SCRIPT goto_alleycat_entrance
-        goto #scene_alleycat_entrance
         end
 
 .SCRIPT dialogue_acid_nova
@@ -1098,14 +1038,6 @@
 
 ; DANNI'S APARTMENT
 ; =====================================================
-.SCRIPT goto_danni_bedroom
-        goto #scene_danni_bedroom
-        end
-
-.SCRIPT goto_danni_entrance
-        goto #scene_danni_interior
-        end
-
 .SCRIPT use_bedroom_clutter
         text $danni_clutter_desc
 
@@ -1320,10 +1252,6 @@
         store !knows_about_xantech
         end
 
-.SCRIPT exit_laundromat
-        goto #scene_laundry_exterior
-        end
-
 .SCRIPT dialogue_gladys
         ; Gladys is too busy to talk if she's yelling at Crystal
         load !has_distraction_for_gladys
@@ -1399,10 +1327,6 @@
 
     @wait
         text $b19_cant_leave_yet
-        end
-
-.SCRIPT goto_b19_entrance
-        goto #scene_b19_exterior
         end
 
 .SCRIPT goto_b19_storage
@@ -1547,10 +1471,6 @@
     @done
         end
 
-.SCRIPT goto_b19r_office
-        goto #scene_b19r_office_a
-        end
-
 .SCRIPT use_b19r_storage
         text $b19r_use_storage
         end
@@ -1558,10 +1478,6 @@
 .SCRIPT goto_b19r_entrance
         text $b19r_goto_entrance
         goto #scene_b19r_entrance
-        end
-
-.SCRIPT goto_b19r_office_b
-        goto #scene_b19r_office_b
         end
 
 .SCRIPT goto_b19r_catwalk
@@ -1619,22 +1535,6 @@
 
 ; XANTECH CYBERNETICS
 ; ==============================================================================
-.SCRIPT goto_xantech_lobby
-        goto #scene_xantech_lobby
-        end
-
-.SCRIPT goto_xantech_corridor
-        goto #scene_xantech_corridor
-        end
-
-.SCRIPT goto_xantech_medical
-        goto #scene_xantech_medical
-        end
-
-.SCRIPT goto_xantech_cafe
-        goto #scene_xantech_cafe
-        end
-
 .SCRIPT goto_xantech_servers
         text $xantech_fail_enter_servers
         dlg #dialogue_tinman
@@ -1840,32 +1740,3 @@
 
         goloc #location_title #scene_title
         end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -66,7 +66,7 @@ namespace NEONnoir
             auto& scene = location.scenes[_scene_index.value()];
 
             ImGui::TableNextColumn();
-            display_scene(scene, location.background_textures);
+            display_scene(scene, location);
 
             ImGui::EndTable();
         }
@@ -88,7 +88,14 @@ namespace NEONnoir
                 display_prop_int("Music ID", scene.music_id);
                 ImGui::EndTable();
             }
-            display_prop_regions(scene);
+
+            auto exit_regions = std::vector<std::string>{ "None" };
+            for (auto const& scene : data->locations[_location_index.value()].scenes)
+            {
+                exit_regions.push_back(scene.name);
+            }
+
+            display_prop_regions(scene, exit_regions);
         }
         
         ImGui::EndChild();
@@ -145,6 +152,41 @@ namespace NEONnoir
         int v = value;
         ImGui::InputInt(std::format("##{}", (uint64_t)&value).c_str(), &v);
         value = static_cast<uint16_t>(v);
+    }
+
+    void scene_editor::display_prop_combo(std::string_view const& label, std::vector<std::string> const& values, uint16_t& selected_value)
+    {
+        ImGui::TableNextRow();
+
+        ImGui::TableNextColumn();
+        ImGui::AlignTextToFramePadding();
+        ImGui::TextUnformatted(label.data());
+
+        ImGui::TableNextColumn();
+        ImGui::SetNextItemWidth(-FLT_MIN);
+
+        selected_value++;
+        ImGui::PushID((void*)&selected_value);
+        if (ImGui::BeginCombo("##", values[selected_value].c_str()))
+        {
+            for (int n = 0; n < values.size(); n++)
+            {
+                auto const is_selected = selected_value == n;
+                if (ImGui::Selectable(values[n].c_str(), is_selected))
+                {
+                    selected_value = n;
+                }
+
+                if (is_selected)
+                {
+                    ImGui::SetItemDefaultFocus();
+                }
+            }
+            ImGui::EndCombo();
+        }
+        ImGui::PopID();
+
+        selected_value--;
     }
 
     void scene_editor::display_prop_enum(std::string_view const& label, std::vector<std::string> const& values, uint16_t & selected_value)
@@ -225,7 +267,7 @@ namespace NEONnoir
         }
     }
 
-    void scene_editor::display_prop_regions(game_data_scene& scene)
+    void scene_editor::display_prop_regions(game_data_scene& scene, std::vector<std::string> const& exit_regions)
     {
         ImGui::NewLine();
 
@@ -255,6 +297,7 @@ namespace NEONnoir
                 display_prop_region_scalar("Height", region.height);
                 display_prop_string("Hover Text", region.description);
                 display_prop_enum("Mouse Pointer", pointer_types, region.pointer_id);
+                display_prop_combo("Exit To Scene", exit_regions, region.goto_scene);
                 display_prop_string("Script Name", region.script);
 
                 ImGui::TableNextColumn(); ImGui::TableNextColumn();
@@ -295,13 +338,13 @@ namespace NEONnoir
         ImGui::InputScalar(std::format("##{}", id).c_str(), ImGuiDataType_U16, &value, &step_size, nullptr, "%u");
     }
 
-    void scene_editor::display_scene(game_data_scene& scene, std::vector<GLtexture> const& background_textures)
+    void scene_editor::display_scene(game_data_scene& scene, game_data_location const& location)
     {
         display_scene_toolbar();
 
         ImGuiIO& io = ImGui::GetIO(); (void)io;
 
-        auto texture = background_textures[scene.image_id];
+        auto texture = location.background_textures[scene.image_id];
         ImGui::Image((void*)(intptr_t)texture.texture_id, ImVec2((float)(texture.width * _zoom), (float)(texture.height * _zoom)));
 
         auto image_min = ImGui::GetItemRectMin();
@@ -343,7 +386,7 @@ namespace NEONnoir
                 auto region = game_data_region{
                     static_cast<uint16_t>(p_min.x), static_cast<uint16_t>(p_min.y),
                     static_cast<uint16_t>(size.x), static_cast<uint16_t>(size.y),
-                    USHRT_MAX, static_cast<uint16_t>(0), "", ""
+                    USHRT_MAX, static_cast<uint16_t>(0), 0xFFFF, "", ""
                 };
 
                 scene.regions.push_back(region);

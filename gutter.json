@@ -8975,6 +8975,7 @@
           "regions": [
             {
               "description": "",
+              "goto_scene": 65535,
               "height": 12,
               "pointer_id": 2,
               "script": "title_start_game",
@@ -8985,6 +8986,7 @@
             },
             {
               "description": "",
+              "goto_scene": 65535,
               "height": 11,
               "pointer_id": 2,
               "script": "title_load_game",
@@ -8995,6 +8997,7 @@
             },
             {
               "description": "",
+              "goto_scene": 65535,
               "height": 12,
               "pointer_id": 2,
               "script": "title_quit_game",
@@ -9005,6 +9008,7 @@
             },
             {
               "description": "",
+              "goto_scene": 65535,
               "height": 14,
               "pointer_id": 2,
               "script": "credits",
@@ -9031,9 +9035,10 @@
           "regions": [
             {
               "description": "",
+              "goto_scene": 2,
               "height": 200,
               "pointer_id": 0,
-              "script": "goto_intro_2",
+              "script": "",
               "shape_id": 65535,
               "width": 320,
               "x": 0,
@@ -9057,9 +9062,10 @@
           "regions": [
             {
               "description": "",
+              "goto_scene": 3,
               "height": 200,
               "pointer_id": 0,
-              "script": "goto_intro_3",
+              "script": "",
               "shape_id": 65535,
               "width": 320,
               "x": 0,
@@ -9083,9 +9089,10 @@
           "regions": [
             {
               "description": "",
+              "goto_scene": 4,
               "height": 200,
               "pointer_id": 0,
-              "script": "goto_intro_4",
+              "script": "",
               "shape_id": 65535,
               "width": 320,
               "x": 0,
@@ -9109,9 +9116,10 @@
           "regions": [
             {
               "description": "",
+              "goto_scene": 5,
               "height": 200,
               "pointer_id": 0,
-              "script": "goto_intro_5",
+              "script": "",
               "shape_id": 65535,
               "width": 320,
               "x": 0,
@@ -9135,6 +9143,7 @@
           "regions": [
             {
               "description": "",
+              "goto_scene": 65535,
               "height": 200,
               "pointer_id": 0,
               "script": "start_game",
@@ -9179,6 +9188,7 @@
           "regions": [
             {
               "description": "Maybe they need air conditioning...",
+              "goto_scene": 65535,
               "height": 34,
               "pointer_id": 0,
               "script": "",
@@ -9189,6 +9199,7 @@
             },
             {
               "description": "The Alleycat",
+              "goto_scene": 65535,
               "height": 68,
               "pointer_id": 2,
               "script": "enter_alleycat",
@@ -9199,9 +9210,10 @@
             },
             {
               "description": "Empty Lot",
+              "goto_scene": 2,
               "height": 200,
               "pointer_id": 3,
-              "script": "goto_empty_lot",
+              "script": "",
               "shape_id": 65535,
               "width": 30,
               "x": 290,
@@ -9209,9 +9221,10 @@
             },
             {
               "description": "Takeshi's Noodles",
+              "goto_scene": 1,
               "height": 200,
               "pointer_id": 3,
-              "script": "goto_takeshi",
+              "script": "",
               "shape_id": 65535,
               "width": 30,
               "x": 0,
@@ -9237,6 +9250,7 @@
           "regions": [
             {
               "description": "Takeshi's Noodles",
+              "goto_scene": 65535,
               "height": 103,
               "pointer_id": 1,
               "script": "examine_takeshi",
@@ -9247,9 +9261,10 @@
             },
             {
               "description": "To the Alleycat",
+              "goto_scene": 0,
               "height": 200,
               "pointer_id": 3,
-              "script": "goto_alleycat",
+              "script": "",
               "shape_id": 65535,
               "width": 20,
               "x": 300,
@@ -9257,9 +9272,10 @@
             },
             {
               "description": "More Alleyway",
+              "goto_scene": 3,
               "height": 200,
               "pointer_id": 3,
-              "script": "goto_atm",
+              "script": "",
               "shape_id": 65535,
               "width": 20,
               "x": 0,
@@ -9267,6 +9283,7 @@
             },
             {
               "description": "Back Alley",
+              "goto_scene": 65535,
               "height": 88,
               "pointer_id": 2,
               "script": "enter_takeshis",
@@ -9296,9 +9313,10 @@
           "regions": [
             {
               "description": "To the Alleycat",
+              "goto_scene": 0,
               "height": 200,
               "pointer_id": 3,
-              "script": "goto_alleycat",
+              "script": "",
               "shape_id": 65535,
               "width": 20,
               "x": 0,
@@ -9306,6 +9324,7 @@
             },
             {
               "description": "Shady Person",
+              "goto_scene": 65535,
               "height": 44,
               "pointer_id": 2,
               "script": "dialogue_glitch",
@@ -9316,9 +9335,10 @@
             },
             {
               "description": "To Subway",
+              "goto_scene": 5,
               "height": 71,
               "pointer_id": 3,
-              "script": "goto_alley_subway_entrance",
+              "script": "",
               "shape_id": 65535,
               "width": 56,
               "x": 263,
@@ -9344,9 +9364,10 @@
           "regions": [
             {
               "description": "To Takeshi's",
+              "goto_scene": 1,
               "height": 200,
               "pointer_id": 3,
-              "script": "goto_takeshi",
+              "script": "",
               "shape_id": 65535,
               "width": 20,
               "x": 300,
@@ -9354,6 +9375,7 @@
             },
             {
               "description": "Jackpot",
+              "goto_scene": 65535,
               "height": 61,
               "pointer_id": 2,
               "script": "use_alley_atm",
@@ -9364,6 +9386,7 @@
             },
             {
               "description": "Security Guard",
+              "goto_scene": 65535,
               "height": 75,
               "pointer_id": 2,
               "script": "use_alley_tinman",
@@ -9392,9 +9415,10 @@
           "regions": [
             {
               "description": "To Empty Lot",
+              "goto_scene": 2,
               "height": 140,
               "pointer_id": 3,
-              "script": "goto_empty_lot",
+              "script": "",
               "shape_id": 65535,
               "width": 20,
               "x": 300,
@@ -9402,9 +9426,10 @@
             },
             {
               "description": "To the Subway",
+              "goto_scene": 5,
               "height": 25,
               "pointer_id": 3,
-              "script": "goto_alley_subway_entrance",
+              "script": "",
               "shape_id": 65535,
               "width": 192,
               "x": 106,
@@ -9412,6 +9437,7 @@
             },
             {
               "description": "Foul-smelling Dumpster",
+              "goto_scene": 65535,
               "height": 52,
               "pointer_id": 2,
               "script": "use_alley_dumpster",
@@ -9438,9 +9464,10 @@
           "regions": [
             {
               "description": "Enter the Subway",
+              "goto_scene": 6,
               "height": 97,
               "pointer_id": 3,
-              "script": "goto_alley_subway_interior",
+              "script": "",
               "shape_id": 65535,
               "width": 62,
               "x": 131,
@@ -9448,9 +9475,10 @@
             },
             {
               "description": "Exit Subway",
+              "goto_scene": 4,
               "height": 40,
               "pointer_id": 3,
-              "script": "goto_alley_trash",
+              "script": "",
               "shape_id": 65535,
               "width": 220,
               "x": 100,
@@ -9476,9 +9504,10 @@
           "regions": [
             {
               "description": "Exit Subway",
+              "goto_scene": 5,
               "height": 200,
               "pointer_id": 3,
-              "script": "goto_alley_subway_entrance",
+              "script": "",
               "shape_id": 65535,
               "width": 20,
               "x": 300,
@@ -9486,6 +9515,7 @@
             },
             {
               "description": "Board the Subway",
+              "goto_scene": 65535,
               "height": 61,
               "pointer_id": 2,
               "script": "use_alley_subway",
@@ -9496,6 +9526,7 @@
             },
             {
               "description": "Blue-haired man",
+              "goto_scene": 65535,
               "height": 117,
               "pointer_id": 2,
               "script": "dialogue_tweaker",
@@ -9620,9 +9651,10 @@
           "regions": [
             {
               "description": "Deeper inside",
+              "goto_scene": 1,
               "height": 54,
               "pointer_id": 3,
-              "script": "goto_alleycat_bar",
+              "script": "",
               "shape_id": 65535,
               "width": 55,
               "x": 215,
@@ -9630,6 +9662,7 @@
             },
             {
               "description": "People having a good time. No gods, no kings, no rules.",
+              "goto_scene": 65535,
               "height": 48,
               "pointer_id": 1,
               "script": "",
@@ -9640,6 +9673,7 @@
             },
             {
               "description": "Back to the Alley",
+              "goto_scene": 65535,
               "height": 200,
               "pointer_id": 3,
               "script": "exit_alleycat",
@@ -9666,6 +9700,7 @@
           "regions": [
             {
               "description": "Acid Nova",
+              "goto_scene": 65535,
               "height": 88,
               "pointer_id": 2,
               "script": "dialogue_acid_nova",
@@ -9676,9 +9711,10 @@
             },
             {
               "description": "Back to the entrance",
+              "goto_scene": 0,
               "height": 65,
               "pointer_id": 3,
-              "script": "goto_alleycat_entrance",
+              "script": "",
               "shape_id": 65535,
               "width": 53,
               "x": 70,
@@ -9686,6 +9722,7 @@
             },
             {
               "description": "Hmm... The bar looks fully stocked...",
+              "goto_scene": 65535,
               "height": 71,
               "pointer_id": 1,
               "script": "",
@@ -9762,6 +9799,7 @@
           "regions": [
             {
               "description": "Crystal",
+              "goto_scene": 65535,
               "height": 93,
               "pointer_id": 2,
               "script": "dialogue_crystal",
@@ -9772,6 +9810,7 @@
             },
             {
               "description": "Back to the Subway",
+              "goto_scene": 65535,
               "height": 87,
               "pointer_id": 3,
               "script": "use_danni_exit",
@@ -9782,6 +9821,7 @@
             },
             {
               "description": "If you squint, the view is really nice.",
+              "goto_scene": 65535,
               "height": 75,
               "pointer_id": 1,
               "script": "",
@@ -9792,9 +9832,10 @@
             },
             {
               "description": "To Danni's Room",
+              "goto_scene": 1,
               "height": 200,
               "pointer_id": 3,
-              "script": "goto_danni_bedroom",
+              "script": "",
               "shape_id": 65535,
               "width": 30,
               "x": 290,
@@ -9821,9 +9862,10 @@
           "regions": [
             {
               "description": "Back to the entrance",
+              "goto_scene": 0,
               "height": 200,
               "pointer_id": 3,
-              "script": "goto_danni_entrance",
+              "script": "",
               "shape_id": 65535,
               "width": 30,
               "x": 0,
@@ -9831,6 +9873,7 @@
             },
             {
               "description": "Nightstand",
+              "goto_scene": 65535,
               "height": 39,
               "pointer_id": 2,
               "script": "use_bedroom_nightstand",
@@ -9841,6 +9884,7 @@
             },
             {
               "description": "Danni's bed. Looks real comfortable.",
+              "goto_scene": 65535,
               "height": 38,
               "pointer_id": 1,
               "script": "",
@@ -9851,6 +9895,7 @@
             },
             {
               "description": "Clutter",
+              "goto_scene": 65535,
               "height": 14,
               "pointer_id": 2,
               "script": "use_bedroom_clutter",
@@ -9918,6 +9963,7 @@
           "regions": [
             {
               "description": "Daisy",
+              "goto_scene": 65535,
               "height": 28,
               "pointer_id": 2,
               "script": "dialogue_daisy",
@@ -9928,6 +9974,7 @@
             },
             {
               "description": "GovLink",
+              "goto_scene": 65535,
               "height": 35,
               "pointer_id": 2,
               "script": "use_govlink",
@@ -9938,6 +9985,7 @@
             },
             {
               "description": "Exit to subway",
+              "goto_scene": 65535,
               "height": 200,
               "pointer_id": 3,
               "script": "exit_to_subway",
@@ -9948,6 +9996,7 @@
             },
             {
               "description": "My SimWin, a simulated windows. Penthouse views for basement prices.",
+              "goto_scene": 65535,
               "height": 61,
               "pointer_id": 1,
               "script": "",
@@ -10094,6 +10143,7 @@
           "regions": [
             {
               "description": "The Lost Sock Laundromat... I guess that's where all the left socks go.",
+              "goto_scene": 65535,
               "height": 28,
               "pointer_id": 1,
               "script": "",
@@ -10104,6 +10154,7 @@
             },
             {
               "description": "Enter the laundromat",
+              "goto_scene": 65535,
               "height": 56,
               "pointer_id": 3,
               "script": "enter_laundromat",
@@ -10114,6 +10165,7 @@
             },
             {
               "description": "A loud poster",
+              "goto_scene": 65535,
               "height": 33,
               "pointer_id": 2,
               "script": "use_xantech_poster",
@@ -10124,6 +10176,7 @@
             },
             {
               "description": "Back to the subway",
+              "goto_scene": 65535,
               "height": 200,
               "pointer_id": 3,
               "script": "exit_to_subway",
@@ -10152,9 +10205,10 @@
           "regions": [
             {
               "description": "Exit to street",
+              "goto_scene": 0,
               "height": 200,
               "pointer_id": 3,
-              "script": "exit_laundromat",
+              "script": "",
               "shape_id": 65535,
               "width": 30,
               "x": 290,
@@ -10162,6 +10216,7 @@
             },
             {
               "description": "Gladys, I presume.",
+              "goto_scene": 65535,
               "height": 69,
               "pointer_id": 2,
               "script": "dialogue_gladys",
@@ -10172,6 +10227,7 @@
             },
             {
               "description": "Computer",
+              "goto_scene": 65535,
               "height": 27,
               "pointer_id": 2,
               "script": "use_gladys_computer",
@@ -10251,6 +10307,7 @@
           "regions": [
             {
               "description": "Doors to the storage facility.",
+              "goto_scene": 65535,
               "height": 79,
               "pointer_id": 2,
               "script": "goto_b19_storage",
@@ -10261,6 +10318,7 @@
             },
             {
               "description": "Doors to the upper level office.",
+              "goto_scene": 65535,
               "height": 37,
               "pointer_id": 2,
               "script": "goto_b19_office",
@@ -10271,6 +10329,7 @@
             },
             {
               "description": "Exit to subway.",
+              "goto_scene": 65535,
               "height": 200,
               "pointer_id": 3,
               "script": "leave_b19",
@@ -10297,9 +10356,10 @@
           "regions": [
             {
               "description": "Leave the office.",
+              "goto_scene": 0,
               "height": 117,
               "pointer_id": 3,
-              "script": "goto_b19_entrance",
+              "script": "",
               "shape_id": 65535,
               "width": 74,
               "x": 206,
@@ -10307,6 +10367,7 @@
             },
             {
               "description": "Some lockers.",
+              "goto_scene": 65535,
               "height": 67,
               "pointer_id": 2,
               "script": "use_lockers",
@@ -10317,6 +10378,7 @@
             },
             {
               "description": "Some papers on a small table.",
+              "goto_scene": 65535,
               "height": 19,
               "pointer_id": 2,
               "script": "use_papers",
@@ -10327,6 +10389,7 @@
             },
             {
               "description": "Looking out the window, I see the industrial wasteland outside.",
+              "goto_scene": 65535,
               "height": 51,
               "pointer_id": 1,
               "script": "",
@@ -10337,6 +10400,7 @@
             },
             {
               "description": "A trashcan.",
+              "goto_scene": 65535,
               "height": 34,
               "pointer_id": 2,
               "script": "use_trashcan",
@@ -10347,6 +10411,7 @@
             },
             {
               "description": "Let's hope they're bluffing.",
+              "goto_scene": 65535,
               "height": 33,
               "pointer_id": 1,
               "script": "",
@@ -10376,6 +10441,7 @@
           "regions": [
             {
               "description": "Small plastic capsule",
+              "goto_scene": 65535,
               "height": 11,
               "pointer_id": 2,
               "script": "get_coral",
@@ -10386,6 +10452,7 @@
             },
             {
               "description": "Lots of boxes",
+              "goto_scene": 65535,
               "height": 65,
               "pointer_id": 2,
               "script": "use_boxes",
@@ -10396,6 +10463,7 @@
             },
             {
               "description": "More and more boxes.",
+              "goto_scene": 65535,
               "height": 69,
               "pointer_id": 1,
               "script": "",
@@ -10406,9 +10474,10 @@
             },
             {
               "description": "Exit the building.",
+              "goto_scene": 0,
               "height": 200,
               "pointer_id": 3,
-              "script": "goto_b19_entrance",
+              "script": "",
               "shape_id": 65535,
               "width": 30,
               "x": 290,
@@ -10576,9 +10645,10 @@
           "regions": [
             {
               "description": "The upstairs office.",
+              "goto_scene": 1,
               "height": 45,
               "pointer_id": 3,
-              "script": "goto_b19r_office",
+              "script": "",
               "shape_id": 65535,
               "width": 45,
               "x": 14,
@@ -10586,6 +10656,7 @@
             },
             {
               "description": "Door to storage",
+              "goto_scene": 65535,
               "height": 79,
               "pointer_id": 2,
               "script": "use_b19r_storage",
@@ -10612,6 +10683,7 @@
           "regions": [
             {
               "description": "Leave the building",
+              "goto_scene": 65535,
               "height": 117,
               "pointer_id": 3,
               "script": "goto_b19r_entrance",
@@ -10622,9 +10694,10 @@
             },
             {
               "description": "Other side of the office.",
+              "goto_scene": 2,
               "height": 200,
               "pointer_id": 3,
-              "script": "goto_b19r_office_b",
+              "script": "",
               "shape_id": 65535,
               "width": 30,
               "x": 0,
@@ -10632,6 +10705,7 @@
             },
             {
               "description": "A trashcan. Nothing more of interest there.",
+              "goto_scene": 65535,
               "height": 31,
               "pointer_id": 1,
               "script": "",
@@ -10642,6 +10716,7 @@
             },
             {
               "description": "A bunch of empty lockers.",
+              "goto_scene": 65535,
               "height": 73,
               "pointer_id": 1,
               "script": "",
@@ -10652,6 +10727,7 @@
             },
             {
               "description": "I can't see them from this window.",
+              "goto_scene": 65535,
               "height": 53,
               "pointer_id": 1,
               "script": "",
@@ -10678,6 +10754,7 @@
           "regions": [
             {
               "description": "To the catwalk",
+              "goto_scene": 65535,
               "height": 130,
               "pointer_id": 3,
               "script": "goto_b19r_catwalk",
@@ -10688,6 +10765,7 @@
             },
             {
               "description": "Vending machine",
+              "goto_scene": 65535,
               "height": 98,
               "pointer_id": 2,
               "script": "use_b19r_vending_machine",
@@ -10698,9 +10776,10 @@
             },
             {
               "description": "Other side of the office",
+              "goto_scene": 1,
               "height": 200,
               "pointer_id": 3,
-              "script": "goto_b19r_office",
+              "script": "",
               "shape_id": 65535,
               "width": 30,
               "x": 290,
@@ -10708,6 +10787,7 @@
             },
             {
               "description": "No! No more looking in the trash!",
+              "goto_scene": 65535,
               "height": 42,
               "pointer_id": 1,
               "script": "",
@@ -10830,9 +10910,10 @@
           "regions": [
             {
               "description": "Enter Xantech Cybernetics",
+              "goto_scene": 1,
               "height": 37,
               "pointer_id": 3,
-              "script": "goto_xantech_lobby",
+              "script": "",
               "shape_id": 65535,
               "width": 76,
               "x": 146,
@@ -10840,6 +10921,7 @@
             },
             {
               "description": "Xantech Cybernetics. This was it. The beginning of the end for Xander Vane.",
+              "goto_scene": 65535,
               "height": 129,
               "pointer_id": 1,
               "script": "",
@@ -10870,6 +10952,7 @@
           "regions": [
             {
               "description": "Just great, a tinman.",
+              "goto_scene": 65535,
               "height": 76,
               "pointer_id": 2,
               "script": "use_xantech_tinman",
@@ -10880,6 +10963,7 @@
             },
             {
               "description": "To the server rooms.",
+              "goto_scene": 65535,
               "height": 55,
               "pointer_id": 3,
               "script": "goto_xantech_servers",
@@ -10890,9 +10974,10 @@
             },
             {
               "description": "Corridor",
+              "goto_scene": 2,
               "height": 171,
               "pointer_id": 3,
-              "script": "goto_xantech_corridor",
+              "script": "",
               "shape_id": 65535,
               "width": 42,
               "x": 276,
@@ -10918,9 +11003,10 @@
           "regions": [
             {
               "description": "Back to lobby",
+              "goto_scene": 1,
               "height": 30,
               "pointer_id": 3,
-              "script": "goto_xantech_lobby",
+              "script": "",
               "shape_id": 65535,
               "width": 320,
               "x": 0,
@@ -10928,9 +11014,10 @@
             },
             {
               "description": "Medical bay",
+              "goto_scene": 3,
               "height": 79,
               "pointer_id": 3,
-              "script": "goto_xantech_medical",
+              "script": "",
               "shape_id": 65535,
               "width": 40,
               "x": 188,
@@ -10938,9 +11025,10 @@
             },
             {
               "description": "Breakroom",
+              "goto_scene": 4,
               "height": 97,
               "pointer_id": 3,
-              "script": "goto_xantech_cafe",
+              "script": "",
               "shape_id": 65535,
               "width": 47,
               "x": 266,
@@ -10966,6 +11054,7 @@
           "regions": [
             {
               "description": "Medicine closet",
+              "goto_scene": 65535,
               "height": 49,
               "pointer_id": 2,
               "script": "use_medicine_closet",
@@ -10976,9 +11065,10 @@
             },
             {
               "description": "Back to the corridor",
+              "goto_scene": 2,
               "height": 96,
               "pointer_id": 3,
-              "script": "goto_xantech_corridor",
+              "script": "",
               "shape_id": 65535,
               "width": 72,
               "x": 185,
@@ -10986,6 +11076,7 @@
             },
             {
               "description": "A medical bed. I wonder how often they need it.",
+              "goto_scene": 65535,
               "height": 62,
               "pointer_id": 1,
               "script": "",
@@ -11015,9 +11106,10 @@
           "regions": [
             {
               "description": "Back to the corridor",
+              "goto_scene": 2,
               "height": 46,
               "pointer_id": 3,
-              "script": "goto_xantech_corridor",
+              "script": "",
               "shape_id": 65535,
               "width": 30,
               "x": 186,
@@ -11025,6 +11117,7 @@
             },
             {
               "description": "A coffee machine",
+              "goto_scene": 65535,
               "height": 55,
               "pointer_id": 2,
               "script": "use_coffee_machine",
@@ -11035,6 +11128,7 @@
             },
             {
               "description": "A view of the city. Nothing but the best for Xantech employees.",
+              "goto_scene": 65535,
               "height": 54,
               "pointer_id": 1,
               "script": "",
@@ -11061,6 +11155,7 @@
           "regions": [
             {
               "description": "Datablade",
+              "goto_scene": 65535,
               "height": 48,
               "pointer_id": 2,
               "script": "use_datablade",
