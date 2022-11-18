@@ -176,6 +176,9 @@ CNIF #DEBUG = -1
       !DB_log_str{"MAIN", l$}
     Next
   End If
+  If RawStatus($02)
+    PrintFreeMem{}
+  End If
 CEND
 
 Until NN_should_quit

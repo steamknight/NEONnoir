@@ -243,7 +243,7 @@ End Macro
 DEFTYPE .w *NS_script_data, NS_script_queue
 DEFTYPE .l NS_script_data_size
 
-#NS_flag_count = 256
+#NS_flag_count = 1024
 Dim NS_flags.b(#NS_flag_count)
 Dim NS_page_flags.b(#NS_flag_count)
 Dim NS_choice_flags.b(#NS_flag_count)
