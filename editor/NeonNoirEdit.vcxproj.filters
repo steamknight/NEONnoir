@@ -105,6 +105,12 @@
     <ClCompile Include="lang_pack_util.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="speaker_editor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="editor_window_base.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="imgui\imconfig.h">
@@ -199,6 +205,15 @@
     </ClInclude>
     <ClInclude Include="lang_pack_util.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="speaker_editor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="editor_window_base.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="no_person.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

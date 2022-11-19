@@ -1,7 +1,6 @@
 {
   "dialogues": [
     {
-      "image_id": 0,
       "pages": [
         {
           "check_flag": "",
@@ -116,10 +115,9 @@
           "text": "Maybe I should forget about this whole business and just go home?"
         }
       ],
-      "speaker": "Blake"
+      "speaker_id": 0
     },
     {
-      "image_id": 65535,
       "pages": [
         {
           "check_flag": "",
@@ -220,10 +218,9 @@
           "text": "Where to?"
         }
       ],
-      "speaker": "Map"
+      "speaker_id": 0
     },
     {
-      "image_id": 1,
       "pages": [
         {
           "check_flag": "glitch_first_time",
@@ -1028,10 +1025,9 @@
           "text": "Fine. Fine. I saw him talking to Acid Nova about some kind of deal. I don't have any other details, I swear."
         }
       ],
-      "speaker": "Glitch"
+      "speaker_id": 1
     },
     {
-      "image_id": 2,
       "pages": [
         {
           "check_flag": "",
@@ -1227,10 +1223,9 @@
           "text": "Very well, Mr. Steel. Right this way."
         }
       ],
-      "speaker": "Tank"
+      "speaker_id": 5
     },
     {
-      "image_id": 4,
       "pages": [
         {
           "check_flag": "",
@@ -1567,10 +1562,9 @@
           "text": "*Ksssh* FINE! FINE! YOU CAN USE IT, JUST BE QUICK *Ksssh*"
         }
       ],
-      "speaker": "Tin Man"
+      "speaker_id": 11
     },
     {
-      "image_id": 3,
       "pages": [
         {
           "check_flag": "",
@@ -2104,10 +2098,9 @@
           "text": "It's not about the noods themselves, but what's at the bottom of the bowl.\n\nTakeshi's started printing nudes on the bottom of his bowls of noods! They're collector's items."
         }
       ],
-      "speaker": "Tweaker"
+      "speaker_id": 12
     },
     {
-      "image_id": 8,
       "pages": [
         {
           "check_flag": "acid_nova_first_time",
@@ -3004,10 +2997,9 @@
           "text": "I'm not falling for another one of your bluffs."
         }
       ],
-      "speaker": "Acid Nova"
+      "speaker_id": 4
     },
     {
-      "image_id": 5,
       "pages": [
         {
           "check_flag": "",
@@ -3402,10 +3394,9 @@
           "text": "Oh... right! That' makes sense. But don't try anything funny. I'm not as defenseless as I seem."
         }
       ],
-      "speaker": "Crystal"
+      "speaker_id": 3
     },
     {
-      "image_id": 11,
       "pages": [
         {
           "check_flag": "",
@@ -4230,10 +4221,9 @@
           "text": "Yeah?"
         }
       ],
-      "speaker": "Crystal"
+      "speaker_id": 3
     },
     {
-      "image_id": 0,
       "pages": [
         {
           "check_flag": "",
@@ -4821,10 +4811,9 @@
           "text": "Entry: Sumerian Collective\nSummary: Established 7 years ago, the Sumerian Collective have purchased several companies in varied industries. Ironically, they themselves are now a wholly owned subsidiary of Cygnus Holdings."
         }
       ],
-      "speaker": "GovLink"
+      "speaker_id": 0
     },
     {
-      "image_id": 13,
       "pages": [
         {
           "check_flag": "",
@@ -5037,10 +5026,9 @@
           "text": "..."
         }
       ],
-      "speaker": "Daisy"
+      "speaker_id": 2
     },
     {
-      "image_id": 19,
       "pages": [
         {
           "check_flag": "gladys_wont_help",
@@ -5306,10 +5294,9 @@
           "text": "No, Brett. There is no reason to intimidate someone who isn't a threat. Good day."
         }
       ],
-      "speaker": "Gladys"
+      "speaker_id": 8
     },
     {
-      "image_id": 19,
       "pages": [
         {
           "check_flag": "",
@@ -5325,10 +5312,9 @@
           "text": "Get your mitts off my computer, Bucko. You even think of getting close to it and you'll find out why they call it a \"terminal.\""
         }
       ],
-      "speaker": "Gladys"
+      "speaker_id": 8
     },
     {
-      "image_id": 18,
       "pages": [
         {
           "check_flag": "",
@@ -5485,10 +5471,9 @@
           "text": "Be careful."
         }
       ],
-      "speaker": "Crystal"
+      "speaker_id": 3
     },
     {
-      "image_id": 14,
       "pages": [
         {
           "check_flag": "",
@@ -5575,10 +5560,9 @@
           "text": "Then get out there and find my Danni!"
         }
       ],
-      "speaker": "Jacob Ashton"
+      "speaker_id": 13
     },
     {
-      "image_id": 9,
       "pages": [
         {
           "check_flag": "",
@@ -5594,10 +5578,9 @@
           "text": "Mr. Steel, I trust you have an update for me?"
         }
       ],
-      "speaker": "Visser Ruse 1"
+      "speaker_id": 13
     },
     {
-      "image_id": 8,
       "pages": [
         {
           "check_flag": "",
@@ -5613,10 +5596,9 @@
           "text": "*whispering* OK, you win, just hang up!"
         }
       ],
-      "speaker": "Acid Nova Ruse 2"
+      "speaker_id": 4
     },
     {
-      "image_id": 9,
       "pages": [
         {
           "check_flag": "",
@@ -5647,10 +5629,9 @@
           "text": "I can't hear you, it's very loud where you are."
         }
       ],
-      "speaker": "Visser Ruse 2"
+      "speaker_id": 13
     },
     {
-      "image_id": 8,
       "pages": [
         {
           "check_flag": "",
@@ -5847,10 +5828,9 @@
           "text": "Not much, he's a very dangerous man. We meet at Building 19 in the industrial district. He tells me when and I show up with lots of credits and no questions. There's a code to get in: 3141."
         }
       ],
-      "speaker": "Acid Nova Ruse 2"
+      "speaker_id": 4
     },
     {
-      "image_id": 15,
       "pages": [
         {
           "check_flag": "",
@@ -5894,10 +5874,9 @@
           "text": "The person you've been looking for, Blake."
         }
       ],
-      "speaker": "Unknown"
+      "speaker_id": 7
     },
     {
-      "image_id": 16,
       "pages": [
         {
           "check_flag": "",
@@ -5913,10 +5892,9 @@
           "text": "My name is Danni Ashton..."
         }
       ],
-      "speaker": "Danni"
+      "speaker_id": 6
     },
     {
-      "image_id": 2,
       "pages": [
         {
           "check_flag": "",
@@ -5961,10 +5939,9 @@
           "text": "Sorry, you can't come in. Boss's orders."
         }
       ],
-      "speaker": "Tank"
+      "speaker_id": 5
     },
     {
-      "image_id": 2,
       "pages": [
         {
           "check_flag": "",
@@ -5980,10 +5957,9 @@
           "text": "AND STAY OUT!"
         }
       ],
-      "speaker": "Tank"
+      "speaker_id": 4
     },
     {
-      "image_id": 25,
       "pages": [
         {
           "check_flag": "",
@@ -6042,10 +6018,9 @@
           "text": "You know Glitch? She's rad!"
         }
       ],
-      "speaker": "SegF4ult"
+      "speaker_id": 10
     },
     {
-      "image_id": 24,
       "pages": [
         {
           "check_flag": "",
@@ -6089,10 +6064,9 @@
           "text": "Sure thing. It all started two nights ago..."
         }
       ],
-      "speaker": "Danni"
+      "speaker_id": 6
     },
     {
-      "image_id": 24,
       "pages": [
         {
           "check_flag": "",
@@ -6123,10 +6097,9 @@
           "text": "That's when I reached out to my friend SegF4ult who's an expert cyberneticist. Once we figured out what was in there, I knew that they'd come looking for me, so I didn't dare reach out to Crystal and put her in danger."
         }
       ],
-      "speaker": "Danni"
+      "speaker_id": 6
     },
     {
-      "image_id": 25,
       "pages": [
         {
           "check_flag": "",
@@ -6240,10 +6213,9 @@
           "text": "What? No. It's Xander Vane, Xantech's CEO!"
         }
       ],
-      "speaker": "SegF4ult"
+      "speaker_id": 10
     },
     {
-      "image_id": 24,
       "pages": [
         {
           "check_flag": "",
@@ -6287,10 +6259,9 @@
           "text": "I heard that someone was looking for me. But I couldn't risk reaching out in case my phone was being traced."
         }
       ],
-      "speaker": "Danni"
+      "speaker_id": 6
     },
     {
-      "image_id": 25,
       "pages": [
         {
           "check_flag": "",
@@ -6306,10 +6277,9 @@
           "text": "Fortunately, there's no way that Xander could have my phone tracked. So an hour ago, we called Crystal on it and she told us all about you."
         }
       ],
-      "speaker": "SegF4ult"
+      "speaker_id": 10
     },
     {
-      "image_id": 24,
       "pages": [
         {
           "check_flag": "",
@@ -6505,10 +6475,9 @@
           "text": "Exactly. He'll be publicly ruined."
         }
       ],
-      "speaker": "Danni"
+      "speaker_id": 6
     },
     {
-      "image_id": 25,
       "pages": [
         {
           "check_flag": "",
@@ -6623,10 +6592,9 @@
           "text": "I'm not going to lie, it's not going to be easy. Other than Xander, only Visser has the access codes for the inner sanctum of the data center. Xander doesn't trust anyone else."
         }
       ],
-      "speaker": "SegF4ult"
+      "speaker_id": 10
     },
     {
-      "image_id": 24,
       "pages": [
         {
           "check_flag": "",
@@ -6657,10 +6625,9 @@
           "text": "We're going to need a good plan."
         }
       ],
-      "speaker": "Danni"
+      "speaker_id": 6
     },
     {
-      "image_id": 26,
       "pages": [
         {
           "check_flag": "",
@@ -6775,10 +6742,9 @@
           "text": "Do not play games with me, Mr. Steel. You are in no position to do so."
         }
       ],
-      "speaker": "Visser"
+      "speaker_id": 13
     },
     {
-      "image_id": 27,
       "pages": [
         {
           "check_flag": "",
@@ -6794,10 +6760,9 @@
           "text": "Blake!"
         }
       ],
-      "speaker": "Crystal"
+      "speaker_id": 3
     },
     {
-      "image_id": 0,
       "pages": [
         {
           "check_flag": "",
@@ -6813,10 +6778,9 @@
           "text": "Crystal!!"
         }
       ],
-      "speaker": "Blake"
+      "speaker_id": 0
     },
     {
-      "image_id": 24,
       "pages": [
         {
           "check_flag": "",
@@ -6832,10 +6796,9 @@
           "text": "Crystal!"
         }
       ],
-      "speaker": "Danni"
+      "speaker_id": 6
     },
     {
-      "image_id": 26,
       "pages": [
         {
           "check_flag": "",
@@ -6907,10 +6870,9 @@
           "text": "Isn't it obvious? I want Danni and my client's data. Your friend's health is completely out of my hands now.\n\nMeet me at Building 19 in an hour. I trust you know the way."
         }
       ],
-      "speaker": "Visser"
+      "speaker_id": 13
     },
     {
-      "image_id": 24,
       "pages": [
         {
           "check_flag": "",
@@ -6969,10 +6931,9 @@
           "text": "How are you going to do that?"
         }
       ],
-      "speaker": "Danni"
+      "speaker_id": 6
     },
     {
-      "image_id": 29,
       "pages": [
         {
           "check_flag": "",
@@ -6988,10 +6949,9 @@
           "text": "Blake!"
         }
       ],
-      "speaker": "Crystal"
+      "speaker_id": 3
     },
     {
-      "image_id": 30,
       "pages": [
         {
           "check_flag": "",
@@ -7091,10 +7051,9 @@
           "text": "It seems you came alone. How disappointing. After I dispose if your two corpses, I guess I'll --"
         }
       ],
-      "speaker": "Visser"
+      "speaker_id": 13
     },
     {
-      "image_id": 29,
       "pages": [
         {
           "check_flag": "",
@@ -7110,10 +7069,9 @@
           "text": "Blake! Be careful, he's got a gun!"
         }
       ],
-      "speaker": "Crystal"
+      "speaker_id": 3
     },
     {
-      "image_id": 31,
       "pages": [
         {
           "check_flag": "",
@@ -7129,10 +7087,9 @@
           "text": "Hey, you dreking ball gag!"
         }
       ],
-      "speaker": "Danni"
+      "speaker_id": 6
     },
     {
-      "image_id": 30,
       "pages": [
         {
           "check_flag": "",
@@ -7400,10 +7357,9 @@
           "text": "*Gasps* If that's how you want to play it..."
         }
       ],
-      "speaker": "Visser Fight"
+      "speaker_id": 13
     },
     {
-      "image_id": 30,
       "pages": [
         {
           "check_flag": "",
@@ -7546,10 +7502,9 @@
           "text": "Have it your way!"
         }
       ],
-      "speaker": "Visser Final"
+      "speaker_id": 13
     },
     {
-      "image_id": 29,
       "pages": [
         {
           "check_flag": "",
@@ -7580,10 +7535,9 @@
           "text": "Blake, are you hurt?"
         }
       ],
-      "speaker": "Crystal"
+      "speaker_id": 3
     },
     {
-      "image_id": 31,
       "pages": [
         {
           "check_flag": "",
@@ -7614,10 +7568,9 @@
           "text": "Are you two ok, up there?"
         }
       ],
-      "speaker": "Danni"
+      "speaker_id": 6
     },
     {
-      "image_id": 29,
       "pages": [
         {
           "check_flag": "",
@@ -7676,10 +7629,9 @@
           "text": "And you too, Blake!"
         }
       ],
-      "speaker": "Crystal"
+      "speaker_id": 3
     },
     {
-      "image_id": 31,
       "pages": [
         {
           "check_flag": "",
@@ -7710,10 +7662,9 @@
           "text": "He shouldn't have underestimated us."
         }
       ],
-      "speaker": "Danni"
+      "speaker_id": 6
     },
     {
-      "image_id": 31,
       "pages": [
         {
           "check_flag": "",
@@ -7783,10 +7734,9 @@
           "text": "Take this datastick. It's got all the data primed for viewing. Seg says to just plug it in and it'll do the rest."
         }
       ],
-      "speaker": "Danni"
+      "speaker_id": 6
     },
     {
-      "image_id": 28,
       "pages": [
         {
           "check_flag": "",
@@ -7802,10 +7752,9 @@
           "text": "Great! Since Xander is still going to be looking for you, I need you two to head back to safety while I--"
         }
       ],
-      "speaker": "Blake"
+      "speaker_id": 0
     },
     {
-      "image_id": 29,
       "pages": [
         {
           "check_flag": "",
@@ -7849,10 +7798,9 @@
           "text": "Nope."
         }
       ],
-      "speaker": "Crystal"
+      "speaker_id": 3
     },
     {
-      "image_id": 31,
       "pages": [
         {
           "check_flag": "",
@@ -7868,10 +7816,9 @@
           "text": "Be careful, you two! I'll head back to Seg's."
         }
       ],
-      "speaker": "Danni"
+      "speaker_id": 6
     },
     {
-      "image_id": 28,
       "pages": [
         {
           "check_flag": "",
@@ -7887,10 +7834,9 @@
           "text": "Crystal, would you like to go on a date to Xantech Cybernetics?"
         }
       ],
-      "speaker": "Blake"
+      "speaker_id": 0
     },
     {
-      "image_id": 29,
       "pages": [
         {
           "check_flag": "",
@@ -7906,10 +7852,9 @@
           "text": "I thought you'd never ask."
         }
       ],
-      "speaker": "Crystal"
+      "speaker_id": 3
     },
     {
-      "image_id": 34,
       "pages": [
         {
           "check_flag": "",
@@ -8009,10 +7954,9 @@
           "text": "*Ksssh* YOU'RE NEITHER MR. VISSER NOR ONE OF THE NERDS. BEGONE! *Ksssh*"
         }
       ],
-      "speaker": "Xantech Tinman"
+      "speaker_id": 11
     },
     {
-      "image_id": 33,
       "pages": [
         {
           "check_flag": "",
@@ -8028,10 +7972,9 @@
           "text": "Oh hey there. How are you?"
         }
       ],
-      "speaker": "Crystal"
+      "speaker_id": 3
     },
     {
-      "image_id": 34,
       "pages": [
         {
           "check_flag": "",
@@ -8060,10 +8003,9 @@
           "text": "*Ksssh* HOW CAN I HELP YOU? *Ksssh*"
         }
       ],
-      "speaker": "Xantech Tinman"
+      "speaker_id": 11
     },
     {
-      "image_id": 33,
       "pages": [
         {
           "check_flag": "",
@@ -8105,10 +8047,9 @@
           "text": "... and I want to show you my gratitude..."
         }
       ],
-      "speaker": "Crystal"
+      "speaker_id": 3
     },
     {
-      "image_id": 34,
       "pages": [
         {
           "check_flag": "",
@@ -8124,10 +8065,9 @@
           "text": "*Ksssh* UHHHH...*Ksssh*"
         }
       ],
-      "speaker": "Xantech Tinman"
+      "speaker_id": 11
     },
     {
-      "image_id": 33,
       "pages": [
         {
           "check_flag": "",
@@ -8156,10 +8096,9 @@
           "text": "..."
         }
       ],
-      "speaker": "Crystal"
+      "speaker_id": 3
     },
     {
-      "image_id": 34,
       "pages": [
         {
           "check_flag": "",
@@ -8175,10 +8114,9 @@
           "text": "..."
         }
       ],
-      "speaker": "Xantech Tinman"
+      "speaker_id": 11
     },
     {
-      "image_id": 33,
       "pages": [
         {
           "check_flag": "",
@@ -8194,10 +8132,9 @@
           "text": "So I made you fresh cup of coffee!"
         }
       ],
-      "speaker": "Crystal"
+      "speaker_id": 3
     },
     {
-      "image_id": 34,
       "pages": [
         {
           "check_flag": "",
@@ -8213,10 +8150,9 @@
           "text": "*Ksssh* OH!... THANK YOU! *Ksssh*"
         }
       ],
-      "speaker": "Xantech Tinman"
+      "speaker_id": 11
     },
     {
-      "image_id": 0,
       "pages": [
         {
           "check_flag": "",
@@ -8232,10 +8168,9 @@
           "text": "Remind me to stay on your good side."
         }
       ],
-      "speaker": "Blake"
+      "speaker_id": 0
     },
     {
-      "image_id": 33,
       "pages": [
         {
           "check_flag": "",
@@ -8251,10 +8186,9 @@
           "text": "*Winks* Who said you were on my good side?"
         }
       ],
-      "speaker": "Crystal"
+      "speaker_id": 3
     },
     {
-      "image_id": 0,
       "pages": [
         {
           "check_flag": "",
@@ -8270,10 +8204,9 @@
           "text": "What a rack!"
         }
       ],
-      "speaker": "Blake"
+      "speaker_id": 0
     },
     {
-      "image_id": 33,
       "pages": [
         {
           "check_flag": "",
@@ -8289,10 +8222,9 @@
           "text": "Thank you."
         }
       ],
-      "speaker": "Crystal"
+      "speaker_id": 3
     },
     {
-      "image_id": 35,
       "pages": [
         {
           "check_flag": "",
@@ -8351,10 +8283,9 @@
           "text": "Yes! I'm monitoring it from my place. We're good to go on our end. See you soon."
         }
       ],
-      "speaker": "SegF4ult"
+      "speaker_id": 10
     },
     {
-      "image_id": 38,
       "pages": [
         {
           "check_flag": "",
@@ -8370,10 +8301,9 @@
           "text": "-- And this is my new Kickstart 4 cybernetic legs will change the world of sports."
         }
       ],
-      "speaker": "Xander"
+      "speaker_id": 14
     },
     {
-      "image_id": 38,
       "pages": [
         {
           "check_flag": "",
@@ -8402,10 +8332,9 @@
           "text": "Right now!"
         }
       ],
-      "speaker": "Xander"
+      "speaker_id": 14
     },
     {
-      "image_id": 0,
       "pages": [
         {
           "check_flag": "",
@@ -8421,10 +8350,9 @@
           "text": "Do it, Seg."
         }
       ],
-      "speaker": "Blake"
+      "speaker_id": 0
     },
     {
-      "image_id": 38,
       "pages": [
         {
           "check_flag": "",
@@ -8440,10 +8368,9 @@
           "text": "Up next, we have an innovation you won't believe--"
         }
       ],
-      "speaker": "Xander"
+      "speaker_id": 14
     },
     {
-      "image_id": 40,
       "pages": [
         {
           "check_flag": "",
@@ -8498,10 +8425,9 @@
           "text": "-- We're making billions!"
         }
       ],
-      "speaker": "Xander Recording"
+      "speaker_id": 15
     },
     {
-      "image_id": 38,
       "pages": [
         {
           "check_flag": "",
@@ -8543,10 +8469,9 @@
           "text": "Visser?! Visser?! Where are you."
         }
       ],
-      "speaker": "Xander"
+      "speaker_id": 14
     },
     {
-      "image_id": 38,
       "pages": [
         {
           "check_flag": "",
@@ -8562,10 +8487,9 @@
           "text": "YOU!!!"
         }
       ],
-      "speaker": "Xander"
+      "speaker_id": 14
     },
     {
-      "image_id": 38,
       "pages": [
         {
           "check_flag": "",
@@ -8594,10 +8518,9 @@
           "text": "And after all I've done for you?! You'd still be gutter trash if it wasn't for me!"
         }
       ],
-      "speaker": "Xander"
+      "speaker_id": 14
     },
     {
-      "image_id": 37,
       "pages": [
         {
           "check_flag": "",
@@ -8613,10 +8536,9 @@
           "text": "You.."
         }
       ],
-      "speaker": "Danni"
+      "speaker_id": 6
     },
     {
-      "image_id": 37,
       "pages": [
         {
           "check_flag": "",
@@ -8632,10 +8554,9 @@
           "text": "...Threw me..."
         }
       ],
-      "speaker": "Danni"
+      "speaker_id": 6
     },
     {
-      "image_id": 37,
       "pages": [
         {
           "check_flag": "",
@@ -8651,10 +8572,9 @@
           "text": "... In the TRASH..."
         }
       ],
-      "speaker": "Danni"
+      "speaker_id": 6
     },
     {
-      "image_id": 37,
       "pages": [
         {
           "check_flag": "",
@@ -8670,10 +8590,9 @@
           "text": "You left me to die."
         }
       ],
-      "speaker": "Danni"
+      "speaker_id": 6
     },
     {
-      "image_id": 38,
       "pages": [
         {
           "check_flag": "",
@@ -8689,10 +8608,9 @@
           "text": "You drek... You and your friends are dreking fishined! I will--"
         }
       ],
-      "speaker": "Xander"
+      "speaker_id": 14
     },
     {
-      "image_id": 39,
       "pages": [
         {
           "check_flag": "",
@@ -8708,10 +8626,9 @@
           "text": "Mr. Vane. The Board is displeased and demands your presence immediately."
         }
       ],
-      "speaker": "MIB"
+      "speaker_id": 9
     },
     {
-      "image_id": 37,
       "pages": [
         {
           "check_flag": "",
@@ -8727,10 +8644,9 @@
           "text": "Who were they?"
         }
       ],
-      "speaker": "Danni"
+      "speaker_id": 6
     },
     {
-      "image_id": 0,
       "pages": [
         {
           "check_flag": "",
@@ -8772,10 +8688,9 @@
           "text": "Almost."
         }
       ],
-      "speaker": "Blake"
+      "speaker_id": 0
     },
     {
-      "image_id": 0,
       "pages": [
         {
           "check_flag": "",
@@ -8791,10 +8706,9 @@
           "text": "Who's a good girl, Daisy?"
         }
       ],
-      "speaker": "Blake End"
+      "speaker_id": 0
     },
     {
-      "image_id": 42,
       "pages": [
         {
           "check_flag": "",
@@ -8825,10 +8739,9 @@
           "text": "Boof!"
         }
       ],
-      "speaker": "Daisy"
+      "speaker_id": 2
     },
     {
-      "image_id": 0,
       "pages": [
         {
           "check_flag": "",
@@ -8844,10 +8757,9 @@
           "text": "Sorry, we're clos--"
         }
       ],
-      "speaker": "Blake"
+      "speaker_id": 0
     },
     {
-      "image_id": 43,
       "pages": [
         {
           "check_flag": "",
@@ -8878,10 +8790,9 @@
           "text": "Even for a friendly face?"
         }
       ],
-      "speaker": "Crystal"
+      "speaker_id": 3
     },
     {
-      "image_id": 42,
       "pages": [
         {
           "check_flag": "",
@@ -8897,10 +8808,9 @@
           "text": "Boof!"
         }
       ],
-      "speaker": "Daisy"
+      "speaker_id": 2
     },
     {
-      "image_id": 43,
       "pages": [
         {
           "check_flag": "",
@@ -8929,10 +8839,9 @@
           "text": "Is she a good girl?"
         }
       ],
-      "speaker": "Crystal"
+      "speaker_id": 3
     },
     {
-      "image_id": 0,
       "pages": [
         {
           "check_flag": "",
@@ -8948,7 +8857,7 @@
           "text": "The best."
         }
       ],
-      "speaker": "Blake"
+      "speaker_id": 0
     }
   ],
   "locations": [
@@ -11462,5 +11371,71 @@
     }
   ],
   "save_on_export": "gutter.nscript",
-  "script_name": "gutter.nscript"
+  "script_name": "gutter.nscript",
+  "speakers": [
+    {
+      "image_path": "data\\people\\blake.iff",
+      "name": "Blake"
+    },
+    {
+      "image_path": "data\\people\\glitch.iff",
+      "name": "Glitch"
+    },
+    {
+      "image_path": "data\\people\\daisy.iff",
+      "name": "Daisy"
+    },
+    {
+      "image_path": "data\\people\\crystal.iff",
+      "name": "Crystal"
+    },
+    {
+      "image_path": "data\\people\\acidnova.iff",
+      "name": "Acid Nova"
+    },
+    {
+      "image_path": "data\\people\\bouncer.iff",
+      "name": "Tank"
+    },
+    {
+      "image_path": "data\\people\\danni.iff",
+      "name": "Danni"
+    },
+    {
+      "image_path": "data\\people\\unknown.iff",
+      "name": "Unknown"
+    },
+    {
+      "image_path": "data\\people\\gladys.iff",
+      "name": "Gladys"
+    },
+    {
+      "image_path": "data\\people\\mib3.iff",
+      "name": "M.I.B."
+    },
+    {
+      "image_path": "data\\people\\segf4ult.iff",
+      "name": "SegF4ult"
+    },
+    {
+      "image_path": "data\\people\\tinman.iff",
+      "name": "Tinman"
+    },
+    {
+      "image_path": "data\\people\\tweaker01.iff",
+      "name": "Tweaker"
+    },
+    {
+      "image_path": "data\\people\\visser.iff",
+      "name": "Visser"
+    },
+    {
+      "image_path": "data\\people\\xander.iff",
+      "name": "Xander"
+    },
+    {
+      "image_path": "data\\people\\xander2.iff",
+      "name": "Xander Alt"
+    }
+  ]
 }

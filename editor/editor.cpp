@@ -155,6 +155,8 @@ namespace NEONnoir
             _shapes_editor.display(_game_data,
                 _location_browser.get_selected_location_index());
 
+            _speaker_editor.display(_game_data);
+
             if (_show_properties_popup)
             {
                 ImGui::OpenPopup("Properties");

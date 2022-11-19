@@ -91,13 +91,18 @@ namespace NEONnoir
     );
 
     NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(
-        dialogue, speaker, image_id, pages
+        dialogue, speaker_id, pages
+    );
+
+    NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(
+        speaker_info, name, image_path
     );
 
     NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(
         game_data,
         locations,
         dialogues,
+        speakers,
         script_name
     );
 
@@ -111,6 +116,7 @@ namespace NEONnoir
             {
                 { "locations", locs},
                 { "dialogues", json(dialogues)},
+                { "speakers", json(speakers)},
                 { "script_name", script_name},
                 { "save_on_export", script_name},
             };
@@ -154,6 +160,11 @@ namespace NEONnoir
                 }
             }
 
+            for (auto& speaker : data.speakers)
+            {
+                speaker.image = MPG::load_image(speaker.image_path);
+                speaker.image_texture = load_texture(speaker.image);
+            }
 
             return std::make_shared<game_data>(data);
         }

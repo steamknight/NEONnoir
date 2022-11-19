@@ -1,6 +1,5 @@
 #include "imgui.h"
 #include "imgui_stdlib.h"
-#include "IconsMaterialDesign.h"
 #include "imgui_utils.h"
 
 #include <format>
@@ -10,40 +9,18 @@
 
 namespace NEONnoir
 {
-
-    void dialogue_editor::display(std::weak_ptr<game_data> game_data)
-    {
-        auto dialogue_editor_window = ImGui_window(ICON_MD_FORUM " Dialogue Editor");
-
-        if (auto data = game_data.lock())
-        {
-            display_editor(data);
-        }
-        else
-        {
-            display_placeholder();
-        }
-    }
-
-    void dialogue_editor::display_placeholder() const noexcept
-    {
-        auto const origin = ImGui::GetCursorScreenPos();
-        auto const size = ImGui::GetContentRegionAvail();
-
-        ImGuiIO& io = ImGui::GetIO();
-        ImDrawList* draw_list = ImGui::GetWindowDrawList();
-
-        draw_list->AddRectFilled(origin, origin + size, IM_COL32(4, 16, 32, 255));
-        SetCursorCenteredText(origin + (size / 2), "No Game File");
-        ImGui::TextColored({ 16.f / 255.f, 64.f / 255.f, 128.f / 255.f, 1.f }, "No Game File");
-    }
-
     void dialogue_editor::display_editor(std::shared_ptr<game_data> data)
     {
         // Add dialogue button
         if (ImGui::Button(ICON_MD_ADD_COMMENT " Create a new dialogue"))
         {
             data->dialogues.push_back({});
+        }
+
+        auto speakers = std::vector<std::string>{ "Unnamed" };
+        for (auto const& speaker : data->speakers)
+        {
+            speakers.push_back(speaker.name);
         }
 
         //if (auto table = imgui::table("DialogueTable", 2, ImGuiTableFlags_BordersH | ImGuiTableFlags_SizingStretchProp | ImGuiTableFlags_Resizable))
@@ -55,9 +32,13 @@ namespace NEONnoir
             // Display all the dialogues
             for (auto& dialogue : data->dialogues)
             {
-                if (ImGui::TreeNode(std::format(("Dialogue {}:{}###dialogue{}"), count, dialogue.speaker, count).c_str()))
+                auto speaker_name = (dialogue.speaker_id != 0xFFFF)
+                    ? data->speakers[dialogue.speaker_id].name
+                    : "Unnamed";
+
+                if (ImGui::TreeNode(std::format(("Dialogue {}:{}###dialogue{}"), count, speaker_name, (size_t)&dialogue).c_str()))
                 {
-                    if (display_dialogue(dialogue, page_count))
+                    if (display_dialogue(dialogue, page_count, speakers))
                     {
                         deletion_index = count;
                     }
@@ -76,18 +57,18 @@ namespace NEONnoir
         //}
     }
 
-    bool dialogue_editor::display_dialogue(dialogue& dialogue, size_t page_start_id)
+    bool dialogue_editor::display_dialogue(dialogue& dialogue, size_t page_start_id, std::vector<std::string> const& speakers)
     {
         //ImGui::TableNextRow();
 
-        auto request_deletion = display_dialogue_options(dialogue);
+        auto request_deletion = display_dialogue_options(dialogue, speakers);
 
         display_pages(dialogue, page_start_id);
 
         return request_deletion;
     }
 
-    bool dialogue_editor::display_dialogue_options(dialogue& dialogue)
+    bool dialogue_editor::display_dialogue_options(dialogue& dialogue, std::vector<std::string> const& speakers)
     {
         //ImGui::TableNextColumn();
 
@@ -95,21 +76,8 @@ namespace NEONnoir
 
         if (ImGui::BeginTable(std::format("DialogOptions##{}", (size_t)&dialogue).c_str(), 2, ImGuiTableFlags_SizingStretchProp))
         {
-            // Speaker name
-            input_text("Speaker", dialogue.speaker);
-
-            // Speaker image
-            ImGui::TableNextRow();
-
-            ImGui::TableNextColumn();
-            ImGui::AlignTextToFramePadding();
-            ImGui::TextUnformatted("Speaker Image");
-
-            ImGui::TableNextColumn();
-            ImGui::SetNextItemWidth(-FLT_MIN);
-            auto v = static_cast<int>(dialogue.image_id);
-            ImGui::InputInt(std::format("##{}", (uint64_t)&v).c_str(), &v);
-            dialogue.image_id = static_cast<uint16_t>(v);
+            // Speaker
+            display_combo_with_empty("Speaker", speakers, dialogue.speaker_id);
 
             ImGui::EndTable();
 

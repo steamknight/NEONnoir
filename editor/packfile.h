@@ -104,8 +104,7 @@ namespace NEONnoir
     {
         uint16_t first_page_id{ 0xFFFF };
         uint16_t page_count{ 0xFFFF };
-        uint16_t speaker_name{ 0xFFFF };
-        uint16_t speaker_image{ 0xFFFF };
+        uint16_t speaker_id{ 0xFFFF };
     };
 
     constexpr char pages_header [4] = { 'P', 'A', 'G', 'E' };

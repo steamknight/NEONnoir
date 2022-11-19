@@ -63,6 +63,12 @@ namespace NEONnoir
             pak.string_table.push_back(text.value);
         }
 
+        // Before any other palettes, lets put the speaker palettes
+        for (auto const& speaker : data->speakers)
+        {
+            pak.palettes.push_back(speaker.image.color_palette);
+        }
+
         for (auto const& location : data->locations)
         {
             auto loc = neon_location{};
@@ -182,10 +188,7 @@ namespace NEONnoir
         for (auto const& dialogue : data->dialogues)
         {
             auto d = neon_dialogue{};
-            d.speaker_image = dialogue.image_id;
-            
-            d.speaker_name = to<uint16_t>(pak.string_table.size());
-            pak.string_table.push_back(dialogue.speaker);
+            d.speaker_id = dialogue.speaker_id;
 
             d.first_page_id = to<uint16_t>(pak.pages.size());
             auto page_count = 0;
@@ -387,8 +390,7 @@ namespace NEONnoir
         {
             write(neonpack, dialogue.first_page_id);
             write(neonpack, dialogue.page_count);
-            write(neonpack, dialogue.speaker_name);
-            write(neonpack, dialogue.speaker_image);
+            write(neonpack, dialogue.speaker_id);
         }
 
         // Pages

@@ -100,8 +100,7 @@ namespace NEONnoir
     
     struct dialogue
     {
-        std::string speaker;
-        uint16_t image_id{ 0xFFFF };
+        uint16_t speaker_id{ 0xFFFF };
         std::vector<dialogue_page> pages;
     };
 
@@ -113,11 +112,20 @@ namespace NEONnoir
 
     using string_table = std::unordered_map<std::string, numbered_string>;
 
+    struct speaker_info
+    {
+        std::string name;
+        std::string image_path;
+        MPG::simple_image image;
+        GLtexture image_texture;
+    };
+
     struct game_data
     {
         std::vector<game_data_location> locations;
         std::vector<std::string> flags;
         std::vector<dialogue> dialogues;
+        std::vector<speaker_info> speakers;
         string_table strings;
 
         std::string script_name{};

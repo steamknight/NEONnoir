@@ -14,6 +14,7 @@
 #include "dialogue_editor.h"
 #include "shapes_editor.h"
 #include "shape_editor_tool.h"
+#include "speaker_editor.h"
 
 struct ImFont;
 
@@ -59,6 +60,7 @@ namespace NEONnoir
         script_editor _script_editor{};
         dialogue_editor _dialogue_editor{};
         shapes_editor _shapes_editor{};
+        speaker_editor _speaker_editor{};
 
         bool _show_properties_popup{ false };
         bool _show_error_popup{ false };
