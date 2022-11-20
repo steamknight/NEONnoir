@@ -51,6 +51,8 @@ namespace NEONnoir
         uint16_t first_shape_id{ 0xFFFF };
         uint16_t last_shape_id{ 0xFFFF };
         uint16_t shapes_file{ 0xFFFF };
+
+        uint16_t speakers[8]{ 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF };
     };
 
     constexpr char scenes_header[4] = { 'S', 'C', 'N', 'S' };

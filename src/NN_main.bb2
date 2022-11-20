@@ -34,7 +34,7 @@ End If
 BitMap #BMP_main, #NN_screen_width, #NN_screen_height, #NN_screen_bpp
 LoadBitMap #BMP_main, "data/mpg.iff", #PAL_main
 
-LoadShapes #NN_menu_shape, #NN_menu_shape, "data/menu.shapes"
+LoadShapes #SH_menu, #SH_menu, "data/menu.shapes"
 
 ; Display the splash screen
 BLITZ
@@ -82,8 +82,8 @@ Mouse On
 NS_script_queue = -1
 MS_current_track_id = -1
 
-menu_x = 320 - ShapeWidth(#NN_menu_shape) - 4
-menu_y = 200 - ShapeHeight(#NN_menu_shape) - 4
+menu_x = 320 - ShapeWidth(#SH_menu) - 4
+menu_y = 200 - ShapeHeight(#SH_menu) - 4
 
 NN_fade_in = False
 NN_fade_out = False

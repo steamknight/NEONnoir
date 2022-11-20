@@ -47,6 +47,7 @@ NEWTYPE .NN_location
   first_shape.w
   last_shape.w
   shapes_file.w
+  speakers.w[8]
 End NEWTYPE
 
 ; Shape
@@ -386,7 +387,11 @@ NN_error_codes$(5) = "Language file not found"
 #NN_pointer_exit = 13
 #NN_pointer_wait = 14
 
-#NN_menu_shape = 1
+
+; Shapes
+; -----------------------------------------------------------------------------
+#SH_menu = 1
+#SH_first_portrait = 2
 
 ; Text
 ; -----------------------------------------------------------------------------

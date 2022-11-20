@@ -430,7 +430,7 @@ Statement NN_load_location{new_loc_id.w, new_scene_id.w}
   If new_loc_id > 0
     For bg = 0 To bg_count
       Use BitMap bg
-      Blit #NN_menu_shape, 320 - ShapeWidth(#NN_menu_shape) - 4, 200 - ShapeHeight(#NN_menu_shape) - 4, 0
+      Blit #SH_menu, 320 - ShapeWidth(#SH_menu) - 4, 200 - ShapeHeight(#SH_menu) - 4, 0
     Next
   End If
 

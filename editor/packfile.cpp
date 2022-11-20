@@ -182,6 +182,12 @@ namespace NEONnoir
                 pak.string_table.push_back(location.shapes_file);
             }
 
+            auto max_speakers = std::min(to<size_t>(8), location.speakers.size());
+            for (size_t i = 0; i < max_speakers; i++)
+            {
+                loc.speakers[i] = location.speakers[i];
+            }
+
             pak.locations.push_back(loc);
         }
 
@@ -349,6 +355,7 @@ namespace NEONnoir
             write(neonpack, location.first_shape_id);
             write(neonpack, location.last_shape_id);
             write(neonpack, location.shapes_file);
+            neonpack.write(reinterpret_cast<char const*>(&location.speakers[0]), sizeof(location.speakers));
         }
 
         // Write all scenes
