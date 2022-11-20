@@ -42,7 +42,6 @@ namespace NEONnoir
         auto const origin = ImGui::GetCursorScreenPos();
         auto const size = ImGui::GetContentRegionAvail();
 
-        ImGuiIO& io = ImGui::GetIO();
         ImDrawList* draw_list = ImGui::GetWindowDrawList();
 
         draw_list->AddRectFilled(origin, origin + size, IM_COL32(4, 16, 32, 255));
@@ -76,16 +75,16 @@ namespace NEONnoir
     {
         if (ImGui::BeginChild("SceneProps", { 0, 0 }, true))
         {
-            auto& scene = data->locations[_location_index.value()].scenes[_scene_index.value()];
+            auto& current_scene = data->locations[_location_index.value()].scenes[_scene_index.value()];
 
             if (ImGui::BeginTable("PropsLayout", 2, ImGuiTableFlags_SizingStretchProp))
             {
-                display_prop_string("Name", scene.name);
-                display_prop_multistring("Description", scene.description);
-                display_prop_background(scene, data->locations[_location_index.value()].backgrounds);
-                display_prop_string("On Enter", scene.on_enter);
-                display_prop_string("On Exit", scene.on_exit);
-                display_prop_int("Music ID", scene.music_id);
+                display_prop_string("Name", current_scene.name);
+                display_prop_multistring("Description", current_scene.description);
+                display_prop_background(current_scene, data->locations[_location_index.value()].backgrounds);
+                display_prop_string("On Enter", current_scene.on_enter);
+                display_prop_string("On Exit", current_scene.on_exit);
+                display_prop_int("Music ID", current_scene.music_id);
                 ImGui::EndTable();
             }
 
@@ -95,7 +94,7 @@ namespace NEONnoir
                 exit_regions.push_back(scene.name);
             }
 
-            display_prop_regions(scene, exit_regions);
+            display_prop_regions(current_scene, exit_regions);
         }
         
         ImGui::EndChild();

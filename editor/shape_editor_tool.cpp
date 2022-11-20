@@ -183,7 +183,7 @@ namespace NEONnoir
             for (auto const& shape : shape_container.shapes)
             {
                 auto export_shape = MPG::crop(shape_container.image, shape.x, shape.y, shape.width, shape.height);
-                export_shape = MPG::crop_palette(export_shape, _export_bit_depth, 0);
+                export_shape = MPG::crop_palette(export_shape, to<uint8_t>(_export_bit_depth), 0);
                 all_shapes.push_back(export_shape);
             }
         }

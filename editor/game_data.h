@@ -64,6 +64,7 @@ namespace NEONnoir
         std::vector<shape_container> shapes;
         std::vector<GLtexture> shapes_textures;
         std::string shapes_file;
+        std::vector<uint16_t> speakers{ 0, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF };
     };
 
     struct dialogue_choice

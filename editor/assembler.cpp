@@ -164,9 +164,9 @@ namespace NEONnoir
 
     void assembler::parse_flags()
     {
-        auto name = identifier();
+        auto header_name = identifier();
 
-        if (name.compare("FLAGS") != 0)
+        if (header_name.compare("FLAGS") != 0)
         {
             throw assembler_error("Unknown section declaration", _scan_line);
             return;
@@ -201,9 +201,9 @@ namespace NEONnoir
 
     void assembler::parse_constants()
     {
-        auto name = identifier();
+        auto header_name = identifier();
 
-        if (name.compare("CONST") != 0)
+        if (header_name.compare("CONST") != 0)
         {
             throw assembler_error("Unknown section declaration", _scan_line);
             return;
@@ -240,9 +240,9 @@ namespace NEONnoir
 
     void assembler::parse_text()
     {
-        auto name = identifier();
+        auto header_name = identifier();
 
-        if (name.compare("TEXT") != 0)
+        if (header_name.compare("TEXT") != 0)
         {
             throw assembler_error("Unknown section declaration", _scan_line);
             return;
@@ -278,9 +278,9 @@ namespace NEONnoir
 
     void assembler::parse_script()
     {
-        auto name = identifier();
+        auto header_name = identifier();
 
-        if (name.compare("SCRIPT") != 0)
+        if (header_name.compare("SCRIPT") != 0)
         {
             throw assembler_error("Unknown section declaration", _scan_line);
             return;

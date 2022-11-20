@@ -86,6 +86,7 @@ $data_files = @(
     "./data/10.shapes",
     "./data/11.shapes",
     "./data/menu.shapes",
+    "./data/people.shapes",
     "./data/ui.pal"
 )
 

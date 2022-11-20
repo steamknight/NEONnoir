@@ -56,7 +56,8 @@ namespace NEONnoir
         backgrounds,
         scenes,
         shapes,
-        shapes_file
+        shapes_file,
+        speakers
     );
 
     NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(

@@ -25,16 +25,15 @@ namespace NEONnoir
         }
         else
         {
-            display_placeholder(!game_data.expired(), location_index);
+            display_placeholder(!game_data.expired());
         }
     }
 
-    void shapes_editor::display_placeholder(bool have_data, std::optional<size_t> const& location_index) const noexcept
+    void shapes_editor::display_placeholder(bool have_data) const noexcept
     {
         auto const origin = ImGui::GetCursorScreenPos();
         auto const size = ImGui::GetContentRegionAvail();
 
-        ImGuiIO& io = ImGui::GetIO();
         ImDrawList* draw_list = ImGui::GetWindowDrawList();
 
         draw_list->AddRectFilled(origin, origin + size, IM_COL32(4, 16, 32, 255));

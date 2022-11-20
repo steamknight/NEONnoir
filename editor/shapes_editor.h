@@ -18,7 +18,7 @@ namespace NEONnoir
 
     private:
         void display_editor(game_data_location& location, int32_t shape_start_id);
-        void display_placeholder(bool have_data, std::optional<size_t> const& location_index) const noexcept;
+        void display_placeholder(bool have_data) const noexcept;
         void save_shapes(std::filesystem::path const& shapes_file_path, game_data_location& location) const;
 
     private:

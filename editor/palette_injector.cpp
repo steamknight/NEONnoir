@@ -89,7 +89,6 @@ namespace NEONnoir
         auto const origin = ImGui::GetCursorScreenPos();
         auto end = origin + palette_sz;
 
-        ImGuiIO& io = ImGui::GetIO();
         ImDrawList* draw_list = ImGui::GetWindowDrawList();
 
         ImVec2 color_p0 = origin;
@@ -117,7 +116,6 @@ namespace NEONnoir
         auto const origin = ImGui::GetCursorScreenPos();
         auto end = origin + palette_sz;
 
-        ImGuiIO& io = ImGui::GetIO();
         ImDrawList* draw_list = ImGui::GetWindowDrawList();
 
         draw_list->AddRectFilled(origin, end, IM_COL32(8, 32, 64, 255));

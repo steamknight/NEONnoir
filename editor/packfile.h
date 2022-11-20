@@ -163,8 +163,8 @@ namespace NEONnoir
 
     struct neon_word_list
     {
-        uint16_t word_count;
         std::vector<neon_word> words;
+        uint16_t word_count;
     };
 
     constexpr char shapes_header[4] = { 'S', 'H', 'P', 'E' };
@@ -183,8 +183,6 @@ namespace NEONnoir
         uint16_t version{ 0 };
         uint16_t language{ 0 };
     };
-
-        
 #pragma pack(pop)
 
     struct neon_packfile

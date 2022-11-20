@@ -1,6 +1,9 @@
 #pragma once
 
 #include <memory>
+#include <optional>
+#include <vector>
+#include <string>
 #include <string_view>
 #include "game_data.h"
 #include "IconsMaterialDesign.h"
@@ -22,7 +25,12 @@ namespace NEONnoir
         void display_placeholder(std::string_view const& text = "No Game File");
 
         void display_combo_with_empty(std::string_view const& label, std::vector<std::string> const& values, uint16_t& selected_value);
-        
+
+
+        std::vector<std::string>& get_speaker_list(std::vector<speaker_info> const& speakers);
+
+    protected:
+        std::optional<std::vector<std::string>> _speaker_list_with_empty;
     };
 }
 

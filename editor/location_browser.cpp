@@ -14,41 +14,9 @@ namespace fs = std::filesystem;
 
 namespace NEONnoir
 {
-    void location_browser::use(std::weak_ptr<game_data> game_data)
-    {
-        _game_data = game_data;
-    }
-
-    void location_browser::display()
-    {
-        auto locations_window = ImGui_window(ICON_MD_MAP " Locations");
-
-        if (auto data = _game_data.lock())
-        {
-            display_editor(data);
-        }
-        else
-        {
-            display_placeholder();
-        }
-    }
-
     bool location_browser::is_scene_selected() const noexcept
     {
         return _selected_location.has_value() && _selected_scene.has_value();
-    }
-
-    void location_browser::display_placeholder() noexcept
-    {
-        auto const origin = ImGui::GetCursorScreenPos();
-        auto const size = ImGui::GetContentRegionAvail();
-
-        ImGuiIO& io = ImGui::GetIO();
-        ImDrawList* draw_list = ImGui::GetWindowDrawList();
-
-        draw_list->AddRectFilled(origin, origin + size, IM_COL32(4, 16, 32, 255));
-        SetCursorCenteredText(origin + (size / 2), "No Game File");
-        ImGui::TextColored({ 16.f / 255.f, 64.f / 255.f, 128.f / 255.f, 1.f }, "No Game File");
     }
 
     void location_browser::display_editor(std::shared_ptr<game_data> data)
@@ -65,11 +33,11 @@ namespace NEONnoir
         // Display each location's data
         for (auto idx = 0; idx < data->locations.size(); idx++)
         {
-            display_location(data->locations[idx], idx);
+            display_location(data->locations[idx], idx, data->speakers);
         }
     }
 
-    void location_browser::display_location(game_data_location& location, size_t location_index)
+    void location_browser::display_location(game_data_location& location, size_t location_index, std::vector<speaker_info>& speakers)
     {
         // For the header name, we don't want the name to have any part in the
         // generation of the id since it can change and mess everything up
@@ -78,34 +46,37 @@ namespace NEONnoir
             return;
 
         // Use a table so we can have labels on the left rather than on the right
-        if (ImGui::BeginTable(("LocationTable" + id).c_str(), 2, ImGuiTableFlags_SizingStretchProp))
+        ImGui::PushID(to<void*>(&location));
+        ImGui::Indent();
+        if (auto table = imgui::table("##location_table", 1, ImGuiTableFlags_SizingStretchProp))
         {
             display_location_name(location.name, id);
             display_backgrounds(location.backgrounds, location.background_textures, id);
             display_scenes(location.scenes, id, location_index);
+            display_speakers(location, speakers);
 
             ImGui::TableNextRow();
-            ImGui::TableNextColumn();
             ImGui::TableNextColumn();
             if (ImGui::Button(std::format("Shapes Editor##{}", (size_t)&location).c_str(), {-FLT_MIN, 0}))
             {
                 _selected_location = std::make_optional<size_t>(location_index);
             }
 
-            // End LocationTable
-            ImGui::EndTable();
         }
+
+        ImGui::Unindent();
+        ImGui::PopID();
     }
 
     void location_browser::display_location_name(std::string& name, std::string const& id)
     {
         ImGui::TableNextRow();
-
         ImGui::TableNextColumn();
+
         ImGui::AlignTextToFramePadding();
         ImGui::TextUnformatted("Name");
+        ImGui::SameLine();
 
-        ImGui::TableNextColumn();
         ImGui::SetNextItemWidth(-FLT_MIN);
         ImGui::InputText(("##" + id).c_str(), &name);
     }
@@ -115,50 +86,53 @@ namespace NEONnoir
         ImGui::TableNextRow();
 
         ImGui::TableNextColumn();
-        ImGui::AlignTextToFramePadding();
-        ImGui::TextUnformatted("Backgrounds");
-
-        // Add background button
-        ImGui::TableNextColumn();
-        ImGui::SetNextItemWidth(-FLT_MIN);
-        if (ImGui::Button((ICON_MD_ADD_PHOTO_ALTERNATE " Add##BG" + id).c_str(), { -FLT_MIN, 0 }))
+        if (ImGui::CollapsingHeader("Backgrounds"))
         {
-            if (auto file = open_file_dialog("iff;bmp"))
+            ImGui::Indent();
+            // Add background button
+            ImGui::TableNextColumn();
+            ImGui::SetNextItemWidth(-FLT_MIN);
+            if (ImGui::Button((ICON_MD_ADD_PHOTO_ALTERNATE " Add##BG" + id).c_str(), { -FLT_MIN, 0 }))
             {
-                backgrounds.push_back(file.value().data());
-                auto background = MPG::load_image(file.value());
-                background_textures.push_back(load_texture(background));
-            }
-        }
-
-        // List backgrounds
-        // Not using range-for because we need an index
-        int32_t remove_index = -1;
-        for (auto idx = 0; idx < backgrounds.size(); idx++)
-        {
-            auto& bg = backgrounds[idx];
-
-            if (DeleteButton(std::format("##BGDeletebutton{}", idx).c_str()))
-            {
-                // Mark for deletion
-                remove_index = idx;
-            }
-            ImGui::SameLine();
-            auto bg_name = fs::path{ bg }.stem().string();
-            if (ImGui::Button(bg_name.c_str(), ImVec2{ -FLT_MIN, 0 }))
-            {
-                if (auto file = open_file_dialog("bmp"))
+                if (auto file = open_file_dialog("iff;bmp"))
                 {
-                    auto filename = fs::path{ file.value() }.filename();
-                    bg = filename.string();
+                    backgrounds.push_back(file.value().data());
+                    auto background = MPG::load_image(file.value());
+                    background_textures.push_back(load_texture(background));
                 }
-            };
-        }
+            }
 
-        // Check for deleted backgrouns
-        if (remove_index >= 0)
-        {
-            backgrounds.erase(backgrounds.begin() + remove_index);
+            // List backgrounds
+            // Not using range-for because we need an index
+            int32_t remove_index = -1;
+            for (auto idx = 0; idx < backgrounds.size(); idx++)
+            {
+                auto& bg = backgrounds[idx];
+
+                if (DeleteButton(std::format("##BGDeletebutton{}", idx).c_str()))
+                {
+                    // Mark for deletion
+                    remove_index = idx;
+                }
+                ImGui::SameLine();
+                auto bg_name = fs::path{ bg }.stem().string();
+                if (ImGui::Button(bg_name.c_str(), ImVec2{ -FLT_MIN, 0 }))
+                {
+                    if (auto file = open_file_dialog("bmp"))
+                    {
+                        auto filename = fs::path{ file.value() }.filename();
+                        bg = filename.string();
+                    }
+                };
+            }
+
+            // Check for deleted backgrouns
+            if (remove_index >= 0)
+            {
+                backgrounds.erase(backgrounds.begin() + remove_index);
+            }
+
+            ImGui::Unindent();
         }
     }
 
@@ -167,10 +141,11 @@ namespace NEONnoir
         ImGui::TableNextRow();
 
         ImGui::TableNextColumn();
-        ImGui::AlignTextToFramePadding();
-        ImGui::TextUnformatted("Scenes");
 
-        ImGui::TableNextColumn();
+        if (!ImGui::CollapsingHeader("Scenes"))
+            return;
+
+        ImGui::Indent();
         ImGui::SetNextItemWidth(-FLT_MIN);
         if (ImGui::Button((ICON_MD_ADD_LOCATION_ALT " Add##Scene" + id).c_str(), { -FLT_MIN, 0 }))
         {
@@ -207,6 +182,60 @@ namespace NEONnoir
         if (remove_index >= 0)
         {
             scenes.erase(scenes.begin() + remove_index);
+        }
+
+        ImGui::Unindent();
+    }
+
+    void location_browser::display_speakers(game_data_location& location, std::vector<speaker_info>& speakers)
+    {
+        ImGui::TableNextRow();
+        ImGui::TableNextColumn();
+
+        if (ImGui::CollapsingHeader("Speakers"))
+        {
+            ImGui::Indent();
+            auto& values = get_speaker_list(speakers);
+
+            auto width = (ImGui::GetContentRegionAvail().x - ImGui::GetStyle().FramePadding.x) / 2.f;
+
+            for (size_t idx = 0; idx < 8; idx++)
+            {
+                auto& selected_value = location.speakers[idx];
+
+                // Sanity check in case something's been deleted
+                selected_value = (selected_value < values.size() - 1) ? selected_value : 0xFFFF;
+
+                selected_value++;
+                ImGui::PushID((void*)&selected_value);
+
+                ImGui::SetNextItemWidth(width);
+                if (ImGui::BeginCombo("##", values[selected_value].c_str()))
+                {
+                    for (uint16_t n = 0; n < values.size(); n++)
+                    {
+                        auto const is_selected = selected_value == n;
+                        if (ImGui::Selectable(values[n].c_str(), is_selected))
+                        {
+                            selected_value = n;
+                        }
+
+                        if (is_selected)
+                        {
+                            ImGui::SetItemDefaultFocus();
+                        }
+                    }
+                    ImGui::EndCombo();
+                }
+                ImGui::PopID();
+
+                selected_value--;
+
+                if (idx % 2 == 0)
+                    ImGui::SameLine();
+            }
+
+            ImGui::Unindent();
         }
     }
 }

@@ -160,7 +160,7 @@ namespace NEONnoir
 
             if (location.shapes.size() > 0)
             {
-                uint16_t shape_id = data->shape_start_id;
+                auto shape_id = to<uint16_t>(data->shape_start_id);
                 loc.first_shape_id = to<uint16_t>(pak.shapes.size());
                 for (auto const& container : location.shapes)
                 {

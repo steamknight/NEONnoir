@@ -17,12 +17,6 @@ namespace NEONnoir
             data->dialogues.push_back({});
         }
 
-        auto speakers = std::vector<std::string>{ "Unnamed" };
-        for (auto const& speaker : data->speakers)
-        {
-            speakers.push_back(speaker.name);
-        }
-
         //if (auto table = imgui::table("DialogueTable", 2, ImGuiTableFlags_BordersH | ImGuiTableFlags_SizingStretchProp | ImGuiTableFlags_Resizable))
         //{
             auto deletion_index = -1;
@@ -38,7 +32,7 @@ namespace NEONnoir
 
                 if (ImGui::TreeNode(std::format(("Dialogue {}:{}###dialogue{}"), count, speaker_name, (size_t)&dialogue).c_str()))
                 {
-                    if (display_dialogue(dialogue, page_count, speakers))
+                    if (display_dialogue(dialogue, page_count, get_speaker_list(data->speakers)))
                     {
                         deletion_index = count;
                     }

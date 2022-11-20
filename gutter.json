@@ -9069,7 +9069,17 @@
         }
       ],
       "shapes": [],
-      "shapes_file": ""
+      "shapes_file": "",
+      "speakers": [
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535
+      ]
     },
     {
       "backgrounds": [
@@ -9537,7 +9547,17 @@
           ]
         }
       ],
-      "shapes_file": "1.shapes"
+      "shapes_file": "1.shapes",
+      "speakers": [
+        0,
+        1,
+        5,
+        12,
+        11,
+        3,
+        65535,
+        65535
+      ]
     },
     {
       "backgrounds": [
@@ -9685,7 +9705,17 @@
           ]
         }
       ],
-      "shapes_file": "2.shapes"
+      "shapes_file": "2.shapes",
+      "speakers": [
+        0,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535
+      ]
     },
     {
       "backgrounds": [
@@ -9846,7 +9876,17 @@
           ]
         }
       ],
-      "shapes_file": "3.shapes"
+      "shapes_file": "3.shapes",
+      "speakers": [
+        0,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535
+      ]
     },
     {
       "backgrounds": [
@@ -10028,7 +10068,17 @@
           ]
         }
       ],
-      "shapes_file": "4.shapes"
+      "shapes_file": "4.shapes",
+      "speakers": [
+        0,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535
+      ]
     },
     {
       "backgrounds": [
@@ -10190,7 +10240,17 @@
           ]
         }
       ],
-      "shapes_file": "5.shapes"
+      "shapes_file": "5.shapes",
+      "speakers": [
+        0,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535
+      ]
     },
     {
       "backgrounds": [
@@ -10437,7 +10497,17 @@
           ]
         }
       ],
-      "shapes_file": "6.shapes"
+      "shapes_file": "6.shapes",
+      "speakers": [
+        0,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535
+      ]
     },
     {
       "backgrounds": [
@@ -10527,7 +10597,17 @@
           ]
         }
       ],
-      "shapes_file": "7.shapes"
+      "shapes_file": "7.shapes",
+      "speakers": [
+        0,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535
+      ]
     },
     {
       "backgrounds": [
@@ -10792,7 +10872,17 @@
           ]
         }
       ],
-      "shapes_file": "8.shapes"
+      "shapes_file": "8.shapes",
+      "speakers": [
+        0,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535
+      ]
     },
     {
       "backgrounds": [
@@ -11130,7 +11220,17 @@
           ]
         }
       ],
-      "shapes_file": "9.shapes"
+      "shapes_file": "9.shapes",
+      "speakers": [
+        0,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535
+      ]
     },
     {
       "backgrounds": [
@@ -11279,7 +11379,17 @@
           ]
         }
       ],
-      "shapes_file": "10.shapes"
+      "shapes_file": "10.shapes",
+      "speakers": [
+        0,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535
+      ]
     },
     {
       "backgrounds": [
@@ -11342,7 +11452,17 @@
           ]
         }
       ],
-      "shapes_file": "11.shapes"
+      "shapes_file": "11.shapes",
+      "speakers": [
+        0,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535
+      ]
     },
     {
       "backgrounds": [
@@ -11367,7 +11487,17 @@
         }
       ],
       "shapes": [],
-      "shapes_file": ""
+      "shapes_file": "",
+      "speakers": [
+        0,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535
+      ]
     }
   ],
   "save_on_export": "gutter.nscript",

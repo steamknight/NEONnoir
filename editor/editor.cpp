@@ -140,7 +140,7 @@ namespace NEONnoir
                 _shape_editor_tool.reset();
             }
 
-            _location_browser.display();
+            _location_browser.display(_game_data);
 
             _scene_editor.use(_game_data,
                 _location_browser.get_selected_location_index(),
@@ -264,7 +264,6 @@ namespace NEONnoir
                 {
                     // TODO: check if there already is game_data in memory
                     _game_data = std::make_shared<game_data>();
-                    _location_browser.use(_game_data);
                 }
 
                 if (ImGui::MenuItem("Open", "Ctrl+O")) 
@@ -276,7 +275,6 @@ namespace NEONnoir
                         {
                             _game_data = game_data::deserialize(file.value().data());
                             _game_data->filename = file.value();
-                            _location_browser.use(_game_data);
 
                             if (_game_data->script_name != "")
                             {

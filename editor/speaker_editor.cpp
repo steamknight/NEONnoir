@@ -48,6 +48,7 @@ namespace NEONnoir
         if (index_to_delete)
         {
             data->speakers.erase(data->speakers.begin() + index_to_delete.value());
+            _speaker_list_with_empty = std::nullopt;
         }
     }
 
@@ -58,6 +59,7 @@ namespace NEONnoir
         if (ImGui::Button(ICON_MD_PERSON_ADD))
         {
             speakers.push_back({ "New Speaker", "", _no_person, load_texture(_no_person)});
+            _speaker_list_with_empty = std::nullopt;
         }
 
         ToolTip("Add new speaker");
@@ -138,7 +140,7 @@ namespace NEONnoir
         auto all_shapes = std::vector<MPG::simple_image>{};
         for (auto const& speaker : speakers)
         {
-            auto export_shape = MPG::crop_palette(speaker.image, _bit_depth, 0);
+            auto export_shape = MPG::crop_palette(speaker.image, to<uint8_t>(_bit_depth), 0);
             all_shapes.push_back(export_shape);
         }
 

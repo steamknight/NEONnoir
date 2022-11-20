@@ -27,7 +27,6 @@ namespace NEONnoir
         auto const origin = ImGui::GetCursorScreenPos();
         auto const size = ImGui::GetContentRegionAvail();
 
-        ImGuiIO& io = ImGui::GetIO();
         ImDrawList* draw_list = ImGui::GetWindowDrawList();
 
         draw_list->AddRectFilled(origin, origin + size, IM_COL32(4, 16, 32, 255));
@@ -47,11 +46,14 @@ namespace NEONnoir
         ImGui::TableNextColumn();
         ImGui::SetNextItemWidth(-FLT_MIN);
 
+        // Sanity check in case something's been deleted
+        selected_value = (selected_value < values.size() - 1) ? selected_value : 0xFFFF;
+
         selected_value++;
         ImGui::PushID((void*)&selected_value);
         if (ImGui::BeginCombo("##", values[selected_value].c_str()))
         {
-            for (int n = 0; n < values.size(); n++)
+            for (uint16_t n = 0; n < values.size(); n++)
             {
                 auto const is_selected = selected_value == n;
                 if (ImGui::Selectable(values[n].c_str(), is_selected))
@@ -69,5 +71,19 @@ namespace NEONnoir
         ImGui::PopID();
 
         selected_value--;
+    }
+
+    std::vector<std::string>& editor_window_base::get_speaker_list(std::vector<speaker_info> const& speakers)
+    {
+        if (!_speaker_list_with_empty)
+        {
+            _speaker_list_with_empty = std::vector<std::string>{ "Unnamed" };
+            for (auto const& speaker : speakers)
+            {
+                _speaker_list_with_empty.value().push_back(speaker.name);
+            }
+        }
+
+        return _speaker_list_with_empty.value();
     }
 }
