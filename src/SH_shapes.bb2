@@ -48,14 +48,12 @@ End Statement
 Statement SH_draw_portrait {id.w, x.w, y.w}
   !DB_trace{"SHAPE", "SH_draw_portrait " + Str$(id)}
   SHARED NN_current_bmp
-  !__use_shapes{}
   !__use_palettes{}
 
   DEFTYPE .NN_shape *sh
   DEFTYPE .w sid, pid
-  *sh = !__get_shape{id}
-  sid = *sh\shape_id
-  pid = *sh\palette_id
+  sid = #SH_first_portrait + id
+  pid = id
 
   If pid <> NN_current_palette AND pid > -1
     NN_current_palette = pid
@@ -90,3 +88,4 @@ Statement SH_draw_portrait {id.w, x.w, y.w}
   Blit sid, x, y
 
 End Statement
+

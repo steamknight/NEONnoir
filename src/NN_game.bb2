@@ -406,6 +406,15 @@ Statement NN_load_location{new_loc_id.w, new_scene_id.w}
   DisplayPalette #CP_coplist, #PAL_fx
   QAMIGA
 
+  ; Before we change location, do some cleanup and clear out portraits
+  If *NN_current_location <> 0
+    For p = 0 to 7
+      If *NN_current_location\speakers[p] <> -1
+        Free Shape #SH_first_portrait + *NN_current_location\speakers[p]
+      End If
+    Next
+  End If
+
   *NN_current_location = !__get_location{new_loc_id}
 
   ; Load the shapes if there are any
@@ -415,6 +424,19 @@ Statement NN_load_location{new_loc_id.w, new_scene_id.w}
     *last_shape = !__get_shape{*NN_current_location\last_shape}
     LoadShapes *first_shape\shape_id, *last_shape\shape_id, "data/" + !__get_string{*NN_current_location\shapes_file}
   End If
+
+  ; Load the portraits if there are any
+  DEFTYPE .MPSH_context context
+  DEFTYPE .w blitz_id, shape_id
+  MPSH_begin{&context, "data/people.mpsh"}
+  For p = 0 to 7
+    shape_id = *NN_current_location\speakers[p]
+    blitz_id = #SH_first_portrait + shape_id
+    If shape_id <> -1
+      MPSH_get_shape{&context, blitz_id, shape_id, 1}
+    End If
+  Next
+  MPSH_end{&context}
 
   ; Load all the backgrounds
   DEFTYPE .w bg_count

@@ -57,6 +57,13 @@ NEWTYPE .NN_shape
   palette_id.w
 End NEWTYPE
 
+; Portraits
+; -----------------------------------------------
+NEWTYPE .NN_portrait
+  offset.l
+  size.l
+End NEWTYPE
+
 ; Dialogue Choice
 ; -----------------------------------------------
 NEWTYPE .DG_choice
@@ -90,7 +97,7 @@ End NEWTYPE
 NEWTYPE .DG_dialogue
   first_page_id.w     ; id of the first page of dialogue
   page_count.w        ; number of page in the dialogue
-  speaker_name.w      ; text id for the speaker's name
+  ;speaker_name.w      ; text id for the speaker's name
   speaker_image.w     ; shape id for the speaker's portrait
 End NEWTYPE
 
@@ -166,7 +173,14 @@ Macro __get_shape
   (*NN_shapes + (SizeOf .NN_shape * (`1)))
 End Macro
 
-; NN
+; NN_portrait dynamic array
+DEFTYPE .NN_portrait *NN_portrait_table
+DEFTYPE .l NN_portrait_count, NN_portrait_data, NN_portrait_data_size
+
+Macro __get_portrait_info
+  (*NN_portrait_table + (SizeOf .DG_choice))
+End Macro
+
 ; DG_choice dynamic array
 ; -----------------------------------------------
 DEFTYPE .DG_choice *DG_choices

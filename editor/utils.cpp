@@ -61,6 +61,22 @@ namespace NEONnoir
 
         return palette;
     }
+
+    void write(std::ofstream& stream, uint16_t value)
+    {
+        auto data = force_to<char*>(&value);
+        stream.write(&data[1], 1);
+        stream.write(&data[0], 1);
+    }
+
+    void write(std::ofstream& stream, uint32_t value)
+    {
+        auto data = force_to<char*>(&value);
+        stream.write(&data[3], 1);
+        stream.write(&data[2], 1);
+        stream.write(&data[1], 1);
+        stream.write(&data[0], 1);
+    }
 }
 
 #pragma warning(pop)

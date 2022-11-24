@@ -20,6 +20,7 @@ namespace NEONnoir
         bool display_speaker(speaker_info& speaker) noexcept;
 
         void save_shapes(std::filesystem::path const& shapes_file_path, std::vector<speaker_info>& speakers) const;
+        void save_mpsh_shapes(std::filesystem::path const& shapes_file_path, std::vector<speaker_info>& speakers) const;
 
     private:
         int _bit_depth{ 5 };

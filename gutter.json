@@ -9461,93 +9461,8 @@
           "view_y": 0
         }
       ],
-      "shapes": [
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\blake.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        },
-        {
-          "has_palette": true,
-          "image_file": "data\\Sandy.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        },
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\bouncer.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        },
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\tweaker01.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        },
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\tinman.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        },
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\crystal.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        },
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\visser.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        }
-      ],
-      "shapes_file": "1.shapes",
+      "shapes": [],
+      "shapes_file": "",
       "speakers": [
         0,
         1,
@@ -9708,8 +9623,8 @@
       "shapes_file": "2.shapes",
       "speakers": [
         0,
-        65535,
-        65535,
+        4,
+        13,
         65535,
         65535,
         65535,
@@ -9879,7 +9794,7 @@
       "shapes_file": "3.shapes",
       "speakers": [
         0,
-        65535,
+        3,
         65535,
         65535,
         65535,
@@ -10071,10 +9986,10 @@
       "shapes_file": "4.shapes",
       "speakers": [
         0,
-        65535,
-        65535,
-        65535,
-        65535,
+        2,
+        13,
+        7,
+        6,
         65535,
         65535,
         65535
@@ -10243,8 +10158,8 @@
       "shapes_file": "5.shapes",
       "speakers": [
         0,
-        65535,
-        65535,
+        3,
+        8,
         65535,
         65535,
         65535,
@@ -10600,10 +10515,10 @@
       "shapes_file": "7.shapes",
       "speakers": [
         0,
-        65535,
-        65535,
-        65535,
-        65535,
+        6,
+        10,
+        3,
+        13,
         65535,
         65535,
         65535
@@ -10875,9 +10790,9 @@
       "shapes_file": "8.shapes",
       "speakers": [
         0,
-        65535,
-        65535,
-        65535,
+        6,
+        3,
+        13,
         65535,
         65535,
         65535,
@@ -11223,9 +11138,9 @@
       "shapes_file": "9.shapes",
       "speakers": [
         0,
-        65535,
-        65535,
-        65535,
+        3,
+        11,
+        10,
         65535,
         65535,
         65535,
@@ -11382,10 +11297,10 @@
       "shapes_file": "10.shapes",
       "speakers": [
         0,
-        65535,
-        65535,
-        65535,
-        65535,
+        6,
+        14,
+        15,
+        9,
         65535,
         65535,
         65535
@@ -11455,8 +11370,8 @@
       "shapes_file": "11.shapes",
       "speakers": [
         0,
-        65535,
-        65535,
+        2,
+        3,
         65535,
         65535,
         65535,

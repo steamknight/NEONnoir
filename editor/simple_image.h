@@ -79,10 +79,6 @@ namespace MPG
     // Save a palette only ILBM
     void save_ilbm_palette(std::filesystem::path const& filename, simple_image const& image);
 
-    // Saves a collection of images as an Amiga BLITZ Basic 2 shapes files to be used
-    // with BLITZ's "LoadShapes" function.
-    void save_blitz_shapes(std::filesystem::path const& filename, std::vector<simple_image> const& images);
-
     enum class ilbm_mask_type : uint8_t
     {
         none = 0,
@@ -99,6 +95,51 @@ namespace MPG
 
     pixel_data planar_to_chunky(pixel_data const& scanlines, uint32_t width, uint32_t height, uint8_t bitplanes, ilbm_mask_type mask_type);
     pixel_data chunky_to_planar(simple_image const& image);
+
+    #pragma pack(push, 2)
+    // I realize this is named blitz "shapes" but it only defines one shape. That's on purpose
+    // as this is the blitz "shapes" image format.
+    struct blitz_shapes
+    {
+        uint16_t width{ 0 };            // Shape width
+        uint16_t height{ 0 };           // Shape height
+        uint16_t bit_depth{ 0 };        // Number of bitplanes
+        uint16_t ebwidth{ 0 };          // Even byte width of shape
+        uint16_t blitsize{ 0 };
+        uint16_t handle_x{ 0 };         // X-coordinate of the shape's handle
+        uint16_t handle_y{ 0 };         // Y-coordinate of the shape's handle
+
+        // You'd think these two would be pointers of offset to the data...
+        // You'd be wrong as setting them both to zero has no effects.
+        // Perhaps they are used internally by Blitz as to where the data is
+        // in memory or something.
+        uint32_t data_ptr{ 0 };         // Pointer to graphic data
+        uint32_t cookie_ptr{ 0 };       // Pointer to cookiecut for one bitplane
+
+        // More shenanigans here. The -x versions make no sense.
+        // I mean, I'm sure there's a reason, but not one I can divine.
+        uint16_t onebpmem{ 0 };         // Memory used up by one bitplane
+        uint16_t onebpmemx{ 0 };        // Same as above plus a word per vertical pixel
+        uint16_t allbpmem{ 0 };         // Memory used by the entire shape
+        uint16_t allbpmemx{ 0 };        // Same as above plue a word per vertical pixel
+
+        uint16_t padding;               // Padding
+        std::vector<uint8_t> data{ 0 }; // Shape data
+
+        size_t get_size() const noexcept
+        {
+            return sizeof(blitz_shapes) - sizeof(std::vector<uint8_t>) + data.size();
+        }
+    };
+    #pragma pack(pop)
+
+    // Note that the data in the shape *IS NOT* in big-endian format, that needs to be
+    // addressed when outputting it to a file.
+    blitz_shapes image_to_blitz_shapes(simple_image const& image);
+
+    // Saves a collection of images as an Amiga BLITZ Basic 2 shapes files to be used
+    // with BLITZ's "LoadShapes" function.
+    void save_blitz_shapes(std::filesystem::path const& filename, std::vector<simple_image> const& images);
 }
 
 //#define SIMPLE_IMAGE_IMPL
@@ -741,35 +782,79 @@ namespace MPG
         save_simple_ilbm(filename, palette_image);
     }
 
+    blitz_shapes image_to_blitz_shapes(simple_image const& image)
+    {
+        auto shape = blitz_shapes
+        {
+            static_cast<uint16_t>(image.width),
+            static_cast<uint16_t>(image.height),
+            static_cast<uint16_t>(image.bit_depth),
+        };
+
+        // Scanlines are aligned to the next word
+        shape.ebwidth = static_cast<uint16_t>(((image.width + 15) / 16) * 2);
+
+        // I barely understand why this is, but the blit size is actually a packing of the width
+        // and height. Was put on the right path by: https://eab.abime.net/showpost.php?p=1312463&postcount=8
+        shape.blitsize = static_cast<uint16_t>((image.height << 6) | (shape.ebwidth >> 1) + 1);
+
+        // Number of bytes used up by one bitplane
+        shape.onebpmem = static_cast<uint16_t>(shape.ebwidth * image.height);
+        shape.allbpmem = static_cast<uint16_t>(shape.onebpmem * image.bit_depth);
+
+        // Nonsense. Just, nonsense.
+        shape.onebpmemx = static_cast<uint16_t>(shape.onebpmem + (image.height * 2));
+        shape.allbpmemx = static_cast<uint16_t>(shape.onebpmemx * image.bit_depth);
+
+        // Would it that ILBMs and shapes used the same planar format... but they don't.
+        // Where in ILBMs, each scanline is split by planes, in Shapes, each plane is stored
+        // in its entirety, followed by the next and so on.
+        shape.data = pixel_data(shape.allbpmem, 0);
+
+        for (auto plane = 0u; plane < shape.bit_depth; plane++)
+        {
+            for (auto y = 0u; y < shape.height; y++)
+            {
+                for (auto x = 0u; x < shape.width; x++)
+                {
+                    // Figure out which byte and bit corresponds to this x value
+                    auto const byte = x / 8u;
+                    auto const bit = 7 - (x % 8u);
+
+                    // Get the bit that corresponds to this plane
+                    auto pixel = image.pixel_data[static_cast<size_t>(y) * image.width + x];
+                    auto const color_bit_mask = 1u << plane;
+                    auto const color_bit = (pixel & color_bit_mask) != 0 ? 1u : 0u;
+                    auto const planar_bit = color_bit << bit;
+
+                    auto const index = (shape.onebpmem * plane) + (y * shape.ebwidth) + byte;
+                    auto value = shape.data[index];
+                    value |= planar_bit;
+
+                    shape.data[index] = value;
+                }
+            }
+        }
+
+        return shape;
+    }
+
     void save_blitz_shapes(std::filesystem::path const& filename, std::vector<simple_image> const& images)
     {
         auto ofs = std::ofstream{ filename, std::ios::binary, std::ios::trunc };
         if (!ofs)
             throw std::runtime_error{ "Could not create file for writing." };
 
-        for (auto const& shape : images)
+        for (auto const& image : images)
         {
-            // Scanlines are aligned to the next word
-            auto const ebwidth = static_cast<uint16_t>(((shape.width + 15) / 16) * 2);
-
-            // I barely understand why this is, but the blit size is actually a packing of the width
-            // and height. Was put on the right path by: https://eab.abime.net/showpost.php?p=1312463&postcount=8
-            auto const blitsize = static_cast<uint16_t>((shape.height << 6) | (ebwidth >> 1) + 1);
-
-            // Number of bytes used up by one bitplane
-            auto const onebpmem = static_cast<uint16_t>(ebwidth * shape.height);
-            auto const allbpmem = static_cast<uint16_t>(onebpmem * shape.bit_depth);
-
-            // Nonsense. Just, nonsense.
-            auto const onebpmemx = static_cast<uint16_t>(onebpmem + (shape.height * 2));
-            auto const allbpmemx = static_cast<uint16_t>(onebpmemx * shape.bit_depth);
+            auto shape = image_to_blitz_shapes(image);
 
             // Write the shape header
-            write_swap_u16(ofs, static_cast<uint16_t>(shape.width));
-            write_swap_u16(ofs, static_cast<uint16_t>(shape.height));
-            write_swap_u16(ofs, static_cast<uint16_t>(shape.bit_depth));
-            write_swap_u16(ofs, ebwidth);
-            write_swap_u16(ofs, blitsize);
+            write_swap_u16(ofs, shape.width);
+            write_swap_u16(ofs, shape.height);
+            write_swap_u16(ofs, shape.bit_depth);
+            write_swap_u16(ofs, shape.ebwidth);
+            write_swap_u16(ofs, shape.blitsize);
 
             // Handle is in the top left. Perhaps I can add support for moving them later
             write_swap_u16(ofs, 0);     // x
@@ -779,47 +864,17 @@ namespace MPG
             write_swap_u32(ofs, 0);     // data
             write_swap_u32(ofs, 0);     // cookie
 
-            write_swap_u16(ofs, onebpmem);
-            write_swap_u16(ofs, onebpmemx);
-            write_swap_u16(ofs, allbpmem);
-            write_swap_u16(ofs, allbpmemx);
+            write_swap_u16(ofs, shape.onebpmem);
+            write_swap_u16(ofs, shape.onebpmemx);
+            write_swap_u16(ofs, shape.allbpmem);
+            write_swap_u16(ofs, shape.allbpmemx);
 
             write_swap_u16(ofs, 0);     // padding
 
-            // Would it that ILBMs and shapes used the same planar format... but they don't.
-            // Where in ILBMs, each scanline is split by planes, in Shapes, each plane is stored
-            // in its entirety, followed by the next and so on.
-            auto bitplanes = pixel_data(allbpmem, 0);
-
-            for (auto plane = 0u; plane < shape.bit_depth; plane++)
-            {
-                for (auto y = 0u; y < shape.height; y++)
-                {
-                    for (auto x = 0u; x < shape.width; x++)
-                    {
-                        // Figure out which byte and bit corresponds to this x value
-                        auto const byte = x / 8u;
-                        auto const bit = 7 - (x % 8u);
-
-                        // Get the bit that corresponds to this plane
-                        auto pixel = shape.pixel_data[static_cast<size_t>(y) * shape.width + x];
-                        auto const color_bit_mask = 1u << plane;
-                        auto const color_bit = (pixel & color_bit_mask) != 0 ? 1u : 0u;
-                        auto const planar_bit = color_bit << bit;
-
-                        auto const index = (onebpmem * plane) + (y * ebwidth) + byte;
-                        auto value = bitplanes[index];
-                        value |= planar_bit;
-
-                        bitplanes[index] = value;
-                    }
-                }
-            }
-
             // Write out the shape's bitplanes
-            if (bitplanes.size() > 0)
+            if (shape.data.size() > 0)
             {
-                ofs.write(reinterpret_cast<char const*>(&bitplanes[0]), bitplanes.size());
+                ofs.write(reinterpret_cast<char const*>(&shape.data[0]), shape.data.size());
             }
         }
     }

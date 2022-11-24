@@ -1,0 +1,53 @@
+[
+  {
+    "image_file": "..\\..\\..\\NEONnoir\\data\\people\\blake.iff",
+    "shapes": [
+      {
+        "height": 100,
+        "width": 100,
+        "x": 0,
+        "y": 0
+      }
+    ]
+  },
+  {
+    "image_file": "..\\..\\..\\NEONnoir\\data\\people\\daisy.iff",
+    "shapes": [
+      {
+        "height": 50,
+        "width": 50,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "height": 50,
+        "width": 50,
+        "x": 50,
+        "y": 0
+      },
+      {
+        "height": 50,
+        "width": 50,
+        "x": 0,
+        "y": 50
+      },
+      {
+        "height": 50,
+        "width": 50,
+        "x": 50,
+        "y": 50
+      }
+    ]
+  },
+  {
+    "image_file": "..\\..\\..\\NEONnoir\\data\\people\\glitch.iff",
+    "shapes": [
+      {
+        "height": 50,
+        "width": 50,
+        "x": 25,
+        "y": 25
+      }
+    ]
+  }
+]

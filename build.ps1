@@ -7,6 +7,7 @@ $bb2_files = @(
     "./src/DB_log.bb2",
     "./src/NN_core.bb2",
     "./src/NN_utils.bb2",
+    "./src/MPSH.bb2"
     "./src/MS_music.bb2",
     "./src/NN_game.bb2",
     "./src/TX_core.bb2",
@@ -16,7 +17,6 @@ $bb2_files = @(
     "./src/NS_opcodes.bb2",
     "./src/NS_script.bb2",
     "./src/NN_main.bb2"
-    #"./src/location_tester.bb2"
 )
 
 $data_files = @(
@@ -86,7 +86,7 @@ $data_files = @(
     "./data/10.shapes",
     "./data/11.shapes",
     "./data/menu.shapes",
-    "./data/people.shapes",
+    "./data/people.mpsh",
     "./data/ui.pal"
 )
 

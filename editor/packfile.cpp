@@ -1,6 +1,8 @@
 #include <fstream>
 #include <filesystem>
 #include <format>
+
+#include "utils.h"
 #include "packfile.h"
 
 namespace fs = std::filesystem;
@@ -160,14 +162,12 @@ namespace NEONnoir
 
             if (location.shapes.size() > 0)
             {
-                auto shape_id = to<uint16_t>(data->shape_start_id);
                 loc.first_shape_id = to<uint16_t>(pak.shapes.size());
                 for (auto const& container : location.shapes)
                 {
-                    for (auto const& shape : container.shapes)
+                    for (auto shape_id = to<uint16_t>(data->shape_start_id); shape_id < container.shapes.size(); shape_id++)
                     {
                         pak.shapes.push_back({ shape_id, to<uint16_t>(pak.palettes.size()) });
-                        shape_id++;
                     }
 
                     pak.palettes.push_back(container.image.color_palette);
@@ -306,22 +306,6 @@ namespace NEONnoir
         return pak;
     }
 
-    void write(std::ofstream& stream, uint16_t value)
-    {
-        auto data = reinterpret_cast<char*>(&value);
-        stream.write(&data[1], 1);
-        stream.write(&data[0], 1);
-    }
-
-    void write(std::ofstream& stream, uint32_t value)
-    {
-        auto data = reinterpret_cast<char*>(&value);
-        stream.write(&data[3], 1);
-        stream.write(&data[2], 1);
-        stream.write(&data[1], 1);
-        stream.write(&data[0], 1);
-    }
-
     void serialize_to_neon_pak(fs::path file_path, std::shared_ptr<game_data> const& data, assembler_result const& result)
     {
         auto pak = generate_packfile(data, result);
@@ -355,7 +339,11 @@ namespace NEONnoir
             write(neonpack, location.first_shape_id);
             write(neonpack, location.last_shape_id);
             write(neonpack, location.shapes_file);
-            neonpack.write(reinterpret_cast<char const*>(&location.speakers[0]), sizeof(location.speakers));
+
+            for (auto const& speaker : location.speakers)
+            {
+                write(neonpack, speaker);
+            }
         }
 
         // Write all scenes
@@ -459,10 +447,10 @@ namespace NEONnoir
         {
             for (auto& entry : palette)
             {
-                neonpack.write(reinterpret_cast<char*>(&entry.r), 1);
-                neonpack.write(reinterpret_cast<char*>(&entry.g), 1);
-                neonpack.write(reinterpret_cast<char*>(&entry.b), 1);
-                neonpack.write(reinterpret_cast<char*>(&entry.a), 1);
+                neonpack.write(force_to<char*>(&entry.r), 1);
+                neonpack.write(force_to<char*>(&entry.g), 1);
+                neonpack.write(force_to<char*>(&entry.b), 1);
+                neonpack.write(force_to<char*>(&entry.a), 1);
             }
         }
         
@@ -471,10 +459,51 @@ namespace NEONnoir
         write(neonpack, to<uint32_t>(data->ui_palette.size()));
         for (auto& entry : data->ui_palette)
         {
-            neonpack.write(reinterpret_cast<char*>(&entry.r), 1);
-            neonpack.write(reinterpret_cast<char*>(&entry.g), 1);
-            neonpack.write(reinterpret_cast<char*>(&entry.b), 1);
-            neonpack.write(reinterpret_cast<char*>(&entry.a), 1);
+            neonpack.write(force_to<char*>(&entry.r), 1);
+            neonpack.write(force_to<char*>(&entry.g), 1);
+            neonpack.write(force_to<char*>(&entry.b), 1);
+            neonpack.write(force_to<char*>(&entry.a), 1);
+        }
+
+        // Write speakers header
+        neonpack.write(speakers_header, 4);
+        write(neonpack, to<uint32_t>(data->speakers.size()));
+
+        // Write speaker offset and sizes
+        auto offset = 0u;
+        for (auto const& speaker : pak.speakers)
+        {
+            // Write offset
+            write(neonpack, offset);
+
+            // Write size
+            auto const size = to<uint32_t>(speaker.get_size());
+            write(neonpack, size);
+
+            offset += size;
+        }
+
+        // Write speaker shapes data
+        for (auto const& speaker : pak.speakers)
+        {
+            // Write the header
+            write(neonpack, speaker.width);
+            write(neonpack, speaker.height);
+            write(neonpack, speaker.bit_depth);
+            write(neonpack, speaker.ebwidth);
+            write(neonpack, speaker.blitsize);
+            write(neonpack, speaker.handle_x);
+            write(neonpack, speaker.handle_y);
+            write(neonpack, speaker.data_ptr);
+            write(neonpack, speaker.cookie_ptr);
+            write(neonpack, speaker.onebpmem);
+            write(neonpack, speaker.onebpmemx);
+            write(neonpack, speaker.allbpmem);
+            write(neonpack, speaker.allbpmemx);
+            write(neonpack, speaker.padding);
+
+            // Write the shape bypes
+            neonpack.write(force_to<char const*>(&speaker.data[0]), speaker.data.size());
         }
 
         neonpack.close();

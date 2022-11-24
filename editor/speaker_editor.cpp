@@ -3,6 +3,8 @@
 #include "imgui_utils.h"
 #include "glfw_utils.h"
 
+#include <fstream>
+
 #include "speaker_editor.h"
 #include "no_person.h"
 
@@ -93,6 +95,17 @@ namespace NEONnoir
         ToolTip("Export BLITZ Basic Shapes");
         ImGui::SameLine();
 
+        if (ImGui::Button(ICON_MD_SWITCH_ACCOUNT))
+        {
+            auto filename = save_file_dialog("mpsh");
+            if (filename)
+            {
+                save_mpsh_shapes(filename.value(), speakers);
+            }
+        }
+        ToolTip("Export MPSH shape collection");
+        ImGui::SameLine();
+
         ImGui::SetNextItemWidth(200);
         ImGui::SliderInt("##speaker_bit_depth", &_bit_depth, 1, 8, "Bit depth: %d");
 
@@ -145,5 +158,76 @@ namespace NEONnoir
         }
 
         MPG::save_blitz_shapes(shapes_file_path, all_shapes);
+    }
+
+    void speaker_editor::save_mpsh_shapes(std::filesystem::path const& shapes_file_path, std::vector<speaker_info>& speakers) const
+    {
+        auto all_shapes = std::vector<MPG::blitz_shapes>{};
+        for (auto const& speaker : speakers)
+        {
+            auto cropped = MPG::crop_palette(speaker.image, to<uint8_t>(_bit_depth), 0);
+            auto shape = MPG::image_to_blitz_shapes(cropped);
+
+            all_shapes.push_back(shape);
+        }
+
+        if (auto impish_file = std::ofstream{ shapes_file_path, std::ios::binary | std::ios::trunc })
+        {
+            auto offset = 0u;
+
+            // Write header
+            char magic[] = { 'M', 'P', 'S', 'H' };
+            impish_file.write(magic, 4);                            // Magic number
+            write(impish_file, 1u);                                 // Version. Always 1 for now
+            write(impish_file, to<uint32_t>(speakers.size()));      // Number of shapes
+            offset += (sizeof(uint32_t) * 3);
+
+            // Push the offset past where the manifest will go
+            // The manifest is 2 uint32_ts (offset and size) per entry
+            offset += (sizeof(uint32_t) * 2 * to<uint32_t>(speakers.size()));
+
+            // Write the manifest
+            for (auto const& shape : all_shapes)
+            {
+                write(impish_file, offset);
+
+                auto size = to<uint32_t>(shape.get_size());
+                write(impish_file, size);
+
+                offset += size;
+            }
+
+            // Write all the shapes
+            for (auto const& shape : all_shapes)
+            {
+                // Write the shape header
+                write(impish_file, shape.width);
+                write(impish_file, shape.height);
+                write(impish_file, shape.bit_depth);
+                write(impish_file, shape.ebwidth);
+                write(impish_file, shape.blitsize);
+
+                // Handle is in the top left. Perhaps I can add support for moving them later
+                write(impish_file, shape.handle_x);     // x
+                write(impish_file, shape.handle_y);     // y
+
+                // Data and cookie pointers. They seem to always be nonsense values in the shapes files created by Blitz
+                write(impish_file, shape.data_ptr);     // data
+                write(impish_file, shape.cookie_ptr);     // cookie
+
+                write(impish_file, shape.onebpmem);
+                write(impish_file, shape.onebpmemx);
+                write(impish_file, shape.allbpmem);
+                write(impish_file, shape.allbpmemx);
+
+                write(impish_file, shape.padding);     // padding
+
+                // Write out the shape's bitplanes
+                if (shape.data.size() > 0)
+                {
+                    impish_file.write(force_to<char const*>(&shape.data[0]), shape.data.size());
+                }
+            }
+        }
     }
 }

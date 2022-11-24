@@ -179,6 +179,8 @@ namespace NEONnoir
     constexpr char palettes_header[4] = { 'P', 'A', 'L', 'S' };
     constexpr char ui_palette_header[4] = { 'P', 'A', 'L', 'U' };
 
+    constexpr char speakers_header[4] = { 'S', 'P', 'K', 'R' };
+
     struct loc_header
     {
         char const magic[4] = { 'N', 'O', 'I', 'R' };
@@ -200,6 +202,7 @@ namespace NEONnoir
         std::vector<neon_word_list> words_table;
         std::vector<neon_shape> shapes;
         std::vector<MPG::color_palette> palettes;
+        std::vector<MPG::blitz_shapes> speakers;
     };
 
     void serialize_to_neon_pak(std::filesystem::path file_path, std::shared_ptr<game_data> const& data, assembler_result const& result);

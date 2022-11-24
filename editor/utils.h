@@ -23,7 +23,16 @@ namespace NEONnoir
     }
 
 
+    template<typename T, typename U>
+    auto force_to(U value) -> T
+    {
+        return reinterpret_cast<T>(value);
+    }
+
     std::vector<rgb_color> read_bmp_palette(std::string_view const& path);
+
+    void write(std::ofstream& stream, uint16_t value);
+    void write(std::ofstream& stream, uint32_t value);
 
 
 #define make_id(label, value) std::format((label), (size_t)&value).c_str()

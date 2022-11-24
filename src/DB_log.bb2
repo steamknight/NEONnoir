@@ -155,8 +155,8 @@ End Macro
 
 Statement PrintFreeMem{}
   !DB_printf {"******************************** FREE RAM ********************************"}
-  memchip$ = Str$(AvailMem_(#MEMF_CHIP OR #MEMF_LARGEST) LSR 10)
-  memfast$ = Str$(AvailMem_(#MEMF_FAST OR #MEMF_LARGEST) LSR 10)
+  memchip$ = Str$(AvailMem_(#MEMF_CHIP) LSR 10)
+  memfast$ = Str$(AvailMem_(#MEMF_FAST) LSR 10)
   !DB_printf {"Free Chip RAM: " + memchip$ + "kb"}
   !DB_printf {"Free Fast RAM: " + memfast$ + "kb"}
   !DB_printf {"**************************************************************************"}
