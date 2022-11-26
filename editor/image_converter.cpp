@@ -75,13 +75,13 @@ namespace NEONnoir
                 if (dest_image_path)
                 {
                     _dest_image = MPG::simple_image{ _source_image };
-                    if (_export_bit_depth > _source_image.bit_depth)
+                    if (to<u32>(_export_bit_depth) > _source_image.bit_depth)
                     {
-                        _dest_image.color_palette.resize(static_cast<size_t>(1) << _export_bit_depth);
+                        _dest_image.color_palette.resize(to<size_t>(1) << _export_bit_depth);
                     }
-                    else if (_export_bit_depth < _source_image.bit_depth)
+                    else if (to<u32>(_export_bit_depth) < _source_image.bit_depth)
                     {
-                        _dest_image = MPG::crop_palette(_dest_image, to<uint8_t>(_export_bit_depth), 0);
+                        _dest_image = MPG::crop_palette(_dest_image, to<u8>(_export_bit_depth), 0);
                     }
 
                     _dest_image.bit_depth = _export_bit_depth;

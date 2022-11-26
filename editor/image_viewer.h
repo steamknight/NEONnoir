@@ -15,7 +15,7 @@ namespace NEONnoir
 
         void display(GLtexture const& texture) noexcept;
         void display(GLtexture const&, std::vector<shape>& regions) noexcept;
-        void selected_region(int32_t selected_region) { _selected_region_index = selected_region; }
+        void selected_region(i32 selected_region) { _selected_region_index = selected_region; }
 
     private:
         ImVec2 _last_mouse{ 0.f, 0.f };
@@ -25,10 +25,10 @@ namespace NEONnoir
         bool _add_region_dragging{ false };
 
         bool _show_autogrid_popup{ false };
-        int32_t _cell_width{ 1 };
-        int32_t _cell_height{ 1 };
+        i32 _cell_width{ 1 };
+        i32 _cell_height{ 1 };
 
-        int32_t _selected_region_index{ -1 };
+        i32 _selected_region_index{ -1 };
         ImVec2 _add_region_p0{ -1, -1 };
     };
 }

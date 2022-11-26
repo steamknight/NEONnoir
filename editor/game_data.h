@@ -8,7 +8,7 @@
 
 namespace NEONnoir
 {
-    enum class game_data_chunk_type : uint32_t
+    enum class game_data_chunk_type : u32
     {
         location = 1,
         bytecode,
@@ -18,11 +18,11 @@ namespace NEONnoir
 
     struct game_data_region
     {
-        uint16_t x{ 0 }, y{ 0 };
-        uint16_t width{ 0 }, height{ 0 };
-        uint16_t shape_id{ 0 };
-        uint16_t pointer_id{ 0 };
-        uint16_t goto_scene{ 0xFFFF };
+        u16 x{ 0 }, y{ 0 };
+        u16 width{ 0 }, height{ 0 };
+        u16 shape_id{ 0 };
+        u16 pointer_id{ 0 };
+        u16 goto_scene{ 0xFFFF };
         std::string description;
         std::string script;
     };
@@ -33,18 +33,18 @@ namespace NEONnoir
         std::vector<std::string> description;
         std::string on_enter;
         std::string on_exit;
-        uint16_t image_id{ 0 };
-        uint16_t view_x{ 0 }, view_y{ 0 };
-        uint16_t view_width{ 0 }, view_height{ 0 };
-        uint16_t offset_x{ 0 }, offset_y{ 0 };
-        uint16_t music_id{ 0xFFFF };
+        u16 image_id{ 0 };
+        u16 view_x{ 0 }, view_y{ 0 };
+        u16 view_width{ 0 }, view_height{ 0 };
+        u16 offset_x{ 0 }, offset_y{ 0 };
+        u16 music_id{ 0xFFFF };
         std::vector<game_data_region> regions;
     };
 
     struct shape
     {
-        uint16_t x{ 0 }, y{ 0 };
-        uint16_t width{ 0 }, height{ 0 };
+        u16 x{ 0 }, y{ 0 };
+        u16 width{ 0 }, height{ 0 };
     };
 
     struct shape_container
@@ -64,7 +64,7 @@ namespace NEONnoir
         std::vector<shape_container> shapes;
         std::vector<GLtexture> shapes_textures;
         std::string shapes_file;
-        std::vector<uint16_t> speakers{ 0, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF };
+        std::vector<u16> speakers{ 0, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF };
     };
 
     struct dialogue_choice
@@ -75,7 +75,7 @@ namespace NEONnoir
         std::string clear_flag;
         std::string check_flag;
         std::string add_item;
-        uint16_t next_page_id{ 0xFFFF };
+        u16 next_page_id{ 0xFFFF };
         bool enabled{ true };
         bool self_disable{ false };
         bool has_script{ false };
@@ -91,7 +91,8 @@ namespace NEONnoir
         std::string clear_flag;
         std::string check_flag;
         std::vector<dialogue_choice> choices;
-        uint16_t next_page_id{ 0xFFFF };
+        u16 next_page_id{ 0xFFFF };
+        u16 speaker_id{ 0xFFFF };
         bool enabled{ true };
         bool self_disable{ false };
         bool has_set_flag{ false };
@@ -101,13 +102,13 @@ namespace NEONnoir
     
     struct dialogue
     {
-        uint16_t speaker_id{ 0xFFFF };
+        std::string name;
         std::vector<dialogue_page> pages;
     };
 
     struct numbered_string
     {
-        uint32_t id;
+        u32 id;
         std::string value;
     };
 
@@ -132,7 +133,7 @@ namespace NEONnoir
         std::string script_name{};
 
         void serialize(std::string const& filename);
-        int32_t shape_start_id{ 10 };
+        i32 shape_start_id{ 10 };
         bool save_on_export{ true };
 
         std::string filename{};

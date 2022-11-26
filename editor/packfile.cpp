@@ -9,7 +9,7 @@ namespace fs = std::filesystem;
 
 namespace NEONnoir
 {
-    uint16_t get_script_offset(std::string const& script_name, assembler_result const& result)
+    u16 get_script_offset(std::string const& script_name, assembler_result const& result)
     {
         if (script_name == "")
         {
@@ -24,7 +24,7 @@ namespace NEONnoir
         return result.scripts_meta.at(script_name).start;
     }
 
-    uint16_t get_flag_id(std::string const& flag, assembler_result const& result)
+    u16 get_flag_id(std::string const& flag, assembler_result const& result)
     {
         if (result.flags.count(flag) == 0)
         {
@@ -34,7 +34,7 @@ namespace NEONnoir
         return result.flags.at(flag);
     }
 
-    uint16_t get_const_id(std::string const& constant, assembler_result const& result)
+    u16 get_const_id(std::string const& constant, assembler_result const& result)
     {
         if (result.constants.count(constant) == 0)
         {
@@ -74,11 +74,11 @@ namespace NEONnoir
         for (auto const& location : data->locations)
         {
             auto loc = neon_location{};
-            loc.name_id = to<uint16_t>(pak.string_table.size());
+            loc.name_id = to<u16>(pak.string_table.size());
             pak.string_table.push_back(location.name);
 
-            loc.first_bg_id = to<uint16_t>(pak.string_table.size());
-            loc.last_bg_id = loc.first_bg_id + to<uint16_t>(location.backgrounds.size()) - 1;
+            loc.first_bg_id = to<u16>(pak.string_table.size());
+            loc.last_bg_id = loc.first_bg_id + to<u16>(location.backgrounds.size()) - 1;
             for (auto const& background : location.backgrounds)
             {
                 auto path = std::filesystem::path{ background };
@@ -86,18 +86,18 @@ namespace NEONnoir
                 pak.string_table.push_back(path.stem().replace_extension("iff").string());
             }
 
-            loc.first_scene_id = to<uint16_t>(pak.scenes.size());
-            loc.last_scene_id = loc.first_scene_id + to<uint16_t>(location.scenes.size()) - 1;
+            loc.first_scene_id = to<u16>(pak.scenes.size());
+            loc.last_scene_id = loc.first_scene_id + to<u16>(location.scenes.size()) - 1;
 
             for (auto const& scene : location.scenes)
             {
                 auto s = neon_scene{};
-                s.name_id = to<uint16_t>(pak.string_table.size());
+                s.name_id = to<u16>(pak.string_table.size());
                 pak.string_table.push_back(scene.name);
 
                 if (scene.description.size() > 0)
                 {
-                    s.first_desc_id = to<uint16_t>(pak.string_table.size());
+                    s.first_desc_id = to<u16>(pak.string_table.size());
 
                     for (auto& desc : scene.description)
                     {
@@ -105,13 +105,13 @@ namespace NEONnoir
                     }
 
                     // Compensate for the extra string added to the table
-                    s.last_desc_id = to<uint16_t>(pak.string_table.size()) - 1;
+                    s.last_desc_id = to<u16>(pak.string_table.size()) - 1;
                 }
 
                 s.background_id = scene.image_id;
 
-                s.first_region_id = to<uint16_t>(pak.regions.size());
-                s.last_region_id = s.first_region_id + to<uint16_t>(scene.regions.size()) - 1;
+                s.first_region_id = to<u16>(pak.regions.size());
+                s.last_region_id = s.first_region_id + to<u16>(scene.regions.size()) - 1;
 
                 s.on_enter = get_script_offset(scene.on_enter, result);
                 s.on_exit = get_script_offset(scene.on_exit, result);
@@ -130,7 +130,7 @@ namespace NEONnoir
 
                     if (region.description.size() > 0)
                     {
-                        r.description_id = to<uint16_t>(pak.string_table.size());
+                        r.description_id = to<u16>(pak.string_table.size());
                         pak.string_table.push_back(region.description);
                     }
                     else
@@ -162,23 +162,23 @@ namespace NEONnoir
 
             if (location.shapes.size() > 0)
             {
-                loc.first_shape_id = to<uint16_t>(pak.shapes.size());
+                loc.first_shape_id = to<u16>(pak.shapes.size());
                 for (auto const& container : location.shapes)
                 {
-                    for (auto shape_id = to<uint16_t>(data->shape_start_id); shape_id < container.shapes.size(); shape_id++)
+                    for (auto shape_id = to<u16>(data->shape_start_id); shape_id < container.shapes.size(); shape_id++)
                     {
-                        pak.shapes.push_back({ shape_id, to<uint16_t>(pak.palettes.size()) });
+                        pak.shapes.push_back({ shape_id, to<u16>(pak.palettes.size()) });
                     }
 
                     pak.palettes.push_back(container.image.color_palette);
                 }
-                loc.last_shape_id = to<uint16_t>(pak.shapes.size()) - 1; // compensate for the extra +1 at the end of loop
+                loc.last_shape_id = to<u16>(pak.shapes.size()) - 1; // compensate for the extra +1 at the end of loop
 
                 if (location.shapes_file == "")
                 {
                     throw std::runtime_error("Missing shapes file name.");
                 }
-                loc.shapes_file = to<uint16_t>(pak.string_table.size());
+                loc.shapes_file = to<u16>(pak.string_table.size());
                 pak.string_table.push_back(location.shapes_file);
             }
 
@@ -194,25 +194,25 @@ namespace NEONnoir
         for (auto const& dialogue : data->dialogues)
         {
             auto d = neon_dialogue{};
-            d.speaker_id = dialogue.speaker_id;
 
-            d.first_page_id = to<uint16_t>(pak.pages.size());
+            d.first_page_id = to<u16>(pak.pages.size());
             auto page_count = 0;
             for (auto const& page : dialogue.pages)
             {
                 auto p = neon_page{};
-                p.text_id = to<uint16_t>(pak.string_table.size());
+                p.speaker_id = page.speaker_id;
+                p.text_id = to<u16>(pak.string_table.size());
                 pak.string_table.push_back(page.text);
 
                 p.page_id = page.next_page_id;
                 if (p.page_id != 0xFFFF) p.page_id += d.first_page_id;
 
-                p.first_choice_id = (page.choices.size() > 0) ? to<uint16_t>(pak.choices.size()) : 0xFFFF;
+                p.first_choice_id = (page.choices.size() > 0) ? to<u16>(pak.choices.size()) : 0xFFFF;
                 auto choice_count = 0;
                 for (auto const& choice : page.choices)
                 {
                     auto c = neon_choice{};
-                    c.text_id = to<uint16_t>(pak.string_table.size());
+                    c.text_id = to<u16>(pak.string_table.size());
                     pak.string_table.push_back("*" + choice.text);
 
                     c.page_id = choice.next_page_id;
@@ -255,7 +255,7 @@ namespace NEONnoir
                     ? 0xFFFF
                     : get_flag_id(page.check_flag, result);
 
-                p.choice_count = to<uint16_t>(page.choices.size());
+                p.choice_count = to<u16>(page.choices.size());
                 p.enabled = page.enabled ? 0xFF : 0;
                 p.self_disable = page.self_disable ? 0xFF : 0;
                 
@@ -264,7 +264,7 @@ namespace NEONnoir
                 page_count++;
             }
 
-            d.page_count = to<uint16_t>(dialogue.pages.size());
+            d.page_count = to<u16>(dialogue.pages.size());
             pak.dialogues.push_back(d);
         }
 
@@ -286,8 +286,8 @@ namespace NEONnoir
 
                 word_list.words.push_back(
                     {
-                        to<uint16_t>(start_idx),
-                        to<uint16_t>(current - 1)
+                        to<u16>(start_idx),
+                        to<u16>(current - 1)
                     }
                 );
 
@@ -299,7 +299,7 @@ namespace NEONnoir
                 start_idx = current + 1;
             }
 
-            word_list.word_count = to<uint16_t>(word_list.words.size());
+            word_list.word_count = to<u16>(word_list.words.size());
             pak.words_table.push_back(word_list);
         }
 
@@ -328,7 +328,7 @@ namespace NEONnoir
 
         // Write all locations
         neonpack.write(locations_header, 4);
-        write(neonpack, to<uint32_t>(pak.locations.size()));
+        write(neonpack, to<u32>(pak.locations.size()));
         for (auto const& location: pak.locations)
         {
             write(neonpack, location.name_id);
@@ -348,7 +348,7 @@ namespace NEONnoir
 
         // Write all scenes
         neonpack.write(scenes_header, 4);
-        write(neonpack, to<uint32_t>(pak.scenes.size()));
+        write(neonpack, to<u32>(pak.scenes.size()));
         for (auto const& scene : pak.scenes)
         {
             write(neonpack, scene.name_id);
@@ -364,7 +364,7 @@ namespace NEONnoir
 
         // Write all regions
         neonpack.write(regions_header, 4);
-        write(neonpack, to<uint32_t>(pak.regions.size()));
+        write(neonpack, to<u32>(pak.regions.size()));
         for (auto const& region : pak.regions)
         {
             write(neonpack, region.x1);
@@ -379,21 +379,21 @@ namespace NEONnoir
 
         // Dialogues
         neonpack.write(dialogues_header, 4);
-        write(neonpack, to<uint32_t>(pak.dialogues.size()));
+        write(neonpack, to<u32>(pak.dialogues.size()));
 
         for (auto const& dialogue : pak.dialogues)
         {
             write(neonpack, dialogue.first_page_id);
             write(neonpack, dialogue.page_count);
-            write(neonpack, dialogue.speaker_id);
         }
 
         // Pages
         neonpack.write(pages_header, 4);
-        write(neonpack, to<uint32_t>(pak.pages.size()));
+        write(neonpack, to<u32>(pak.pages.size()));
 
         for (auto const& page : pak.pages)
         {
+            write(neonpack, page.speaker_id);
             write(neonpack, page.text_id);
             write(neonpack, page.set_flag);
             write(neonpack, page.clear_flag);
@@ -407,7 +407,7 @@ namespace NEONnoir
 
         // Choices
         neonpack.write(choices_header, 4);
-        write(neonpack, to<uint32_t>(pak.choices.size()));
+        write(neonpack, to<u32>(pak.choices.size()));
 
         for (auto const& choice : pak.choices)
         {
@@ -423,15 +423,15 @@ namespace NEONnoir
 
         // Write the bytecode "header
         neonpack.write(bytecode_header, 4);
-        write(neonpack, to<uint32_t>(result.bytecode.size()));
+        write(neonpack, to<u32>(result.bytecode.size()));
         for (auto const& code : result.bytecode)
         {
-            write(neonpack, to<uint16_t>(code));
+            write(neonpack, to<u16>(code));
         }
 
         // Write the shapes header
         neonpack.write(shapes_header, 4);
-        write(neonpack, to<uint32_t>(pak.shapes.size()));
+        write(neonpack, to<u32>(pak.shapes.size()));
 
         for (auto const& shape : pak.shapes)
         {
@@ -441,7 +441,7 @@ namespace NEONnoir
 
         // Write palettes header
         neonpack.write(palettes_header, 4);
-        write(neonpack, to<uint32_t>(pak.palettes.size()));
+        write(neonpack, to<u32>(pak.palettes.size()));
 
         for (auto& palette : pak.palettes)
         {
@@ -456,7 +456,7 @@ namespace NEONnoir
         
         // Write palettes header
         neonpack.write(ui_palette_header, 4);
-        write(neonpack, to<uint32_t>(data->ui_palette.size()));
+        write(neonpack, to<u32>(data->ui_palette.size()));
         for (auto& entry : data->ui_palette)
         {
             neonpack.write(force_to<char*>(&entry.r), 1);
@@ -467,7 +467,7 @@ namespace NEONnoir
 
         // Write speakers header
         neonpack.write(speakers_header, 4);
-        write(neonpack, to<uint32_t>(data->speakers.size()));
+        write(neonpack, to<u32>(data->speakers.size()));
 
         // Write speaker offset and sizes
         auto offset = 0u;
@@ -477,7 +477,7 @@ namespace NEONnoir
             write(neonpack, offset);
 
             // Write size
-            auto const size = to<uint32_t>(speaker.get_size());
+            auto const size = to<u32>(speaker.get_size());
             write(neonpack, size);
 
             offset += size;
@@ -535,37 +535,37 @@ namespace NEONnoir
 
         // Write the string table "header"
         locpack.write(string_header, 4);
-        write(locpack, to<uint32_t>(string_table.size()));
+        write(locpack, to<u32>(string_table.size()));
 
         auto string_size = 0u;
         for (auto const& entry : string_table)
         {
-            string_size += to<uint32_t>(entry.size());
+            string_size += to<u32>(entry.size());
             string_size += 4;
         }
         write(locpack, string_size);
 
         for (auto const& entry : string_table)
         {
-            write(locpack, to<uint32_t>(entry.size()));
+            write(locpack, to<u32>(entry.size()));
             locpack.write(entry.data(), entry.size());
         }
 
         // Write words header
         locpack.write(words_header, 4);
-        write(locpack, to<uint32_t>(words_table.size()));
+        write(locpack, to<u32>(words_table.size()));
 
         auto words_size = 0u;
         for (auto const& entry : words_table)
         {
             words_size += 4; // size of word list
-            words_size += to<uint32_t>(entry.words.size() * sizeof(neon_word));
+            words_size += to<u32>(entry.words.size() * sizeof(neon_word));
         }
         write(locpack, words_size);
 
         for (auto const& entry : words_table)
         {
-            write(locpack, to<uint32_t>(entry.words.size()));
+            write(locpack, to<u32>(entry.words.size()));
             for (auto const& word : entry.words)
             {
                 write(locpack, word.start_idx);

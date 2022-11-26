@@ -14,13 +14,13 @@
 
 Function .b dg_is_page_enabled{pid.w, page_ptr.l}
   SHARED NS_flags(), NS_page_flags()
-  DEFTYPE .DG_page *pag
+  DEFTYPE .DG_page *cur_page
   DEFTYPE .b enabled
-  *pag = page_ptr
+  *cur_page = page_ptr
 
   enabled = NS_page_flags(pid)
-  If *pag\check_flag <> -1
-    enabled = enabled AND NS_flags(*pag\check_flag)
+  If *cur_page\check_flag <> -1
+    enabled = enabled AND NS_flags(*cur_page\check_flag)
   End If
 
   Function Return enabled
@@ -40,6 +40,17 @@ Function .b dg_is_choice_enabled{cid.w, choice_ptr.l}
   Function Return enabled
 End Function
 
+Statement dg_update_page{pid.w, page_ptr.l}
+  SHARED NS_flags(), NS_page_flags()
+  DEFTYPE .DG_page *cur_page
+  DEFTYPE .b enabled
+  *cur_page = page_ptr
+
+  If *cur_page\self_disable = True Then NS_page_flags(pid) = False
+  If *cur_page\set_flag <> -1 Then NS_flags(*cur_page\set_flag) = True
+  If *cur_page\clear_flag <> -1 Then NS_flags(*cur_page\clear_flag) = False
+End Statement
+
 Statement DG_show_dialog{id.w}
   !DB_trace{"DG", "DG_show_dialog:" + Str$(id)}
   SHARED DG_dialogue_is_active, NS_script_queue
@@ -50,7 +61,7 @@ Statement DG_show_dialog{id.w}
   DEFTYPE .DG_dialogue *current
   DEFTYPE .DG_page *cur_page
   DEFTYPE .b displayed, lmb 
-  DEFTYPE .w pointer_id, page_id
+  DEFTYPE .w pointer_id, page_id, current_speaker
 
 ; We won't have more than 8 choices, right?
   Dim rects.NN_screen_rect(8) 
@@ -60,10 +71,7 @@ Statement DG_show_dialog{id.w}
 
   displayed = False
   pointer_id = 0
-
-  If *current\speaker_image > -1
-    SH_draw_portrait{*current\speaker_image, 4, 4}
-  End If
+  current_speaker = -1
 
   DG_dialogue_is_active = True
   While DG_dialogue_is_active
@@ -79,86 +87,102 @@ Statement DG_show_dialog{id.w}
         displayed = False
       End If
     Until page_id <> -1
-
+    
     If page_id <> -1
       *cur_page = !__get_page{page_id}
-      ; Display the dialog page
-      If displayed = False
+
+      ; Check to see if this page is a page of dialog or a page of exposition
+      ; Expository pages have no speaker and no choices.
+      If *cur_page\speaker_id = -1 AND *cur_page\first_choice_id = -1
         UnBuffer 0
-        DEFTYPE .TX_context ctx
-        TX_begin{&ctx, True}
+        UnBuffer #BF_faces
+        current_speaker = -1
+        TX_draw_text_wrapped{!__get_string{*cur_page\text_id}, 32, #NN_half_screen_width , #NN_screen_height, True}
+        dg_update_page{page_id, *cur_page}
+        page_id = *cur_page\page_id
+      Else
+        ; Display the dialog page
+        If displayed = False
+          ; New page. Display the speaker if there is one or it's different than
+          ; the one currently shown
+          If *cur_page\speaker_id > -1 AND current_speaker <> *cur_page\speaker_id
+            UnBuffer #BF_faces
+            VWait
+            current_speaker = *cur_page\speaker_id 
+            SH_draw_portrait{current_speaker, 4, 4}
+          End If
 
-        DEFTYPE .l size
-        BlitMode InvMode
-        size = TX_put_text{&ctx, *cur_page\text_id, #DG_width}
-        BlitMode CookieMode
+          ; Clear the text and begin writing the new page
+          UnBuffer 0
+          DEFTYPE .TX_context ctx
+          TX_begin{&ctx, True}
 
-        If *cur_page\first_choice_id <> -1
-          DEFTYPE .DG_choice *choice
-          DEFTYPE .w cwidth, cheight, choice_id
+          DEFTYPE .l size
+          BlitMode InvMode
+          size = TX_put_text{&ctx, *cur_page\text_id, #DG_width}
+          BlitMode CookieMode
 
-          For c = 0 To *cur_page\choice_count - 1
-            choice_id = *cur_page\first_choice_id + c
-            *choice = !__get_choice{choice_id}
+          If *cur_page\first_choice_id <> -1
+            DEFTYPE .DG_choice *choice
+            DEFTYPE .w cwidth, cheight, choice_id
 
-            If dg_is_choice_enabled{choice_id, *choice}
-              ctx\y_position + 1
-              rects(c)\x0 = #DG_x_padding
-              rects(c)\y0 = (ctx\y_position + 1) * #TX_font_height + #DG_y_padding
+            For c = 0 To *cur_page\choice_count - 1
+              choice_id = *cur_page\first_choice_id + c
+              *choice = !__get_choice{choice_id}
 
-              size = TX_put_text{&ctx, *choice\text_id, #DG_width}
+              If dg_is_choice_enabled{choice_id, *choice}
+                ctx\y_position + 1
+                rects(c)\x0 = #DG_x_padding
+                rects(c)\y0 = (ctx\y_position + 1) * #TX_font_height + #DG_y_padding
 
-              cwidth = !__get_size_width{size}
-              cheight = !__get_size_height{size}
-              rects(c)\x1 = rects(c)\x0 + (cwidth * #TX_font_width)
-              rects(c)\y1 = rects(c)\y0 + (cheight * #TX_font_height)
-            Else
-              rects(c)\x1 = -1
-              rects(c)\y1 = -1
-            End If 
-          Next
+                size = TX_put_text{&ctx, *choice\text_id, #DG_width}
+
+                cwidth = !__get_size_width{size}
+                cheight = !__get_size_height{size}
+                rects(c)\x1 = rects(c)\x0 + (cwidth * #TX_font_width)
+                rects(c)\y1 = rects(c)\y0 + (cheight * #TX_font_height)
+              Else
+                rects(c)\x1 = -1
+                rects(c)\y1 = -1
+              End If 
+            Next
+          End If
+
+          TX_end{&ctx, #DG_x_pos, #DG_y_padding, False}
+          displayed = True
         End If
 
-        TX_end{&ctx, #DG_x_pos, #DG_y_padding, False}
-        displayed = True
-      End If
+        ; Handle user interaction
+        If *cur_page\choice_count > 0
+          DEFTYPE .w selected, choice_id
+          DEFTYPE .DG_choice *choice
+          selected = IN_check_mouse{&rects(0), *cur_page\choice_count}
 
-      ; Handle user interaction
-      If *cur_page\choice_count > 0
-        DEFTYPE .w selected, choice_id
-        DEFTYPE .DG_choice *choice
-        selected = IN_check_mouse{&rects(0), *cur_page\choice_count}
+          If selected <> -1
+            choice_id = *cur_page\first_choice_id + selected
+            *choice = !__get_choice{choice_id}
+            pointer_id = #NN_pointer_interact - #NN_pointer_start
 
-        If selected <> -1
-          choice_id = *cur_page\first_choice_id + selected
-          *choice = !__get_choice{choice_id}
-          pointer_id = #NN_pointer_interact - #NN_pointer_start
+            If lmb = #IN_mouse_released
+              NS_script_queue = *choice\script_offset
+              displayed = False
 
-          If lmb = #IN_mouse_released
-            NS_script_queue = *choice\script_offset
-            displayed = False
+              If *choice\self_disable = True Then NS_choice_flags(choice_id) = False
+              If *choice\set_flag <> -1 Then NS_flags(*choice\set_flag) = True
+              If *choice\clear_flag <> -1 Then NS_flags(*choice\clear_flag) = False
 
-            If *choice\self_disable = True Then NS_choice_flags(choice_id) = False
-            If *choice\set_flag <> -1 Then NS_flags(*choice\set_flag) = True
-            If *choice\clear_flag <> -1 Then NS_flags(*choice\clear_flag) = False
-
-            If *cur_page\self_disable = True Then NS_page_flags(page_id) = False
-            If *cur_page\set_flag <> -1 Then NS_flags(*cur_page\set_flag) = True
-            If *cur_page\clear_flag <> -1 Then NS_flags(*cur_page\clear_flag) = False
-
-            page_id = *choice\page_id
+              dg_update_page{page_id, *cur_page}
+              page_id = *choice\page_id
+            End If
+          Else
+            pointer_id = #NN_pointer_default - #NN_pointer_start
           End If
         Else
-          pointer_id = #NN_pointer_default - #NN_pointer_start
-        End If
-      Else
-        If lmb = #IN_mouse_released
-          displayed = False
-
-          If *cur_page\self_disable = True Then NS_page_flags(page_id) = False
-          If *cur_page\set_flag <> -1 Then NS_flags(*cur_page\set_flag) = True
-          If *cur_page\clear_flag <> -1 Then NS_flags(*cur_page\clear_flag) = False
-          page_id = *cur_page\page_id
+          If lmb = #IN_mouse_released
+            displayed = False
+            dg_update_page{page_id, *cur_page}
+            page_id = *cur_page\page_id
+          End If
         End If
       End If
     End If

@@ -26,8 +26,8 @@ namespace NEONnoir
         struct settings
         {
             std::string title;
-            int32_t width{ 1600 };
-            int32_t height{ 900 };
+            i32 width{ 1600 };
+            i32 height{ 900 };
         };
 
     public:

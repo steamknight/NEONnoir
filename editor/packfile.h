@@ -19,14 +19,14 @@ namespace NEONnoir
 #pragma pack(push, 1)
     struct neon_header
     {
-        uint8_t magic[4]{ 'N', 'E', 'O', 'N' };
-        uint16_t major_version{ 1 };
-        uint16_t minor_version{ 0 };
+        u8 magic[4]{ 'N', 'E', 'O', 'N' };
+        u16 major_version{ 1 };
+        u16 minor_version{ 0 };
     };
 
     struct neon_string
     {
-        uint16_t size{ 0 };
+        u16 size{ 0 };
 
         // Array of chars
     };
@@ -35,96 +35,96 @@ namespace NEONnoir
     struct neon_locations_header
     {
         char name[4] = { 'L', 'O', 'C', 'S' };
-        uint16_t dialogue_count;
+        u16 dialogue_count;
     };
 
     struct neon_location
     {
-        uint16_t name_id{ 0xFFFF };
+        u16 name_id{ 0xFFFF };
 
-        uint16_t first_bg_id{ 0xFFFF };
-        uint16_t last_bg_id{ 0xFFFF };
+        u16 first_bg_id{ 0xFFFF };
+        u16 last_bg_id{ 0xFFFF };
 
-        uint16_t first_scene_id{ 0xFFFF };
-        uint16_t last_scene_id{ 0xFFFF };
+        u16 first_scene_id{ 0xFFFF };
+        u16 last_scene_id{ 0xFFFF };
 
-        uint16_t first_shape_id{ 0xFFFF };
-        uint16_t last_shape_id{ 0xFFFF };
-        uint16_t shapes_file{ 0xFFFF };
+        u16 first_shape_id{ 0xFFFF };
+        u16 last_shape_id{ 0xFFFF };
+        u16 shapes_file{ 0xFFFF };
 
-        uint16_t speakers[8]{ 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF };
+        u16 speakers[8]{ 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF };
     };
 
     constexpr char scenes_header[4] = { 'S', 'C', 'N', 'S' };
     struct neon_scenes_header
     {
         char name[4] = { 'S', 'C', 'N', 'S' };
-        uint16_t scene_count;
+        u16 scene_count;
     };
 
     struct neon_scene
     {
-        uint16_t name_id{ 0xFFFF };
-        uint16_t first_desc_id{ 0xFFFF };
-        uint16_t last_desc_id{ 0xFFFF };
-        uint16_t on_enter{ 0xFFFF };
-        uint16_t on_exit{ 0xFFFF };
-        uint16_t background_id{ 0xFFFF };
+        u16 name_id{ 0xFFFF };
+        u16 first_desc_id{ 0xFFFF };
+        u16 last_desc_id{ 0xFFFF };
+        u16 on_enter{ 0xFFFF };
+        u16 on_exit{ 0xFFFF };
+        u16 background_id{ 0xFFFF };
 
-        uint16_t first_region_id{ 0xFFFF };
-        uint16_t last_region_id{ 0xFFFF };
+        u16 first_region_id{ 0xFFFF };
+        u16 last_region_id{ 0xFFFF };
 
-        uint16_t music_id{ 0xFFFF };
+        u16 music_id{ 0xFFFF };
     };
 
     struct neon_regions_header
     {
         char name[4] = { 'R', 'G', 'N', 'S' };
-        uint16_t region_count{ 0xFFFF };
+        u16 region_count{ 0xFFFF };
     };
 
     constexpr char regions_header[4] = { 'R', 'G', 'N', 'S' };
     struct neon_region
     {
-        uint16_t x1, y1;
-        uint16_t x2, y2;
-        uint16_t pointer_id{ 0xFFFF };
-        uint16_t description_id{ 0xFFFF };
-        uint16_t goto_scene{ 0xFFFF };
-        uint16_t script_offset{ 0xFFFF };
+        u16 x1, y1;
+        u16 x2, y2;
+        u16 pointer_id{ 0xFFFF };
+        u16 description_id{ 0xFFFF };
+        u16 goto_scene{ 0xFFFF };
+        u16 script_offset{ 0xFFFF };
     };
 
     struct neon_dialogues_header
     {
         char name[4] = { 'D', 'L', 'G', 'S' };
-        uint16_t dialogue_count;
+        u16 dialogue_count;
     };
 
     constexpr char dialogues_header[4] = {'D', 'L', 'G', 'S'};
 
     struct neon_dialogue
     {
-        uint16_t first_page_id{ 0xFFFF };
-        uint16_t page_count{ 0xFFFF };
-        uint16_t speaker_id{ 0xFFFF };
+        u16 first_page_id{ 0xFFFF };
+        u16 page_count{ 0xFFFF };
     };
 
     constexpr char pages_header [4] = { 'P', 'A', 'G', 'E' };
     struct neon_pages_header
     {
         char name[4] = { 'P', 'A', 'G', 'E' };
-        uint16_t page_count;
+        u16 page_count;
     };
 
     struct neon_page
     {
-        uint16_t text_id{ 0xFFFF };
-        uint16_t set_flag{ 0xFFFF };
-        uint16_t clear_flag{ 0xFFFF };
-        uint16_t check_flag{ 0xFFFF };
-        uint16_t page_id{ 0xFFFF };
-        uint16_t first_choice_id{ 0xFFFF };
-        uint16_t choice_count{ 0xFFFF };
+        u16 speaker_id{ 0xFFFF };
+        u16 text_id{ 0xFFFF };
+        u16 set_flag{ 0xFFFF };
+        u16 clear_flag{ 0xFFFF };
+        u16 check_flag{ 0xFFFF };
+        u16 page_id{ 0xFFFF };
+        u16 first_choice_id{ 0xFFFF };
+        u16 choice_count{ 0xFFFF };
         char enabled{ -1 };
         char self_disable{ 0 };
     };
@@ -133,17 +133,17 @@ namespace NEONnoir
     struct neon_choices_header
     {
         char name[4] = { 'C', 'H', 'C', 'E' };
-        uint16_t choice_count;
+        u16 choice_count;
     };
 
     struct neon_choice
     {
-        uint16_t text_id;
-        uint16_t set_flag{ 0xFFFF };
-        uint16_t clear_flag{ 0xFFFF };
-        uint16_t check_flag{ 0xFFFF };
-        uint16_t page_id{ 0xFFFF };
-        uint16_t script_offset{ 0xFFFF };
+        u16 text_id;
+        u16 set_flag{ 0xFFFF };
+        u16 clear_flag{ 0xFFFF };
+        u16 check_flag{ 0xFFFF };
+        u16 page_id{ 0xFFFF };
+        u16 script_offset{ 0xFFFF };
         char enabled{ -1 };
         char self_disable{ 0 };
     };
@@ -151,7 +151,7 @@ namespace NEONnoir
     constexpr char string_header[4] = { 'S', 'T', 'R', 'G' };
     struct neon_string_table
     {
-        uint16_t string_count;
+        u16 string_count;
     };
 
     constexpr char bytecode_header[4] = { 'B', 'Y', 'T', 'E' };
@@ -159,21 +159,21 @@ namespace NEONnoir
     constexpr char words_header[4] = { 'W', 'O', 'R', 'D' };
     struct neon_word
     {
-        uint16_t start_idx{0xFFFF};
-        uint16_t end_idx{0xFFFF};
+        u16 start_idx{0xFFFF};
+        u16 end_idx{0xFFFF};
     };
 
     struct neon_word_list
     {
         std::vector<neon_word> words;
-        uint16_t word_count;
+        u16 word_count;
     };
 
     constexpr char shapes_header[4] = { 'S', 'H', 'P', 'E' };
     struct neon_shape
     {
-        uint16_t shape_id{ 0 };
-        uint16_t palette_id{ 0xFFFF };
+        u16 shape_id{ 0 };
+        u16 palette_id{ 0xFFFF };
     };
 
     constexpr char palettes_header[4] = { 'P', 'A', 'L', 'S' };
@@ -184,8 +184,8 @@ namespace NEONnoir
     struct loc_header
     {
         char const magic[4] = { 'N', 'O', 'I', 'R' };
-        uint16_t version{ 0 };
-        uint16_t language{ 0 };
+        u16 version{ 0 };
+        u16 language{ 0 };
     };
 #pragma pack(pop)
 

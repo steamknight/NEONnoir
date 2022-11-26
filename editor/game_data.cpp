@@ -78,6 +78,7 @@ namespace NEONnoir
 
     NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(
         dialogue_page,
+        speaker_id,
         text,
         set_flag,
         clear_flag,
@@ -92,7 +93,7 @@ namespace NEONnoir
     );
 
     NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(
-        dialogue, speaker_id, pages
+        dialogue, name, pages
     );
 
     NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(
@@ -107,9 +108,9 @@ namespace NEONnoir
         script_name
     );
 
-    void game_data::serialize(std::string const& filename)
+    void game_data::serialize(std::string const& file_path)
     {
-        auto savefile = std::ofstream{ filename, std::ios::trunc };
+        auto savefile = std::ofstream{ file_path, std::ios::trunc };
         if (savefile)
         {
             auto locs = json(locations);

@@ -35,6 +35,6 @@ namespace NEONnoir
         std::filesystem::path _filename{};
 
         bool _is_open{ true };
-        int32_t _export_bit_depth{ 5 };
+        i32 _export_bit_depth{ 5 };
     };
 }

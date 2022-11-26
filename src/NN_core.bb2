@@ -81,6 +81,7 @@ End NEWTYPE
 ; Dialogue Page
 ; -----------------------------------------------
 NEWTYPE .DG_page
+  speaker_id.w        ; shape id for the speaker's portrait
   text_id.w           ; index into string array, $FFFF if no text
   set_flag.w          ; set this flag on selection, $FFFF if none
   clear_flag.w        ; clear this flag on selection, $FFFF if none
@@ -97,8 +98,6 @@ End NEWTYPE
 NEWTYPE .DG_dialogue
   first_page_id.w     ; id of the first page of dialogue
   page_count.w        ; number of page in the dialogue
-  ;speaker_name.w      ; text id for the speaker's name
-  speaker_image.w     ; shape id for the speaker's portrait
 End NEWTYPE
 
 NEWTYPE .NN_word

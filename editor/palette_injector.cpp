@@ -162,10 +162,10 @@ namespace NEONnoir
             _dest_image.pixel_data.cbegin(),
             _dest_image.pixel_data.cend(),
             _dest_image.pixel_data.begin(),
-            [this](uint8_t pixel)
+            [this](u8 pixel)
             {
                 auto new_pixel = std::min(pixel + _inject_color_count, 255);
-                return static_cast<uint8_t>(new_pixel);
+                return to<u8>(new_pixel);
             }
         );
 

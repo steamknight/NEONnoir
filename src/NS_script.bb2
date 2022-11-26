@@ -78,7 +78,7 @@ Statement NS_execute_script{script_offset.l}
   SHARED *NN_string_table, ns_text_context
   ; Get the referenced script
   If script_offset > NS_script_data_size
-    NPrint "Script offset", script_offset, " out of bounds";
+    !DB_printf {"ERROR: Script offset $%X out of bounds. Size $%X", script_offset, NS_script_data_size};
     Statement Return
   End If
 

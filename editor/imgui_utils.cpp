@@ -1,6 +1,7 @@
 #include "imgui_utils.h"
 #include "IconsMaterialDesign.h"
 #include <format>
+#include "types.h"
 
 namespace NEONnoir
 {
@@ -19,9 +20,13 @@ namespace NEONnoir
         return ImVec2(lhs.x * scalar, lhs.y * scalar);
     }
 
+    // This is meant to truncate
     ImVec2 operator*(ImVec2 const& lhs, int scalar) noexcept
     {
-        return ImVec2((int)lhs.x * scalar, (int)lhs.y * scalar);
+        return ImVec2(
+            to<float>(to<int>(lhs.x) * scalar), 
+            to<float>(to<int>(lhs.y) * scalar)
+        );
     }
 
     ImVec2 operator/(ImVec2 const& lhs, float scalar) noexcept
@@ -29,9 +34,13 @@ namespace NEONnoir
         return ImVec2(lhs.x / scalar, lhs.y / scalar);
     }
 
+    // This is meant to truncate
     ImVec2 operator/(ImVec2 const& lhs, int scalar) noexcept
     {
-        return ImVec2((int)lhs.x / scalar, (int)lhs.y / scalar);
+        return ImVec2(
+            to<float>(to<int>(lhs.x) / scalar),
+            to<float>(to<int>(lhs.y) / scalar)
+        );
     }
 
     void HelpMarker(const char* desc)
@@ -108,5 +117,34 @@ namespace NEONnoir
             &ImGui::EndTable,
             ImGui::BeginTable(id.data(), columns_count, flags, outer_size, inner_width) 
         };
+    }
+
+    void imgui::combo_with_empty(std::vector<std::string> const& values, u16& selected_value)
+    {
+        // Sanity check in case something's been deleted
+        selected_value = (selected_value < values.size() - 1) ? selected_value : 0xFFFF;
+
+        selected_value++;
+        ImGui::PushID((void*)&selected_value);
+        if (ImGui::BeginCombo("##", values[selected_value].c_str()))
+        {
+            for (u16 n = 0; n < values.size(); n++)
+            {
+                auto const is_selected = selected_value == n;
+                if (ImGui::Selectable(values[n].c_str(), is_selected))
+                {
+                    selected_value = n;
+                }
+
+                if (is_selected)
+                {
+                    ImGui::SetItemDefaultFocus();
+                }
+            }
+            ImGui::EndCombo();
+        }
+        ImGui::PopID();
+
+        selected_value--;
     }
 }

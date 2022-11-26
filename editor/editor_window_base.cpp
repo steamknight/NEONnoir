@@ -35,7 +35,7 @@ namespace NEONnoir
         ImGui::TextColored({ 16.f / 255.f, 64.f / 255.f, 128.f / 255.f, 1.f }, text.data());
     }
 
-    void editor_window_base::display_combo_with_empty(std::string_view const& label, std::vector<std::string> const& values, uint16_t& selected_value)
+    void editor_window_base::display_combo_with_empty(std::string_view const& label, std::vector<std::string> const& values, u16& selected_value)
     {
         ImGui::TableNextRow();
 
@@ -53,7 +53,7 @@ namespace NEONnoir
         ImGui::PushID((void*)&selected_value);
         if (ImGui::BeginCombo("##", values[selected_value].c_str()))
         {
-            for (uint16_t n = 0; n < values.size(); n++)
+            for (u16 n = 0; n < values.size(); n++)
             {
                 auto const is_selected = selected_value == n;
                 if (ImGui::Selectable(values[n].c_str(), is_selected))

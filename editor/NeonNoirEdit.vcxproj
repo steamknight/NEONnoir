@@ -206,7 +206,6 @@
     <ClInclude Include="assembler.h" />
     <ClInclude Include="dialogue_editor.h" />
     <ClInclude Include="editor.h" />
-    <ClInclude Include="bmp_header.h" />
     <ClInclude Include="editor_window_base.h" />
     <ClInclude Include="game_data.h" />
     <ClInclude Include="glfw_utils.h" />
@@ -235,7 +234,7 @@
     <ClInclude Include="shape_editor_tool.h" />
     <ClInclude Include="simple_image.h" />
     <ClInclude Include="speaker_editor.h" />
-    <ClInclude Include="stb_image.h" />
+    <ClInclude Include="types.h" />
     <ClInclude Include="utils.h" />
   </ItemGroup>
   <ItemGroup>

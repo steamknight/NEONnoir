@@ -5,6 +5,7 @@
 
 #include <fstream>
 
+#include "types.h"
 #include "speaker_editor.h"
 #include "no_person.h"
 
@@ -114,7 +115,7 @@ namespace NEONnoir
 
     bool speaker_editor::display_speaker(speaker_info& speaker) noexcept
     {
-        auto const width = static_cast<float>(speaker.image_texture.width * _zoom);
+        auto const width = to<float>(speaker.image_texture.width * _zoom);
 
         ImGui::BeginGroup();
         ImGui::PushID((void*)&speaker);
@@ -153,7 +154,7 @@ namespace NEONnoir
         auto all_shapes = std::vector<MPG::simple_image>{};
         for (auto const& speaker : speakers)
         {
-            auto export_shape = MPG::crop_palette(speaker.image, to<uint8_t>(_bit_depth), 0);
+            auto export_shape = MPG::crop_palette(speaker.image, to<u8>(_bit_depth), 0);
             all_shapes.push_back(export_shape);
         }
 
@@ -165,7 +166,7 @@ namespace NEONnoir
         auto all_shapes = std::vector<MPG::blitz_shapes>{};
         for (auto const& speaker : speakers)
         {
-            auto cropped = MPG::crop_palette(speaker.image, to<uint8_t>(_bit_depth), 0);
+            auto cropped = MPG::crop_palette(speaker.image, to<u8>(_bit_depth), 0);
             auto shape = MPG::image_to_blitz_shapes(cropped);
 
             all_shapes.push_back(shape);
@@ -179,19 +180,19 @@ namespace NEONnoir
             char magic[] = { 'M', 'P', 'S', 'H' };
             impish_file.write(magic, 4);                            // Magic number
             write(impish_file, 1u);                                 // Version. Always 1 for now
-            write(impish_file, to<uint32_t>(speakers.size()));      // Number of shapes
-            offset += (sizeof(uint32_t) * 3);
+            write(impish_file, to<u32>(speakers.size()));      // Number of shapes
+            offset += (sizeof(u32) * 3);
 
             // Push the offset past where the manifest will go
-            // The manifest is 2 uint32_ts (offset and size) per entry
-            offset += (sizeof(uint32_t) * 2 * to<uint32_t>(speakers.size()));
+            // The manifest is 2 u32s (offset and size) per entry
+            offset += (sizeof(u32) * 2 * to<u32>(speakers.size()));
 
             // Write the manifest
             for (auto const& shape : all_shapes)
             {
                 write(impish_file, offset);
 
-                auto size = to<uint32_t>(shape.get_size());
+                auto size = to<u32>(shape.get_size());
                 write(impish_file, size);
 
                 offset += size;

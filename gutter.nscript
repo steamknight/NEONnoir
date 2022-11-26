@@ -1,12 +1,9 @@
 ; Setup all the global flags
 
 .FLAGS
-    has_found_body                  ; Have we found the body yet?
-    takeshi_backstory               ; Do we know what happened to Takeshi?
     glitch_first_time               ; Have we talked to Glitch yet?
     glitch_asked_about_danni
     glitch_accept_atm_quest
-    glitch_continue_atm_quest
     glitch_complete_atm_quest
     glitch_accept_ticket_quest
     glitch_continue_ticket_quest
@@ -35,7 +32,6 @@
     act3_started                    ; Set when act 3 starts
 
     knows_about_acid_nova_and_visser; Glitch has spied the two talking.
-    call_visser
     knows_411_first_bit
     knows_411_second_bit
     banned_from_alleycat
@@ -188,29 +184,13 @@
     dialogue_gladys_computer   12
     dialogue_crystal_laundry   13
     dialogue_visser_act1       14
-    dialogue_visser_ruse1      15
-    dialogue_acid_nova_ruse1   16
-    dialogue_visser_ruse2      17
-    dialogue_acid_nova_ruse2   18
-    dialogue_danni_intro1      19
-    dialogue_danni_intro2      20
-    dialogue_tank_banned       21
-    dialogue_tank_and_stay_out 22
-    dialogue_exposition1       23
-    dialogue_exposition2       24
-    dialogue_exposition3       25
-    dialogue_exposition4       26
-    dialogue_exposition5       27
-    dialogue_exposition6       28
-    dialogue_exposition7       29
-    dialogue_exposition8       30
-    dialogue_exposition9       31
-    dialogue_ransom1           32
-    dialogue_ransom2           33
-    dialogue_ransom3           34
-    dialogue_ransom4           35
-    dialogue_ransom5           36
-    dialogue_ransom6           37
+    dialogue_danni_intro       15
+    dialogue_tank_banned       16
+    dialogue_exposition        17
+    dialogue_exposition2       18
+    dialogue_ransom1           19
+    dialogue_ransom2           20
+
     dialogue_crystal_b19r      38
     dialogue_b19r_confront1    40 ; This is out of order on purpose
     dialogue_b19r_confront2    39
@@ -363,26 +343,12 @@
 
     alley_atm_description       "ATMs. Cash Machines. Cred Dispensers. Unarmed Bandits. Take your pick. These jackpots let your retrieve your credits... for a fee."
     alley_atm_quest_start       "Better deal with that tin man before I try anything. They're not the forgiving type."
-    alley_atm_quest_do1         "While the tin man looked away, I went through the motions of withdrawing credits and scanned Glitch's chip instead. Graphical anomalies multiplied on the screen like bacteria on a petri dish."
-    alley_atm_quest_do2         "Panic griped me as I tried to act natural, keenly aware of the guard standing nearby. As the screen became more corrupted, a bead of sweat dripped from my brow."
-    alley_atm_quest_do3         "Fortunately, the screen returned to normal just as quickly as it glitched. 'TRANSACTION COMPLETE' it happily chimed."
     alley_atm_quest_complete    "The deed's done, better not bring any more attention to it."
     alley_atm_security_desc     "Looks like this bank's hired security to babysit the jackpot. These tin men contracts are usually given to lowest bidders."
     alley_atm_security_done     "Better leave him to his brain drain duties."
 
     cant_leave_alley            "I can't leave just yet, not when I still don't have a lead."
     alley_subway_tweaker_desc   "His blue hair almost distracts from his facial cybernetics. Almost."
-
-    approached_by_crystal1      "I stepped out of the Alleycat no wiser than when I came in. My gut was telling me that Acid Nova was dirty and knew something, but then again, my gut's been saying a lot of things since that dumpster dive."
-    approached_by_crystal2      "As I stepped away from the neon bacchanalia, a woman approached me from the shadows with the practiced saunter of a predator. One look and I had to force myself not to blush brighter than her neon pink dress. Without hesitation, she hooked her arm on mine, and started walking down the alley."
-    approached_by_crystal3      "We headed for the subway and rode that steel serpent for a few stops until we arrived at our destination."
-
-    call_visser1                "I pull out my phone and dial the number for the man claiming to be Jacob Ashton."
-    call_visser2                "*RING RING*"
-    call_visser3                "Two rings and JV, whoever he really is, picks up the phone."
-
-    tank_shove1                 "Mustering more bravado than was prudent, I attempted to shove the bouncer aside and quickly came to understand why they call him 'Tank'."
-    tank_shove2                 "With the force that a only man born to be a living door might possess, Tank unceremoniously shoves me onto the alleyway floor."
 
 ; Location: Danni's apartment
 ; ==============================================================================
@@ -457,8 +423,6 @@
 
 ; Location: SegF4ult's Place
 ; ==============================================================================
-    seg_place_desc1             "The safehouse was in the Gutter, not too far away from the Alleycat, in fact. I suppose she was hiding in plain sight."
-    seg_place_desc2             "The glow from countless computer screens washed over us as I regarded my hosts. Danni Ashton looked just like her photo. She was standing near her friend, a bearded man wearing a shirt that must have some significance to middle-aged nerds. He called himself..."
     danni_story1                "... my client had just thrown a large party and he wanted me to be the eye-candy hanging off of his arm."
     danni_story2                "After people left, we retired to his bedroom to... rest."
     danni_story3                "Before we could get down to business, he got a call. I don't know what it was about, but he sounded anxious and left the room."
@@ -466,8 +430,6 @@
     danni_story5                "But it wasn't Coral and I started convulsing."
     danni_story6                "The next thing I know, I wake up naked in a dumpster. That drek must have thought I died and threw me in the garbage."
     danni_story7                "The data I thought was Coral was still in my head. I didn't know what it contained but I knew I wasn't supposed to have it."
-    visser_plot1                "*RING RING*"
-    visser_plot2                "It was Johan Visser!"
     visser_hung_up              "He hung up."
 
 ; Location: B19 Revisit
@@ -523,34 +485,10 @@
     xancon_desc5                "Xander Vane, trying to squeeze every single credit from those who have none."
     xancon_desc6                "Like Icarus before him, he's flying too close to the sun and it's time for him to fall."
 
-    xancon_desc7                "The crowd erupts in raucous applause."
-    xancon_desc8                "More applause from the crowd."
-
     xancon_desc9                "The screen behind Xander flickers and the contents is replaced with video clips and audio logs playing in quick succession."
-    xancon_desc10               "The crowd begins to roar, confused -- is this a joke?"
-    xancon_desc11               "But as horror creeps on Xander's face, they realize this all too real."
-    xancon_desc12               "Xander looks into the crowd, and with almost supernatural precision, his eyes lock onto Danni's."
-    xancon_desc13               "Like a salmon swimming upstream, Xander pushes his way through the crowd as he makes his way to us in a blinding rage."
-
-    xancon_danni1               "Danni punches him in the face."
-    xancon_danni2               "As Xander reels from the hit, she knees him in the groin."
-    xancon_danni3               "He double over, she kicks him in the face as he lands on his ass."
-    xancon_desc14               "Mid sentence, three men dressed in black, wearing sunglasses and earpieces appear behind Xander."
-    xancon_desc15               "Exhibiting a gross misunderstanding of the situation, Xander orders them to arrest us."
-
-    xancon_desc16               "Xander struggles and attempts to make a run for it to no avail."
-    xancon_desc17               "Almost bored, the lead man in black jabs Xander with something and he goes limp."
-    xancon_desc18               "Just as quickly as they arrived, they left."
-    xancon_desc19               "It was now time for us make our exit."
 
 ; Location: End
 ; ==============================================================================
-    end1                        "In the days that followed, Cygnus Holdings publicly denounced Xantech Cybernetics' actions and took control of the company."
-    end2                        "Nobody had seen or heard from Xander Vane since."
-    end3                        "Things were beginning to go back to normal, or whatever passes for normal around here."
-
-    end4                        "To my surprise, there was a knock at the door."
-
     end5                        "The End."
 
     credits_mass1               "Programming and Story"
@@ -926,17 +864,6 @@
         load !glitch_accept_atm_quest
         jiff @not_started
         dlg #dialogue_alley_tinman
-
-        load !glitch_continue_atm_quest
-        jift @passed_guard
-        end
-
-    @passed_guard
-        text $alley_atm_quest_do1
-        text $alley_atm_quest_do2
-        text $alley_atm_quest_do3
-        set
-        store !glitch_complete_atm_quest
         end
 
     @not_started
@@ -986,22 +913,10 @@
         
         load !acid_nova_denies_danni
         jiff @done
-        text $approached_by_crystal1
-        text $approached_by_crystal2
         dlg #dialogue_crystal_alley
-        text $approached_by_crystal3
-        set
-        store !knows_about_danni_house
         goloc #location_danni_apartment #scene_danni_interior
 
     @done
-        end
-
-.SCRIPT tank_shove
-        text $tank_shove1
-        text $tank_shove2
-
-        dlg #dialogue_tank_and_stay_out
         end
 
 ; ALLEYCAT
@@ -1013,21 +928,6 @@
 
 .SCRIPT dialogue_acid_nova
         dlg #dialogue_acid_nova
-
-        ; Have we just called Visser in the middle of the conversation?
-        load !call_visser
-        jiff @done
-        text $call_visser1
-        text $call_visser2
-        text $call_visser3
-
-        dlg #dialogue_visser_ruse1
-        dlg #dialogue_acid_nova_ruse1
-        dlg #dialogue_visser_ruse2
-        dlg #dialogue_acid_nova_ruse2
-
-        set
-        store !banned_from_alleycat
 
     @done
         end
@@ -1115,8 +1015,7 @@
         text $get_call_from_danni3
 
         text $get_call_from_danni2
-        dlg #dialogue_danni_intro1
-        dlg #dialogue_danni_intro2
+        dlg #dialogue_danni_intro
         goto #scene_fade_to_black
     @done
         end
@@ -1391,12 +1290,8 @@
         jift @done
         set
         store !segs_place_been_here
-        
-        text $seg_place_desc1
-        text $seg_place_desc2
 
         dlg #dialogue_exposition1
-        dlg #dialogue_exposition2
 
         setbg #scene_danni1
         text $danni_story1
@@ -1413,31 +1308,13 @@
 
         setbg #scene_seg_place
 
-        dlg #dialogue_exposition3
-        dlg #dialogue_exposition4
-        dlg #dialogue_exposition5
-        dlg #dialogue_exposition6
-        dlg #dialogue_exposition7
-        dlg #dialogue_exposition8
-        dlg #dialogue_exposition9
+        dlg #dialogue_exposition2
 
         mod $mod_intrigue 0
         setbg #scene_seg_blank
-
-        text $visser_plot1
-        text $visser_plot2
-
-
         dlg #dialogue_ransom1
-        dlg #dialogue_ransom2
-        dlg #dialogue_ransom3
-        dlg #dialogue_ransom4
-        dlg #dialogue_ransom5
 
         setbg #scene_seg_place
-
-        text $visser_hung_up
-
         dlg #dialogue_ransom6
 
         goloc #location_b19_revisit #scene_b19r_cutscene
@@ -1630,11 +1507,6 @@
 
 .SCRIPT on_enter_xancon_cut2
         dlg #dialogue_xander_cut1
-        text $xancon_desc7
-        dlg #dialogue_xander_cut2
-        text $xancon_desc8
-        dlg #dialogue_xander_cut3
-        dlg #dialogue_xander_cut4
 
         goto #scene_xancon_cut3
         end
@@ -1642,59 +1514,23 @@
 .SCRIPT on_enter_xancon_cut3
         text $xancon_desc9
         dlg #dialogue_xander_cut5
-        text $xancon_desc10
-        text $xancon_desc11
-        dlg #dialogue_xander_cut6
-        text $xancon_desc12
-        dlg #dialogue_xander_cut7
-        text $xancon_desc13
 
 ;        goto #scene_xancon_cut4
 ;        end
 
 ;.SCRIPT on_enter_xancon_cut4
         dlg #dialogue_xander_cut8
-        dlg #dialogue_xander_cut9
-        text $xancon_danni1
-        dlg #dialogue_xander_cut10
-        text $xancon_danni2
-        dlg #dialogue_xander_cut11
-        text $xancon_danni3
-        dlg #dialogue_xander_cut12
 
-        dlg #dialogue_xander_cut13
-
-        text $xancon_desc14
-        text $xancon_desc15
-
-        dlg #dialogue_xander_cut14
         goto #scene_xancon_cut5
 
 .SCRIPT on_enter_xancon_cut5
-        text $xancon_desc16
-        text $xancon_desc17
-        text $xancon_desc18
-
         dlg #dialogue_xander_cut15
-        dlg #dialogue_xander_cut16
-        text $xancon_desc19
 
         goloc #location_end #scene_end
         end
 
 .SCRIPT on_enter_end
-        text $end1
-        text $end2
-        text $end3
         dlg #dialogue_end1
-        dlg #dialogue_end2
-
-        text $end4
-        dlg #dialogue_end3
-        dlg #dialogue_end4
-        dlg #dialogue_end5
-        dlg #dialogue_end6
-        dlg #dialogue_end7
 
         setbg #scene_end2
         txtstart #frame_off
@@ -1740,9 +1576,4 @@
 
         goloc #location_title #scene_title
         end
-
-
-
-
-
-
+        

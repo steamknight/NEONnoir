@@ -41,7 +41,7 @@ namespace NEONnoir
     {
         // For the header name, we don't want the name to have any part in the
         // generation of the id since it can change and mess everything up
-        auto id = std::to_string(reinterpret_cast<uint64_t>(&location));
+        auto id = std::to_string(force_to<u64>(&location));
         if (!ImGui::CollapsingHeader(std::format("{}###Location{}", location.name, id).c_str()))
             return;
 
@@ -104,7 +104,7 @@ namespace NEONnoir
 
             // List backgrounds
             // Not using range-for because we need an index
-            int32_t remove_index = -1;
+            i32 remove_index = -1;
             for (auto idx = 0; idx < backgrounds.size(); idx++)
             {
                 auto& bg = backgrounds[idx];
@@ -155,7 +155,7 @@ namespace NEONnoir
 
         // List scenes
         // Not using range-for because we need an index
-        int32_t remove_index = -1;
+        i32 remove_index = -1;
         for (auto idx = 0; idx < scenes.size(); idx++)
         {
             auto& scene = scenes[idx];
@@ -212,7 +212,7 @@ namespace NEONnoir
                 ImGui::SetNextItemWidth(width);
                 if (ImGui::BeginCombo("##", values[selected_value].c_str()))
                 {
-                    for (uint16_t n = 0; n < values.size(); n++)
+                    for (u16 n = 0; n < values.size(); n++)
                     {
                         auto const is_selected = selected_value == n;
                         if (ImGui::Selectable(values[n].c_str(), is_selected))

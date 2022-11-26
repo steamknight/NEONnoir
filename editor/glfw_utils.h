@@ -6,6 +6,7 @@
 #include <exception>
 #include <memory>
 #include "simple_image.h"
+#include "types.h"
 
 namespace NEONnoir
 {
@@ -59,12 +60,11 @@ namespace NEONnoir
     struct GLtexture
     {
         GLuint texture_id{};
-        int32_t width{};
-        int32_t height{};
+        i32 width{};
+        i32 height{};
         operator void* () { return (void*)(intptr_t)texture_id; }
     };
 
-    GLtexture load_texture(std::string_view const& image_path);
     GLtexture load_texture(MPG::simple_image const& image);
     void free_texture(GLtexture& texture);
 }

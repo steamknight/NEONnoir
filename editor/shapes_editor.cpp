@@ -58,7 +58,7 @@ namespace NEONnoir
         MPG::save_blitz_shapes(shapes_file_path, all_shapes);
     }
 
-    void shapes_editor::display_editor(game_data_location& location, int32_t shape_start_id)
+    void shapes_editor::display_editor(game_data_location& location, i32 shape_start_id)
     {
         ImGui::Text("Shapes for Location: %s", location.name.c_str());
 
@@ -120,7 +120,7 @@ namespace NEONnoir
                 {
                     for (auto i = 0; i < _selected_image; i++)
                     {
-                        shape_id += to<int32_t>(location.shapes[i].shapes.size());
+                        shape_id += to<i32>(location.shapes[i].shapes.size());
                     }
 
                     auto region_count = 0;
@@ -136,7 +136,7 @@ namespace NEONnoir
                             _shape_to_delete = region_count;
                         }
 
-                        uint16_t const step_size = 1;
+                        u16 const step_size = 1;
                         ImGui::SetNextItemWidth(item_width);
                         ImGui::InputScalar(std::format("##{}", (size_t)&shape.x).c_str(), ImGuiDataType_U16, &shape.x, &step_size, nullptr, "%u");
                         ImGui::SameLine();

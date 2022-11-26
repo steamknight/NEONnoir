@@ -23,6 +23,6 @@ namespace NEONnoir
         std::optional<GLtexture> _source_texture{ std::nullopt };
         std::optional<GLtexture> _dest_texture{ std::nullopt };
 
-        int32_t _export_bit_depth{ 0 };
+        i32 _export_bit_depth{ 0 };
     };
 }

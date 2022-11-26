@@ -42,7 +42,7 @@ namespace NEONnoir
 
         //glfwSetWindowContentScaleCallback(_window.get(), [](GLFWwindow* window, float /*xscale*/, float /*yscale*/)
         //    {
-        //        auto engine_ptr = reinterpret_cast<editor*>(glfwGetWindowUserPointer(window));
+        //        auto engine_ptr = force_to<editor*>(glfwGetWindowUserPointer(window));
         //        engine_ptr->load_fonts();
         //    });
 

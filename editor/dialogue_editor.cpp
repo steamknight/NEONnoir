@@ -3,12 +3,15 @@
 #include "imgui_utils.h"
 
 #include <format>
+#include <optional>
 
 #include "dialogue_editor.h"
 #include "utils.h"
 
 namespace NEONnoir
 {
+    using optional_index = std::optional<size_t>;
+
     void dialogue_editor::display_editor(std::shared_ptr<game_data> data)
     {
         // Add dialogue button
@@ -17,80 +20,116 @@ namespace NEONnoir
             data->dialogues.push_back({});
         }
 
-        //if (auto table = imgui::table("DialogueTable", 2, ImGuiTableFlags_BordersH | ImGuiTableFlags_SizingStretchProp | ImGuiTableFlags_Resizable))
-        //{
-            auto deletion_index = -1;
-            auto count = 0;
-            size_t page_count = 0;
+        auto merge_index = optional_index{ std::nullopt };
+        auto delete_index = optional_index{ std::nullopt };
+        auto count = 0;
+        size_t page_count = 0;
 
-            // Display all the dialogues
-            for (auto& dialogue : data->dialogues)
-            {
-                auto speaker_name = (dialogue.speaker_id != 0xFFFF)
-                    ? data->speakers[dialogue.speaker_id].name
-                    : "Unnamed";
-
-                if (ImGui::TreeNode(std::format(("Dialogue {}:{}###dialogue{}"), count, speaker_name, (size_t)&dialogue).c_str()))
-                {
-                    if (display_dialogue(dialogue, page_count, get_speaker_list(data->speakers)))
-                    {
-                        deletion_index = count;
-                    }
-
-                    ImGui::TreePop();
-                }
-
-                count++;
-                page_count += dialogue.pages.size();
-            }
-
-            if (deletion_index >= 0)
-            {
-                data->dialogues.erase(data->dialogues.begin() + deletion_index);
-            }
-        //}
-    }
-
-    bool dialogue_editor::display_dialogue(dialogue& dialogue, size_t page_start_id, std::vector<std::string> const& speakers)
-    {
-        //ImGui::TableNextRow();
-
-        auto request_deletion = display_dialogue_options(dialogue, speakers);
-
-        display_pages(dialogue, page_start_id);
-
-        return request_deletion;
-    }
-
-    bool dialogue_editor::display_dialogue_options(dialogue& dialogue, std::vector<std::string> const& speakers)
-    {
-        //ImGui::TableNextColumn();
-
-        auto request_deletion = false;
-
-        if (ImGui::BeginTable(std::format("DialogOptions##{}", (size_t)&dialogue).c_str(), 2, ImGuiTableFlags_SizingStretchProp))
+        // Display all the dialogues
+        for (auto& dialogue : data->dialogues)
         {
-            // Speaker
-            display_combo_with_empty("Speaker", speakers, dialogue.speaker_id);
-
-            ImGui::EndTable();
-
-            // Add Page
-            if (ImGui::Button(make_id(ICON_MD_ADD_COMMENT " Add Page##{}", dialogue), { 300, 0 }))
+            if(ImGui::CollapsingHeader(std::format(("{}: {}###dialogue{}"), count, dialogue.name, (size_t)&dialogue).c_str()))
             {
-                dialogue.pages.push_back({});
+                auto action = display_dialogue(dialogue, page_count, get_speaker_list(data->speakers));
+                if (action == dialogue_editor::dialogue_action_type::merge_down)
+                {
+                    merge_index = count;
+                }
+                else if (action == dialogue_editor::dialogue_action_type::delete_dialogue)
+                {
+                    delete_index = count;
+                }
             }
-            ImGui::SameLine();
 
-            // Delete
-            ImGui::SetNextItemWidth(-FLT_MIN);
-            if (DeleteButton(std::format("##DialogueDelete{}", (size_t)&dialogue), " Delete", {300, 0}))
-            {
-                request_deletion = true;
-            }
+            count++;
+            page_count += dialogue.pages.size();
         }
 
-        return request_deletion;
+        // Do nothing if it's the last one
+        if (merge_index && merge_index.value() < data->dialogues.size() - 1)
+        {
+            auto top_index = merge_index.value();
+            auto bottom_index = top_index + 1;
+            u16 last_page_index = to<u16>(data->dialogues[top_index].pages.size());
+
+            for (auto& page : data->dialogues[bottom_index].pages)
+            {
+                // Update the links between pages and choices
+                if (page.next_page_id != 0xFFFF) page.next_page_id += last_page_index;
+
+                for (auto& choice : page.choices)
+                {
+                    if (choice.next_page_id != 0xFFFF) choice.next_page_id += last_page_index;
+                }
+
+                data->dialogues[top_index].pages.push_back(page);
+            }
+
+            delete_index = bottom_index;
+        }
+
+        if (delete_index)
+        {
+            data->dialogues.erase(data->dialogues.begin() + delete_index.value());
+        }
+    }
+
+    dialogue_editor::dialogue_action_type dialogue_editor::display_dialogue(dialogue& dialogue, size_t page_start_id, std::vector<std::string> const& speakers)
+    {
+        auto request_action = display_dialogue_options(dialogue);
+
+        imgui::push_id(&dialogue);
+
+        display_pages(dialogue, page_start_id, speakers);
+
+        // Add Page
+        if (ImGui::Button(make_id(ICON_MD_ADD_COMMENT " Add Page##{}", dialogue), { 300, 0 }))
+        {
+            dialogue.pages.push_back({});
+        }
+
+        return request_action;
+    }
+
+    dialogue_editor::dialogue_action_type dialogue_editor::display_dialogue_options(dialogue& dialogue)
+    {
+        auto request_action = dialogue_editor::dialogue_action_type::none;
+
+        // Dialogue name
+        ImGui::AlignTextToFramePadding();
+        ImGui::TextUnformatted("Name:");
+        ImGui::SameLine();
+
+        ImGui::InputText(make_id("##{}", dialogue.name), &dialogue.name);
+        ImGui::SameLine();
+
+        if (dialogue.pages.size() > 0)
+        {
+            if (ImGui::Button(make_id(ICON_MD_PERSON "##default_speaker{}", dialogue)))
+            {
+                for (auto& page : dialogue.pages)
+                {
+                    page.speaker_id = dialogue.pages[0].speaker_id;
+                }
+            }
+            ToolTip("Set all speakers to the same value as Page 0");
+            ImGui::SameLine();
+        }
+
+        if (ImGui::Button(make_id(ICON_MD_ARROW_DOWNWARD "##merge_down{}", dialogue)))
+        {
+            request_action = dialogue_editor::dialogue_action_type::merge_down;
+            ToolTip("Merge this dialogue down");
+        }
+        ImGui::SameLine();
+
+        // Delete
+        if (DeleteButton(make_id("##DialogueDelete{}",dialogue)))
+        {
+            request_action = dialogue_editor::dialogue_action_type::delete_dialogue;
+        }
+
+        return request_action;
     }
 
     void dialogue_editor::input_text(std::string_view const& label, std::string& value)
@@ -109,38 +148,101 @@ namespace NEONnoir
         ImGui::InputTextMultiline(make_id("##{}", value), & value, size);
     }
 
-    void dialogue_editor::display_pages(dialogue& dialogue, size_t page_start_id)
+    void dialogue_editor::display_pages(dialogue& dialogue, size_t page_start_id, std::vector<std::string> const& speakers)
     {
         ImGui::TableNextColumn();
-        auto deletion_index = -1;
+        auto create_index = optional_index{ std::nullopt };
+        auto delete_index = optional_index{ std::nullopt };
+
         if (auto table = imgui::table(make_id("Pages", dialogue.pages), 1, ImGuiTableFlags_BordersInnerH))
         {
             auto count = 0;
             for (auto& page : dialogue.pages)
             {
-                if (!display_page(page, count, page_start_id))
+                auto action = display_page(page, count, page_start_id, speakers);
+                if (action == page_action_type::create_above)
                 {
-                    deletion_index = count;
+                    create_index = count;
+                }
+
+                if (action == page_action_type::delete_page)
+                {
+                    delete_index = count;
                 }
 
                 count++;
             }
         }
 
-        if (deletion_index >= 0)
+        if (create_index)
         {
-            dialogue.pages.erase(dialogue.pages.begin() + deletion_index);
+            auto const begin = dialogue.pages.begin() + create_index.value();
+            dialogue.pages.insert(begin, dialogue_page{});
+
+            // Need to refresh the iterator
+            auto const insert_begin = dialogue.pages.begin() + create_index.value() + 1;
+            std::for_each(insert_begin, dialogue.pages.end(), [](dialogue_page& page)
+                {
+                    if (page.next_page_id != 0xFFFF)
+                        page.next_page_id++;
+
+                    for (auto& choice : page.choices)
+                    {
+                        if (choice.next_page_id != 0xFFFF) choice.next_page_id += 1;
+                    }
+                });
+        }
+
+        if (delete_index)
+        {
+            dialogue.pages.erase(dialogue.pages.begin() + delete_index.value());
+
+            std::for_each(dialogue.pages.begin() + delete_index.value(), dialogue.pages.end(),
+                [](dialogue_page& page)
+                {
+                    if (page.next_page_id != 0xFFFF)
+                    {
+                        page.next_page_id--;
+                    }
+
+                    for (auto& choice : page.choices)
+                    {
+                        if (choice.next_page_id != 0xFFFF) choice.next_page_id -= 1;
+                    }
+                }
+            );
+            
         }
     }
 
-    bool dialogue_editor::display_page(dialogue_page& page, size_t count, size_t page_start_id)
+    dialogue_editor::page_action_type dialogue_editor::display_page(dialogue_page& page, size_t count, size_t page_start_id, std::vector<std::string> const& speakers)
     {
+        auto action = page_action_type::none;
+
         ImGui::TableNextRow();
         ImGui::TableNextColumn();
-        bool keep_page = true;
+
         if (auto table = imgui::table(make_id("##Page{}", page), 3, ImGuiTableFlags_SizingStretchProp))
         {
-            input_text(std::format("Page {}", count), page.text);
+            ImGui::TableNextRow();
+            ImGui::TableNextColumn();
+            ImGui::AlignTextToFramePadding();
+            ImGui::Text("Page %d", count);
+
+            ImGui::TableNextColumn();
+
+            ImGui::SetNextItemWidth(ImGui::CalcTextSize(speakers[0].c_str()).x * 1.5f);
+            imgui::combo_with_empty(speakers, page.speaker_id);
+            ImGui::SameLine();
+
+            ImGui::SetNextItemWidth(-FLT_MIN);
+
+            auto size = ImGui::CalcTextSize(page.text.c_str());
+            size.x = -FLT_MIN;
+            size.y += 8;
+            ImGui::InputTextMultiline(make_id("##{}", page.text), &page.text, size);
+
+            //input_text(std::format("Page {}", count), page.text);
             ToolTip(std::format("Page ID: {}", page_start_id + count).c_str());
             
             ImGui::TableNextColumn();
@@ -178,6 +280,22 @@ namespace NEONnoir
                 ImGui::InputText(make_id("##page_checkflag{}", page.check_flag), &page.check_flag);
                 if (!page.has_check_flag) ImGui::EndDisabled();
 
+                ImGui::Separator();
+
+                if (ImGui::Button(make_id(ICON_MD_PUBLISH "##create_new_page_above{}", page)))
+                {
+                    action = page_action_type::create_above;
+                }
+                ToolTip("Create a new page above this one.");
+
+                ImGui::SameLine();
+
+                if (DeleteButton(make_id("##DeleteButton{}", page), ""))
+                {
+                    action = page_action_type::delete_page;
+                }
+                ToolTip("Delete this page");
+
                 ImGui::EndPopup();
             }
 
@@ -189,24 +307,16 @@ namespace NEONnoir
             }
             ToolTip("Add a new choice");
 
-            ImGui::SameLine();
-
-            if (DeleteButton(make_id("##DeleteButton{}", page), ""))
-            {
-                keep_page = false;
-            }
-            ToolTip("Delete this page");
-
-            ImGui::SameLine(128);
+            ImGui::SameLine(96);
 
             // Set optional page goto
             ImGui::AlignTextToFramePadding();
             ImGui::TextUnformatted("Goto:");
             ImGui::SameLine();
-            auto v = static_cast<int>(page.next_page_id);
+            auto v = to<int>(page.next_page_id);
             ImGui::SetNextItemWidth(128);
-            ImGui::InputInt(std::format("##gotopage{}", (uint64_t)&v).c_str(), &v);
-            page.next_page_id = static_cast<uint16_t>(v);
+            ImGui::InputInt(std::format("##gotopage{}", (u64)&v).c_str(), &v);
+            page.next_page_id = to<u16>(v);
                 
             ImGui::TableNextRow();
             ImGui::TableNextColumn();
@@ -215,7 +325,7 @@ namespace NEONnoir
             display_choices(page);
         }
 
-        return keep_page;
+        return action;
     }
 
     void dialogue_editor::display_choices(dialogue_page& page)
@@ -306,16 +416,16 @@ namespace NEONnoir
         }
         ToolTip("Delete this choice");
 
-        ImGui::SameLine(128);
+        ImGui::SameLine(96);
 
         // Set optional page goto
         ImGui::AlignTextToFramePadding();
         ImGui::TextUnformatted("Goto:");
         ImGui::SameLine();
-        auto v = static_cast<int>(choice.next_page_id);
+        auto v = to<int>(choice.next_page_id);
         ImGui::SetNextItemWidth(128);
-        ImGui::InputInt(std::format("##gotopage{}", (uint64_t)&choice.next_page_id).c_str(), &v);
-        choice.next_page_id = static_cast<uint16_t>(v);
+        ImGui::InputInt(std::format("##gotopage{}", (u64)&choice.next_page_id).c_str(), &v);
+        choice.next_page_id = to<u16>(v);
 
         ImGui::TableNextColumn();
 

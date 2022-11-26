@@ -19,7 +19,7 @@ namespace NEONnoir
 
     }
 
-    void csv_to_lang_pack(std::filesystem::path const& csv_path)
+    void csv_to_lang_pack(std::filesystem::path const& /*csv_path*/)
     {
 
     }

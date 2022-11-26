@@ -12,48 +12,48 @@ namespace NEONnoir
         _opcodes = named_values<opcode_spec>
         {
             // Name           Opcode               Type1                   Type2                   Type3
-            { "noop",       { (int16_t)0x00,   {                                                                          }}},
-            { "clear",      { (int16_t)0x01,   {                                                                          }}},
-            { "set",        { (int16_t)0x02,   {                                                                          }}},
-            { "load",       { (int16_t)0x03,   {   ParamType::FLAG                                                        }}},
-            { "store",      { (int16_t)0x04,   {   ParamType::FLAG                                                        }}},
-            { "and" ,       { (int16_t)0x10,   {   ParamType::FLAG                                                        }}},
-            { "or",         { (int16_t)0x11,   {   ParamType::FLAG                                                        }}},
-            { "not",        { (int16_t)0x12,   {                                                                          }}},
-            { "jump",       { (int16_t)0x20,   {   ParamType::LABEL                                                       }}},
-            { "jift",       { (int16_t)0x21,   {   ParamType::LABEL                                                       }}},
-            { "jiff",       { (int16_t)0x22,   {   ParamType::LABEL                                                       }}},
-            { "end",        { (int16_t)0x2F,   {                                                                          }}},
-            { "setbg",      { (int16_t)0x30,   {   ParamType::CONST                                                       }}},
-            { "draw",       { (int16_t)0x40,   {   ParamType::CONST,       ParamType::NUMBER,      ParamType::NUMBER      }}},
-            { "dlg",        { (int16_t)0x50,   {   ParamType::CONST                                                       }}},
-            { "choff",      { (int16_t)0x51,   {   ParamType::CONST                                                       }}},
-            { "chon",       { (int16_t)0x52,   {   ParamType::CONST                                                       }}},
-            { "pageoff",    { (int16_t)0x53,   {   ParamType::CONST                                                       }}},
-            { "pageon",     { (int16_t)0x54,   {   ParamType::CONST                                                       }}},
-            { "dlgimg",     { (int16_t)0x55,   {   ParamType::CONST                                                       }}},
-            { "dlgname",    { (int16_t)0x5F,   {   ParamType::CONST                                                       }}},
-            { "dlgend",     { (int16_t)0x5F,   {                                                                          }}},
-            //{ "hasi",       { (int16_t)0x60,   {   ParamType::CONST                                                       }}},
-            //{ "addi",       { (int16_t)0x61,   {   ParamType::CONST                                                       }}},
-            //{ "remi",       { (int16_t)0x62,   {   ParamType::CONST                                                       }}},
-            { "mod",        { (int16_t)0x70,   {   ParamType::TEXT,        ParamType::NUMBER                              }}},
-            { "modpause",   { (int16_t)0x71,   {   ParamType::CONST                                                       }}},
-            { "modplay",    { (int16_t)0x72,   {   ParamType::CONST                                                       }}},
-            { "modkill",    { (int16_t)0x73,   {   ParamType::CONST                                                       }}},
-            { "goto",       { (int16_t)0x80,   {   ParamType::CONST                                                       }}},
-            { "map",        { (int16_t)0x81,   {                                                                          }}},
-            { "goloc",      { (int16_t)0x83,   {   ParamType::CONST,       ParamType::CONST                               }}},
-            { "mousewait",  { (int16_t)0x84,   {                                                                          }}},
-            { "loadgame",   { (int16_t)0x8C,   {                                                                          }}},
-            { "savegame",   { (int16_t)0x8D,   {                                                                          }}},
-            { "quit",       { (int16_t)0x8E,   {                                                                          }}},
-            { "gameover",   { (int16_t)0x8F,   {   ParamType::TEXT                                                        }}},
-            { "text",       { (int16_t)0x90,   {   ParamType::TEXT                                                        }}},
-            { "txtstart",   { (int16_t)0x91,   {   ParamType::CONST                                                       }}},
-            { "txtend",     { (int16_t)0x92,   {   ParamType::NUMBER,      ParamType::NUMBER,      ParamType::CONST       }}},
-            { "txtput",     { (int16_t)0x93,   {   ParamType::TEXT,        ParamType::NUMBER                              }}},
-            { "txtnl",      { (int16_t)0x94,   {                                                                          }}},
+            { "noop",       { (i16)0x00,   {                                                                          }}},
+            { "clear",      { (i16)0x01,   {                                                                          }}},
+            { "set",        { (i16)0x02,   {                                                                          }}},
+            { "load",       { (i16)0x03,   {   ParamType::FLAG                                                        }}},
+            { "store",      { (i16)0x04,   {   ParamType::FLAG                                                        }}},
+            { "and" ,       { (i16)0x10,   {   ParamType::FLAG                                                        }}},
+            { "or",         { (i16)0x11,   {   ParamType::FLAG                                                        }}},
+            { "not",        { (i16)0x12,   {                                                                          }}},
+            { "jump",       { (i16)0x20,   {   ParamType::LABEL                                                       }}},
+            { "jift",       { (i16)0x21,   {   ParamType::LABEL                                                       }}},
+            { "jiff",       { (i16)0x22,   {   ParamType::LABEL                                                       }}},
+            { "end",        { (i16)0x2F,   {                                                                          }}},
+            { "setbg",      { (i16)0x30,   {   ParamType::CONST                                                       }}},
+            { "draw",       { (i16)0x40,   {   ParamType::CONST,       ParamType::NUMBER,      ParamType::NUMBER      }}},
+            { "dlg",        { (i16)0x50,   {   ParamType::CONST                                                       }}},
+            { "choff",      { (i16)0x51,   {   ParamType::CONST                                                       }}},
+            { "chon",       { (i16)0x52,   {   ParamType::CONST                                                       }}},
+            { "pageoff",    { (i16)0x53,   {   ParamType::CONST                                                       }}},
+            { "pageon",     { (i16)0x54,   {   ParamType::CONST                                                       }}},
+            { "dlgimg",     { (i16)0x55,   {   ParamType::CONST                                                       }}},
+            { "dlgname",    { (i16)0x5F,   {   ParamType::CONST                                                       }}},
+            { "dlgend",     { (i16)0x5F,   {                                                                          }}},
+            //{ "hasi",       { (i16)0x60,   {   ParamType::CONST                                                       }}},
+            //{ "addi",       { (i16)0x61,   {   ParamType::CONST                                                       }}},
+            //{ "remi",       { (i16)0x62,   {   ParamType::CONST                                                       }}},
+            { "mod",        { (i16)0x70,   {   ParamType::TEXT,        ParamType::NUMBER                              }}},
+            { "modpause",   { (i16)0x71,   {   ParamType::CONST                                                       }}},
+            { "modplay",    { (i16)0x72,   {   ParamType::CONST                                                       }}},
+            { "modkill",    { (i16)0x73,   {   ParamType::CONST                                                       }}},
+            { "goto",       { (i16)0x80,   {   ParamType::CONST                                                       }}},
+            { "map",        { (i16)0x81,   {                                                                          }}},
+            { "goloc",      { (i16)0x83,   {   ParamType::CONST,       ParamType::CONST                               }}},
+            { "mousewait",  { (i16)0x84,   {                                                                          }}},
+            { "loadgame",   { (i16)0x8C,   {                                                                          }}},
+            { "savegame",   { (i16)0x8D,   {                                                                          }}},
+            { "quit",       { (i16)0x8E,   {                                                                          }}},
+            { "gameover",   { (i16)0x8F,   {   ParamType::TEXT                                                        }}},
+            { "text",       { (i16)0x90,   {   ParamType::TEXT                                                        }}},
+            { "txtstart",   { (i16)0x91,   {   ParamType::CONST                                                       }}},
+            { "txtend",     { (i16)0x92,   {   ParamType::NUMBER,      ParamType::NUMBER,      ParamType::CONST       }}},
+            { "txtput",     { (i16)0x93,   {   ParamType::TEXT,        ParamType::NUMBER                              }}},
+            { "txtnl",      { (i16)0x94,   {                                                                          }}},
         };
     }
 
@@ -124,7 +124,7 @@ namespace NEONnoir
                 throw assembler_error("Missing label: " + placeholder.name, 0);
             }
 
-            _bytecode[placeholder.index] = to<int32_t>(_labels[placeholder.name] - placeholder.index + 1);
+            _bytecode[placeholder.index] = to<i32>(_labels[placeholder.name] - placeholder.index + 1);
         }
     }
 
@@ -185,7 +185,7 @@ namespace NEONnoir
                     throw assembler_error("Duplicate flag definition", _scan_line);
                 }
 
-                _flags[name] = static_cast<int16_t>(_flags.size());
+                _flags[name] = to<i16>(_flags.size());
             }
             else if (is_at_end() || peek() == '.')
             {
@@ -224,7 +224,7 @@ namespace NEONnoir
 
                 skip_whitepace();
                 auto value = number();
-                _constants.insert({ name, {static_cast<int16_t>(_constants.size()), value} });
+                _constants.insert({ name, {to<i16>(_constants.size()), value} });
             }
             else if (is_at_end() || peek() == '.')
             {
@@ -263,7 +263,7 @@ namespace NEONnoir
 
                 skip_whitepace();
                 auto value = string_literal();
-                _strings.insert({ name, {static_cast<int16_t>(_strings.size()), value} });
+                _strings.insert({ name, {to<i16>(_strings.size()), value} });
             }
             else if (is_at_end() || peek() == '.')
             {
@@ -288,7 +288,7 @@ namespace NEONnoir
 
         // Get the name
         skip_whitepace();
-        auto this_script = script{ static_cast<int16_t>(_scripts.size()), static_cast<int16_t>(_bytecode.size()), 0 };
+        auto this_script = script{ to<i16>(_scripts.size()), to<i16>(_bytecode.size()), 0 };
         auto script_name = identifier();
 
         if (_scripts.count(script_name))
@@ -352,7 +352,7 @@ namespace NEONnoir
                         _placeholders.push_back({ _bytecode.size(), script_name + label });
 
                         // Place a temporary value
-                        _bytecode.push_back(static_cast<int32_t>(0x7FFF));
+                        _bytecode.push_back(to<i32>(0x7FFF));
 
                         break;
                     }
@@ -399,11 +399,11 @@ namespace NEONnoir
                     throw assembler_error("Duplicate label: @" + label, _scan_line);
                 }
 
-                _labels.insert({ qualified_label, to<int32_t>(_bytecode.size())});
+                _labels.insert({ qualified_label, to<i32>(_bytecode.size())});
             }
             else if (is_at_end() || peek() == '.')
             {
-                this_script.length = static_cast<int16_t>(_bytecode.size() - this_script.start);
+                this_script.length = to<i16>(_bytecode.size() - this_script.start);
                 _scripts.insert({ script_name, this_script });
                 return;
             }
@@ -423,7 +423,7 @@ namespace NEONnoir
         return _source.substr(_scan_start, _scan_current - _scan_start);
     }
 
-    int16_t assembler::number()
+    i16 assembler::number()
     {
         _scan_start = _scan_current;
         if (peek() == '-' || is_digit(peek()))
@@ -433,7 +433,7 @@ namespace NEONnoir
             advance();
 
         auto val = _source.substr(_scan_start, _scan_current - _scan_start);
-        return static_cast<int16_t>(std::stoi(val));
+        return to<i16>(std::stoi(val));
     }
 
     std::string assembler::string_literal()
@@ -518,7 +518,7 @@ namespace NEONnoir
         auto bytecode_file = std::ofstream(bytecode_filename, std::ios::binary);
         // header
         bytecode_file.write("NS01", 4);
-        auto num_scripts = to_big_endian(static_cast<int16_t>(_scripts.size()));
+        auto num_scripts = to_big_endian(to<i16>(_scripts.size()));
         bytecode_file.write((char*)&num_scripts, 2);
 
         for (auto kvp : _scripts)

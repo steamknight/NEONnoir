@@ -24,7 +24,7 @@ namespace NEONnoir
 
         void display_placeholder(std::string_view const& text = "No Game File");
 
-        void display_combo_with_empty(std::string_view const& label, std::vector<std::string> const& values, uint16_t& selected_value);
+        void display_combo_with_empty(std::string_view const& label, std::vector<std::string> const& values, u16& selected_value);
 
 
         std::vector<std::string>& get_speaker_list(std::vector<speaker_info> const& speakers);

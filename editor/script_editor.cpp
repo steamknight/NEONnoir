@@ -163,7 +163,7 @@ namespace NEONnoir
         catch (assembler_error& error)
         {
             auto error_markers = TextEditor::ErrorMarkers{};
-            error_markers[static_cast<int>(error.line_number)] = error.what();
+            error_markers[to<int>(error.line_number)] = error.what();
             _text_editor.SetErrorMarkers(error_markers);
             _has_error = true;
             _error_line = error.line_number;

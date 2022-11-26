@@ -110,7 +110,7 @@ namespace NEONnoir
 
         ImGui::TableNextColumn();
         ImGui::SetNextItemWidth(-FLT_MIN);
-        ImGui::InputText(std::format("##{}", (uint64_t)&value).c_str(), &value);
+        ImGui::InputText(std::format("##{}", (u64)&value).c_str(), &value);
     }
 
     void scene_editor::display_prop_multistring(std::string_view const& label, std::vector<std::string>& values)
@@ -131,14 +131,14 @@ namespace NEONnoir
 
         for (auto& value : values)
         {
-            ImGui::PushID(static_cast<void*>(&value));
+            ImGui::PushID(to<void*>(&value));
             ImGui::SetNextItemWidth(-FLT_MIN);
             ImGui::InputTextMultiline("##", &value, { 0, 60 });
             ImGui::PopID();
         }
     }
 
-    void scene_editor::display_prop_int(std::string_view const& label, uint16_t& value)
+    void scene_editor::display_prop_int(std::string_view const& label, u16& value)
     {
         ImGui::TableNextRow();
 
@@ -149,11 +149,11 @@ namespace NEONnoir
         ImGui::TableNextColumn();
         ImGui::SetNextItemWidth(-FLT_MIN);
         int v = value;
-        ImGui::InputInt(std::format("##{}", (uint64_t)&value).c_str(), &v);
-        value = static_cast<uint16_t>(v);
+        ImGui::InputInt(std::format("##{}", (u64)&value).c_str(), &v);
+        value = to<u16>(v);
     }
 
-    void scene_editor::display_prop_combo(std::string_view const& label, std::vector<std::string> const& values, uint16_t& selected_value)
+    void scene_editor::display_prop_combo(std::string_view const& label, std::vector<std::string> const& values, u16& selected_value)
     {
         ImGui::TableNextRow();
 
@@ -168,7 +168,7 @@ namespace NEONnoir
         ImGui::PushID((void*)&selected_value);
         if (ImGui::BeginCombo("##", values[selected_value].c_str()))
         {
-            for (int n = 0; n < values.size(); n++)
+            for (u16 n = 0; n < values.size(); n++)
             {
                 auto const is_selected = selected_value == n;
                 if (ImGui::Selectable(values[n].c_str(), is_selected))
@@ -188,7 +188,7 @@ namespace NEONnoir
         selected_value--;
     }
 
-    void scene_editor::display_prop_enum(std::string_view const& label, std::vector<std::string> const& values, uint16_t & selected_value)
+    void scene_editor::display_prop_enum(std::string_view const& label, std::vector<std::string> const& values, u16 & selected_value)
     {
         ImGui::TableNextRow();
 
@@ -199,7 +199,7 @@ namespace NEONnoir
         ImGui::TableNextColumn();
         ImGui::SetNextItemWidth(-FLT_MIN);
 
-        ImGui::SliderInt(std::format("##{}", (uint64_t)&selected_value).c_str(), (int*)&selected_value, 0, (int)(values.size() - 1), values[selected_value].c_str());
+        ImGui::SliderInt(std::format("##{}", (u64)&selected_value).c_str(), (int*)&selected_value, 0, (int)(values.size() - 1), values[selected_value].c_str());
     }
 
 
@@ -216,7 +216,7 @@ namespace NEONnoir
  
         if (ImGui::BeginCombo("##ScriptCombo", "[NONE]"))
         {
-            for (uint16_t index = 0; index < values.size(); index++)
+            for (u16 index = 0; index < values.size(); index++)
             {
                 auto const is_selected = values[index] == selected;
 
@@ -247,7 +247,7 @@ namespace NEONnoir
         auto bg_path = fs::path{ backgrounds[scene.image_id] };
         if (ImGui::BeginCombo("##BackgroundCombo", bg_path.stem().string().c_str()))
         {
-            for (uint16_t index = 0; index < backgrounds.size(); index++)
+            for (u16 index = 0; index < backgrounds.size(); index++)
             {
                 auto const is_selected = scene.image_id == index;
                 bg_path = fs::path{ backgrounds[index] };
@@ -301,7 +301,7 @@ namespace NEONnoir
 
                 ImGui::TableNextColumn(); ImGui::TableNextColumn();
                 ImGui::SetNextItemWidth(-FLT_MIN);
-                if (DeleteButton(std::format("{}", (uint64_t)&region).c_str(), " Delete"))
+                if (DeleteButton(std::format("{}", (u64)&region).c_str(), " Delete"))
                 {
                     region_to_delete = index;
                 }
@@ -324,15 +324,15 @@ namespace NEONnoir
         }
     }
 
-    void scene_editor::display_prop_region_scalar(std::string_view const& label, uint16_t& value)
+    void scene_editor::display_prop_region_scalar(std::string_view const& label, u16& value)
     {
         ImGui::TableNextColumn();
         ImGui::AlignTextToFramePadding();
         ImGui::TextUnformatted(label.data());
 
         ImGui::TableNextColumn();
-        size_t id = reinterpret_cast<size_t>(&value);
-        uint16_t const step_size = 1;
+        size_t id = force_to<size_t>(&value);
+        u16 const step_size = 1;
         ImGui::SetNextItemWidth(-FLT_MIN);
         ImGui::InputScalar(std::format("##{}", id).c_str(), ImGuiDataType_U16, &value, &step_size, nullptr, "%u");
     }
@@ -383,9 +383,9 @@ namespace NEONnoir
 
                 // Sort the points so we don't get wonky regions
                 auto region = game_data_region{
-                    static_cast<uint16_t>(p_min.x), static_cast<uint16_t>(p_min.y),
-                    static_cast<uint16_t>(size.x), static_cast<uint16_t>(size.y),
-                    USHRT_MAX, static_cast<uint16_t>(0), 0xFFFF, "", ""
+                    to<u16>(p_min.x), to<u16>(p_min.y),
+                    to<u16>(size.x), to<u16>(size.y),
+                    USHRT_MAX, to<u16>(0), 0xFFFF, "", ""
                 };
 
                 scene.regions.push_back(region);
@@ -405,8 +405,8 @@ namespace NEONnoir
         {
             auto const& region = scene.regions[index];
 
-            auto p0 = ImVec2{ static_cast<float>(region.x), static_cast<float>(region.y) } * _zoom + image_min;
-            auto p1 = ImVec2{ static_cast<float>(region.x + region.width), static_cast<float>(region.y + region.height) } * _zoom + image_min;
+            auto p0 = ImVec2{ to<float>(region.x), to<float>(region.y) } * _zoom + image_min;
+            auto p1 = ImVec2{ to<float>(region.x + region.width), to<float>(region.y + region.height) } * _zoom + image_min;
 
             if (_selected_region_index == index)
             {

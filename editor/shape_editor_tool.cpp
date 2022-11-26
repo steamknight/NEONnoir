@@ -76,7 +76,7 @@ namespace NEONnoir
                 {
                     for (auto i = 0; i < _selected_image; i++)
                     {
-                        shape_id += to<int32_t>(_shape_containers[i].shapes.size());
+                        shape_id += to<i32>(_shape_containers[i].shapes.size());
                     }
 
                     auto region_count = 0;
@@ -93,7 +93,7 @@ namespace NEONnoir
                             _shape_to_delete = region_count;
                         }
 
-                        uint16_t const step_size = 1;
+                        u16 const step_size = 1;
                         ImGui::SetNextItemWidth(item_width);
                         ImGui::InputScalar(std::format("##{}", (size_t)&shape.x).c_str(), ImGuiDataType_U16, &shape.x, &step_size, nullptr, "%u");
                         ImGui::SameLine();
@@ -183,7 +183,7 @@ namespace NEONnoir
             for (auto const& shape : shape_container.shapes)
             {
                 auto export_shape = MPG::crop(shape_container.image, shape.x, shape.y, shape.width, shape.height);
-                export_shape = MPG::crop_palette(export_shape, to<uint8_t>(_export_bit_depth), 0);
+                export_shape = MPG::crop_palette(export_shape, to<u8>(_export_bit_depth), 0);
                 all_shapes.push_back(export_shape);
             }
         }

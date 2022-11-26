@@ -52,7 +52,7 @@ void NEONnoir::image_viewer::display(GLtexture const& texture, std::vector<shape
     if (ImGui::Button(ICON_MD_CROP_SQUARE))
     {
         regions.push_back(shape{
-            0, 0, static_cast<uint16_t>(texture.width), static_cast<uint16_t>(texture.height)
+            0, 0, to<u16>(texture.width), to<u16>(texture.height)
             });
     }
     ToolTip("Select whole image");
@@ -111,10 +111,10 @@ void NEONnoir::image_viewer::display(GLtexture const& texture, std::vector<shape
                     {
                         regions.push_back(shape
                         { 
-                            static_cast<uint16_t>(x * _cell_width), 
-                            static_cast<uint16_t>(y * _cell_height),
-                            static_cast<uint16_t>(_cell_width), 
-                            static_cast<uint16_t>(_cell_height)
+                            to<u16>(x * _cell_width), 
+                            to<u16>(y * _cell_height),
+                            to<u16>(_cell_width), 
+                            to<u16>(_cell_height)
                         });
                     }
                 }
@@ -162,8 +162,8 @@ void NEONnoir::image_viewer::display(GLtexture const& texture, std::vector<shape
     {
         auto const& region = regions[index];
 
-        auto p0 = ImVec2{ static_cast<float>(region.x), static_cast<float>(region.y) } *_zoom + image_min;
-        auto p1 = ImVec2{ static_cast<float>(region.x + region.width), static_cast<float>(region.y + region.height) } *_zoom + image_min;
+        auto p0 = ImVec2{ to<float>(region.x), to<float>(region.y) } *_zoom + image_min;
+        auto p1 = ImVec2{ to<float>(region.x + region.width), to<float>(region.y + region.height) } *_zoom + image_min;
 
         if (_selected_region_index == index)
         {
@@ -207,8 +207,8 @@ void NEONnoir::image_viewer::display(GLtexture const& texture, std::vector<shape
 
             // Sort the points so we don't get wonky regions
             auto region = shape{
-                static_cast<uint16_t>(p_min.x), static_cast<uint16_t>(p_min.y),
-                static_cast<uint16_t>(size.x), static_cast<uint16_t>(size.y)
+                to<u16>(p_min.x), to<u16>(p_min.y),
+                to<u16>(size.x), to<u16>(size.y)
             };
 
             regions.push_back(region);
@@ -228,8 +228,8 @@ void NEONnoir::image_viewer::display(GLtexture const& texture, std::vector<shape
     {
         auto const& region = regions[index];
 
-        auto p0 = ImVec2{ static_cast<float>(region.x), static_cast<float>(region.y) } *_zoom + image_min;
-        auto p1 = ImVec2{ static_cast<float>(region.x + region.width), static_cast<float>(region.y + region.height) } *_zoom + image_min;
+        auto p0 = ImVec2{ to<float>(region.x), to<float>(region.y) } *_zoom + image_min;
+        auto p1 = ImVec2{ to<float>(region.x + region.width), to<float>(region.y + region.height) } *_zoom + image_min;
 
         if (_selected_region_index == index)
         {

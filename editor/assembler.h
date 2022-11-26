@@ -6,10 +6,11 @@
 #include <stdexcept>
 #include <filesystem>
 #include <optional>
+#include "types.h"
 
 namespace NEONnoir
 {
-    constexpr int16_t to_big_endian(int16_t value)
+    constexpr i16 to_big_endian(i16 value)
     {
         return ((value & 0x00FF) << 8) | ((value & 0xFF00) >> 8);
     }
@@ -26,11 +27,11 @@ namespace NEONnoir
     template <typename Value>
     struct definition
     {
-        int16_t id = 0;
+        i16 id = 0;
         Value value = 0;
     };
 
-    using numeric_constant = definition<int16_t>;
+    using numeric_constant = definition<i16>;
     using string_constant = definition<std::string>;
 
     template <typename T>
@@ -54,25 +55,25 @@ namespace NEONnoir
 
     struct opcode_spec
     {
-        int32_t opcode = 0;
+        i32 opcode = 0;
         std::vector<ParamType> params;
     };
 
     struct script
     {
-        int16_t id = 0;
-        int16_t start = 0;
-        int16_t length = 0;
+        i16 id = 0;
+        i16 start = 0;
+        i16 length = 0;
     };
 
-    using bytecode = std::vector<int16_t>;
+    using bytecode = std::vector<i16>;
 
     struct assembler_result
     {
         bytecode bytecode;
         named_values<script> scripts_meta;
         named_values<string_constant> strings;
-        named_values<int16_t> flags;
+        named_values<i16> flags;
         named_values<numeric_constant> constants;
     };
 
@@ -104,7 +105,7 @@ namespace NEONnoir
         void parse_script();
 
         std::string identifier();
-        int16_t number();
+        i16 number();
         bool boolean();
         std::string string_literal();
         std::string get_param(char prefix);
@@ -113,11 +114,11 @@ namespace NEONnoir
         void update_jump_references();
 
     private:
-        named_values<int16_t> _flags;
+        named_values<i16> _flags;
         named_values<numeric_constant> _constants;
         named_values<string_constant> _strings;
         named_values<opcode_spec> _opcodes;
-        named_values<int16_t> _labels;
+        named_values<i16> _labels;
         named_values<script> _scripts;
 
         std::vector<value_placeholder> _placeholders;
