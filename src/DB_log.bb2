@@ -163,3 +163,32 @@ Statement PrintFreeMem{}
 End Statement
 
 PrintFreeMem{}
+
+DEFTYPE .b db_breakpoint_requested
+db_breakpoint_requested = 0
+Macro DB_init_breakpoint
+  If RawStatus(`1) Then db_breakpoint_requested = -1
+End Macro
+
+Macro DB_init_breakpoint_int
+  SetInt 5
+    !DB_init_breakpoint{`1}
+  End SetInt
+End Macro
+
+Macro DB_break_always
+  If db_breakpoint_requested = -1
+    Stop
+  End If
+End Macro
+
+Macro DB_break_and_reset
+  If db_breakpoint_requested = -1
+    db_breakpoint_requested = 0
+    Stop
+  End If
+End Macro
+
+Macro DB_use_breakpoint
+  SHARED db_breakpoint_requested
+End Macro

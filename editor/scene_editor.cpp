@@ -129,12 +129,26 @@ namespace NEONnoir
             values.push_back({});
         }
 
+        auto delete_index = std::optional<size_t>{ std::nullopt };
+        auto count = 0;
         for (auto& value : values)
         {
             ImGui::PushID(to<void*>(&value));
+            if (DeleteButton("##delete"))
+            {
+                delete_index = count;
+            }
+            ImGui::SameLine();
             ImGui::SetNextItemWidth(-FLT_MIN);
             ImGui::InputTextMultiline("##", &value, { 0, 60 });
             ImGui::PopID();
+            
+            count++;
+        }
+
+        if (delete_index)
+        {
+            values.erase(values.begin() + delete_index.value());
         }
     }
 

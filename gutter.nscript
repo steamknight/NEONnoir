@@ -43,8 +43,8 @@
     knows_about_xantech
     knows_about_xander
     knows_about_cygnus
-    knows_summervault
-    knows_sumerian
+    knows_about_summervault
+    knows_about_sumerian
 
     segs_place_been_here
 
@@ -74,7 +74,8 @@
 .FLAGS
     loc_lost_sock               ; The Lost Soc Laundromat
     loc_b19
-
+    display_b19_parcel
+    
 ; Game constants
 ; ==============================================================================
 .CONST
@@ -186,64 +187,23 @@
     dialogue_visser_act1       14
     dialogue_danni_intro       15
     dialogue_tank_banned       16
-    dialogue_exposition        17
+    dialogue_exposition1       17
     dialogue_exposition2       18
     dialogue_ransom1           19
     dialogue_ransom2           20
-
-    dialogue_crystal_b19r      38
-    dialogue_b19r_confront1    40 ; This is out of order on purpose
-    dialogue_b19r_confront2    39
-    dialogue_b19r_confront3    41
-    dialogue_b19r_fight1       42
-    dialogue_b19r_fight2       43
-    dialogue_b19r_after_fight1 44
-    dialogue_b19r_after_fight2 45
-    dialogue_b19r_next1        46
-    dialogue_b19r_next2        47
-    dialogue_b19r_next3        48
-    dialogue_b19r_next4        49
-    dialogue_b19r_next5        50
-    dialogue_b19r_next6        51
-    dialogue_b19r_next7        52
-    dialogue_b19r_next8        53
-    dialogue_tinman            54
-    dialogue_lax1              55
-    dialogue_lax2              56
-    dialogue_lax3              57
-    dialogue_lax4              58
-    dialogue_lax5              59
-    dialogue_lax6              60
-    dialogue_lax7              61
-    dialogue_lax8              62
-    dialogue_post_lax1         63
-    dialogue_post_lax2         64
-    dialogue_server1           65
-    dialogue_server2           66
-    dialogue_seg_server        67
-    dialogue_xander_cut1       68
-    dialogue_xander_cut2       69
-    dialogue_xander_cut3       70
-    dialogue_xander_cut4       71
-    dialogue_xander_cut5       72
-    dialogue_xander_cut6       73
-    dialogue_xander_cut7       74
-    dialogue_xander_cut8       75
-    dialogue_xander_cut9       76
-    dialogue_xander_cut10      77
-    dialogue_xander_cut11      78
-    dialogue_xander_cut12      79
-    dialogue_xander_cut13      80
-    dialogue_xander_cut14      81
-    dialogue_xander_cut15      82
-    dialogue_xander_cut16      83
-    dialogue_end1              84
-    dialogue_end2              85
-    dialogue_end3              86
-    dialogue_end4              87
-    dialogue_end5              88
-    dialogue_end6              89
-    dialogue_end7              90
+    dialogue_crystal_b19r      21
+    dialogue_b19r_fight        22
+    dialogue_b19r_next         23
+    dialogue_tinman            24
+    dialogue_lax               25
+    dialogue_server            26
+    dialogue_seg_server        27
+    dialogue_xander_cut1       28
+    dialogue_xander_cut2       29
+    dialogue_xander_cut3       30
+    dialogue_xander_cut4       31
+    dialogue_xander_cut5       32
+    dialogue_end               33
 
     ; Music and sound
     mod_theme                   0
@@ -441,26 +401,9 @@
     b19r_goto_entrance          "I'm sure Crystal can wait."
     b19r_goto_catwalk           "Throwing caution to the wind, I step onto the catwalk."
     b19r_vending_machine        "Somehow, I'm not hungry at the moment."
-    b19r_catwalk_desc           "Visser's holding Crystal close to him, a chrome glint catching the moonlight between them."
-    b19r_danni_surprise1        "It's Danni!"
-    b19r_danni_surprise2        "Visser, distracted, doesn't notice Crystal as she rams her elbow right into his chest. He drops the gun and she kicks it away, unfortunately, over the railing."
-    b19r_danni_surprise3        "He takes second too long to recover and I close our distance with a punch to his face."
-    b19r_visser_knife1          "Grabbing something from his pocket, Visser leaps at me brandishing a knife."
-    b19r_visser_knife2          "Instinctively, I step back and I feel the low railing pressing against my back as he slams against me."
-    b19r_visser_knife3          "Unexpectedly, Visser is a lot stronger than he looks... Too strong. It's taking everything I have to keep his knife from my face."
-    b19r_visser_knife4          "Then I notice it, right below his left ear: a port. Visser's got cybernetics. Suddenly, I become hyper-aware of the ruby capsule in my jacket pocket."
-    b19r_visser_death1          "I reach into my pocket and in one perfect motion, jab the Coral's outlet right into Visser's port. The effect is immediate."
-    b19r_visser_death2          "Even through his glasses, I see his eyes instantly dilate. He let's go of me as he starts trashing about with his knife."
-    b19r_visser_death3          "I move away keeping between this lunatic and Crystal. He screams, trying to retain control. He lunges forward with all his enhanced might, but misses me and overextends himself."
-    b19r_visser_death4          "Visser trips over the railing, but the Coral must have taken effect now since the only sound we hear is the wet thump of yesterday's garbage dropping to the bottom of the dumpster."
-    b19r_back_danni             "Wasting no time, we make our way back to the ground floor and meet with Danni."
 
 ; Location: Xantech Cybernetics
 ; ==============================================================================
-    xantech_fail_enter_servers  "The tinman steps in front of us, blocking the entrance."
-    xantech_crystal_lax         "Crystal nudges me to give her the coffee and laxative. After mixing them together, she walks to the tinman while I hide around the corner."
-    xantech_laxative1           "The tinman takes the coffee from Crystal, eager to make her happy. A few moment pass when we can hear a horrible sound coming from his stomach."
-    xantech_laxative2           "In a show of complete dereliction of duty, the tinman abandons his post and runs out of the room as quickly as the coffee is running through him."
     xantech_medicine_closet1    "Medicines of all kinds. Nothing immediately useful."
     xantech_medicine_closet2    "Wait. What's this? KwikyLax?"
     xantech_medicine_closet3    "'World's first military-grade laxative. Declare war on constipation!'"
@@ -469,23 +412,6 @@
     xantech_coffee_machine      "The coffee from this machine smells real good. I'd better take a cup."
     xantech_has_coffee          "One cup is enough for now. I can always come back."
     xantech_move_to_server      "With the tinman gone, we move into the server room"
-    xantech_servers_desc        "The server room has an enormous server rack, clearly all of Xantech's data flowed through here."
-    xantech_datablade1          "Using Visser's keycard, I unlock the terminal from the main data blade. I take SegF4ault's data stick and insert it in the expectant port."
-    xantech_datablade2          "I wait a few moments, but nothing seems to be happening."
-    xantech_datablade3          "*RING RING*"
-    xantech_datablade4          "The trap is set. Now we wait."
-
-; Location: XanCon
-; ==============================================================================
-    xancon_desc1                "For the next day, we lay low."
-    xancon_desc2                "It's anyone's guess if Xander is worried about Visser. If he is, he doesn't show it as XanCon is in full swing."
-    xancon_desc3                "SegF4ult forges us tickets allowing us to sneak on to the expo floor. We get there just as the Keynote is underway."
-
-    xancon_desc4                "Xander Vane, one of the wealthiest men on the planet."
-    xancon_desc5                "Xander Vane, trying to squeeze every single credit from those who have none."
-    xancon_desc6                "Like Icarus before him, he's flying too close to the sun and it's time for him to fall."
-
-    xancon_desc9                "The screen behind Xander flickers and the contents is replaced with video clips and audio logs playing in quick succession."
 
 ; Location: End
 ; ==============================================================================
@@ -794,6 +720,9 @@
         text $enter_takeshis4
         set
         store !inv_takeshi_noods
+
+        clear
+        store !inv_takeshi_key
         end
 
     @cant_enter_takeshis
@@ -1001,20 +930,16 @@
 
     @danni_call
         load !inv_coral
-        and !inv_parcel_number
+        and !inv_coral
         and !knows_about_xander
+        and !knows_about_cygnus
+        and !knows_about_summervault
         jiff @done
         
-    @check_danni
-        ; If we have both the Coral and parcel number, then Danni's going to call us
-        load !inv_parcel_number
-        and !inv_coral
-        jiff @done
-        ;text $get_call_from_danni1
         text $get_call_from_danni2
         text $get_call_from_danni3
+        text $get_call_from_danni2      ; She rings twice
 
-        text $get_call_from_danni2
         dlg #dialogue_danni_intro
         goto #scene_fade_to_black
     @done
@@ -1052,7 +977,7 @@
 
         text $parcel_trace5
         set
-        store !knows_summervault
+        store !knows_about_summervault
         end
 
 .SCRIPT dialogue_daisy
@@ -1315,7 +1240,7 @@
         dlg #dialogue_ransom1
 
         setbg #scene_seg_place
-        dlg #dialogue_ransom6
+        dlg #dialogue_ransom2
 
         goloc #location_b19_revisit #scene_b19r_cutscene
 
@@ -1367,53 +1292,17 @@
         end
 
 .SCRIPT on_enter_catwalk
-        text $b19r_catwalk_desc
-
-        dlg #dialogue_b19r_confront1
-        dlg #dialogue_b19r_confront2
-        dlg #dialogue_b19r_confront3
-
-        text $b19r_danni_surprise1
-        text $b19r_danni_surprise2
-        text $b19r_danni_surprise3
-
-        dlg #dialogue_b19r_fight1
-
-        text $b19r_visser_knife1
-        text $b19r_visser_knife2
-        text $b19r_visser_knife3
-        text $b19r_visser_knife4
-
-        dlg #dialogue_b19r_fight2
-
-        text $b19r_visser_death1
-        text $b19r_visser_death2
-        text $b19r_visser_death3
-        text $b19r_visser_death4
-
-        dlg #dialogue_b19r_after_fight1
-        dlg #dialogue_b19r_after_fight2
+        dlg #dialogue_b19r_fight
 
         setbg #scene_b19r_entrance
-        text $b19r_back_danni
-
-        dlg #dialogue_b19r_next1
-        dlg #dialogue_b19r_next2
-        dlg #dialogue_b19r_next3
-        dlg #dialogue_b19r_next4
-        dlg #dialogue_b19r_next5
-        dlg #dialogue_b19r_next6
-        dlg #dialogue_b19r_next7
-        dlg #dialogue_b19r_next8
+        dlg #dialogue_b19r_next
 
         goloc #location_xantech #scene_xantech_entrance
-
         end
 
 ; XANTECH CYBERNETICS
 ; ==============================================================================
 .SCRIPT goto_xantech_servers
-        text $xantech_fail_enter_servers
         dlg #dialogue_tinman
         end
 
@@ -1422,28 +1311,13 @@
         and !inv_laxative
         jiff @not_yet
 
-        text $xantech_crystal_lax
+        dlg #dialogue_lax
 
-        dlg #dialogue_lax1
-        dlg #dialogue_lax2
-        dlg #dialogue_lax3
-        dlg #dialogue_lax4
-        dlg #dialogue_lax5
-        dlg #dialogue_lax6
-        dlg #dialogue_lax7
-        dlg #dialogue_lax8
-
-        text $xantech_laxative1
-        text $xantech_laxative2
-
-        dlg #dialogue_post_lax1
-        dlg #dialogue_post_lax2
         text $xantech_move_to_server
         goto #scene_xantech_servers
         end
         
     @not_yet
-        text $xantech_fail_enter_servers
         dlg #dialogue_tinman
         end
 
@@ -1475,62 +1349,44 @@
         end
 
 .SCRIPT on_enter_xantech_servers
-        text $xantech_servers_desc
-        dlg #dialogue_server1
-        dlg #dialogue_server2
+        dlg #dialogue_server
         end
 
 .SCRIPT use_datablade
-        text $xantech_datablade1
-        text $xantech_datablade2
-        text $xantech_datablade3
         dlg #dialogue_seg_server
-        text $xantech_datablade4
-
         goloc #location_xancon #scene_xancon_cut1
-
         end
 
 ; XANCON
 ; ==============================================================================
 .SCRIPT on_enter_xancon_cut1
-        text $xancon_desc1
-        text $xancon_desc2
-        text $xancon_desc3
-        text $xancon_desc4
-        text $xancon_desc5
-        text $xancon_desc6
-
+        dlg #dialogue_xander_cut1
         goto #scene_xancon_cut2
-
         end
 
 .SCRIPT on_enter_xancon_cut2
-        dlg #dialogue_xander_cut1
-
+        dlg #dialogue_xander_cut2
         goto #scene_xancon_cut3
         end
 
 .SCRIPT on_enter_xancon_cut3
-        text $xancon_desc9
-        dlg #dialogue_xander_cut5
-
+        dlg #dialogue_xander_cut3
 ;        goto #scene_xancon_cut4
 ;        end
 
 ;.SCRIPT on_enter_xancon_cut4
-        dlg #dialogue_xander_cut8
+        dlg #dialogue_xander_cut4
 
         goto #scene_xancon_cut5
 
 .SCRIPT on_enter_xancon_cut5
-        dlg #dialogue_xander_cut15
+        dlg #dialogue_xander_cut5
 
         goloc #location_end #scene_end
         end
 
 .SCRIPT on_enter_end
-        dlg #dialogue_end1
+        dlg #dialogue_end
 
         setbg #scene_end2
         txtstart #frame_off
@@ -1577,3 +1433,10 @@
         goloc #location_title #scene_title
         end
         
+
+
+
+
+
+
+

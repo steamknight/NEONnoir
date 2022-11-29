@@ -57,6 +57,7 @@ Statement DG_show_dialog{id.w}
   SHARED NS_flags(), NS_page_flags(), NS_choice_flags()
   !__use_dialogues{}
   !__use_string_table{}
+  !DB_use_breakpoint{}
 
   DEFTYPE .DG_dialogue *current
   DEFTYPE .DG_page *cur_page
@@ -89,6 +90,8 @@ Statement DG_show_dialog{id.w}
     Until page_id <> -1
     
     If page_id <> -1
+      !DB_break_and_reset{}
+
       *cur_page = !__get_page{page_id}
 
       ; Check to see if this page is a page of dialog or a page of exposition
@@ -107,7 +110,6 @@ Statement DG_show_dialog{id.w}
           ; the one currently shown
           If *cur_page\speaker_id > -1 AND current_speaker <> *cur_page\speaker_id
             UnBuffer #BF_faces
-            VWait
             current_speaker = *cur_page\speaker_id 
             SH_draw_portrait{current_speaker, 4, 4}
           End If

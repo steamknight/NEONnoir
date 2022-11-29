@@ -899,7 +899,7 @@ namespace MPG
             result.pixel_data.push_back(color.a);
         };
 
-        std::ranges::for_each(source.pixel_data, inflate);
+        std::for_each(source.pixel_data.begin(), source.pixel_data.end(), inflate);
 
         return result;
     }

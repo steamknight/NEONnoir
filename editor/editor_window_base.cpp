@@ -77,7 +77,7 @@ namespace NEONnoir
     {
         if (!_speaker_list_with_empty)
         {
-            _speaker_list_with_empty = std::vector<std::string>{ "Unnamed" };
+            _speaker_list_with_empty = std::vector<std::string>{ "------" };
             for (auto const& speaker : speakers)
             {
                 _speaker_list_with_empty.value().push_back(speaker.name);
