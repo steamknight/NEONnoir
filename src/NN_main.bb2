@@ -91,10 +91,9 @@ NN_fade_out = False
 prev_bmp = NN_current_bmp
 
 ; Setup 'B' as the breakpoint key
-;!DB_init_breakpoint_int{$35}
-SetInt 5
-  If RawStatus($35) Then db_breakpoint_requested = -1
-End SetInt
+; SetInt 5
+;   !DB_init_breakpoint{$35}
+; End SetInt
 
 Repeat
   VWait

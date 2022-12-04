@@ -31,7 +31,7 @@
     act2_started                    ; Set when act 2 starts
     act3_started                    ; Set when act 3 starts
 
-    knows_about_acid_nova_and_visser; Glitch has spied the two talking.
+    knows_about_acid_nova_and_visser ; Glitch has spied the two talking.
     knows_411_first_bit
     knows_411_second_bit
     banned_from_alleycat
@@ -285,15 +285,14 @@
 ; Location: Alley
 ; ==============================================================================
 .TEXT
-    job_to_do                   "I don't have time for that, I got a job to do."
     takeshi                     "Takeshi's Noodles used to be the best place in the Gutter for a late meal. Too bad old Takeshi closed up shop for good."
     check_takeshi_alley         "A garbage filled alleyway that leads to the back of Takeshi's place. No need to go there."
     enter_takeshis1             "I used the keycard to gain entry to Takeshi's. The place looked like it had been hit by a tornado. I checked the fridge and, against all hope, I found the last container of noodles. Who can say how long they've been there?"
     enter_takeshis2             "I tossed the container in the microwave in the hopes that it would kill anything that started growing. In the pale light of the microwave, amid the drone of its magnatron, I contemplated the absurdity of this situation."
     enter_takeshis3             "A girl goes missing and I'm dumpster diving, robbing corpses, and now making a bowl of r-"
     enter_takeshis4             " *DING*"
-    enter_takeshis_again        "I got what I needed. There's nothing else to be found there."
-    cant_enter_takeshis         "The door is locked. Hmm... What are the odds that there're still some nasty noodles in there?"
+    enter_takeshis_again        "I got what I needed. There was nothing else to be found there."
+    cant_enter_takeshis         "The door was locked. Hmm... What were the odds that there were still some nasty noodles in there?"
 
     alley_check_dumpster        "This particular dumpster was especially foul. Something was putrefying in there."
     glich_check_trash1          "Against my better judgement, I opened the dumpster. The smell was so powerful I gagged."
@@ -302,22 +301,22 @@
     glitch_trash_complete       "I wouldn't dive into that dumpster again even if the secret to Danni's disappearance was in there."
 
     alley_atm_description       "ATMs. Cash Machines. Cred Dispensers. Unarmed Bandits. Take your pick. These jackpots let your retrieve your credits... for a fee."
-    alley_atm_quest_start       "Better deal with that tin man before I try anything. They're not the forgiving type."
+    alley_atm_quest_start       "The better play would be to deal with that tin man before trying anything. They're not the forgiving type."
     alley_atm_quest_complete    "The deed's done, better not bring any more attention to it."
-    alley_atm_security_desc     "Looks like this bank's hired security to babysit the jackpot. These tin men contracts are usually given to lowest bidders."
-    alley_atm_security_done     "Better leave him to his brain drain duties."
+    alley_atm_security_desc     "Looks like this bank has hired security to babysit the jackpot. These tin men contracts are usually given to lowest bidders."
+    alley_atm_security_done     "I left him to his brain drain duties."
 
-    cant_leave_alley            "I can't leave just yet, not when I still don't have a lead."
-    alley_subway_tweaker_desc   "His blue hair almost distracts from his facial cybernetics. Almost."
+    cant_leave_alley            "I couldn't leave just yet, not when I still didn't have a lead."
+    alley_subway_tweaker_desc   "His blue hair almost distracted from his facial cybernetics. Almost."
 
 ; Location: Danni's apartment
 ; ==============================================================================
 .TEXT
-    danni_clutter_desc          "Next to Danni's bed is small pile of clutter. It's mostly clothes, but there are also some papers."
-    danni_note_from_gladys      "There's a note dated two days ago, addressed to Danni from someone named Gladys. It reads '15 wants to see you tonight, I don't need to remind you that you better bring your A game.'"
-    danni_nightstand_desc       "What's this... her ID card! I can run a background check on her with GovLink computer back at my apartment."
-    danni_nightstand_desc_after "There's nothing else of interest in the nightstand."
-    dont_leave_danni_apt        "Mmm... I got a feeling there's more to uncover here."
+    danni_clutter_desc          "Next to Danni's bed was a small pile of clutter. It was mostly clothes, but there were also some papers."
+    danni_note_from_gladys      "There was a note dated two days prior, addressed to Danni from someone named Gladys. It read '15 wants to see you tonight, I don't need to remind you that you better bring your A game.'"
+    danni_nightstand_desc       "Danni's ID card! I could run a background check on her with the GovLink computer back at my apartment."
+    danni_nightstand_desc_after "There was nothing else of interest on the nightstand."
+    dont_leave_danni_apt        "Mmm... I had a feeling there was more to uncover here."
 
 ; Location: Blake's apartment
 ; ==============================================================================
@@ -332,9 +331,9 @@
     danni_id_trace8             "The alias 'Danni Ashton' has been tied to her approximately 2 years ago."
     make_a_drink                "It was time to review the facts. I poured myself a drink and focused my thoughts."
     end_act1_a                  "Danni was an orphan and as she was never adopted, she was given the last name 'Null'. Two years ago, she reinvents herself as 'Danni Ashton'... that's about when she met Crystal."
-    end_act1_b                  "But what bothers me is that if she chose the name 'Danni Ashton' for herself, then who the drek is 'Jacob', the man who hired me and posed as her concerned father?"
-    end_act1_c                  "Considering everything I've uncovered, I'm even more worried for her safety. The problem is that I'm not any closer to finding her."
-    end_act1_d                  "Perhaps I should pay her employer, Gladys Aubergine a visit. If I can find out who she was with last, I might get the lead I need."
+    end_act1_b                  "But what bothered me is that if she chose the name 'Danni Ashton' for herself, then who the drek was 'Jacob', the man who hired me and posed as her concerned father?"
+    end_act1_c                  "Considering everything I'd uncovered, I'm was more worried for her safety. The problem is that I'm wasn't any closer to finding her."
+    end_act1_d                  "I decided to pay her employer, Gladys Aubergine a visit. If I could find out who she was with last, I might get the lead I need."
     end_act1_e                  "*RING RING*"
     blake_start_act2            "Time to hit streets. Daisy, be a good girl while I'm out."
     just_got_visser_photo1      "Holy dreking hell! This is a photo of Jacob Ashton! Danni was with 15, whoever they are, and Jacob- I mean JV picked her up! What did they do to her? Why do they want to find her?"
@@ -355,31 +354,30 @@
 
 ; Location: The Lost Sock Laundromat
 ; ==============================================================================
-    gladys_is_too_mean          "I don't think I'm going get anywhere with that museum exhibit. I bet that if I could get my hands on her computer, I could learn a few interesting things."
-    laundromat_closed           "Odd... the door is locked. Through the window, I can see an old woman. When she notices me, she waves me away. I'll come back later."
-    laundry_xantech_poster1     "The poster's announcing the yearly XanCon expo, hosted by Xantech Cybernetics. All of Xantech's latest exercise in planned obsolescence will be on display tomorrow night."
-    laundry_xantech_poster2     "I'll add Xantech Cybernetics to my GovLink search database."
-    crystal_gladys_fight        "As I step back into the Lost Sock, Crystal's already here yelling at Gladys, who's hasn't even noticed me enter. Crystal's unbridled creativity in the insults she's hurling at Gladys is the second time this woman's caused me to blush. Gladys is no slouch, and what she can't muster in youthful creativity, she more than makes up with her ancient wealth of experience. As much as I would love to watch this, I have a job to do."
-    hack_gladys_computer        "Sneaking behind a very occupied Gladys, I plug Glitch's hacktool on the back of her computer. A green light blinks twice letting me know that the device is ready. I slink away, winking at Crystal to let her know my work here is done."
-    need_gladys_distraction     "That old witch will never let me get close enough to place the hacktool. I need to find a way to distract her."
-    thank_crystal_for_help      "A few moments after I stepped out of the Lost Sock, Crystal leaves in a huff. She's either an accomplished actress or perhaps the argument between them was a long time coming."
-    laundry_fight               "I can hear Crystal before I even entered this house of laundered promises. She'll yelling furiously at Gladys. However, it seems like Gladys is not going down without a fight. This is my moment."
+    gladys_is_too_mean          "I wasn't going get anywhere with that museum exhibit. However, if I could get my hands on her computer, I was certain I could learn a few interesting things."
+    laundromat_closed           "The door was locked. Through the window, I could see an old woman but she waved me away. I'll would have to come back later."
+    laundry_xantech_poster1     "The poster announced the yearly XanCon expo, hosted by Xantech Cybernetics. All of Xantech's latest exercise in planned obsolescence will be on display tomorrow night."
+    laundry_xantech_poster2     "I added Xantech Cybernetics to my GovLink search database."
+    laundry_fight               "As I stepped back into this house of laundered promises, Crystal was already here yelling at Gladys, who's hadn't even noticed me enter. Crystal's unbridled creativity in the insults she was hurling at Gladys was the second time this woman's caused me to blush. Gladys was no slouch though, and what she couldn't muster in youthful creativity, she more than made up with her ancient wealth of experience. As much as I would have loved to watch this, I had a job to do."
+    hack_gladys_computer        "Sneaking behind a very occupied Gladys, I plugged Glitch's hacktool on the back of her computer. A green light blinked twice letting me know that the device was ready. Slinking away, I winked at Crystal to let her know my work here is done."
+    need_gladys_distraction     "That old witch would never let me get close enough to place the hacktool. I needed to find a way to distract her."
+    thank_crystal_for_help      "A few moments after I stepped out of the Lost Sock, Crystal leaved in a huff. She was either an accomplished actress or perhaps the argument between them was a long time coming."
     laundromat_never_again      "I better stay away. I don't want Gladys to get suspicious."
-    gladys_busy_fighting        "Gladys is exploding forth a geyser of invectives at Crystal. She's not paying me any attention and I better keep it that way."
+    gladys_busy_fighting        "Gladys exploded forth a geyser of invectives at Crystal. She's wasn't paying me any attention and I wanted to keep it that way."
 
 ; Location: Building 19
 ; ==============================================================================
-    b19_pick_storage_lock       "Typing the keycode I got from Acid Nova, the door opens without any issues."
-    b19_pick_office_lock        "You don't become a PI without picking your fair share of locks. I guess I can add this one to my list of conquests."
-    get_coral                   "The red plastic capsule catches my attention, its ruby red color in sharp contrast to the gloom of the storeroom. I've been hearing a lot about this little capsule all night and with my lack of cybernetics, its siren's song falls on deaf ears. I don't know why I picked it up, but I pocket the capsule of Coral."
-    open_boxes1                 "I pull out a pocket knife and open ones of these boxes. I don't know what I was expecting to find, but nothing could prepare me for what was inside."
+    b19_pick_storage_lock       "Typing the keycode I got from Acid Nova, the door opened without any issues."
+    b19_pick_office_lock        "You don't become a PI without picking your fair share of locks. I added this one to my list of conquests."
+    get_coral                   "The red plastic capsule caught my attention, its ruby red color in sharp contrast to the gloom of the storeroom. I've been hearing a lot about this little capsule all night and with my lack of cybernetics, its siren's song fell on deaf ears. I didn't know why I picked it up, but I pocketed the capsule of Coral."
+    open_boxes1                 "I pulled out a pocket knife and opened one of the boxes. I don't know what to expect, but nothing could prepare me for what was inside."
     open_boxes2                 "Flattened out boxes and other packing materials."
-    get_parcel_number1          "Looking through garbage has better not become a habit. Fortunately, there's nothing rancid in here, just papers."
-    get_parcel_number2          "What's this? An old permit. It contains the parcel number for this building. I should be able to check it out on the GovLink."
-    empty_trash                 "Nothing else of value in there."
-    look_at_lockers             "The lockers aren't locked. Unfortunately, they're also empty."
-    look_at_papers              "There are some papers and brochures on the small table. Nothing interesting, I'm afraid."
-    b19_cant_leave_yet          "I got the feeling there's more for me to learn here."
+    get_parcel_number1          "Looking through garbage was becoming an unwholesome habit. Fortunately, there was nothing rancid in here, just papers."
+    get_parcel_number2          "Rifling through the papers, I found an old permit. It contained the parcel number for this building which I would be able to check on the GovLink."
+    empty_trash                 "There was nothing else of value in there."
+    look_at_lockers             "The lockers weren't locked. Unfortunately, they were also empty."
+    look_at_papers              "There were some papers and brochures on the small table. Nothing interesting, I'm afraid."
+    b19_cant_leave_yet          "I had the feeling there was more for me uncover here."
 
 ; Location: SegF4ult's Place
 ; ==============================================================================
@@ -390,28 +388,28 @@
     danni_story5                "But it wasn't Coral and I started convulsing."
     danni_story6                "The next thing I know, I wake up naked in a dumpster. That drek must have thought I died and threw me in the garbage."
     danni_story7                "The data I thought was Coral was still in my head. I didn't know what it contained but I knew I wasn't supposed to have it."
-    visser_hung_up              "He hung up."
 
 ; Location: B19 Revisit
 ; ==============================================================================
-    b19r_intro1                 "Wasting no time, I'm on my way back to that snake nest. Building 19's in sight and I need to be careful if Crystal and I are to make it out alive. Whatever happens, one thing is for sure."
-    b19r_intro2                 "Visser is going to regret this."
-    b19r_crystal_on_catwalk     "Looking up, Visser and Crystal are on the catwalk. Need to hurry!"
-    b19r_use_storage            "No time to waste looking on this floor, I need to go up!"
-    b19r_goto_entrance          "I'm sure Crystal can wait."
-    b19r_goto_catwalk           "Throwing caution to the wind, I step onto the catwalk."
-    b19r_vending_machine        "Somehow, I'm not hungry at the moment."
+    b19r_intro1                 "Wasting no time, I was on my way back to that snake nest. With Building 19 in sight, I needed to be careful if Crystal and I were to make it out alive."
+    b19r_intro2                 "I didn't know what to expect, but I knew one thing..."
+    b19r_intro3                 "Visser was going to regret this."
+    b19r_crystal_on_catwalk     "Looking up, I saw Visser and Crystal on the catwalk. I needed to hurry!"
+    b19r_use_storage            "There was no time to waste looking on this floor, I needed to go up!"
+    b19r_goto_entrance          "I decided to head back outside. I was sure Crystal could wait."
+    b19r_goto_catwalk           "Throwing caution to the wind, I stepped onto the catwalk."
+    b19r_vending_machine        "Although the ChocoBlaster tantalized me from behind its glass prison, I couldn't think of eating at a time like this."
 
 ; Location: Xantech Cybernetics
 ; ==============================================================================
-    xantech_medicine_closet1    "Medicines of all kinds. Nothing immediately useful."
+    xantech_medicine_closet1    "Medicines of all kinds, but nothing that was immediately useful."
     xantech_medicine_closet2    "Wait. What's this? KwikyLax?"
     xantech_medicine_closet3    "'World's first military-grade laxative. Declare war on constipation!'"
-    xantech_medicine_closet4    "I think we all know where this going."
-    xantech_medicine_closet_end "Nothing else of use in here."
-    xantech_coffee_machine      "The coffee from this machine smells real good. I'd better take a cup."
-    xantech_has_coffee          "One cup is enough for now. I can always come back."
-    xantech_move_to_server      "With the tinman gone, we move into the server room"
+    xantech_medicine_closet4    "I think we all knew where this was going to go."
+    xantech_medicine_closet_end "Nothing else of use was in here."
+    xantech_coffee_machine      "The coffee from this machine smelled real good. I decided to take a cup. And why not? I deserved it."
+    xantech_has_coffee          "I drank deeply from the coffee I'd gotten earlier. It was everything I wanted in a cup of coffee. I then decided to take another cup."
+    xantech_move_to_server      "With the tinman gone, we moved into the server room."
 
 ; Location: End
 ; ==============================================================================
@@ -426,8 +424,7 @@
     credits_art3                "MidJourney"
 
     credits_music1              "Music"
-    credits_music2              "Matias Sosa"
-    credits_music3              "matiasosa.itch.io"
+    credits_music2              "Matias Sosa - matiasosa.itch.io"
 
     credits_thanks1             "Special thanks to all the member of the"
     credits_thanks2             "Amiga Blitz Basic Game Jam Discord server"
@@ -439,7 +436,7 @@
 ; Inventory strings
 ; ==============================================================================
 .TEXT
-    inv_start                       "I have..."
+    inv_start                       "I had..."
     inv_danni_picture               "*A picture of Danni Ashton."
     inv_glitch_cred_stick           "*A cred-stick of dubious origins."
     inv_takeshi_key                 "*A keycard to Takeshi's Noodle's."
@@ -449,7 +446,7 @@
     inv_note_from_gladys            "*A note to Danni from Gladys about someone named '15'."
     inv_danni_id                    "*Danni's government issued ID."
     inv_glitch_hacktool             "*A hacktool I got from Glitch."
-    inv_glitch_hacktool_full        "*A hacktool I got from Glitch. It has data from Gladys's computer."
+    inv_glitch_hacktool_full        "*A hacktool I got from Glitch. It had data from Gladys's computer."
     inv_coral                       "*A capsule of Coral."
     inv_parcel_number               "*A paper with Building 19's parcel number."
     inv_visser_keycard              "*A keycard belonging to Johan Visser."
@@ -1257,6 +1254,10 @@
         txtstart #frame_off
         txtput $b19r_intro2 45
         txtend 4 170 #wait_on
+        
+        txtstart #frame_off
+        txtput $b19r_intro3 45
+        txtend 4 170 #wait_on
 
         goto #scene_b19r_entrance
         end
@@ -1414,7 +1415,6 @@
         txtnl
         txtput $credits_music1 25
         txtput $credits_music2 25
-        txtput $credits_music3 25
         txtnl
         txtnl
         txtnl
@@ -1433,6 +1433,8 @@
         goloc #location_title #scene_title
         end
         
+
+
 
 
 

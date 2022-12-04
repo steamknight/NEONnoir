@@ -170,12 +170,6 @@ Macro DB_init_breakpoint
   If RawStatus(`1) Then db_breakpoint_requested = -1
 End Macro
 
-Macro DB_init_breakpoint_int
-  SetInt 5
-    !DB_init_breakpoint{`1}
-  End SetInt
-End Macro
-
 Macro DB_break_always
   If db_breakpoint_requested = -1
     Stop

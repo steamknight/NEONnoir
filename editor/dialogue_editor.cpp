@@ -231,7 +231,7 @@ namespace NEONnoir
 
             ImGui::TableNextColumn();
 
-            ImGui::SetNextItemWidth(ImGui::CalcTextSize(speakers[0].c_str()).x * 1.5f);
+            ImGui::SetNextItemWidth(ImGui::CalcTextSize(speakers[0].c_str()).x * 4.f);
             imgui::combo_with_empty(speakers, page.speaker_id);
             ImGui::SameLine();
 
