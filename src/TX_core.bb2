@@ -288,8 +288,12 @@ Function .l TX_calc_text_size{id.w, line_width.w}
 
   For i = 0 To word_count - 1
     word_width = (*word\end_idx - *word\start_idx + 1)
+    ; !DB_printf{"*** %d ", word_width}
 
-    If *word\end_idx = -1 OR remaining - word_width < 0
+    If *word\end_idx = -1 OR remaining - (word_width) < 0
+      If max_width < cur_width Then max_width = cur_width
+      ; !DB_printf{"*** width: %d, max_width: %d ", cur_width, max_width}
+      ; !DB_printf{"*** Line %d ", line_count}
       line_count + 1
       remaining = line_width
       cur_width = 0
@@ -305,6 +309,8 @@ Function .l TX_calc_text_size{id.w, line_width.w}
   Next
 
   DEFTYPE .l size
+
+  ; !DB_printf{"*** max_width: %d ", max_width}
 
   size = !__make_size{max_width, line_count}
 
@@ -339,7 +345,7 @@ Statement TX_render_wrapped{id.w, line_width.w, x0.w, y0.w}
       y + #TX_font_height
       remaining = line_width
     End If
-    
+
     If *word\end_idx <> -1
       ; Print the word
       For j = *word\start_idx To *word\end_idx

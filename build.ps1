@@ -74,17 +74,17 @@ $data_files = @(
     "./data/music/boss_intro.mod",
     "./data/music/boss_theme.mod",
     "./data/mpg.iff",
-    "./data/1.shapes",
-    "./data/2.shapes",
-    "./data/3.shapes",
-    "./data/4.shapes",
-    "./data/5.shapes",
-    "./data/6.shapes",
-    "./data/7.shapes",
-    "./data/8.shapes",
-    "./data/9.shapes",
-    "./data/10.shapes",
-    "./data/11.shapes",
+    # "./data/1.shapes",
+    # "./data/2.shapes",
+    # "./data/3.shapes",
+    # "./data/4.shapes",
+    # "./data/5.shapes",
+    # "./data/6.shapes",
+    # "./data/7.shapes",
+    # "./data/8.shapes",
+    # "./data/9.shapes",
+    # "./data/10.shapes",
+    # "./data/11.shapes",
     "./data/menu.shapes",
     "./data/people.mpsh",
     "./data/ui.pal"
@@ -129,7 +129,7 @@ function Copy-Game {
 
     # Create the file
     Get-Content $bb2_files | Out-File $output_file
-    
+
     # Convert line endings
     Invoke-Expression "& external/ConvertEOL unix $output_file $output_file"
 }

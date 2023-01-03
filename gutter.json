@@ -1064,32 +1064,31 @@
       "pages": [
         {
           "check_flag": "",
-          "choices": [
-            {
-              "check_flag": "",
-              "clear_flag": "",
-              "enabled": true,
-              "has_check_flag": false,
-              "has_clear_flag": false,
-              "has_script": false,
-              "has_set_flag": false,
-              "next_page_id": 1,
-              "script": "",
-              "self_disable": false,
-              "set_flag": "",
-              "text": "Let me in."
-            }
-          ],
+          "choices": [],
           "clear_flag": "",
           "enabled": true,
           "has_check_flag": false,
           "has_clear_flag": false,
           "has_set_flag": false,
-          "next_page_id": 65535,
+          "next_page_id": 1,
           "self_disable": false,
           "set_flag": "",
           "speaker_id": 5,
           "text": "What do you want, chump?"
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 2,
+          "self_disable": false,
+          "set_flag": "",
+          "speaker_id": 0,
+          "text": "Let me in."
         },
         {
           "check_flag": "",
@@ -1102,7 +1101,7 @@
               "has_clear_flag": false,
               "has_script": false,
               "has_set_flag": false,
-              "next_page_id": 2,
+              "next_page_id": 3,
               "script": "",
               "self_disable": false,
               "set_flag": "",
@@ -1116,7 +1115,7 @@
               "has_clear_flag": false,
               "has_script": false,
               "has_set_flag": false,
-              "next_page_id": 3,
+              "next_page_id": 4,
               "script": "",
               "self_disable": false,
               "set_flag": "",
@@ -1159,7 +1158,7 @@
               "has_clear_flag": false,
               "has_script": false,
               "has_set_flag": false,
-              "next_page_id": 4,
+              "next_page_id": 5,
               "script": "",
               "self_disable": false,
               "set_flag": "",
@@ -1173,7 +1172,7 @@
               "has_clear_flag": false,
               "has_script": false,
               "has_set_flag": false,
-              "next_page_id": 4,
+              "next_page_id": 5,
               "script": "",
               "self_disable": false,
               "set_flag": "",
@@ -1187,7 +1186,7 @@
               "has_clear_flag": true,
               "has_script": false,
               "has_set_flag": false,
-              "next_page_id": 5,
+              "next_page_id": 6,
               "script": "",
               "self_disable": false,
               "set_flag": "",
@@ -1221,32 +1220,31 @@
         },
         {
           "check_flag": "",
-          "choices": [
-            {
-              "check_flag": "",
-              "clear_flag": "",
-              "enabled": true,
-              "has_check_flag": false,
-              "has_clear_flag": false,
-              "has_script": false,
-              "has_set_flag": false,
-              "next_page_id": 6,
-              "script": "",
-              "self_disable": false,
-              "set_flag": "",
-              "text": "Steel. Blake Steel"
-            }
-          ],
+          "choices": [],
           "clear_flag": "inv_alleycat_ticket",
           "enabled": true,
           "has_check_flag": false,
           "has_clear_flag": true,
           "has_set_flag": false,
-          "next_page_id": 65535,
+          "next_page_id": 7,
           "self_disable": false,
           "set_flag": "",
           "speaker_id": 5,
           "text": "Very well, Mr..."
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 8,
+          "self_disable": false,
+          "set_flag": "",
+          "speaker_id": 0,
+          "text": "Steel. Blake Steel"
         },
         {
           "check_flag": "",
@@ -1497,28 +1495,13 @@
         },
         {
           "check_flag": "",
-          "choices": [
-            {
-              "check_flag": "",
-              "clear_flag": "",
-              "enabled": true,
-              "has_check_flag": false,
-              "has_clear_flag": false,
-              "has_script": false,
-              "has_set_flag": false,
-              "next_page_id": 7,
-              "script": "",
-              "self_disable": false,
-              "set_flag": "",
-              "text": "Think about it. How much money is the bank losing by you making it impossible to withdraw creds?"
-            }
-          ],
+          "choices": [],
           "clear_flag": "",
           "enabled": true,
           "has_check_flag": false,
           "has_clear_flag": false,
           "has_set_flag": false,
-          "next_page_id": 65535,
+          "next_page_id": 7,
           "self_disable": false,
           "set_flag": "",
           "speaker_id": 11,
@@ -1526,28 +1509,27 @@
         },
         {
           "check_flag": "",
-          "choices": [
-            {
-              "check_flag": "",
-              "clear_flag": "",
-              "enabled": true,
-              "has_check_flag": false,
-              "has_clear_flag": false,
-              "has_script": false,
-              "has_set_flag": false,
-              "next_page_id": 8,
-              "script": "",
-              "self_disable": false,
-              "set_flag": "",
-              "text": "Well that's good! You saved them from paying for a coat of paint and only losing thousands in transaction fees."
-            }
-          ],
+          "choices": [],
           "clear_flag": "",
           "enabled": true,
           "has_check_flag": false,
           "has_clear_flag": false,
           "has_set_flag": false,
-          "next_page_id": 65535,
+          "next_page_id": 8,
+          "self_disable": false,
+          "set_flag": "",
+          "speaker_id": 0,
+          "text": "Think about it. How much money is the bank losing by you making it impossible to withdraw creds?"
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 9,
           "self_disable": false,
           "set_flag": "",
           "speaker_id": 11,
@@ -1555,28 +1537,27 @@
         },
         {
           "check_flag": "",
-          "choices": [
-            {
-              "check_flag": "",
-              "clear_flag": "",
-              "enabled": true,
-              "has_check_flag": false,
-              "has_clear_flag": false,
-              "has_script": false,
-              "has_set_flag": false,
-              "next_page_id": 9,
-              "script": "",
-              "self_disable": false,
-              "set_flag": "",
-              "text": "Best case scenario, they shut this jackpot down because it brings in no money and you lose your job. Worst case, they sue you for lost revenue. Good luck."
-            }
-          ],
+          "choices": [],
           "clear_flag": "",
           "enabled": true,
           "has_check_flag": false,
           "has_clear_flag": false,
           "has_set_flag": false,
-          "next_page_id": 65535,
+          "next_page_id": 10,
+          "self_disable": false,
+          "set_flag": "",
+          "speaker_id": 0,
+          "text": "Well that's good! You saved them from paying for a coat of paint and only losing thousands in transaction fees."
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 11,
           "self_disable": false,
           "set_flag": "",
           "speaker_id": 11,
@@ -1584,28 +1565,27 @@
         },
         {
           "check_flag": "",
-          "choices": [
-            {
-              "check_flag": "",
-              "clear_flag": "",
-              "enabled": true,
-              "has_check_flag": false,
-              "has_clear_flag": false,
-              "has_script": false,
-              "has_set_flag": false,
-              "next_page_id": 10,
-              "script": "",
-              "self_disable": false,
-              "set_flag": "",
-              "text": "Thank you."
-            }
-          ],
+          "choices": [],
           "clear_flag": "",
           "enabled": true,
           "has_check_flag": false,
           "has_clear_flag": false,
           "has_set_flag": false,
-          "next_page_id": 65535,
+          "next_page_id": 12,
+          "self_disable": false,
+          "set_flag": "",
+          "speaker_id": 0,
+          "text": "Best case scenario, they shut this jackpot down because it brings in no money and you lose your job. Worst case, they sue you for lost revenue. Good luck."
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 13,
           "self_disable": false,
           "set_flag": "",
           "speaker_id": 11,
@@ -1619,7 +1599,7 @@
           "has_check_flag": false,
           "has_clear_flag": false,
           "has_set_flag": false,
-          "next_page_id": 11,
+          "next_page_id": 14,
           "self_disable": false,
           "set_flag": "",
           "speaker_id": 65535,
@@ -1633,7 +1613,7 @@
           "has_check_flag": false,
           "has_clear_flag": false,
           "has_set_flag": false,
-          "next_page_id": 12,
+          "next_page_id": 15,
           "self_disable": false,
           "set_flag": "",
           "speaker_id": 65535,
@@ -6036,7 +6016,7 @@
               "script": "",
               "self_disable": false,
               "set_flag": "",
-              "text": "(Better to play long for now) Mr. Ashton, I've investigated Danni's apartment, but it was a dead end."
+              "text": "(Better to play long for now)"
             }
           ],
           "clear_flag": "",
@@ -6052,28 +6032,27 @@
         },
         {
           "check_flag": "",
-          "choices": [
-            {
-              "check_flag": "",
-              "clear_flag": "",
-              "enabled": true,
-              "has_check_flag": false,
-              "has_clear_flag": false,
-              "has_script": false,
-              "has_set_flag": false,
-              "next_page_id": 2,
-              "script": "",
-              "self_disable": false,
-              "set_flag": "",
-              "text": "Do not worry. I was just about to hit the street for more information. If she's out there, I'll find her."
-            }
-          ],
+          "choices": [],
           "clear_flag": "",
           "enabled": true,
           "has_check_flag": false,
           "has_clear_flag": false,
           "has_set_flag": false,
-          "next_page_id": 65535,
+          "next_page_id": 2,
+          "self_disable": false,
+          "set_flag": "",
+          "speaker_id": 0,
+          "text": "Mr. Ashton, I've investigated Danni's apartment, but it was a dead end."
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 3,
           "self_disable": false,
           "set_flag": "",
           "speaker_id": 13,
@@ -6081,22 +6060,77 @@
         },
         {
           "check_flag": "",
-          "choices": [
-            {
-              "check_flag": "",
-              "clear_flag": "",
-              "enabled": true,
-              "has_check_flag": false,
-              "has_clear_flag": false,
-              "has_script": false,
-              "has_set_flag": false,
-              "next_page_id": 65535,
-              "script": "",
-              "self_disable": false,
-              "set_flag": "",
-              "text": "Don't worry, I won't stop until she's safe. You can be sure of it."
-            }
-          ],
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 4,
+          "self_disable": false,
+          "set_flag": "",
+          "speaker_id": 0,
+          "text": "I was just about to hit the street for more information. If she's out there, I'll find her."
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 5,
+          "self_disable": false,
+          "set_flag": "",
+          "speaker_id": 13,
+          "text": "Then get out there and find my Danni!"
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 6,
+          "self_disable": false,
+          "set_flag": "",
+          "speaker_id": 0,
+          "text": "Don't worry, I won't stop until she's safe."
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 7,
+          "self_disable": false,
+          "set_flag": "",
+          "speaker_id": 0,
+          "text": "You can be sure of it."
+        },
+        {
+          "check_flag": "",
+          "choices": [],
+          "clear_flag": "",
+          "enabled": true,
+          "has_check_flag": false,
+          "has_clear_flag": false,
+          "has_set_flag": false,
+          "next_page_id": 8,
+          "self_disable": false,
+          "set_flag": "",
+          "speaker_id": 13,
+          "text": "..."
+        },
+        {
+          "check_flag": "",
+          "choices": [],
           "clear_flag": "",
           "enabled": true,
           "has_check_flag": false,
@@ -6105,8 +6139,8 @@
           "next_page_id": 65535,
           "self_disable": false,
           "set_flag": "",
-          "speaker_id": 13,
-          "text": "Then get out there and find my Danni!"
+          "speaker_id": 65535,
+          "text": "He hung up."
         }
       ]
     },
@@ -6549,7 +6583,7 @@
           "has_check_flag": false,
           "has_clear_flag": false,
           "has_set_flag": false,
-          "next_page_id": 65535,
+          "next_page_id": 6,
           "self_disable": false,
           "set_flag": "",
           "speaker_id": 10,
@@ -7859,7 +7893,7 @@
           "self_disable": false,
           "set_flag": "",
           "speaker_id": 65535,
-          "text": "Unexpectedly, Visser is a lot stronger than he looks... Too strong. It took everything I had to keep his knife away from my face."
+          "text": "Unexpectedly, Visser was a lot stronger than he looked... Too strong. It took everything I had to keep his knife away from my face."
         },
         {
           "check_flag": "",
@@ -9577,7 +9611,7 @@
           "self_disable": false,
           "set_flag": "",
           "speaker_id": 65535,
-          "text": "Almost bored, the lead man in black jabbed Xander with something and 15, like countless time before, went limp."
+          "text": "Almost bored, the lead man in black jabbed Xander with something and \"15\" went limp."
         },
         {
           "check_flag": "",
@@ -10137,7 +10171,7 @@
             {
               "description": "Empty Lot",
               "goto_scene": 2,
-              "height": 200,
+              "height": 170,
               "pointer_id": 3,
               "script": "",
               "shape_id": 65535,
@@ -10188,7 +10222,7 @@
             {
               "description": "To the Alleycat",
               "goto_scene": 0,
-              "height": 200,
+              "height": 170,
               "pointer_id": 3,
               "script": "",
               "shape_id": 65535,
@@ -10278,7 +10312,7 @@
         },
         {
           "description": [
-            "It's hard to tell on account of the helmet, but I have a feeling the tinman was eyeing me with suspicion."
+            "It was hard to tell on account of the helmet, but I had a feeling the tinman was eyeing me with suspicion."
           ],
           "image_id": 3,
           "music_id": 1,
@@ -10291,7 +10325,7 @@
             {
               "description": "To Takeshi's",
               "goto_scene": 1,
-              "height": 200,
+              "height": 170,
               "pointer_id": 3,
               "script": "",
               "shape_id": 65535,
@@ -10342,12 +10376,12 @@
             {
               "description": "To Empty Lot",
               "goto_scene": 2,
-              "height": 140,
+              "height": 170,
               "pointer_id": 3,
               "script": "",
               "shape_id": 65535,
-              "width": 20,
-              "x": 300,
+              "width": 30,
+              "x": 290,
               "y": 0
             },
             {
@@ -10357,7 +10391,7 @@
               "pointer_id": 3,
               "script": "",
               "shape_id": 65535,
-              "width": 192,
+              "width": 182,
               "x": 106,
               "y": 175
             },
@@ -10406,7 +10440,7 @@
               "pointer_id": 3,
               "script": "",
               "shape_id": 65535,
-              "width": 220,
+              "width": 190,
               "x": 100,
               "y": 160
             }
@@ -10418,7 +10452,7 @@
         },
         {
           "description": [
-            "I could hear the subway trains' torutured shrieks from above the platform. "
+            "I could hear the subway trains' tortured shrieks from above the platform. "
           ],
           "image_id": 6,
           "music_id": 1,
@@ -10431,12 +10465,12 @@
             {
               "description": "Exit Subway",
               "goto_scene": 5,
-              "height": 200,
+              "height": 170,
               "pointer_id": 3,
               "script": "",
               "shape_id": 65535,
-              "width": 20,
-              "x": 300,
+              "width": 30,
+              "x": 290,
               "y": 0
             },
             {
@@ -10589,45 +10623,8 @@
           "view_y": 0
         }
       ],
-      "shapes": [
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\blake.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        },
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\acidnova.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        },
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\visser.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        }
-      ],
-      "shapes_file": "2.shapes",
+      "shapes": [],
+      "shapes_file": "",
       "speakers": [
         0,
         4,
@@ -10694,7 +10691,7 @@
             {
               "description": "To Danni's Room",
               "goto_scene": 1,
-              "height": 200,
+              "height": 170,
               "pointer_id": 3,
               "script": "",
               "shape_id": 65535,
@@ -10772,33 +10769,8 @@
           "view_y": 0
         }
       ],
-      "shapes": [
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\blake.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        },
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\crystal.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        }
-      ],
-      "shapes_file": "3.shapes",
+      "shapes": [],
+      "shapes_file": "",
       "speakers": [
         0,
         3,
@@ -10857,7 +10829,7 @@
             {
               "description": "Exit to subway",
               "goto_scene": 65535,
-              "height": 200,
+              "height": 170,
               "pointer_id": 3,
               "script": "exit_to_subway",
               "shape_id": 65535,
@@ -10928,69 +10900,8 @@
           "view_y": 0
         }
       ],
-      "shapes": [
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\blake.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        },
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\daisy.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        },
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\visser.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        },
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\unknown.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        },
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\danni.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        }
-      ],
-      "shapes_file": "4.shapes",
+      "shapes": [],
+      "shapes_file": "",
       "speakers": [
         0,
         2,
@@ -11074,7 +10985,7 @@
         },
         {
           "description": [
-            "For a laundromat, it was surprisingly hazy and dark in here. While a few laundry machines are spinning, there's nobody here other than an old woman sitting next to a computer. This must be Gladys."
+            "For a laundromat, it was surprisingly hazy and dark in here. While a few laundry machines were spinning, there was nobody here other than an old woman sitting at computer. Glady Aubergine, I presumed."
           ],
           "image_id": 1,
           "music_id": 1,
@@ -11087,7 +10998,7 @@
             {
               "description": "Exit to street",
               "goto_scene": 0,
-              "height": 200,
+              "height": 170,
               "pointer_id": 3,
               "script": "",
               "shape_id": 65535,
@@ -11124,45 +11035,8 @@
           "view_y": 0
         }
       ],
-      "shapes": [
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\blake.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        },
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\crystal.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        },
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\gladys.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        }
-      ],
-      "shapes_file": "5.shapes",
+      "shapes": [],
+      "shapes_file": "",
       "speakers": [
         0,
         3,
@@ -11221,7 +11095,7 @@
             {
               "description": "Exit to subway.",
               "goto_scene": 65535,
-              "height": 200,
+              "height": 170,
               "pointer_id": 3,
               "script": "leave_b19",
               "shape_id": 65535,
@@ -11355,7 +11229,7 @@
             {
               "description": "Exit the building.",
               "goto_scene": 0,
-              "height": 200,
+              "height": 170,
               "pointer_id": 3,
               "script": "",
               "shape_id": 65535,
@@ -11370,45 +11244,8 @@
           "view_y": 0
         }
       ],
-      "shapes": [
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\blake.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        },
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\unknown.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        },
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\danni.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        }
-      ],
-      "shapes_file": "6.shapes",
+      "shapes": [],
+      "shapes_file": "",
       "speakers": [
         0,
         65535,
@@ -11446,69 +11283,8 @@
           "view_y": 0
         }
       ],
-      "shapes": [
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\blake.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        },
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\danni.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        },
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\segf4ult.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        },
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\visser.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        },
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\crystal.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        }
-      ],
-      "shapes_file": "7.shapes",
+      "shapes": [],
+      "shapes_file": "",
       "speakers": [
         0,
         6,
@@ -11674,7 +11450,7 @@
             {
               "description": "Other side of the office",
               "goto_scene": 1,
-              "height": 200,
+              "height": 170,
               "pointer_id": 3,
               "script": "",
               "shape_id": 65535,
@@ -11730,57 +11506,8 @@
           "view_y": 0
         }
       ],
-      "shapes": [
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\blake.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        },
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\crystal.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        },
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\visser.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        },
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\danni.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        }
-      ],
-      "shapes_file": "8.shapes",
+      "shapes": [],
+      "shapes_file": "",
       "speakers": [
         0,
         6,
@@ -11882,7 +11609,7 @@
             {
               "description": "Corridor",
               "goto_scene": 2,
-              "height": 171,
+              "height": 148,
               "pointer_id": 3,
               "script": "",
               "shape_id": 65535,
@@ -11915,7 +11642,7 @@
               "pointer_id": 3,
               "script": "",
               "shape_id": 65535,
-              "width": 320,
+              "width": 290,
               "x": 0,
               "y": 170
             },
@@ -12078,57 +11805,8 @@
           "view_y": 0
         }
       ],
-      "shapes": [
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\blake.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        },
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\crystal.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        },
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\tinman.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        },
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\segf4ult.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        }
-      ],
-      "shapes_file": "9.shapes",
+      "shapes": [],
+      "shapes_file": "",
       "speakers": [
         0,
         3,
@@ -12225,69 +11903,8 @@
           "view_y": 0
         }
       ],
-      "shapes": [
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\blake.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        },
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\danni.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        },
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\xander.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        },
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\mib3.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        },
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\xander2.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        }
-      ],
-      "shapes_file": "10.shapes",
+      "shapes": [],
+      "shapes_file": "",
       "speakers": [
         0,
         9,
@@ -12322,45 +11939,8 @@
           "view_y": 0
         }
       ],
-      "shapes": [
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\blake.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        },
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\daisy.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        },
-        {
-          "has_palette": true,
-          "image_file": "data\\people\\crystal.iff",
-          "shapes": [
-            {
-              "height": 100,
-              "width": 100,
-              "x": 0,
-              "y": 0
-            }
-          ]
-        }
-      ],
-      "shapes_file": "11.shapes",
+      "shapes": [],
+      "shapes_file": "",
       "speakers": [
         0,
         2,

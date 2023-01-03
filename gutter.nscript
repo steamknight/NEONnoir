@@ -75,7 +75,7 @@
     loc_lost_sock               ; The Lost Soc Laundromat
     loc_b19
     display_b19_parcel
-    
+
 ; Game constants
 ; ==============================================================================
 .CONST
@@ -103,7 +103,7 @@
     intro_5                     5
 
     ; Scenes in the Alley location
-    alley_takeshi_noodles       1 
+    alley_takeshi_noodles       1
     alley_alleycat              0
     alley_empty_lot             2
     alley_atm                   3
@@ -303,7 +303,7 @@
     alley_atm_description       "ATMs. Cash Machines. Cred Dispensers. Unarmed Bandits. Take your pick. These jackpots let your retrieve your credits... for a fee."
     alley_atm_quest_start       "The better play would be to deal with that tin man before trying anything. They're not the forgiving type."
     alley_atm_quest_complete    "The deed's done, better not bring any more attention to it."
-    alley_atm_security_desc     "Looks like this bank has hired security to babysit the jackpot. These tin men contracts are usually given to lowest bidders."
+    alley_atm_security_desc     "It looked like this bank hired security to babysit the jackpot. These tin men contracts were usually given to lowest bidders."
     alley_atm_security_done     "I left him to his brain drain duties."
 
     cant_leave_alley            "I couldn't leave just yet, not when I still didn't have a lead."
@@ -354,7 +354,7 @@
 
 ; Location: The Lost Sock Laundromat
 ; ==============================================================================
-    gladys_is_too_mean          "I wasn't going get anywhere with that museum exhibit. However, if I could get my hands on her computer, I was certain I could learn a few interesting things."
+    gladys_is_too_mean          "I wasn't going to get anywhere with that museum exhibit. However, if I could get my hands on her computer, I was certain I could learn a few interesting things."
     laundromat_closed           "The door was locked. Through the window, I could see an old woman but she waved me away. I'll would have to come back later."
     laundry_xantech_poster1     "The poster announced the yearly XanCon expo, hosted by Xantech Cybernetics. All of Xantech's latest exercise in planned obsolescence will be on display tomorrow night."
     laundry_xantech_poster2     "I added Xantech Cybernetics to my GovLink search database."
@@ -593,7 +593,7 @@
     end
 
 .SCRIPT intro01_text
-    txtstart #frame_off            ; Start a text section 
+    txtstart #frame_off            ; Start a text section
     txtput $intro01_01 26
     txtnl
     txtnl
@@ -692,7 +692,7 @@
         end
 
 ; Describe the noodle joint
-.SCRIPT examine_takeshi       
+.SCRIPT examine_takeshi
         text $takeshi
         end
 
@@ -756,7 +756,7 @@
         text $alley_check_dumpster
         end
 
-; Use the jackpot 
+; Use the jackpot
 ; if (already used) -> leave it alone
 ; else if (need to use it) -> mention the tin man
 ; else -> describe the jackpot
@@ -836,7 +836,7 @@
 .SCRIPT meet_crystal
         load !knows_about_danni_house
         jift @done
-        
+
         load !acid_nova_denies_danni
         jiff @done
         dlg #dialogue_crystal_alley
@@ -919,8 +919,8 @@
         jiff @danni_call
         text $just_got_visser_photo1
         text $just_got_visser_photo2
-        
-        set 
+
+        set
         store !inv_visser_photo
 
         end
@@ -932,7 +932,7 @@
         and !knows_about_cygnus
         and !knows_about_summervault
         jiff @done
-        
+
         text $get_call_from_danni2
         text $get_call_from_danni3
         text $get_call_from_danni2      ; She rings twice
@@ -1109,7 +1109,7 @@
         jiff @dont_touch_computer
         text $need_gladys_distraction
         end
-    
+
     @dont_touch_computer
         dlg #dialogue_gladys_computer
         end
@@ -1250,11 +1250,11 @@
         txtstart #frame_off
         txtput $b19r_intro1 45
         txtend 4 170 #wait_on
-        
+
         txtstart #frame_off
         txtput $b19r_intro2 45
         txtend 4 170 #wait_on
-        
+
         txtstart #frame_off
         txtput $b19r_intro3 45
         txtend 4 170 #wait_on
@@ -1317,7 +1317,7 @@
         text $xantech_move_to_server
         goto #scene_xantech_servers
         end
-        
+
     @not_yet
         dlg #dialogue_tinman
         end
@@ -1432,7 +1432,10 @@
 
         goloc #location_title #scene_title
         end
-        
+
+
+
+
 
 
 
