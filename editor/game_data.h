@@ -5,6 +5,7 @@
 #include "glfw_utils.h"
 #include "utils.h"
 #include "simple_image.h"
+#include "string_table.h"
 
 namespace NEONnoir
 {
@@ -24,6 +25,7 @@ namespace NEONnoir
         u16 pointer_id{ 0 };
         u16 goto_scene{ 0xFFFF };
         std::string description;
+        std::string description_id;
         std::string script;
     };
 
@@ -31,6 +33,7 @@ namespace NEONnoir
     {
         std::string name;
         std::vector<std::string> description;
+        std::vector<std::string> description_id;
         std::string on_enter;
         std::string on_exit;
         u16 image_id{ 0 };
@@ -70,6 +73,7 @@ namespace NEONnoir
     struct dialogue_choice
     {
         std::string text;
+        std::string text_id;
         std::string script;
         std::string set_flag;
         std::string clear_flag;
@@ -87,6 +91,7 @@ namespace NEONnoir
     struct dialogue_page
     {
         std::string text;
+        std::string text_id;
         std::string set_flag;
         std::string clear_flag;
         std::string check_flag;
@@ -105,14 +110,6 @@ namespace NEONnoir
         std::string name;
         std::vector<dialogue_page> pages;
     };
-
-    struct numbered_string
-    {
-        u32 id;
-        std::string value;
-    };
-
-    using string_table = std::unordered_map<std::string, numbered_string>;
 
     struct speaker_info
     {

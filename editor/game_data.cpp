@@ -30,6 +30,7 @@ namespace NEONnoir
         pointer_id,
         goto_scene,
         description,
+        description_id,
         script
     );
 
@@ -37,6 +38,7 @@ namespace NEONnoir
         game_data_scene,
         name,
         description,
+        description_id,
         on_enter,
         on_exit,
         image_id,
@@ -63,6 +65,7 @@ namespace NEONnoir
     NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(
         dialogue_choice,
         text,
+        text_id,
         script,
         set_flag,
         clear_flag,
@@ -80,6 +83,7 @@ namespace NEONnoir
         dialogue_page,
         speaker_id,
         text,
+        text_id,
         set_flag,
         clear_flag,
         check_flag,
@@ -108,8 +112,10 @@ namespace NEONnoir
         script_name
     );
 
-    void game_data::serialize(std::string const& file_path)
+    void game_data::serialize(std::string const& file_name)
     {
+        auto file_path = fs::path{ file_name };
+
         auto savefile = std::ofstream{ file_path, std::ios::trunc };
         if (savefile)
         {
@@ -126,6 +132,10 @@ namespace NEONnoir
             savefile << root.dump(2);
             savefile.close();
         }
+
+        auto strings_path = (file_path.parent_path() / file_path.stem());
+        strings_path += "_strings.json";
+        strings.serialize(strings_path);
     }
 
     std::shared_ptr<game_data> game_data::deserialize(std::string const& filename)
@@ -167,6 +177,42 @@ namespace NEONnoir
                 speaker.image = MPG::load_image(speaker.image_path);
                 speaker.image_texture = load_texture(speaker.image);
             }
+
+            //// begin temporary
+            //for (auto& location : data.locations)
+            //{
+            //    for (auto& scene : location.scenes)
+            //    {
+            //        for (auto& description : scene.description)
+            //        {
+            //            scene.description_id.push_back(std::string{ data.strings.create_string_entry(description) });
+            //        }
+
+            //        for (auto& region : scene.regions)
+            //        {
+            //            region.description_id = data.strings.create_string_entry(region.description);
+            //        }
+            //    }
+            //}
+
+            //for (auto& dialogue : data.dialogues)
+            //{
+            //    for (auto& page : dialogue.pages)
+            //    {
+            //        page.text_id = data.strings.create_string_entry(page.text);
+
+            //        for (auto& choice : page.choices)
+            //        {
+            //            choice.text_id = data.strings.create_string_entry(choice.text);
+            //        }
+            //    }
+            //}
+            //// end temporary
+
+            auto file_path = fs::path{ filename };
+            auto strings_path = (file_path.parent_path() / file_path.stem());
+            strings_path += "_strings.json";
+            data.strings.deserialize(strings_path);
 
             return std::make_shared<game_data>(data);
         }
