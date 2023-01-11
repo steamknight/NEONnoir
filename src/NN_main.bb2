@@ -5,15 +5,27 @@
 ; =============================================================================
 
 AMIGA
-If NOT NTSC Then Poke $DFF1DC, $000
+DEFTYPE .b NN_is_NTSC
+NN_is_NTSC = NTSC
+
+If GetIconObject("neonnoir") > 0
+  NN_is_NTSC = NTSC Or FindToolType("FORCE_NTSC")
+End If
+
+!DB_printf{"******************* Is NTSC? %d - Forcing to NTSC? %d", NTSC, NN_is_NTSC}
+
+If NN_is_NTSC Then Poke $DFF1DC, $000
 
 ; PAL has 256 vertical lines, but NTSC only has 200. Center the display
 ; so that it doesn't look terrible for PAL.
 DEFTYPE .w screen_offset
-screen_offset = ((DispHeight - 200) LSR 1) + #CP_origin
+If NN_is_NTSC
+  screen_offset = #CP_origin
+Else
+  screen_offset = #CP_origin_PAL
+End If
 !DB_log_val{"MAIN", "screen_offset %d", screen_offset}
-InitCopList #CP_coplist, 44, #NN_screen_height, #CP_flags, #CP_sprites, #NN_screen_colors, 0
-
+InitCopList #CP_coplist, screen_offset, #NN_screen_height, #CP_flags, #CP_sprites, #NN_screen_colors, 0
 
 ; Set up a buffer for blitting into the main screen
 Buffer #BF_main_screen, 64000
@@ -39,8 +51,8 @@ LoadShapes #SH_menu, #SH_menu, "data/menu.shapes"
 ; Display the splash screen
 BLITZ
 CreateDisplay #CP_coplist
-Poke $DFF1DC, $000
-; Force the machine to enter NTSC mode
+
+If NN_is_NTSC Then Poke $DFF1DC, $000
 
 DisplayBitMap #CP_coplist, #BMP_main
 FadeInScreen{#CP_coplist, #PAL_main, #PAL_fx}

@@ -73,7 +73,7 @@ NEWTYPE .DG_choice
   check_flag.w        ; flag that determines if criteria is met, $FFFF if none
   page_id.w           ; id to the next page in the conversation
   script_offset.w     ; script to run if selected, $FFFF if none
-  enabled.b           ; determine if it should be shown. If this is False, 
+  enabled.b           ; determine if it should be shown. If this is False,
                       ; it overrides the flag property
   self_disable.b      ; Disable itself if true
 End NEWTYPE
@@ -341,6 +341,7 @@ End Macro
 ; Coplist
 #CP_coplist = 0
 #CP_origin = 44
+#CP_origin_PAL = 72
 #CP_sprites = 8
 
 #CP_flag_agamode = $10000
