@@ -17,13 +17,14 @@ namespace NEONnoir
     private:
         void display_placeholder() const;
         void display_editor(std::shared_ptr<game_data>& data);
-        void display_scene_properties(std::shared_ptr<game_data>& data);
+        void display_scene_properties(std::shared_ptr<game_data>& data, string_table& strings);
 
         void display_prop_string(std::string_view const& label, std::string& name);
-        void display_prop_multistring(std::string_view const& label, std::vector<std::string>& values);
+        void display_prop_string_entry(std::string_view const& label, std::string& name, string_table& strings);
+        void display_prop_multistring(std::string_view const& label, std::vector<std::string>& values, string_table& strings);
         void display_prop_int(std::string_view const& label, u16& value);
         void display_prop_background(game_data_scene& scene, std::vector<std::string> const& backgrounds);
-        void display_prop_regions(game_data_scene& scene, std::vector<std::string> const& exit_regions);
+        void display_prop_regions(game_data_scene& scene, std::vector<std::string> const& exit_regions, string_table& strings);
         void display_prop_region_scalar(std::string_view const& label, u16& value);
         void display_prop_combo(std::string_view const& label, std::vector<std::string> const& values, u16& selected_value);
         void display_prop_enum(std::string_view const& label, std::vector<std::string> const& values, u16& selected_value);

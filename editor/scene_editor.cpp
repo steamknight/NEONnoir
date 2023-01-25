@@ -59,7 +59,7 @@ namespace NEONnoir
             ImGui::TableNextRow();
 
             ImGui::TableNextColumn();
-            display_scene_properties(data);
+            display_scene_properties(data, data->strings);
 
             auto& location = data->locations[_location_index.value()];
             auto& scene = location.scenes[_scene_index.value()];
@@ -71,7 +71,7 @@ namespace NEONnoir
         }
     }
 
-    void scene_editor::display_scene_properties(std::shared_ptr<game_data>& data)
+    void scene_editor::display_scene_properties(std::shared_ptr<game_data>& data, string_table& strings)
     {
         if (ImGui::BeginChild("SceneProps", { 0, 0 }, true))
         {
@@ -80,7 +80,7 @@ namespace NEONnoir
             if (ImGui::BeginTable("PropsLayout", 2, ImGuiTableFlags_SizingStretchProp))
             {
                 display_prop_string("Name", current_scene.name);
-                display_prop_multistring("Description", current_scene.description);
+                display_prop_multistring("Description", current_scene.description_id, strings);
                 display_prop_background(current_scene, data->locations[_location_index.value()].backgrounds);
                 display_prop_string("On Enter", current_scene.on_enter);
                 display_prop_string("On Exit", current_scene.on_exit);
@@ -94,7 +94,7 @@ namespace NEONnoir
                 exit_regions.push_back(scene.name);
             }
 
-            display_prop_regions(current_scene, exit_regions);
+            display_prop_regions(current_scene, exit_regions, strings);
         }
         
         ImGui::EndChild();
@@ -113,7 +113,18 @@ namespace NEONnoir
         ImGui::InputText(std::format("##{}", (u64)&value).c_str(), &value);
     }
 
-    void scene_editor::display_prop_multistring(std::string_view const& label, std::vector<std::string>& values)
+
+    void scene_editor::display_prop_string_entry(std::string_view const& label, std::string& string_id, string_table& strings)
+    {
+        if (string_id.empty())
+        {
+            string_id = strings.create_string_entry("");
+        }
+
+        display_prop_string(label, strings.get_string(string_id));
+    }
+
+    void scene_editor::display_prop_multistring(std::string_view const& label, std::vector<std::string>& string_ids, string_table& strings)
     {
         ImGui::TableNextRow();
 
@@ -126,21 +137,26 @@ namespace NEONnoir
 
         if (ImGui::Button("Add description"))
         {
-            values.push_back({});
+            string_ids.push_back({});
         }
 
         auto delete_index = std::optional<size_t>{ std::nullopt };
         auto count = 0;
-        for (auto& value : values)
+        for (auto& string_id : string_ids)
         {
-            ImGui::PushID(to<void*>(&value));
+            ImGui::PushID(to<void*>(&string_id));
             if (DeleteButton("##delete"))
             {
                 delete_index = count;
             }
             ImGui::SameLine();
             ImGui::SetNextItemWidth(-FLT_MIN);
-            ImGui::InputTextMultiline("##", &value, { 0, 60 });
+
+            if (string_id.empty())
+            {
+                string_id = strings.create_string_entry("");
+            }
+            ImGui::InputTextMultiline("##", &strings.get_string(string_id), {0, 60});
             ImGui::PopID();
             
             count++;
@@ -148,7 +164,13 @@ namespace NEONnoir
 
         if (delete_index)
         {
-            values.erase(values.begin() + delete_index.value());
+            auto const& text_id = string_ids[delete_index.value()];
+            if (!text_id.empty())
+            {
+                strings.remove_string(text_id);
+            }
+
+            string_ids.erase(string_ids.begin() + delete_index.value());
         }
     }
 
@@ -280,7 +302,7 @@ namespace NEONnoir
         }
     }
 
-    void scene_editor::display_prop_regions(game_data_scene& scene, std::vector<std::string> const& exit_regions)
+    void scene_editor::display_prop_regions(game_data_scene& scene, std::vector<std::string> const& exit_regions, string_table& strings)
     {
         ImGui::NewLine();
 
@@ -308,7 +330,7 @@ namespace NEONnoir
                 display_prop_region_scalar("Y", region.y);
                 display_prop_region_scalar("Width", region.width);
                 display_prop_region_scalar("Height", region.height);
-                display_prop_string("Hover Text", region.description);
+                display_prop_string_entry("Hover Text", region.description_id, strings);
                 display_prop_enum("Mouse Pointer", pointer_types, region.pointer_id);
                 display_prop_combo("Exit To Scene", exit_regions, region.goto_scene);
                 display_prop_string("Script Name", region.script);
@@ -333,6 +355,12 @@ namespace NEONnoir
 
             if (region_to_delete >= 0)
             {
+                auto const& region = scene.regions[region_to_delete];
+                if (!region.description_id.empty())
+                {
+                    strings.remove_string(region.description_id);
+                }
+
                 scene.regions.erase(scene.regions.begin() + region_to_delete);
             }
         }

@@ -33,11 +33,11 @@ namespace NEONnoir
         // Display each location's data
         for (auto idx = 0; idx < data->locations.size(); idx++)
         {
-            display_location(data->locations[idx], idx, data->speakers);
+            display_location(data->locations[idx], idx, data->speakers, data->strings);
         }
     }
 
-    void location_browser::display_location(game_data_location& location, size_t location_index, std::vector<speaker_info>& speakers)
+    void location_browser::display_location(game_data_location& location, size_t location_index, std::vector<speaker_info>& speakers, string_table& strings)
     {
         // For the header name, we don't want the name to have any part in the
         // generation of the id since it can change and mess everything up
@@ -52,7 +52,7 @@ namespace NEONnoir
         {
             display_location_name(location.name, id);
             display_backgrounds(location.backgrounds, location.background_textures, id);
-            display_scenes(location.scenes, id, location_index);
+            display_scenes(location.scenes, id, location_index, strings);
             display_speakers(location, speakers);
 
             ImGui::TableNextRow();
@@ -136,7 +136,7 @@ namespace NEONnoir
         }
     }
 
-    void location_browser::display_scenes(std::vector<game_data_scene>& scenes, std::string const& id, size_t location_index)
+    void location_browser::display_scenes(std::vector<game_data_scene>& scenes, std::string const& id, size_t location_index, string_table& strings)
     {
         ImGui::TableNextRow();
 
@@ -181,6 +181,25 @@ namespace NEONnoir
         // Check for deleted backgrouns
         if (remove_index >= 0)
         {
+            auto const& scene = scenes[remove_index];
+            if (!scene.description_id.empty())
+            {
+                for (auto const& id : scene.description_id)
+                {
+                    if (!id.empty())
+                    {
+                        strings.remove_string(id);
+                    }
+                }
+            }
+
+            for (auto const& region : scene.regions)
+            {
+                if (!region.description_id.empty())
+                {
+                    strings.remove_string(region.description_id);
+                }
+            }
             scenes.erase(scenes.begin() + remove_index);
         }
 

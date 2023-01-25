@@ -43,6 +43,12 @@ namespace NEONnoir
 
         id_index_map.erase(string_id);
         string_entries.erase(string_entries.begin() + index);
+
+        std::for_each(string_entries.begin() + index, string_entries.end(),
+            [&](string_entry& entry)
+            {
+                id_index_map[entry.id]--;
+            });
     }
 
     void string_table::move_up(std::string const& string_id)
