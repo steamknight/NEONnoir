@@ -24,7 +24,6 @@ namespace NEONnoir
         u16 shape_id{ 0 };
         u16 pointer_id{ 0 };
         u16 goto_scene{ 0xFFFF };
-        std::string description;
         std::string description_id;
         std::string script;
     };
@@ -32,7 +31,6 @@ namespace NEONnoir
     struct game_data_scene
     {
         std::string name;
-        std::vector<std::string> description;
         std::vector<std::string> description_id;
         std::string on_enter;
         std::string on_exit;
@@ -72,7 +70,6 @@ namespace NEONnoir
 
     struct dialogue_choice
     {
-        std::string text;
         std::string text_id;
         std::string script;
         std::string set_flag;
@@ -90,7 +87,6 @@ namespace NEONnoir
 
     struct dialogue_page
     {
-        std::string text;
         std::string text_id;
         std::string set_flag;
         std::string clear_flag;

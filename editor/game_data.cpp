@@ -29,7 +29,6 @@ namespace NEONnoir
         shape_id,
         pointer_id,
         goto_scene,
-        description,
         description_id,
         script
     );
@@ -37,7 +36,6 @@ namespace NEONnoir
     NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(
         game_data_scene,
         name,
-        description,
         description_id,
         on_enter,
         on_exit,
@@ -64,7 +62,6 @@ namespace NEONnoir
 
     NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(
         dialogue_choice,
-        text,
         text_id,
         script,
         set_flag,
@@ -82,7 +79,6 @@ namespace NEONnoir
     NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(
         dialogue_page,
         speaker_id,
-        text,
         text_id,
         set_flag,
         clear_flag,

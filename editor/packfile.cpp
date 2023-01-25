@@ -95,13 +95,13 @@ namespace NEONnoir
                 s.name_id = to<u16>(pak.string_table.size());
                 pak.string_table.push_back(scene.name);
 
-                if (scene.description.size() > 0)
+                if (scene.description_id.size() > 0)
                 {
                     s.first_desc_id = to<u16>(pak.string_table.size());
 
-                    for (auto& desc : scene.description)
+                    for (auto& desc : scene.description_id)
                     {
-                       pak.string_table.push_back(desc);
+                       pak.string_table.push_back(data->strings.get_string(desc));
                     }
 
                     // Compensate for the extra string added to the table
@@ -128,10 +128,10 @@ namespace NEONnoir
                     r.pointer_id = region.pointer_id;
                     r.goto_scene = region.goto_scene;
 
-                    if (region.description.size() > 0)
+                    if (!region.description_id.empty() && data->strings.get_string(region.description_id).size() > 0)
                     {
                         r.description_id = to<u16>(pak.string_table.size());
-                        pak.string_table.push_back(region.description);
+                        pak.string_table.push_back(data->strings.get_string(region.description_id));
                     }
                     else
                     {
@@ -142,7 +142,7 @@ namespace NEONnoir
                     {
                         if (result.scripts_meta.count(region.script) == 0)
                         {
-                            throw packer_error(std::format("Region '{}/{}/{}' references non-existing script '{}'", location.name, scene.name, region.description, region.script));
+                            throw packer_error(std::format("Region '{}/{}/{}' references non-existing script '{}'", location.name, scene.name, data->strings.get_string(region.description_id), region.script));
                         }
                         else
                         {
@@ -202,7 +202,7 @@ namespace NEONnoir
                 auto p = neon_page{};
                 p.speaker_id = page.speaker_id;
                 p.text_id = to<u16>(pak.string_table.size());
-                pak.string_table.push_back(page.text);
+                pak.string_table.push_back(data->strings.get_string(page.text_id));
 
                 p.page_id = page.next_page_id;
                 if (p.page_id != 0xFFFF) p.page_id += d.first_page_id;
@@ -213,7 +213,7 @@ namespace NEONnoir
                 {
                     auto c = neon_choice{};
                     c.text_id = to<u16>(pak.string_table.size());
-                    pak.string_table.push_back("*" + choice.text);
+                    pak.string_table.push_back("*" + data->strings.get_string(choice.text_id));
 
                     c.page_id = choice.next_page_id;
                     if (c.page_id != 0xFFFF) c.page_id += d.first_page_id;

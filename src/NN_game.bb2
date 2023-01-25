@@ -544,6 +544,8 @@ Statement NN_save_game{}
   Next
 
   CloseFile id
+
+  VWait 180
 End Statement
 
 ; Loads the game

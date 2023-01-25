@@ -251,14 +251,15 @@ namespace NEONnoir
 
             ImGui::SetNextItemWidth(-FLT_MIN);
 
-            auto size = ImGui::CalcTextSize(page.text.c_str());
-            size.x = -FLT_MIN;
-            size.y += 8;
-
             if (page.text_id.empty())
             {
                 page.text_id = strings.create_string_entry("");
             }
+
+            auto size = ImGui::CalcTextSize(strings.get_string(page.text_id).c_str());
+            size.x = -FLT_MIN;
+            size.y += 8;
+
             ImGui::InputTextMultiline(make_id("##{}", page.text_id), &strings.get_string(page.text_id), size);
 
             //input_text(std::format("Page {}", count), page.text);
