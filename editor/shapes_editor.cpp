@@ -14,40 +14,20 @@
 
 namespace NEONnoir
 {
-    void NEONnoir::shapes_editor::display(std::weak_ptr<game_data> game_data, std::optional<size_t> const& location_index)
+    void NEONnoir::shapes_editor::display(game_data_location* location)
     {
-        auto shapes_editor_window = ImGui_window(ICON_MD_PHOTO " Shapes Editor");
-
-        auto data = game_data.lock();
-        if (data && location_index)
+        _location = location;
+        if (_location != nullptr)
         {
-            display_editor(data->locations[location_index.value()], data->shape_start_id);
-        }
-        else
-        {
-            display_placeholder(!game_data.expired());
+            auto shapes_editor_window = ImGui_window(ICON_MD_PHOTO " Shapes Editor");
+            display_editor();
         }
     }
 
-    void shapes_editor::display_placeholder(bool have_data) const noexcept
-    {
-        auto const origin = ImGui::GetCursorScreenPos();
-        auto const size = ImGui::GetContentRegionAvail();
-
-        ImDrawList* draw_list = ImGui::GetWindowDrawList();
-
-        draw_list->AddRectFilled(origin, origin + size, IM_COL32(4, 16, 32, 255));
-
-        auto text = (!have_data) ? "No Game File" : "Select a location.";
-
-        SetCursorCenteredText(origin + (size / 2), text);
-        ImGui::TextColored({ 16.f / 255.f, 64.f / 255.f, 128.f / 255.f, 1.f }, text);
-    }
-
-    void shapes_editor::save_shapes(std::filesystem::path const& shapes_file_path, game_data_location& location) const
+    void shapes_editor::save_shapes(std::filesystem::path const& shapes_file_path) const
     {
         auto all_shapes = std::vector<MPG::simple_image>{};
-        for (auto const& shape_container : location.shapes)
+        for (auto const& shape_container : _location->shapes)
         {
             for (auto const& shape : shape_container.shapes)
             {
@@ -58,9 +38,9 @@ namespace NEONnoir
         MPG::save_blitz_shapes(shapes_file_path, all_shapes);
     }
 
-    void shapes_editor::display_editor(game_data_location& location, i32 shape_start_id)
+    void shapes_editor::display_editor()
     {
-        ImGui::Text("Shapes for Location: %s", location.name.c_str());
+        ImGui::Text("Shapes for Location: %s", _location->name.c_str());
 
         if (auto table = imgui::table("main_shapes_editor", 2, ImGuiTableFlags_SizingStretchProp | ImGuiTableFlags_Resizable))
         {
@@ -73,8 +53,8 @@ namespace NEONnoir
                 {
                     auto container = shape_container{ file.value().data() };
                     container.image = MPG::load_image(file.value());
-                    location.shapes.push_back(container);
-                    location.shapes_textures.push_back(load_texture(container.image));
+                    _location->shapes.push_back(container);
+                    _location->shapes_textures.push_back(load_texture(container.image));
                 }
             }
 
@@ -83,17 +63,17 @@ namespace NEONnoir
                 auto filename = save_file_dialog("shapes");
                 if (filename)
                 {
-                    save_shapes(filename.value(), location);
+                    save_shapes(filename.value());
                 }
             }
 
             ImGui::SetNextItemWidth(-FLT_MIN);
-            ImGui::InputText(make_id("##shapefile{}", location.shapes_file), &location.shapes_file);
+            ImGui::InputText(make_id("##shapefile{}", _location->shapes_file), &_location->shapes_file);
             ToolTip("Name of the shapes file.");
 
             auto count = 0u;
-            auto shape_id = shape_start_id;
-            for (auto& container : location.shapes)
+            auto shape_id = _data->shape_start_id;
+            for (auto& container : _location->shapes)
             {
                 if (DeleteButton(std::format("##ShapeContainderDelete{}", (size_t)&container)))
                 {
@@ -120,7 +100,7 @@ namespace NEONnoir
                 {
                     for (auto i = 0; i < _selected_image; i++)
                     {
-                        shape_id += to<i32>(location.shapes[i].shapes.size());
+                        shape_id += to<i32>(_location->shapes[i].shapes.size());
                     }
 
                     auto region_count = 0;
@@ -164,27 +144,25 @@ namespace NEONnoir
 
             if (_shape_container_to_delete)
             {
-                location.shapes.erase(location.shapes.begin() + _shape_container_to_delete.value());
+                _location->shapes.erase(_location->shapes.begin() + _shape_container_to_delete.value());
                 _shape_container_to_delete = std::nullopt;
                 _selected_image = std::nullopt;
             }
 
-            if (_shape_to_delete && _selected_image && _selected_image.value() < location.shapes.size())
+            if (_shape_to_delete && _selected_image && _selected_image.value() < _location->shapes.size())
             {
-                auto& container = location.shapes[_selected_image.value()].shapes;
+                auto& container = _location->shapes[_selected_image.value()].shapes;
                 container.erase(container.begin() + _shape_to_delete.value());
 
                 _shape_to_delete = std::nullopt;
             }
 
             ImGui::TableNextColumn();
-            if (_selected_image.has_value() && _selected_image.value() < location.shapes_textures.size())
+            if (_selected_image.has_value() && _selected_image.value() < _location->shapes_textures.size())
             {
-                auto& texture = location.shapes_textures[_selected_image.value()];
-                _shape_image.display(texture, location.shapes[_selected_image.value()].shapes);
+                auto& texture = _location->shapes_textures[_selected_image.value()];
+                _shape_image.display(texture, _location->shapes[_selected_image.value()].shapes);
             }
-
-
         }
     }
 }

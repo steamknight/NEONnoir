@@ -119,6 +119,21 @@ namespace NEONnoir
         };
     }
 
+    ImGui_guard imgui::popup(::std::string_view const& id, ImGuiWindowFlags flags)
+    {
+        return ImGui_guard
+        {
+            &ImGui::EndPopup,
+            ImGui::BeginPopup(id.data(),flags)
+        };
+    }
+
+    ImGui_guard imgui::push_id(int id)
+    {
+        ImGui::PushID(id);
+        return ImGui_guard{ &ImGui::PopID, true };
+    }
+
     void imgui::combo_with_empty(std::vector<std::string> const& values, u16& selected_value)
     {
         // Sanity check in case something's been deleted

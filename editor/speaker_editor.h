@@ -9,18 +9,18 @@ namespace NEONnoir
     class speaker_editor : public editor_window_base
     {
     public:
-        speaker_editor() = default;
+        speaker_editor(std::shared_ptr<game_data> data) : editor_window_base(data) { };
         virtual ~speaker_editor() = default;
 
     private:
         std::string_view get_title_name() const noexcept override { return ICON_MD_PERSON " Speaker Editor"; };
-        void display_editor(std::shared_ptr<game_data> data) override;
+        void display_editor() override;
 
-        void display_toolbar(std::vector<speaker_info>& speakers) noexcept;
+        void display_toolbar() noexcept;
         bool display_speaker(speaker_info& speaker) noexcept;
 
-        void save_shapes(std::filesystem::path const& shapes_file_path, std::vector<speaker_info>& speakers) const;
-        void save_mpsh_shapes(std::filesystem::path const& shapes_file_path, std::vector<speaker_info>& speakers) const;
+        void save_shapes(std::filesystem::path const& shapes_file_path) const;
+        void save_mpsh_shapes(std::filesystem::path const& shapes_file_path) const;
 
     private:
         int _bit_depth{ 5 };

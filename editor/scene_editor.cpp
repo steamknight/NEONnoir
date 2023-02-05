@@ -13,88 +13,55 @@ namespace fs = std::filesystem;
 
 namespace NEONnoir
 {
-    void scene_editor::use(std::weak_ptr<game_data> game_data, std::optional<size_t> const& location_index, std::optional<size_t> const& scene_index)
+    void scene_editor::display(game_data_location* location, game_data_scene* scene)
     {
-        _game_data = game_data;
-        _location_index = location_index;
-        _scene_index = scene_index;
-    }
-
-    void scene_editor::display()
-    {
-        auto data = _game_data.lock();
-        if (data && _location_index.has_value() && _scene_index.has_value())
+        if (location != nullptr && scene != nullptr)
         {
-            auto const& location = data->locations[_location_index.value()];
-            auto const& scene = location.scenes[_scene_index.value()];
-            auto locations_window = ImGui_window(std::format("{}: {}###Scene", location.name, scene.name));
-            display_editor(data);
-        }
-        else
-        {
-            auto locations_window = ImGui_window(ICON_MD_PLACE " Scene");
-            display_placeholder();
+            _location = location;
+            _scene = scene;
+            auto locations_window = ImGui_window(std::format("{}: {}###Scene", location->name, scene->name));
+            display_editor();
         }
     }
 
-    void scene_editor::display_placeholder() const
-    {
-        auto const origin = ImGui::GetCursorScreenPos();
-        auto const size = ImGui::GetContentRegionAvail();
-
-        ImDrawList* draw_list = ImGui::GetWindowDrawList();
-
-        draw_list->AddRectFilled(origin, origin + size, IM_COL32(4, 16, 32, 255));
-
-        auto text = (_game_data.expired()) ? "No Game File" : "Select a scene to edit.";
-
-        SetCursorCenteredText(origin + (size / 2), text);
-        ImGui::TextColored({ 16.f / 255.f, 64.f / 255.f, 128.f / 255.f, 1.f }, text);
-    }
-
-    void scene_editor::display_editor(std::shared_ptr<game_data>& data)
+    void scene_editor::display_editor()
     {
         if (ImGui::BeginTable("Layout", 2, ImGuiTableFlags_SizingStretchProp | ImGuiTableFlags_Resizable))
         {
             ImGui::TableNextRow();
 
             ImGui::TableNextColumn();
-            display_scene_properties(data, data->strings);
-
-            auto& location = data->locations[_location_index.value()];
-            auto& scene = location.scenes[_scene_index.value()];
+            display_scene_properties();
 
             ImGui::TableNextColumn();
-            display_scene(scene, location);
+            display_scene();
 
             ImGui::EndTable();
         }
     }
 
-    void scene_editor::display_scene_properties(std::shared_ptr<game_data>& data, string_table& strings)
+    void scene_editor::display_scene_properties()
     {
         if (ImGui::BeginChild("SceneProps", { 0, 0 }, true))
         {
-            auto& current_scene = data->locations[_location_index.value()].scenes[_scene_index.value()];
-
             if (ImGui::BeginTable("PropsLayout", 2, ImGuiTableFlags_SizingStretchProp))
             {
-                display_prop_string("Name", current_scene.name);
-                display_prop_multistring("Description", current_scene.description_id, strings);
-                display_prop_background(current_scene, data->locations[_location_index.value()].backgrounds);
-                display_prop_string("On Enter", current_scene.on_enter);
-                display_prop_string("On Exit", current_scene.on_exit);
-                display_prop_int("Music ID", current_scene.music_id);
+                display_prop_string("Name", _scene->name);
+                display_prop_multistring("Description", _scene->description_id);
+                display_prop_background(_location->backgrounds);
+                display_prop_string("On Enter", _scene->on_enter);
+                display_prop_string("On Exit", _scene->on_exit);
+                display_prop_int("Music ID", _scene->music_id);
                 ImGui::EndTable();
             }
 
             auto exit_regions = std::vector<std::string>{ "None" };
-            for (auto const& scene : data->locations[_location_index.value()].scenes)
+            for (auto const& scene : _location->scenes)
             {
                 exit_regions.push_back(scene.name);
             }
 
-            display_prop_regions(current_scene, exit_regions, strings);
+            display_prop_regions(exit_regions);
         }
         
         ImGui::EndChild();
@@ -114,17 +81,17 @@ namespace NEONnoir
     }
 
 
-    void scene_editor::display_prop_string_entry(std::string_view const& label, std::string& string_id, string_table& strings)
+    void scene_editor::display_prop_string_entry(std::string_view const& label, std::string& string_id)
     {
         if (string_id.empty())
         {
-            string_id = strings.create_string_entry("");
+            string_id = _data->strings.create_string_entry("");
         }
 
-        display_prop_string(label, strings.get_string(string_id));
+        display_prop_string(label, _data->strings.get_string(string_id));
     }
 
-    void scene_editor::display_prop_multistring(std::string_view const& label, std::vector<std::string>& string_ids, string_table& strings)
+    void scene_editor::display_prop_multistring(std::string_view const& label, std::vector<std::string>& string_ids)
     {
         ImGui::TableNextRow();
 
@@ -154,9 +121,9 @@ namespace NEONnoir
 
             if (string_id.empty())
             {
-                string_id = strings.create_string_entry("");
+                string_id = _data->strings.create_string_entry("");
             }
-            ImGui::InputTextMultiline("##", &strings.get_string(string_id), {0, 60});
+            ImGui::InputTextMultiline("##", &_data->strings.get_string(string_id), {0, 60});
             ImGui::PopID();
             
             count++;
@@ -167,7 +134,7 @@ namespace NEONnoir
             auto const& text_id = string_ids[delete_index.value()];
             if (!text_id.empty())
             {
-                strings.remove_string(text_id);
+                _data->strings.remove_string(text_id);
             }
 
             string_ids.erase(string_ids.begin() + delete_index.value());
@@ -271,7 +238,7 @@ namespace NEONnoir
         }
     }
 
-    void scene_editor::display_prop_background(game_data_scene& scene, std::vector<std::string> const& backgrounds)
+    void scene_editor::display_prop_background(std::vector<std::string> const& backgrounds)
     {
         ImGui::TableNextColumn();
         ImGui::AlignTextToFramePadding();
@@ -280,16 +247,16 @@ namespace NEONnoir
         ImGui::TableNextColumn();
         ImGui::SetNextItemWidth(-FLT_MIN);
         
-        auto bg_path = fs::path{ backgrounds[scene.image_id] };
+        auto bg_path = fs::path{ backgrounds[_scene->image_id] };
         if (ImGui::BeginCombo("##BackgroundCombo", bg_path.stem().string().c_str()))
         {
             for (u16 index = 0; index < backgrounds.size(); index++)
             {
-                auto const is_selected = scene.image_id == index;
+                auto const is_selected = _scene->image_id == index;
                 bg_path = fs::path{ backgrounds[index] };
                 if (ImGui::Selectable(bg_path.stem().string().c_str(), is_selected))
                 {
-                    scene.image_id = index;
+                    _scene->image_id = index;
                 }
 
                 if (is_selected)
@@ -302,7 +269,7 @@ namespace NEONnoir
         }
     }
 
-    void scene_editor::display_prop_regions(game_data_scene& scene, std::vector<std::string> const& exit_regions, string_table& strings)
+    void scene_editor::display_prop_regions(std::vector<std::string> const& exit_regions)
     {
         ImGui::NewLine();
 
@@ -315,9 +282,9 @@ namespace NEONnoir
         {
             _selected_region_index = -1;
             auto region_to_delete = -1;
-            for (auto index = 0; index < scene.regions.size(); index++)
+            for (auto index = 0; index < _scene->regions.size(); index++)
             {
-                auto& region = scene.regions[index];
+                auto& region = _scene->regions[index];
                 ImGui::TableNextRow();
 
                 ImGui::BeginGroup();
@@ -330,7 +297,7 @@ namespace NEONnoir
                 display_prop_region_scalar("Y", region.y);
                 display_prop_region_scalar("Width", region.width);
                 display_prop_region_scalar("Height", region.height);
-                display_prop_string_entry("Hover Text", region.description_id, strings);
+                display_prop_string_entry("Hover Text", region.description_id);
                 display_prop_enum("Mouse Pointer", pointer_types, region.pointer_id);
                 display_prop_combo("Exit To Scene", exit_regions, region.goto_scene);
                 display_prop_string("Script Name", region.script);
@@ -355,13 +322,13 @@ namespace NEONnoir
 
             if (region_to_delete >= 0)
             {
-                auto const& region = scene.regions[region_to_delete];
+                auto const& region = _scene->regions[region_to_delete];
                 if (!region.description_id.empty())
                 {
-                    strings.remove_string(region.description_id);
+                    _data->strings.remove_string(region.description_id);
                 }
 
-                scene.regions.erase(scene.regions.begin() + region_to_delete);
+                _scene->regions.erase(_scene->regions.begin() + region_to_delete);
             }
         }
     }
@@ -379,13 +346,13 @@ namespace NEONnoir
         ImGui::InputScalar(std::format("##{}", id).c_str(), ImGuiDataType_U16, &value, &step_size, nullptr, "%u");
     }
 
-    void scene_editor::display_scene(game_data_scene& scene, game_data_location const& location)
+    void scene_editor::display_scene()
     {
         display_scene_toolbar();
 
         ImGuiIO& io = ImGui::GetIO(); (void)io;
 
-        auto texture = location.background_textures[scene.image_id];
+        auto texture = _location->background_textures[_scene->image_id];
         ImGui::Image((void*)(intptr_t)texture.texture_id, ImVec2((float)(texture.width * _zoom), (float)(texture.height * _zoom)));
 
         auto image_min = ImGui::GetItemRectMin();
@@ -430,7 +397,7 @@ namespace NEONnoir
                     USHRT_MAX, to<u16>(0), 0xFFFF, "", ""
                 };
 
-                scene.regions.push_back(region);
+                _scene->regions.push_back(region);
                 _add_region_mode = false;
                 _add_region_dragging = false;
                 _add_region_p0 = { -1, -1 };
@@ -443,9 +410,9 @@ namespace NEONnoir
             }
         }
 
-        for (auto index = 0; index < scene.regions.size(); index++)
+        for (auto index = 0; index < _scene->regions.size(); index++)
         {
-            auto const& region = scene.regions[index];
+            auto const& region = _scene->regions[index];
 
             auto p0 = ImVec2{ to<float>(region.x), to<float>(region.y) } * _zoom + image_min;
             auto p1 = ImVec2{ to<float>(region.x + region.width), to<float>(region.y + region.height) } * _zoom + image_min;

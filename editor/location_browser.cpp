@@ -19,25 +19,25 @@ namespace NEONnoir
         return _selected_location.has_value() && _selected_scene.has_value();
     }
 
-    void location_browser::display_editor(std::shared_ptr<game_data> data)
+    void location_browser::display_editor()
     {
         auto const size = ImGui::GetContentRegionAvail();
 
         // Add Location button
         if (ImGui::Button(ICON_MD_MAP " Add new location", { size.x, 0.f }))
         {
-            auto name = std::string{ "Location " } + std::to_string(data->locations.size() + 1);
-            data->locations.push_back({ name });
+            auto name = std::string{ "Location " } + std::to_string(_data->locations.size() + 1);
+            _data->locations.push_back({ name });
         }
 
         // Display each location's data
-        for (auto idx = 0; idx < data->locations.size(); idx++)
+        for (auto idx = 0; idx < _data->locations.size(); idx++)
         {
-            display_location(data->locations[idx], idx, data->speakers, data->strings);
+            display_location(_data->locations[idx], idx);
         }
     }
 
-    void location_browser::display_location(game_data_location& location, size_t location_index, std::vector<speaker_info>& speakers, string_table& strings)
+    void location_browser::display_location(game_data_location& location, size_t location_index)
     {
         // For the header name, we don't want the name to have any part in the
         // generation of the id since it can change and mess everything up
@@ -52,8 +52,8 @@ namespace NEONnoir
         {
             display_location_name(location.name, id);
             display_backgrounds(location.backgrounds, location.background_textures, id);
-            display_scenes(location.scenes, id, location_index, strings);
-            display_speakers(location, speakers);
+            display_scenes(location.scenes, id, location_index);
+            display_speakers(location);
 
             ImGui::TableNextRow();
             ImGui::TableNextColumn();
@@ -61,7 +61,6 @@ namespace NEONnoir
             {
                 _selected_location = std::make_optional<size_t>(location_index);
             }
-
         }
 
         ImGui::Unindent();
@@ -136,7 +135,7 @@ namespace NEONnoir
         }
     }
 
-    void location_browser::display_scenes(std::vector<game_data_scene>& scenes, std::string const& id, size_t location_index, string_table& strings)
+    void location_browser::display_scenes(std::vector<game_data_scene>& scenes, std::string const& id, size_t location_index)
     {
         ImGui::TableNextRow();
 
@@ -184,11 +183,11 @@ namespace NEONnoir
             auto const& scene = scenes[remove_index];
             if (!scene.description_id.empty())
             {
-                for (auto const& id : scene.description_id)
+                for (auto const& desc_id : scene.description_id)
                 {
-                    if (!id.empty())
+                    if (!desc_id.empty())
                     {
-                        strings.remove_string(id);
+                        _data->strings.remove_string(desc_id);
                     }
                 }
             }
@@ -197,7 +196,7 @@ namespace NEONnoir
             {
                 if (!region.description_id.empty())
                 {
-                    strings.remove_string(region.description_id);
+                    _data->strings.remove_string(region.description_id);
                 }
             }
             scenes.erase(scenes.begin() + remove_index);
@@ -206,7 +205,7 @@ namespace NEONnoir
         ImGui::Unindent();
     }
 
-    void location_browser::display_speakers(game_data_location& location, std::vector<speaker_info>& speakers)
+    void location_browser::display_speakers(game_data_location& location)
     {
         ImGui::TableNextRow();
         ImGui::TableNextColumn();
@@ -214,7 +213,7 @@ namespace NEONnoir
         if (ImGui::CollapsingHeader("Speakers"))
         {
             ImGui::Indent();
-            auto& values = get_speaker_list(speakers);
+            auto& values = get_speaker_list(_data->speakers);
 
             auto width = (ImGui::GetContentRegionAvail().x - ImGui::GetStyle().FramePadding.x) / 2.f;
 

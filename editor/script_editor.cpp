@@ -13,15 +13,11 @@
 
 namespace NEONnoir
 {
-    void script_editor::display(std::weak_ptr<game_data> game_data, ImFont* font)
+    void script_editor::display(ImFont* font)
     {
         auto script_window = ImGui_window(ICON_MD_CODE " NOIRscript");
 
-        auto data = game_data.lock();
-        if (!data)
-            return;
-
-        display_toolbar(data->script_name);
+        display_toolbar(_data->script_name);
 
         if (ImGui::BeginTable("Layout", 2, ImGuiTableFlags_SizingStretchProp | ImGuiTableFlags_Resizable))
         {

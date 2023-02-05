@@ -12,12 +12,12 @@ namespace NEONnoir
 {
     using optional_index = std::optional<size_t>;
 
-    void dialogue_editor::display_editor(std::shared_ptr<game_data> data)
+    void dialogue_editor::display_editor()
     {
         // Add dialogue button
         if (ImGui::Button(ICON_MD_ADD_COMMENT " Create a new dialogue"))
         {
-            data->dialogues.push_back({});
+            _data->dialogues.push_back({});
         }
 
         auto merge_index = optional_index{ std::nullopt };
@@ -26,11 +26,11 @@ namespace NEONnoir
         size_t page_count = 0;
 
         // Display all the dialogues
-        for (auto& dialogue : data->dialogues)
+        for (auto& dialogue : _data->dialogues)
         {
             if(ImGui::CollapsingHeader(std::format(("{}: {}###dialogue{}"), count, dialogue.name, (size_t)&dialogue).c_str()))
             {
-                auto action = display_dialogue(dialogue, page_count, get_speaker_list(data->speakers), data->strings);
+                auto action = display_dialogue(dialogue, page_count);
                 if (action == dialogue_editor::dialogue_action_type::merge_down)
                 {
                     merge_index = count;
@@ -46,13 +46,13 @@ namespace NEONnoir
         }
 
         // Do nothing if it's the last one
-        if (merge_index && merge_index.value() < data->dialogues.size() - 1)
+        if (merge_index && merge_index.value() < _data->dialogues.size() - 1)
         {
             auto top_index = merge_index.value();
             auto bottom_index = top_index + 1;
-            u16 last_page_index = to<u16>(data->dialogues[top_index].pages.size());
+            u16 last_page_index = to<u16>(_data->dialogues[top_index].pages.size());
 
-            for (auto& page : data->dialogues[bottom_index].pages)
+            for (auto& page : _data->dialogues[bottom_index].pages)
             {
                 // Update the links between pages and choices
                 if (page.next_page_id != 0xFFFF) page.next_page_id += last_page_index;
@@ -62,7 +62,7 @@ namespace NEONnoir
                     if (choice.next_page_id != 0xFFFF) choice.next_page_id += last_page_index;
                 }
 
-                data->dialogues[top_index].pages.push_back(page);
+                _data->dialogues[top_index].pages.push_back(page);
             }
 
             delete_index = bottom_index;
@@ -70,17 +70,17 @@ namespace NEONnoir
 
         if (delete_index)
         {
-            data->dialogues.erase(data->dialogues.begin() + delete_index.value());
+            _data->dialogues.erase(_data->dialogues.begin() + delete_index.value());
         }
     }
 
-    dialogue_editor::dialogue_action_type dialogue_editor::display_dialogue(dialogue& dialogue, size_t page_start_id, std::vector<std::string> const& speakers, string_table& strings)
+    dialogue_editor::dialogue_action_type dialogue_editor::display_dialogue(dialogue& dialogue, size_t page_start_id)
     {
         auto request_action = display_dialogue_options(dialogue);
 
         imgui::push_id(&dialogue);
 
-        display_pages(dialogue, page_start_id, speakers, strings);
+        display_pages(dialogue, page_start_id);
 
         // Add Page
         if (ImGui::Button(make_id(ICON_MD_ADD_COMMENT " Add Page##{}", dialogue), { 300, 0 }))
@@ -148,7 +148,7 @@ namespace NEONnoir
         ImGui::InputTextMultiline(make_id("##{}", value), & value, size);
     }
 
-    void dialogue_editor::display_pages(dialogue& dialogue, size_t page_start_id, std::vector<std::string> const& speakers, string_table& strings)
+    void dialogue_editor::display_pages(dialogue& dialogue, size_t page_start_id)
     {
         ImGui::TableNextColumn();
         auto create_index = optional_index{ std::nullopt };
@@ -159,7 +159,7 @@ namespace NEONnoir
             auto count = 0;
             for (auto& page : dialogue.pages)
             {
-                auto action = display_page(page, count, page_start_id, speakers, strings);
+                auto action = display_page(page, count, page_start_id);
                 if (action == page_action_type::create_above)
                 {
                     create_index = count;
@@ -198,14 +198,14 @@ namespace NEONnoir
             auto const& page = dialogue.pages[delete_index.value()];
             if (!page.text_id.empty())
             {
-                strings.remove_string(page.text_id);
+                _data->strings.remove_string(page.text_id);
             }
 
             for (auto const& choice : page.choices)
             {
                 if (!choice.text_id.empty())
                 {
-                    strings.remove_string(choice.text_id);
+                    _data->strings.remove_string(choice.text_id);
                 }
             }
 
@@ -229,9 +229,10 @@ namespace NEONnoir
         }
     }
 
-    dialogue_editor::page_action_type dialogue_editor::display_page(dialogue_page& page, size_t count, size_t page_start_id, std::vector<std::string> const& speakers, string_table& strings)
+    dialogue_editor::page_action_type dialogue_editor::display_page(dialogue_page& page, size_t count, size_t page_start_id)
     {
         auto action = page_action_type::none;
+        auto& speakers = get_speaker_list(_data->speakers);
 
         ImGui::TableNextRow();
         ImGui::TableNextColumn();
@@ -253,14 +254,14 @@ namespace NEONnoir
 
             if (page.text_id.empty())
             {
-                page.text_id = strings.create_string_entry("");
+                page.text_id = _data->strings.create_string_entry("");
             }
 
-            auto size = ImGui::CalcTextSize(strings.get_string(page.text_id).c_str());
+            auto size = ImGui::CalcTextSize(_data->strings.get_string(page.text_id).c_str());
             size.x = -FLT_MIN;
             size.y += 8;
 
-            ImGui::InputTextMultiline(make_id("##{}", page.text_id), &strings.get_string(page.text_id), size);
+            ImGui::InputTextMultiline(make_id("##{}", page.text_id), &_data->strings.get_string(page.text_id), size);
 
             //input_text(std::format("Page {}", count), page.text);
             ToolTip(std::format("Page ID: {}", page_start_id + count).c_str());
@@ -342,20 +343,20 @@ namespace NEONnoir
             ImGui::TableNextColumn();
 
 
-            display_choices(page, strings);
+            display_choices(page);
         }
 
         return action;
     }
 
-    void dialogue_editor::display_choices(dialogue_page& page, string_table& strings)
+    void dialogue_editor::display_choices(dialogue_page& page)
     {
         auto count = 0;
 
         auto deletion_index = optional_index{ std::nullopt };
         for (auto& choice : page.choices)
         {
-            if (!display_choice(choice, count, strings))
+            if (!display_choice(choice, count))
             {
                 deletion_index = count;
             }
@@ -368,14 +369,14 @@ namespace NEONnoir
             auto const& choice = page.choices[deletion_index.value()];
             if (!choice.text_id.empty())
             {
-                strings.remove_string(choice.text_id);
+                _data->strings.remove_string(choice.text_id);
             }
 
             page.choices.erase(page.choices.begin() + deletion_index.value());
         }
     }
 
-    bool dialogue_editor::display_choice(dialogue_choice& choice, size_t count, string_table& strings)
+    bool dialogue_editor::display_choice(dialogue_choice& choice, size_t count)
     {
         ImGui::TableNextColumn();
 
@@ -393,13 +394,13 @@ namespace NEONnoir
 
             if (choice.text_id.empty())
             {
-                choice.text_id = strings.create_string_entry("");
+                choice.text_id = _data->strings.create_string_entry("");
             }
 
-            auto size = ImGui::CalcTextSize(strings.get_string(choice.text_id).c_str());
+            auto size = ImGui::CalcTextSize(_data->strings.get_string(choice.text_id).c_str());
             size.x = -FLT_MIN;
             size.y += 8;
-            ImGui::InputTextMultiline(make_id("##{}", choice.text_id), &strings.get_string(choice.text_id), size);
+            ImGui::InputTextMultiline(make_id("##{}", choice.text_id), &_data->strings.get_string(choice.text_id), size);
         }
 
         ImGui::TableNextColumn();

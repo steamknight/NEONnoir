@@ -4,24 +4,26 @@
 #include <string>
 #include <filesystem>
 
+#include "editor_window_base.h"
 #include "game_data.h"
 #include "image_viewer.h"
 
 namespace NEONnoir
 {
-    class shapes_editor
+    class shapes_editor : public editor_window_base
     {
     public:
-        shapes_editor() = default;
+        shapes_editor(std::shared_ptr<game_data> data) : editor_window_base(data) { };
+        virtual ~shapes_editor() = default;
 
-        void display(std::weak_ptr<game_data> game_data, std::optional<size_t> const& location_index);
-
-    private:
-        void display_editor(game_data_location& location, i32 shape_start_id);
-        void display_placeholder(bool have_data) const noexcept;
-        void save_shapes(std::filesystem::path const& shapes_file_path, game_data_location& location) const;
+        void display(game_data_location* location);
 
     private:
+        void display_editor() override;
+        void save_shapes(std::filesystem::path const& shapes_file_path) const;
+
+    private:
+        game_data_location* _location{ nullptr };
         std::optional<size_t> _selected_image{ std::nullopt };
         std::optional<size_t> _shape_container_to_delete{ std::nullopt };
         std::optional<size_t> _shape_to_delete{ std::nullopt };

@@ -290,7 +290,7 @@
     enter_takeshis1             "I used the keycard to gain entry to Takeshi's. The place looked like it had been hit by a tornado. I checked the fridge and, against all hope, I found the last container of noodles. Who can say how long they've been there?"
     enter_takeshis2             "I tossed the container in the microwave in the hopes that it would kill anything that started growing. In the pale light of the microwave, amid the drone of its magnatron, I contemplated the absurdity of this situation."
     enter_takeshis3             "A girl goes missing and I'm dumpster diving, robbing corpses, and now making a bowl of r-"
-    enter_takeshis4             " *DING*"
+    enter_takeshis4             "*DING*"
     enter_takeshis_again        "I got what I needed. There was nothing else to be found there."
     cant_enter_takeshis         "The door was locked. Hmm... What were the odds that there were still some nasty noodles in there?"
 
@@ -345,7 +345,7 @@
     parcel_trace5               "SummerVault? Let's add the to the database search."
     get_call_from_danni1        "The cool night air carrying the acrid fumes of this district caresses my face like a vengeful lover. The distant industrial music is pierced by a much closer, higher pitched sound."
     get_call_from_danni2        "*RING RING*"
-    get_call_from_danni3        "I don't recognize the number, and sensing my hesitation, it chimes again like a child demanding attention."
+    get_call_from_danni3        "I didn't recognize the number, and sensing my hesitation, it chimed again like a child demanding attention."
     we_should_meet              "'... and I think we should meet.'"
     end_act2_a                  "My mind raced faster than Coral through a junkie's wetware. The woman I've been spending all night looking for had found me instead."
     end_act2_b                  "While I was sneaking around the industrial district, she called Crystal who vouched for me."
@@ -1432,6 +1432,7 @@
 
         goloc #location_title #scene_title
         end
+
 
 
 

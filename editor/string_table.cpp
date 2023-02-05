@@ -51,6 +51,17 @@ namespace NEONnoir
             });
     }
 
+    void string_table::change_string_id(std::string const& old_id, std::string const& new_id)
+    {
+        ensure_valid_id(old_id);
+
+        auto index = id_index_map.at(old_id);
+        id_index_map[new_id] = index;
+        id_index_map.erase(old_id);
+
+        string_entries[index].id = new_id;
+    }
+
     void string_table::move_up(std::string const& string_id)
     {
         ensure_valid_id(string_id);

@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 
+#include "editor_window_base.h"
 #include "game_data.h"
 #include "assembler.h"
 
@@ -11,20 +12,21 @@ struct ImFont;
 
 namespace NEONnoir
 {
-    class script_editor
+    class script_editor : editor_window_base
     {
     public:
-        script_editor() = default;
+        script_editor(std::shared_ptr<game_data> data) : editor_window_base(data) { };
+        virtual ~script_editor() = default;
 
-        void display(std::weak_ptr<game_data> game_data, ImFont* font);
+        void display(ImFont* font);
         void load_script(std::string_view const& file);
         void save_script(std::string_view const& file);
 
         assembler_result compile();
 
     private:
-        void display_toolbar(std::string& script_name);
         void display_editor(ImFont* font);
+        void display_toolbar(std::string& script_name);
         void display_metadata(std::vector<std::string>const& data, std::string_view const& label);
         void extract_metadata();
 

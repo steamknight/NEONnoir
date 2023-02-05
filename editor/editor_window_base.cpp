@@ -8,18 +8,10 @@
 
 namespace NEONnoir
 {
-    void editor_window_base::display(std::weak_ptr<game_data> game_data)
+    void editor_window_base::display()
     {
         auto dialogue_editor_window = ImGui_window(get_title_name());
-
-        if (auto data = game_data.lock())
-        {
-            display_editor(data);
-        }
-        else
-        {
-            display_placeholder();
-        }
+        display_editor();
     }
 
     void editor_window_base::display_placeholder(std::string_view const& text)

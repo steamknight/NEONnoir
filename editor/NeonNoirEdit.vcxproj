@@ -201,6 +201,7 @@
     <ClCompile Include="shape_editor_tool.cpp" />
     <ClCompile Include="speaker_editor.cpp" />
     <ClCompile Include="string_table.cpp" />
+    <ClCompile Include="string_table_editor.cpp" />
     <ClCompile Include="utils.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -236,6 +237,7 @@
     <ClInclude Include="simple_image.h" />
     <ClInclude Include="speaker_editor.h" />
     <ClInclude Include="string_table.h" />
+    <ClInclude Include="string_table_editor.h" />
     <ClInclude Include="types.h" />
     <ClInclude Include="utils.h" />
   </ItemGroup>

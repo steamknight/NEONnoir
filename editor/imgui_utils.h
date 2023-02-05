@@ -53,6 +53,7 @@ namespace NEONnoir
     namespace imgui
     {
         ImGui_guard table(::std::string_view const& id, int columns_count, ImGuiTableFlags flags = 0, ImVec2 const& outer_size = ImVec2(0.0f, 0.0f), float inner_width = 0.0f);
+        ImGui_guard popup(::std::string_view const& id, ImGuiWindowFlags flags = ImGuiWindowFlags_None);
 
         template<class T>
         ImGui_guard push_id(T* pointer)
@@ -60,6 +61,8 @@ namespace NEONnoir
             ImGui::PushID(force_to<void*>(pointer));
             return ImGui_guard { &ImGui::PopID, true };
         }
+
+        ImGui_guard push_id(int id);
 
         void combo_with_empty(std::vector<std::string> const& values, NEONnoir::u16& selected_value);
     };

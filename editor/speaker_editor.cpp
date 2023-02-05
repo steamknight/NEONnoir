@@ -20,14 +20,14 @@ namespace NEONnoir
         no_person_pixel_data
     };
 
-    void speaker_editor::display_editor(std::shared_ptr<game_data> data)
+    void speaker_editor::display_editor()
     {
-        display_toolbar(data->speakers);
+        display_toolbar();
 
         size_t count = 0;
         auto index_to_delete = std::optional<size_t>{ std::nullopt };
 
-        for (auto& speaker : data->speakers)
+        for (auto& speaker : _data->speakers)
         {
             if (display_speaker(speaker))
             {
@@ -50,18 +50,18 @@ namespace NEONnoir
 
         if (index_to_delete)
         {
-            data->speakers.erase(data->speakers.begin() + index_to_delete.value());
+            _data->speakers.erase(_data->speakers.begin() + index_to_delete.value());
             _speaker_list_with_empty = std::nullopt;
         }
     }
 
-    void speaker_editor::display_toolbar(std::vector<speaker_info>& speakers) noexcept
+    void speaker_editor::display_toolbar() noexcept
     {
         ImGui::PushStyleColor(ImGuiCol_Button, ImGui::GetStyleColorVec4(ImGuiCol_WindowBg));
 
         if (ImGui::Button(ICON_MD_PERSON_ADD))
         {
-            speakers.push_back({ "New Speaker", "", _no_person, load_texture(_no_person)});
+            _data->speakers.push_back({ "New Speaker", "", _no_person, load_texture(_no_person)});
             _speaker_list_with_empty = std::nullopt;
         }
 
@@ -90,7 +90,7 @@ namespace NEONnoir
             auto filename = save_file_dialog("shapes");
             if (filename)
             {
-                save_shapes(filename.value(), speakers);
+                save_shapes(filename.value());
             }
         }
         ToolTip("Export BLITZ Basic Shapes");
@@ -101,7 +101,7 @@ namespace NEONnoir
             auto filename = save_file_dialog("mpsh");
             if (filename)
             {
-                save_mpsh_shapes(filename.value(), speakers);
+                save_mpsh_shapes(filename.value());
             }
         }
         ToolTip("Export MPSH shape collection");
@@ -149,10 +149,10 @@ namespace NEONnoir
         return should_keep;
     }
 
-    void speaker_editor::save_shapes(std::filesystem::path const& shapes_file_path, std::vector<speaker_info>& speakers) const
+    void speaker_editor::save_shapes(std::filesystem::path const& shapes_file_path) const
     {
         auto all_shapes = std::vector<MPG::simple_image>{};
-        for (auto const& speaker : speakers)
+        for (auto const& speaker : _data->speakers)
         {
             auto export_shape = MPG::crop_palette(speaker.image, to<u8>(_bit_depth), 0);
             all_shapes.push_back(export_shape);
@@ -161,10 +161,10 @@ namespace NEONnoir
         MPG::save_blitz_shapes(shapes_file_path, all_shapes);
     }
 
-    void speaker_editor::save_mpsh_shapes(std::filesystem::path const& shapes_file_path, std::vector<speaker_info>& speakers) const
+    void speaker_editor::save_mpsh_shapes(std::filesystem::path const& shapes_file_path) const
     {
         auto all_shapes = std::vector<MPG::blitz_shapes>{};
-        for (auto const& speaker : speakers)
+        for (auto const& speaker : _data->speakers)
         {
             auto cropped = MPG::crop_palette(speaker.image, to<u8>(_bit_depth), 0);
             auto shape = MPG::image_to_blitz_shapes(cropped);
@@ -180,12 +180,12 @@ namespace NEONnoir
             char magic[] = { 'M', 'P', 'S', 'H' };
             impish_file.write(magic, 4);                            // Magic number
             write(impish_file, 1u);                                 // Version. Always 1 for now
-            write(impish_file, to<u32>(speakers.size()));      // Number of shapes
+            write(impish_file, to<u32>(_data->speakers.size()));      // Number of shapes
             offset += (sizeof(u32) * 3);
 
             // Push the offset past where the manifest will go
             // The manifest is 2 u32s (offset and size) per entry
-            offset += (sizeof(u32) * 2 * to<u32>(speakers.size()));
+            offset += (sizeof(u32) * 2 * to<u32>(_data->speakers.size()));
 
             // Write the manifest
             for (auto const& shape : all_shapes)

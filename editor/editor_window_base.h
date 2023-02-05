@@ -13,14 +13,14 @@ namespace NEONnoir
     class editor_window_base
     {
     public:
-        editor_window_base() = default;
+        editor_window_base(std::shared_ptr<game_data> data) : _data(data) {};
         virtual ~editor_window_base() = default;
 
-        virtual void display(std::weak_ptr<game_data> data);
+        virtual void display();
 
     protected:
-        virtual std::string_view get_title_name() const noexcept = 0;
-        virtual void display_editor(std::shared_ptr<game_data> data) = 0;
+        virtual std::string_view get_title_name() const noexcept { return ""; }
+        virtual void display_editor() {};
 
         void display_placeholder(std::string_view const& text = "No Game File");
 
@@ -30,6 +30,7 @@ namespace NEONnoir
         std::vector<std::string>& get_speaker_list(std::vector<speaker_info> const& speakers);
 
     protected:
+        std::shared_ptr<game_data> _data;
         std::optional<std::vector<std::string>> _speaker_list_with_empty;
     };
 }

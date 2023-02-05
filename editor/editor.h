@@ -4,6 +4,7 @@
 #include "glfw_utils.h"
 #include <memory>
 #include <functional>
+#include <filesystem>
 
 #include "palette_injector.h"
 #include "image_converter.h"
@@ -15,6 +16,7 @@
 #include "shapes_editor.h"
 #include "shape_editor_tool.h"
 #include "speaker_editor.h"
+#include "string_table_editor.h"
 
 struct ImFont;
 
@@ -40,7 +42,11 @@ namespace NEONnoir
         void process_main_menu();
 
     private:
+        void new_project();
+        void load_project(std::string const& file);
         void save_project();
+
+        void initialize_editors();
 
     private:
         GLFWwindow_ptr _window;
@@ -55,12 +61,13 @@ namespace NEONnoir
         std::shared_ptr<game_data> _game_data;
         std::string _script;
 
-        location_browser _location_browser{};
-        scene_editor _scene_editor{};
-        script_editor _script_editor{};
-        dialogue_editor _dialogue_editor{};
-        shapes_editor _shapes_editor{};
-        speaker_editor _speaker_editor{};
+        std::unique_ptr<location_browser> _location_browser{};
+        std::unique_ptr<scene_editor> _scene_editor{};
+        std::unique_ptr<script_editor> _script_editor{};
+        std::unique_ptr<dialogue_editor> _dialogue_editor{};
+        std::unique_ptr<shapes_editor> _shapes_editor{};
+        std::unique_ptr<speaker_editor> _speaker_editor{};
+        std::unique_ptr<string_table_editor> _string_table{};
 
         bool _show_properties_popup{ false };
         bool _show_error_popup{ false };

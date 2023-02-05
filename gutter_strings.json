@@ -2,77 +2,77 @@
   {
     "id": "Swj5KWxaHNDTFgpS",
     "value": "",
-    "description": ""
+    "description": "Ignore"
   },
   {
     "id": "SSGDtL4FB0VIqDBO",
     "value": "",
-    "description": ""
+    "description": "Ignore"
   },
   {
     "id": "nBMbE8ye3tdu9Pk9",
     "value": "",
-    "description": ""
+    "description": "Ignore"
   },
   {
     "id": "FLasJyhqFNxT4HGs",
     "value": "",
-    "description": ""
+    "description": "Ignore"
   },
   {
     "id": "xaUZC8YbkDkmjaTf",
     "value": "",
-    "description": ""
+    "description": "Ignore"
   },
   {
     "id": "ic2wGJBcPr9tWcXq",
     "value": "",
-    "description": ""
+    "description": "Ignore"
   },
   {
     "id": "dioMG7WajruJ3O3q",
     "value": "",
-    "description": ""
+    "description": "Ignore"
   },
   {
     "id": "HgujNWUNv8WtHCrR",
     "value": "",
-    "description": ""
+    "description": "Ignore"
   },
   {
     "id": "7IbXZZFdZdrd3HE8",
     "value": "",
-    "description": ""
+    "description": "Ignore"
   },
   {
     "id": "qMJBWYMYaZk8GJgi",
     "value": "Muffled music thumped loudly outside of the club.",
-    "description": ""
+    "description": "The player can hear, but can't make out, the music coming from inside the Alleycat club."
   },
   {
     "id": "mnNpLTwYDe22IRhm",
     "value": "Maybe they needed air conditioning...",
-    "description": ""
+    "description": "This is a play on words. The text shows up when you look at a sign that says \"Hot Girls\". Hot can mean attractive or really warm. The player is making a play on words: If they are too warm, maybe they need air conditioning. I'm not sure how this will be able to be translated."
   },
   {
     "id": "FF8SKvwiyZNEv9WU",
     "value": "The Alleycat",
-    "description": ""
+    "description": "The name of the club and another play on words. An alley cat can be a cat that lives in an alley but it's also slang for a prostitute."
   },
   {
     "id": "h1X0D4ZABDOVpr71",
     "value": "Empty Lot",
-    "description": ""
+    "description": "Nothing special, just describing the area as empty"
   },
   {
     "id": "SRCkT2sKIOOlCENL",
     "value": "Takeshi's Noodles",
-    "description": ""
+    "description": "Noodle shop run by Takeshi"
   },
   {
     "id": "R52avt7668RUWkrr",
     "value": "The earthy smell of compost filled my nostrils as I walked past the alley behind Takeshi's Noodles.",
-    "description": ""
+    "description": "It smells like rotting food."
   },
   {
     "id": "pecLe2ggrXwgOK9P",
@@ -82,57 +82,57 @@
   {
     "id": "G8lXyom17tc69IJx",
     "value": "To the Alleycat",
-    "description": ""
+    "description": "A sign informing the player that the Alleycat is in that direction"
   },
   {
     "id": "nYGKR1hEf0acZ9RC",
     "value": "More Alleyway",
-    "description": ""
+    "description": "A sign informing the player that the alleyway continues in that direction"
   },
   {
     "id": "7wtYDUt9QyEgw9dR",
     "value": "Back Alley",
-    "description": ""
+    "description": "A sign informing the player that a small away in that direction"
   },
   {
     "id": "frTleC3goNyK3mOP",
     "value": "Probably the cleanest place in the Gutter, this empty lot was next to the subway.",
-    "description": ""
+    "description": "A description of the Empty Lot. The Gutter is the name of this city's neighborhood. Just like how waste water flows down a gutter (on the floor) to the sewers, so is this place where the lowest class goes when they have nowhere esle to turn"
   },
   {
     "id": "jytDAAHirgaHen7i",
     "value": "Its emptiness was broken only by a shady person leaning against the hard work of a contemporary artist.",
-    "description": ""
+    "description": "A continuation of the description of the Empty lot. The second half of the sentence is sarcastic: it's calling whoever made the big graffiti in the background a \"contemporary artist\"."
   },
   {
     "id": "WrDQCSSC51QHW2uB",
     "value": "To the Alleycat",
-    "description": ""
+    "description": "A sign informing the player that the Alleycat is in that direction"
   },
   {
     "id": "0cSnB3FNXFChN7xS",
     "value": "Shady Person",
-    "description": ""
+    "description": "A mysterious or sinister person"
   },
   {
     "id": "wkA20ahkPb1rtaeo",
-    "value": "To Subway",
-    "description": ""
+    "value": "To the Subway",
+    "description": "A sign informing the player that the underground train station is in that direction"
   },
   {
     "id": "LvRFsrxVqXC5NgXP",
     "value": "It was hard to tell on account of the helmet, but I had a feeling the tinman was eyeing me with suspicion.",
-    "description": ""
+    "description": "The word \"tinman\" in this context is meant to be a futuristic slang term/insult for a security guard that wears body armor. The term comes from the Wizard of Oz, one of the character is called the \"the Tin Man\""
   },
   {
     "id": "QvL4fY493EBFHn3V",
     "value": "To Takeshi's",
-    "description": ""
+    "description": "A sign informing the player that the Takeshi's Noodles is in that direction"
   },
   {
     "id": "sOylJYeorG3mkKme",
     "value": "Jackpot",
-    "description": ""
+    "description": "This is an invented futuristic slang term for a bank machine (ATM, bancomat). It comes from the fact that the bank machine spits out money like a slot machine in a casino. The \"jackpot\" is what the prize money that comes out of a slot machine is called."
   },
   {
     "id": "dqv7c0Mf7Qm1tGc3",
@@ -4022,6 +4022,821 @@
   {
     "id": "Hge4Ya23hXkyX0Vg",
     "value": "The best.",
+    "description": ""
+  },
+  {
+    "id": "intro01_01",
+    "value": "The acid rain washed the city's neon blood into the Gutter; home for those who ran out of Options.",
+    "description": ""
+  },
+  {
+    "id": "intro01_02",
+    "value": "The Gutter wasn't just a cliche metaphor, it was the city's most ruthless and dangerous district. Few chose to live there willingly; when your credits ran dry, there was nowhere else to go.",
+    "description": ""
+  },
+  {
+    "id": "intro02_01",
+    "value": "The police kept their distance from the Gutter as it didn't serve their corporate interests.",
+    "description": ""
+  },
+  {
+    "id": "intro02_02",
+    "value": "If you wanted justice, you either took matters into your own hands or scrounged together enough to hire someone like me.",
+    "description": ""
+  },
+  {
+    "id": "intro03_01",
+    "value": "Blake Steel: private investigator.",
+    "description": ""
+  },
+  {
+    "id": "intro03_02",
+    "value": "I took the name from a trashy",
+    "description": ""
+  },
+  {
+    "id": "intro03_03",
+    "value": "crime serial.",
+    "description": ""
+  },
+  {
+    "id": "intro03_04",
+    "value": "To a lost kid from",
+    "description": ""
+  },
+  {
+    "id": "intro03_05",
+    "value": "the Gutter, that",
+    "description": ""
+  },
+  {
+    "id": "intro03_06",
+    "value": "two-credit detective",
+    "description": ""
+  },
+  {
+    "id": "intro03_07",
+    "value": "novel promised a new",
+    "description": ""
+  },
+  {
+    "id": "intro03_08",
+    "value": "life away from all",
+    "description": ""
+  },
+  {
+    "id": "intro03_09",
+    "value": "the filth.",
+    "description": ""
+  },
+  {
+    "id": "intro03_10",
+    "value": "It became my blueprint,",
+    "description": ""
+  },
+  {
+    "id": "intro03_11",
+    "value": "my bible, until I made",
+    "description": ""
+  },
+  {
+    "id": "intro03_12",
+    "value": "it out alive.",
+    "description": ""
+  },
+  {
+    "id": "intro03_13",
+    "value": "Now I was back, walking",
+    "description": ""
+  },
+  {
+    "id": "intro03_14",
+    "value": "alone down these familiar",
+    "description": ""
+  },
+  {
+    "id": "intro03_15",
+    "value": "alleys brimming with",
+    "description": ""
+  },
+  {
+    "id": "intro03_16",
+    "value": "human waste and wasted humans,",
+    "description": ""
+  },
+  {
+    "id": "intro03_17",
+    "value": "looking for someone else who got lost.",
+    "description": ""
+  },
+  {
+    "id": "intro04_01",
+    "value": "Danni Ashton fell in with some",
+    "description": ""
+  },
+  {
+    "id": "intro04_02",
+    "value": "less than savory friends and then",
+    "description": ""
+  },
+  {
+    "id": "intro04_03",
+    "value": "fell off the face of the Earth.",
+    "description": ""
+  },
+  {
+    "id": "intro04_04",
+    "value": "Her father, Jacob, is paying me",
+    "description": ""
+  },
+  {
+    "id": "intro04_05",
+    "value": "very well to find her.",
+    "description": ""
+  },
+  {
+    "id": "intro04_06",
+    "value": "Too well.",
+    "description": ""
+  },
+  {
+    "id": "intro04_07",
+    "value": "Something didn't smell right",
+    "description": ""
+  },
+  {
+    "id": "intro04_08",
+    "value": "but I was leaking green and",
+    "description": ""
+  },
+  {
+    "id": "intro04_09",
+    "value": "had bills to pay, so I",
+    "description": ""
+  },
+  {
+    "id": "intro04_10",
+    "value": "plugged my nose and took",
+    "description": ""
+  },
+  {
+    "id": "intro04_11",
+    "value": "the job.",
+    "description": ""
+  },
+  {
+    "id": "intro04_12",
+    "value": "She was addicted to Coral, the latest in designer drugs, and anyone chasing the ruby slippers would invariably end up...",
+    "description": ""
+  },
+  {
+    "id": "intro05_01",
+    "value": "... in the Gutter.",
+    "description": ""
+  },
+  {
+    "id": "takeshi",
+    "value": "Takeshi's Noodles used to be the best place in the Gutter for a late meal. Too bad old Takeshi closed up shop for good.",
+    "description": ""
+  },
+  {
+    "id": "check_takeshi_alley",
+    "value": "A garbage filled alleyway that leads to the back of Takeshi's place. No need to go there.",
+    "description": ""
+  },
+  {
+    "id": "enter_takeshis1",
+    "value": "I used the keycard to gain entry to Takeshi's. The place looked like it had been hit by a tornado. I checked the fridge and, against all hope, I found the last container of noodles. Who can say how long they've been there?",
+    "description": ""
+  },
+  {
+    "id": "enter_takeshis2",
+    "value": "I tossed the container in the microwave in the hopes that it would kill anything that started growing. In the pale light of the microwave, amid the drone of its magnatron, I contemplated the absurdity of this situation.",
+    "description": ""
+  },
+  {
+    "id": "enter_takeshis3",
+    "value": "A girl goes missing and I'm dumpster diving, robbing corpses, and now making a bowl of r-",
+    "description": ""
+  },
+  {
+    "id": "enter_takeshis4",
+    "value": "*DING*",
+    "description": ""
+  },
+  {
+    "id": "enter_takeshis_again",
+    "value": "I got what I needed. There was nothing else to be found there.",
+    "description": ""
+  },
+  {
+    "id": "cant_enter_takeshis",
+    "value": "The door was locked. Hmm... What were the odds that there were still some nasty noodles in there?",
+    "description": ""
+  },
+  {
+    "id": "alley_check_dumpster",
+    "value": "This particular dumpster was especially foul. Something was putrefying in there.",
+    "description": ""
+  },
+  {
+    "id": "glich_check_trash1",
+    "value": "Against my better judgement, I opened the dumpster. The smell was so powerful I gagged.",
+    "description": ""
+  },
+  {
+    "id": "glich_check_trash2",
+    "value": "Under a pile of decomposing trash bags, was Takeshi's body. They did a dreking number on him.",
+    "description": ""
+  },
+  {
+    "id": "glich_check_trash3",
+    "value": "More importantly, I found his key card. I don't like to steal from the dead, but he's not using it.",
+    "description": ""
+  },
+  {
+    "id": "glitch_trash_complete",
+    "value": "I wouldn't dive into that dumpster again even if the secret to Danni's disappearance was in there.",
+    "description": ""
+  },
+  {
+    "id": "alley_atm_description",
+    "value": "ATMs. Cash Machines. Cred Dispensers. Unarmed Bandits. Take your pick. These jackpots let your retrieve your credits... for a fee.",
+    "description": ""
+  },
+  {
+    "id": "alley_atm_quest_start",
+    "value": "The better play would be to deal with that tin man before trying anything. They're not the forgiving type.",
+    "description": ""
+  },
+  {
+    "id": "alley_atm_quest_complete",
+    "value": "The deed's done, better not bring any more attention to it.",
+    "description": ""
+  },
+  {
+    "id": "alley_atm_security_desc",
+    "value": "It looked like this bank hired security to babysit the jackpot. These tin men contracts were usually given to lowest bidders.",
+    "description": ""
+  },
+  {
+    "id": "alley_atm_security_done",
+    "value": "alley_atm_security_done",
+    "description": ""
+  },
+  {
+    "id": "cant_leave_alley",
+    "value": "I couldn't leave just yet, not when I still didn't have a lead.",
+    "description": ""
+  },
+  {
+    "id": "alley_subway_tweaker_desc",
+    "value": "His blue hair almost distracted from his facial cybernetics. Almost.",
+    "description": ""
+  },
+  {
+    "id": "danni_clutter_desc",
+    "value": "Next to Danni's bed was a small pile of clutter. It was mostly clothes, but there were also some papers.",
+    "description": ""
+  },
+  {
+    "id": "danni_note_from_gladys",
+    "value": "There was a note dated two days prior, addressed to Danni from someone named Gladys. It read '15 wants to see you tonight, I don't need to remind you that you better bring your A game.'",
+    "description": ""
+  },
+  {
+    "id": "danni_nightstand_desc",
+    "value": "Danni's ID card! I could run a background check on her with the GovLink computer back at my apartment.",
+    "description": ""
+  },
+  {
+    "id": "danni_nightstand_desc_after",
+    "value": "There was nothing else of interest on the nightstand.",
+    "description": ""
+  },
+  {
+    "id": "dont_leave_danni_apt",
+    "value": "Mmm... I had a feeling there was more to uncover here.",
+    "description": ""
+  },
+  {
+    "id": "danni_id_trace1",
+    "value": "Cassandra Null: ID#721077",
+    "description": ""
+  },
+  {
+    "id": "danni_id_trace2",
+    "value": "Age: 25",
+    "description": ""
+  },
+  {
+    "id": "danni_id_trace3",
+    "value": "Sex: Female.",
+    "description": ""
+  },
+  {
+    "id": "danni_id_trace4",
+    "value": "Known aliases: Danni Ashton",
+    "description": ""
+  },
+  {
+    "id": "danni_id_trace5",
+    "value": "Parents: Unknown.",
+    "description": ""
+  },
+  {
+    "id": "danni_id_trace6",
+    "value": "Notes:",
+    "description": ""
+  },
+  {
+    "id": "danni_id_trace7",
+    "value": "Cassandra was taken into the care of KidCo Orphanages when she was approximately 2 months old. She was never successfully adopted and graduated from KidCo Orphanages at the age of 18.",
+    "description": ""
+  },
+  {
+    "id": "danni_id_trace8",
+    "value": "The alias 'Danni Ashton' has been tied to her approximately 2 years ago.",
+    "description": ""
+  },
+  {
+    "id": "make_a_drink",
+    "value": "It was time to review the facts. I poured myself a drink and focused my thoughts.",
+    "description": ""
+  },
+  {
+    "id": "end_act1_a",
+    "value": "Danni was an orphan and as she was never adopted, she was given the last name 'Null'. Two years ago, she reinvents herself as 'Danni Ashton'... that's about when she met Crystal.",
+    "description": ""
+  },
+  {
+    "id": "end_act1_b",
+    "value": "But what bothered me is that if she chose the name 'Danni Ashton' for herself, then who the drek was 'Jacob', the man who hired me and posed as her concerned father?",
+    "description": ""
+  },
+  {
+    "id": "end_act1_c",
+    "value": "Considering everything I'd uncovered, I'm was more worried for her safety. The problem is that I'm wasn't any closer to finding her.",
+    "description": ""
+  },
+  {
+    "id": "end_act1_d",
+    "value": "I decided to pay her employer, Gladys Aubergine a visit. If I could find out who she was with last, I might get the lead I need.",
+    "description": ""
+  },
+  {
+    "id": "end_act1_e",
+    "value": "*RING RING*",
+    "description": ""
+  },
+  {
+    "id": "blake_start_act2",
+    "value": "Time to hit streets. Daisy, be a good girl while I'm out.",
+    "description": ""
+  },
+  {
+    "id": "just_got_visser_photo1",
+    "value": "Holy dreking hell! This is a photo of Jacob Ashton! Danni was with 15, whoever they are, and Jacob- I mean JV picked her up! What did they do to her? Why do they want to find her?",
+    "description": ""
+  },
+  {
+    "id": "just_got_visser_photo2",
+    "value": "I need to show this photograph around and see if anyone recognizes him. Finally, some progress!",
+    "description": ""
+  },
+  {
+    "id": "parcel_trace1",
+    "value": "Parcel #3,735,928,559",
+    "description": ""
+  },
+  {
+    "id": "parcel_trace2",
+    "value": "Address: 2833 Pipeline St, Unit B19",
+    "description": ""
+  },
+  {
+    "id": "parcel_trace3",
+    "value": "Owner: SummerVault",
+    "description": ""
+  },
+  {
+    "id": "parcel_trace4",
+    "value": "Listed Use: Storage",
+    "description": ""
+  },
+  {
+    "id": "parcel_trace5",
+    "value": "SummerVault? Let's add the to the database search.",
+    "description": ""
+  },
+  {
+    "id": "get_call_from_danni1",
+    "value": "The cool night air carrying the acrid fumes of this district caresses my face like a vengeful lover. The distant industrial music is pierced by a much closer, higher pitched sound.",
+    "description": ""
+  },
+  {
+    "id": "get_call_from_danni2",
+    "value": "*RING RING*",
+    "description": ""
+  },
+  {
+    "id": "get_call_from_danni3",
+    "value": "I don't recognize the number, and sensing my hesitation, it chimes again like a child demanding attention.",
+    "description": ""
+  },
+  {
+    "id": "we_should_meet",
+    "value": "'... and I think we should meet.'",
+    "description": ""
+  },
+  {
+    "id": "end_act2_a",
+    "value": "My mind raced faster than Coral through a junkie's wetware. The woman I've been spending all night looking for had found me instead.",
+    "description": ""
+  },
+  {
+    "id": "end_act2_b",
+    "value": "While I was sneaking around the industrial district, she called Crystal who vouched for me.",
+    "description": ""
+  },
+  {
+    "id": "end_act2_c",
+    "value": "Danni gave me the address a friend's safehouse, someone who helped her lie low until now.",
+    "description": ""
+  },
+  {
+    "id": "end_act2_d",
+    "value": "It was finally time to meet Danni Ashton and find out why Johan Visser has been looking for her.",
+    "description": ""
+  },
+  {
+    "id": "gladys_is_too_mean",
+    "value": "I wasn't going to get anywhere with that museum exhibit. However, if I could get my hands on her computer, I was certain I could learn a few interesting things.",
+    "description": ""
+  },
+  {
+    "id": "laundromat_closed",
+    "value": "The door was locked. Through the window, I could see an old woman but she waved me away. I'll would have to come back later.",
+    "description": ""
+  },
+  {
+    "id": "laundry_xantech_poster1",
+    "value": "The poster announced the yearly XanCon expo, hosted by Xantech Cybernetics. All of Xantech's latest exercise in planned obsolescence will be on display tomorrow night.",
+    "description": ""
+  },
+  {
+    "id": "laundry_xantech_poster2",
+    "value": "I added Xantech Cybernetics to my GovLink search database.",
+    "description": ""
+  },
+  {
+    "id": "laundry_fight",
+    "value": "As I stepped back into this house of laundered promises, Crystal was already here yelling at Gladys, who's hadn't even noticed me enter. Crystal's unbridled creativity in the insults she was hurling at Gladys was the second time this woman's caused me to blush. Gladys was no slouch though, and what she couldn't muster in youthful creativity, she more than made up with her ancient wealth of experience. As much as I would have loved to watch this, I had a job to do.",
+    "description": ""
+  },
+  {
+    "id": "hack_gladys_computer",
+    "value": "Sneaking behind a very occupied Gladys, I plugged Glitch's hacktool on the back of her computer. A green light blinked twice letting me know that the device was ready. Slinking away, I winked at Crystal to let her know my work here is done.",
+    "description": ""
+  },
+  {
+    "id": "need_gladys_distraction",
+    "value": "That old witch would never let me get close enough to place the hacktool. I needed to find a way to distract her.",
+    "description": ""
+  },
+  {
+    "id": "thank_crystal_for_help",
+    "value": "A few moments after I stepped out of the Lost Sock, Crystal leaved in a huff. She was either an accomplished actress or perhaps the argument between them was a long time coming.",
+    "description": ""
+  },
+  {
+    "id": "laundromat_never_again",
+    "value": "I better stay away. I don't want Gladys to get suspicious.",
+    "description": ""
+  },
+  {
+    "id": "gladys_busy_fighting",
+    "value": "Gladys exploded forth a geyser of invectives at Crystal. She's wasn't paying me any attention and I wanted to keep it that way.",
+    "description": ""
+  },
+  {
+    "id": "b19_pick_storage_lock",
+    "value": "Typing the keycode I got from Acid Nova, the door opened without any issues.",
+    "description": ""
+  },
+  {
+    "id": "b19_pick_office_lock",
+    "value": "You don't become a PI without picking your fair share of locks. I added this one to my list of conquests.",
+    "description": ""
+  },
+  {
+    "id": "get_coral",
+    "value": "The red plastic capsule caught my attention, its ruby red color in sharp contrast to the gloom of the storeroom. I've been hearing a lot about this little capsule all night and with my lack of cybernetics, its siren's song fell on deaf ears. I didn't know why I picked it up, but I pocketed the capsule of Coral.",
+    "description": ""
+  },
+  {
+    "id": "open_boxes1",
+    "value": "I pulled out a pocket knife and opened one of the boxes. I don't know what to expect, but nothing could prepare me for what was inside.",
+    "description": ""
+  },
+  {
+    "id": "open_boxes2",
+    "value": "Flattened out boxes and other packing materials.",
+    "description": ""
+  },
+  {
+    "id": "get_parcel_number1",
+    "value": "Looking through garbage was becoming an unwholesome habit. Fortunately, there was nothing rancid in here, just papers.",
+    "description": ""
+  },
+  {
+    "id": "get_parcel_number2",
+    "value": "Rifling through the papers, I found an old permit. It contained the parcel number for this building which I would be able to check on the GovLink.",
+    "description": ""
+  },
+  {
+    "id": "empty_trash",
+    "value": "There was nothing else of value in there.",
+    "description": ""
+  },
+  {
+    "id": "look_at_lockers",
+    "value": "The lockers weren't locked. Unfortunately, they were also empty.",
+    "description": ""
+  },
+  {
+    "id": "look_at_papers",
+    "value": "There were some papers and brochures on the small table. Nothing interesting, I'm afraid.",
+    "description": ""
+  },
+  {
+    "id": "b19_cant_leave_yet",
+    "value": "I had the feeling there was more for me uncover here.",
+    "description": ""
+  },
+  {
+    "id": "danni_story1",
+    "value": "... my client had just thrown a large party and he wanted me to be the eye-candy hanging off of his arm.",
+    "description": ""
+  },
+  {
+    "id": "danni_story2",
+    "value": "After people left, we retired to his bedroom to... rest.",
+    "description": ""
+  },
+  {
+    "id": "danni_story3",
+    "value": "Before we could get down to business, he got a call. I don't know what it was about, but he sounded anxious and left the room.",
+    "description": ""
+  },
+  {
+    "id": "danni_story4",
+    "value": "Bored, I looked through his nightstand to find something fun and saw some Coral. I figured he wouldn't mind, so I jacked it in.",
+    "description": ""
+  },
+  {
+    "id": "danni_story5",
+    "value": "But it wasn't Coral and I started convulsing.",
+    "description": ""
+  },
+  {
+    "id": "danni_story6",
+    "value": "The next thing I know, I wake up naked in a dumpster. That drek must have thought I died and threw me in the garbage.",
+    "description": ""
+  },
+  {
+    "id": "danni_story7",
+    "value": "The data I thought was Coral was still in my head. I didn't know what it contained but I knew I wasn't supposed to have it.",
+    "description": ""
+  },
+  {
+    "id": "b19r_intro1",
+    "value": "Wasting no time, I was on my way back to that snake nest. With Building 19 in sight, I needed to be careful if Crystal and I were to make it out alive.",
+    "description": ""
+  },
+  {
+    "id": "b19r_intro2",
+    "value": "I didn't know what to expect, but I knew one thing...",
+    "description": ""
+  },
+  {
+    "id": "b19r_intro3",
+    "value": "Visser was going to regret this.",
+    "description": ""
+  },
+  {
+    "id": "b19r_crystal_on_catwalk",
+    "value": "Looking up, I saw Visser and Crystal on the catwalk. I needed to hurry!",
+    "description": ""
+  },
+  {
+    "id": "b19r_use_storage",
+    "value": "There was no time to waste looking on this floor, I needed to go up!",
+    "description": ""
+  },
+  {
+    "id": "b19r_goto_entrance",
+    "value": "I decided to head back outside. I was sure Crystal could wait.",
+    "description": ""
+  },
+  {
+    "id": "b19r_goto_catwalk",
+    "value": "Throwing caution to the wind, I stepped onto the catwalk.",
+    "description": ""
+  },
+  {
+    "id": "b19r_vending_machine",
+    "value": "Although the ChocoBlaster tantalized me from behind its glass prison, I couldn't think of eating at a time like this.",
+    "description": ""
+  },
+  {
+    "id": "xantech_medicine_closet1",
+    "value": "Medicines of all kinds, but nothing that was immediately useful.",
+    "description": ""
+  },
+  {
+    "id": "xantech_medicine_closet2",
+    "value": "Wait. What's this? KwikyLax?",
+    "description": ""
+  },
+  {
+    "id": "xantech_medicine_closet3",
+    "value": "'World's first military-grade laxative. Declare war on constipation!'",
+    "description": ""
+  },
+  {
+    "id": "xantech_medicine_closet4",
+    "value": "I think we all knew where this was going to go.",
+    "description": ""
+  },
+  {
+    "id": "xantech_medicine_closet_end",
+    "value": "Nothing else of use was in here.",
+    "description": ""
+  },
+  {
+    "id": "xantech_coffee_machine",
+    "value": "The coffee from this machine smelled real good. I decided to take a cup. And why not? I deserved it.",
+    "description": ""
+  },
+  {
+    "id": "xantech_has_coffee",
+    "value": "I drank deeply from the coffee I'd gotten earlier. It was everything I wanted in a cup of coffee. I then decided to take another cup.",
+    "description": ""
+  },
+  {
+    "id": "xantech_move_to_server",
+    "value": "With the tinman gone, we moved into the server room.",
+    "description": ""
+  },
+  {
+    "id": "end5",
+    "value": "The End.",
+    "description": ""
+  },
+  {
+    "id": "credits_mass1",
+    "value": "Programming and Story",
+    "description": ""
+  },
+  {
+    "id": "credits_mass2",
+    "value": "Massimo Loi",
+    "description": ""
+  },
+  {
+    "id": "credits_mass3",
+    "value": "massproduced.games",
+    "description": ""
+  },
+  {
+    "id": "credits_art1",
+    "value": "Art",
+    "description": ""
+  },
+  {
+    "id": "credits_art2",
+    "value": "Sandy Loi",
+    "description": ""
+  },
+  {
+    "id": "credits_art3",
+    "value": "MidJourney",
+    "description": ""
+  },
+  {
+    "id": "credits_music1",
+    "value": "Music",
+    "description": ""
+  },
+  {
+    "id": "credits_music2",
+    "value": "Matias Sosa - matiasosa.itch.io",
+    "description": ""
+  },
+  {
+    "id": "credits_thanks1",
+    "value": "Special thanks to all the member of the",
+    "description": ""
+  },
+  {
+    "id": "credits_thanks2",
+    "value": "Amiga Blitz Basic Game Jam Discord server",
+    "description": ""
+  },
+  {
+    "id": "credits_daisy1",
+    "value": "In loving Memory",
+    "description": ""
+  },
+  {
+    "id": "credits_daisy2",
+    "value": "Daisy 2009-2022",
+    "description": ""
+  },
+  {
+    "id": "credits_daisy3",
+    "value": "You'll always be the goodest girl",
+    "description": ""
+  },
+  {
+    "id": "inv_start",
+    "value": "I had...",
+    "description": ""
+  },
+  {
+    "id": "inv_danni_picture",
+    "value": "*A picture of Danni Ashton.",
+    "description": ""
+  },
+  {
+    "id": "inv_glitch_cred_stick",
+    "value": "*A cred-stick of dubious origins.",
+    "description": ""
+  },
+  {
+    "id": "inv_takeshi_key",
+    "value": "*A keycard to Takeshi's Noodle's.",
+    "description": ""
+  },
+  {
+    "id": "inv_takeshi_noods",
+    "value": "*An extremely questionable bowl of noodles.",
+    "description": ""
+  },
+  {
+    "id": "inv_alleycat_ticket",
+    "value": "*A ticket granting entrance to the Alleycat.",
+    "description": ""
+  },
+  {
+    "id": "inv_alleycat_password",
+    "value": "*The password to the Alleycat.",
+    "description": ""
+  },
+  {
+    "id": "inv_note_from_gladys",
+    "value": "*A note to Danni from Gladys about someone named '15'.",
+    "description": ""
+  },
+  {
+    "id": "inv_danni_id",
+    "value": "*Danni's government issued ID.",
+    "description": ""
+  },
+  {
+    "id": "inv_glitch_hacktool",
+    "value": "*A hacktool I got from Glitch.",
+    "description": ""
+  },
+  {
+    "id": "inv_glitch_hacktool_full",
+    "value": "*A hacktool I got from Glitch. It had data from Gladys's computer.",
+    "description": ""
+  },
+  {
+    "id": "inv_coral",
+    "value": "*A capsule of Coral.",
+    "description": ""
+  },
+  {
+    "id": "inv_parcel_number",
+    "value": "*A paper with Building 19's parcel number.",
+    "description": ""
+  },
+  {
+    "id": "inv_visser_keycard",
+    "value": "*A keycard belonging to Johan Visser.",
+    "description": ""
+  },
+  {
+    "id": "inv_laxative",
+    "value": "*KwikyLax. A military-grade laxative.",
+    "description": ""
+  },
+  {
+    "id": "inv_coffee",
+    "value": "*A fresh cup of coffee.",
     "description": ""
   }
 ]

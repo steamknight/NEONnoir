@@ -113,6 +113,8 @@ namespace NEONnoir
 
     void editor::run()
     {
+        new_project();
+
         while (!glfwWindowShouldClose(_window.get()))
         {
             glClear(GL_COLOR_BUFFER_BIT);
@@ -140,22 +142,13 @@ namespace NEONnoir
                 _shape_editor_tool.reset();
             }
 
-            _location_browser.display(_game_data);
-
-            _scene_editor.use(_game_data,
-                _location_browser.get_selected_location_index(),
-                _location_browser.get_selected_scene());
-
-            _scene_editor.display();
-
-            _script_editor.display(_game_data, _monospaced_font);
-
-            _dialogue_editor.display(_game_data);
-
-            _shapes_editor.display(_game_data,
-                _location_browser.get_selected_location_index());
-
-            _speaker_editor.display(_game_data);
+            _location_browser->display();
+            _scene_editor->display(_location_browser->get_selected_location(), _location_browser->get_selected_scene());
+            _script_editor->display(_monospaced_font);
+            _dialogue_editor->display();
+            _shapes_editor->display(_location_browser->get_selected_location());
+            _speaker_editor->display();
+            _string_table->display();
 
             if (_show_properties_popup)
             {
@@ -227,13 +220,43 @@ namespace NEONnoir
             }
 
             // Vairn, Removed Demo Window.
-            //ImGui::ShowDemoWindow();
+            ImGui::ShowDemoWindow();
 
             ImGui::Render();
             ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
             glfwSwapBuffers(_window.get());
             glfwPollEvents();
+        }
+    }
+
+    void editor::new_project()
+    {
+        _game_data = std::make_shared<game_data>();
+        initialize_editors();
+    }
+    
+    void editor::load_project(std::string const& file)
+    {
+        _game_data = game_data::deserialize(file);
+        _game_data->filename = file;
+
+        initialize_editors();
+    }
+
+    void editor::initialize_editors()
+    {
+        _location_browser = std::make_unique<location_browser>(_game_data);
+        _scene_editor = std::make_unique<scene_editor>(_game_data);
+        _script_editor = std::make_unique<script_editor>(_game_data);
+        _dialogue_editor = std::make_unique<dialogue_editor>(_game_data);
+        _shapes_editor = std::make_unique<shapes_editor>(_game_data);
+        _speaker_editor = std::make_unique<speaker_editor>(_game_data);
+        _string_table = std::make_unique<string_table_editor>(_game_data);
+
+        if (_game_data->script_name != "")
+        {
+            _script_editor->load_script(_game_data->script_name);
         }
     }
 
@@ -262,8 +285,7 @@ namespace NEONnoir
             {
                 if (ImGui::MenuItem("New", "Ctrl+N"))
                 {
-                    // TODO: check if there already is game_data in memory
-                    _game_data = std::make_shared<game_data>();
+                    new_project();
                 }
 
                 if (ImGui::MenuItem("Open", "Ctrl+O")) 
@@ -273,13 +295,7 @@ namespace NEONnoir
                     {
                         try
                         {
-                            _game_data = game_data::deserialize(file.value().data());
-                            _game_data->filename = file.value();
-
-                            if (_game_data->script_name != "")
-                            {
-                                _script_editor.load_script(_game_data->script_name);
-                            }
+                            load_project(file.value().data());
                         }
                         catch (std::exception const& ex)
                         {
@@ -316,14 +332,14 @@ namespace NEONnoir
                 {
                     try
                     {
-                        auto result = _script_editor.compile();
+                        auto result = _script_editor->compile();
                         auto file = save_file_dialog("neon");
                         if (file.has_value())
                         {
                             if (_game_data->save_on_export)
                             {
                                 save_project();
-                                _script_editor.save_script(_game_data->script_name);
+                                _script_editor->save_script(_game_data->script_name);
                             }
                             serialize_to_neon_pak(file.value(), _game_data, result);
                         }
