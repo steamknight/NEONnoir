@@ -7,14 +7,10 @@
 #include <filesystem>
 #include <optional>
 #include "types.h"
+#include "game_data.h"
 
 namespace NEONnoir
 {
-    constexpr i16 to_big_endian(i16 value)
-    {
-        return ((value & 0x00FF) << 8) | ((value & 0xFF00) >> 8);
-    }
-
     class assembler_error : public std::runtime_error
     {
     public:
@@ -27,8 +23,8 @@ namespace NEONnoir
     template <typename Value>
     struct definition
     {
-        i16 id = 0;
-        Value value = 0;
+        i16 id{ 0 };
+        Value value{ 0 };
     };
 
     using numeric_constant = definition<i16>;
@@ -39,8 +35,8 @@ namespace NEONnoir
 
     struct value_placeholder
     {
-        size_t index = 0;
-        std::string name;
+        size_t index{ 0 };
+        std::string name{};
     };
 
     enum class ParamType
@@ -72,7 +68,6 @@ namespace NEONnoir
     {
         bytecode bytecode;
         named_values<script> scripts_meta;
-        named_values<string_constant> strings;
         named_values<i16> flags;
         named_values<numeric_constant> constants;
     };
@@ -80,13 +75,11 @@ namespace NEONnoir
     class assembler
     {
     public:
-        assembler(std::string const& source);
+        assembler(std::string const& source, std::shared_ptr<game_data> data);
 
         assembler_result assemble();
 
         void print_stats();
-
-        void save_files(std::filesystem::path const& path);
 
     private:
         inline bool is_at_end() { return _source[_scan_current] == '\0'; }
@@ -101,7 +94,6 @@ namespace NEONnoir
 
         void parse_flags();
         void parse_constants();
-        void parse_text();
         void parse_script();
 
         std::string identifier();
@@ -114,12 +106,12 @@ namespace NEONnoir
         void update_jump_references();
 
     private:
-        named_values<i16> _flags;
-        named_values<numeric_constant> _constants;
-        named_values<string_constant> _strings;
-        named_values<opcode_spec> _opcodes;
-        named_values<i16> _labels;
-        named_values<script> _scripts;
+        named_values<i16> _flags{};
+        named_values<numeric_constant> _constants{};
+        named_values<opcode_spec> _opcodes{};
+        named_values<i16> _labels{};
+        named_values<script> _scripts{};
+        std::shared_ptr<game_data> _game_data{};
 
         std::vector<value_placeholder> _placeholders;
         bytecode _bytecode;

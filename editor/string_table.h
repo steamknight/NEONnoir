@@ -24,6 +24,8 @@ namespace NEONnoir
     public:
         std::string create_string_entry(std::string const& value);
         [[nodiscard]] std::string& get_string(std::string const& string_id);
+        bool constains_string(std::string const& string_id);
+        size_t get_string_index(std::string const& string_id);
         void remove_string(std::string const& string_id);
         void change_string_id(std::string const& old_id, std::string const& new_id);
         void move_up(std::string const& string_id);

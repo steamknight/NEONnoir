@@ -1,5 +1,40 @@
 [
   {
+    "id": "mod_theme",
+    "value": "data/theme.mod",
+    "description": "Ignore"
+  },
+  {
+    "id": "mod_ambient",
+    "value": "data/ambient.mod",
+    "description": "Ignore"
+  },
+  {
+    "id": "mod_dancemix",
+    "value": "data/dance.mod",
+    "description": "Ignore"
+  },
+  {
+    "id": "mod_intrigue",
+    "value": "mod_intrigue",
+    "description": "Ignore"
+  },
+  {
+    "id": "mod_boss_intro",
+    "value": "data/boss_intro.mod",
+    "description": "Ignore"
+  },
+  {
+    "id": "mod_boss_theme",
+    "value": "data/boss_theme.mod",
+    "description": "Ignore"
+  },
+  {
+    "id": "game_saved",
+    "value": "Game Saved.",
+    "description": "Message that displays once the game has been saved to disk."
+  },
+  {
     "id": "Swj5KWxaHNDTFgpS",
     "value": "",
     "description": "Ignore"

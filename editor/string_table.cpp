@@ -28,6 +28,17 @@ namespace NEONnoir
         return std::string{ id };
     }
 
+    bool string_table::constains_string(std::string const& string_id)
+    {
+        return id_index_map.count(string_id) > 0;
+    }
+
+    size_t string_table::get_string_index(std::string const& string_id)
+    {
+        ensure_valid_id(string_id);
+        return id_index_map.at(string_id);
+    }
+
     std::string& string_table::get_string(std::string const& string_id)
     {
         ensure_valid_id(string_id);

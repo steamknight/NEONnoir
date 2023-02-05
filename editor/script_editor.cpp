@@ -150,7 +150,7 @@ namespace NEONnoir
     {
         try
         {
-            auto massembler = assembler{ _text_editor.GetText() };
+            auto massembler = assembler{ _text_editor.GetText(), _data };
             auto result = massembler.assemble();
             _text_editor.SetErrorMarkers({});
             _has_error = false;

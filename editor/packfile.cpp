@@ -48,27 +48,15 @@ namespace NEONnoir
     {
         auto pak = neon_packfile{};
 
-        auto script_strings = std::vector<string_constant>{};
-        for (auto& [k, v] : result.strings)
-        {
-            script_strings.push_back(v);
-        }
-
-        std::sort(script_strings.begin(), script_strings.end(),
-            [](string_constant a, string_constant b)
-            {
-                return a.id < b.id;
-            });
-
-        for (auto& text : script_strings)
-        {
-            pak.string_table.push_back(text.value);
-        }
-
         // Before any other palettes, lets put the speaker palettes
         for (auto const& speaker : data->speakers)
         {
             pak.palettes.push_back(speaker.image.color_palette);
+        }
+        
+        for (auto const& string_entry : data->strings.string_entries)
+        {
+            pak.string_table.push_back(string_entry.value);
         }
 
         for (auto const& location : data->locations)
@@ -97,15 +85,8 @@ namespace NEONnoir
 
                 if (scene.description_id.size() > 0)
                 {
-                    s.first_desc_id = to<u16>(pak.string_table.size());
-
-                    for (auto& desc : scene.description_id)
-                    {
-                       pak.string_table.push_back(data->strings.get_string(desc));
-                    }
-
-                    // Compensate for the extra string added to the table
-                    s.last_desc_id = to<u16>(pak.string_table.size()) - 1;
+                    s.first_desc_id = to<u16>(data->strings.get_string_index(scene.description_id[0]));
+                    s.last_desc_id = to<u16>(s.first_desc_id + scene.description_id.size() - 1);
                 }
 
                 s.background_id = scene.image_id;
@@ -130,8 +111,7 @@ namespace NEONnoir
 
                     if (!region.description_id.empty() && data->strings.get_string(region.description_id).size() > 0)
                     {
-                        r.description_id = to<u16>(pak.string_table.size());
-                        pak.string_table.push_back(data->strings.get_string(region.description_id));
+                        r.description_id = to<u16>(data->strings.get_string_index(region.description_id));
                     }
                     else
                     {
@@ -201,8 +181,7 @@ namespace NEONnoir
             {
                 auto p = neon_page{};
                 p.speaker_id = page.speaker_id;
-                p.text_id = to<u16>(pak.string_table.size());
-                pak.string_table.push_back(data->strings.get_string(page.text_id));
+                p.text_id = to<u16>(data->strings.get_string_index(page.text_id));
 
                 p.page_id = page.next_page_id;
                 if (p.page_id != 0xFFFF) p.page_id += d.first_page_id;
@@ -212,8 +191,8 @@ namespace NEONnoir
                 for (auto const& choice : page.choices)
                 {
                     auto c = neon_choice{};
-                    c.text_id = to<u16>(pak.string_table.size());
-                    pak.string_table.push_back("*" + data->strings.get_string(choice.text_id));
+                    c.text_id = to<u16>(data->strings.get_string_index(choice.text_id));
+                    pak.string_table[c.text_id] = "*" + pak.string_table[c.text_id];
 
                     c.page_id = choice.next_page_id;
                     if (c.page_id != 0xFFFF) c.page_id += d.first_page_id;
