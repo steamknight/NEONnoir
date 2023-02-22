@@ -19,8 +19,10 @@ namespace NEONnoir
         {
             _location = location;
             _scene = scene;
-            auto locations_window = ImGui_window(std::format("{}: {}###Scene", location->name, scene->name));
-            display_editor();
+            if (auto locations_window = ImGui_window(std::format("{}: {}###Scene", location->name, scene->name)))
+            {
+                display_editor();
+            }
         }
     }
 

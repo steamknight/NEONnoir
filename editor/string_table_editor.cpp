@@ -28,7 +28,7 @@ namespace NEONnoir
             {
                 for (int row = clipper.DisplayStart; row < clipper.DisplayEnd; row++)
                 {
-                    imgui::push_id(to<int>(row));
+                    auto _ = imgui::push_id(to<int>(row));
 
                     auto& string_entry = _data->strings.string_entries[row];
 

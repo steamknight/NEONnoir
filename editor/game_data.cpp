@@ -5,24 +5,33 @@
 #include "game_data.h"
 
 using json = nlohmann::json;
+using ordered_json = nlohmann::ordered_json;
 namespace fs = std::filesystem;
+
+// nlohmann json defines a macro NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT to make it easy to create serialization/deserialization of types,
+// however, it doesn't work with ordered_json, which preserves the order of the properties. This here is a small alteration to support this.
+#ifndef DEFINE_ORDERED_TYPE
+#define DEFINE_ORDERED_TYPE(Type, ...)  \
+    inline void to_json(nlohmann::ordered_json& nlohmann_json_j, const Type& nlohmann_json_t) { NLOHMANN_JSON_EXPAND(NLOHMANN_JSON_PASTE(NLOHMANN_JSON_TO, __VA_ARGS__)) } \
+    inline void from_json(const nlohmann::json& nlohmann_json_j, Type& nlohmann_json_t) { Type nlohmann_json_default_obj; NLOHMANN_JSON_EXPAND(NLOHMANN_JSON_PASTE(NLOHMANN_JSON_FROM_WITH_DEFAULT, __VA_ARGS__)) }
+#endif
 
 namespace NEONnoir
 {
-    NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(
+    DEFINE_ORDERED_TYPE(
         shape,
         x, y,
         width, height
     );
 
-    NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(
+    DEFINE_ORDERED_TYPE(
         shape_container,
         image_file,
         has_palette,
         shapes
     );
 
-    NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(
+    DEFINE_ORDERED_TYPE(
         game_data_region,
         x, y,
         width, height,
@@ -33,7 +42,7 @@ namespace NEONnoir
         script
     );
 
-    NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(
+    DEFINE_ORDERED_TYPE(
         game_data_scene,
         name,
         description_id,
@@ -50,7 +59,7 @@ namespace NEONnoir
         regions
     );
 
-    NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(
+    DEFINE_ORDERED_TYPE(
         game_data_location,
         name,
         backgrounds,
@@ -60,7 +69,7 @@ namespace NEONnoir
         speakers
     );
 
-    NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(
+    DEFINE_ORDERED_TYPE(
         dialogue_choice,
         text_id,
         script,
@@ -76,7 +85,7 @@ namespace NEONnoir
         has_check_flag
     );
 
-    NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(
+    DEFINE_ORDERED_TYPE(
         dialogue_page,
         speaker_id,
         text_id,
@@ -92,35 +101,57 @@ namespace NEONnoir
         has_check_flag
     );
 
-    NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(
+    DEFINE_ORDERED_TYPE(
         dialogue, name, pages
     );
 
-    NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(
+    DEFINE_ORDERED_TYPE(
         speaker_info, name, image_path
     );
 
-    NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(
+    DEFINE_ORDERED_TYPE(
+        game_asset,
+        name,
+        relative_path
+    );
+
+    DEFINE_ORDERED_TYPE(
+        asset_collection,
+        ui,
+        backgrounds,
+        music,
+        sfx
+    );
+
+    DEFINE_ORDERED_TYPE(
+        project_manifest,
+        game_name,
+        build_number,
+        project_file,
+        game_file,
+        assets
+    );
+
+    DEFINE_ORDERED_TYPE(
         game_data,
+        manifest,
         locations,
         dialogues,
         speakers,
         script_name
     );
 
-    void game_data::serialize(std::string const& file_name)
+    void game_data::serialize(std::filesystem::path const& file_path)
     {
-        auto file_path = fs::path{ file_name };
-
         auto savefile = std::ofstream{ file_path, std::ios::trunc };
         if (savefile)
         {
-            auto locs = json(locations);
-            auto root = json
+            auto root = ordered_json
             {
-                { "locations", locs},
-                { "dialogues", json(dialogues)},
-                { "speakers", json(speakers)},
+                { "manifest", ordered_json(manifest)},
+                { "locations", ordered_json(locations)},
+                { "dialogues", ordered_json(dialogues)},
+                { "speakers", ordered_json(speakers)},
                 { "script_name", script_name},
                 { "save_on_export", script_name},
             };
@@ -134,17 +165,17 @@ namespace NEONnoir
         strings.serialize(strings_path);
     }
 
-    std::shared_ptr<game_data> game_data::deserialize(std::string const& filename)
+    std::shared_ptr<game_data> game_data::deserialize(std::filesystem::path const& file_path)
     {
-        if (!fs::exists(filename))
+        if (!fs::exists(file_path))
         {
-            throw std::runtime_error{ std::format("File '{}' does not exist.", filename) };
+            throw std::runtime_error{ std::format("File '{}' does not exist.", file_path.string()) };
         }
 
-        auto savefile = std::ifstream{ filename };
+        auto savefile = std::ifstream{ file_path };
         if (savefile)
         {
-            auto data_path = fs::path{ filename }.parent_path();
+            auto data_path = fs::path{ file_path }.parent_path();
             fs::current_path(data_path);
 
             auto buffer = std::stringstream{};
@@ -205,7 +236,6 @@ namespace NEONnoir
             //}
             //// end temporary
 
-            auto file_path = fs::path{ filename };
             auto strings_path = (file_path.parent_path() / file_path.stem());
             strings_path += "_strings.json";
             data.strings.deserialize(strings_path);

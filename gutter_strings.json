@@ -1,5 +1,15 @@
 [
   {
+    "id": "language",
+    "value": "English",
+    "description": "Name of the language"
+  },
+  {
+    "id": "language_font",
+    "value": "data/lang/latin-1.shapes",
+    "description": "Ignore. Name of the font file."
+  },
+  {
     "id": "mod_theme",
     "value": "data/theme.mod",
     "description": "Ignore"

@@ -10,8 +10,10 @@ namespace NEONnoir
 {
     void editor_window_base::display()
     {
-        auto dialogue_editor_window = ImGui_window(get_title_name());
-        display_editor();
+        if (auto dialogue_editor_window = ImGui_window(get_title_name()))
+        {
+            display_editor();
+        }
     }
 
     void editor_window_base::display_placeholder(std::string_view const& text)

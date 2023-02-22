@@ -21,6 +21,7 @@ $bb2_files = @(
 
 $data_files = @(
     "./data/title.iff",
+    "./data/title2.iff",
     "./data/intro01.iff",
     "./data/intro02.iff",
     "./data/intro03.iff",
@@ -74,7 +75,8 @@ $data_files = @(
     "./data/music/boss_intro.mod",
     "./data/music/boss_theme.mod",
     "./data/mpg.iff",
-    # "./data/1.shapes",
+    "./data/lang_selection.iff",
+    "./data/flags.shapes",
     # "./data/2.shapes",
     # "./data/3.shapes",
     # "./data/4.shapes",

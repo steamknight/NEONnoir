@@ -17,6 +17,7 @@
 #include "shape_editor_tool.h"
 #include "speaker_editor.h"
 #include "string_table_editor.h"
+#include "manifest_editor.h"
 
 struct ImFont;
 
@@ -43,10 +44,12 @@ namespace NEONnoir
 
     private:
         void new_project();
-        void load_project(std::string const& file);
+        void load_project(std::filesystem::path const& file_path);
         void save_project();
 
         void initialize_editors();
+
+        void export_neon_file();
 
     private:
         GLFWwindow_ptr _window;
@@ -68,6 +71,7 @@ namespace NEONnoir
         std::unique_ptr<shapes_editor> _shapes_editor{};
         std::unique_ptr<speaker_editor> _speaker_editor{};
         std::unique_ptr<string_table_editor> _string_table{};
+        std::unique_ptr<manifest_editor> _manifest_editor{};
 
         bool _show_properties_popup{ false };
         bool _show_error_popup{ false };

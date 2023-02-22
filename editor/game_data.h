@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <string>
+#include <filesystem>
 #include <unordered_map>
 #include "glfw_utils.h"
 #include "utils.h"
@@ -115,8 +116,32 @@ namespace NEONnoir
         GLtexture image_texture;
     };
 
+    struct game_asset
+    {
+        std::string name{};
+        std::filesystem::path relative_path{};
+    };
+
+    struct asset_collection
+    {
+        std::vector<game_asset> ui{};
+        std::vector<game_asset> backgrounds{};
+        std::vector<game_asset> music{};
+        std::vector<game_asset> sfx{};
+    };
+
+    struct project_manifest
+    {
+        std::string game_name{};
+        std::filesystem::path project_file{};
+        std::filesystem::path game_file{};
+        asset_collection assets{};
+        u32 build_number{ 0 };
+    };
+
     struct game_data
     {
+        project_manifest manifest;
         std::vector<game_data_location> locations;
         std::vector<std::string> flags;
         std::vector<dialogue> dialogues;
@@ -125,11 +150,8 @@ namespace NEONnoir
 
         std::string script_name{};
 
-        void serialize(std::string const& filename);
         i32 shape_start_id{ 10 };
         bool save_on_export{ true };
-
-        std::string filename{};
 
         // Default color palette for the game UI.
         MPG::color_palette ui_palette
@@ -168,7 +190,8 @@ namespace NEONnoir
             { 0x8A, 0x6F, 0x30, 0x00 },
         };
 
-        static std::shared_ptr<game_data> deserialize(std::string const& filename);
+        void serialize(std::filesystem::path const& file_path);
+        static std::shared_ptr<game_data> deserialize(std::filesystem::path const& file_path);
     };
 }
 

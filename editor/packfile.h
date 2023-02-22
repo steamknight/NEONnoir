@@ -31,6 +31,12 @@ namespace NEONnoir
         // Array of chars
     };
 
+    constexpr char embedded_file_header[4] = { 'E', 'M', 'B', 'D'};
+    struct neon_embedded_file_header
+    {
+
+    };
+
     constexpr char locations_header[4] = { 'L', 'O', 'C', 'S' };
     struct neon_locations_header
     {

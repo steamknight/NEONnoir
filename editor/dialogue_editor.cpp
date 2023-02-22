@@ -78,7 +78,7 @@ namespace NEONnoir
     {
         auto request_action = display_dialogue_options(dialogue);
 
-        imgui::push_id(&dialogue);
+        auto id = imgui::push_id(&dialogue);
 
         display_pages(dialogue, page_start_id);
 

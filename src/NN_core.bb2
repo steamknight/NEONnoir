@@ -273,7 +273,7 @@ DEFTYPE .b DG_dialogue_is_active, DB_active_dialogue
 DEFTYPE .b NN_current_bmp
 DEFTYPE .b NN_should_quit
 DEFTYPE .w NN_pointer_id
-
+DEFTYPE .s NN_current_lang
 DEFTYPE .w MS_current_track_id
 
 DEFTYPE .b NN_fade_in, NN_fade_out
@@ -351,7 +351,9 @@ End Macro
 
 ; Main bitmap and main palette
 #BMP_main = 0
+#BMP_alt = 1
 #PAL_main = 0
+#PAL_alt = 0
 #PAL_ui = 9
 #PAL_fx = 10
 ; Display buffer
@@ -406,6 +408,7 @@ NN_error_codes$(5) = "Language file not found"
 ; -----------------------------------------------------------------------------
 #SH_menu = 1
 #SH_first_portrait = 2
+#SH_first_flag = 3
 
 ; Text
 ; -----------------------------------------------------------------------------

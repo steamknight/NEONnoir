@@ -19,8 +19,10 @@ namespace NEONnoir
         _location = location;
         if (_location != nullptr)
         {
-            auto shapes_editor_window = ImGui_window(ICON_MD_PHOTO " Shapes Editor");
-            display_editor();
+            if (auto shapes_editor_window = ImGui_window(ICON_MD_PHOTO " Shapes Editor"))
+            {
+                display_editor();
+            }
         }
     }
 

@@ -149,6 +149,7 @@ namespace NEONnoir
             _shapes_editor->display(_location_browser->get_selected_location());
             _speaker_editor->display();
             _string_table->display();
+            _manifest_editor->display();
 
             if (_show_properties_popup)
             {
@@ -236,10 +237,10 @@ namespace NEONnoir
         initialize_editors();
     }
     
-    void editor::load_project(std::string const& file)
+    void editor::load_project(std::filesystem::path const& file_path)
     {
-        _game_data = game_data::deserialize(file);
-        _game_data->filename = file;
+        _game_data = game_data::deserialize(file_path);
+        _game_data->manifest.project_file = fs::relative(file_path);
 
         initialize_editors();
     }
@@ -253,6 +254,7 @@ namespace NEONnoir
         _shapes_editor = std::make_unique<shapes_editor>(_game_data);
         _speaker_editor = std::make_unique<speaker_editor>(_game_data);
         _string_table = std::make_unique<string_table_editor>(_game_data);
+        _manifest_editor = std::make_unique<manifest_editor>(_game_data);
 
         if (_game_data->script_name != "")
         {
@@ -260,20 +262,49 @@ namespace NEONnoir
         }
     }
 
+    void editor::export_neon_file()
+    {
+        if (_game_data->manifest.game_file.empty())
+        {
+            auto file = save_file_dialog("neon");
+            if (!file) return;
+
+            _game_data->manifest.game_file = fs::relative(file.value()).string();
+        }
+
+        try
+        {
+            auto result = _script_editor->compile();
+            if (_game_data->save_on_export)
+            {
+                save_project();
+                _script_editor->save_script(_game_data->script_name);
+            }
+            serialize_to_neon_pak(_game_data->manifest.game_file, _game_data, result);
+
+        }
+        catch (std::exception const& ex)
+        {
+            std::cout << ex.what();
+            _show_error_popup = true;
+            _error_message = ex.what();
+        }
+    }
+
     void editor::save_project()
     {
-        if (_game_data->filename == "")
+        if (_game_data->manifest.project_file == "")
         {
             auto file = save_file_dialog("json");
             if (file)
             {
-                _game_data->filename = file.value();
+                _game_data->manifest.project_file = file.value();
             }
         }
 
-        if (_game_data->filename != "")
+        if (_game_data->manifest.project_file != "")
         {
-            _game_data->serialize(_game_data->filename);
+            _game_data->serialize(_game_data->manifest.project_file);
         }
     }
 
@@ -316,8 +347,8 @@ namespace NEONnoir
                     auto file = save_file_dialog("json");
                     if (file.has_value())
                     {
-                        _game_data->filename = file.value();
-                        _game_data->serialize(_game_data->filename);
+                        _game_data->manifest.project_file = file.value();
+                        _game_data->serialize(_game_data->manifest.project_file);
                     }
                 }
                 if (!_game_data) ImGui::EndDisabled();
@@ -328,27 +359,20 @@ namespace NEONnoir
                 {
                     _show_properties_popup = true;
                 }
-                if (ImGui::MenuItem("Export NEON file..."))
+
+                ImGui::Separator();
+                if (ImGui::MenuItem("Export NEON file"))
                 {
-                    try
+                    export_neon_file();
+                }
+                if (ImGui::MenuItem("Export NEON file As..."))
+                {
+
+                    auto file = save_file_dialog("neon");
+                    if (file)
                     {
-                        auto result = _script_editor->compile();
-                        auto file = save_file_dialog("neon");
-                        if (file.has_value())
-                        {
-                            if (_game_data->save_on_export)
-                            {
-                                save_project();
-                                _script_editor->save_script(_game_data->script_name);
-                            }
-                            serialize_to_neon_pak(file.value(), _game_data, result);
-                        }
-                    }
-                    catch (std::exception const& ex)
-                    {
-                        std::cout << ex.what();
-                        _show_error_popup = true;
-                        _error_message = ex.what();
+                        _game_data->manifest.game_file = fs::relative(file.value()).string();
+                        export_neon_file();
                     }
                 }
                 if (!_game_data) ImGui::EndDisabled();

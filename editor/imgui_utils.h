@@ -33,8 +33,10 @@ namespace NEONnoir
         ~ImGui_window();
 
         bool is_closing() const noexcept { return !_is_open; }
+        operator bool() const noexcept { return _is_valid; }
     private:
         bool _is_open{ true };
+        bool _is_valid{ true };
     };
 
     typedef void(*cleanup_fn)();

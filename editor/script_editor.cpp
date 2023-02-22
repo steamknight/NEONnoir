@@ -15,28 +15,29 @@ namespace NEONnoir
 {
     void script_editor::display(ImFont* font)
     {
-        auto script_window = ImGui_window(ICON_MD_CODE " NOIRscript");
-
-        display_toolbar(_data->script_name);
-
-        if (ImGui::BeginTable("Layout", 2, ImGuiTableFlags_SizingStretchProp | ImGuiTableFlags_Resizable))
+        if (auto script_window = ImGui_window(ICON_MD_CODE " NOIRscript"))
         {
-            ImGui::TableNextRow();
+            display_toolbar(_data->script_name);
 
-            display_editor(font);
-
-            if (_text_editor.IsTextChanged())
+            if (ImGui::BeginTable("Layout", 2, ImGuiTableFlags_SizingStretchProp | ImGuiTableFlags_Resizable))
             {
-                extract_metadata();
+                ImGui::TableNextRow();
+
+                display_editor(font);
+
+                if (_text_editor.IsTextChanged())
+                {
+                    extract_metadata();
+                }
+
+                ImGui::TableNextColumn();
+
+                display_metadata(_flags, ICON_MD_FLAG " Flags");
+                display_metadata(_consts, ICON_MD_TAG " Constants");
+                display_metadata(_scripts, ICON_MD_FUNCTIONS " Scripts");
+
+                ImGui::EndTable();
             }
-
-            ImGui::TableNextColumn();
-
-            display_metadata(_flags, ICON_MD_FLAG " Flags");
-            display_metadata(_consts, ICON_MD_TAG " Constants");
-            display_metadata(_scripts, ICON_MD_FUNCTIONS " Scripts");
-
-            ImGui::EndTable();
         }
     }
 

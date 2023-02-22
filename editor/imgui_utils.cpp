@@ -102,7 +102,7 @@ namespace NEONnoir
 
     ImGui_window::ImGui_window(std::string_view const& name, bool closable, ImGuiWindowFlags flags)
     {
-        ImGui::Begin(name.data(), closable ? &_is_open : nullptr, flags);
+        _is_valid = ImGui::Begin(name.data(), closable ? &_is_open : nullptr, flags);
     }
 
     ImGui_window::~ImGui_window()

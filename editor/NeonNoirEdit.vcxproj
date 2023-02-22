@@ -193,6 +193,7 @@
     <ClCompile Include="libraries\TextEditor.cpp" />
     <ClCompile Include="location_browser.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="manifest_editor.cpp" />
     <ClCompile Include="packfile.cpp" />
     <ClCompile Include="palette_injector.cpp" />
     <ClCompile Include="scene_editor.cpp" />
@@ -227,6 +228,7 @@
     <ClInclude Include="imgui_utils.h" />
     <ClInclude Include="lang_pack_util.h" />
     <ClInclude Include="location_browser.h" />
+    <ClInclude Include="manifest_editor.h" />
     <ClInclude Include="no_person.h" />
     <ClInclude Include="packfile.h" />
     <ClInclude Include="palette_injector.h" />

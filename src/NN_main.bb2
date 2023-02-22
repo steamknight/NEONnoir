@@ -56,6 +56,8 @@ If NN_is_NTSC Then Poke $DFF1DC, $000
 
 DisplayBitMap #CP_coplist, #BMP_main
 FadeInScreen{#CP_coplist, #PAL_main, #PAL_fx}
+VWait 120
+FadeOutScreen{#CP_coplist, #PAL_fx, #PAL_main}
 
 ; Load the game
 QAMIGA
@@ -66,12 +68,6 @@ If success <> #NN_NEON_success
 End If
 
 TX_initialize{"display.font", "frame.shape"}
-
-VWait 180
-
-; Fade out the splash screen
-BLITZ
-FadeOutScreen{#CP_coplist, #PAL_fx, #PAL_main}
 
 ; Load the title screen
 QAMIGA
@@ -106,7 +102,7 @@ prev_bmp = NN_current_bmp
 ; SetInt 5
 ;   !DB_init_breakpoint{$35}
 ; End SetInt
-
+FadeInScreen{#CP_coplist, #PAL_main, #PAL_fx}
 Repeat
   VWait
 
