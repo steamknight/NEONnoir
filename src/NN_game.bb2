@@ -32,11 +32,13 @@ Statement DEBUG_print_words{}
 End Statement
 CEND
 
+QAMIGA
 ; Loads a lang pack which contains all the strings for one language
 ;
 ; Requires AMIGA or QAMIGA mode
 ; =============================================================================
 Function .b NN_load_langpack{filename$}
+  !DB_trace{"MAIN", "NN_load_langpack: " + filename$}
   !__use_string_table_all{}
   !__use_word_table_all{}
 
@@ -320,7 +322,7 @@ End Statement
 ;
 ; Requires AMIGA or QAMIGA mode
 ; =============================================================================
-Function .b NN_lang_select{}
+Function .b NN_lang_select_old{}
   SHARED NN_current_lang.s
 
   QAMIGA
@@ -333,7 +335,7 @@ Function .b NN_lang_select{}
   ; Load the flags
   #lang_count = 3
   LoadShapes #SH_first_flag, #SH_first_flag + (#lang_count * 2), "data/flags.shapes"
-  
+
   #flag_padding = 8
 
   ; Define the flag regions
@@ -356,7 +358,7 @@ Function .b NN_lang_select{}
   langs.s(0) = "en"
   langs.s(1) = "it"
   langs.s(2) = "de"
-  
+
   ; Display the screen and wait for the user
   DEFTYPE .b done, flag_id, lmb
   done = False
@@ -428,7 +430,7 @@ Function NN_initialize{neonpack$, pointers$}
     Function Return success
   End If
 
-  success = NN_lang_select{}
+  success = NN_lang_select_old{}
   If success <> #NN_NEON_success
     !DB_error{"MAIN", "Could not get language selection"}
     !DB_error{"MAIN", NN_error_codes$(success)}
@@ -451,6 +453,249 @@ Function NN_initialize{neonpack$, pointers$}
   Next
 
   Function Return success
+End Function
+
+Function .b NN_load_resources{neonpack$}
+  !DB_trace{"MAIN", "NN_load_resources"}
+  SHARED NN_error_codes$()
+  DEFTYPE .w result
+  result = #NN_NEON_success
+
+  result = NN_load_neonpack{neonpack$}
+  !DB_log_str{"MAIN", "Loading " + neonpack$}
+  If result <> #NN_NEON_success
+    !DB_error{"MAIN", "Could not load" + neonpack$}
+    !DB_error{"MAIN", NN_error_codes$(result)}
+    Function Return result
+  End If
+
+  ; Many of the things that follow will likely be coming from the NEONpak in the
+  ; future, but for right now they are hard coded in
+  !DB_log_str{"MAIN", "Loading all menu shapes"}
+  LoadShapes #SH_menu, #SH_menu, "data/menu.shapes"
+  LoadShapes #TX_frame_start, #TX_frame_end, "data/frame.shape"
+  NN_load_pointers{"data/pointers.shape"}
+
+  ; Load the title screen in the main bitmap
+  !DB_log_str{"MAIN", "Loading title screen"}
+  LoadBitMap #BMP_main, "data/title.iff", #PAL_main
+
+  !DB_log_str{"MAIN", "Loading flag shapes"}
+  LoadShapes #SH_first_flag, #SH_first_flag + (#TX_lang_count * 2), "data/flags.shapes"
+
+  ; Wait 2 second for disk activity to quiet down
+  !__delay_sec{2}
+  Function Return result
+End Function
+
+Function .b NN_main_menu{}
+  SHARED NN_current_bmp
+  !__use_string_table{}
+
+  #menu_padding = 8
+  #menu_left = 16
+  #menu_top = 136
+  #menu_items = 4
+
+  DEFTYPE .w y_start
+  y_start = #menu_top
+
+  Dim labels$(#menu_items)
+  Dim items.NN_screen_rect(#menu_items)
+  For l = 0 To #menu_items - 1
+    labels$(l) = !__get_string{#TX_menu_start + l}
+
+    items(l)\x0 = #menu_left
+    items(l)\y0 = y_start
+
+    items(l)\x1 = #menu_left + (Len(labels$(l)) * #TX_font_width)
+    items(l)\y1 = y_start + #TX_font_height
+
+    y_start + (#TX_font_height + #menu_padding)
+  Next
+
+  DEFTYPE .b done, clicked, lmb
+  done = 0
+  DEFTYPE .w selected
+  selected = -1
+
+  BLITZ
+  NN_current_bmp = #BMP_main
+
+  Repeat
+    VWait
+
+    ; Double buffering magic
+    DisplayBitMap #CP_coplist, NN_current_bmp
+    NN_current_bmp = 1 - NN_current_bmp
+    Use BitMap NN_current_bmp
+    UnBuffer NN_current_bmp
+
+    ; Update the mouse pointer
+    DisplaySprite #CP_coplist, #NN_pointer_default - #NN_pointer_start, MouseX, MouseY, 0
+
+    lmb = IN_update_mouse{}
+    selected = IN_check_mouse{&items(0), #menu_items}
+
+    For l = 0 to #menu_items - 1
+      If selected = l
+        TX_draw_text{"*" + labels$(l), items(l)\x0 - #TX_font_width, items(l)\y0}
+
+        ; Was it clicked?
+        If lmb = #IN_mouse_released
+          clicked = l
+          done = True
+        End If
+      Else
+        TX_draw_text{labels$(l), items(l)\x0, items(l)\y0}
+      End If
+    Next
+  Until done = True
+  QAMIGA
+
+  Function Return clicked
+End Function
+
+Statement NN_lang_select{}
+  !DB_trace{"MAIN", "NN_lang_select"}
+  SHARED NN_current_lang.s
+  SHARED TX_langs.s()
+
+  #flag_padding = 8
+
+  ; Define the flag regions
+  DEFTYPE .w x_start, w, h
+  w = ShapeWidth(#SH_first_flag)
+  h = ShapeHeight(#SH_first_flag)
+
+  #x_left = 16
+  #x_right = 156
+  #flag_area = #x_right - #x_left
+  x_start = (#flag_area - (#lang_count * w) - (#flag_padding * (#lang_count - 1))) / 2
+  x_start + #x_left
+
+  Dim flags.NN_screen_rect(#lang_count)
+  For f = 0 To #lang_count - 1
+    flags(f)\x0 = x_start
+    flags(f)\y0 = 145
+    flags(f)\x1 = x_start + w
+    flags(f)\y1 = 145 + h
+
+    x_start + (w + #flag_padding)
+  Next
+
+  ; Display the screen and wait for the user
+  DEFTYPE .b done, flag_id, lmb, bmp_id
+  done = False
+  bmp_id = #BMP_main
+
+  DEFTYPE .w selected
+  selected = -1
+
+  BLITZ
+  Mouse On
+  CopyBitMap #BMP_main, #BMP_alt
+  DisplayPalette #CP_coplist, #PAL_main
+  DisplayBitMap #CP_coplist, #BMP_main
+
+  ; Fade in the title screen
+  FadeInScreen{#CP_coplist, #PAL_main, #PAL_fx}
+  Repeat
+    VWait
+
+    ; Double buffering magic
+    DisplayBitMap #CP_coplist, bmp_id
+    bmp_id = 1 - bmp_id
+    Use BitMap bmp_id
+    UnBuffer bmp_id
+
+    ; Update the mouse pointer
+    DisplaySprite #CP_coplist, #NN_pointer_default - #NN_pointer_start, MouseX, MouseY, 0
+
+    lmb = IN_update_mouse{}
+    selected = IN_check_mouse{&flags(0), #lang_count}
+
+    For f = 0 to #lang_count - 1
+      If selected = f
+        flag_id = f * 2 + #SH_first_flag
+
+        ; Was it clicked?
+        If lmb = #IN_mouse_released
+          NN_current_lang.s = TX_langs.s(f)
+          done = True
+        End If
+      Else
+        flag_id = f * 2 + 1 + #SH_first_flag
+      End If
+
+      BBlit bmp_id, flag_id, flags(f)\x0, flags(f)\y0, 0
+    Next
+  Until done = True
+  UnBuffer #BMP_main
+  UnBuffer #BMP_alt
+  DisplayBitMap #CP_coplist, #BMP_main
+End Statement
+
+Function .b NN_startup{neonpack$}
+  !DB_trace{"MAIN", "NN_startup: " + neonpack$}
+  SHARED NN_error_codes$(), NS_page_flags(), NS_choice_flags()
+  SHARED NN_current_lang.s, NN_is_NTSC
+   !__use_string_table{}
+  DEFTYPE .w result
+  QAMIGA
+
+  ; Create the two game bitmaps. The main one will be used almost exclusively
+  ; and the alt one will be used for special scenarios
+  BitMap #BMP_main, #NN_screen_width, #NN_screen_height, #NN_screen_bpp
+  BitMap #BMP_alt, #NN_screen_width, #NN_screen_height, #NN_screen_bpp
+
+  ; Load the MPG logo in the alt image an display it
+  LoadBitMap #BMP_alt, "data/mpg.iff", #PAL_alt
+
+  ; Create a new display, and stretch it to NTSC if necessary
+  BLITZ
+  CreateDisplay #CP_coplist
+  If NN_is_NTSC Then Poke $DFF1DC, $000
+
+  DisplayBitMap #CP_coplist, #BMP_alt
+  FadeInScreen{#CP_coplist, #PAL_alt, #PAL_fx}
+
+  ; Now that we got the splash screen buying us time, load the rest
+  QAMIGA
+  result = NN_load_resources{neonpack$}
+  BLITZ
+  ;FadeOutScreen{#CP_coplist, #PAL_fx, #PAL_alt}
+
+  ;Fade in the title screen and show the language selection flags
+  NN_lang_select{}
+
+  DEFTYPE .s lang_pack
+  lang_pack = "data/lang/" + NN_current_lang.s + ".noir"
+
+  QAMIGA
+  success = NN_load_langpack{lang_pack}
+  If success <> #NN_NEON_success
+    !DB_error{"MAIN", "Could not load " + lang_pack}
+    !DB_error{"MAIN", NN_error_codes$(success)}
+    Function Return success
+  End If
+
+  ; Load the font file
+  !DB_log_str{"MAIN", "Loading language: " + !__get_string{#TX_lang_id}}
+  fontfile$ = !__get_string{#TX_font_path}
+  !DB_log_str{"MAIN", "Loading font file:" + fontfile$}
+  LoadShapes #TX_font_start, #TX_font_end, fontfile$
+
+  For f = 0 to #NS_flag_count
+    NS_page_flags(f) = True
+    NS_choice_flags(f) = True
+  Next
+
+  ; Display the main menu
+  DEFTYPE .b action
+  action = NN_main_menu{}
+
+  Function Return #NN_NEON_success
 End Function
 
 ; Sets the currently selected scene

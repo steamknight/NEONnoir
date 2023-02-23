@@ -442,3 +442,21 @@ NN_error_codes$(5) = "Language file not found"
 #TX_space = 32
 #TX_newline = 10
 #TX_text_shape = 21
+
+#TX_lang_id = 0
+#TX_font_path = 1
+
+#TX_lang_count = 3
+Dim TX_langs.s(#TX_lang_count)
+TX_langs.s(0) = "en"
+TX_langs.s(1) = "it"
+TX_langs.s(2) = "de"
+
+#TX_menu_start = 2
+
+; Menu items
+; -----------------------------------------------------------------------------
+#NN_menu_start = 0
+#NN_menu_continue = 1
+#NN_menu_credits = 2
+#NN_menu_exit = 3

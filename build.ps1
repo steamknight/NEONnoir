@@ -9,8 +9,8 @@ $bb2_files = @(
     "./src/NN_utils.bb2",
     "./src/MPSH.bb2"
     "./src/MS_music.bb2",
-    "./src/NN_game.bb2",
     "./src/TX_core.bb2",
+    "./src/NN_game.bb2",
     "./src/SC_scene.bb2"
     "./src/SH_shapes.bb2"
     "./src/DG_dialogue.bb2",
@@ -94,6 +94,7 @@ $data_files = @(
 
 $lang_files = @(
     "./data/lang/en.noir"
+    "./data/lang/latin-1.shapes"
 )
 
 function Set-ToolPath($path) {

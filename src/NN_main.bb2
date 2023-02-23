@@ -33,45 +33,22 @@ Buffer #BF_shapes, 64000
 Buffer #BF_faces, 16000
 
 ;Load the title song
-DEFTYPE .b success
-success = LoadTrackerModule(0, "data/theme.mod")
-If success = True
-  success = StartTracker(0)
-  If success = False Then !DB_warn{"MAIN", "Could not play title song."}
-Else
-  !DB_warn{"MAIN", "Could not load title song."}
-End If
+; DEFTYPE .b success
+; success = LoadTrackerModule(0, "data/theme.mod")
+; If success = True
+;   success = StartTracker(0)
+;   If success = False Then !DB_warn{"MAIN", "Could not play title song."}
+; Else
+;   !DB_warn{"MAIN", "Could not load title song."}
+; End If
 
-; Load the splash screen
-BitMap #BMP_main, #NN_screen_width, #NN_screen_height, #NN_screen_bpp
-LoadBitMap #BMP_main, "data/mpg.iff", #PAL_main
-
-LoadShapes #SH_menu, #SH_menu, "data/menu.shapes"
-
-; Display the splash screen
-BLITZ
-CreateDisplay #CP_coplist
-
-If NN_is_NTSC Then Poke $DFF1DC, $000
-
-DisplayBitMap #CP_coplist, #BMP_main
-FadeInScreen{#CP_coplist, #PAL_main, #PAL_fx}
-VWait 120
-FadeOutScreen{#CP_coplist, #PAL_fx, #PAL_main}
-
-; Load the game
-QAMIGA
-success = NN_initialize{"gutter.neon", "pointers.shape"}
-If success <> #NN_NEON_success
-  !DB_error{"MAIN", "Aborting."}
-  Goto Finish
-End If
-
-TX_initialize{"display.font", "frame.shape"}
+success = NN_startup{"data/gutter.neon"}
 
 ; Load the title screen
 QAMIGA
 NN_load_location{0, 0}
+;MouseWait
+;End
 
 ; Run the game
 DEFTYPE .w overlapped, prev_overlap, menu_x, menu_y

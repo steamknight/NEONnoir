@@ -104,3 +104,7 @@ Statement FadeOutScreen{cop, source, dest}
 End Statement
 
 AMIGA
+
+Macro __delay_sec
+  VWait (`1) * (50 - (NTSC * 10))
+End Macro

@@ -10,6 +10,26 @@
     "description": "Ignore. Name of the font file."
   },
   {
+    "id": "title_start",
+    "value": "Start",
+    "description": "Start game button in title screen"
+  },
+  {
+    "id": "title_continue",
+    "value": "Continue",
+    "description": "Continue game button in title screen"
+  },
+  {
+    "id": "title_credits",
+    "value": "Credits",
+    "description": "Credits button in title screen, shows who made the game."
+  },
+  {
+    "id": "title_quit",
+    "value": "Quit",
+    "description": "Quit game button in title screen"
+  },
+  {
     "id": "mod_theme",
     "value": "data/theme.mod",
     "description": "Ignore"

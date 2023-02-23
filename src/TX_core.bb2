@@ -14,7 +14,6 @@ DEFTYPE .w TX_frame_x, TX_frame_y
 
 Statement TX_initialize{fontfile$, framefile$}
   !DB_trace{"TX_CORE", "TX_initialize: " + fontfile$ + ", " + framefile$}
-  SHARED TX_frame_x, TX_frame_y
   LoadShapes #TX_font_start, #TX_font_end, "data/" + fontfile$
   LoadShapes #TX_frame_start, #TX_frame_end, "data/" + framefile$
 End Statement
@@ -72,7 +71,8 @@ Statement TX_draw_single_line{text$}
 End Statement
 
 Statement TX_draw_text{text$, x.w, y.w}
-  !DB_trace{"TX_CORE", "TX_draw_text: " + text$ + " " + Str$(x) + "," + Str$(y)}
+  SHARED NN_current_bmp
+
   DEFTYPE .w width, strlen
 
   strlen = Len(text$)
@@ -82,7 +82,7 @@ Statement TX_draw_text{text$, x.w, y.w}
   If y + #TX_font_height > DispHeight Then y = DispHeight - #TX_font_height
 
   For i = 0 To strlen - 1
-    BBlit 0, Peek.b (&text$ + i), x, y, %0
+    BBlit NN_current_bmp, Peek.b (&text$ + i), x, y, %0
     x + #TX_font_width
   Next
 End Statement

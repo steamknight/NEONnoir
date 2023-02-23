@@ -61,11 +61,11 @@ Statement DG_show_dialog{id.w}
 
   DEFTYPE .DG_dialogue *current
   DEFTYPE .DG_page *cur_page
-  DEFTYPE .b displayed, lmb 
+  DEFTYPE .b displayed, lmb
   DEFTYPE .w pointer_id, page_id, current_speaker
 
 ; We won't have more than 8 choices, right?
-  Dim rects.NN_screen_rect(8) 
+  Dim rects.NN_screen_rect(8)
 
   *current = !__get_dialogue{id}
   page_id = *current\first_page_id
@@ -74,6 +74,7 @@ Statement DG_show_dialog{id.w}
   pointer_id = 0
   current_speaker = -1
 
+  BLITZ
   DG_dialogue_is_active = True
   While DG_dialogue_is_active
     VWait
@@ -88,7 +89,7 @@ Statement DG_show_dialog{id.w}
         displayed = False
       End If
     Until page_id <> -1
-    
+
     If page_id <> -1
       !DB_break_and_reset{}
 
@@ -110,7 +111,7 @@ Statement DG_show_dialog{id.w}
           ; the one currently shown
           If *cur_page\speaker_id > -1 AND current_speaker <> *cur_page\speaker_id
             UnBuffer #BF_faces
-            current_speaker = *cur_page\speaker_id 
+            current_speaker = *cur_page\speaker_id
             SH_draw_portrait{current_speaker, 4, 4}
           End If
 
@@ -146,7 +147,7 @@ Statement DG_show_dialog{id.w}
               Else
                 rects(c)\x1 = -1
                 rects(c)\y1 = -1
-              End If 
+              End If
             Next
           End If
 
