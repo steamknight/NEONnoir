@@ -125,9 +125,6 @@ End NEWTYPE
 ; Define all globals and macros
 ; =============================================================================
 
-DEFTYPE .b NN_is_in_title
-NN_is_in_title = True
-
 ; NN_region dynamic array
 ; -----------------------------------------------
 DEFTYPE .NN_region *NN_regions, *NN_current_region
@@ -353,7 +350,7 @@ End Macro
 #BMP_main = 0
 #BMP_alt = 1
 #PAL_main = 0
-#PAL_alt = 0
+#PAL_alt = 1
 #PAL_ui = 9
 #PAL_fx = 10
 ; Display buffer
@@ -385,6 +382,7 @@ End Macro
 #NN_NEON_not_a_neon_file        = 3
 #NN_NEON_version_not_supported  = 4
 #NN_NEON_lang_not_found         = 5
+#NN_NEON_quit                   = 6
 
 Dim NN_error_codes$(5)
 NN_error_codes$(1) = "File not found"

@@ -3,7 +3,7 @@
 ; -----------------------------------------------------------------------------
 ; Shape related Statements and Functions
 ; Prefix SH = SHape
-
+BLITZ
 Statement SH_draw {id.w, x.w, y.w}
   !DB_trace{"SHAPE", "SH_draw"}
   SHARED NN_current_bmp
@@ -82,7 +82,6 @@ Statement SH_draw_portrait {id.w, x.w, y.w}
 
   ;Use BitMap NN_current_bmp
   ; Dummy BBlit to preserve the background
-  !DB_printf{"SID: %d", sid}
   BBlit #BF_faces, sid, x, y
   Boxf x, y, x + ShapeWidth(sid), y + ShapeHeight(sid) - 1, #PAL_portrait_start
   Blit sid, x, y

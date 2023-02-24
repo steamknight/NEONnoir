@@ -318,143 +318,11 @@ Statement NN_load_pointers{filename$}
   Next
 End Statement
 
-; Shows the language selection screen
-;
-; Requires AMIGA or QAMIGA mode
-; =============================================================================
-Function .b NN_lang_select_old{}
-  SHARED NN_current_lang.s
-
-  QAMIGA
-  ; Load the lang select screen
-  LoadBitMap #BMP_main, "data/lang_selection.iff", #PAL_main
-
-  BitMap #BMP_alt, #NN_screen_width, #NN_screen_height, #NN_screen_bpp
-  CopyBitMap #BMP_main, #BMP_alt
-
-  ; Load the flags
-  #lang_count = 3
-  LoadShapes #SH_first_flag, #SH_first_flag + (#lang_count * 2), "data/flags.shapes"
-
-  #flag_padding = 8
-
-  ; Define the flag regions
-  DEFTYPE .w y_start, w, h
-  w = ShapeWidth(#SH_first_flag)
-  h = ShapeHeight(#SH_first_flag)
-  y_start = (200 - (#lang_count * h) - (#flag_padding * (#lang_count - 1))) / 2
-
-  Dim flags.NN_screen_rect(#lang_count)
-  For f = 0 To #lang_count - 1
-    flags(f)\x0 = 50
-    flags(f)\y0 = y_start
-    flags(f)\x1 = 50 + w
-    flags(f)\y1 = y_start + h
-
-    y_start + (h + #flag_padding)
-  Next
-
-  Dim langs.s(#lang_count)
-  langs.s(0) = "en"
-  langs.s(1) = "it"
-  langs.s(2) = "de"
-
-  ; Display the screen and wait for the user
-  DEFTYPE .b done, flag_id, lmb
-  done = False
-
-  DEFTYPE .w selected
-  selected = -1
-
-  BLITZ
-  Mouse On
-  DisplayPalette #CP_coplist, #PAL_main
-
-  bmp_id.b = 0
-
-  FadeInScreen{#CP_coplist, #PAL_main, #PAL_fx}
-  Repeat
-    VWait
-
-    DisplayBitMap #CP_coplist, bmp_id
-    bmp_id = 1 - bmp_id
-    Use BitMap bmp_id
-    UnBuffer bmp_id
-
-    ; Update the mouse pointer
-    DisplaySprite #CP_coplist, #NN_pointer_default - #NN_pointer_start, MouseX, MouseY, 0
-
-    lmb = IN_update_mouse{}
-    selected = IN_check_mouse{&flags(0), #lang_count}
-
-    For f = 0 to #lang_count - 1
-      If selected = f
-        flag_id = f * 2 + #SH_first_flag
-
-        ; Was it clicked?
-        If lmb = #IN_mouse_released
-          NN_current_lang.s = langs.s(f)
-          done = True
-        End If
-      Else
-        flag_id = f * 2 + 1 + #SH_first_flag
-      End If
-
-      BBlit bmp_id, flag_id, flags(f)\x0, flags(f)\y0, 0
-    Next
-  Until done = True
-  FadeOutScreen{#CP_coplist, #PAL_fx, #PAL_main}
-
-  QAMIGA
-  Function Return #NN_NEON_success
-End Statement
-
 QAMIGA
 
-; Initializes the game resources
+; Load (most of) the game resources
 ; neonpack$: Game's .NEON file, relative to the data/ directory
-; pointers$: Game's mouse cursors, relative to the data/ directory
 ; =============================================================================
-Function NN_initialize{neonpack$, pointers$}
-  SHARED NN_error_codes$(), NS_page_flags(), NS_choice_flags()
-  SHARED NN_current_lang.s
-
-  !DB_trace{"NN_GAME", "NEONpack: " + neonpack$ + " Mouse Pointers: " + pointers$}
-  NN_load_pointers{"data/" + pointers$}
-
-  DEFTYPE .b success
-  success = NN_load_neonpack{"data/" + neonpack$}
-  If success <> #NN_NEON_success
-    !DB_error{"MAIN", "Could not load data/" + neonpack$}
-    !DB_error{"MAIN", NN_error_codes$(success)}
-    Function Return success
-  End If
-
-  success = NN_lang_select_old{}
-  If success <> #NN_NEON_success
-    !DB_error{"MAIN", "Could not get language selection"}
-    !DB_error{"MAIN", NN_error_codes$(success)}
-    Function Return success
-  End If
-
-  DEFTYPE .s lang_pack
-  lang_pack = "data/lang/" + NN_current_lang.s + ".noir"
-
-  success = NN_load_langpack{lang_pack}
-  If success <> #NN_NEON_success
-    !DB_error{"MAIN", "Could not load " + lang_pack}
-    !DB_error{"MAIN", NN_error_codes$(success)}
-    Function Return success
-  End If
-
-  For f = 0 to #NS_flag_count
-    NS_page_flags(f) = True
-    NS_choice_flags(f) = True
-  Next
-
-  Function Return success
-End Function
-
 Function .b NN_load_resources{neonpack$}
   !DB_trace{"MAIN", "NN_load_resources"}
   SHARED NN_error_codes$()
@@ -488,8 +356,11 @@ Function .b NN_load_resources{neonpack$}
   Function Return result
 End Function
 
+; Displays the the game's main menu
+; Returns an action id that signals the user's action
+; =============================================================================
 Function .b NN_main_menu{}
-  SHARED NN_current_bmp
+  SHARED NN_current_bmp, NN_version$
   !__use_string_table{}
 
   #menu_padding = 8
@@ -514,10 +385,16 @@ Function .b NN_main_menu{}
     y_start + (#TX_font_height + #menu_padding)
   Next
 
+
+  DEFTYPE .w version_x, version_y
+  version_x = #NN_screen_width - ((Len(NN_version$) + 1) *  #TX_font_width)
+  version_y = 3
+
   DEFTYPE .b done, clicked, lmb
   done = 0
-  DEFTYPE .w selected
+  DEFTYPE .w selected, pointer_id
   selected = -1
+  pointer_id = #NN_pointer_interact - #NN_pointer_start
 
   BLITZ
   NN_current_bmp = #BMP_main
@@ -525,21 +402,25 @@ Function .b NN_main_menu{}
   Repeat
     VWait
 
+    DisplayPalette #CP_coplist, #PAL_main
+
     ; Double buffering magic
     DisplayBitMap #CP_coplist, NN_current_bmp
     NN_current_bmp = 1 - NN_current_bmp
     Use BitMap NN_current_bmp
     UnBuffer NN_current_bmp
 
-    ; Update the mouse pointer
-    DisplaySprite #CP_coplist, #NN_pointer_default - #NN_pointer_start, MouseX, MouseY, 0
-
+    ; Get which menu items is being hovered on
     lmb = IN_update_mouse{}
     selected = IN_check_mouse{&items(0), #menu_items}
 
+    TX_draw_text{NN_version$, version_x, version_y}
+
+    pointer_id = #NN_pointer_default - #NN_pointer_start
     For l = 0 to #menu_items - 1
       If selected = l
         TX_draw_text{"*" + labels$(l), items(l)\x0 - #TX_font_width, items(l)\y0}
+        pointer_id =  #NN_pointer_interact - #NN_pointer_start
 
         ; Was it clicked?
         If lmb = #IN_mouse_released
@@ -550,12 +431,25 @@ Function .b NN_main_menu{}
         TX_draw_text{labels$(l), items(l)\x0, items(l)\y0}
       End If
     Next
-  Until done = True
-  QAMIGA
 
+    ; Update the mouse pointer
+    DisplaySprite #CP_coplist, pointer_id, MouseX, MouseY, 0
+  Until done = True
+
+  ; Set bitmap back to default
+  UnBuffer #BMP_main
+  UnBuffer #BMP_alt
+  NN_current_bmp = #BMP_main
+  Use BitMap NN_current_bmp
+
+  FadeOutScreen{#CP_coplist, #PAL_fx, #PAL_main}
+
+  QAMIGA
   Function Return clicked
 End Function
 
+; Shows the language selection screen
+; =============================================================================
 Statement NN_lang_select{}
   !DB_trace{"MAIN", "NN_lang_select"}
   SHARED NN_current_lang.s
@@ -571,11 +465,11 @@ Statement NN_lang_select{}
   #x_left = 16
   #x_right = 156
   #flag_area = #x_right - #x_left
-  x_start = (#flag_area - (#lang_count * w) - (#flag_padding * (#lang_count - 1))) / 2
+  x_start = (#flag_area - (#TX_lang_count * w) - (#flag_padding * (#TX_lang_count - 1))) / 2
   x_start + #x_left
 
-  Dim flags.NN_screen_rect(#lang_count)
-  For f = 0 To #lang_count - 1
+  Dim flags.NN_screen_rect(#TX_lang_count)
+  For f = 0 To #TX_lang_count - 1
     flags(f)\x0 = x_start
     flags(f)\y0 = 145
     flags(f)\x1 = x_start + w
@@ -595,11 +489,11 @@ Statement NN_lang_select{}
   BLITZ
   Mouse On
   CopyBitMap #BMP_main, #BMP_alt
-  DisplayPalette #CP_coplist, #PAL_main
-  DisplayBitMap #CP_coplist, #BMP_main
 
   ; Fade in the title screen
   FadeInScreen{#CP_coplist, #PAL_main, #PAL_fx}
+
+  DisplayPalette #CP_coplist, #PAL_main
   Repeat
     VWait
 
@@ -613,9 +507,9 @@ Statement NN_lang_select{}
     DisplaySprite #CP_coplist, #NN_pointer_default - #NN_pointer_start, MouseX, MouseY, 0
 
     lmb = IN_update_mouse{}
-    selected = IN_check_mouse{&flags(0), #lang_count}
+    selected = IN_check_mouse{&flags(0), #TX_lang_count}
 
-    For f = 0 to #lang_count - 1
+    For f = 0 to #TX_lang_count - 1
       If selected = f
         flag_id = f * 2 + #SH_first_flag
 
@@ -635,68 +529,6 @@ Statement NN_lang_select{}
   UnBuffer #BMP_alt
   DisplayBitMap #CP_coplist, #BMP_main
 End Statement
-
-Function .b NN_startup{neonpack$}
-  !DB_trace{"MAIN", "NN_startup: " + neonpack$}
-  SHARED NN_error_codes$(), NS_page_flags(), NS_choice_flags()
-  SHARED NN_current_lang.s, NN_is_NTSC
-   !__use_string_table{}
-  DEFTYPE .w result
-  QAMIGA
-
-  ; Create the two game bitmaps. The main one will be used almost exclusively
-  ; and the alt one will be used for special scenarios
-  BitMap #BMP_main, #NN_screen_width, #NN_screen_height, #NN_screen_bpp
-  BitMap #BMP_alt, #NN_screen_width, #NN_screen_height, #NN_screen_bpp
-
-  ; Load the MPG logo in the alt image an display it
-  LoadBitMap #BMP_alt, "data/mpg.iff", #PAL_alt
-
-  ; Create a new display, and stretch it to NTSC if necessary
-  BLITZ
-  CreateDisplay #CP_coplist
-  If NN_is_NTSC Then Poke $DFF1DC, $000
-
-  DisplayBitMap #CP_coplist, #BMP_alt
-  FadeInScreen{#CP_coplist, #PAL_alt, #PAL_fx}
-
-  ; Now that we got the splash screen buying us time, load the rest
-  QAMIGA
-  result = NN_load_resources{neonpack$}
-  BLITZ
-  ;FadeOutScreen{#CP_coplist, #PAL_fx, #PAL_alt}
-
-  ;Fade in the title screen and show the language selection flags
-  NN_lang_select{}
-
-  DEFTYPE .s lang_pack
-  lang_pack = "data/lang/" + NN_current_lang.s + ".noir"
-
-  QAMIGA
-  success = NN_load_langpack{lang_pack}
-  If success <> #NN_NEON_success
-    !DB_error{"MAIN", "Could not load " + lang_pack}
-    !DB_error{"MAIN", NN_error_codes$(success)}
-    Function Return success
-  End If
-
-  ; Load the font file
-  !DB_log_str{"MAIN", "Loading language: " + !__get_string{#TX_lang_id}}
-  fontfile$ = !__get_string{#TX_font_path}
-  !DB_log_str{"MAIN", "Loading font file:" + fontfile$}
-  LoadShapes #TX_font_start, #TX_font_end, fontfile$
-
-  For f = 0 to #NS_flag_count
-    NS_page_flags(f) = True
-    NS_choice_flags(f) = True
-  Next
-
-  ; Display the main menu
-  DEFTYPE .b action
-  action = NN_main_menu{}
-
-  Function Return #NN_NEON_success
-End Function
 
 ; Sets the currently selected scene
 ; =============================================================================
@@ -719,7 +551,7 @@ Statement NN_game_set_scene{id.w}
   *NN_current_scene = !__get_scene{NN_current_global_scene_id}
 
   If *NN_current_scene\on_enter > -1
-   NS_script_queue = *NN_current_scene\on_enter
+    NS_script_queue = *NN_current_scene\on_enter
   End If
 
   If *NN_current_scene\music_id > -1
@@ -729,7 +561,6 @@ Statement NN_game_set_scene{id.w}
   NN_current_bmp = *NN_current_scene\background_id
 
   ;FadeInScreen{ #CP_coplist, NN_current_bmp, 10}
-
 End Statement
 
 ; Loads the bitmaps for the new location and set the current
@@ -748,7 +579,7 @@ Statement NN_load_location{new_loc_id.w, new_scene_id.w}
   NN_current_location_id = new_loc_id
 
   BLITZ
-  FadeOutScreen {#CP_coplist, NN_current_bmp, #PAL_fx}
+  FadeOutScreen{#CP_coplist, NN_current_bmp, #PAL_fx}
 
   DisplaySprite #CP_coplist, #NN_pointer_wait - #NN_pointer_start, #NN_screen_width LSR 1, #NN_screen_height LSR 1, 0
   NN_set_ui_colors{#PAL_fx}
@@ -797,6 +628,9 @@ Statement NN_load_location{new_loc_id.w, new_scene_id.w}
     LoadBitMap bg, "data/" + bmp$, bg
   Next
 
+  ; Setup the next scene
+  NN_game_set_scene{new_scene_id}
+
   BLITZ
   If new_loc_id > 0
     For bg = 0 To bg_count
@@ -805,16 +639,15 @@ Statement NN_load_location{new_loc_id.w, new_scene_id.w}
     Next
   End If
 
+  ; Use BitMap new_scene_id
+  ; FadeInScreen{#CP_coplist, #PAL_main, #PAL_fx}
+
   QAMIGA
 
-  ; Setup the next scene
-  NN_game_set_scene{new_scene_id}
   ;*NN_current_scene = !__get_scene{*NN_current_location\first_scene + new_scene_id}
   ; If *NN_current_scene\on_enter <> -1
   ;   NS_execute_script{*NN_current_scene\on_enter}
   ; End If
-
-  If new_loc_id > 0 Then NN_is_in_title = False
 
   PrintFreeMem{}
 End Statement
@@ -941,3 +774,80 @@ Statement NN_load_game{}
   ; Move to the current location
   NN_load_location{NN_current_location_id, NN_current_scene_id}
 End Statement
+
+; Start the game
+; =============================================================================
+Function .b NN_startup{neonpack$}
+  !DB_trace{"MAIN", "NN_startup: " + neonpack$}
+  SHARED NN_error_codes$(), NS_page_flags(), NS_choice_flags()
+  SHARED NN_current_lang.s, NN_is_NTSC
+   !__use_string_table{}
+  DEFTYPE .w result
+  QAMIGA
+
+  ; Create the two game bitmaps. The main one will be used almost exclusively
+  ; and the alt one will be used for special scenarios
+  BitMap #BMP_main, #NN_screen_width, #NN_screen_height, #NN_screen_bpp
+  BitMap #BMP_alt, #NN_screen_width, #NN_screen_height, #NN_screen_bpp
+
+  ; Load the MPG logo in the alt image an display it
+  LoadBitMap #BMP_alt, "data/mpg.iff", #PAL_alt
+
+  ; Create a new display, and stretch it to NTSC if necessary
+  BLITZ
+  CreateDisplay #CP_coplist
+  If NN_is_NTSC Then Poke $DFF1DC, $000
+
+  DisplayBitMap #CP_coplist, #BMP_alt
+  FadeInScreen{#CP_coplist, #PAL_alt, #PAL_fx}
+
+  ; Now that we got the splash screen buying us time, load the rest
+  QAMIGA
+  result = NN_load_resources{neonpack$}
+  BLITZ
+  FadeOutScreen{#CP_coplist, #PAL_fx, #PAL_alt}
+
+  ;Fade in the title screen and show the language selection flags
+  NN_lang_select{}
+
+  DEFTYPE .s lang_pack
+  lang_pack = "data/lang/" + NN_current_lang.s + ".noir"
+
+  QAMIGA
+  success = NN_load_langpack{lang_pack}
+  If success <> #NN_NEON_success
+    !DB_error{"MAIN", "Could not load " + lang_pack}
+    !DB_error{"MAIN", NN_error_codes$(success)}
+    Function Return success
+  End If
+
+  ; Load the font file
+  !DB_log_str{"MAIN", "Loading language: " + !__get_string{#TX_lang_id}}
+  fontfile$ = !__get_string{#TX_font_path}
+  !DB_log_str{"MAIN", "Loading font file:" + fontfile$}
+  LoadShapes #TX_font_start, #TX_font_end, fontfile$
+
+  For f = 0 to #NS_flag_count
+    NS_page_flags(f) = True
+    NS_choice_flags(f) = True
+  Next
+
+  ; Display the main menu
+  Select NN_main_menu{}
+    Case #NN_menu_start
+      NN_load_location{0, 0}
+
+    Case #NN_menu_continue
+      NN_load_game{}
+
+    Case #NN_menu_credits
+
+    Case #NN_menu_exit
+      NN_quit_game{}
+      success = #NN_NEON_quit
+
+  End Select
+
+  Function Return success
+End Function
+

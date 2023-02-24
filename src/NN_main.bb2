@@ -33,22 +33,30 @@ Buffer #BF_shapes, 64000
 Buffer #BF_faces, 16000
 
 ;Load the title song
-; DEFTYPE .b success
-; success = LoadTrackerModule(0, "data/theme.mod")
-; If success = True
-;   success = StartTracker(0)
-;   If success = False Then !DB_warn{"MAIN", "Could not play title song."}
-; Else
-;   !DB_warn{"MAIN", "Could not load title song."}
-; End If
+DEFTYPE .b success
+success = LoadTrackerModule(0, "data/theme.mod")
+If success = True
+  success = StartTracker(0)
+  If success = False Then !DB_warn{"MAIN", "Could not play title song."}
+Else
+  !DB_warn{"MAIN", "Could not load title song."}
+End If
+
+NN_should_quit = False
+
+NS_script_queue = -1
+MS_current_track_id = -1
 
 success = NN_startup{"data/gutter.neon"}
+If success <> #NN_NEON_success
+  If success = #NN_NEON_quit
+    NPrint "Bye bye!"
+  Else
+    NPrint "Failed to start game."
+  End If
+  Goto Finish
+End If
 
-; Load the title screen
-QAMIGA
-NN_load_location{0, 0}
-;MouseWait
-;End
 
 ; Run the game
 DEFTYPE .w overlapped, prev_overlap, menu_x, menu_y
@@ -59,13 +67,9 @@ DEFTYPE .s scene_description
 NN_pointer_id = 0
 overlapped = -1
 prev_overlap = -1
-NN_should_quit = False
 
 BLITZ
 Mouse On
-
-NS_script_queue = -1
-MS_current_track_id = -1
 
 menu_x = 320 - ShapeWidth(#SH_menu) - 4
 menu_y = 200 - ShapeHeight(#SH_menu) - 4
@@ -79,7 +83,7 @@ prev_bmp = NN_current_bmp
 ; SetInt 5
 ;   !DB_init_breakpoint{$35}
 ; End SetInt
-FadeInScreen{#CP_coplist, #PAL_main, #PAL_fx}
+
 Repeat
   VWait
 

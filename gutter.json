@@ -142,21 +142,19 @@
     {
       "name": "Title",
       "backgrounds": [
-        "data\\title.bmp",
         "data\\intro01.bmp",
         "data\\intro02.bmp",
         "data\\intro03.bmp",
         "data\\intro04.bmp",
-        "data\\blank.bmp",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\title2.iff"
+        "data\\blank.bmp"
       ],
       "scenes": [
         {
-          "name": "Title",
+          "name": "Intro1",
           "description_id": [],
-          "on_enter": "",
+          "on_enter": "intro01_text",
           "on_exit": "",
-          "image_id": 6,
+          "image_id": 0,
           "view_x": 0,
           "view_y": 0,
           "view_width": 0,
@@ -166,55 +164,22 @@
           "music_id": 65535,
           "regions": [
             {
-              "x": 54,
-              "y": 148,
-              "width": 80,
-              "height": 12,
+              "x": 0,
+              "y": 0,
+              "width": 320,
+              "height": 200,
               "shape_id": 65535,
-              "pointer_id": 2,
-              "goto_scene": 65535,
-              "description_id": "Swj5KWxaHNDTFgpS",
-              "script": "title_start_game"
-            },
-            {
-              "x": 54,
-              "y": 165,
-              "width": 80,
-              "height": 11,
-              "shape_id": 65535,
-              "pointer_id": 2,
-              "goto_scene": 65535,
-              "description_id": "SSGDtL4FB0VIqDBO",
-              "script": "title_load_game"
-            },
-            {
-              "x": 78,
-              "y": 180,
-              "width": 31,
-              "height": 12,
-              "shape_id": 65535,
-              "pointer_id": 2,
-              "goto_scene": 65535,
-              "description_id": "nBMbE8ye3tdu9Pk9",
-              "script": "title_quit_game"
-            },
-            {
-              "x": 245,
-              "y": 175,
-              "width": 46,
-              "height": 14,
-              "shape_id": 65535,
-              "pointer_id": 2,
-              "goto_scene": 65535,
-              "description_id": "FLasJyhqFNxT4HGs",
-              "script": "credits"
+              "pointer_id": 0,
+              "goto_scene": 1,
+              "description_id": "xaUZC8YbkDkmjaTf",
+              "script": ""
             }
           ]
         },
         {
-          "name": "Intro1",
+          "name": "Intro2",
           "description_id": [],
-          "on_enter": "intro01_text",
+          "on_enter": "intro02_text",
           "on_exit": "",
           "image_id": 1,
           "view_x": 0,
@@ -233,15 +198,15 @@
               "shape_id": 65535,
               "pointer_id": 0,
               "goto_scene": 2,
-              "description_id": "xaUZC8YbkDkmjaTf",
+              "description_id": "ic2wGJBcPr9tWcXq",
               "script": ""
             }
           ]
         },
         {
-          "name": "Intro2",
+          "name": "Intro3",
           "description_id": [],
-          "on_enter": "intro02_text",
+          "on_enter": "intro03_text",
           "on_exit": "",
           "image_id": 2,
           "view_x": 0,
@@ -260,15 +225,15 @@
               "shape_id": 65535,
               "pointer_id": 0,
               "goto_scene": 3,
-              "description_id": "ic2wGJBcPr9tWcXq",
+              "description_id": "dioMG7WajruJ3O3q",
               "script": ""
             }
           ]
         },
         {
-          "name": "Intro3",
+          "name": "Intro4",
           "description_id": [],
-          "on_enter": "intro03_text",
+          "on_enter": "intro04_text",
           "on_exit": "",
           "image_id": 3,
           "view_x": 0,
@@ -287,33 +252,6 @@
               "shape_id": 65535,
               "pointer_id": 0,
               "goto_scene": 4,
-              "description_id": "dioMG7WajruJ3O3q",
-              "script": ""
-            }
-          ]
-        },
-        {
-          "name": "Intro4",
-          "description_id": [],
-          "on_enter": "intro04_text",
-          "on_exit": "",
-          "image_id": 4,
-          "view_x": 0,
-          "view_y": 0,
-          "view_width": 0,
-          "view_height": 0,
-          "offset_x": 0,
-          "offset_y": 0,
-          "music_id": 65535,
-          "regions": [
-            {
-              "x": 0,
-              "y": 0,
-              "width": 320,
-              "height": 200,
-              "shape_id": 65535,
-              "pointer_id": 0,
-              "goto_scene": 5,
               "description_id": "HgujNWUNv8WtHCrR",
               "script": ""
             }
@@ -324,7 +262,7 @@
           "description_id": [],
           "on_enter": "intro05_text",
           "on_exit": "",
-          "image_id": 5,
+          "image_id": 4,
           "view_x": 0,
           "view_y": 0,
           "view_width": 0,
@@ -386,7 +324,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 1,
+          "music_id": 7,
           "regions": [
             {
               "x": 82,
@@ -448,7 +386,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 1,
+          "music_id": 7,
           "regions": [
             {
               "x": 187,
@@ -511,7 +449,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 1,
+          "music_id": 7,
           "regions": [
             {
               "x": 0,
@@ -562,7 +500,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 1,
+          "music_id": 7,
           "regions": [
             {
               "x": 300,
@@ -613,7 +551,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 1,
+          "music_id": 7,
           "regions": [
             {
               "x": 290,
@@ -662,7 +600,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 1,
+          "music_id": 7,
           "regions": [
             {
               "x": 131,
@@ -702,7 +640,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 1,
+          "music_id": 7,
           "regions": [
             {
               "x": 290,
@@ -774,7 +712,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 2,
+          "music_id": 8,
           "regions": [
             {
               "x": 215,
@@ -823,7 +761,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 2,
+          "music_id": 8,
           "regions": [
             {
               "x": 11,
@@ -895,7 +833,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 1,
+          "music_id": 7,
           "regions": [
             {
               "x": 19,
@@ -958,7 +896,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 1,
+          "music_id": 7,
           "regions": [
             {
               "x": 0,
@@ -1044,7 +982,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 0,
+          "music_id": 6,
           "regions": [
             {
               "x": 113,
@@ -1104,7 +1042,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 0,
+          "music_id": 6,
           "regions": []
         },
         {
@@ -1173,7 +1111,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 1,
+          "music_id": 7,
           "regions": [
             {
               "x": 195,
@@ -1235,7 +1173,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 1,
+          "music_id": 7,
           "regions": [
             {
               "x": 290,
@@ -1556,7 +1494,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 1,
+          "music_id": 7,
           "regions": [
             {
               "x": 14,
@@ -1594,7 +1532,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 1,
+          "music_id": 7,
           "regions": [
             {
               "x": 205,
@@ -1665,7 +1603,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 3,
+          "music_id": 9,
           "regions": [
             {
               "x": 51,
@@ -1725,7 +1663,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 5,
+          "music_id": 11,
           "regions": []
         },
         {
@@ -1740,7 +1678,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 1,
+          "music_id": 7,
           "regions": []
         }
       ],
@@ -1782,7 +1720,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 1,
+          "music_id": 7,
           "regions": [
             {
               "x": 146,
@@ -1824,7 +1762,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 3,
+          "music_id": 9,
           "regions": [
             {
               "x": 167,
@@ -1875,7 +1813,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 1,
+          "music_id": 7,
           "regions": [
             {
               "x": 0,
@@ -2027,7 +1965,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 3,
+          "music_id": 9,
           "regions": [
             {
               "x": 191,
@@ -2077,7 +2015,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 5,
+          "music_id": 11,
           "regions": []
         },
         {
@@ -2173,7 +2111,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 1,
+          "music_id": 7,
           "regions": []
         }
       ],
