@@ -46,7 +46,7 @@
   },
   {
     "id": "mod_intrigue",
-    "value": "mod_intrigue",
+    "value": "data/intrigue.mod",
     "description": "Ignore"
   },
   {
@@ -57,6 +57,21 @@
   {
     "id": "mod_boss_theme",
     "value": "data/boss_theme.mod",
+    "description": "Ignore"
+  },
+  {
+    "id": "mod_detective",
+    "value": "data/detective.mod",
+    "description": "Ignore"
+  },
+  {
+    "id": "mod_crystal",
+    "value": "data/crystal.mod",
+    "description": "Ignore"
+  },
+  {
+    "id": "mod_industry",
+    "value": "data/to_industry.mod",
     "description": "Ignore"
   },
   {

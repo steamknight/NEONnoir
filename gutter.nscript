@@ -128,6 +128,7 @@
     ; Scenes in the Laundromat
     scene_laundry_exterior      0
     scene_laundry_interior      1
+    scene_laundry_fight         2
 
     ; Scenes at B19
     scene_b19_exterior          0
@@ -605,6 +606,7 @@
 
         load !acid_nova_denies_danni
         jiff @done
+        mod $mod_crystal 0
         dlg #dialogue_crystal_alley
         goloc #location_danni_apartment #scene_danni_interior
 
@@ -897,6 +899,8 @@
 .SCRIPT on_enter_lost_sock_interior
         load !has_distraction_for_gladys
         jiff @done
+        mod $mod_boss_theme 0
+        setbg #scene_laundry_fight
         text $laundry_fight
         end
 
@@ -1198,6 +1202,10 @@
 
         goloc #location_title #scene_title
         end
+
+
+
+
 
 
 

@@ -868,7 +868,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 7,
+          "music_id": 13,
           "regions": [
             {
               "x": 19,
@@ -931,7 +931,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 7,
+          "music_id": 65535,
           "regions": [
             {
               "x": 0,
@@ -1017,7 +1017,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 6,
+          "music_id": 12,
           "regions": [
             {
               "x": 113,
@@ -1077,7 +1077,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 6,
+          "music_id": 12,
           "regions": []
         },
         {
@@ -1128,7 +1128,8 @@
       "name": "Lost Sock Laundromat",
       "backgrounds": [
         "data\\locations\\loc_laundry_exterior.iff",
-        "data\\locations\\loc_laundry_interior.iff"
+        "data\\locations\\loc_laundry_interior.iff",
+        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_laundry_interior_fight.iff"
       ],
       "scenes": [
         {
@@ -1283,7 +1284,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 65535,
+          "music_id": 14,
           "regions": [
             {
               "x": 56,
@@ -1529,7 +1530,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 7,
+          "music_id": 14,
           "regions": [
             {
               "x": 14,
