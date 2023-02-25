@@ -12,7 +12,7 @@
 ;   * Settings/Hardware/ROM page: Set "Advanced Custom ROM settings" to "ROM #1"
 ;   * Settings/Host/Miscellaneous: Enable "Debug memory space"
 ;   * Settings/Paths: In "Debug logging", enable "Log window".
-;       Note: This last one must be done every time as this setting is not 
+;       Note: This last one must be done every time as this setting is not
 ;             saved. Make sure to do this before you start the Amiga, otherwise
 ;             this option will be disabled.
 ; =============================================================================
@@ -75,7 +75,7 @@ CEND
 End Macro
 
 ; Prints out text only if tracing is enabled. This is meant to trace out
-; statement, functions, gosubs, etc. and is meant to be able to be 
+; statement, functions, gosubs, etc. and is meant to be able to be
 ; disabled without disablying all logging.
 ;
 ; Parameters:
@@ -149,7 +149,9 @@ End Macro
 #MEMF_CLEAR     = 1 LSL 16
 #MEMF_LARGEST   = 1 LSL 17
 #MEMF_REVERSE   = 1 LSL 18
-#MEMF_TOTAL     = 1 LSL 19 
+#MEMF_TOTAL     = 1 LSL 19
+
+#MEMF_FAST_CLEAR = #MEMF_FAST OR #MEMF_CLEAR
 
 !DB_printf {"******************************** GAME START ********************************"}
 
@@ -186,3 +188,4 @@ End Macro
 Macro DB_use_breakpoint
   SHARED db_breakpoint_requested
 End Macro
+

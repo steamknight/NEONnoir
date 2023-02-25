@@ -196,7 +196,7 @@ Statement NS_execute_script{script_offset.l}
         !__execute_opcode{"loadgame"}
         QAMIGA
         NN_load_game{}
-        BLITZ 
+        BLITZ
 
       Case #NS_op_savegame
         !__execute_opcode{"savegame"}
@@ -279,7 +279,7 @@ Statement NS_execute_script{script_offset.l}
 
       Case #NS_op_txtnl
         !__execute_opcode{"txtnl"}
-        ns_text_context\y_position + 1 
+        ns_text_context\y_position + 1
 
       Default
         ; Unknown opcode!
@@ -303,23 +303,4 @@ Statement NS_process_queue{}
     NS_execute_script{script}
   End If
 End Statement
-
-CNIF #DEBUG = -1
-Statement NS_DEBUG_print_bytecode{}
-    SHARED NS_script_data, NS_data_size
-    DEFTYPE .w num_entries
-    num_entries = NS_data_size / SizeOf .w
-
-    DEFTYPE .s v
-    For i = 0 to num_entries - 1
-        v = Right$(Hex$(Peek.w (NS_script_data + (i * SizeOf .w))), 4)
-
-        If i MOD 4 = 3
-            NPrint v, " "
-        Else
-            Print v, " "
-        End If
-    Next
-End Statement
-CEND
 

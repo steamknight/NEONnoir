@@ -299,6 +299,41 @@
       ]
     },
     {
+      "name": "Credits",
+      "backgrounds": [
+        "data\\cutscenes\\end.iff"
+      ],
+      "scenes": [
+        {
+          "name": "Credits",
+          "description_id": [],
+          "on_enter": "on_enter_credits",
+          "on_exit": "",
+          "image_id": 0,
+          "view_x": 0,
+          "view_y": 0,
+          "view_width": 0,
+          "view_height": 0,
+          "offset_x": 0,
+          "offset_y": 0,
+          "music_id": 65535,
+          "regions": []
+        }
+      ],
+      "shapes": [],
+      "shapes_file": "",
+      "speakers": [
+        0,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535
+      ]
+    },
+    {
       "name": "Alley",
       "backgrounds": [
         "data\\locations\\loc_alley_alleycat.iff",
@@ -2121,41 +2156,6 @@
         0,
         2,
         3,
-        65535,
-        65535,
-        65535,
-        65535,
-        65535
-      ]
-    },
-    {
-      "name": "Credits",
-      "backgrounds": [
-        "data\\cutscenes\\end.iff"
-      ],
-      "scenes": [
-        {
-          "name": "Credits",
-          "description_id": [],
-          "on_enter": "on_enter_credits",
-          "on_exit": "",
-          "image_id": 0,
-          "view_x": 0,
-          "view_y": 0,
-          "view_width": 0,
-          "view_height": 0,
-          "offset_x": 0,
-          "offset_y": 0,
-          "music_id": 65535,
-          "regions": []
-        }
-      ],
-      "shapes": [],
-      "shapes_file": "",
-      "speakers": [
-        0,
-        65535,
-        65535,
         65535,
         65535,
         65535,

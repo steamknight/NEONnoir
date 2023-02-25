@@ -382,7 +382,8 @@ End Macro
 #NN_NEON_not_a_neon_file        = 3
 #NN_NEON_version_not_supported  = 4
 #NN_NEON_lang_not_found         = 5
-#NN_NEON_quit                   = 6
+#NN_NEON_out_of_memory          = 6
+#NN_NEON_quit                   = 7
 
 Dim NN_error_codes$(5)
 NN_error_codes$(1) = "File not found"
@@ -390,16 +391,17 @@ NN_error_codes$(2) = "Generic read error"
 NN_error_codes$(3) = "Not a NEON file"
 NN_error_codes$(4) = "Version not supported"
 NN_error_codes$(5) = "Language file not found"
+NN_error_codes$(6) = "Out of memory"
 
 ; Mouse pointers
 ; -----------------------------------------------------------------------------
 #NN_pointer_start = 10
 #NN_pointer_end = 14
-#NN_pointer_default = 10
-#NN_pointer_examine = 11
-#NN_pointer_interact = 12
-#NN_pointer_exit = 13
-#NN_pointer_wait = 14
+#NN_pointer_default = 0
+#NN_pointer_examine = 1
+#NN_pointer_interact = 2
+#NN_pointer_exit = 3
+#NN_pointer_wait = 4
 
 
 ; Shapes

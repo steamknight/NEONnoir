@@ -117,7 +117,7 @@ Repeat
 
   ; Check if menu icon is clicked
   If MouseX > menu_x AND MouseY > menu_y
-    DisplaySprite #CP_coplist, #NN_pointer_interact - #NN_pointer_start, MouseX, MouseY, 0
+    DisplaySprite #CP_coplist, #NN_pointer_interact, MouseX, MouseY, 0
     If left_mouse = #IN_mouse_released
       DG_show_dialog{0}
     End If
@@ -178,11 +178,8 @@ CEND
 Until NN_should_quit
 
 Finish:
-
-If success = #NN_NEON_success
-  TX_uninitialize{}
-  NN_uninitialize{}
-End If
+TX_uninitialize{}
+NN_uninitialize{}
 
 StopTracker
 

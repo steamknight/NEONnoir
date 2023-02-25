@@ -161,7 +161,7 @@ Statement DG_show_dialog{id.w}
           If selected <> -1
             choice_id = *cur_page\first_choice_id + selected
             *choice = !__get_choice{choice_id}
-            pointer_id = #NN_pointer_interact - #NN_pointer_start
+            pointer_id = #NN_pointer_interact
 
             If lmb = #IN_mouse_released
               NS_script_queue = *choice\script_offset
@@ -175,7 +175,7 @@ Statement DG_show_dialog{id.w}
               page_id = *choice\page_id
             End If
           Else
-            pointer_id = #NN_pointer_default - #NN_pointer_start
+            pointer_id = #NN_pointer_default
           End If
         Else
           If lmb = #IN_mouse_released

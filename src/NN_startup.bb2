@@ -21,6 +21,3 @@ DEFTYPE .w
 #DB_ENABLE_DEBUG_TRACE = -1
 #DEBUG = -1
 
-DEFTYPE .s NN_version$
-;NN_version$ = "v1.2.0"
-

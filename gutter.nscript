@@ -81,18 +81,18 @@
 .CONST
     ; Locations
     location_title              0
-    location_alleyway           1
-    location_alleycat           2
-    location_danni_apartment    3
-    location_blake_apartment    4
-    location_lost_sock          5
-    location_b19                6
-    location_seg_place          7
-    location_b19_revisit        8
-    location_xantech            9
-    location_xancon            10
-    location_end               11
-    location_credits           12
+    location_credits            1
+    location_alleyway           2
+    location_alleycat           3
+    location_danni_apartment    4
+    location_blake_apartment    5
+    location_lost_sock          6
+    location_b19                7
+    location_seg_place          8
+    location_b19_revisit        9
+    location_xantech           10
+    location_xancon            11
+    location_end               12
 
     ; Scenes in the title section
     scene_title                 0
@@ -1198,6 +1198,7 @@
 
         goloc #location_title #scene_title
         end
+
 
 
 

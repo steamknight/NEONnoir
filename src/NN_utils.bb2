@@ -108,3 +108,8 @@ AMIGA
 Macro __delay_sec
   VWait (`1) * (50 - (NTSC * 10))
 End Macro
+
+Macro __wait_for_file_io
+  !__delay_sec{2}
+End Macro
+
