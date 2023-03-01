@@ -184,27 +184,28 @@
     dialogue_daisy             10
     dialogue_gladys            11
     dialogue_gladys_computer   12
-    dialogue_crystal_laundry   13
-    dialogue_visser_act1       14
-    dialogue_danni_intro       15
-    dialogue_tank_banned       16
-    dialogue_exposition1       17
-    dialogue_exposition2       18
-    dialogue_ransom1           19
-    dialogue_ransom2           20
-    dialogue_crystal_b19r      21
-    dialogue_b19r_fight        22
-    dialogue_b19r_next         23
-    dialogue_tinman            24
-    dialogue_lax               25
-    dialogue_server            26
-    dialogue_seg_server        27
-    dialogue_xander_cut1       28
-    dialogue_xander_cut2       29
-    dialogue_xander_cut3       30
-    dialogue_xander_cut4       31
-    dialogue_xander_cut5       32
-    dialogue_end               33
+    dialogue_gladys_crystal    13
+    dialogue_crystal_laundry   14
+    dialogue_visser_act1       15
+    dialogue_danni_intro       16
+    dialogue_tank_banned       17
+    dialogue_exposition1       18
+    dialogue_exposition2       19
+    dialogue_ransom1           20
+    dialogue_ransom2           21
+    dialogue_crystal_b19r      22
+    dialogue_b19r_fight        23
+    dialogue_b19r_next         24
+    dialogue_tinman            25
+    dialogue_lax               26
+    dialogue_server            27
+    dialogue_seg_server        28
+    dialogue_xander_cut1       29
+    dialogue_xander_cut2       30
+    dialogue_xander_cut3       31
+    dialogue_xander_cut4       32
+    dialogue_xander_cut5       33
+    dialogue_end               34
 
     ; Music and sound
     mod_theme                   0
@@ -901,7 +902,7 @@
         jiff @done
         mod $mod_boss_theme 0
         setbg #scene_laundry_fight
-        text $laundry_fight
+        dlg #dialogue_gladys_crystal
         end
 
     @done
@@ -1202,6 +1203,8 @@
 
         goloc #location_title #scene_title
         end
+
+
 
 
 

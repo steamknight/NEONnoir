@@ -1849,7 +1849,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 7,
+          "music_id": 65535,
           "regions": [
             {
               "x": 0,
@@ -1952,7 +1952,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 1,
+          "music_id": 65535,
           "regions": [
             {
               "x": 186,
@@ -6112,6 +6112,20 @@
               "script": "",
               "set_flag": "",
               "clear_flag": "",
+              "check_flag": "inv_visser_photo",
+              "next_page_id": 21,
+              "enabled": true,
+              "self_disable": true,
+              "has_script": false,
+              "has_set_flag": false,
+              "has_clear_flag": false,
+              "has_check_flag": true
+            },
+            {
+              "text_id": "7TrJS6h2MRoKOIgG",
+              "script": "",
+              "set_flag": "",
+              "clear_flag": "",
               "check_flag": "",
               "next_page_id": 65535,
               "enabled": true,
@@ -6120,20 +6134,6 @@
               "has_set_flag": false,
               "has_clear_flag": false,
               "has_check_flag": false
-            },
-            {
-              "text_id": "7TrJS6h2MRoKOIgG",
-              "script": "",
-              "set_flag": "",
-              "clear_flag": "",
-              "check_flag": "inv_visser_photo",
-              "next_page_id": 21,
-              "enabled": true,
-              "self_disable": false,
-              "has_script": false,
-              "has_set_flag": false,
-              "has_clear_flag": false,
-              "has_check_flag": true
             }
           ],
           "enabled": true,
@@ -7736,7 +7736,7 @@
               "check_flag": "",
               "next_page_id": 2,
               "enabled": true,
-              "self_disable": false,
+              "self_disable": true,
               "has_script": false,
               "has_set_flag": false,
               "has_clear_flag": false,
@@ -7987,6 +7987,109 @@
         {
           "speaker_id": 8,
           "text_id": "avG0hOhSxkqMrUPy",
+          "set_flag": "",
+          "clear_flag": "",
+          "check_flag": "",
+          "next_page_id": 65535,
+          "choices": [],
+          "enabled": true,
+          "self_disable": false,
+          "has_set_flag": false,
+          "has_clear_flag": false,
+          "has_check_flag": false
+        }
+      ]
+    },
+    {
+      "name": "Crystal and Gladys fight",
+      "pages": [
+        {
+          "speaker_id": 65535,
+          "text_id": "Fg85LfV61XIr9oG0",
+          "set_flag": "",
+          "clear_flag": "",
+          "check_flag": "",
+          "next_page_id": 1,
+          "choices": [],
+          "enabled": true,
+          "self_disable": false,
+          "has_set_flag": false,
+          "has_clear_flag": false,
+          "has_check_flag": false
+        },
+        {
+          "speaker_id": 8,
+          "text_id": "xbepIYEomyDhRE6d",
+          "set_flag": "",
+          "clear_flag": "",
+          "check_flag": "",
+          "next_page_id": 2,
+          "choices": [],
+          "enabled": true,
+          "self_disable": false,
+          "has_set_flag": false,
+          "has_clear_flag": false,
+          "has_check_flag": false
+        },
+        {
+          "speaker_id": 3,
+          "text_id": "dSKZXaT9T31fhjbD",
+          "set_flag": "",
+          "clear_flag": "",
+          "check_flag": "",
+          "next_page_id": 3,
+          "choices": [],
+          "enabled": true,
+          "self_disable": false,
+          "has_set_flag": false,
+          "has_clear_flag": false,
+          "has_check_flag": false
+        },
+        {
+          "speaker_id": 8,
+          "text_id": "8KZQHFF9vtGyfi0f",
+          "set_flag": "",
+          "clear_flag": "",
+          "check_flag": "",
+          "next_page_id": 4,
+          "choices": [],
+          "enabled": true,
+          "self_disable": false,
+          "has_set_flag": false,
+          "has_clear_flag": false,
+          "has_check_flag": false
+        },
+        {
+          "speaker_id": 8,
+          "text_id": "MmRVYkPEia9rcOTO",
+          "set_flag": "",
+          "clear_flag": "",
+          "check_flag": "",
+          "next_page_id": 5,
+          "choices": [],
+          "enabled": true,
+          "self_disable": false,
+          "has_set_flag": false,
+          "has_clear_flag": false,
+          "has_check_flag": false
+        },
+        {
+          "speaker_id": 3,
+          "text_id": "lHIf4ceN8ggJUXrL",
+          "set_flag": "",
+          "clear_flag": "",
+          "check_flag": "",
+          "next_page_id": 6,
+          "choices": [],
+          "enabled": true,
+          "self_disable": false,
+          "has_set_flag": false,
+          "has_clear_flag": false,
+          "has_check_flag": false
+        },
+        {
+          "speaker_id": 65535,
+          "text_id": "vViyXulyciMWjj3Z",
           "set_flag": "",
           "clear_flag": "",
           "check_flag": "",
