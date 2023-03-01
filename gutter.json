@@ -340,7 +340,6 @@
         "data\\alleyway1a.iff",
         "data\\alleyway3a.iff",
         "data\\alleyway_atm.iff",
-        "data\\alleyway_trash.iff",
         "data\\subway_entrance.iff",
         "data\\locations\\loc_subway_interior.iff"
       ],
@@ -511,13 +510,24 @@
             {
               "x": 263,
               "y": 76,
-              "width": 56,
+              "width": 20,
               "height": 71,
               "shape_id": 65535,
               "pointer_id": 3,
               "goto_scene": 5,
               "description_id": "wkA20ahkPb1rtaeo",
               "script": ""
+            },
+            {
+              "x": 287,
+              "y": 112,
+              "width": 33,
+              "height": 24,
+              "shape_id": 65535,
+              "pointer_id": 2,
+              "goto_scene": 65535,
+              "description_id": "OuhURObWpjGrvd9f",
+              "script": "use_alley_dumpster"
             }
           ]
         },
@@ -573,57 +583,6 @@
           ]
         },
         {
-          "name": "Outside Subway",
-          "description_id": [
-            "017qacixwfkQ6Xvi"
-          ],
-          "on_enter": "",
-          "on_exit": "",
-          "image_id": 4,
-          "view_x": 0,
-          "view_y": 0,
-          "view_width": 0,
-          "view_height": 0,
-          "offset_x": 0,
-          "offset_y": 0,
-          "music_id": 7,
-          "regions": [
-            {
-              "x": 290,
-              "y": 0,
-              "width": 30,
-              "height": 170,
-              "shape_id": 65535,
-              "pointer_id": 3,
-              "goto_scene": 2,
-              "description_id": "oMTYmXobAIaVftKp",
-              "script": ""
-            },
-            {
-              "x": 106,
-              "y": 175,
-              "width": 182,
-              "height": 25,
-              "shape_id": 65535,
-              "pointer_id": 3,
-              "goto_scene": 5,
-              "description_id": "Vs7NEvSb5kZt4h2O",
-              "script": ""
-            },
-            {
-              "x": 35,
-              "y": 104,
-              "width": 76,
-              "height": 52,
-              "shape_id": 65535,
-              "pointer_id": 2,
-              "goto_scene": 65535,
-              "description_id": "HpEb4HHD4rij5YGq",
-              "script": "use_alley_dumpster"
-            }
-          ]
-        },
-        {
           "name": "Subway Entrance",
           "description_id": [],
           "on_enter": "",
@@ -655,7 +614,7 @@
               "height": 40,
               "shape_id": 65535,
               "pointer_id": 3,
-              "goto_scene": 4,
+              "goto_scene": 2,
               "description_id": "oQSmNFBBUY1DpS1M",
               "script": ""
             }
