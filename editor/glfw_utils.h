@@ -43,6 +43,13 @@ namespace NEONnoir
         glfwDestroyWindow(pointer);
     }
 
+    template<>
+    inline void glfw_ptr_deleter<GLFWcursor>::operator()(GLFWcursor* pointer) const noexcept
+    {
+        if (!pointer) return;
+        glfwDestroyCursor(pointer);
+    }
+
     template<typename T>
     void ensure_valid(T* ptr, std::string const& error)
     {
@@ -56,6 +63,7 @@ namespace NEONnoir
     using glfw_ptr = std::unique_ptr<T, glfw_ptr_deleter<T>>;
 
     using GLFWwindow_ptr = glfw_ptr<GLFWwindow>;
+    using GLFWcursor_ptr = glfw_ptr<GLFWcursor>;
 
     struct GLtexture
     {

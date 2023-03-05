@@ -13,7 +13,7 @@ namespace NEONnoir
     {
         if (script_name == "")
         {
-            return 0xFFFF;
+            return NO_INDEX;
         }
 
         if (result.scripts_meta.count(script_name) == 0)
@@ -94,6 +94,9 @@ namespace NEONnoir
                 s.first_region_id = to<u16>(pak.regions.size());
                 s.last_region_id = s.first_region_id + to<u16>(scene.regions.size()) - 1;
 
+                s.first_text_id = to<u16>(pak.text_regions.size());
+                s.last_text_id = s.first_text_id + to<u16>(scene.text_regions.size()) - 1;
+
                 s.on_enter = get_script_offset(scene.on_enter, result);
                 s.on_exit = get_script_offset(scene.on_exit, result);
 
@@ -101,13 +104,15 @@ namespace NEONnoir
 
                 for (auto const& region : scene.regions)
                 {
-                    auto r = neon_region{};
-                    r.x1 = region.x;
-                    r.y1 = region.y;
-                    r.x2 = region.x + region.width;
-                    r.y2 = region.y + region.height;
-                    r.pointer_id = region.pointer_id;
-                    r.goto_scene = region.goto_scene;
+                    auto r = neon_region
+                    {
+                        .x1 = region.x,
+                        .y1 = region.y,
+                        .x2 = to<u16>(region.x + region.width),
+                        .y2 = to<u16>(region.y + region.height),
+                        .pointer_id = region.pointer_id,
+                        .goto_scene = region.goto_scene,
+                    };
 
                     if (!region.description_id.empty() && data->strings.get_string(region.description_id).size() > 0)
                     {
@@ -115,7 +120,7 @@ namespace NEONnoir
                     }
                     else
                     {
-                        r.description_id = 0xFFFF;
+                        r.description_id = NO_INDEX;
                     }
 
                     if (region.script != "")
@@ -131,10 +136,29 @@ namespace NEONnoir
                     }
                     else
                     {
-                        r.script_offset = 0xFFFF;
+                        r.script_offset = NO_INDEX;
                     }
 
                     pak.regions.push_back(r);
+                }
+
+                for (auto const& text_region : scene.text_regions)
+                {
+                    auto t = neon_text_region
+                    {
+                        .x = to<u16>(text_region.x),
+                        .y = to<u16>(text_region.y),
+                        .width = to<u16>(text_region.width),
+                        .justify = to<char>(text_region.justification),
+                        .center_vertical = to<char>(text_region.center_vertically ? - 1 : 0)
+                    };
+
+                    if (!text_region.text_id.empty() && data->strings.get_string(text_region.text_id).size() > 0)
+                    {
+                        t.text_id = to<u16>(data->strings.get_string_index(text_region.text_id));
+                    }
+
+                    pak.text_regions.push_back(t);
                 }
 
                 pak.scenes.push_back(s);
@@ -184,9 +208,9 @@ namespace NEONnoir
                 p.text_id = to<u16>(data->strings.get_string_index(page.text_id));
 
                 p.page_id = page.next_page_id;
-                if (p.page_id != 0xFFFF) p.page_id += d.first_page_id;
+                if (p.page_id != NO_INDEX) p.page_id += d.first_page_id;
 
-                p.first_choice_id = (page.choices.size() > 0) ? to<u16>(pak.choices.size()) : 0xFFFF;
+                p.first_choice_id = (page.choices.size() > 0) ? to<u16>(pak.choices.size()) : NO_INDEX;
                 auto choice_count = 0;
                 for (auto const& choice : page.choices)
                 {
@@ -195,22 +219,22 @@ namespace NEONnoir
                     pak.string_table[c.text_id] = "*" + pak.string_table[c.text_id];
 
                     c.page_id = choice.next_page_id;
-                    if (c.page_id != 0xFFFF) c.page_id += d.first_page_id;
+                    if (c.page_id != NO_INDEX) c.page_id += d.first_page_id;
 
                     c.script_offset = !choice.has_script
-                        ? 0xFFFF
+                        ? NO_INDEX
                         : get_script_offset(choice.script, result);
 
                     c.set_flag = !choice.has_set_flag
-                        ? 0xFFFF
+                        ? NO_INDEX
                         : get_flag_id(choice.set_flag, result);
 
                     c.clear_flag = !choice.has_clear_flag
-                        ? 0xFFFF
+                        ? NO_INDEX
                         : get_flag_id(choice.clear_flag, result);
 
                     c.check_flag = !choice.has_check_flag
-                        ? 0xFFFF
+                        ? NO_INDEX
                         : get_flag_id(choice.check_flag, result);
 
                     c.enabled = choice.enabled ? 0xFF : 0;
@@ -223,15 +247,15 @@ namespace NEONnoir
                 }
 
                 p.set_flag = !page.has_set_flag
-                    ? 0xFFFF
+                    ? NO_INDEX
                     : get_flag_id(page.set_flag, result);
 
                 p.clear_flag = !page.has_clear_flag
-                    ? 0xFFFF
+                    ? NO_INDEX
                     : get_flag_id(page.clear_flag, result);
 
                 p.check_flag = !page.has_check_flag
-                    ? 0xFFFF
+                    ? NO_INDEX
                     : get_flag_id(page.check_flag, result);
 
                 p.choice_count = to<u16>(page.choices.size());
@@ -338,6 +362,8 @@ namespace NEONnoir
             write(neonpack, scene.background_id);
             write(neonpack, scene.first_region_id);
             write(neonpack, scene.last_region_id);
+            write(neonpack, scene.first_text_id);
+            write(neonpack, scene.last_text_id);
             write(neonpack, scene.music_id);
         }
 
@@ -354,6 +380,19 @@ namespace NEONnoir
             write(neonpack, region.goto_scene);
             write(neonpack, region.description_id);
             write(neonpack, region.script_offset);
+        }
+
+        // Write all text regions
+        neonpack.write(text_regions_header, 4);
+        write(neonpack, to<u32>(pak.text_regions.size()));
+        for (auto const& text_region : pak.text_regions)
+        {
+            write(neonpack, text_region.x);
+            write(neonpack, text_region.y);
+            write(neonpack, text_region.width);
+            write(neonpack, text_region.text_id);
+            neonpack.write(&text_region.justify, 1);
+            neonpack.write(&text_region.center_vertical, 1);
         }
 
         // Dialogues

@@ -7,7 +7,7 @@ namespace NEONnoir
     {
 
     public:
-        string_table_editor(std::shared_ptr<game_data> data) : editor_window_base(data) { };
+        string_table_editor(std::shared_ptr<game_data> data, GLFWwindow* window) : editor_window_base(data, window) { };
         virtual ~string_table_editor() = default;
 
     private:

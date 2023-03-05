@@ -7,13 +7,14 @@
 #include <string_view>
 #include "game_data.h"
 #include "IconsMaterialDesign.h"
+#include "glfw_utils.h"
 
 namespace NEONnoir
 {
     class editor_window_base
     {
     public:
-        editor_window_base(std::shared_ptr<game_data> data) : _data(data) {};
+        editor_window_base(std::shared_ptr<game_data> data, GLFWwindow* window) : _data(data), _main_window(window) {};
         virtual ~editor_window_base() = default;
 
         virtual void display();
@@ -32,6 +33,7 @@ namespace NEONnoir
     protected:
         std::shared_ptr<game_data> _data;
         std::optional<std::vector<std::string>> _speaker_list_with_empty;
+        GLFWwindow* _main_window{ nullptr };
     };
 }
 

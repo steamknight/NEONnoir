@@ -41,7 +41,7 @@ namespace NEONnoir
         ImGui::SetNextItemWidth(-FLT_MIN);
 
         // Sanity check in case something's been deleted
-        selected_value = (selected_value < values.size() - 1) ? selected_value : 0xFFFF;
+        selected_value = (selected_value < values.size() - 1) ? selected_value : NO_INDEX;
 
         selected_value++;
         ImGui::PushID((void*)&selected_value);

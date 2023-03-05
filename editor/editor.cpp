@@ -221,7 +221,7 @@ namespace NEONnoir
             }
 
             // Vairn, Removed Demo Window.
-            ImGui::ShowDemoWindow();
+            //ImGui::ShowDemoWindow();
 
             ImGui::Render();
             ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
@@ -247,14 +247,14 @@ namespace NEONnoir
 
     void editor::initialize_editors()
     {
-        _location_browser = std::make_unique<location_browser>(_game_data);
-        _scene_editor = std::make_unique<scene_editor>(_game_data);
-        _script_editor = std::make_unique<script_editor>(_game_data);
-        _dialogue_editor = std::make_unique<dialogue_editor>(_game_data);
-        _shapes_editor = std::make_unique<shapes_editor>(_game_data);
-        _speaker_editor = std::make_unique<speaker_editor>(_game_data);
-        _string_table = std::make_unique<string_table_editor>(_game_data);
-        _manifest_editor = std::make_unique<manifest_editor>(_game_data);
+        _location_browser = std::make_unique<location_browser>(_game_data, _window.get());
+        _scene_editor = std::make_unique<scene_editor>(_game_data, _window.get());
+        _script_editor = std::make_unique<script_editor>(_game_data, _window.get());
+        _dialogue_editor = std::make_unique<dialogue_editor>(_game_data, _window.get());
+        _shapes_editor = std::make_unique<shapes_editor>(_game_data, _window.get());
+        _speaker_editor = std::make_unique<speaker_editor>(_game_data, _window.get());
+        _string_table = std::make_unique<string_table_editor>(_game_data, _window.get());
+        _manifest_editor = std::make_unique<manifest_editor>(_game_data, _window.get());
 
         if (_game_data->script_name != "")
         {

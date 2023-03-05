@@ -156,7 +156,7 @@
   },
   {
     "id": "frTleC3goNyK3mOP",
-    "value": "Probably the cleanest place in the Gutter, this empty lot was next to the subway.",
+    "value": "The cleanest place in the Gutter, this empty lot was next to the subway.",
     "description": "A description of the Empty Lot. The Gutter is the name of this city's neighborhood. Just like how waste water flows down a gutter (on the floor) to the sewers, so is this place where the lowest class goes when they have nowhere esle to turn"
   },
   {
@@ -200,26 +200,6 @@
     "description": ""
   },
   {
-    "id": "017qacixwfkQ6Xvi",
-    "value": "The putrefying garbage in the nearby dumpsters gives this area its iconic aroma.",
-    "description": ""
-  },
-  {
-    "id": "oMTYmXobAIaVftKp",
-    "value": "To Empty Lot",
-    "description": ""
-  },
-  {
-    "id": "Vs7NEvSb5kZt4h2O",
-    "value": "To the Subway",
-    "description": ""
-  },
-  {
-    "id": "HpEb4HHD4rij5YGq",
-    "value": "Foul-smelling Dumpster",
-    "description": ""
-  },
-  {
     "id": "TdKc5o4u79gHR2xx",
     "value": "Enter the Subway",
     "description": ""
@@ -231,7 +211,7 @@
   },
   {
     "id": "lJsAFeIjaSaNd1fw",
-    "value": "I could hear the subway trains' tortured shrieks from above the platform. ",
+    "value": "I could hear the subway trains' tortured shrieks from above the platform.",
     "description": ""
   },
   {
@@ -251,7 +231,7 @@
   },
   {
     "id": "VBjAKP02SB9j6XQo",
-    "value": "The music hit me harder that the bouncer ever could. It was finally time to have a chat with Acid Nova.",
+    "value": "The music hit me harder than the bouncer ever could. It was finally time to have a chat with Acid Nova.",
     "description": ""
   },
   {
@@ -261,7 +241,7 @@
   },
   {
     "id": "jnDW4FqIVabjGeTu",
-    "value": "People having a good time. No gods, no kings, no rules.",
+    "value": "People were having a good time. No gods, no kings, no rules.",
     "description": ""
   },
   {
@@ -286,7 +266,7 @@
   },
   {
     "id": "G6mqVCHMkvs5Ty24",
-    "value": "Danni and Crystal's apartment was in the nicer part of the Gutter, if such a place even exists. It was small yet modern and looked more expensive than I could afford.",
+    "value": "Danni and Crystal's apartment was in the nice part of the Gutter (if such a place even exists). It was small yet modern and looked more expensive than I could afford.",
     "description": ""
   },
   {
@@ -301,7 +281,7 @@
   },
   {
     "id": "7069DfAQ1ReSpHNm",
-    "value": "If you squinted, the view was really nice.",
+    "value": "If you squinted, the view was pleasant.",
     "description": ""
   },
   {
@@ -311,12 +291,12 @@
   },
   {
     "id": "SMFWFgsgAojaGqGu",
-    "value": "Danni bedroom was sparse and tidy, the only clutter being near her bed.",
+    "value": "Danni's bedroom was sparse and tidy; the only clutter was near her bed.",
     "description": ""
   },
   {
     "id": "0YZhsjHwQapogSrf",
-    "value": "She was either very neat or didn't spend much time here.",
+    "value": "She was either very organized or spent little time here.",
     "description": ""
   },
   {
@@ -331,7 +311,7 @@
   },
   {
     "id": "gdyHIyGCXvKKT2Gu",
-    "value": "Danni's bed. Looked real comfortable.",
+    "value": "Danni's bed. Looked really comfortable.",
     "description": ""
   },
   {
@@ -341,7 +321,7 @@
   },
   {
     "id": "FFgQsLa6aMY9m5XP",
-    "value": "I spent a lot of time trying to make my basement apartment look professional.",
+    "value": "I spent countless hours trying to make my basement apartment look professional.",
     "description": ""
   },
   {
@@ -366,17 +346,17 @@
   },
   {
     "id": "nfD8Jd1MITJXIeXR",
-    "value": "My SimWin, a simulated window. Penthouse views for basement prices.",
+    "value": "The simulated window gave me penthouse views for basement prices.",
     "description": ""
   },
   {
     "id": "t4Gu0IDtlfZr9grN",
-    "value": "The Lost Sock laundromat was on Merchant's Row, not too far from Danni and Crystal's apartment. Like everywhere else is the Gutter, the streets were slick with undefined liquids.",
+    "value": "The Lost Sock laundromat was on Merchant's Row, just a short distance from Danni and Crystal's apartment. Like everywhere else in the Gutter, the streets were slick with undefined liquids.",
     "description": ""
   },
   {
     "id": "X2g0nL7WLuxR2IQ6",
-    "value": "Down the street was poster that stood out as being the only thing here not covered in filth.",
+    "value": "Down the street, a poster stood out as the only thing not covered in filth.",
     "description": ""
   },
   {
@@ -401,7 +381,7 @@
   },
   {
     "id": "oOKvcjVsb5fQAB0X",
-    "value": "For a laundromat, it was surprisingly hazy and dark in here. While a few laundry machines were spinning, there was nobody here other than an old woman sitting at computer. Glady Aubergine, I presumed.",
+    "value": "For a laundromat, it was surprisingly hazy and dark. While a few laundry machines were spinning, the only living soul was an old woman sitting in front of a computer. Glady Aubergine, I presumed.",
     "description": ""
   },
   {
@@ -426,12 +406,12 @@
   },
   {
     "id": "lqBy3ceDqrcvp2EA",
-    "value": "The air quality here was even worse than the Gutter's. Worker safety cut into the bottom line of the fat cats running the place, and they could always get more workers.",
+    "value": "The air quality was even worse than in the Gutter. Worker safety cut into the bottom line of the fat cats running the place, and they could always get more workers.",
     "description": ""
   },
   {
     "id": "auZMQD7UNhmvma1r",
-    "value": "Lucky for me, Building 19 was in a fairly secluded area at the edge of the industrial district. Like many building here, there was no outward indication as to who owned it. I guess it was time I applied my carefully honed detective skills.",
+    "value": "Lucky for me, Building 19 was in a secluded area at the edge of the industrial district. Like the other buildings, there was no outward clue of the owner's identity. It was time I applied my carefully honed detective skills.",
     "description": ""
   },
   {
@@ -441,12 +421,12 @@
   },
   {
     "id": "i1RJUULJsnnXBXaS",
-    "value": "Doors to the upper level office.",
+    "value": "Doors to the upper-level office.",
     "description": ""
   },
   {
     "id": "y64hXkVvi1UZKow5",
-    "value": "Exit to subway.",
+    "value": "Exit to the subway.",
     "description": ""
   },
   {
@@ -476,7 +456,7 @@
   },
   {
     "id": "LfAmegpb6xK7cQQp",
-    "value": "Something about this place seemed weird. There should have been people working, but the place was empty. Even the various boxes piled high in this facility looked like they hadn't been touched in a long time.",
+    "value": "Something about this place seemed weird. There should have been people working, but the place was empty. Even the many boxes piled high in this facility looked like they hadn't been touched in a long time.",
     "description": ""
   },
   {
@@ -521,7 +501,7 @@
   },
   {
     "id": "nIadX9Z2mbsBSjTp",
-    "value": "Other side of the office.",
+    "value": "The other side of the office.",
     "description": ""
   },
   {
@@ -536,7 +516,7 @@
   },
   {
     "id": "Fi07vkWGNC8DFycZ",
-    "value": "I couldn't see Crystal of Visser from this window.",
+    "value": "I could see neither Crystal nor Visser from this window.",
     "description": ""
   },
   {
@@ -551,7 +531,7 @@
   },
   {
     "id": "rFl0woOhJoxMXanE",
-    "value": "Other side of the office",
+    "value": "The other side of the office",
     "description": ""
   },
   {
@@ -561,7 +541,7 @@
   },
   {
     "id": "RHFMA1ertAWMeQhj",
-    "value": "Xantech Cybernetics' ostentatious building rised above us all like a giant middle finger to our hardships.",
+    "value": "Xantech Cybernetics' ostentatious building rose above us all like a giant middle finger to our hardships.",
     "description": ""
   },
   {
@@ -576,7 +556,7 @@
   },
   {
     "id": "oBTEBtwYrsvHAAfT",
-    "value": "The elevator dinged at the 53rd floor, where the Xantech's datacenter was supposed to be.",
+    "value": "The elevator dinged at the 53rd floor, where Xantech's data center was supposed to be.",
     "description": ""
   },
   {
@@ -626,7 +606,7 @@
   },
   {
     "id": "dkTe1WS8FQ91Qp1f",
-    "value": "A spotless medical bay. Everything here was state-of-the-art.",
+    "value": "A spotless medical bay. Everything in it was state-of-the-art.",
     "description": ""
   },
   {
@@ -641,7 +621,7 @@
   },
   {
     "id": "OTCWud75nqu2ol1l",
-    "value": "A medical bed. I wonder how often they need it.",
+    "value": "A medical bed. How often do they need it?",
     "description": ""
   },
   {
@@ -691,7 +671,7 @@
   },
   {
     "id": "QJJ6P75JfTrMPFi1",
-    "value": "Should I just call it QUITs?",
+    "value": "Should I call it QUITs?",
     "description": ""
   },
   {
@@ -701,7 +681,7 @@
   },
   {
     "id": "u7VT6gUT8YeK4BL4",
-    "value": "Maybe I should forget about this whole business and just go home?",
+    "value": "Maybe I should forget about this whole business and go home?",
     "description": ""
   },
   {
@@ -711,7 +691,7 @@
   },
   {
     "id": "dgr09v7AhG0ivCdi",
-    "value": "No. A girl's gone missing. I'm her only hope.",
+    "value": "No. A girl's gone missing, and I'm her only hope.",
     "description": ""
   },
   {
@@ -771,7 +751,7 @@
   },
   {
     "id": "FN8J0pIZGg5kFBLe",
-    "value": "Where's good place to eat around here?",
+    "value": "Where's a good place to eat around here?",
     "description": ""
   },
   {
@@ -786,12 +766,12 @@
   },
   {
     "id": "aqiuaqi7IBksoHSF",
-    "value": "Alright Glitch, I did what you asked. Now tell me the password.",
+    "value": "Alright, Glitch. I did what you asked. Now tell me the password.",
     "description": ""
   },
   {
     "id": "F1bfw5rPc7ktwx3Z",
-    "value": "I need your special brand of help.",
+    "value": "I need your unique brand of help.",
     "description": ""
   },
   {
@@ -821,7 +801,7 @@
   },
   {
     "id": "nv67cx1sE42HIM36",
-    "value": "Takeshi's noodles was the best place, and just around the corner too. \n\nIt's a shame he had to close up shop.",
+    "value": "Takeshi's Noodles was the best place, and just around the corner. \n\nIt's a shame he had to close up shop.",
     "description": ""
   },
   {
@@ -836,7 +816,7 @@
   },
   {
     "id": "hc31w1hhbSxusxBn",
-    "value": "Ever the enterprising spirit, he decided to branch out.\n\nLet's just say that ramen weren't the only noods he started selling, if you catch my drift. Made a few enemies.",
+    "value": "Ever the enterprising spirit, he decided to branch out.\n\nLet's just say that ramen weren't the only noods he started selling if you catch my drift. Made a few enemies.",
     "description": ""
   },
   {
@@ -866,7 +846,7 @@
   },
   {
     "id": "oXnrANDfPviq9g5Q",
-    "value": "They don't just let any scorched junkie in. You got to be vetted. Even if you had a ticket, you'd still need a password. ",
+    "value": "They don't just let any scorched junkie in. You got to be vetted. Even if you had a ticket, you'd still need a password.",
     "description": ""
   },
   {
@@ -876,7 +856,7 @@
   },
   {
     "id": "WlkRBmccvQUG1DqJ",
-    "value": "I'll bite. Where can I get the password.",
+    "value": "I'll bite. Where can I get the password?",
     "description": ""
   },
   {
@@ -891,22 +871,22 @@
   },
   {
     "id": "OFEFPkZUy7MrBtXa",
-    "value": "That's the lucky part! I have the password and I'd be happy to scratch your back if you scratch mine. It'll be no problem, especially for you.",
+    "value": "That's the lucky part! I have the password, and I'd be happy to scratch your back if you scratch mine. It'll be no problem, especially for you.",
     "description": ""
   },
   {
     "id": "IFKN9jEIgBP56g43",
-    "value": "Credits?",
+    "value": "What do you want, credits?",
     "description": ""
   },
   {
     "id": "uT4i9Dsb5BqFPYj5",
-    "value": "Cred- what? No! No, nothing like that. Well, I guess it something like that. But I don't take money from people, there's so little of it to go around. Nah, I like to make the corpos bleed a little green, if you know what I mean.",
+    "value": "Cred- what? No! No, nothing like that. Well, it is something like that. But I don't take money from people; there's so little to go around. Nah, I like to make the corpos bleed a little green if you know what I mean.",
     "description": ""
   },
   {
     "id": "vMQBZUXnMJZgs5qX",
-    "value": "You're a real Mother Theresa. What do you need me to do?",
+    "value": "You're a real saint. What do you need me to do?",
     "description": ""
   },
   {
@@ -921,7 +901,7 @@
   },
   {
     "id": "G3QY6F5QRwEh3QtT",
-    "value": "*cough* Well, they got a tin-man standing in front of it and he's already got my scent. You, on the other hand, he doesn't know.",
+    "value": "*cough* Well, they have a tinman standing in front of it, and he already has my scent. You, on the other hand, he doesn't know.",
     "description": ""
   },
   {
@@ -931,7 +911,7 @@
   },
   {
     "id": "R1a65eSBZK0x6JEO",
-    "value": "Alright, there's this guy Tweaker. He's a real chrome job and usually does business out by the subway. He can probably get you a ticket.",
+    "value": "Alright, there's this guy Tweaker. He's a real chrome job and usually hangs out in the subway; he can probably get you a ticket.",
     "description": ""
   },
   {
@@ -941,7 +921,7 @@
   },
   {
     "id": "LufyyQfICtT0pFHN",
-    "value": "And how! Man, that's a lot of credits...\n\nOh right! The password is Dyonisus. Good luck my friend, and if you need anything else, you just let me know!",
+    "value": "And how! Man, that's a lot of credits...\n\nOh, right! The password is Dyonisus. Good luck, my friend, and if you need anything else, just let me know!",
     "description": ""
   },
   {
@@ -951,7 +931,7 @@
   },
   {
     "id": "ID6cc8nK2ULVyJYi",
-    "value": "I'm intrigued, what do you need?",
+    "value": "I'm intrigued; what do you need?",
     "description": ""
   },
   {
@@ -971,7 +951,7 @@
   },
   {
     "id": "Ld5Osss0FfaypbBM",
-    "value": "Alright, I got some thing for ya. If you can get physical access to the computer and plug this data stick in any port, it'll clone all of its data.",
+    "value": "Alright, I got something for ya. If you can get physical access to the computer and plug this hacktool in any port, it'll clone all of its data.",
     "description": ""
   },
   {
@@ -981,7 +961,7 @@
   },
   {
     "id": "o1W73Z8rJff8A9og",
-    "value": "Then you plug it into your computer and you can view all the data!",
+    "value": "Then you plug it into your computer, and you can view all the juicy secrets!",
     "description": ""
   },
   {
@@ -991,12 +971,12 @@
   },
   {
     "id": "pkS3Vmq7Z0BB3Z7q",
-    "value": "Well, you see, I need you to get me special McGuffin that's in the possession of some guy who'll be happy to trade it for you if you can solve his problem...",
+    "value": "Well, you see, I need you to get me a special McGuffin that's in the possession of some guy who'll be happy to trade it for you if you can solve his problem...",
     "description": ""
   },
   {
     "id": "7s87vP7Cu0ViKpFK",
-    "value": "Or you can just give it to me because you made lots of credits off my back.",
+    "value": "Or you can give it to me because you made a ton of credits off my back.",
     "description": ""
   },
   {
@@ -1006,7 +986,7 @@
   },
   {
     "id": "vy9AlNmR2a0JVGYC",
-    "value": "Wait... how do I know it's safe to plug in to my computer, that it's not going to do something else?",
+    "value": "Wait... how do I know it's safe to plug into my computer, that it wont to do something else?",
     "description": ""
   },
   {
@@ -1036,7 +1016,7 @@
   },
   {
     "id": "GEMm5UkuiPN4Z2qw",
-    "value": "Thanks Glitch.",
+    "value": "Thanks, Glitch.",
     "description": ""
   },
   {
@@ -1071,7 +1051,7 @@
   },
   {
     "id": "8qfsNx47Qpd2X2jJ",
-    "value": "They just give these out to any drek these days. What's the password?",
+    "value": "They give these out to any drek these days. What's the password?",
     "description": ""
   },
   {
@@ -1161,7 +1141,7 @@
   },
   {
     "id": "k4WiuDh4KEcWIJ2B",
-    "value": "No flaws with that logic, have a good evening.",
+    "value": "No flaws with that logic. Have a good evening.",
     "description": ""
   },
   {
@@ -1206,7 +1186,7 @@
   },
   {
     "id": "wHM2tpgP90IthrDP",
-    "value": "Well that's good! You saved them from paying for a coat of paint and only losing thousands in transaction fees.",
+    "value": "Well, that's good! You saved them from paying for a coat of paint and only losing thousands in transaction fees.",
     "description": ""
   },
   {
@@ -1216,27 +1196,27 @@
   },
   {
     "id": "YG0hH3gFSEAFaE83",
-    "value": "Best case scenario, they shut this jackpot down because it brings in no money and you lose your job. Worst case, they sue you for lost revenue. Good luck.",
+    "value": "Best case scenario, they shut this jackpot down because it brings in no money, and you lose your job. Worst case, they sue you for lost revenue. Good luck.",
     "description": ""
   },
   {
     "id": "118AoJZIwviX9sH9",
-    "value": "*Ksssh* FINE! FINE! YOU CAN USE IT, JUST BE QUICK *Ksssh*",
+    "value": "*Ksssh* FINE! FINE! YOU CAN USE IT. JUST BE QUICK *Ksssh*",
     "description": ""
   },
   {
     "id": "waUyOrc8hnI2XaGk",
-    "value": "While the tin man looked away, I went through the motions of withdrawing credits and scanned Glitch's chip instead. Graphical anomalies multiplied on the screen like bacteria on a petri dish.",
+    "value": "While the tinman looked away, I pretended to withdraw some credits and scanned Glitch's chip instead. Graphical anomalies multiplied on the screen like bacteria on a petri dish.",
     "description": ""
   },
   {
     "id": "IprUKM815xyV1vNP",
-    "value": "Panic griped me as I tried to act natural, keenly aware of the guard standing nearby. As the screen became more corrupted, a bead of sweat dripped from my brow.",
+    "value": "Panic gripped me as I tried to act naturally, keenly aware of the nearby guard. As the screen became more corrupted, sweat dripped from my brow.",
     "description": ""
   },
   {
     "id": "DXhpE6YlZ5YYMilu",
-    "value": "Fortunately, the screen returned to normal just as quickly as it glitched. 'TRANSACTION COMPLETE' it happily chimed.",
+    "value": "Fortunately, the screen returned to normal just as quickly as it glitched. \"TRANSACTION COMPLETE,\" it happily chimed.",
     "description": ""
   },
   {
@@ -1351,7 +1331,7 @@
   },
   {
     "id": "SKnEajii0En3aAgy",
-    "value": "Look man, the Alleycat swallows people whole, if you value your life, stay away.",
+    "value": "Look, man, the Alleycat swallows people whole. If you value your life, stay away.",
     "description": ""
   },
   {
@@ -1361,7 +1341,7 @@
   },
   {
     "id": "hEs92MxFkJcM47iU",
-    "value": "Alright, let's say I had a ticket to sell you, you couldn't afford it.",
+    "value": "Alright, let's say I had a ticket to sell you. You couldn't afford it.",
     "description": ""
   },
   {
@@ -1376,7 +1356,7 @@
   },
   {
     "id": "USSQ1bl0YGqunZO7",
-    "value": "You can't afford it because what I want you can't get.\n\nNobody's ever going to get any more of Takeshi's noods, on account of him mysteriously 404ing.",
+    "value": "You can't afford it because what I want you can't get.\n\nNobody's ever going to get any more of Takeshi's noods on account of him mysteriously 404ing.",
     "description": ""
   },
   {
@@ -1386,12 +1366,12 @@
   },
   {
     "id": "5ieWvgdrwd9XnZwJ",
-    "value": "Not just any noods! Takeshi's! The man was a master of his craft, and he always left a small surprise printed on bottom of the bowls... heh heh...\n\nAnyway, no Takeshi, no noods.",
+    "value": "Not just any noods! Takeshi's! The man was a master of his craft, and he always left a small surprise printed on the bottom of the bowls... heh heh...\n\nAnyway, no Takeshi, no noods.",
     "description": ""
   },
   {
     "id": "R8OxmL7qiF8AClIJ",
-    "value": "I think you underestimate how resourceful I am.",
+    "value": "You underestimate how resourceful I am.",
     "description": ""
   },
   {
@@ -1401,7 +1381,7 @@
   },
   {
     "id": "gCLO3gukGYwbdj8Q",
-    "value": "I told you I am pretty resourceful. This is the last bowl in existence. So if you want it, I'll take one of those tickets.",
+    "value": "I told you, I am resourceful. This is the last bowl in existence. So if you want it, I'll take one of those tickets.",
     "description": ""
   },
   {
@@ -1466,7 +1446,7 @@
   },
   {
     "id": "skneByA1MeFKMjHB",
-    "value": "You're an out of luck ambulance chaser?",
+    "value": "You're an out-of-luck ambulance chaser?",
     "description": ""
   },
   {
@@ -1481,7 +1461,7 @@
   },
   {
     "id": "A3P3eOGj9QYSST5L",
-    "value": "You're the health inspector come to shut us down?",
+    "value": "You're the health inspector who's come to shut us down?",
     "description": ""
   },
   {
@@ -1501,7 +1481,7 @@
   },
   {
     "id": "NvlerS0PUIjPcr81",
-    "value": "Finally talking sense!",
+    "value": "Finally, talking sense!",
     "description": ""
   },
   {
@@ -1526,12 +1506,12 @@
   },
   {
     "id": "CpvByM04n0e6SmBD",
-    "value": "Do you know the man on this photo?",
+    "value": "Do you know the man in this photo?",
     "description": ""
   },
   {
     "id": "svehmfg3YyAnXuTL",
-    "value": "Just looking at you, I can tell this is going to be pointless. Bye.",
+    "value": "Looking at you, I can tell this will be pointless. Bye.",
     "description": ""
   },
   {
@@ -1551,12 +1531,12 @@
   },
   {
     "id": "CTKMAyaoSF3gYsai",
-    "value": "Why don't you educate me, then.",
+    "value": "Why don't you educate me, then?",
     "description": ""
   },
   {
     "id": "48xExdOucELRwhBG",
-    "value": "Coral's a \"simstim\". It's a digital drug. You need hardware, you need cybernetics in order to partake, my unmodified friend.",
+    "value": "Coral's a \"simstim.\" It's a digital drug. You need hardware; you need cybernetics to partake, my unmodified friend.",
     "description": ""
   },
   {
@@ -1586,7 +1566,7 @@
   },
   {
     "id": "KbdmO7Ge1m2CiZZv",
-    "value": "Exactly what I said. When you insert the coral in your socket, it downloads a program that parties on your neural interface. It messes with the signals that are coming from your cybernetics, giving you a full body high. You feel drek that isn't even happening. It shuts you down while you're chasing those ruby slippers so you don't go running around while stoned out of your mind.",
+    "value": "Exactly what I said. When you insert the Coral in your socket, it downloads a program that parties on your neural interface. It messes with the signals from your cybernetics, giving you a full-body high. You feel drek that isn't even happening. It shuts you down while you're chasing those ruby slippers, so you don't run around while stoned out of your mind.",
     "description": ""
   },
   {
@@ -1596,17 +1576,17 @@
   },
   {
     "id": "XNPYn2Z1W06aFe5l",
-    "value": "It feels great but it's no more addictive than really good sex. Some people can't help themselves and will chase those ruby slippers. It's a simstim, there are no chemicals...",
+    "value": "It feels great, but it's no more addictive than really good sex. Some people can't help themselves and will chase those ruby slippers. It's a simstim, there are no chemicals...",
     "description": ""
   },
   {
     "id": "mymEILxZF2gtoos9",
-    "value": "... ergo, you can't get chemically dependent on it, right.",
+    "value": "... ergo, you can't get chemically dependent on it, right?",
     "description": ""
   },
   {
     "id": "ndnCwVLAVGahOKfj",
-    "value": "It's all in this little red chip. You plug into your socket and it does the rest.",
+    "value": "It's all in this little red chip. Plug it into your socket and it does the rest.",
     "description": ""
   },
   {
@@ -1616,7 +1596,7 @@
   },
   {
     "id": "FLiPAjOslN3CGtXN",
-    "value": "They say it's the brainchild of a biohacker by the name of KryptoKool. As for where I get it, well, I don't think we're close enough friends.",
+    "value": "They say it's the brainchild of a biohacker named KryptoKool. As for where I get it, well, we're close enough friends.",
     "description": ""
   },
   {
@@ -1626,7 +1606,7 @@
   },
   {
     "id": "rxB1FjSnPdJtMs27",
-    "value": "Your concern for my livelihood is touching, it really is. But that's the clever bit. The data chip destroys itself when it downloads into you. Or if you tamper with it. It even deletes itself from your system after a random amount of time. Nah, this drek is clever. ",
+    "value": "Your concern for my livelihood is touching; it really is. But that's the clever bit. The data chip destroys itself when it downloads into you. Or if you tamper with it. It even deletes itself from your system after a random amount of time. Nah, this drek is clever.",
     "description": ""
   },
   {
@@ -1651,7 +1631,7 @@
   },
   {
     "id": "NoNln8eW18DZtrWt",
-    "value": "I thought we were just becoming friends and you have to lie to my face?",
+    "value": "And just when I thought we were becoming friends, you lie to my face?",
     "description": ""
   },
   {
@@ -1676,7 +1656,7 @@
   },
   {
     "id": "iDM2vu2gI8oPa0rG",
-    "value": "Really? Look at the photo again, she's not that forgettable.",
+    "value": "Really? Look at the photo again; she's not that forgettable.",
     "description": ""
   },
   {
@@ -1686,7 +1666,7 @@
   },
   {
     "id": "SSICeXVQlwpftM8E",
-    "value": "Let me stop you right there, while I'm still in a good mood. I don't like to be called a liar by a two-bit walking cliche with the aforementioned cheap coat. So you can drop this now and enjoy the delights the Alleycat has to offer, or I can ask Tank, who I believe you already met on your way in to show you the way out.\n\nAm I coming through clear?",
+    "value": "Let me stop you while I'm still in a good mood. I don't like to be called a liar by a two-bit walking cliche with the aforementioned cheap coat. You can drop this now and enjoy the delights the Alleycat offers, or I can ask Tank, who I believe you already met on your way in, to show you the way out.\n\nAm I coming through clear?",
     "description": ""
   },
   {
@@ -1716,7 +1696,7 @@
   },
   {
     "id": "hPtJ0cWcLJRKpMrY",
-    "value": "(Bluff) I know all about you deal.",
+    "value": "(Bluff) I know all about your deal.",
     "description": ""
   },
   {
@@ -1736,7 +1716,7 @@
   },
   {
     "id": "UsiIi2PE1a2EU09A",
-    "value": "I don't think so. Instead you're going to tell me what I want to know or I'll give JV here a call. I'm sure he'd love to know how loose lipped you are about his involvement with Coral.",
+    "value": "I don't think so. Instead, you're going to tell me what I want to know, or I'll give JV a call. I'm sure he'd love to know how loose-lipped you are about his involvement with Coral.",
     "description": ""
   },
   {
@@ -1761,7 +1741,7 @@
   },
   {
     "id": "50NY9r7iEDRXsTQN",
-    "value": "Two rings and JV, whoever he really is, picked up the phone.",
+    "value": "Two rings, and JV, whoever he really was, picked up the phone.",
     "description": ""
   },
   {
@@ -1771,17 +1751,17 @@
   },
   {
     "id": "e7ePWpoAVcsk2V4W",
-    "value": "*whispering* OK, you win, just hang up!",
+    "value": "*whispering* Ok, you win! Just hang up!",
     "description": ""
   },
   {
     "id": "3Ol5Q7y7EmlpLRNf",
-    "value": "I can't hear you, it's very loud where you are.",
+    "value": "I can't hear you; it's very loud where you are.",
     "description": ""
   },
   {
     "id": "h0NLMfgllgnV7rvF",
-    "value": "My apologies, I dialed you on accident. I'll report in later. Good bye.",
+    "value": "My apologies. I dialed you by accident. I'll report later. Goodbye.",
     "description": ""
   },
   {
@@ -1791,12 +1771,12 @@
   },
   {
     "id": "gmYiNOXIJnCIQ4KS",
-    "value": "I told you, I'm Blake Steel, PI. I'm looking for Danni who I know you sold Coral too, and JV is somehow playing a part in it. And you were just about to tell me what you know.",
+    "value": "I told you, I'm Blake Steel, PI. I'm looking for Danni, who I know you sold Coral to, and JV is somehow playing a part in it. And you were just about to tell me what you know.",
     "description": ""
   },
   {
     "id": "m2wiILygS4cl8IIL",
-    "value": "Alright fine what do you want to know?",
+    "value": "Alright, fine. What do you want to know?",
     "description": ""
   },
   {
@@ -1821,7 +1801,7 @@
   },
   {
     "id": "6SCxJnwWC6cPF9l4",
-    "value": "Aww.. What happened to your friendly disposition?",
+    "value": "Aww... What happened to your friendly disposition?",
     "description": ""
   },
   {
@@ -1831,7 +1811,7 @@
   },
   {
     "id": "MObGLgiLQJm6FGlh",
-    "value": "It's true, I sold Coral to Danni every now and again. As far as I know, she got most of it from the people she was frequenting. That's all I know, I swear!",
+    "value": "It's true. I sold Coral to Danni every now and again. As far as I know, she got most of it from the people she frequented. That's all I know, I swear!",
     "description": ""
   },
   {
@@ -1846,7 +1826,7 @@
   },
   {
     "id": "MR9ZMQuupxEK4qC9",
-    "value": "Not much, he's a very dangerous man. We meet at Building 19 in the industrial district. He tells me when and I show up with lots of credits and no questions. There's a code to get in: 3141.",
+    "value": "Not much. He's a very dangerous man. We'll meet at Building 19 in the industrial district. He tells me when and I show up with a load of credits and no questions. There's a code to get in: 3141.",
     "description": ""
   },
   {
@@ -1856,12 +1836,12 @@
   },
   {
     "id": "NcOHeNYqVCpUIXE5",
-    "value": "I stepped out of the Alleycat no wiser than when I came in. My gut was telling me that Acid Nova was dirty and knew something, but then again, my gut's been saying a lot of things since that dumpster dive.",
+    "value": "I stepped out of the Alleycat no wiser than when I came in. My gut told me that Acid Nova was dirty and knew something, but then again, my gut's been saying many things since that dumpster dive.",
     "description": ""
   },
   {
     "id": "0GkIvdixXQPxjTKU",
-    "value": "As I stepped away from the neon bacchanalia, a woman approached me from the shadows with the practiced saunter of a predator. One look and I had to force myself not to blush brighter than her neon pink dress. Without hesitation, she hooked her arm on mine, and started walking down the alley.",
+    "value": "As I stepped away from the neon bacchanalia, a woman approached me from the shadows with the practiced saunter of a predator. One look, and I had to force myself not to blush brighter than her neon pink dress. Without hesitation, she hooked her arm on mine and started walking down the alley.",
     "description": ""
   },
   {
@@ -1871,12 +1851,12 @@
   },
   {
     "id": "ZADGIGMSnIcomCkX",
-    "value": "It seems you have me at a disadvantage, miss...?",
+    "value": "You have me at a disadvantage, miss...?",
     "description": ""
   },
   {
     "id": "aYt1W7Q8m0t44i62",
-    "value": "Ba... err.. uhm... oof... ah...",
+    "value": "Ba... err.. um... oof... ah...",
     "description": ""
   },
   {
@@ -1891,7 +1871,7 @@
   },
   {
     "id": "xU5AqcFV2nR3Q3jq",
-    "value": "Err... *cough* uhm, who? Oh right, yes. Yes I am.",
+    "value": "Err... *cough* um, who? Oh, right, yes. Yes, I am.",
     "description": ""
   },
   {
@@ -1901,12 +1881,12 @@
   },
   {
     "id": "t6L9vS4A8LVbWfal",
-    "value": "I understand she went missing  a few days ago. I'm a private investigator and her father's paying me to find her.",
+    "value": "I understand she went missing a few days ago. I'm a private investigator, and her father's paying me to find her.",
     "description": ""
   },
   {
     "id": "a1p3rDq5BXdwMjAT",
-    "value": "Uhm... err... her father is, uhm looking for her. Is it me or is it getting unseasonably warm?",
+    "value": "Uhm... err... her father is, um, looking for her. Is it me, or is it getting unseasonably warm?",
     "description": ""
   },
   {
@@ -1916,7 +1896,7 @@
   },
   {
     "id": "7yJQ4MN4csjKXVRu",
-    "value": "You know my interest in Danni, what about yours?",
+    "value": "You know my interest in Danni; what about yours?",
     "description": ""
   },
   {
@@ -1936,7 +1916,7 @@
   },
   {
     "id": "T2Kfn2sLe2f0c6n2",
-    "value": "I don't, but it's got to be something bad.",
+    "value": "I don't, but it can't be good.",
     "description": ""
   },
   {
@@ -1946,7 +1926,7 @@
   },
   {
     "id": "h7myotqw9edkh2Zi",
-    "value": "These are dangerous times. We had a system: if one of us stayed out the night, we'd send a message the next morning that all was clear. When she didn't come home and didn't message, I knew something wasn't right.",
+    "value": "It's dangerous out there, so we had a system: if one of us stayed out the night, we'd send a message in the morning that all was good. I knew something was wrong when she didn't come home or message me.",
     "description": ""
   },
   {
@@ -1956,17 +1936,17 @@
   },
   {
     "id": "tAjlEx3rFiDjTudr",
-    "value": "Do you, uhm, live together?",
+    "value": "Do you, um, live together?",
     "description": ""
   },
   {
     "id": "oxD6GPrB9fOySGkt",
-    "value": "Yes. We're room mates.",
+    "value": "Yes. We're roommates.",
     "description": ""
   },
   {
     "id": "2HNl2x5ddCsNmNDs",
-    "value": "Room mates?! Can we head back to your place then?",
+    "value": "Roommates?! Can we head back to your place, then?",
     "description": ""
   },
   {
@@ -1981,17 +1961,17 @@
   },
   {
     "id": "Vp52c8bBA1a7rEKq",
-    "value": "What? No. I want to search her place, your place, for any clue or indication as to what could have happened.",
+    "value": "What? No. I want to search her place, your place, for any clue or indication of what could have happened.",
     "description": ""
   },
   {
     "id": "dHli55D34ETaR02U",
-    "value": "*cough* Erm.. *blush* No... uh... I mean... *cough* uhm clues...",
+    "value": "*cough* Erm.. *blush* No... uh... I mean... *cough* um, clues...",
     "description": ""
   },
   {
     "id": "UnZF8m8D3nRiO3LB",
-    "value": "Oh... right! That' makes sense. But don't try anything funny. I'm not as defenseless as I seem.",
+    "value": "Oh... right! That makes sense. But don't try anything funny. I'm not as defenseless as I seem.",
     "description": ""
   },
   {
@@ -2021,7 +2001,7 @@
   },
   {
     "id": "jmJ6gdEHYxe9pHgH",
-    "value": "I found this note in her room, what do you make of it?",
+    "value": "I found this note in her room; what do you make of it?",
     "description": ""
   },
   {
@@ -2031,7 +2011,7 @@
   },
   {
     "id": "kc0IXkJ7vNdAkfKy",
-    "value": "I did, and it 's not good.",
+    "value": "I did, and it's not good.",
     "description": ""
   },
   {
@@ -2041,12 +2021,12 @@
   },
   {
     "id": "UVMnuc1ipuZh6nmC",
-    "value": "Nothing more for now.",
+    "value": "Tell me, have you seen the man in this photo before?",
     "description": ""
   },
   {
     "id": "7TrJS6h2MRoKOIgG",
-    "value": "Tell me, have you seen the man in this photo before?",
+    "value": "Nothing more for now.",
     "description": ""
   },
   {
@@ -2076,7 +2056,7 @@
   },
   {
     "id": "RGYP5aiqPMnVIvQI",
-    "value": "We met two years ago. She came into... uh... the shop, looking for work. We started chatting and we've been friends ever since. Eventually we got this place together so that we wouldn't have to live in a dreking hole.",
+    "value": "We met two years ago. She came into... uh... the shop, looking for work. We started chatting, and we've been friends ever since. Eventually, we got this place together so we wouldn't have to live in a dreking hole.",
     "description": ""
   },
   {
@@ -2111,7 +2091,7 @@
   },
   {
     "id": "dEuVjGJ8x6t8tq4W",
-    "value": "There's a laundromat called the \"The Lost Sock\". While it's a real, functional, laundromat, it's actually a front for the real business. I don't know who runs it, but Gladys Aubergine is who both Danni and I report up to. She sends us on... assignments.",
+    "value": "There's a laundromat called \"The Lost Sock.\" While it's a functional laundromat, it's a front for the actual business. I don't know who runs it, but Gladys Aubergine is who sends Danni and me on... assignments.",
     "description": ""
   },
   {
@@ -2121,12 +2101,12 @@
   },
   {
     "id": "GstFlbGb5wiWm60x",
-    "value": "I don't know... she may not be *snicker* \"Gladys\" to see you. ",
+    "value": "I don't know... she may not be *snicker* \"Gladys\" to see you.",
     "description": ""
   },
   {
     "id": "ssSIv3WTVk0t3Tn5",
-    "value": "Ugh... that was terrible. Anyway, a have a few more questions.",
+    "value": "Ugh... that was terrible. Anyway, I have a few more questions.",
     "description": ""
   },
   {
@@ -2141,7 +2121,7 @@
   },
   {
     "id": "LCDgOUInbmHyjSp3",
-    "value": "15... Danni mentioned him quite a few times. He's got a thing for her. I'd say three quarters of her assignments are with him.",
+    "value": "15... Danni mentioned him quite a few times. He's got a thing for her. I'd say three-quarters of her assignments are with him.",
     "description": ""
   },
   {
@@ -2151,12 +2131,12 @@
   },
   {
     "id": "tg4kuoJVsAX1xIWL",
-    "value": "15? That seems pretty impersonal.",
+    "value": "15? That seems rather impersonal.",
     "description": ""
   },
   {
     "id": "DTHhKcy4VonddtpG",
-    "value": "A have a few more questions.",
+    "value": "I have a few more questions.",
     "description": ""
   },
   {
@@ -2166,7 +2146,7 @@
   },
   {
     "id": "hlPgliTP8o5R2aGi",
-    "value": "As you can imagine, discretion is very important in this business. Normally we use code names, and 15 chose his.",
+    "value": "As you can imagine, discretion is essential in this business. We usually use code names, and 15 chose his.",
     "description": ""
   },
   {
@@ -2176,12 +2156,12 @@
   },
   {
     "id": "p60W8saGDZNEvKjW",
-    "value": "Her ID? How's that useful?",
+    "value": "Her ID? Will that help?",
     "description": ""
   },
   {
     "id": "dbKixJwdqlv2WKAT",
-    "value": "It's a long shot, but I still have access to a GovLink machine. If I run her ID, we might be able to turn something up.",
+    "value": "It's a long shot, but I still have access to a GovLink machine. If I run her ID, we might turn something up.",
     "description": ""
   },
   {
@@ -2191,7 +2171,7 @@
   },
   {
     "id": "bf8gDw37OdJKAPcP",
-    "value": "Danni's an orphan. She was never adopted. She chose the name Aston for herself. So the man who introduced himself to me as Jacob Ashton...",
+    "value": "Danni's an orphan who was never adopted. She chose the name Ashton for herself. So the man who introduced himself as Jacob Ashton...",
     "description": ""
   },
   {
@@ -2206,12 +2186,12 @@
   },
   {
     "id": "nUFO7EQEQ53OalIM",
-    "value": "But the who is he?",
+    "value": "But who is he?",
     "description": ""
   },
   {
     "id": "ApVweLwvax6RK5H2",
-    "value": "I don't know yet. Call it a hunch, I think Danni doesn't want to be found. If that's the case, she may be in more danger than we thought.",
+    "value": "I don't know yet. Call it a hunch, but I now believe Danni doesn't want to be found. If so, she may be in more danger than we thought.",
     "description": ""
   },
   {
@@ -2231,7 +2211,7 @@
   },
   {
     "id": "bqrpOJEutEegGx4H",
-    "value": "I need to get close enough to Gladys's computer to plug in this hacktool. It'll clone all the data so I can review it, literally, in the comfort of my own home.",
+    "value": "I must get close enough to Gladys's computer to plug in this hacktool. It'll clone all the data so I can review it, literally, in the comfort of my own home.",
     "description": ""
   },
   {
@@ -2241,7 +2221,7 @@
   },
   {
     "id": "68urwFHPFRrT61Uv",
-    "value": "I could get into shouting match with her. She's got a set of lungs for and old woman, but she's no match for my pair.",
+    "value": "I could get into a shouting match with her. She's got a set of lungs for an old woman, but she's no match for my pair.",
     "description": ""
   },
   {
@@ -2261,7 +2241,7 @@
   },
   {
     "id": "Vua2UDfRSV3uLrON",
-    "value": "Uhm... Sounds like a plan. Meet you at the Lost Sock.",
+    "value": "Uh... Sounds like a plan. Meet you at the Lost Sock.",
     "description": ""
   },
   {
@@ -2271,12 +2251,12 @@
   },
   {
     "id": "i3lr3AT9aYZgH9EQ",
-    "value": "No, uhm, I need you to distract Gladys for me.",
+    "value": "No, uh, I need you to distract Gladys for me.",
     "description": ""
   },
   {
     "id": "QAjoYReHZ8rJkdjX",
-    "value": "Let me see... yeah. I've seen him a few times. He's picked up Danni whenever she's with 15. Is he related to Danni's disappearance?",
+    "value": "Let me see... yeah. I recognize him! He's the guy that would pick up Danni whenever she was supposed to be with 15! He's got to be in on this!",
     "description": ""
   },
   {
@@ -2291,7 +2271,7 @@
   },
   {
     "id": "tQOQxJBkrR3tEsV0",
-    "value": "Exactly. I get the feeling something bad happened that night Danni was with 15. Remember how I said that I think she doesn't want to be found?",
+    "value": "Exactly. I get the feeling something terrible happened the night Danni was with 15. Remember how I said I think she doesn't want to be found?",
     "description": ""
   },
   {
@@ -2301,7 +2281,7 @@
   },
   {
     "id": "6jYmxHqXAn8LvXpD",
-    "value": "I think these are the people she doesn't want to be found by.",
+    "value": "I suspect these are the people she doesn't want to be found by.",
     "description": ""
   },
   {
@@ -2401,7 +2381,7 @@
   },
   {
     "id": "fOA9HXabgRq9dftK",
-    "value": "Lost Sock Personnel List\n\n(About a dozen names scroll by but only two stand out.)",
+    "value": "Lost Sock Personnel List\n\n(About a dozen names scroll by, but only two stand out.)",
     "description": ""
   },
   {
@@ -2431,7 +2411,7 @@
   },
   {
     "id": "wtqVTc4lZF30016T",
-    "value": "(A meaningless list of codenames scrolls by the screen. Eventually I find what I'm looking for.",
+    "value": "A meaningless list of codenames scrolled on the screen. Eventually, I found what I was looking for.)",
     "description": ""
   },
   {
@@ -2456,7 +2436,7 @@
   },
   {
     "id": "OEKfI5EGCSTAfApF",
-    "value": "Customer ID: JV\nPreferred Server: N/A\n\nNotes:\nJV picks up the girls for 15. He's real slippery and I don't trust him, but at least the credits are always good.\n\nPhotograph attached.",
+    "value": "Customer ID: JV\nPreferred Server: N/A\n\nNotes:\nJV picks up the girls for 15. He's real slippery, and I don't trust him, but at least the credits are always good.\n\nPhotograph attached.",
     "description": ""
   },
   {
@@ -2466,7 +2446,7 @@
   },
   {
     "id": "Y9IymtRfwf1h6X8M",
-    "value": "Entry: Xantech Cybernetics\nSummary: Formed 15 years ago by Xander Vane, Xantech Cybernetics has become the world leader in consumer-level cybernetics owning 93% of the market share. Xander Cybernetics is a subsidiary of Cygnus Holdings.",
+    "value": "Entry: Xantech Cybernetics\nSummary: Formed 15 years ago by Xander Vane, Xantech Cybernetics has become the world leader in consumer-level cybernetics, owning 93% of the market share. Xander Cybernetics is a subsidiary of Cygnus Holdings.",
     "description": ""
   },
   {
@@ -2486,7 +2466,7 @@
   },
   {
     "id": "frmPQbCHy5IOW3RM",
-    "value": "Entry: Cygnus Holdings\nSummary: Cygnus Holdings is [REDACTED] and are responsible for [REDACTED]. Their subsidiaries include [LIST REDACTED] and Xantech Cybernetics.",
+    "value": "Entry: Cygnus Holdings\nSummary: Cygnus Holdings is [REDACTED] and is responsible for [REDACTED]. Their subsidiaries include [LIST REDACTED] and Xantech Cybernetics.",
     "description": ""
   },
   {
@@ -2496,7 +2476,7 @@
   },
   {
     "id": "lXLmxUlZljGLQ0rU",
-    "value": "Entry: SummerVault\nSummary: SummerVault was formed 4 years ago. Since its inception, SummerVault has specialized in the sale of personal protection vaults and bunkers. Recently it fought off a controversy relating to their vault subscription service, as the capacity they have is a fraction of the lucrative subscriptions they sold.\nLast year they were acquired by the Sumerian Collective.",
+    "value": "Entry: SummerVault\nSummary: SummerVault was formed 4 years ago. Since its inception, SummerVault has specialized in selling personal protection vaults and bunkers. Recently it fought off a controversy relating to its vault subscription service, as their capacity is a fraction of the lucrative subscriptions they sold.\nLast year, they were acquired by the Sumerian Collective.",
     "description": ""
   },
   {
@@ -2506,7 +2486,7 @@
   },
   {
     "id": "NCmxpDoxmHiNOAMb",
-    "value": "Entry: Sumerian Collective\nSummary: Established 7 years ago, the Sumerian Collective have purchased several companies in varied industries. Ironically, they themselves are now a wholly owned subsidiary of Cygnus Holdings.",
+    "value": "Entry: Sumerian Collective\nSummary: Established 7 years ago, the Sumerian Collective has purchased several companies in varied industries. Ironically, they are now a wholly owned subsidiary of Cygnus Holdings.",
     "description": ""
   },
   {
@@ -2531,7 +2511,7 @@
   },
   {
     "id": "SvD2Srb2XGC63E3O",
-    "value": "Ok, I got to get back to work",
+    "value": "Ok, I got to get back to work.",
     "description": ""
   },
   {
@@ -2566,7 +2546,7 @@
   },
   {
     "id": "vgqKCqhp999R9AqK",
-    "value": "Daisy, I was afraid I would not be a good dog parent but when you walked up to me the first time, I knew I had to try. I want to tell you that you've brought me immeasurable joy and happiness, that you're a ray of sunlight that pierces these dark clouds, that you stirred something in my heart that I never thought I'd feel. I want to tell you these things but I lack an adequate way to express it, so I'll do the best I can and give you all the hugs, walks, and treats that you can take.",
+    "value": "Daisy, I was afraid I would not be a good dog parent, but when you walked up to me the first time, I knew I had to try. I want to tell you that you've brought me immeasurable joy and happiness, that you're a ray of sunlight that pierces these dark clouds, and that you stirred something in my heart that I never thought I'd feel. I want to tell you these things, but I lack a good way to express them, so I'll do my best and give you all the hugs, walks, and treats you can take.",
     "description": ""
   },
   {
@@ -2576,7 +2556,7 @@
   },
   {
     "id": "NxMnhVB4MAXxoTn9",
-    "value": "It breaks me to think of a future without you, without your goofy smile or long walks, without the joy it brings me when you keep me company in my office or when you fall asleep at my feet. I hope you know how much I love you, even when I  make you get off the couch or keep you from eating my breakfast. I hope you know you left a big paw print on my heart that will never dull. ",
+    "value": "It breaks me to think of a future without you, without your goofy smile or long walks, without the joy it brings me when you keep me company in my office or fall asleep at my feet. I hope you know how much I love you, even when I make you get off the couch or keep you from eating my breakfast. I hope you know you left a big paw print on my heart that will never dull.",
     "description": ""
   },
   {
@@ -2586,7 +2566,7 @@
   },
   {
     "id": "uK9HZ1sF3Vj5WTO8",
-    "value": "No matter what happens, I'll always be your dad. I love you sweetie.",
+    "value": "No matter what happens, I'll always be your dad. I love you, sweetie.",
     "description": ""
   },
   {
@@ -2596,7 +2576,7 @@
   },
   {
     "id": "7Cf86gjpP28KMxPS",
-    "value": "Welcome to the Lost Sock. Laundry and dryer services are 5 credits each, detergent is 2 credits.",
+    "value": "Welcome to the Lost Sock. Laundry and dryer services are 5 credits each. Detergent is 2 credits.",
     "description": ""
   },
   {
@@ -2616,7 +2596,7 @@
   },
   {
     "id": "871wJYeO2smdLYBX",
-    "value": "At the Lost Sock we strive to make sure that customers leave with a smile.\n\nSo smile. And leave me alone.",
+    "value": "At The Lost Sock, we strive to ensure customers leave with a smile.\n\nSo smile. And leave me alone.",
     "description": ""
   },
   {
@@ -2656,7 +2636,7 @@
   },
   {
     "id": "e0b4JeeVrtFWHp96",
-    "value": "I know a lot of things. I know that her name is Danni Ashton and that she works for you providing... private laundry services.",
+    "value": "I know a lot of things. I know her name is Danni Ashton, and she works for you providing... private laundry services.",
     "description": ""
   },
   {
@@ -2671,7 +2651,7 @@
   },
   {
     "id": "srti2T01VBv0iuqG",
-    "value": "I don't care what your name is. You have no idea what you're dealing with so take this bit of free advice and leave. Our laundry machines can get even the most stubborn stains out, but they can't wash away broken bones.",
+    "value": "I don't care what your name is. You have no idea what you're dealing with, so take this bit of free advice and leave. Our laundry machines can remove even the most stubborn stains but can't wash away broken bones.",
     "description": ""
   },
   {
@@ -2686,7 +2666,42 @@
   },
   {
     "id": "avG0hOhSxkqMrUPy",
-    "value": "Get your mitts off my computer, Bucko. You even think of getting close to it and you'll find out why they call it a \"terminal.\"",
+    "value": "Get your mitts off my computer, Bucko. If you even think of getting close to it, you'll find out why they call it a \"terminal.\"",
+    "description": ""
+  },
+  {
+    "id": "xbepIYEomyDhRE6d",
+    "value": "You'd better watch you mouth, honey. You're replaceable.",
+    "description": ""
+  },
+  {
+    "id": "dSKZXaT9T31fhjbD",
+    "value": "Replaceable like Danni, your desiccated  fossil? How do you sleep at night?",
+    "description": ""
+  },
+  {
+    "id": "8KZQHFF9vtGyfi0f",
+    "value": "I sleep just fine, thank you. It's called not giving a damn about what dreking slags think.",
+    "description": ""
+  },
+  {
+    "id": "MmRVYkPEia9rcOTO",
+    "value": "It hasn't gone unnoticed that you're not pulling like you used to. Pitty it wasn't you that went missing.",
+    "description": ""
+  },
+  {
+    "id": "lHIf4ceN8ggJUXrL",
+    "value": "The only thing you're pulling is the grim specter of death!",
+    "description": ""
+  },
+  {
+    "id": "Fg85LfV61XIr9oG0",
+    "value": "As I stepped back into this house of laundered dreams, Crystal was already yelling at Gladys, who hadn't even noticed me enter. The unbridled creativity of the former was met with the wicked wealth of vicious experience of the latter.",
+    "description": ""
+  },
+  {
+    "id": "vViyXulyciMWjj3Z",
+    "value": "I would have loved to watch this, but I had a computer to hack.",
     "description": ""
   },
   {
@@ -2701,12 +2716,12 @@
   },
   {
     "id": "Gs6VPuh5b0wSbDFf",
-    "value": "What's next then?",
+    "value": "What's next, then?",
     "description": ""
   },
   {
     "id": "53QOyDQv3se37PEg",
-    "value": "If Glitch is right, then her computer's cloned on this datastick. I just need to plug it into my computer to see everything that's on Glady's. Hopefully that'll lead me somewhere.",
+    "value": "If Glitch is correct, this hacktool contains a copy of Gladys's data. I'll review it on my computer, and hopefully, it'll lead me somewhere.",
     "description": ""
   },
   {
@@ -2751,7 +2766,7 @@
   },
   {
     "id": "Tm7cxOXxwwKuQAdC",
-    "value": "(Better to play long for now)",
+    "value": "(Better to play along for now)",
     "description": ""
   },
   {
@@ -2761,7 +2776,7 @@
   },
   {
     "id": "LdUKQhNHPgdUG6is",
-    "value": "Unacceptable, Mr. Steel. I'm paying good credits for top results. You assured me you could get those results. ",
+    "value": "Unacceptable, Mr. Steel. I'm paying good credits for top results; you assured me you could get those results.",
     "description": ""
   },
   {
@@ -2776,7 +2791,7 @@
   },
   {
     "id": "Z2bgYQOwy28ktlGH",
-    "value": "Don't worry, I won't stop until she's safe.",
+    "value": "Don't worry. I won't stop until she's safe.",
     "description": ""
   },
   {
@@ -2831,12 +2846,12 @@
   },
   {
     "id": "TxnXpPKXdRN7kdx6",
-    "value": "Mustering more bravado than was prudent, I attempted to shove the bouncer aside and quickly came to understand why they call him 'Tank'.",
+    "value": "Mustering more bravado than was prudent, I attempted to shove the bouncer aside and quickly understood why they called him \"Tank.\"",
     "description": ""
   },
   {
     "id": "MV68PwYJAg1fJ2bt",
-    "value": "With the force that a only man born to be a living door might possess, Tank unceremoniously shoved me onto the alleyway floor.",
+    "value": "With force only a man born to be a living door might possess, Tank unceremoniously shoved me onto the alleyway floor.",
     "description": ""
   },
   {
@@ -2846,7 +2861,7 @@
   },
   {
     "id": "by1SIMHwdWXTXNKO",
-    "value": "The safehouse was in the Gutter, not too far away from the Alleycat. I suppose she'd been hiding in plain sight.",
+    "value": "The safe house was in the Gutter, not too far away from the Alleycat. She'd been hiding in plain sight.",
     "description": ""
   },
   {
@@ -2896,17 +2911,17 @@
   },
   {
     "id": "wuBIo1lqaESnS7BP",
-    "value": "That's when I reached out to my friend SegF4ult who's an expert cyberneticist. Once we figured out what was in there, I knew that they'd come looking for me, so I didn't dare reach out to Crystal and put her in danger.",
+    "value": "That's when I contacted my friend SegF4ult, an expert cyberneticist. Once we figured out what was in there, I knew they'd come looking for me, so I didn't dare reach out to Crystal and put her in danger.",
     "description": ""
   },
   {
     "id": "JNOtlPVvcAwVv15n",
-    "value": "What did you find? ",
+    "value": "What did you find?",
     "description": ""
   },
   {
     "id": "mTvrkl2KaE3qZUsl",
-    "value": "Danni had gigabytes of proof that Xantech Cybernetics created Coral for the specific purpose of getting people who bought cybernetics to continue to pay them money... indirectly. They've made billions already.",
+    "value": "Danni had gigabytes of proof that Xantech Cybernetics created Coral to get people who bought cybernetics to continue to pay them money... indirectly. They've made millions already.",
     "description": ""
   },
   {
@@ -2956,7 +2971,7 @@
   },
   {
     "id": "TJPLaFf8GRuFqPjZ",
-    "value": "I bet he thought was real clever for that one. So, how did you find out about me?",
+    "value": "I bet he thought he was real clever for that one. So, how did you find out about me?",
     "description": ""
   },
   {
@@ -2966,12 +2981,12 @@
   },
   {
     "id": "frpfPh1rtXgtNOS8",
-    "value": "Fortunately, there's no way that Xander could have my phone tracked. So an hour ago, we called Crystal on it and she told us all about you.",
+    "value": "Fortunately, there's no way that Xander could have my phone tracked. So an hour ago, we called Crystal, and she told us all about you.",
     "description": ""
   },
   {
     "id": "A2DTXodrtCYOTBsU",
-    "value": "What she said, led us to believe we can trust you.",
+    "value": "What she said led us to believe we could trust you.",
     "description": ""
   },
   {
@@ -2991,7 +3006,7 @@
   },
   {
     "id": "BFBr6C7SIfRXHMpP",
-    "value": "Now I need your help. Xander knows I have this data... and he knows that I'm not dead. He's not going to stop until we make him stop.",
+    "value": "Now I need your help. Xander knows I have this data and knows I'm not dead. He's not going to stop until we make him stop.",
     "description": ""
   },
   {
@@ -3001,12 +3016,12 @@
   },
   {
     "id": "nTg5DYg6lKCwpEbR",
-    "value": "We have to destroy him. With this data.",
+    "value": "We have to destroy him, and we'll do it with this data.",
     "description": ""
   },
   {
     "id": "DOhSOYtWV4KZY5qO",
-    "value": "Hmm... If that data is as damaging as you say, it could possibly take him down. Or at the very least cause so many problems for him that you would be the least of them. What's the plan? Leak it to the press?",
+    "value": "Hmm... If that data is as damaging as you say, it could take him down. Or cause so many problems for him that you would be the least of them. What's the plan? Leak it to the press?",
     "description": ""
   },
   {
@@ -3026,7 +3041,7 @@
   },
   {
     "id": "lnrmypRwkPeUBXWS",
-    "value": "... then he's dreked. He won't be able to spin it or supress it!",
+    "value": "... then he's dreked. He won't be able to spin it or suppress it!",
     "description": ""
   },
   {
@@ -3041,7 +3056,7 @@
   },
   {
     "id": "37fq6SpajA9gteRF",
-    "value": "This is where you come in. We can't risk exposing Danni and I'm, well, I'm more of a coder than a fighter.",
+    "value": "This is where you come in. We can't risk exposing Danni, and I'm, well, I'm more of a coder than a fighter.",
     "description": ""
   },
   {
@@ -3056,12 +3071,12 @@
   },
   {
     "id": "Hk1BuQWtBosX1rgf",
-    "value": "You're going to need to break into the server room at XanTech and plug in a data stick that will override the demo reel.",
+    "value": "You will need to break into the server room at XanTech and plug in a data stick that will override the demo reel.",
     "description": ""
   },
   {
     "id": "dcbMG6d3qCw8oRZF",
-    "value": "Cakewalk.",
+    "value": "Nothing to it.",
     "description": ""
   },
   {
@@ -3071,7 +3086,7 @@
   },
   {
     "id": "HRA32vD4kWffnTmI",
-    "value": "I'm not going to lie, it's not going to be easy. Other than Xander, only Visser has the access codes for the inner sanctum of the data center. Xander doesn't trust anyone else.",
+    "value": "I'm not going to lie; it's not going to be easy. Other than Xander, only Visser has access codes for the inner sanctum of the data center. Xander doesn't trust anyone else.",
     "description": ""
   },
   {
@@ -3176,7 +3191,7 @@
   },
   {
     "id": "uVCLZNTQ7Mpykovb",
-    "value": "Mind the theatrics, Mr. Steel. I won't need to injure a single follicle on her head if you and Danni do exactly as I say.",
+    "value": "Mind the theatrics, Mr. Steel. I won't need to injure a single follicle on her head if you and Danni do precisely as I say.",
     "description": ""
   },
   {
@@ -3186,7 +3201,7 @@
   },
   {
     "id": "hIBsNvOsgPgel3WS",
-    "value": "Isn't it obvious? I want Danni and my client's data. Your friend's health is completely out of my hands now.\n\nMeet me at Building 19 in an hour. I trust you know the way.",
+    "value": "Isn't it obvious? I want both Danni and my client's data. Your friend's health is entirely out of my hands now.\n\nMeet me at Building 19 in an hour. I trust you know the way.",
     "description": ""
   },
   {
@@ -3201,7 +3216,7 @@
   },
   {
     "id": "LLcUyg5sjlwr17xS",
-    "value": "You are going  to do nothing. I'll rescue Crystal.",
+    "value": "You are going to do nothing. I'll go rescue Crystal.",
     "description": ""
   },
   {
@@ -3221,12 +3236,12 @@
   },
   {
     "id": "NtiBDDnTUPq1fTCa",
-    "value": "Visser was holding Crystal close to him, a chrome glint catching the moonlight between them.",
+    "value": "Visser held Crystal close to him, a chrome glint catching the moonlight between them.",
     "description": ""
   },
   {
     "id": "w2yY9g2MExYflYJH",
-    "value": "Blake! Be careful, he's got a gun!",
+    "value": "Blake! Be careful; he's got a gun!",
     "description": ""
   },
   {
@@ -3236,12 +3251,12 @@
   },
   {
     "id": "M2VMhbKnMwBogGYc",
-    "value": "Mr. Ashton... or should I say Johan Visser. Xander Vane's lapdog. ",
+    "value": "Mr. Ashton... or should I say Johan Visser? Xander Vane's lapdog.",
     "description": ""
   },
   {
     "id": "43lFnf3wtdL5MtUs",
-    "value": "Aren't you resourceful.",
+    "value": "Aren't you resourceful?",
     "description": ""
   },
   {
@@ -3261,7 +3276,7 @@
   },
   {
     "id": "vPXIfgZsZj0yBNHE",
-    "value": "It seems you came alone. How disappointing. After I dispose if your two corpses, I guess I'll --",
+    "value": "It seems you came alone. How disappointing. After I dispose of your two corpses, I guess I'll --",
     "description": ""
   },
   {
@@ -3276,12 +3291,12 @@
   },
   {
     "id": "EHiPYOuO5nP6h8Vv",
-    "value": "Taking advantage of Visser's distraction, Crystal rammed her elbow into his chest. Reeling from the unexpected hit, Visser dropped his gun which Crystal promptly kicked away, unfortunately, over the railing.",
+    "value": "Taking advantage of Visser's distraction, Crystal rammed her elbow into his chest. Reeling from the unexpected hit, Visser dropped his gun, which Crystal promptly kicked away, unfortunately, over the railing.",
     "description": ""
   },
   {
     "id": "QFnBkHe6nMtEJVyx",
-    "value": "He took a second too long to recover and I closed our distance with a punch to his face.",
+    "value": "He took a second too long to recover, and I closed our distance with a punch to his face.",
     "description": ""
   },
   {
@@ -3381,12 +3396,12 @@
   },
   {
     "id": "UEghjjwhsFpTUyVf",
-    "value": "Grabbing something from his pocket, Visser leapt at me brandishing a knife.",
+    "value": "Grabbing something from his pocket, Visser leaped at me brandishing a knife.",
     "description": ""
   },
   {
     "id": "03n6HKWrgCqHkR50",
-    "value": "Instinctively, I stepped back and I felt the low railing pressing against my back as my opponent slammed against me.",
+    "value": "Instinctively, I stepped back and felt the low railing pressing against my back as my opponent slammed against me.",
     "description": ""
   },
   {
@@ -3406,7 +3421,7 @@
   },
   {
     "id": "Y9b52ytEZx8PDPcE",
-    "value": "Did you know that in a PG-13 rated movie you're allowed one F-bomb?",
+    "value": "Did you know you're allowed one F-bomb in a movie rated PG-13?",
     "description": ""
   },
   {
@@ -3451,7 +3466,7 @@
   },
   {
     "id": "c9dFeWnCdsVnpehI",
-    "value": "I reached into my pocket and in one perfect motion, jabbed the Coral's outlet right into Visser's port. The effect was immediate.",
+    "value": "In one perfect motion, I reached into my pocket and jabbed the Coral's outlet into Visser's port. The effect was immediate.",
     "description": ""
   },
   {
@@ -3461,7 +3476,7 @@
   },
   {
     "id": "ifg3dTn1ljVSKqsG",
-    "value": "I moved away keeping between this lunatic and Crystal. He screamed, trying to retain control. Lunging forward with all his enhanced might, he missed me and overextended himself.",
+    "value": "I moved away, keeping between this lunatic and Crystal. He screamed, trying to retain control. Lunging forward with all his enhanced might, he missed me and overextended himself.",
     "description": ""
   },
   {
@@ -3481,22 +3496,22 @@
   },
   {
     "id": "ZSFGKNMh5MouWtqo",
-    "value": "Are you two ok, up there?",
+    "value": "Are you two ok up there?",
     "description": ""
   },
   {
     "id": "tJLSHXxpMaHwqb8l",
-    "value": "I think we're good. Stay there, we'll be right over.",
+    "value": "We're good. Stay there; we'll be right over.",
     "description": ""
   },
   {
     "id": "yXqIEfQ2FrM9ujDP",
-    "value": "Wasting no time, we made our way back to the ground floor and reunited with Danni.",
+    "value": "Wasting no time, we returned to the ground floor and reunited with Danni.",
     "description": ""
   },
   {
     "id": "nlF60nQkZdixwx7X",
-    "value": "Oh Danni I'm so glad you're safe!",
+    "value": "Oh, Danni! I'm so glad you're safe!",
     "description": ""
   },
   {
@@ -3546,7 +3561,7 @@
   },
   {
     "id": "RYGQ27DeY2edQQ0K",
-    "value": "Take this datastick. It's got all the data primed for viewing. Seg says to just plug it in and it'll do the rest.",
+    "value": "Take this datastick. It's got all the data primed for viewing. Seg says to plug it in and it'll do the rest.",
     "description": ""
   },
   {
@@ -3611,7 +3626,7 @@
   },
   {
     "id": "dLQoalrRDC7Tk2DL",
-    "value": "*Ksssh* I DON'T CARE. AUTHORIZED PERSONNEL ONLY. AND YOU'RE NOT AUTHORIZED PERSONNEL. *Ksssh*",
+    "value": "*Ksssh* I DON'T CARE. AUTHORIZED PERSONNEL ONLY, AND YOU'RE NOT AUTHORIZED PERSONNEL. *Ksssh*",
     "description": ""
   },
   {
@@ -3626,12 +3641,12 @@
   },
   {
     "id": "HfCDBHJM1gEbqyB5",
-    "value": "Crystal nudged me to give her the coffee and laxative. After mixing them together, she sauntered to the tinman while I hid around the corner.",
+    "value": "Crystal nudged me to give her the coffee and laxative. After mixing them, she sauntered to the tinman while I hid around the corner.",
     "description": ""
   },
   {
     "id": "KTehDJRQVQZbkAi4",
-    "value": "Oh hey there. How are you?",
+    "value": "Oh, hey there. How are you?",
     "description": ""
   },
   {
@@ -3681,7 +3696,7 @@
   },
   {
     "id": "0bvFdJ0cIcTosEmb",
-    "value": "So I made you fresh cup of coffee!",
+    "value": "So I made you a fresh cup of coffee!",
     "description": ""
   },
   {
@@ -3691,7 +3706,7 @@
   },
   {
     "id": "6Z0Hl3lYEic6QtaX",
-    "value": "Eager to make her happy, the tinman opened his helmet and downed the Crystal's unique coffee blend. After a few moments, a horrific sound came from the tinman's stomach.",
+    "value": "Eager to make her happy, the tinman opened his helmet and downed Crystal's unique coffee blend. After a few moments, an awful sound came from the tinman's stomach.",
     "description": ""
   },
   {
@@ -3711,7 +3726,7 @@
   },
   {
     "id": "VNO3iw1jEbiMtMwa",
-    "value": "The server room had an enormous server rack, clearly the nexus of all of  Xantech's data.",
+    "value": "The server room had an enormous server rack, clearly the nexus of Xantech's data.",
     "description": ""
   },
   {
@@ -3731,7 +3746,7 @@
   },
   {
     "id": "oLRmAjfwStBpdlCA",
-    "value": "A few moments passed but nothing seemed to be happening.",
+    "value": "A few moments passed, but nothing seemed to be happening.",
     "description": ""
   },
   {
@@ -3771,32 +3786,32 @@
   },
   {
     "id": "ADCIf3xkEUgiFW2Q",
-    "value": "It was anyone's guess if Xander knew what happened Visser. Perhaps he was too busy with XanCon being in full swing.",
+    "value": "It was anyone's guess if Xander knew what happened to Visser. Perhaps he was too busy with XanCon being in full swing.",
     "description": ""
   },
   {
     "id": "x3Y9xFTNv1RpvnBX",
-    "value": "SegF4ult forged us tickets allowing us to sneak onto the expo floor allowing us to confront Xander Vane.",
+    "value": "SegF4ult forged tickets, allowing us to sneak onto the expo floor and confront Xander Vane.",
     "description": ""
   },
   {
     "id": "C931jQucqCVVtNUD",
-    "value": "Xander Vane, one of the wealthiest men on the planet.",
+    "value": "Xander Vane: one of the wealthiest men on the planet.",
     "description": ""
   },
   {
     "id": "YvScYE5BV32W2Ub9",
-    "value": "Xander Vane, trying to squeeze every single credit from those who have none.",
+    "value": "Xander Vane: trying to squeeze every credit from those with none.",
     "description": ""
   },
   {
     "id": "6jAN32L6ROjJhfgh",
-    "value": "Like Icarus before him, he was flying too close to the sun and it was high time time for him to fall.",
+    "value": "Like Icarus before him, he was flying too close to the sun, and it was high time for him to fall.",
     "description": ""
   },
   {
     "id": "d60XrmsmTL1X1YjC",
-    "value": "We arrived just in time for the keynote event where a smiling Xander addressed a roaring crowd.",
+    "value": "We arrived just in time for the keynote event, where a smiling Xander addressed a roaring crowd.",
     "description": ""
   },
   {
@@ -3836,7 +3851,7 @@
   },
   {
     "id": "iXZ7i7ogrhIQSA1j",
-    "value": "The screen behind Xander flickered and the contents is replaced with video clips and audio logs playing in quick succession.",
+    "value": "The screen behind Xander flickered, and the content was replaced with video clips and audio logs playing in quick succession.",
     "description": ""
   },
   {
@@ -3856,17 +3871,17 @@
   },
   {
     "id": "hTL6xC6x2jIbMJuS",
-    "value": "-- We're making billions!",
+    "value": "-- We're making millions!",
     "description": ""
   },
   {
     "id": "x9VlAF8mMviZdfyU",
-    "value": "The crowd begins to roar, confused -- was this a joke?",
+    "value": "The crowd began to roar, confused -- was this a joke?",
     "description": ""
   },
   {
     "id": "OrQnDDIMfxN8tDSn",
-    "value": "But as horror creeps on Xander's face, they too realized this all too real.",
+    "value": "But as horror crept on Xander's face, they realized this was all too real.",
     "description": ""
   },
   {
@@ -3881,7 +3896,7 @@
   },
   {
     "id": "5fW9PPs0YGuGaQ87",
-    "value": "Visser?! Visser?! Where are you.",
+    "value": "Visser?! Visser?! Where are you?",
     "description": ""
   },
   {
@@ -3896,12 +3911,12 @@
   },
   {
     "id": "WkXvubqU7I3KyOeq",
-    "value": "Like a raging salmon swimming upstream, he pushed his was to us through the crowd formerly adoring fans.",
+    "value": "Like a raging salmon swimming upstream, he pushed his way to us through the crowd of formerly adoring fans.",
     "description": ""
   },
   {
     "id": "AnXoMK9m0lbQ0QAh",
-    "value": "You!? Do you you realize what you've done?! You ruined me!",
+    "value": "You!? Do you realize what you've done?! You ruined me!",
     "description": ""
   },
   {
@@ -3911,7 +3926,7 @@
   },
   {
     "id": "Vm68jbTHQu54ngoG",
-    "value": "You..",
+    "value": "You...",
     "description": ""
   },
   {
@@ -3926,7 +3941,7 @@
   },
   {
     "id": "ZTpMa8tXqn1eMvEc",
-    "value": "Reeling from the blow, Xander's groin is unprepared to meet Danni's knee.",
+    "value": "Reeling from the blow, Xander was unprepared for his groin to meet Danni's knee.",
     "description": ""
   },
   {
@@ -3936,7 +3951,7 @@
   },
   {
     "id": "EYNj0lyIB02Sx9gO",
-    "value": "As he doubles over, she kicks him in the face and he lands on his ass.",
+    "value": "She kicked him in the face as he doubled over, and he landed on his ass.",
     "description": ""
   },
   {
@@ -3946,12 +3961,12 @@
   },
   {
     "id": "T74Vkc6UHxJc5wOI",
-    "value": "You drek... You and your friends are dreking fishined! I will--",
+    "value": "You drek... You and your friends are dreking finished! I will--",
     "description": ""
   },
   {
     "id": "iWwHc15cIuhp0Ovb",
-    "value": "Mid sentence, three men dressed in black, wearing sunglasses and earpieces appear behind Xander.",
+    "value": "Mid-sentence, three black-suited men wearing sunglasses and earpieces appeared behind Xander.",
     "description": ""
   },
   {
@@ -3961,12 +3976,12 @@
   },
   {
     "id": "9d5Fj431hU9qyC7Z",
-    "value": "They don't.",
+    "value": "They didn't.",
     "description": ""
   },
   {
     "id": "ylAdHoOvaBPZeioL",
-    "value": "Mr Vane. You're exhibiting a gross misunderstanding of the situation.",
+    "value": "Mr. Vane. You're exhibiting a gross misunderstanding of the situation.",
     "description": ""
   },
   {
@@ -3976,12 +3991,12 @@
   },
   {
     "id": "VqlaBBxpq3SKeJD0",
-    "value": "Xander's struggles and attempts to make a run for it bear no fruit.",
+    "value": "Xander's struggles and attempts to make an escape were fruitless.",
     "description": ""
   },
   {
     "id": "Q7xPVuNqg0IH92gW",
-    "value": "Almost bored, the lead man in black jabbed Xander with something and \"15\" went limp.",
+    "value": "Almost bored, the lead man in black jabbed Xander with something, and \"15\" went limp.",
     "description": ""
   },
   {
@@ -4001,7 +4016,7 @@
   },
   {
     "id": "pbteevtywSuLd2a7",
-    "value": "I almost feel bad for Xander.",
+    "value": "I almost felt bad for Xander.",
     "description": ""
   },
   {
@@ -4011,12 +4026,12 @@
   },
   {
     "id": "m6MU18GkO3mrmykJ",
-    "value": "It was now time for us make our exit.",
+    "value": "It was now time for us to make our exit.",
     "description": ""
   },
   {
     "id": "e2EBABM6qv1IVHwI",
-    "value": "In the days that followed, Cygnus Holdings publicly denounced Xantech Cybernetics' actions and took control of the company.",
+    "value": "In the following days, Cygnus Holdings publicly denounced Xantech Cybernetics' actions and took control of the company.",
     "description": ""
   },
   {
@@ -4086,12 +4101,12 @@
   },
   {
     "id": "intro01_01",
-    "value": "The acid rain washed the city's neon blood into the Gutter; home for those who ran out of Options.",
+    "value": "The acid rain washed the city's neon blood into the Gutter, home for those who ran out of options.",
     "description": ""
   },
   {
     "id": "intro01_02",
-    "value": "The Gutter wasn't just a cliche metaphor, it was the city's most ruthless and dangerous district. Few chose to live there willingly; when your credits ran dry, there was nowhere else to go.",
+    "value": "The Gutter wasn't just a cliche metaphor; it was the city's most ruthless and dangerous district. Few chose to live there willingly; when your credits ran dry, there was nowhere else to go.",
     "description": ""
   },
   {
@@ -4151,12 +4166,12 @@
   },
   {
     "id": "intro03_10",
-    "value": "It became my blueprint,",
+    "value": "It became my blueprint",
     "description": ""
   },
   {
     "id": "intro03_11",
-    "value": "my bible, until I made",
+    "value": "until I made",
     "description": ""
   },
   {
@@ -4196,7 +4211,7 @@
   },
   {
     "id": "intro04_02",
-    "value": "less than savory friends and then",
+    "value": "less-than-savory friends and then",
     "description": ""
   },
   {
@@ -4261,7 +4276,7 @@
   },
   {
     "id": "check_takeshi_alley",
-    "value": "A garbage filled alleyway that leads to the back of Takeshi's place. No need to go there.",
+    "value": "A garbage-filled alleyway leads to the back of Takeshi's place. No need to go there.",
     "description": ""
   },
   {
@@ -4271,12 +4286,12 @@
   },
   {
     "id": "enter_takeshis2",
-    "value": "I tossed the container in the microwave in the hopes that it would kill anything that started growing. In the pale light of the microwave, amid the drone of its magnatron, I contemplated the absurdity of this situation.",
+    "value": "I tossed the container in the microwave hoping that it would kill anything that started growing. In the pale light of the microwave, amid the drone of its magnetron, I contemplated the absurdity of this situation.",
     "description": ""
   },
   {
     "id": "enter_takeshis3",
-    "value": "A girl goes missing and I'm dumpster diving, robbing corpses, and now making a bowl of r-",
+    "value": "A girl goes missing, and I'm dumpster diving, robbing corpses, and now making a bowl of r-",
     "description": ""
   },
   {
@@ -4306,7 +4321,7 @@
   },
   {
     "id": "glich_check_trash2",
-    "value": "Under a pile of decomposing trash bags, was Takeshi's body. They did a dreking number on him.",
+    "value": "Under a pile of decomposing trash bags was Takeshi's body. They did a dreking number on him.",
     "description": ""
   },
   {
@@ -4316,12 +4331,12 @@
   },
   {
     "id": "glitch_trash_complete",
-    "value": "I wouldn't dive into that dumpster again even if the secret to Danni's disappearance was in there.",
+    "value": "I wouldn't dive into that dumpster again, even if it held the secret to Danni's disappearance.",
     "description": ""
   },
   {
     "id": "alley_atm_description",
-    "value": "ATMs. Cash Machines. Cred Dispensers. Unarmed Bandits. Take your pick. These jackpots let your retrieve your credits... for a fee.",
+    "value": "ATMs. Cash Machines. Cred Dispensers. Unarmed Bandits. Take your pick. These jackpots let you retrieve your credits... for a fee.",
     "description": ""
   },
   {
@@ -4331,12 +4346,12 @@
   },
   {
     "id": "alley_atm_quest_complete",
-    "value": "The deed's done, better not bring any more attention to it.",
+    "value": "The deed's done; better not bring any more attention to it.",
     "description": ""
   },
   {
     "id": "alley_atm_security_desc",
-    "value": "It looked like this bank hired security to babysit the jackpot. These tin men contracts were usually given to lowest bidders.",
+    "value": "It looked like this bank hired security to babysit the jackpot. These tin men contracts were usually given to the lowest bidders.",
     "description": ""
   },
   {
@@ -4346,7 +4361,7 @@
   },
   {
     "id": "cant_leave_alley",
-    "value": "I couldn't leave just yet, not when I still didn't have a lead.",
+    "value": "I couldn't leave yet, not when I still didn't have a lead.",
     "description": ""
   },
   {
@@ -4361,7 +4376,7 @@
   },
   {
     "id": "danni_note_from_gladys",
-    "value": "There was a note dated two days prior, addressed to Danni from someone named Gladys. It read '15 wants to see you tonight, I don't need to remind you that you better bring your A game.'",
+    "value": "A note was dated two days prior, addressed to Danni, from someone named Gladys. It read, \"15 wants to see you tonight, and I don't need to remind you that you better bring your A-game.\"",
     "description": ""
   },
   {
@@ -4411,12 +4426,12 @@
   },
   {
     "id": "danni_id_trace7",
-    "value": "Cassandra was taken into the care of KidCo Orphanages when she was approximately 2 months old. She was never successfully adopted and graduated from KidCo Orphanages at the age of 18.",
+    "value": "Cassandra was taken into the care of KidCo Orphanages when she was approximately 2 months old. She was never successfully adopted and graduated from KidCo Orphanages at 18.",
     "description": ""
   },
   {
     "id": "danni_id_trace8",
-    "value": "The alias 'Danni Ashton' has been tied to her approximately 2 years ago.",
+    "value": "The alias \"Danni Ashton\" was tied to her approximately 2 years ago.",
     "description": ""
   },
   {
@@ -4426,22 +4441,22 @@
   },
   {
     "id": "end_act1_a",
-    "value": "Danni was an orphan and as she was never adopted, she was given the last name 'Null'. Two years ago, she reinvents herself as 'Danni Ashton'... that's about when she met Crystal.",
+    "value": "Cassandra, an orphan never adopted, was given the last name \"Null.\" Two years ago, she reinvented herself as \"Danni Ashton\"... that's about when she met Crystal.",
     "description": ""
   },
   {
     "id": "end_act1_b",
-    "value": "But what bothered me is that if she chose the name 'Danni Ashton' for herself, then who the drek was 'Jacob', the man who hired me and posed as her concerned father?",
+    "value": "But what bothered me is that if she chose the name \"Danni Ashton\" for herself, then who the drek was \"Jacob,\" the man who hired me and posed as her concerned father?",
     "description": ""
   },
   {
     "id": "end_act1_c",
-    "value": "Considering everything I'd uncovered, I'm was more worried for her safety. The problem is that I'm wasn't any closer to finding her.",
+    "value": "Considering everything I'd uncovered, I was more worried for her safety. The problem was that I wasn't any closer to finding her.",
     "description": ""
   },
   {
     "id": "end_act1_d",
-    "value": "I decided to pay her employer, Gladys Aubergine a visit. If I could find out who she was with last, I might get the lead I need.",
+    "value": "I decided to pay her employer, Gladys Aubergine, a visit. If I find out who she was with last, I might get the lead I need.",
     "description": ""
   },
   {
@@ -4451,12 +4466,12 @@
   },
   {
     "id": "blake_start_act2",
-    "value": "Time to hit streets. Daisy, be a good girl while I'm out.",
+    "value": "Time to hit the streets. Daisy, be a good girl while I'm out.",
     "description": ""
   },
   {
     "id": "just_got_visser_photo1",
-    "value": "Holy dreking hell! This is a photo of Jacob Ashton! Danni was with 15, whoever they are, and Jacob- I mean JV picked her up! What did they do to her? Why do they want to find her?",
+    "value": "Holy dreking hell! This is a photo of Jacob Ashton! Danni was with 15, whoever they were, and Jacob- I mean, JV picked her up! Why do they want to find her? What did they do to her?",
     "description": ""
   },
   {
@@ -4486,12 +4501,12 @@
   },
   {
     "id": "parcel_trace5",
-    "value": "SummerVault? Let's add the to the database search.",
+    "value": "SummerVault? Let's add them to them database search.",
     "description": ""
   },
   {
     "id": "get_call_from_danni1",
-    "value": "The cool night air carrying the acrid fumes of this district caresses my face like a vengeful lover. The distant industrial music is pierced by a much closer, higher pitched sound.",
+    "value": "The cool night air carrying the acrid fumes of this district caressed my face like a vengeful lover. The distant industrial music was pierced by a much closer, higher-pitched sound.",
     "description": ""
   },
   {
@@ -4501,7 +4516,7 @@
   },
   {
     "id": "get_call_from_danni3",
-    "value": "I don't recognize the number, and sensing my hesitation, it chimes again like a child demanding attention.",
+    "value": "I didn't recognize the number, and sensing my hesitation, it chimed again like a child demanding attention.",
     "description": ""
   },
   {
@@ -4511,37 +4526,37 @@
   },
   {
     "id": "end_act2_a",
-    "value": "My mind raced faster than Coral through a junkie's wetware. The woman I've been spending all night looking for had found me instead.",
+    "value": "My mind raced faster than Coral through a junkie's wetware. The woman I'd been spending all night looking for had found me instead.",
     "description": ""
   },
   {
     "id": "end_act2_b",
-    "value": "While I was sneaking around the industrial district, she called Crystal who vouched for me.",
+    "value": "While I was sneaking around the industrial district, she called Crystal, who vouched for me.",
     "description": ""
   },
   {
     "id": "end_act2_c",
-    "value": "Danni gave me the address a friend's safehouse, someone who helped her lie low until now.",
+    "value": "Danni gave me the address of a friend's safe house, someone who helped her lie low until now.",
     "description": ""
   },
   {
     "id": "end_act2_d",
-    "value": "It was finally time to meet Danni Ashton and find out why Johan Visser has been looking for her.",
+    "value": "It was finally time to meet Danni Ashton and discover why Johan Visser had paid me to find her.",
     "description": ""
   },
   {
     "id": "gladys_is_too_mean",
-    "value": "I wasn't going to get anywhere with that museum exhibit. However, if I could get my hands on her computer, I was certain I could learn a few interesting things.",
+    "value": "I wasn't going to get anywhere with that museum exhibit. However, I knew I would learn a few interesting things if I could get my hands on her computer.",
     "description": ""
   },
   {
     "id": "laundromat_closed",
-    "value": "The door was locked. Through the window, I could see an old woman but she waved me away. I'll would have to come back later.",
+    "value": "The door was locked. I saw an old woman through the window, but she waved me away. I'd have to come back later.",
     "description": ""
   },
   {
     "id": "laundry_xantech_poster1",
-    "value": "The poster announced the yearly XanCon expo, hosted by Xantech Cybernetics. All of Xantech's latest exercise in planned obsolescence will be on display tomorrow night.",
+    "value": "The poster announced the yearly XanCon expo hosted by Xantech Cybernetics. All of Xantech's latest spectacles of planned obsolescence will be on display tomorrow night.",
     "description": ""
   },
   {
@@ -4551,22 +4566,22 @@
   },
   {
     "id": "laundry_fight",
-    "value": "As I stepped back into this house of laundered promises, Crystal was already here yelling at Gladys, who's hadn't even noticed me enter. Crystal's unbridled creativity in the insults she was hurling at Gladys was the second time this woman's caused me to blush. Gladys was no slouch though, and what she couldn't muster in youthful creativity, she more than made up with her ancient wealth of experience. As much as I would have loved to watch this, I had a job to do.",
+    "value": "As I stepped back into this house of laundered promises, Crystal was already yelling at Gladys, who hadn't even noticed me enter. Crystal's unbridled creativity in the insults she was hurling at Gladys was the second time this woman's caused me to blush. Gladys was no slouch; what she couldn't muster in youthful creativity, she more than made up with her ancient wealth of experience. I would have loved to watch this, but I had a computer to hack.",
     "description": ""
   },
   {
     "id": "hack_gladys_computer",
-    "value": "Sneaking behind a very occupied Gladys, I plugged Glitch's hacktool on the back of her computer. A green light blinked twice letting me know that the device was ready. Slinking away, I winked at Crystal to let her know my work here is done.",
+    "value": "Sneaking behind a very occupied Gladys, I plugged Glitch's hacktool into the back of her computer. When a green light blinked twice, the deed was done, and the data was mine. Slinking away, I winked at Crystal to signal I got what I came for.",
     "description": ""
   },
   {
     "id": "need_gladys_distraction",
-    "value": "That old witch would never let me get close enough to place the hacktool. I needed to find a way to distract her.",
+    "value": "That old witch would never let me close enough to place the hacktool. I needed to find a way to distract her.",
     "description": ""
   },
   {
     "id": "thank_crystal_for_help",
-    "value": "A few moments after I stepped out of the Lost Sock, Crystal leaved in a huff. She was either an accomplished actress or perhaps the argument between them was a long time coming.",
+    "value": "A few moments after I stepped out of the Lost Sock, Crystal left in a huff. She was either an accomplished actress, or the argument between them was a long time coming.",
     "description": ""
   },
   {
@@ -4576,12 +4591,12 @@
   },
   {
     "id": "gladys_busy_fighting",
-    "value": "Gladys exploded forth a geyser of invectives at Crystal. She's wasn't paying me any attention and I wanted to keep it that way.",
+    "value": "Gladys exploded forth a geyser of invectives at Crystal. I don't think she even knew I was there, and I wanted to keep it that way.",
     "description": ""
   },
   {
     "id": "b19_pick_storage_lock",
-    "value": "Typing the keycode I got from Acid Nova, the door opened without any issues.",
+    "value": "Typing the keycode I got from Acid Nova, the door opened without issues.",
     "description": ""
   },
   {
@@ -4591,17 +4606,17 @@
   },
   {
     "id": "get_coral",
-    "value": "The red plastic capsule caught my attention, its ruby red color in sharp contrast to the gloom of the storeroom. I've been hearing a lot about this little capsule all night and with my lack of cybernetics, its siren's song fell on deaf ears. I didn't know why I picked it up, but I pocketed the capsule of Coral.",
+    "value": "The red plastic capsule caught my attention, its ruby red color in sharp contrast to the gloom of the storeroom. I've been hearing a lot about this little pill, and with my lack of cybernetics, its siren's song fell on deaf ears. I didn't know why, but I pocketed the Coral.",
     "description": ""
   },
   {
     "id": "open_boxes1",
-    "value": "I pulled out a pocket knife and opened one of the boxes. I don't know what to expect, but nothing could prepare me for what was inside.",
+    "value": "I pulled out a pocket knife and opened one of the boxes. I didn't know what to expect, but nothing could prepare me for what was inside...",
     "description": ""
   },
   {
     "id": "open_boxes2",
-    "value": "Flattened out boxes and other packing materials.",
+    "value": "... Flattened out boxes and other packing materials.",
     "description": ""
   },
   {
@@ -4611,7 +4626,7 @@
   },
   {
     "id": "get_parcel_number2",
-    "value": "Rifling through the papers, I found an old permit. It contained the parcel number for this building which I would be able to check on the GovLink.",
+    "value": "Rifling through the papers, I found an old permit containing the parcel number for this building, which I could look up on the GovLink.",
     "description": ""
   },
   {
@@ -4631,12 +4646,12 @@
   },
   {
     "id": "b19_cant_leave_yet",
-    "value": "I had the feeling there was more for me uncover here.",
+    "value": "I had the feeling there was more for me to uncover here.",
     "description": ""
   },
   {
     "id": "danni_story1",
-    "value": "... my client had just thrown a large party and he wanted me to be the eye-candy hanging off of his arm.",
+    "value": "My client had just thrown a large party and wanted me to be the eye candy hanging off his arm.",
     "description": ""
   },
   {
@@ -4656,7 +4671,7 @@
   },
   {
     "id": "danni_story5",
-    "value": "But it wasn't Coral and I started convulsing.",
+    "value": "But it wasn't Coral, and I started convulsing.",
     "description": ""
   },
   {
@@ -4666,7 +4681,7 @@
   },
   {
     "id": "danni_story7",
-    "value": "The data I thought was Coral was still in my head. I didn't know what it contained but I knew I wasn't supposed to have it.",
+    "value": "The data I thought was Coral was still in my head. I didn't know what it contained but knew I wasn't supposed to have it.",
     "description": ""
   },
   {
@@ -4691,7 +4706,7 @@
   },
   {
     "id": "b19r_use_storage",
-    "value": "There was no time to waste looking on this floor, I needed to go up!",
+    "value": "There was no time to waste on this floor; I needed to go up!",
     "description": ""
   },
   {
@@ -4736,12 +4751,12 @@
   },
   {
     "id": "xantech_coffee_machine",
-    "value": "The coffee from this machine smelled real good. I decided to take a cup. And why not? I deserved it.",
+    "value": "The coffee from this machine smelled delicious. I decided to take a cup. And why not? I deserved it.",
     "description": ""
   },
   {
     "id": "xantech_has_coffee",
-    "value": "I drank deeply from the coffee I'd gotten earlier. It was everything I wanted in a cup of coffee. I then decided to take another cup.",
+    "value": "I drank deeply from the cup I'd gotten earlier; it was everything I wanted in coffee. I then decided to take another.",
     "description": ""
   },
   {
@@ -4796,7 +4811,7 @@
   },
   {
     "id": "credits_thanks1",
-    "value": "Special thanks to all the member of the",
+    "value": "Special thanks to all the members of the",
     "description": ""
   },
   {
@@ -4836,12 +4851,12 @@
   },
   {
     "id": "inv_takeshi_key",
-    "value": "*A keycard to Takeshi's Noodle's.",
+    "value": "*A keycard to Takeshi's Noodles.",
     "description": ""
   },
   {
     "id": "inv_takeshi_noods",
-    "value": "*An extremely questionable bowl of noodles.",
+    "value": "*A highly questionable bowl of noodles.",
     "description": ""
   },
   {
@@ -4861,7 +4876,7 @@
   },
   {
     "id": "inv_danni_id",
-    "value": "*Danni's government issued ID.",
+    "value": "*Danni's government-issued ID.",
     "description": ""
   },
   {
@@ -4897,6 +4912,36 @@
   {
     "id": "inv_coffee",
     "value": "*A fresh cup of coffee.",
+    "description": ""
+  },
+  {
+    "id": "OuhURObWpjGrvd9f",
+    "value": "Foul-smelling Dumpster",
+    "description": ""
+  },
+  {
+    "id": "oHmidqwaUfIAbHQ3",
+    "value": "The acid rain washed the city's neon blood into the Gutter, home for those who ran out of options.\n\n\n\nThe Gutter wasn't just a cliche metaphor; it was the city's most ruthless and dangerous district. Few chose to live there willingly; when your credits ran dry, there was nowhere else to go.",
+    "description": ""
+  },
+  {
+    "id": "E3VEsA5huxXrrh6e",
+    "value": "Danni Ashton fell in with some less-than-savory friends and then fell off the face of the Earth.\n\nHer father, Jacob, is paying me very well to find her. \nToo well. \n\nSomething didn't smell right, but I was leaking green and had bills to pay, so I plugged my nose and took the job. \n\nShe was addicted to Coral, the latest in designer drugs, and anyone chasing the ruby slippers would invariably end up...",
+    "description": ""
+  },
+  {
+    "id": "nC5HDHaaQA2I3ruU",
+    "value": "Blake Steel: private investigator. I took the name from a trashy crime serial. \n\nTo a lost kid from the Gutter, that two-credit detective novel promised a new life away from all the filth. \n\nIt became my blueprint until I made it out alive. \n\nNow I was back, walking alone down these familiar alleys brimming with human waste and wasted humans, looking for someone else who got lost. ",
+    "description": ""
+  },
+  {
+    "id": "r3eJZMtjiXHGaQkI",
+    "value": "The police kept their distance from the Gutter as it didn't serve their corporate interests.\n\n\n\nIf you wanted justice, you either took matters into your own hands or scrounged together enough to hire someone like me.",
+    "description": ""
+  },
+  {
+    "id": "HO4Vr0LlJR3DuSQ4",
+    "value": "... the Gutter",
     "description": ""
   }
 ]

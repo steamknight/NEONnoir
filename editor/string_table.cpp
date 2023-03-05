@@ -4,6 +4,8 @@
 #include <random>
 #include "string_table.h"
 
+#include "utils.h"
+
 using json = nlohmann::json;
 using ordered_json = nlohmann::ordered_json;
 namespace fs = std::filesystem;
@@ -45,6 +47,24 @@ namespace NEONnoir
         auto index = id_index_map.at(string_id);
 
         return string_entries[index].value;
+    }
+
+    std::string& string_table::get_string_latin1(std::string const& string_id)
+    {
+        ensure_valid_id(string_id);
+        auto index = id_index_map.at(string_id);
+
+        string_entries[index].value_latin1 = UTF8toISO8859_1(string_entries[index].value.c_str());
+        return string_entries[index].value_latin1;
+    }
+
+    std::vector<word> const& string_table::get_words_latin1(std::string const& string_id)
+    {
+        ensure_valid_id(string_id);
+        calculate_words(string_id);
+
+        auto index = id_index_map.at(string_id);
+        return string_entries[index].words_latin1;
     }
 
     void string_table::remove_string(std::string const& string_id)
@@ -155,6 +175,35 @@ namespace NEONnoir
         if (string_entries.size() <= index)
         {
             throw std::runtime_error{ std::format("String id '{}' with index {} is out bounds", string_id, index) };
+        }
+    }
+
+    void string_table::calculate_words(std::string const& string_id)
+    {
+        auto index = id_index_map.at(string_id);
+        auto& text = string_entries[index].value_latin1;
+        auto& word_list = string_entries[index].words_latin1;
+
+        i32 begin_idx = 0;
+        i32 current = 0;
+
+        word_list.clear();
+        while (begin_idx < string_entries[index].value_latin1.size())
+        {
+            current = begin_idx;
+            while (current < text.size() && text[current] != ' ' && text[current] != '\n')
+            {
+                current++;
+            }
+
+            word_list.push_back({ begin_idx, current - 1 });
+
+            if (text[current] == '\n')
+            {
+                word_list.push_back({});
+            }
+
+            begin_idx = current + 1;
         }
     }
 

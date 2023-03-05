@@ -11,6 +11,7 @@ namespace NEONnoir
 
     ImVec2 operator-(ImVec2 const& lhs, ImVec2 const& rhs) noexcept;
 
+    ImVec2 operator*(ImVec2 const& lhs, ImVec2 const& rhs) noexcept;
     ImVec2 operator*(ImVec2 const& lhs, float scalar) noexcept;
     ImVec2 operator*(ImVec2 const& lhs, int scalar) noexcept;
 
@@ -54,8 +55,22 @@ namespace NEONnoir
 
     namespace imgui
     {
+        template<class T>
+        struct button_option
+        {
+            ::std::string_view name;
+            ::std::string_view label;
+            T value;
+        };
+
         ImGui_guard table(::std::string_view const& id, int columns_count, ImGuiTableFlags flags = 0, ImVec2 const& outer_size = ImVec2(0.0f, 0.0f), float inner_width = 0.0f);
         ImGui_guard popup(::std::string_view const& id, ImGuiWindowFlags flags = ImGuiWindowFlags_None);
+        ImGui_guard push_style_color(ImGuiCol idx, const ImVec4& col);
+
+        bool toggle_button(::std::string_view const& id, ::std::string_view const& label, bool& value, const ImVec2& size = ImVec2(0, 0));
+
+        template<class T, size_t N>
+        T button_combo(::std::array<button_option<T>, N> const& options);
 
         template<class T>
         ImGui_guard push_id(T* pointer)
@@ -67,6 +82,27 @@ namespace NEONnoir
         ImGui_guard push_id(int id);
 
         void combo_with_empty(std::vector<std::string> const& values, NEONnoir::u16& selected_value);
-    };
 
+        template<class T, size_t N>
+        T button_combo(::std::array<button_option<T>, N> const& options, T value)
+        {
+            auto selected_button_color = ImGui::GetStyleColorVec4(ImGuiCol_Button);
+            auto unselected_button_color = ImGui::GetStyleColorVec4(ImGuiCol_WindowBg);
+
+            auto result = value;
+            for (auto const& option : options)
+            {
+                auto style = push_style_color(ImGuiCol_Button, option.value == value ? selected_button_color : unselected_button_color);
+                if (ImGui::Button(option.name.data()))
+                {
+                    result = option.value;
+                }
+                ToolTip(option.label.data());
+
+                ImGui::SameLine();
+            }
+
+            return result;
+        }
+    };
 }

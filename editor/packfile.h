@@ -80,6 +80,9 @@ namespace NEONnoir
         u16 first_region_id{ 0xFFFF };
         u16 last_region_id{ 0xFFFF };
 
+        u16 first_text_id{ 0xFFFF };
+        u16 last_text_id{ 0xFFFF };
+
         u16 music_id{ 0xFFFF };
     };
 
@@ -98,6 +101,16 @@ namespace NEONnoir
         u16 description_id{ 0xFFFF };
         u16 goto_scene{ 0xFFFF };
         u16 script_offset{ 0xFFFF };
+    };
+
+    constexpr char text_regions_header[4] = { 'T', 'E', 'X', 'T' };
+    struct neon_text_region
+    {
+        u16 x{ 0 }, y{ 0 };
+        u16 width{ 0 };
+        u16 text_id{ NO_INDEX };
+        char justify{ 0 };
+        char center_vertical{ 0 };
     };
 
     struct neon_dialogues_header
@@ -201,6 +214,7 @@ namespace NEONnoir
         std::vector<neon_location> locations;
         std::vector<neon_scene> scenes;
         std::vector<neon_region> regions;
+        std::vector<neon_text_region> text_regions;
         std::vector<neon_dialogue> dialogues;
         std::vector<neon_page> pages;
         std::vector<neon_choice> choices;

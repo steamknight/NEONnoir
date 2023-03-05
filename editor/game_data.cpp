@@ -31,6 +31,7 @@ namespace NEONnoir
         shapes
     );
 
+
     DEFINE_ORDERED_TYPE(
         game_data_region,
         x, y,
@@ -40,6 +41,21 @@ namespace NEONnoir
         goto_scene,
         description_id,
         script
+    );
+
+    NLOHMANN_JSON_SERIALIZE_ENUM(textbox_justification, {
+        {textbox_justification::left, "left"},
+        {textbox_justification::center, "center"},
+        {textbox_justification::right, "right"},
+     });
+
+    DEFINE_ORDERED_TYPE(
+        game_data_text_region,
+        x, y,
+        width,
+        justification,
+        center_vertically,
+        text_id
     );
 
     DEFINE_ORDERED_TYPE(
@@ -56,7 +72,8 @@ namespace NEONnoir
         offset_x,
         offset_y,
         music_id,
-        regions
+        regions,
+        text_regions
     );
 
     DEFINE_ORDERED_TYPE(
@@ -133,8 +150,16 @@ namespace NEONnoir
     );
 
     DEFINE_ORDERED_TYPE(
+        font,
+        width,
+        height,
+        file_path
+    );
+
+    DEFINE_ORDERED_TYPE(
         game_data,
         manifest,
+        default_font,
         locations,
         dialogues,
         speakers,
@@ -148,12 +173,13 @@ namespace NEONnoir
         {
             auto root = ordered_json
             {
-                { "manifest", ordered_json(manifest)},
-                { "locations", ordered_json(locations)},
-                { "dialogues", ordered_json(dialogues)},
-                { "speakers", ordered_json(speakers)},
-                { "script_name", script_name},
-                { "save_on_export", script_name},
+                { "manifest", ordered_json(manifest) },
+                { "default_font", ordered_json(default_font) },
+                { "locations", ordered_json(locations) },
+                { "dialogues", ordered_json(dialogues) },
+                { "speakers", ordered_json(speakers) },
+                { "script_name", script_name },
+                { "save_on_export", script_name },
             };
 
             savefile << root.dump(2);
@@ -203,6 +229,11 @@ namespace NEONnoir
             {
                 speaker.image = MPG::load_image(speaker.image_path);
                 speaker.image_texture = load_texture(speaker.image);
+            }
+
+            if (fs::exists(data.default_font.file_path))
+            {
+                data.default_font.texture = load_texture(MPG::load_image(data.default_font.file_path, true));
             }
 
             //// begin temporary

@@ -6,7 +6,7 @@ namespace NEONnoir
     class manifest_editor : public editor_window_base
     {
     public:
-        manifest_editor(std::shared_ptr<game_data> data) : editor_window_base(data) { };
+        manifest_editor(std::shared_ptr<game_data> data, GLFWwindow* window) : editor_window_base(data, window) { };
         virtual ~manifest_editor() = default;
 
     private:

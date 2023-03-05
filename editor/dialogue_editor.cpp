@@ -55,11 +55,11 @@ namespace NEONnoir
             for (auto& page : _data->dialogues[bottom_index].pages)
             {
                 // Update the links between pages and choices
-                if (page.next_page_id != 0xFFFF) page.next_page_id += last_page_index;
+                if (page.next_page_id != NO_INDEX) page.next_page_id += last_page_index;
 
                 for (auto& choice : page.choices)
                 {
-                    if (choice.next_page_id != 0xFFFF) choice.next_page_id += last_page_index;
+                    if (choice.next_page_id != NO_INDEX) choice.next_page_id += last_page_index;
                 }
 
                 _data->dialogues[top_index].pages.push_back(page);
@@ -183,12 +183,12 @@ namespace NEONnoir
             auto const insert_begin = dialogue.pages.begin() + create_index.value() + 1;
             std::for_each(insert_begin, dialogue.pages.end(), [](dialogue_page& page)
                 {
-                    if (page.next_page_id != 0xFFFF)
+                    if (page.next_page_id != NO_INDEX)
                         page.next_page_id++;
 
                     for (auto& choice : page.choices)
                     {
-                        if (choice.next_page_id != 0xFFFF) choice.next_page_id += 1;
+                        if (choice.next_page_id != NO_INDEX) choice.next_page_id += 1;
                     }
                 });
         }
@@ -214,14 +214,14 @@ namespace NEONnoir
             std::for_each(dialogue.pages.begin() + delete_index.value(), dialogue.pages.end(),
                 [](dialogue_page& page)
                 {
-                    if (page.next_page_id != 0xFFFF)
+                    if (page.next_page_id != NO_INDEX)
                     {
                         page.next_page_id--;
                     }
 
                     for (auto& choice : page.choices)
                     {
-                        if (choice.next_page_id != 0xFFFF) choice.next_page_id -= 1;
+                        if (choice.next_page_id != NO_INDEX) choice.next_page_id -= 1;
                     }
                 }
             );

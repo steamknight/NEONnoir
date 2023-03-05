@@ -15,7 +15,7 @@ namespace NEONnoir
     class script_editor : editor_window_base
     {
     public:
-        script_editor(std::shared_ptr<game_data> data) : editor_window_base(data) { };
+        script_editor(std::shared_ptr<game_data> data, GLFWwindow* window) : editor_window_base(data, window) { };
         virtual ~script_editor() = default;
 
         void display(ImFont* font);

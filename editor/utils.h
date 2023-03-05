@@ -13,6 +13,8 @@ namespace NEONnoir
     void write(std::ofstream& stream, u16 value);
     void write(std::ofstream& stream, u32 value);
 
+    std::string UTF8toISO8859_1(const char* in);
+
 #define make_id(label, value) std::format((label), (size_t)&value).c_str()
 
 }

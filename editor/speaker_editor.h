@@ -9,7 +9,7 @@ namespace NEONnoir
     class speaker_editor : public editor_window_base
     {
     public:
-        speaker_editor(std::shared_ptr<game_data> data) : editor_window_base(data) { };
+        speaker_editor(std::shared_ptr<game_data> data, GLFWwindow* window) : editor_window_base(data, window) { };
         virtual ~speaker_editor() = default;
 
     private:

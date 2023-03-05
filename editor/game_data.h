@@ -10,6 +10,8 @@
 
 namespace NEONnoir
 {
+    constexpr u16 NO_INDEX = 0xFFFF;
+
     enum class game_data_chunk_type : u32
     {
         location = 1,
@@ -24,10 +26,89 @@ namespace NEONnoir
         u16 width{ 0 }, height{ 0 };
         u16 shape_id{ 0 };
         u16 pointer_id{ 0 };
-        u16 goto_scene{ 0xFFFF };
+        u16 goto_scene{ NO_INDEX };
         std::string description_id;
         std::string script;
     };
+
+    enum textbox_justification : u16
+    {
+        left,
+        center,
+        right
+    };
+    struct game_data_text_region
+    {
+        float x{ 0.f }, y{ 0.f };
+        float width{ 0.f };
+        textbox_justification justification{ textbox_justification::left };
+        bool center_vertically{ false };
+        std::string text_id{};
+    };
+
+    // TODO: This is for a future update
+    //enum class region_display : u16
+    //{
+    //    invisible,
+    //    text,
+    //    shape
+    //};
+
+    //struct region_view
+    //{
+    //    region_display display{ region_display::invisible };
+    //    u16 shape_id{ NO_INDEX };
+    //    u16 text_width_in_chars{ 0 };
+    //    bool has_text_frame{ true };
+    //    std::string text_id{};
+    //};
+
+    //struct game_data_region_v2
+    //{
+    //    u16 x{ 0 }, y{ 0 };
+    //    u16 width{ 0 }, height{ 0 };
+
+    //    region_view active{};
+    //    region_view hovered{};
+
+    //    bool has_hover_state{ false };
+    //    bool has_action{ false };
+
+    //    u16 pointer_id{ 0 };
+    //    u16 goto_scene{ NO_INDEX };
+    //    std::string script;
+    //};
+
+    // OG regions would be:
+    //  x, y, witdth, height as usual
+    //  active.display = invisible
+    //  hover.display = text
+    //  hover.has_text_frame = true
+    //  has_hover_state = true
+    //  has_action = true
+
+    // Text sections would be:
+    // x, y as usual
+    // width and height are calculated in game based on font
+    // active.display = text
+    // active.text_width_in_chars = whatever is wanted
+    // active.has_text_frame = false
+    // hover.display = invisible
+    // has_hover_state = false
+    // has_action = false
+
+    // Shape buttons would be:
+    // x, y, width, height as usual
+    // active.display = shape
+    // active.shape_id = whatever shape id local to the location
+    // has_hover_state = true/false depending
+    // hover.display = shape
+    // hover.shape_id = hover state shape id
+    // has_action = true
+
+    // Menu items would have some trickery. First a 
+
+    
 
     struct game_data_scene
     {
@@ -39,8 +120,9 @@ namespace NEONnoir
         u16 view_x{ 0 }, view_y{ 0 };
         u16 view_width{ 0 }, view_height{ 0 };
         u16 offset_x{ 0 }, offset_y{ 0 };
-        u16 music_id{ 0xFFFF };
+        u16 music_id{ NO_INDEX };
         std::vector<game_data_region> regions;
+        std::vector<game_data_text_region> text_regions;
     };
 
     struct shape
@@ -66,7 +148,7 @@ namespace NEONnoir
         std::vector<shape_container> shapes;
         std::vector<GLtexture> shapes_textures;
         std::string shapes_file;
-        std::vector<u16> speakers{ 0, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF };
+        std::vector<u16> speakers{ 0, NO_INDEX, NO_INDEX, NO_INDEX, NO_INDEX, NO_INDEX, NO_INDEX, NO_INDEX };
     };
 
     struct dialogue_choice
@@ -77,7 +159,7 @@ namespace NEONnoir
         std::string clear_flag;
         std::string check_flag;
         std::string add_item;
-        u16 next_page_id{ 0xFFFF };
+        u16 next_page_id{ NO_INDEX };
         bool enabled{ true };
         bool self_disable{ false };
         bool has_script{ false };
@@ -93,8 +175,8 @@ namespace NEONnoir
         std::string clear_flag;
         std::string check_flag;
         std::vector<dialogue_choice> choices;
-        u16 next_page_id{ 0xFFFF };
-        u16 speaker_id{ 0xFFFF };
+        u16 next_page_id{ NO_INDEX };
+        u16 speaker_id{ NO_INDEX };
         bool enabled{ true };
         bool self_disable{ false };
         bool has_set_flag{ false };
@@ -139,6 +221,14 @@ namespace NEONnoir
         u32 build_number{ 0 };
     };
 
+    struct font
+    {
+        float width{ 6.f };
+        float height{ 8.f };
+        std::filesystem::path file_path{};
+        GLtexture texture;
+    };
+
     struct game_data
     {
         project_manifest manifest;
@@ -152,6 +242,8 @@ namespace NEONnoir
 
         i32 shape_start_id{ 10 };
         bool save_on_export{ true };
+
+        font default_font;
 
         // Default color palette for the game UI.
         MPG::color_palette ui_palette

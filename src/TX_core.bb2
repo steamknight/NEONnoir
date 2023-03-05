@@ -3,12 +3,6 @@
 ; -----------------------------------------------------------------------------
 ; Text display functions
 ; Prefix TX = Text facilities
-;
-; Needs two Buffers, 0 and 1. Buffer 0 draws the frame and text
-; while draws the blinking caret.
-;
-
-#primary = 0
 
 DEFTYPE .w TX_frame_x, TX_frame_y
 
@@ -492,47 +486,3 @@ Function .l TX_put_text{context.l, id.w, line_width.w}
   Function Return size
 End Function
 
-; context = TX_begin{}
-; TX_render{context, "hello"}
-; TX_render_wrapped{context, "hello", 32}
-; TX_end{context, x, y}
-
-; context = TX_begin{}
-; TX_render_wrapped{context, "*Choice 1"}
-; TX_render_wrapped{context, "*Choice 2"}
-; TX_render_wrapped{context, "*Choice 3"}
-; TX_end{context, x, y}
-
-; Hello, this is\na string.
-
-; 0 5 7 10 12 13 -1 15 15 17 22
-
-
-; NEWTYPE .TX_context
-;   max_width.w
-;   y_position.w
-; End NEWTYPE
-
-; NEWTYPE .NN_rect
-;   x.w
-;   y.w
-;   w.w
-;   h.w
-; End NEWTYPE
-
-; Function .l TX_begin{}
-;   BitMap #TX_scratch_bmp, #NN_screen_width, #NN_screen_height, #NN_screen_bpp
-;   Use BitMap #TX_scratch_bmp
-
-;   Function Return #TX_frame_size
-; End Function
-
-; Function .l TX_get_rect{id.w, wrap_width.w}
-;   !__use_string_table{}
-
-;   DEFTYPE .l addr, strlen
-;   addr = !__get_string_addr{id}
-;   strlen = Peek.w(addr - 2)
-
-
-; End Function

@@ -15,6 +15,11 @@ namespace NEONnoir
         return ImVec2(lhs.x - rhs.x, lhs.y - rhs.y);
     }
 
+    ImVec2 operator*(ImVec2 const& lhs, ImVec2 const& rhs) noexcept
+    {
+        return ImVec2(lhs.x * rhs.x, lhs.y * rhs.y);
+    }
+
     ImVec2 operator*(ImVec2 const& lhs, float scalar) noexcept
     {
         return ImVec2(lhs.x * scalar, lhs.y * scalar);
@@ -124,8 +129,29 @@ namespace NEONnoir
         return ImGui_guard
         {
             &ImGui::EndPopup,
-            ImGui::BeginPopup(id.data(),flags)
+            ImGui::BeginPopup(id.data(), flags)
         };
+    }
+
+    ImGui_guard imgui::push_style_color(ImGuiCol idx, const ImVec4& col)
+    {
+        ImGui::PushStyleColor(idx, col);
+        return ImGui_guard
+        {
+            []() {ImGui::PopStyleColor(); } ,
+            true
+        };
+    }
+
+    bool imgui::toggle_button(::std::string_view const& id, ::std::string_view const& label, bool& value, const ImVec2& size)
+    {
+        auto selected_button_color = ImGui::GetStyleColorVec4(ImGuiCol_Button);
+        auto unselected_button_color = ImGui::GetStyleColorVec4(ImGuiCol_WindowBg);
+        auto style = push_style_color(ImGuiCol_Button, value ? selected_button_color : unselected_button_color);
+        auto result = ImGui::Button(id.data(), size);
+        ToolTip(label.data());
+
+        return result;
     }
 
     ImGui_guard imgui::push_id(int id)

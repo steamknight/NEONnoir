@@ -8,7 +8,7 @@ namespace NEONnoir
     class location_browser : public editor_window_base
     {
     public:
-        location_browser(std::shared_ptr<game_data> data) : editor_window_base(data) { };
+        location_browser(std::shared_ptr<game_data> data, GLFWwindow* window) : editor_window_base(data, window) { };
         virtual ~location_browser() = default;
 
         bool is_scene_selected() const noexcept;

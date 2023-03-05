@@ -55,7 +55,7 @@ namespace MPG
     simple_image_format determine_image_format(std::filesystem::path const& image_path);
 
     // Loads an image provided it's one of the supported formats
-    simple_image load_image(std::filesystem::path const& filename);
+    simple_image load_image(std::filesystem::path const& filename, bool is_transparent = false);
 
     simple_image load_simple_bitmap(std::filesystem::path const& filename);
     void save_simple_bitmap(std::filesystem::path const& filename, simple_image const& image);
@@ -69,7 +69,7 @@ namespace MPG
     //   * BODY
     // 
     // Masks and compression are not supported. If an ILBM has a bit mask, it is ignored.
-    simple_image load_simple_ilbm(std::filesystem::path const& filename);
+    simple_image load_simple_ilbm(std::filesystem::path const& filename, bool is_transparent = false);
 
     // Saves an image as an ILBM/IFF image
     // Since the Simple Image doesn't have any extra properties, only the minimum required to
@@ -660,7 +660,7 @@ namespace MPG
         };
     }
 
-    simple_image load_simple_ilbm(std::filesystem::path const& filename)
+    simple_image load_simple_ilbm(std::filesystem::path const& filename, bool is_transparent)
     {
         auto result = simple_image{};
 
@@ -694,6 +694,10 @@ namespace MPG
             {
             case ilbm_cmap_name:
                 result.color_palette = read_cmap_colors(bitmap_file, chunk.size);
+                if (is_transparent)
+                {
+                    result.color_palette[0].a = 0;
+                }
                 break;
             case ilbm_camg_name:
                 read_camg_flags(bitmap_file);
@@ -1030,7 +1034,7 @@ namespace MPG
         return simple_image_format::unknown;
     }
 
-    simple_image load_image(std::filesystem::path const& filename)
+    simple_image load_image(std::filesystem::path const& filename, bool is_transparent)
     {
         switch (determine_image_format(filename))
         {
@@ -1038,7 +1042,7 @@ namespace MPG
             return load_simple_bitmap(filename);
 
         case simple_image_format::ilbm:
-            return load_simple_ilbm(filename);
+            return load_simple_ilbm(filename, is_transparent);
 
         default:
             throw std::runtime_error("File is not a recognized image format.");

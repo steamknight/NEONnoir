@@ -138,14 +138,19 @@
       "sfx": []
     }
   },
+  "default_font": {
+    "width": 6.0,
+    "height": 8.0,
+    "file_path": "data\\font-latin-1.iff"
+  },
   "locations": [
     {
       "name": "Title",
       "backgrounds": [
-        "data\\intro01.bmp",
-        "data\\intro02.bmp",
-        "data\\intro03.bmp",
-        "data\\intro04.bmp",
+        "data\\cutscenes\\intro_01.iff",
+        "data\\cutscenes\\intro_02.iff",
+        "data\\cutscenes\\intro_03.iff",
+        "data\\cutscenes\\intro_04.iff",
         "data\\blank.bmp"
       ],
       "scenes": [
@@ -174,6 +179,16 @@
               "description_id": "xaUZC8YbkDkmjaTf",
               "script": ""
             }
+          ],
+          "text_regions": [
+            {
+              "x": 16.0,
+              "y": 0.0,
+              "width": 26.0,
+              "justification": "left",
+              "center_vertically": true,
+              "text_id": "oHmidqwaUfIAbHQ3"
+            }
           ]
         },
         {
@@ -200,6 +215,16 @@
               "goto_scene": 2,
               "description_id": "ic2wGJBcPr9tWcXq",
               "script": ""
+            }
+          ],
+          "text_regions": [
+            {
+              "x": 160.0,
+              "y": 0.0,
+              "width": 26.0,
+              "justification": "right",
+              "center_vertically": true,
+              "text_id": "r3eJZMtjiXHGaQkI"
             }
           ]
         },
@@ -228,6 +253,16 @@
               "description_id": "dioMG7WajruJ3O3q",
               "script": ""
             }
+          ],
+          "text_regions": [
+            {
+              "x": 16.0,
+              "y": 0.0,
+              "width": 34.0,
+              "justification": "left",
+              "center_vertically": true,
+              "text_id": "nC5HDHaaQA2I3ruU"
+            }
           ]
         },
         {
@@ -255,6 +290,16 @@
               "description_id": "HgujNWUNv8WtHCrR",
               "script": ""
             }
+          ],
+          "text_regions": [
+            {
+              "x": 16.0,
+              "y": 0.0,
+              "width": 34.0,
+              "justification": "left",
+              "center_vertically": true,
+              "text_id": "E3VEsA5huxXrrh6e"
+            }
           ]
         },
         {
@@ -281,6 +326,16 @@
               "goto_scene": 65535,
               "description_id": "7IbXZZFdZdrd3HE8",
               "script": "start_game"
+            }
+          ],
+          "text_regions": [
+            {
+              "x": 0.0,
+              "y": 0.0,
+              "width": 53.0,
+              "justification": "center",
+              "center_vertically": true,
+              "text_id": "HO4Vr0LlJR3DuSQ4"
             }
           ]
         }
@@ -317,7 +372,8 @@
           "offset_x": 0,
           "offset_y": 0,
           "music_id": 65535,
-          "regions": []
+          "regions": [],
+          "text_regions": []
         }
       ],
       "shapes": [],
@@ -404,7 +460,8 @@
               "description_id": "SRCkT2sKIOOlCENL",
               "script": ""
             }
-          ]
+          ],
+          "text_regions": []
         },
         {
           "name": "Takeshi's",
@@ -466,7 +523,8 @@
               "description_id": "7wtYDUt9QyEgw9dR",
               "script": "enter_takeshis"
             }
-          ]
+          ],
+          "text_regions": []
         },
         {
           "name": "Empty Lot",
@@ -529,7 +587,8 @@
               "description_id": "OuhURObWpjGrvd9f",
               "script": "use_alley_dumpster"
             }
-          ]
+          ],
+          "text_regions": []
         },
         {
           "name": "ATM Lot",
@@ -580,7 +639,8 @@
               "description_id": "dqv7c0Mf7Qm1tGc3",
               "script": "use_alley_tinman"
             }
-          ]
+          ],
+          "text_regions": []
         },
         {
           "name": "Subway Entrance",
@@ -618,7 +678,8 @@
               "description_id": "oQSmNFBBUY1DpS1M",
               "script": ""
             }
-          ]
+          ],
+          "text_regions": []
         },
         {
           "name": "Subway Interior",
@@ -669,7 +730,8 @@
               "description_id": "WnNGIoh4Sd4T8KXZ",
               "script": "dialogue_tweaker"
             }
-          ]
+          ],
+          "text_regions": []
         }
       ],
       "shapes": [],
@@ -741,7 +803,8 @@
               "description_id": "5C14uMY1HBfx9gLF",
               "script": "exit_alleycat"
             }
-          ]
+          ],
+          "text_regions": []
         },
         {
           "name": "Alleycat Bar",
@@ -790,7 +853,8 @@
               "description_id": "ckpHEfY06F7Elil5",
               "script": ""
             }
-          ]
+          ],
+          "text_regions": []
         }
       ],
       "shapes": [],
@@ -873,7 +937,8 @@
               "description_id": "huhy9NrjB4y6EsLx",
               "script": ""
             }
-          ]
+          ],
+          "text_regions": []
         },
         {
           "name": "Bedroom",
@@ -936,7 +1001,8 @@
               "description_id": "2l0MfUe24n0u2nYC",
               "script": "use_bedroom_clutter"
             }
-          ]
+          ],
+          "text_regions": []
         }
       ],
       "shapes": [],
@@ -1022,7 +1088,8 @@
               "description_id": "nfD8Jd1MITJXIeXR",
               "script": ""
             }
-          ]
+          ],
+          "text_regions": []
         },
         {
           "name": "End Act 1",
@@ -1037,7 +1104,8 @@
           "offset_x": 0,
           "offset_y": 0,
           "music_id": 12,
-          "regions": []
+          "regions": [],
+          "text_regions": []
         },
         {
           "name": "Fade to black",
@@ -1052,7 +1120,8 @@
           "offset_x": 0,
           "offset_y": 0,
           "music_id": 65535,
-          "regions": []
+          "regions": [],
+          "text_regions": []
         },
         {
           "name": "End Act 2",
@@ -1067,7 +1136,8 @@
           "offset_x": 0,
           "offset_y": 0,
           "music_id": 65535,
-          "regions": []
+          "regions": [],
+          "text_regions": []
         }
       ],
       "shapes": [],
@@ -1152,7 +1222,8 @@
               "description_id": "LKRbR8lQRYmMrosN",
               "script": "exit_to_subway"
             }
-          ]
+          ],
+          "text_regions": []
         },
         {
           "name": "Interior",
@@ -1203,7 +1274,8 @@
               "description_id": "ET6BccIZ755p1mkD",
               "script": "use_gladys_computer"
             }
-          ]
+          ],
+          "text_regions": []
         }
       ],
       "shapes": [],
@@ -1278,7 +1350,8 @@
               "description_id": "y64hXkVvi1UZKow5",
               "script": "leave_b19"
             }
-          ]
+          ],
+          "text_regions": []
         },
         {
           "name": "Office",
@@ -1349,7 +1422,8 @@
               "description_id": "DjDHpURONM3SAPvQ",
               "script": "use_trashcan"
             }
-          ]
+          ],
+          "text_regions": []
         },
         {
           "name": "Storage",
@@ -1412,7 +1486,8 @@
               "description_id": "96Z5ZRcrNsRSJvtA",
               "script": ""
             }
-          ]
+          ],
+          "text_regions": []
         }
       ],
       "shapes": [],
@@ -1451,7 +1526,8 @@
           "offset_x": 0,
           "offset_y": 0,
           "music_id": 65535,
-          "regions": []
+          "regions": [],
+          "text_regions": []
         }
       ],
       "shapes": [],
@@ -1513,7 +1589,8 @@
               "description_id": "hqR7OghUwJE1kd4l",
               "script": "use_b19r_storage"
             }
-          ]
+          ],
+          "text_regions": []
         },
         {
           "name": "Office1",
@@ -1584,7 +1661,8 @@
               "description_id": "Fi07vkWGNC8DFycZ",
               "script": ""
             }
-          ]
+          ],
+          "text_regions": []
         },
         {
           "name": "Office2",
@@ -1644,7 +1722,8 @@
               "description_id": "iNWZUVMI5s9e4OrZ",
               "script": ""
             }
-          ]
+          ],
+          "text_regions": []
         },
         {
           "name": "Catwalk",
@@ -1659,7 +1738,8 @@
           "offset_x": 0,
           "offset_y": 0,
           "music_id": 11,
-          "regions": []
+          "regions": [],
+          "text_regions": []
         },
         {
           "name": "Cutscene",
@@ -1674,7 +1754,8 @@
           "offset_x": 0,
           "offset_y": 0,
           "music_id": 7,
-          "regions": []
+          "regions": [],
+          "text_regions": []
         }
       ],
       "shapes": [],
@@ -1739,7 +1820,8 @@
               "description_id": "s6cpQrc8n25A5WEu",
               "script": ""
             }
-          ]
+          ],
+          "text_regions": []
         },
         {
           "name": "Lobby",
@@ -1792,7 +1874,8 @@
               "description_id": "QRYKd0pq8j7tlTFo",
               "script": ""
             }
-          ]
+          ],
+          "text_regions": []
         },
         {
           "name": "Corridor",
@@ -1843,7 +1926,8 @@
               "description_id": "N0xKbfgacZIZAGuH",
               "script": ""
             }
-          ]
+          ],
+          "text_regions": []
         },
         {
           "name": "Medical",
@@ -1894,7 +1978,8 @@
               "description_id": "OTCWud75nqu2ol1l",
               "script": ""
             }
-          ]
+          ],
+          "text_regions": []
         },
         {
           "name": "Cafe",
@@ -1946,7 +2031,8 @@
               "description_id": "lufCIh8SPcmLYJ7v",
               "script": ""
             }
-          ]
+          ],
+          "text_regions": []
         },
         {
           "name": "Servers",
@@ -1973,7 +2059,8 @@
               "description_id": "ySViDqCbZGnM20Ir",
               "script": "use_datablade"
             }
-          ]
+          ],
+          "text_regions": []
         }
       ],
       "shapes": [],
@@ -2011,7 +2098,8 @@
           "offset_x": 0,
           "offset_y": 0,
           "music_id": 11,
-          "regions": []
+          "regions": [],
+          "text_regions": []
         },
         {
           "name": "Cutscene2",
@@ -2026,7 +2114,8 @@
           "offset_x": 0,
           "offset_y": 0,
           "music_id": 65535,
-          "regions": []
+          "regions": [],
+          "text_regions": []
         },
         {
           "name": "Cutscene3",
@@ -2041,7 +2130,8 @@
           "offset_x": 0,
           "offset_y": 0,
           "music_id": 65535,
-          "regions": []
+          "regions": [],
+          "text_regions": []
         },
         {
           "name": "Cutscene4",
@@ -2056,7 +2146,8 @@
           "offset_x": 0,
           "offset_y": 0,
           "music_id": 65535,
-          "regions": []
+          "regions": [],
+          "text_regions": []
         },
         {
           "name": "Cutscene5",
@@ -2071,7 +2162,8 @@
           "offset_x": 0,
           "offset_y": 0,
           "music_id": 65535,
-          "regions": []
+          "regions": [],
+          "text_regions": []
         }
       ],
       "shapes": [],
@@ -2107,7 +2199,8 @@
           "offset_x": 0,
           "offset_y": 0,
           "music_id": 7,
-          "regions": []
+          "regions": [],
+          "text_regions": []
         }
       ],
       "shapes": [],

@@ -22,7 +22,7 @@ namespace NEONnoir
         };
 
     public:
-        dialogue_editor(std::shared_ptr<game_data> data) : editor_window_base(data) { };
+        dialogue_editor(std::shared_ptr<game_data> data, GLFWwindow* window) : editor_window_base(data, window) { };
         virtual ~dialogue_editor() = default;
 
     private:

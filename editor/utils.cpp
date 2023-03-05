@@ -45,6 +45,37 @@ namespace NEONnoir
         stream.write(&data[1], 1);
         stream.write(&data[0], 1);
     }
+    std::string UTF8toISO8859_1(const char* in) {
+        // Based on https://stackoverflow.com/questions/53269432/convert-from-utf-8-to-iso8859-15-in-c
+        std::string out;
+        if (in == NULL)
+            return out;
+
+        unsigned int codepoint{ 0 };
+        while (*in != 0) {
+            unsigned char ch = static_cast<unsigned char>(*in);
+            if (ch <= 0x7f)
+                codepoint = ch;
+            else if (ch <= 0xbf)
+                codepoint = (codepoint << 6) | (ch & 0x3f);
+            else if (ch <= 0xdf)
+                codepoint = ch & 0x1f;
+            else if (ch <= 0xef)
+                codepoint = ch & 0x0f;
+            else
+                codepoint = ch & 0x07;
+            ++in;
+            if (((*in & 0xc0) != 0x80) && (codepoint <= 0x10ffff)) {
+                if (codepoint <= 255) {
+                    out.append(1, static_cast<char>(codepoint));
+                }
+                else {
+                    out.append("?");
+                }
+            }
+        }
+        return out;
+    }
 }
 
 #pragma warning(pop)
