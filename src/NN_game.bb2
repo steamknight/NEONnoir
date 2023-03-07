@@ -26,6 +26,15 @@ Macro __SafeFree
   End If
 End Macro
 
+Macro __LoadChunk
+  ReadMem id, &header, 4
+  ReadMem id, &`4, 4
+  size = `4 * `2
+  !__SafeAlloc{`1, `3, size}
+  ReadMem id, `3, size
+  !DB_log_str{"NN_GAME", "  " + `1 + " > $" + Hex$(`3) + "+" + Str$(size)}
+End Macro
+
 ; Loads a lang pack which contains all the strings for one language
 ;
 ; Requires AMIGA or QAMIGA mode
@@ -107,8 +116,8 @@ End Function
 ; Requires AMIGA or QAMIGA mode
 ; =============================================================================
 Function .b NN_load_neonpack{filename$}
-  SHARED *NN_locations, *NN_scenes, *NN_regions
-  SHARED NN_location_count, NN_scene_count, NN_region_count
+  SHARED *NN_locations, *NN_scenes, *NN_regions, *NN_text_regions
+  SHARED NN_location_count, NN_scene_count, NN_region_count, NN_text_region_count
   SHARED *NS_script_data, NS_script_data_size
   SHARED *NN_ui_palette
   !__use_string_table_all{}
@@ -139,86 +148,18 @@ Function .b NN_load_neonpack{filename$}
   ReadMem id, &version, 4
   If version <> $00010000 Then Function Return #NN_NEON_version_not_supported
 
-  ; Read in all the locations
-  DEFTYPE .l size, header
-  ReadMem id, &header, 4
-  ReadMem id, &NN_location_count, 4
-  size = NN_location_count * SizeOf .NN_location
-  !__SafeAlloc{"Locations", *NN_locations, size}
-  ReadMem id, *NN_locations, size
-  !DB_log_str{"NN_GAME", "  Locations > $" + Hex$(*NN_locations) + "+" + Str$(size)}
-
-  ; Read in all the scenes
-  ReadMem id, &header, 4
-  ReadMem id, &NN_scene_count, 4
-  size = NN_scene_count * SizeOf .NN_scene
-  !__SafeAlloc{"Scenes", *NN_scenes, size}
-  ReadMem id, *NN_scenes, size
-  !DB_log_str{"NN_GAME", "  Scenes    > $" + Hex$(*NN_scenes) + "+" + Str$(size)}
-
-  ; Read in all the regions
-  ReadMem id, &header, 4
-  ReadMem id, &NN_region_count, 4
-  size = NN_region_count * SizeOf .NN_region
-  !__SafeAlloc{"Regions", *NN_regions, size}
-  ReadMem id, *NN_regions, size
-  !DB_log_str{"NN_GAME", "  Regions   > $" + Hex$(*NN_regions) + "+" + Str$(size)}
-
-  ; Read all dialogues
-  ReadMem id, &header, 4
-  ReadMem id, &DG_dialogue_count, 4
-  size = DG_dialogue_count * SizeOf .DG_dialogue
-  !__SafeAlloc{"Dialogues", *DG_dialogues, size}
-  ReadMem id, *DG_dialogues, size
-  !DB_log_str{"NN_GAME", "  Dialogues > $" + Hex$(*DG_dialogues) + "+" + Str$(size)}
-
-  ; Read all pages
-  ReadMem id, &header, 4
-  ReadMem id, &DG_page_count, 4
-  size = DG_page_count * SizeOf .DG_page
-  !__SafeAlloc{"Pages", *DG_pages, size}
-  ReadMem id, *DG_pages, size
-  !DB_log_str{"NN_GAME", "  Pages     > $" + Hex$(*DG_pages) + "+" + Str$(size)}
-
-  ; Read all choices
-  ReadMem id, &header, 4
-  ReadMem id, &DG_choice_count, 4
-  size = DG_choice_count * SizeOf .DG_choice
-  !__SafeAlloc{"Choices", *DG_choices, size}
-  ReadMem id, *DG_choices, size
-  !DB_log_str{"NN_GAME", "  Choices   > $" + Hex$(*DG_choices) + "+" + Str$(size)}
-
-  ; Read all the bytecode... I suppose it's more like word-code
-  ReadMem id, &header, 4
-  ReadMem id, &NS_script_data_size, 4
-  NS_script_data_size * SizeOf .w
-  !__SafeAlloc{"Script Data", *NS_script_data, NS_script_data_size}
-  ReadMem id, *NS_script_data, NS_script_data_size
-  !DB_log_str{"NN_GAME", "  Script    > $" + Hex$(*NS_script_data) + "+" + Str$(NS_script_data_size)}
-
-  ; Read all the shapes
-  ReadMem id, &header, 4
-  ReadMem id, &NN_shape_count, 4
-  size = NN_shape_count * SizeOf .NN_shape
-  !__SafeAlloc{"Shapes", *NN_shapes, size}  
-  ReadMem id, *NN_shapes, size
-  !DB_log_str{"NN_GAME", "  Shapes    > $" + Hex$(*NN_shapes) + "+" + Str$(size)}
-
-  ; Read all the palettes
-  ReadMem id, &header, 4
-  ReadMem id, &NN_palette_count, 4
-  size = NN_palette_count * SizeOf .NN_pal_entry * 32 ; There are 32 palette entries
-  !__SafeAlloc{"Palettes", *NN_palettes, size}
-  ReadMem id, *NN_palettes, size
-  !DB_log_str{"NN_GAME", "  Palettes  > $" + Hex$(*NN_palettes) + "+" + Str$(size)}
-
-  ; Read the UI palette
-  ReadMem id, &header, 4
-  ReadMem id, &header, 4
-  size = 32 * SizeOf .NN_pal_entry
-  !__SafeAlloc{"UI Palette", *NN_ui_palette, size}
-  ReadMem id, *NN_ui_palette, size
-  !DB_log_str{"NN_GAME", "  UI Pal    > $" + Hex$(*NN_ui_palette) + "+" + Str$(size)}
+  DEFTYPE .l size, header, ui_palette_count
+  !__LoadChunk{"Locations   ", SizeOf .NN_location,     *NN_locations,    NN_location_count   }
+  !__LoadChunk{"Scenes      ", SizeOf .NN_scene,        *NN_scenes,       NN_scene_count      }
+  !__LoadChunk{"Regions     ", SizeOf .NN_region,       *NN_regions,      NN_region_count     }
+  !__LoadChunk{"Text Regions", SizeOf .NN_text_region,  *NN_text_regions, NN_text_region_count}
+  !__LoadChunk{"Dialogues   ", SizeOf .DG_dialogue,     *DG_dialogues,    DG_dialogue_count   }
+  !__LoadChunk{"Page        ", SizeOf .DG_page,         *DG_pages,        DG_page_count       }
+  !__LoadChunk{"Choices     ", SizeOf .DG_choice,       *DG_choices,      DG_choice_count     }
+  !__LoadChunk{"Script Data ", SizeOf .w,               *NS_script_data,  NS_script_data_size }
+  !__LoadChunk{"Shapes      ", SizeOf .NN_shape,        *NN_shapes,       NN_shape_count      }
+  !__LoadChunk{"Palettes    ", SizeOf .NN_pal_entry * 32, *NN_palettes,   NN_palette_count    }
+  !__LoadChunk{"UI Palette  ", SizeOf .NN_pal_entry,    *NN_ui_palette,   ui_palette_count    }
 
   Function Return #NN_NEON_success
 End Function
@@ -228,10 +169,7 @@ End Function
 Statement NN_uninitialize{}
   !DB_trace{"NN_GAME", "NN_uninitialize"}
   SHARED *NN_locations, *NN_scenes, *NN_regions, *NN_string_table, *NN_string_data
-  SHARED NN_location_count, NN_scene_count, NN_region_count, NN_string_count, NN_string_data_size
-  SHARED *NS_script_data, NS_script_data_size
-  SHARED *NN_word_table, *NN_word_data, NN_word_table_count, NN_word_data_size
-  SHARED *NN_ui_palette
+  SHARED *NS_script_data, *NN_word_table, *NN_word_data, *NN_ui_palette
   !__use_dialogues{}
   !__use_dialogue_limits{}
   !__use_shapes{}
@@ -239,20 +177,21 @@ Statement NN_uninitialize{}
 
   DEFTYPE .l size
 
-  !__SafeFree{"Locations    ", *NN_locations}
-  !__SafeFree{"Scenes       ", *NN_scenes}
-  !__SafeFree{"Regions      ", *NN_regions}
-  !__SafeFree{"Dialogues    ", *DG_dialogues}
-  !__SafeFree{"Pages        ", *DG_pages}
-  !__SafeFree{"Choices      ", *DG_choices}
-  !__SafeFree{"Script Data  ", *NS_script_data}
-  !__SafeFree{"String Table ", *NN_string_table}
-  !__SafeFree{"String Data  ", *NN_string_data}
-  !__SafeFree{"Word Table   ", *NN_word_table}
-  !__SafeFree{"Word Data    ", *NN_word_data}
-  !__SafeFree{"Shapes       ", *NN_shapes}
-  !__SafeFree{"Palettes     ", *NN_palettes}
-  !__SafeFree{"UI Palette   ", *NN_ui_palette}
+  !__SafeFree{"Locations    ", *NN_locations    }
+  !__SafeFree{"Scenes       ", *NN_scenes       }
+  !__SafeFree{"Regions      ", *NN_regions      }
+  !__SafeFree{"Text Regions ", *NN_text_regions }
+  !__SafeFree{"Dialogues    ", *DG_dialogues    }
+  !__SafeFree{"Pages        ", *DG_pages        }
+  !__SafeFree{"Choices      ", *DG_choices      }
+  !__SafeFree{"Script Data  ", *NS_script_data  }
+  !__SafeFree{"String Table ", *NN_string_table }
+  !__SafeFree{"String Data  ", *NN_string_data  }
+  !__SafeFree{"Word Table   ", *NN_word_table   }
+  !__SafeFree{"Word Data    ", *NN_word_data    }
+  !__SafeFree{"Shapes       ", *NN_shapes       }
+  !__SafeFree{"Palettes     ", *NN_palettes     }
+  !__SafeFree{"UI Palette   ", *NN_ui_palette   }
 
 End Statement
 

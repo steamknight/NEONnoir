@@ -63,6 +63,10 @@ DEFTYPE .w overlapped, prev_overlap, menu_x, menu_y
 DEFTYPE .NN_region *region
 DEFTYPE .b left_mouse, prev_bmp
 DEFTYPE .s scene_description
+DEFTYPE .l size
+
+DEFTYPE .TX_context text_region_ctx
+DEFTYPE .NN_text_region *text_region
 
 NN_pointer_id = 0
 overlapped = -1
@@ -77,7 +81,7 @@ menu_y = 200 - ShapeHeight(#SH_menu) - 4
 NN_fade_in = False
 NN_fade_out = False
 
-prev_bmp = NN_current_bmp
+prev_bmp = -1
 
 ; Setup 'B' as the breakpoint key
 ; SetInt 5
@@ -95,6 +99,16 @@ Repeat
   If prev_bmp <> NN_current_bmp
     UnBuffer 0
     prev_bmp = NN_current_bmp
+
+    If *NN_current_scene\first_text_region <> -1
+      For tr = *NN_current_scene\first_text_region to *NN_current_scene\last_text_region
+        *text_region = !__get_text_region{tr}
+        TX_begin{&text_region_ctx, False, True}
+        text_region_ctx\justify = *text_region\justify
+        size = TX_put_text{&text_region_ctx, *text_region\text_id, *text_region\width}
+        TX_end{&text_region_ctx, *text_region\x, *text_region\y, False}
+      Next
+    End If
   End If
 
   ; Show the background image
@@ -147,7 +161,6 @@ Repeat
         If overlapped <> prev_overlap AND *region\description_id <> -1
           UnBuffer #BF_main_screen
           TX_draw_text_wrapped{!__get_string{*region\description_id}, 32, #NN_half_screen_width , #NN_screen_height, False}
-          ;TX_draw_textid_wrapped{*region\description_id, 32, #NN_half_screen_width , #NN_screen_height}
         End If
       End If
     Else

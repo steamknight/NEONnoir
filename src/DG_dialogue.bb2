@@ -115,7 +115,7 @@ Statement DG_show_dialog{id.w}
           ; Clear the text and begin writing the new page
           UnBuffer 0
           DEFTYPE .TX_context ctx
-          TX_begin{&ctx, True}
+          TX_begin{&ctx, True, False}
 
           DEFTYPE .l size
           BlitMode InvMode

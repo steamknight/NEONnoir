@@ -360,76 +360,6 @@
     goloc #location_credits #scene_credits
     end
 
-.SCRIPT intro01_text
-    txtstart #frame_off            ; Start a text section
-    txtput $intro01_01 26
-    txtnl
-    txtnl
-    txtput $intro01_02 26
-    txtend 10 33 #wait_off
-    end
-
-.SCRIPT intro02_text
-    txtstart #frame_off
-    txtput $intro02_01 47
-    txtend 10 10 #wait_off
-    txtstart #frame_off
-    txtput $intro02_02 25
-    txtend 160 136 #wait_off
-    end
-
-.SCRIPT intro03_text
-    txtstart #frame_off
-    txtput $intro03_01 40
-    txtput $intro03_02 40
-    txtput $intro03_03 40
-    txtnl
-    txtput $intro03_04 40
-    txtput $intro03_05 40
-    txtput $intro03_06 40
-    txtput $intro03_07 40
-    txtput $intro03_08 40
-    txtput $intro03_09 40
-    txtnl
-    txtput $intro03_10 40
-    txtput $intro03_11 40
-    txtput $intro03_12 40
-    txtnl
-    txtnl
-    txtput $intro03_13 40
-    txtput $intro03_14 40
-    txtput $intro03_15 40
-    txtput $intro03_16 40
-    txtput $intro03_17 40
-    txtend 10 10 #wait_off
-    end
-
-.SCRIPT intro04_text
-    txtstart #frame_off
-    txtput $intro04_01 40
-    txtput $intro04_02 40
-    txtput $intro04_03 40
-    txtnl
-    txtput $intro04_04 40
-    txtput $intro04_05 40
-    txtput $intro04_06 40
-    txtnl
-    txtput $intro04_07 40
-    txtput $intro04_08 40
-    txtput $intro04_09 40
-    txtput $intro04_10 40
-    txtput $intro04_11 40
-    txtnl
-    txtput $intro04_12 26
-    txtend 10 10 #wait_off
-    end
-
-.SCRIPT intro05_text
-    txtstart #frame_off
-    txtput $intro05_01 40
-    txtend 106 96 #wait_off
-    end
-
 ; ALLEYWAY
 ; =====================================================
 
@@ -1203,6 +1133,9 @@
 
         goloc #location_title #scene_title
         end
+
+
+
 
 
 

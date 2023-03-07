@@ -157,7 +157,7 @@
         {
           "name": "Intro1",
           "description_id": [],
-          "on_enter": "intro01_text",
+          "on_enter": "",
           "on_exit": "",
           "image_id": 0,
           "view_x": 0,
@@ -187,14 +187,14 @@
               "width": 26.0,
               "justification": "left",
               "center_vertically": true,
-              "text_id": "oHmidqwaUfIAbHQ3"
+              "text_id": "intro01"
             }
           ]
         },
         {
           "name": "Intro2",
           "description_id": [],
-          "on_enter": "intro02_text",
+          "on_enter": "",
           "on_exit": "",
           "image_id": 1,
           "view_x": 0,
@@ -224,14 +224,14 @@
               "width": 26.0,
               "justification": "right",
               "center_vertically": true,
-              "text_id": "r3eJZMtjiXHGaQkI"
+              "text_id": "intro02"
             }
           ]
         },
         {
           "name": "Intro3",
           "description_id": [],
-          "on_enter": "intro03_text",
+          "on_enter": "",
           "on_exit": "",
           "image_id": 2,
           "view_x": 0,
@@ -261,14 +261,14 @@
               "width": 34.0,
               "justification": "left",
               "center_vertically": true,
-              "text_id": "nC5HDHaaQA2I3ruU"
+              "text_id": "intro03"
             }
           ]
         },
         {
           "name": "Intro4",
           "description_id": [],
-          "on_enter": "intro04_text",
+          "on_enter": "",
           "on_exit": "",
           "image_id": 3,
           "view_x": 0,
@@ -298,14 +298,14 @@
               "width": 34.0,
               "justification": "left",
               "center_vertically": true,
-              "text_id": "E3VEsA5huxXrrh6e"
+              "text_id": "intro04"
             }
           ]
         },
         {
           "name": "Intro5",
           "description_id": [],
-          "on_enter": "intro05_text",
+          "on_enter": "",
           "on_exit": "",
           "image_id": 4,
           "view_x": 0,
@@ -335,7 +335,7 @@
               "width": 53.0,
               "justification": "center",
               "center_vertically": true,
-              "text_id": "HO4Vr0LlJR3DuSQ4"
+              "text_id": "intro05"
             }
           ]
         }

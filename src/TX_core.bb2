@@ -136,13 +136,13 @@ End Statement
 ; [INTERNAL]
 ; Used to draw a frame around the text
 ; =============================================================================
-Statement tx_draw_frame{line_width.w, line_count.w}
-  !DB_trace{"TX_CORE", "tx_draw_frame: " + Str$(line_width) + ", " + Str$(line_count)}
+Statement tx_draw_frame{line_max.w, line_count.w}
+  !DB_trace{"TX_CORE", "tx_draw_frame: " + Str$(line_max) + ", " + Str$(line_count)}
   ; Top
   Blit #TX_frame_tl, 0, 0, 0
   DEFTYPE .w x
   x = #TX_frame_size
-  For i = 1 To line_width
+  For i = 1 To line_max
     Blit #TX_frame_tm, x, 0, 0
     x + #TX_font_width
   Next
@@ -157,7 +157,7 @@ Statement tx_draw_frame{line_width.w, line_count.w}
   ; Bottom
   Blit #TX_frame_bl, 0, #TX_font_height * (line_count + 1), 0
   x = #TX_frame_size
-  For i = 1 To line_width
+  For i = 1 To line_max
     Blit #TX_frame_bm, x, #TX_font_height * (line_count + 1), 0
     x + #TX_font_width
   Next
@@ -167,8 +167,8 @@ End Statement
 ; Draws a multiline string wrapped a given width. The text is drawn around a
 ; center point.
 ; =============================================================================
-Statement TX_draw_text_wrapped{text$, line_width.w, cx.w, cy.w, should_wait.b}
-  !DB_trace{"TX_CORE", "TX_draw_text_wrapped: " + text$ + " " + Str$(line_width) + ", " + Str$(x) + "," + Str$(y)}
+Statement TX_draw_text_wrapped{text$, line_max.w, cx.w, cy.w, should_wait.b}
+  !DB_trace{"TX_CORE", "TX_draw_text_wrapped: " + text$ + " " + Str$(line_max) + ", " + Str$(x) + "," + Str$(y)}
   SHARED tx_word_begin(), tx_word_end(), tx_word_count, NN_current_bmp, NN_pointer_id
   DEFTYPE .w widthw, line_count
   DEFTYPE .w remaining
@@ -181,7 +181,7 @@ Statement TX_draw_text_wrapped{text$, line_width.w, cx.w, cy.w, should_wait.b}
   tx_get_words{text$}
 
   ; Figure out how many lines it's going to be amd what's the size of the longest line
-  remaining = line_width
+  remaining = line_max
   line_count = 1
   For i = 0 To tx_word_count - 1
     widthw = tx_word_end(i) - tx_word_begin(i) + 1
@@ -189,7 +189,7 @@ Statement TX_draw_text_wrapped{text$, line_width.w, cx.w, cy.w, should_wait.b}
     If remaining - widthw < 0
       ; Advance To Next Line
       line_count + 1
-      remaining = line_width
+      remaining = line_max
       cur_len = 0
     End If
 
@@ -198,11 +198,11 @@ Statement TX_draw_text_wrapped{text$, line_width.w, cx.w, cy.w, should_wait.b}
     If cur_len > max_len Then max_len = cur_len
   Next i
 
-  If max_len < line_width Then line_width = max_len
+  If max_len < line_max Then line_max = max_len
 
   ; Calculate how big a rectangle this will be, including enough
   ; padding for the text frame
-  widthr = line_width * #TX_font_width + #TX_frame_total_size
+  widthr = line_max * #TX_font_width + #TX_frame_total_size
   heightr = line_count * #TX_font_height + #TX_frame_total_size
   x0 = #TX_frame_size
   y0 = #TX_frame_size
@@ -210,10 +210,10 @@ Statement TX_draw_text_wrapped{text$, line_width.w, cx.w, cy.w, should_wait.b}
   ; Draw the frame
   ; Text area
   Boxf x0, y0, x0 + widthr - #TX_frame_total_size, y0 + heightr - #TX_frame_total_size, 3
-  tx_draw_frame{line_width, line_count}
+  tx_draw_frame{line_max, line_count}
 
   ; Finally draw the text
-  remaining = line_width
+  remaining = line_max
   x = x0
   y = y0
   For i = 0 To tx_word_count - 1
@@ -223,7 +223,7 @@ Statement TX_draw_text_wrapped{text$, line_width.w, cx.w, cy.w, should_wait.b}
       ; Advance to next line
       x = x0
       y + #TX_font_height
-      remaining = line_width
+      remaining = line_max
     End If
 
     ; Print the word
@@ -265,54 +265,34 @@ Statement TX_draw_text_wrapped{text$, line_width.w, cx.w, cy.w, should_wait.b}
   End If
 End Statement
 
-Function .l TX_calc_text_size{id.w, line_width.w}
-  !DB_trace{"TX_CORE", "TX_calc_text_size: " + Str$(id) + " " + Str$(line_width)}
-  !__use_word_table{}
 
-  DEFTYPE .w word_count
-  word_count = !__get_word_count{id}
+Function .w tx_calculate_offset{line_max.w, char_count.w, justify.b}
+  Select justify
+    Case #TX_justify_left
+      Function Return 0
+    Case #TX_justify_center
+      Function Return (line_max - char_count) LSR 1
+    Case #TX_justify_right
+      Function Return line_max - char_count
+  End Select
 
-  DEFTYPE .NN_word *word
-  *word = !__get_words{id}
-
-  DEFTYPE .w line_count, remaining, max_width, cur_width, word_width
-  line_count = 1
-  remaining = line_width
-  max_width = 0
-
-  For i = 0 To word_count - 1
-    word_width = (*word\end_idx - *word\start_idx + 1)
-    ; !DB_printf{"*** %d ", word_width}
-
-    If *word\end_idx = -1 OR remaining - (word_width) < 0
-      If max_width < cur_width Then max_width = cur_width
-      ; !DB_printf{"*** width: %d, max_width: %d ", cur_width, max_width}
-      ; !DB_printf{"*** Line %d ", line_count}
-      line_count + 1
-      remaining = line_width
-      cur_width = 0
-    End If
-
-    remaining - (word_width + 1) ; account for the space
-    cur_width + word_width
-
-    If max_width < cur_width Then max_width = cur_width
-    cur_width + 1 ; account for space
-
-    *word + SizeOf .NN_word
-  Next
-
-  DEFTYPE .l size
-
-  ; !DB_printf{"*** max_width: %d ", max_width}
-
-  size = !__make_size{max_width, line_count}
-
-  Function Return size
+  Function Return 0
 End Function
 
-Statement TX_render_wrapped{id.w, line_width.w, x0.w, y0.w}
-  !DB_trace{"TX_CORE", "TX_render_wrapped: " + Str$(id) + " " + Str$(line_width) + ", " + Str$(x0) + "," + Str$(y0)}
+Macro __blit_text
+  For bt_id.w = `2 To `3
+    bt_char.w = Peek.b(`1 + bt_id)
+    If bt_char < 0
+      bt_char + 256
+    End If
+
+    Blit bt_char, `4, `5, %0
+    `4 + #TX_font_width
+  Next bt_id
+End Macro
+
+Function .l TX_render_wrapped{id.w, line_max.w, x0.w, y0.w, justify.b}
+  !DB_trace{"TX_CORE", "TX_render_wrapped: " + Str$(id) + " " + Str$(line_max) + ", " + Str$(x0) + "," + Str$(y0)}
   !__use_string_table{}
   !__use_word_table{}
 
@@ -322,97 +302,81 @@ Statement TX_render_wrapped{id.w, line_width.w, x0.w, y0.w}
   DEFTYPE .NN_word *word
   *word = !__get_words{id}
 
-  DEFTYPE .w remaining, word_width, x, y
-  remaining = line_width
+  DEFTYPE .w remaining, word_width, x, y, max_width, line_width, line_count
+  DEFTYPE .w l_start_idx, l_end_idx, w_start_idx, w_end_idx
+  DEFTYPE .w offset
+  DEFTYPE .b is_newline
+  remaining = line_max
   x = x0
   y = y0
 
   DEFTYPE .b *text
   *text = !__get_string_addr{id}
 
-  For i = 0 To word_count - 1
-    word_width = (*word\end_idx - *word\start_idx + 1)
+  l_start_idx = -1
+  l_end_idx = 0
+  max_width = 0
+  line_count = 0
+  offset = 0
+  For w = 1 To word_count
+    w_start_idx = *word\start_idx
+    w_end_idx = *word\end_idx
+    is_newline = (w_end_idx = -1)
+    is_last_word = (w = word_count)
+    word_width = (w_end_idx - w_start_idx + 1)
 
-    If *word\end_idx = -1 OR remaining - word_width < 0
-      ; Advance to next line
+    If is_newline OR (remaining - word_width) < 0
+      If l_start_idx >= 0
+        offset = tx_calculate_offset{line_max, (l_end_idx - l_start_idx + 1), justify }
+        line_width = (l_end_idx - l_start_idx + 1) + offset
+        x + (offset * #TX_font_width)
+        !__blit_text{*text, l_start_idx, l_end_idx, x, y, line_max, justify}
+
+        line_count + 1
+        If max_width < line_width Then max_width = line_width
+      End If
+
+      l_start_idx = -1
+
       x = x0
       y + #TX_font_height
-      remaining = line_width
+      remaining = line_max
     End If
 
-    If *word\end_idx <> -1
-      ; Print the word
-      For j = *word\start_idx To *word\end_idx
-        Blit Peek.b(*text + j), x, y, %0
-        x + #TX_font_width
+    If NOT is_newline
+      If l_start_idx < 0
+        l_start_idx = w_start_idx
+      End If
 
-      Next j
-
+      l_end_idx = w_end_idx
       remaining - (word_width + 1) ; account for the space
-      x + #TX_font_width
     End If
 
     *word + SizeOf .NN_word
-  Next i
+  Next
 
-End Statement
+  If l_start_idx >= 0
+    offset = tx_calculate_offset{line_max, (l_end_idx - l_start_idx + 1), justify }
+    line_width = (l_end_idx - l_start_idx + 1) + offset
+    x + (offset * #TX_font_width)
+    !__blit_text{*text, l_start_idx, l_end_idx, x, y, line_max, justify}
 
-Statement TX_draw_textid_wrapped{id.w, line_width.w, cx.w, cy.w}
-  !DB_trace{"TX_CORE", "TX_drawid_text_wrapped: " + Str$(id) + " " + Str$(line_width) + ", " + Str$(cx) + "," + Str$(cy)}
-  SHARED NN_current_bmp, *NN_word_table
-
-  DEFTYPE .l size
-  size = TX_calc_text_size{id, line_width}
-
-  DEFTYPE .w width, height
-  width = !__get_size_width{size}
-  height = !__get_size_height{size}
-
-  BitMap #TX_scratch_bmp, #NN_screen_width, #NN_screen_height, #NN_screen_bpp
-  Use BitMap #TX_scratch_bmp
-
-  ; Calculate how big a rectangle this will be, including enough
-  ; padding for the text frame
-  DEFTYPE .w rect_width, rect_height
-  rect_width = width * #TX_font_width + #TX_frame_total_size
-  rect_height = height * #TX_font_height + #TX_frame_total_size
-
-  DEFTYPE .w x0, y0
-  x0 = #TX_frame_size
-  y0 = #TX_frame_size
-
-  ; Draw the frame
-  Boxf x0, y0, x0 + rect_width - #TX_frame_total_size, y0 + rect_height - #TX_frame_total_size, 3
-  tx_draw_frame{width, height}
-
-  TX_render_wrapped{id, line_width, x0, y0}
-
-  GetaShape #TX_text_shape, 0, 0, rect_width, rect_height
-  MidHandle #TX_text_shape
-  Use BitMap NN_current_bmp
-
-  DEFTYPE .w halfw, halfh
-  halfw = rect_width LSR 1
-  halfh = rect_height  LSR 1
-
-  If cx - halfw < 0 Then cx = halfw
-  If cx + halfw >= #NN_screen_width Then cx = #NN_screen_width - halfw
-  If cy - halfh < 0 Then cy = halfh
-  If cy + halfh >= #NN_screen_height Then cy = #NN_screen_height - halfh
-
-  BBlit 0, #TX_text_shape, cx, cy, %0
-
-  Free Shape #TX_text_shape
-  Free BitMap #TX_scratch_bmp
-End Statement
+    line_count + 1
+    If max_width < line_width Then max_width = line_width
+  End If
+  Function Return !__make_size{max_width, line_count}
+End Function
 
 NEWTYPE .TX_context
   max_width.w
   y_position.w
   add_frame.b
+  justify.b
+  center_vertical.b
+  padding.b
 End NEWTYPE
 
-Statement TX_begin{context.l, add_frame.b}
+Statement TX_begin{context.l, add_frame.b, center_vertical.b}
   BitMap #TX_scratch_bmp, #NN_screen_width, #NN_screen_height, #NN_screen_bpp
   Use BitMap #TX_scratch_bmp
 
@@ -424,6 +388,8 @@ Statement TX_begin{context.l, add_frame.b}
   *ctx\max_width = 0
   *ctx\y_position = 0
   *ctx\add_frame = add_frame
+  *ctx\justify = #TX_justify_left
+  *ctx\center_vertical = center_vertical
 End Statement
 
 Statement TX_end{context.l, x.w, y.w, should_wait.b}
@@ -437,8 +403,13 @@ Statement TX_end{context.l, x.w, y.w, should_wait.b}
   ; Calculate how big a rectangle this will be, including enough
   ; padding for the text frame
   DEFTYPE .w rect_width, rect_height
-  rect_width = *ctx\max_width * #TX_font_width + #TX_frame_total_size
-  rect_height = *ctx\y_position * #TX_font_height + #TX_frame_total_size
+  rect_width = *ctx\max_width * #TX_font_width
+  rect_height = *ctx\y_position * #TX_font_height
+
+  If *ctx\add_frame = True
+    rect_width + #TX_frame_total_size
+    rect_height + #TX_frame_total_size
+  End If
 
   GetaShape #TX_text_shape, 0, 0, rect_width, rect_height
   Use BitMap NN_current_bmp
@@ -447,6 +418,7 @@ Statement TX_end{context.l, x.w, y.w, should_wait.b}
   If x + rect_width >= #NN_screen_width Then x = #NN_screen_width - rect_width
   If y < 0 Then y = 0
   If y + rect_height >= #NN_screen_height Then y = #NN_screen_height - rect_height
+  If *ctx\center_vertical Then y = (#NN_screen_height - ShapeHeight(#TX_text_shape)) LSR 1
 
   BBlit #BF_main_screen, #TX_text_shape, x, y, %0
 
@@ -464,18 +436,20 @@ Statement TX_end{context.l, x.w, y.w, should_wait.b}
   End If
 End Statement
 
-Function .l TX_put_text{context.l, id.w, line_width.w}
+Function .l TX_put_text{context.l, id.w, line_max.w}
   DEFTYPE .TX_context *ctx
   *ctx = context
 
   DEFTYPE .w x, y
-  x = #TX_frame_size
-  y = *ctx\y_position * #TX_font_height + #TX_frame_size
+  x = 0
+  y = *ctx\y_position * #TX_font_height
+  If *ctx\add_frame
+    x + #TX_frame_size
+    y + #TX_frame_size
+  End If
 
   DEFTYPE .l size
-  size = TX_calc_text_size{id, line_width}
-
-  TX_render_wrapped{id, line_width, x, y}
+  size = TX_render_wrapped{id, line_max, x, y, *ctx\justify}
 
   DEFTYPE .w width, height
   width = !__get_size_width{size}
@@ -485,4 +459,3 @@ Function .l TX_put_text{context.l, id.w, line_width.w}
   *ctx\y_position + height
   Function Return size
 End Function
-

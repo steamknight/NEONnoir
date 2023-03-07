@@ -267,7 +267,7 @@ Statement NS_execute_script{script_offset.l}
 
       Case #NS_op_txtstart
         !__execute_opcode_v1{"txtstart"}
-        TX_begin{&ns_text_context, v1}
+        TX_begin{&ns_text_context, v1, False}
 
       Case #NS_op_txtend
         !__execute_opcode_v3{"txtend"}

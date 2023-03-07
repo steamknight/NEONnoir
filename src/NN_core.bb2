@@ -22,6 +22,17 @@ NEWTYPE .NN_region
   script_offset.w
 End NEWTYPE
 
+; Text Region
+; -----------------------------------------------
+NEWTYPE .NN_text_region
+  x.w
+  y.w
+  width.w
+  text_id.w
+  justify.b
+  center_vertical.b
+End NEWTYPE
+
 ; Scene
 ; -----------------------------------------------
 NEWTYPE.NN_scene
@@ -33,6 +44,8 @@ NEWTYPE.NN_scene
   background_id.w
   first_region.w
   last_region.w
+  first_text_region.w
+  last_text_region.w
   music_id.w
 End NEWTYPE
 
@@ -127,11 +140,20 @@ End NEWTYPE
 
 ; NN_region dynamic array
 ; -----------------------------------------------
-DEFTYPE .NN_region *NN_regions, *NN_current_region
+DEFTYPE .NN_region *NN_regions
 DEFTYPE .l NN_region_count
 
 Macro __get_region
   (*NN_regions + (SizeOf .NN_region * (`1)))
+End Macro
+
+; NN_text_region dynamic array
+; -----------------------------------------------
+DEFTYPE .NN_text_region *NN_text_regions
+DEFTYPE .l NN_text_region_count
+
+Macro __get_text_region
+  (*NN_text_regions + (SizeOf .NN_text_region * (`1)))
 End Macro
 
 ; NN_scene dynamic array
@@ -385,7 +407,7 @@ End Macro
 #NN_NEON_out_of_memory          = 6
 #NN_NEON_quit                   = 7
 
-Dim NN_error_codes$(5)
+Dim NN_error_codes$(6)
 NN_error_codes$(1) = "File not found"
 NN_error_codes$(2) = "Generic read error"
 NN_error_codes$(3) = "Not a NEON file"
@@ -453,6 +475,10 @@ TX_langs.s(1) = "it"
 TX_langs.s(2) = "de"
 
 #TX_menu_start = 2
+
+#TX_justify_left = 0
+#TX_justify_center = 1
+#TX_justify_right = 2
 
 ; Menu items
 ; -----------------------------------------------------------------------------

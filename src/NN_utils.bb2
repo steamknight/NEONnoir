@@ -113,3 +113,7 @@ Macro __wait_for_file_io
   !__delay_sec{2}
 End Macro
 
+Macro __to_w
+  `1 = `2
+  If `2 < 0 Then `1 = `2 + 256
+End Macro

@@ -178,8 +178,8 @@ namespace NEONnoir
     constexpr char words_header[4] = { 'W', 'O', 'R', 'D' };
     struct neon_word
     {
-        u16 start_idx{0xFFFF};
-        u16 end_idx{0xFFFF};
+        u16 start_idx{ 0xFFFF };
+        u16 end_idx{ 0xFFFF };
     };
 
     struct neon_word_list
