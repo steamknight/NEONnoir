@@ -372,8 +372,62 @@
           "offset_x": 0,
           "offset_y": 0,
           "music_id": 65535,
+          "regions": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 320,
+              "height": 200,
+              "shape_id": 65535,
+              "pointer_id": 0,
+              "goto_scene": 1,
+              "description_id": "lRsQ0Bt9mq6MvVAB",
+              "script": ""
+            }
+          ],
+          "text_regions": [
+            {
+              "x": 8.0,
+              "y": 8.0,
+              "width": 51.0,
+              "justification": "center",
+              "center_vertically": false,
+              "text_id": "SCrkDF2TY2L3206v"
+            },
+            {
+              "x": 8.0,
+              "y": 28.0,
+              "width": 45.0,
+              "justification": "left",
+              "center_vertically": false,
+              "text_id": "muMdwxQQeZ2UesJ1"
+            }
+          ]
+        },
+        {
+          "name": "Dedication",
+          "description_id": [],
+          "on_enter": "",
+          "on_exit": "",
+          "image_id": 0,
+          "view_x": 0,
+          "view_y": 0,
+          "view_width": 0,
+          "view_height": 0,
+          "offset_x": 0,
+          "offset_y": 0,
+          "music_id": 65535,
           "regions": [],
-          "text_regions": []
+          "text_regions": [
+            {
+              "x": 8.0,
+              "y": 8.0,
+              "width": 40.0,
+              "justification": "left",
+              "center_vertically": true,
+              "text_id": "6j2XExoEEAmAC5Br"
+            }
+          ]
         }
       ],
       "shapes": [],

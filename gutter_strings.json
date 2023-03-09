@@ -107,27 +107,27 @@
   {
     "id": "intro01",
     "value": "The acid rain washed the city's neon blood into the Gutter, home for those who ran out of options.\n\nThe Gutter wasn't just a cliche metaphor; it was the city's most ruthless and dangerous district. Few chose to live there willingly; when your credits ran dry, there was nowhere else to go.",
-    "description": ""
+    "description": "This line and the next 3 are the introduce the game's story. Here we are introduced to the Gutter, the protagonist, and what he's investigating. I intend for him to have a classical 1940s noir detective vibe in his descriptions, like Humphrey Bogart in the Maltese Falcon.\n\nIn this first text, we introduce the Gutter, the name of a district or neighborhood in a nameless city."
   },
   {
     "id": "intro02",
     "value": "The police kept their distance from the Gutter as it didn't serve their corporate interests.\n\n\n\nIf you wanted justice, you either took matters into your own hands or scrounged together enough to hire someone like me.",
-    "description": ""
+    "description": "Here we set the expectation that the police don't solve crimes in the Gutter; it's too dangerous, and since they have been privatized, they only work for the corporations that own them."
   },
   {
     "id": "intro03",
     "value": "Blake Steel: private investigator. I took the name from a trashy crime serial. \n\nTo a lost kid from the Gutter, that two-credit detective novel promised a new life away from all the filth. \n\nIt became my blueprint until I made it out alive. \n\nNow I was back, walking alone down these familiar alleys brimming with human waste and wasted humans, looking for someone else who got lost. ",
-    "description": ""
+    "description": "Introducing the main character: Blake Steel. That's not his real name, but as a child, he read a detective novel, a giallo, whose protagonist was named Blake Steel and took that name for himself. He escaped the Gutter but now finds himself back here on a job. There is a play on words here, 'alleys brimming with human waste and wasted humans, ' which the best I can come up with in Italian would be 'rifiuti umani e umani rifuitati.'"
   },
   {
     "id": "intro04",
     "value": "Danni Ashton fell in with some less-than-savory friends and then fell off the face of the Earth.\n\nHer father, Jacob, is paying me very well to find her. \nToo well. \n\nSomething didn't smell right, but I was leaking green and had bills to pay, so I plugged my nose and took the job. \n\nShe was addicted to Coral, the latest in designer drugs, and anyone chasing the ruby slippers would invariably end up...",
-    "description": ""
+    "description": "Another play on words (there is a lot in this game, sorry!). 'Fell in/Fell off' match, but how they are used means different things. Falling in with someone means becoming a member of the group. 'Falling off the face of the Earth' implies that the person disappeared.\n\n'Something didn't smell right' means something about it might not be good. `So I plugged my nose and took the job' is more wordplay. The deal was suspicious, but Blake took it anyway.\n\n'Leaking green' is a slang term I made up for this future world. It means 'running out of money' because dollars are green. Feel free to change to something that works better.\n\nIn the game's fiction, a slang term for being addicted to Coral is 'chasing the ruby slippers.' This is made of two references: the first is that being addicted to opium was called 'chasing the Dragon'; the Ruby Slippers are a reference to Dorothy in the Wizard of Oz. Feel free to change this to something that makes more sense."
   },
   {
     "id": "intro05",
     "value": "... the Gutter",
-    "description": ""
+    "description": "As you can imagine, \"in the Gutter\" is more wordplay. In English, it means that you are ruined, but here it also means that you are physically in the district called 'The Gutter.'"
   },
   {
     "id": "qMJBWYMYaZk8GJgi",
@@ -162,22 +162,22 @@
   {
     "id": "pecLe2ggrXwgOK9P",
     "value": "Takeshi's Noodles",
-    "description": ""
+    "description": "The name of the noodle shop."
   },
   {
     "id": "G8lXyom17tc69IJx",
     "value": "To the Alleycat",
-    "description": "A sign informing the player that the Alleycat is in that direction"
+    "description": "Exit the current scene and go to the Alleycat"
   },
   {
     "id": "nYGKR1hEf0acZ9RC",
     "value": "More Alleyway",
-    "description": "A sign informing the player that the alleyway continues in that direction"
+    "description": "Exit the current screen and into more alleyway"
   },
   {
     "id": "7wtYDUt9QyEgw9dR",
     "value": "Back Alley",
-    "description": "A sign informing the player that a small away in that direction"
+    "description": "A sign informing the player that there is a small alleyway in that direction"
   },
   {
     "id": "frTleC3goNyK3mOP",
@@ -192,7 +192,7 @@
   {
     "id": "WrDQCSSC51QHW2uB",
     "value": "To the Alleycat",
-    "description": "A sign informing the player that the Alleycat is in that direction"
+    "description": "Exit the current screen and go to the Alleycat"
   },
   {
     "id": "0cSnB3FNXFChN7xS",
@@ -202,7 +202,7 @@
   {
     "id": "wkA20ahkPb1rtaeo",
     "value": "To the Subway",
-    "description": "A sign informing the player that the underground train station is in that direction"
+    "description": "Exit the current screen and go to the underground train station"
   },
   {
     "id": "LvRFsrxVqXC5NgXP",
@@ -212,7 +212,7 @@
   {
     "id": "QvL4fY493EBFHn3V",
     "value": "To Takeshi's",
-    "description": "A sign informing the player that the Takeshi's Noodles is in that direction"
+    "description": "Exit the current screen and go to the Takeshi's Noodles"
   },
   {
     "id": "sOylJYeorG3mkKme",
@@ -221,33 +221,33 @@
   },
   {
     "id": "dqv7c0Mf7Qm1tGc3",
-    "value": "Security Guard",
-    "description": ""
+    "value": "A Tinman",
+    "description": "'Tinman' refers to hired security guards, and they are another reference to the Wizard of Oz (l'uomo di latta) because they wear full body armor."
   },
   {
     "id": "TdKc5o4u79gHR2xx",
     "value": "Enter the Subway",
-    "description": ""
+    "description": "A sign informing players they can enter the subway"
   },
   {
     "id": "oQSmNFBBUY1DpS1M",
     "value": "Exit Subway",
-    "description": ""
+    "description": "A sign informing players they can exit the subway"
   },
   {
     "id": "lJsAFeIjaSaNd1fw",
-    "value": "I could hear the subway trains' tortured shrieks from above the platform.",
-    "description": ""
+    "value": "I could hear the subway trains' tortured shrieks from the platform.",
+    "description": "The trains make a lot of noise"
   },
   {
     "id": "pZ0pUW2mOYeWroEb",
     "value": "Exit Subway",
-    "description": ""
+    "description": "A sign informing players they can exit the subway"
   },
   {
     "id": "xkyBiksng48ybBqJ",
     "value": "Board the Subway",
-    "description": ""
+    "description": "A sign informing players they can get onto and use the subway"
   },
   {
     "id": "WnNGIoh4Sd4T8KXZ",
@@ -257,22 +257,22 @@
   {
     "id": "VBjAKP02SB9j6XQo",
     "value": "The music hit me harder than the bouncer ever could. It was finally time to have a chat with Acid Nova.",
-    "description": ""
+    "description": "The music in the nightclub is deafening. Acid Nova is the name of the person you want to speak to."
   },
   {
     "id": "ZNr4vYLrbrMrRPDc",
     "value": "Deeper inside",
-    "description": ""
+    "description": "A sign informing players they can go deeper into the club"
   },
   {
     "id": "jnDW4FqIVabjGeTu",
     "value": "People were having a good time. No gods, no kings, no rules.",
-    "description": ""
+    "description": "Describing the people in the club"
   },
   {
     "id": "5C14uMY1HBfx9gLF",
     "value": "Back to the Alley",
-    "description": ""
+    "description": "A sign informing players they can can exit the club and go back to the alley"
   },
   {
     "id": "gIMxOREfMvT23L4n",
@@ -282,17 +282,17 @@
   {
     "id": "jnHdP7GwPMDWaCtK",
     "value": "Back to the entrance",
-    "description": ""
+    "description": "A sign informing players they can go back to the entrance or the front of the nightclub"
   },
   {
     "id": "ckpHEfY06F7Elil5",
     "value": "Hmm... The bar looks fully stocked...",
-    "description": ""
+    "description": "Describing the bar. There are a lot of bottles"
   },
   {
     "id": "G6mqVCHMkvs5Ty24",
     "value": "Danni and Crystal's apartment was in the nice part of the Gutter (if such a place even exists). It was small yet modern and looked more expensive than I could afford.",
-    "description": ""
+    "description": "Describing the apartment that Crystan and Danni live in"
   },
   {
     "id": "Z1Og8kiDGESvdwwJ",
@@ -302,7 +302,7 @@
   {
     "id": "sMHSrMp3UhVCfx1M",
     "value": "Back to the Subway",
-    "description": ""
+    "description": "A sign informing players they can go back to the subway"
   },
   {
     "id": "7069DfAQ1ReSpHNm",
@@ -312,22 +312,22 @@
   {
     "id": "huhy9NrjB4y6EsLx",
     "value": "To Danni's Room",
-    "description": ""
+    "description": "A sign informing players they can go to Danni's bedroom"
   },
   {
     "id": "SMFWFgsgAojaGqGu",
     "value": "Danni's bedroom was sparse and tidy; the only clutter was near her bed.",
-    "description": ""
+    "description": "The room is clean but there is a pile of stuff to one side"
   },
   {
     "id": "0YZhsjHwQapogSrf",
     "value": "She was either very organized or spent little time here.",
-    "description": ""
+    "description": "Continuation of the previous sentence."
   },
   {
     "id": "KDWWkv5mFpCOIrr6",
     "value": "Back to the entrance",
-    "description": ""
+    "description": "A sign informing players they can go to the front of the apartment"
   },
   {
     "id": "WBDE1lMEt8Q6uRiv",
@@ -342,67 +342,67 @@
   {
     "id": "2l0MfUe24n0u2nYC",
     "value": "Clutter",
-    "description": ""
+    "description": "A pile of stuff next to Danni's bed"
   },
   {
     "id": "FFgQsLa6aMY9m5XP",
     "value": "I spent countless hours trying to make my basement apartment look professional.",
-    "description": ""
+    "description": "Blake describing his office/apartment"
   },
   {
     "id": "7IEyB1tBWOJf4Oae",
     "value": "As always, Daisy was napping rather than guarding the place.",
-    "description": ""
+    "description": "Daisy is Blake's dog. Even though she's a big dog, she's always sleeping"
   },
   {
     "id": "Goc4KqvuSwnVTo4V",
     "value": "Daisy",
-    "description": ""
+    "description": "The name of the dog, please don't change it."
   },
   {
     "id": "06ZnxvKltb6qkP1F",
     "value": "GovLink",
-    "description": ""
+    "description": "Name of government database computer Blake has access to"
   },
   {
     "id": "lIHbPtP52P4KsQDb",
     "value": "Exit to subway",
-    "description": ""
+    "description": "A sign informing players they can leave this area and go to the subway"
   },
   {
     "id": "nfD8Jd1MITJXIeXR",
     "value": "The simulated window gave me penthouse views for basement prices.",
-    "description": ""
+    "description": "There is window in Blake's apartment that is actually a TV screen. 'Penthouse views' means both view from the top floor and expensibe. 'Basement prices' means cheap."
   },
   {
     "id": "t4Gu0IDtlfZr9grN",
     "value": "The Lost Sock laundromat was on Merchant's Row, just a short distance from Danni and Crystal's apartment. Like everywhere else in the Gutter, the streets were slick with undefined liquids.",
-    "description": ""
+    "description": "Description of the area where the laundromat is located. Merchant's Row is a name of a street that has a lot of shops"
   },
   {
     "id": "X2g0nL7WLuxR2IQ6",
     "value": "Down the street, a poster stood out as the only thing not covered in filth.",
-    "description": ""
+    "description": "There is a new and clean poster near the laundromat"
   },
   {
     "id": "3ef4AKWtuf2SLiMH",
     "value": "The Lost Sock Laundromat... I guess that's where all the left socks go.",
-    "description": ""
+    "description": "There is a saying in English that only left socks go missing. Blake is making a joke that this is where they go. The name is part of the graphic so it may not be possible to translate it."
   },
   {
     "id": "SXhXXaOaMFnmS1Bb",
     "value": "Enter the laundromat",
-    "description": ""
+    "description": "A sign informing the player they can enter the laudromat"
   },
   {
     "id": "Sm2jujTUGctPruM6",
     "value": "A loud poster",
-    "description": ""
+    "description": "Loud, in this context, does not mean that it makes noise but that it's very colorful"
   },
   {
     "id": "LKRbR8lQRYmMrosN",
     "value": "Back to the subway",
-    "description": ""
+    "description": "A sign informing players they can leave this area and go to the subway"
   },
   {
     "id": "oOKvcjVsb5fQAB0X",
@@ -412,7 +412,7 @@
   {
     "id": "0W7XQbEBjZpKAYoX",
     "value": "Exit to street",
-    "description": ""
+    "description": "A sign informing the player they can exit the laundromat back to the street"
   },
   {
     "id": "5btAySbdtSCuEhTG",
@@ -452,7 +452,7 @@
   {
     "id": "y64hXkVvi1UZKow5",
     "value": "Exit to the subway.",
-    "description": ""
+    "description": "A sign informing players they can leave this area and go to the subway"
   },
   {
     "id": "11OrmpHgc2H9NTf1",
@@ -4772,6 +4772,26 @@
   {
     "id": "OuhURObWpjGrvd9f",
     "value": "Foul-smelling Dumpster",
+    "description": ""
+  },
+  {
+    "id": "SCrkDF2TY2L3206v",
+    "value": "Credits",
+    "description": ""
+  },
+  {
+    "id": "muMdwxQQeZ2UesJ1",
+    "value": "*Programming and Story*\nMassimo Loi - massproduced.games\n\n*Art*\nSandy Loi\nMidJourney\n\n*Music*\nMatias Sosa - matias-sosa.itch.io\n\n*Translations*\nSimone Battaglioni \"SimonPPC\"\n\nSpecial thanks to all the members of Amiga Blitz Basic Game Jam Discord server.",
+    "description": ""
+  },
+  {
+    "id": "lRsQ0Bt9mq6MvVAB",
+    "value": "",
+    "description": ""
+  },
+  {
+    "id": "6j2XExoEEAmAC5Br",
+    "value": "In loving memory\nDaisy 2009-2022\n\nYou'll always be the goodest girl...",
     "description": ""
   }
 ]
