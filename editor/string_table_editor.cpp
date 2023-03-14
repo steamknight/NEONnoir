@@ -76,7 +76,7 @@ namespace NEONnoir
                     ImGui::TableNextColumn();
                     auto size = ImGui::CalcTextSize(string_entry.value.c_str());
                     size.x = -FLT_MIN;
-                    size.y += 8;
+                    size.y += (ImGui::GetStyle().FramePadding.y * 2.0f);
                     ImGui::InputTextMultiline(make_id("##{}", string_entry.value), &string_entry.value, size);
 
                     ImGui::TableNextColumn();

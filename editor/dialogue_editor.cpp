@@ -144,7 +144,7 @@ namespace NEONnoir
 
         auto size = ImGui::CalcTextSize(value.c_str());
         size.x = -FLT_MIN;
-        size.y += 8;
+        size.y += ImGui::GetStyle().FramePadding.y * 2.0f;
         ImGui::InputTextMultiline(make_id("##{}", value), & value, size);
     }
 
@@ -259,7 +259,7 @@ namespace NEONnoir
 
             auto size = ImGui::CalcTextSize(_data->strings.get_string(page.text_id).c_str());
             size.x = -FLT_MIN;
-            size.y += 8;
+            size.y += ImGui::GetStyle().FramePadding.y * 2.0f;
 
             ImGui::InputTextMultiline(make_id("##{}", page.text_id), &_data->strings.get_string(page.text_id), size);
 
@@ -399,7 +399,7 @@ namespace NEONnoir
 
             auto size = ImGui::CalcTextSize(_data->strings.get_string(choice.text_id).c_str());
             size.x = -FLT_MIN;
-            size.y += 8;
+            size.y += ImGui::GetStyle().FramePadding.y * 2.0f;
             ImGui::InputTextMultiline(make_id("##{}", choice.text_id), &_data->strings.get_string(choice.text_id), size);
         }
 

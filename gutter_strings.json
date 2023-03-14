@@ -417,37 +417,37 @@
   {
     "id": "5btAySbdtSCuEhTG",
     "value": "Gladys, I presume.",
-    "description": ""
+    "description": "Description when hovering the mouse over Gladys"
   },
   {
     "id": "ET6BccIZ755p1mkD",
     "value": "Computer",
-    "description": ""
+    "description": "Description when hovering the mouse over a computer"
   },
   {
     "id": "vUKZpTmD6fSxy6Dt",
     "value": "The industrial district was a sprawling hellscape of warehouses, factories, and pipes of all shapes and sizes stretching for hundreds of miles like a basket of venomous snakes.",
-    "description": ""
+    "description": "These next three lines describe the industrial district"
   },
   {
     "id": "lqBy3ceDqrcvp2EA",
     "value": "The air quality was even worse than in the Gutter. Worker safety cut into the bottom line of the fat cats running the place, and they could always get more workers.",
-    "description": ""
+    "description": "Continued from above"
   },
   {
     "id": "auZMQD7UNhmvma1r",
     "value": "Lucky for me, Building 19 was in a secluded area at the edge of the industrial district. Like the other buildings, there was no outward clue of the owner's identity. It was time I applied my carefully honed detective skills.",
-    "description": ""
+    "description": "Continued from above"
   },
   {
     "id": "krWnIa2vEqgDtYXC",
     "value": "Doors to the storage facility.",
-    "description": ""
+    "description": "Mouse hover description for some doors in the industrial district"
   },
   {
     "id": "i1RJUULJsnnXBXaS",
     "value": "Doors to the upper-level office.",
-    "description": ""
+    "description": "Mouse hover description for some doors in the industrial district"
   },
   {
     "id": "y64hXkVvi1UZKow5",
@@ -457,17 +457,17 @@
   {
     "id": "11OrmpHgc2H9NTf1",
     "value": "Leave the office.",
-    "description": ""
+    "description": "Mouse hover description for the office exit"
   },
   {
     "id": "NgNArx8oSl4giIoq",
     "value": "Some lockers.",
-    "description": ""
+    "description": "Mouse hover description for some lockers"
   },
   {
     "id": "Z6JdWETSH8n7D8Pj",
     "value": "Some papers on a small table.",
-    "description": ""
+    "description": "Mouse hover description"
   },
   {
     "id": "ydV48osT6oVM2BlT",
@@ -477,282 +477,282 @@
   {
     "id": "DjDHpURONM3SAPvQ",
     "value": "A trashcan.",
-    "description": ""
+    "description": "Mouse hover description"
   },
   {
     "id": "LfAmegpb6xK7cQQp",
     "value": "Something about this place seemed weird. There should have been people working, but the place was empty. Even the many boxes piled high in this facility looked like they hadn't been touched in a long time.",
-    "description": ""
+    "description": "This and the next line describe the inside of a warehouse"
   },
   {
     "id": "BA6iR8hOYk1RHP5c",
     "value": "This place was definitely a front, all right.",
-    "description": ""
+    "description": "Continued from above"
   },
   {
     "id": "N9eoOAuqVeyopQTP",
     "value": "Small plastic capsule",
-    "description": ""
+    "description": "Mouse hover description"
   },
   {
     "id": "bKT5kZBR7crPSpBF",
     "value": "Lots of boxes",
-    "description": ""
+    "description": "Mouse hover description for one set of boxes"
   },
   {
     "id": "ogT5MW6thxeIubuB",
     "value": "More and more boxes.",
-    "description": ""
+    "description": "Mouse hover description for another set of boxes"
   },
   {
     "id": "96Z5ZRcrNsRSJvtA",
     "value": "Exit the building.",
-    "description": ""
+    "description": "Mouse hover description for the building exit"
   },
   {
     "id": "gy6dv23xn0P1Ie7i",
     "value": "The upstairs office.",
-    "description": ""
+    "description": "Mouse hover description"
   },
   {
     "id": "hqR7OghUwJE1kd4l",
     "value": "Door to storage",
-    "description": ""
+    "description": "Mouse hover description"
   },
   {
     "id": "oMerbUrKYeqXleSe",
     "value": "Leave the building",
-    "description": ""
+    "description": "Mouse hover description for building exit"
   },
   {
     "id": "nIadX9Z2mbsBSjTp",
     "value": "The other side of the office.",
-    "description": ""
+    "description": "Mouse hover description for exit to the other side of the office"
   },
   {
     "id": "0PKCRw4am1wk4kO7",
     "value": "A trashcan. Nothing more of interest there.",
-    "description": ""
+    "description": "Mouse hover description for a trashcan"
   },
   {
     "id": "jOrX0BTmBGyJjyyi",
     "value": "A bunch of empty lockers.",
-    "description": ""
+    "description": "Mouse hover description for lockers"
   },
   {
     "id": "Fi07vkWGNC8DFycZ",
     "value": "I could see neither Crystal nor Visser from this window.",
-    "description": ""
+    "description": "Description when looking out of the office window"
   },
   {
     "id": "MfvQOVIPZftWLvx1",
     "value": "To the catwalk",
-    "description": ""
+    "description": "Mouse hover description for the exit to the catwalk"
   },
   {
     "id": "0pFAdScvMIiKXUtl",
     "value": "Vending machine",
-    "description": ""
+    "description": "Mouse hover description for a vending machine"
   },
   {
     "id": "rFl0woOhJoxMXanE",
     "value": "The other side of the office",
-    "description": ""
+    "description": "Mouse hover description for exit to the other side of the office"
   },
   {
     "id": "iNWZUVMI5s9e4OrZ",
     "value": "No! No more looking in the trash!",
-    "description": ""
+    "description": "Blake has looked through too many trashcans, he doesn't want to do it anymore"
   },
   {
     "id": "RHFMA1ertAWMeQhj",
     "value": "Xantech Cybernetics' ostentatious building rose above us all like a giant middle finger to our hardships.",
-    "description": ""
+    "description": "Introduction description of the Xantech building. It's huge and looms over the city."
   },
   {
     "id": "9066W119E3INkaC8",
     "value": "Enter Xantech Cybernetics",
-    "description": ""
+    "description": "Mouse hover description for entrance to Xantech"
   },
   {
     "id": "s6cpQrc8n25A5WEu",
     "value": "Xantech Cybernetics. This was it. The beginning of the end for Xander Vane.",
-    "description": ""
+    "description": "Mouse hover description for the Xantech building"
   },
   {
     "id": "oBTEBtwYrsvHAAfT",
     "value": "The elevator dinged at the 53rd floor, where Xantech's data center was supposed to be.",
-    "description": ""
+    "description": "These next 3 lines describe getting inside the Xantech building."
   },
   {
     "id": "swdaxAZ4h9YrgYhQ",
     "value": "*DING*",
-    "description": ""
+    "description": "Continued from above"
   },
   {
     "id": "ucBLDWkekATQBOvX",
     "value": "Drek. There was a tinman guarding the server room.",
-    "description": ""
+    "description": "Continued from above"
   },
   {
     "id": "fSgjpNf67PiYvqel",
     "value": "Just great, a tinman.",
-    "description": ""
+    "description": "Mouse hover description for the tinman"
   },
   {
     "id": "Ohn6lac1mfoZbF9x",
     "value": "To the server rooms.",
-    "description": ""
+    "description": "Mouse hover description for entrance to the server room"
   },
   {
     "id": "QRYKd0pq8j7tlTFo",
     "value": "Corridor",
-    "description": ""
+    "description": "Mouse hover description for an exit to the corridor"
   },
   {
     "id": "pHBYE2kUeenLSp0r",
     "value": "Endless corridors crisscrossed this floor.",
-    "description": ""
+    "description": "Description of the hallways"
   },
   {
     "id": "8seCRRNHjmm16Njy",
     "value": "Back to lobby",
-    "description": ""
+    "description": "Mouse hover description for exit back to the lobby"
   },
   {
     "id": "BCgqdWL5IaqGCmPt",
     "value": "Medical bay",
-    "description": ""
+    "description": "Mouse hover description for entrance to the medical room"
   },
   {
     "id": "N0xKbfgacZIZAGuH",
     "value": "Breakroom",
-    "description": ""
+    "description": "Mouse hover description for the break room/office kitchen"
   },
   {
     "id": "dkTe1WS8FQ91Qp1f",
     "value": "A spotless medical bay. Everything in it was state-of-the-art.",
-    "description": ""
+    "description": "Description of the medical room"
   },
   {
     "id": "qiyw5sZ36ee0PRgP",
     "value": "Medicine closet",
-    "description": ""
+    "description": "Mouse hover description for a medicine cabinet"
   },
   {
     "id": "LeN1DRaRaVmJCYoj",
     "value": "Back to the corridor",
-    "description": ""
+    "description": "Mouse hover description for exit back to the corridor"
   },
   {
     "id": "OTCWud75nqu2ol1l",
     "value": "A medical bed. How often do they need it?",
-    "description": ""
+    "description": "Mouse hover description for the futuristic medical bed"
   },
   {
     "id": "jolqCH3mYatZWVBU",
     "value": "The breakroom on this floor was a fully stocked cafe. Perhaps working for Xantech wouldn't be the worst thing...",
-    "description": ""
+    "description": "These next 2 lines are the description of the break room"
   },
   {
     "id": "eqb95G2uEQHd4j3P",
     "value": "Better not to be seduced by their corporate perks. I had a job to do.",
-    "description": ""
+    "description": "Continued from above"
   },
   {
     "id": "vEq9XGn5BBEGMKQ9",
     "value": "Back to the corridor",
-    "description": ""
+    "description": "Mouse hover description for exit to the corridor"
   },
   {
     "id": "m3VT1HtiR5GfVyg3",
     "value": "A coffee machine",
-    "description": ""
+    "description": "Mouse hover description for the coffee machine"
   },
   {
     "id": "lufCIh8SPcmLYJ7v",
     "value": "A view of the city. Nothing but the best for Xantech employees.",
-    "description": ""
+    "description": "Description of what's outside the window of the break room"
   },
   {
     "id": "ySViDqCbZGnM20Ir",
     "value": "Datablade",
-    "description": ""
+    "description": "Mouse hover description for the server computer"
   },
   {
     "id": "F61oncoaCL7RXXvs",
     "value": "What now?",
-    "description": ""
+    "description": "After Blake puts the data stick in Xantech server computer, he wonders what should happen next"
   },
   {
     "id": "ymGrpDCre5PMOCSJ",
     "value": "Let's see what I have on me...",
-    "description": ""
+    "description": "These next several lines are part of the game menu, this looks like Blake is having a dialogue with himself. This is for the inventory"
   },
   {
     "id": "yTxZfTZnDcF1vEn6",
     "value": "I should SAVE my notes.",
-    "description": ""
+    "description": "Selecting this will save the game. Make sure that SAVE is uppercase"
   },
   {
     "id": "QJJ6P75JfTrMPFi1",
     "value": "Should I call it QUITs?",
-    "description": ""
+    "description": "Selecting this will quit the game. Make sure that QUIT is uppercase"
   },
   {
     "id": "9yl7toX6G5fjywGJ",
     "value": "Never mind.",
-    "description": ""
+    "description": "Selecting this will exit the menu"
   },
   {
     "id": "u7VT6gUT8YeK4BL4",
     "value": "Maybe I should forget about this whole business and go home?",
-    "description": ""
+    "description": "If having selected the QUIT option, Blake askes himself if he should really quit."
   },
   {
     "id": "kIsB1K2IlAC20PTM",
     "value": "Yeah, it's not my problem.",
-    "description": ""
+    "description": "Selecting this will compleately quit the came"
   },
   {
     "id": "dgr09v7AhG0ivCdi",
     "value": "No. A girl's gone missing, and I'm her only hope.",
-    "description": ""
+    "description": "Selecing this will go back to the game"
   },
   {
     "id": "TwDmSefeThaoQQPX",
     "value": "Where to?",
-    "description": ""
+    "description": "These next lines are part of the menu that makes Blake move to different locations. He's asking himself where he should go"
   },
   {
     "id": "nO3m4LZ1lTZ2hmAZ",
     "value": "My apartment.",
-    "description": ""
+    "description": "Destination 1: Blake's apartment"
   },
   {
     "id": "Nyqdo4TdU4sXN46J",
     "value": "The alleyway near the Alleycat.",
-    "description": ""
+    "description": "Destination 2"
   },
   {
     "id": "Vtdml2ZFwcGKPcyR",
     "value": "Danni and Crystal's apartment.",
-    "description": ""
+    "description": "Destination 3"
   },
   {
     "id": "UFjq7ZsDx3mBuJfJ",
     "value": "The Lost Sock Laundromat.",
-    "description": ""
+    "description": "Destination 4"
   },
   {
     "id": "lcGnCRemChAtZJXW",
     "value": "Building 19, Industrial District.",
-    "description": ""
+    "description": "Destination 5"
   },
   {
     "id": "4RoylRg4QAaGIrw1",
     "value": "Never mind.",
-    "description": ""
+    "description": "Go back to the game and stay in this location"
   },
   {
     "id": "IAfkkWhEVI9fiTkA",
@@ -4697,7 +4697,7 @@
   {
     "id": "inv_danni_picture",
     "value": "*A picture of Danni Ashton.",
-    "description": ""
+    "description": "All these are inventory items, please make sure to keep the * right before the text"
   },
   {
     "id": "inv_glitch_cred_stick",
@@ -4762,7 +4762,7 @@
   {
     "id": "inv_laxative",
     "value": "*KwikyLax. A military-grade laxative.",
-    "description": ""
+    "description": "The Kwiky in KwikyLax is a strange spelling for \"Quick\", and Lax is a common abbreviation for Laxative in English."
   },
   {
     "id": "inv_coffee",

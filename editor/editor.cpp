@@ -20,6 +20,56 @@ namespace fs = std::filesystem;
 
 namespace NEONnoir
 {
+    void Theme_Cyberpunk(ImGuiStyle* dst = NULL)
+    {
+        // Cyberpunk Neon [Improvised]
+        // https://github.com/Roboron3042/Cyberpunk-Neon
+        ImGuiStyle* style = dst ? dst : &ImGui::GetStyle();
+        ImVec4* colors = style->Colors;
+        ImGui::StyleColorsDark(style);//Reset to base/dark theme
+        colors[ImGuiCol_Text] = ImVec4(0.00f, 0.82f, 1.00f, 1.00f);
+        colors[ImGuiCol_TextDisabled] = ImVec4(0.00f, 0.36f, 0.63f, 1.00f);
+        colors[ImGuiCol_WindowBg] = ImVec4(0.00f, 0.04f, 0.12f, 1.00f);
+        colors[ImGuiCol_ChildBg] = ImVec4(0.03f, 0.04f, 0.22f, 1.00f);
+        colors[ImGuiCol_PopupBg] = ImVec4(0.12f, 0.06f, 0.27f, 1.00f);
+        colors[ImGuiCol_Border] = ImVec4(0.61f, 0.00f, 1.00f, 1.00f);
+        colors[ImGuiCol_FrameBg] = ImVec4(0.00f, 0.75f, 1.00f, 0.20f);
+        colors[ImGuiCol_FrameBgHovered] = ImVec4(0.34f, 0.00f, 1.00f, 1.00f);
+        colors[ImGuiCol_FrameBgActive] = ImVec4(0.08f, 0.00f, 1.00f, 1.00f);
+        colors[ImGuiCol_TitleBg] = ImVec4(0.00f, 0.81f, 0.95f, 1.00f);
+        colors[ImGuiCol_TitleBgActive] = ImVec4(0.61f, 0.00f, 1.00f, 1.00f);
+        colors[ImGuiCol_TitleBgCollapsed] = ImVec4(0.25f, 0.00f, 0.54f, 0.81f);
+        colors[ImGuiCol_MenuBarBg] = ImVec4(0.61f, 0.00f, 1.00f, 1.00f);
+        colors[ImGuiCol_ScrollbarBg] = ImVec4(0.00f, 0.88f, 1.00f, 1.00f);
+        colors[ImGuiCol_ScrollbarGrab] = ImVec4(0.61f, 0.00f, 1.00f, 1.00f);
+        colors[ImGuiCol_ScrollbarGrabHovered] = ImVec4(0.01f, 0.00f, 1.00f, 1.00f);
+        colors[ImGuiCol_ScrollbarGrabActive] = ImVec4(0.95f, 0.19f, 0.67f, 1.00f);
+        colors[ImGuiCol_CheckMark] = ImVec4(0.95f, 0.19f, 0.92f, 1.00f);
+        colors[ImGuiCol_SliderGrab] = ImVec4(0.00f, 1.00f, 0.95f, 1.00f);
+        colors[ImGuiCol_SliderGrabActive] = ImVec4(0.81f, 0.00f, 1.00f, 1.00f);
+        colors[ImGuiCol_Button] = ImVec4(0.00f, 0.98f, 1.00f, 0.52f);
+        colors[ImGuiCol_ButtonHovered] = ImVec4(0.94f, 0.00f, 1.00f, 0.80f);
+        colors[ImGuiCol_ButtonActive] = ImVec4(0.01f, 0.00f, 1.00f, 1.00f);
+        colors[ImGuiCol_Header] = ImVec4(0.00f, 0.95f, 1.00f, 0.40f);
+        colors[ImGuiCol_HeaderHovered] = ImVec4(0.94f, 0.00f, 1.00f, 0.80f);
+        colors[ImGuiCol_HeaderActive] = ImVec4(0.01f, 0.00f, 1.00f, 1.00f);
+        colors[ImGuiCol_Separator] = ImVec4(0.74f, 0.00f, 1.00f, 0.50f);
+        colors[ImGuiCol_SeparatorHovered] = ImVec4(0.34f, 0.00f, 1.00f, 0.78f);
+        colors[ImGuiCol_SeparatorActive] = ImVec4(0.00f, 1.00f, 0.85f, 1.00f);
+        colors[ImGuiCol_ResizeGrip] = ImVec4(0.61f, 0.00f, 1.00f, 1.00f);
+        colors[ImGuiCol_ResizeGripHovered] = ImVec4(0.89f, 0.26f, 0.98f, 0.67f);
+        colors[ImGuiCol_ResizeGripActive] = ImVec4(0.00f, 0.88f, 1.00f, 0.95f);
+        colors[ImGuiCol_Tab] = ImVec4(0.36f, 0.00f, 1.00f, 1.00f);
+        colors[ImGuiCol_TabHovered] = ImVec4(0.00f, 0.92f, 1.00f, 0.80f);
+        colors[ImGuiCol_TabActive] = ImVec4(0.62f, 0.00f, 0.80f, 1.00f);
+        colors[ImGuiCol_PlotHistogram] = ImVec4(0.00f, 1.00f, 0.88f, 1.00f);
+        style->FrameBorderSize = 0.00f;
+        style->WindowRounding = 0.00f;
+        style->FrameRounding = 0.00f;
+        style->ScrollbarRounding = 0.00f;
+        style->GrabRounding = 0.00f;
+    }
+
     editor::editor(editor::settings const& setting)
     {
         // Initialize GLFW
@@ -40,11 +90,14 @@ namespace NEONnoir
 
         glfwSetWindowUserPointer(_window.get(), this);
 
-        //glfwSetWindowContentScaleCallback(_window.get(), [](GLFWwindow* window, float /*xscale*/, float /*yscale*/)
-        //    {
-        //        auto engine_ptr = force_to<editor*>(glfwGetWindowUserPointer(window));
-        //        engine_ptr->load_fonts();
-        //    });
+        glfwSetWindowContentScaleCallback(_window.get(), [](GLFWwindow* window, float xscale, float /*yscale*/)
+            {
+                auto& style = ImGui::GetStyle();
+                style.ScaleAllSizes(xscale);
+
+                auto engine_ptr = force_to<editor*>(glfwGetWindowUserPointer(window));
+                engine_ptr->load_fonts();
+            });
 
         // Intitialize IMGUI
         IMGUI_CHECKVERSION();
@@ -59,6 +112,13 @@ namespace NEONnoir
         ImGui_ImplGlfw_InitForOpenGL(_window.get(), true);
         ImGui_ImplOpenGL3_Init("#version 330");
  
+        auto primary_monitor = glfwGetPrimaryMonitor();
+        float xscale, yscale;
+        glfwGetMonitorContentScale(primary_monitor, &xscale, &yscale);
+
+        auto& style = ImGui::GetStyle();
+        style.ScaleAllSizes(xscale);
+
         //// Load some custom fonts
         //_ui_font = io.Fonts->AddFontFromFileTTF("data/Roboto-Medium.ttf", 18 * _dpi_scale_x);
 
@@ -74,6 +134,8 @@ namespace NEONnoir
 
         //_monospaced_font = io.Fonts->AddFontFromFileTTF("data/CascadiaCode.ttf", 18 * _dpi_scale_x);
         load_fonts();
+
+        //Theme_Cyberpunk();
     }
 
     editor::~editor() noexcept
@@ -144,7 +206,12 @@ namespace NEONnoir
 
             _location_browser->display();
             _scene_editor->display(_location_browser->get_selected_location(), _location_browser->get_selected_scene());
-            _script_editor->display(_monospaced_font);
+
+            if (_show_script_editor)
+            {
+                _script_editor->display(_monospaced_font);
+            }
+
             _dialogue_editor->display();
             _shapes_editor->display(_location_browser->get_selected_location());
             _speaker_editor->display();
@@ -221,7 +288,7 @@ namespace NEONnoir
             }
 
             // Vairn, Removed Demo Window.
-            //ImGui::ShowDemoWindow();
+            // ImGui::ShowDemoWindow();
 
             ImGui::Render();
             ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
@@ -385,16 +452,19 @@ namespace NEONnoir
 
                 ImGui::EndMenu();
             }
-            //if (ImGui::BeginMenu("Edit"))
-            //{
-            //    if (ImGui::MenuItem("Undo", "CTRL+Z")) {}
-            //    if (ImGui::MenuItem("Redo", "CTRL+Y", false, false)) {}  // Disabled item
-            //    ImGui::Separator();
-            //    if (ImGui::MenuItem("Cut", "CTRL+X")) {}
-            //    if (ImGui::MenuItem("Copy", "CTRL+C")) {}
-            //    if (ImGui::MenuItem("Paste", "CTRL+V")) {}
-            //    ImGui::EndMenu();
-            //}
+            if (ImGui::BeginMenu("View"))
+            {
+                auto const show_script_editor_label = (_show_script_editor)
+                    ? ICON_MD_CHECK " Script Editor"
+                    : " Script Editor";
+
+                if (ImGui::MenuItem(show_script_editor_label)) 
+                {
+                    _show_script_editor = !_show_script_editor;
+                }
+
+                ImGui::EndMenu();
+            }
             if (ImGui::BeginMenu(ICON_MD_CONSTRUCTION " Tools"))
             {
                 if (ImGui::MenuItem(ICON_MD_PALETTE " Palette Injector..."))
