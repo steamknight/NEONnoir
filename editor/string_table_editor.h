@@ -14,6 +14,9 @@ namespace NEONnoir
         std::string_view get_title_name() const noexcept override { return ICON_MD_LIST " String Table"; };
         void display_editor() override;
         void display_toolbar() noexcept;
+
+    private:
+        std::optional<int> _selected_string_index{ std::nullopt };
     };
 
 }

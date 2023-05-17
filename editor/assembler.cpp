@@ -1,7 +1,7 @@
 #include "assembler.h"
 #include <iostream>
 #include <iomanip>
-#include <fstream>
+#include <fstream> 
 
 #include "utils.h"
 
@@ -120,7 +120,7 @@ namespace NEONnoir
                 throw assembler_error("Missing label: " + placeholder.name, 0);
             }
 
-            _bytecode[placeholder.index] = to<i32>(_labels[placeholder.name] - placeholder.index + 1);
+            _bytecode[placeholder.index] = to<i16>(_labels[placeholder.name] - placeholder.index + 1);
         }
     }
 
@@ -310,7 +310,7 @@ namespace NEONnoir
                         _placeholders.push_back({ _bytecode.size(), script_name + label });
 
                         // Place a temporary value
-                        _bytecode.push_back(to<i32>(0x7FFF));
+                        _bytecode.push_back(0x7FFF);
 
                         break;
                     }
@@ -357,7 +357,7 @@ namespace NEONnoir
                     throw assembler_error("Duplicate label: @" + label, _scan_line);
                 }
 
-                _labels.insert({ qualified_label, to<i32>(_bytecode.size())});
+                _labels.insert({ qualified_label, to<i16>(_bytecode.size())});
             }
             else if (is_at_end() || peek() == '.')
             {

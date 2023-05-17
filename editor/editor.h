@@ -76,7 +76,7 @@ namespace NEONnoir
         bool _show_properties_popup{ false };
         bool _show_error_popup{ false };
 
-        bool _show_script_editor{ true };
+        bool _show_script_editor{ false };
         std::string _error_message{};
     };
 };

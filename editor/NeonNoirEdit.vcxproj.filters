@@ -230,6 +230,9 @@
     <ClInclude Include="manifest_editor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="libraries\include\json.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

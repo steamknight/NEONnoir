@@ -107,9 +107,8 @@
     alley_alleycat              0
     alley_empty_lot             2
     alley_atm                   3
-    alley_trash                 4
-    alley_subway_entrance       5
-    alley_subway_interior       6
+    alley_subway_entrance       4
+    alley_subway_interior       5
 
     ; Scenes in Alleycat
     scene_alleycat_entrance     0
@@ -1099,40 +1098,14 @@
 
         end
 
-.SCRIPT on_enter_credits
-        txtstart #frame_off
-        txtput $credits_mass1 25
-        txtput $credits_mass2 25
-        txtput $credits_mass3 25
-        txtnl
-        txtnl
-        txtput $credits_art1 25
-        txtput $credits_mass2 25
-        txtnl
-        txtput $credits_art2 25
-        txtnl
-        txtput $credits_art3 25
-        txtnl
-        txtnl
-        txtput $credits_music1 25
-        txtput $credits_music2 25
-        txtnl
-        txtnl
-        txtnl
-        txtput $credits_thanks1 42
-        txtput $credits_thanks2 42
-
-        txtend 10 10 #wait_on
-
-        txtstart #frame_off
-        txtput $credits_daisy1 35
-        txtput $credits_daisy2 35
-        txtnl
-        txtput $credits_daisy3 35
-        txtend 10 84 #wait_on
-
+.SCRIPT back_to_title
         goloc #location_title #scene_title
         end
+
+
+
+
+
 
 
 

@@ -1,0 +1,5 @@
+
+#: language
+msgctxt "Name of the language"
+msgid "English"
+msgstr ""

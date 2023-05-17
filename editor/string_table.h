@@ -28,8 +28,8 @@ namespace NEONnoir
     class string_table
     {
     private:
-        //using string_entries = std::vector<string_entry>;
-        //using id_index_map = std::unordered_map<std::std::string, std::vector<string_entry>::size_type>;
+        using string_entries = std::vector<string_entry>;
+        using id_index_map = std::unordered_map<std::string, string_entries::size_type>;
 
     public:
         std::string create_string_entry(std::string const& value);
@@ -46,17 +46,20 @@ namespace NEONnoir
         void serialize(std::filesystem::path const& file_path) const;
         void deserialize(std::filesystem::path const& file_path);
 
+        void generate_po_file(std::filesystem::path const& file_path) const;
+
+        static std::vector<word> calculate_words(std::string const& text);
+
     public:
-        std::vector<string_entry> string_entries{};
+        string_entries entries{};
 
     private:
         std::string::size_type const _string_id_length = 16;
-        std::unordered_map<std::string, std::vector<string_entry>::size_type> id_index_map{};
+        id_index_map _id_index_map{};
         ImVec2 _char_size;
 
     private:
         void ensure_valid_id(std::string const& string_id) const;
-        void calculate_words(std::string const& string_id);
 
     };
 

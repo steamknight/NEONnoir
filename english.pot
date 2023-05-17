@@ -1,0 +1,4894 @@
+#: language
+msgctxt "Name of the language"
+msgid "English"
+msgstr ""
+
+#: language_font
+msgctxt "Ignore. Name of the font file."
+msgid "data/lang/latin-1.shapes"
+msgstr ""
+
+#: title_start
+msgctxt "Start game button in title screen"
+msgid "Start"
+msgstr ""
+
+#: title_continue
+msgctxt "Continue game button in title screen"
+msgid "Continue"
+msgstr ""
+
+#: title_credits
+msgctxt "Credits button in title screen, shows who made the game."
+msgid "Credits"
+msgstr ""
+
+#: title_quit
+msgctxt "Quit game button in title screen"
+msgid "Quit"
+msgstr ""
+
+#: mod_theme
+msgctxt "Ignore"
+msgid "data/theme.mod"
+msgstr ""
+
+#: mod_ambient
+msgctxt "0Ignore"
+msgid "data/ambient.mod"
+msgstr ""
+
+#: mod_dancemix
+msgctxt "1Ignore"
+msgid "data/dance.mod"
+msgstr ""
+
+#: mod_intrigue
+msgctxt "2Ignore"
+msgid "data/intrigue.mod"
+msgstr ""
+
+#: mod_boss_intro
+msgctxt "3Ignore"
+msgid "data/boss_intro.mod"
+msgstr ""
+
+#: mod_boss_theme
+msgctxt "4Ignore"
+msgid "data/boss_theme.mod"
+msgstr ""
+
+#: mod_detective
+msgctxt "5Ignore"
+msgid "data/detective.mod"
+msgstr ""
+
+#: mod_crystal
+msgctxt "6Ignore"
+msgid "data/crystal.mod"
+msgstr ""
+
+#: mod_industry
+msgctxt "7Ignore"
+msgid "data/to_industry.mod"
+msgstr ""
+
+#: game_saved
+msgctxt "Message that displays once the game has been saved to disk."
+msgid "Game Saved."
+msgstr ""
+
+#: xaUZC8YbkDkmjaTf
+msgctxt "8Ignore"
+msgid ""
+msgstr ""
+
+#: ic2wGJBcPr9tWcXq
+msgctxt "9Ignore"
+msgid ""
+msgstr ""
+
+#: dioMG7WajruJ3O3q
+msgctxt "10Ignore"
+msgid ""
+msgstr ""
+
+#: HgujNWUNv8WtHCrR
+msgctxt "11Ignore"
+msgid ""
+msgstr ""
+
+#: 7IbXZZFdZdrd3HE8
+msgctxt "12Ignore"
+msgid ""
+msgstr ""
+
+#: intro01
+msgctxt "This line and the next 3 are the introduce the game's story. Here we are introduced to the Gutter, the protagonist, and what he's investigating. I intend for him to have a classical 1940s noir detective vibe in his descriptions, like Humphrey Bogart in the Maltese Falcon."
+""
+"In this first text, we introduce the Gutter, the name of a district or neighborhood in a nameless city."
+msgid "The acid rain washed the city's neon blood into the Gutter, home for those who ran out of options."
+""
+"The Gutter wasn't just a cliche metaphor; it was the city's most ruthless and dangerous district. Few chose to live there willingly; when your credits ran dry, there was nowhere else to go."
+msgstr ""
+
+#: intro02
+msgctxt "Here we set the expectation that the police don't solve crimes in the Gutter; it's too dangerous, and since they have been privatized, they only work for the corporations that own them."
+msgid "The police kept their distance from the Gutter as it didn't serve their corporate interests."
+""
+""
+""
+"If you wanted justice, you either took matters into your own hands or scrounged together enough to hire someone like me."
+msgstr ""
+
+#: intro03
+msgctxt "Introducing the main character: Blake Steel. That's not his real name, but as a child, he read a detective novel, a giallo, whose protagonist was named Blake Steel and took that name for himself. He escaped the Gutter but now finds himself back here on a job. There is a play on words here, 'alleys brimming with human waste and wasted humans, ' which the best I can come up with in Italian would be 'rifiuti umani e umani rifuitati.'"
+msgid "Blake Steel: private investigator. I took the name from a trashy crime serial. "
+""
+"To a lost kid from the Gutter, that two-credit detective novel promised a new life away from all the filth. "
+""
+"It became my blueprint until I made it out alive. "
+""
+"Now I was back, walking alone down these familiar alleys brimming with human waste and wasted humans, looking for someone else who got lost. "
+msgstr ""
+
+#: intro04
+msgctxt "Another play on words (there is a lot in this game, sorry!). 'Fell in/Fell off' match, but how they are used means different things. Falling in with someone means becoming a member of the group. 'Falling off the face of the Earth' implies that the person disappeared."
+""
+"'Something didn't smell right' means something about it might not be good. `So I plugged my nose and took the job' is more wordplay. The deal was suspicious, but Blake took it anyway."
+""
+"'Leaking green' is a slang term I made up for this future world. It means 'running out of money' because dollars are green. Feel free to change to something that works better."
+""
+"In the game's fiction, a slang term for being addicted to Coral is 'chasing the ruby slippers.' This is made of two references: the first is that being addicted to opium was called 'chasing the Dragon'; the Ruby Slippers are a reference to Dorothy in the Wizard of Oz. Feel free to change this to something that makes more sense."
+msgid "Danni Ashton fell in with some less-than-savory friends and then fell off the face of the Earth."
+""
+"Her father, Jacob, is paying me very well to find her. "
+"Too well. "
+""
+"Something didn't smell right, but I was leaking green and had bills to pay, so I plugged my nose and took the job. "
+""
+"She was addicted to Coral, the latest in designer drugs, and anyone chasing the ruby slippers would invariably end up..."
+msgstr ""
+
+#: intro05
+msgctxt "As you can imagine, \"in the Gutter\" is more wordplay. In English, it means that you are ruined, but here it also means that you are physically in the district called 'The Gutter.'"
+msgid "... the Gutter"
+msgstr ""
+
+#: qMJBWYMYaZk8GJgi
+msgctxt "The player can hear, but can't make out, the music coming from inside the Alleycat club."
+msgid "Muffled music thumped loudly outside of the club."
+msgstr ""
+
+#: mnNpLTwYDe22IRhm
+msgctxt "This is a play on words. The text shows up when you look at a sign that says \"Hot Girls\". Hot can mean attractive or really warm. The player is making a play on words: If they are too warm, maybe they need air conditioning. I'm not sure how this will be able to be translated."
+msgid "Maybe they needed air conditioning..."
+msgstr ""
+
+#: FF8SKvwiyZNEv9WU
+msgctxt "The name of the club and another play on words. An alley cat can be a cat that lives in an alley but it's also slang for a prostitute."
+msgid "The Alleycat"
+msgstr ""
+
+#: h1X0D4ZABDOVpr71
+msgctxt "Nothing special, just describing the area as empty"
+msgid "Empty Lot"
+msgstr ""
+
+#: SRCkT2sKIOOlCENL
+msgctxt "Noodle shop run by Takeshi"
+msgid "Takeshi's Noodles"
+msgstr ""
+
+#: R52avt7668RUWkrr
+msgctxt "It smells like rotting food."
+msgid "The earthy smell of compost filled my nostrils as I walked past the alley behind Takeshi's Noodles."
+msgstr ""
+
+#: pecLe2ggrXwgOK9P
+msgctxt "The name of the noodle shop."
+msgid "Takeshi's Noodles"
+msgstr ""
+
+#: G8lXyom17tc69IJx
+msgctxt "Exit the current scene and go to the Alleycat"
+msgid "To the Alleycat"
+msgstr ""
+
+#: nYGKR1hEf0acZ9RC
+msgctxt "Exit the current screen and into more alleyway"
+msgid "More Alleyway"
+msgstr ""
+
+#: 7wtYDUt9QyEgw9dR
+msgctxt "A sign informing the player that there is a small alleyway in that direction"
+msgid "Back Alley"
+msgstr ""
+
+#: frTleC3goNyK3mOP
+msgctxt "A description of the Empty Lot. The Gutter is the name of this city's neighborhood. Just like how waste water flows down a gutter (on the floor) to the sewers, so is this place where the lowest class goes when they have nowhere esle to turn"
+msgid "The cleanest place in the Gutter, this empty lot was next to the subway."
+msgstr ""
+
+#: jytDAAHirgaHen7i
+msgctxt "A continuation of the description of the Empty lot. The second half of the sentence is sarcastic: it's calling whoever made the big graffiti in the background a \"contemporary artist\"."
+msgid "Its emptiness was broken only by a shady person leaning against the hard work of a contemporary artist."
+msgstr ""
+
+#: WrDQCSSC51QHW2uB
+msgctxt "Exit the current screen and go to the Alleycat"
+msgid "To the Alleycat"
+msgstr ""
+
+#: 0cSnB3FNXFChN7xS
+msgctxt "A mysterious or sinister person"
+msgid "Shady Person"
+msgstr ""
+
+#: wkA20ahkPb1rtaeo
+msgctxt "Exit the current screen and go to the underground train station"
+msgid "To the Subway"
+msgstr ""
+
+#: LvRFsrxVqXC5NgXP
+msgctxt "The word \"tinman\" in this context is meant to be a futuristic slang term/insult for a security guard that wears body armor. The term comes from the Wizard of Oz, one of the character is called the \"the Tin Man\""
+msgid "It was hard to tell on account of the helmet, but I had a feeling the tinman was eyeing me with suspicion."
+msgstr ""
+
+#: QvL4fY493EBFHn3V
+msgctxt "Exit the current screen and go to the Takeshi's Noodles"
+msgid "To Takeshi's"
+msgstr ""
+
+#: sOylJYeorG3mkKme
+msgctxt "This is an invented futuristic slang term for a bank machine (ATM, bancomat). It comes from the fact that the bank machine spits out money like a slot machine in a casino. The \"jackpot\" is what the prize money that comes out of a slot machine is called."
+msgid "Jackpot"
+msgstr ""
+
+#: dqv7c0Mf7Qm1tGc3
+msgctxt "'Tinman' refers to hired security guards, and they are another reference to the Wizard of Oz (l'uomo di latta) because they wear full body armor."
+msgid "A Tinman"
+msgstr ""
+
+#: TdKc5o4u79gHR2xx
+msgctxt "A sign informing players they can enter the subway"
+msgid "Enter the Subway"
+msgstr ""
+
+#: oQSmNFBBUY1DpS1M
+msgctxt "A sign informing players they can exit the subway"
+msgid "Exit Subway"
+msgstr ""
+
+#: lJsAFeIjaSaNd1fw
+msgctxt "The trains make a lot of noise"
+msgid "I could hear the subway trains' tortured shrieks from the platform."
+msgstr ""
+
+#: pZ0pUW2mOYeWroEb
+msgctxt "13A sign informing players they can exit the subway"
+msgid "Exit Subway"
+msgstr ""
+
+#: xkyBiksng48ybBqJ
+msgctxt "A sign informing players they can get onto and use the subway"
+msgid "Board the Subway"
+msgstr ""
+
+#: WnNGIoh4Sd4T8KXZ
+msgctxt ""
+msgid "Blue-haired man"
+msgstr ""
+
+#: VBjAKP02SB9j6XQo
+msgctxt "The music in the nightclub is deafening. Acid Nova is the name of the person you want to speak to."
+msgid "The music hit me harder than the bouncer ever could. It was finally time to have a chat with Acid Nova."
+msgstr ""
+
+#: ZNr4vYLrbrMrRPDc
+msgctxt "A sign informing players they can go deeper into the club"
+msgid "Deeper inside"
+msgstr ""
+
+#: jnDW4FqIVabjGeTu
+msgctxt "Describing the people in the club"
+msgid "People were having a good time. No gods, no kings, no rules."
+msgstr ""
+
+#: 5C14uMY1HBfx9gLF
+msgctxt "A sign informing players they can can exit the club and go back to the alley"
+msgid "Back to the Alley"
+msgstr ""
+
+#: gIMxOREfMvT23L4n
+msgctxt "14"
+msgid "Acid Nova"
+msgstr ""
+
+#: jnHdP7GwPMDWaCtK
+msgctxt "A sign informing players they can go back to the entrance or the front of the nightclub"
+msgid "Back to the entrance"
+msgstr ""
+
+#: ckpHEfY06F7Elil5
+msgctxt "Describing the bar. There are a lot of bottles"
+msgid "Hmm... The bar looks fully stocked..."
+msgstr ""
+
+#: G6mqVCHMkvs5Ty24
+msgctxt "Describing the apartment that Crystan and Danni live in"
+msgid "Danni and Crystal's apartment was in the nice part of the Gutter (if such a place even exists). It was small yet modern and looked more expensive than I could afford."
+msgstr ""
+
+#: Z1Og8kiDGESvdwwJ
+msgctxt "15"
+msgid "Crystal"
+msgstr ""
+
+#: sMHSrMp3UhVCfx1M
+msgctxt "A sign informing players they can go back to the subway"
+msgid "Back to the Subway"
+msgstr ""
+
+#: 7069DfAQ1ReSpHNm
+msgctxt "16"
+msgid "If you squinted, the view was pleasant."
+msgstr ""
+
+#: huhy9NrjB4y6EsLx
+msgctxt "A sign informing players they can go to Danni's bedroom"
+msgid "To Danni's Room"
+msgstr ""
+
+#: SMFWFgsgAojaGqGu
+msgctxt "The room is clean but there is a pile of stuff to one side"
+msgid "Danni's bedroom was sparse and tidy; the only clutter was near her bed."
+msgstr ""
+
+#: 0YZhsjHwQapogSrf
+msgctxt "Continuation of the previous sentence."
+msgid "She was either very organized or spent little time here."
+msgstr ""
+
+#: KDWWkv5mFpCOIrr6
+msgctxt "A sign informing players they can go to the front of the apartment"
+msgid "Back to the entrance"
+msgstr ""
+
+#: WBDE1lMEt8Q6uRiv
+msgctxt "17"
+msgid "Nightstand"
+msgstr ""
+
+#: gdyHIyGCXvKKT2Gu
+msgctxt "18"
+msgid "Danni's bed. Looked really comfortable."
+msgstr ""
+
+#: 2l0MfUe24n0u2nYC
+msgctxt "A pile of stuff next to Danni's bed"
+msgid "Clutter"
+msgstr ""
+
+#: FFgQsLa6aMY9m5XP
+msgctxt "Blake describing his office/apartment"
+msgid "I spent countless hours trying to make my basement apartment look professional."
+msgstr ""
+
+#: 7IEyB1tBWOJf4Oae
+msgctxt "Daisy is Blake's dog. Even though she's a big dog, she's always sleeping"
+msgid "As always, Daisy was napping rather than guarding the place."
+msgstr ""
+
+#: Goc4KqvuSwnVTo4V
+msgctxt "The name of the dog, please don't change it."
+msgid "Daisy"
+msgstr ""
+
+#: 06ZnxvKltb6qkP1F
+msgctxt "Name of government database computer Blake has access to"
+msgid "GovLink"
+msgstr ""
+
+#: lIHbPtP52P4KsQDb
+msgctxt "A sign informing players they can leave this area and go to the subway"
+msgid "Exit to subway"
+msgstr ""
+
+#: nfD8Jd1MITJXIeXR
+msgctxt "There is window in Blake's apartment that is actually a TV screen. 'Penthouse views' means both view from the top floor and expensibe. 'Basement prices' means cheap."
+msgid "The simulated window gave me penthouse views for basement prices."
+msgstr ""
+
+#: t4Gu0IDtlfZr9grN
+msgctxt "Description of the area where the laundromat is located. Merchant's Row is a name of a street that has a lot of shops"
+msgid "The Lost Sock laundromat was on Merchant's Row, just a short distance from Danni and Crystal's apartment. Like everywhere else in the Gutter, the streets were slick with undefined liquids."
+msgstr ""
+
+#: X2g0nL7WLuxR2IQ6
+msgctxt "There is a new and clean poster near the laundromat"
+msgid "Down the street, a poster stood out as the only thing not covered in filth."
+msgstr ""
+
+#: 3ef4AKWtuf2SLiMH
+msgctxt "There is a saying in English that only left socks go missing. Blake is making a joke that this is where they go. The name is part of the graphic so it may not be possible to translate it."
+msgid "The Lost Sock Laundromat... I guess that's where all the left socks go."
+msgstr ""
+
+#: SXhXXaOaMFnmS1Bb
+msgctxt "A sign informing the player they can enter the laudromat"
+msgid "Enter the laundromat"
+msgstr ""
+
+#: Sm2jujTUGctPruM6
+msgctxt "Loud, in this context, does not mean that it makes noise but that it's very colorful"
+msgid "A loud poster"
+msgstr ""
+
+#: LKRbR8lQRYmMrosN
+msgctxt "19A sign informing players they can leave this area and go to the subway"
+msgid "Back to the subway"
+msgstr ""
+
+#: oOKvcjVsb5fQAB0X
+msgctxt "20"
+msgid "For a laundromat, it was surprisingly hazy and dark. While a few laundry machines were spinning, the only living soul was an old woman sitting in front of a computer. Glady Aubergine, I presumed."
+msgstr ""
+
+#: 0W7XQbEBjZpKAYoX
+msgctxt "A sign informing the player they can exit the laundromat back to the street"
+msgid "Exit to street"
+msgstr ""
+
+#: 5btAySbdtSCuEhTG
+msgctxt "Description when hovering the mouse over Gladys"
+msgid "Gladys, I presume."
+msgstr ""
+
+#: ET6BccIZ755p1mkD
+msgctxt "Description when hovering the mouse over a computer"
+msgid "Computer"
+msgstr ""
+
+#: vUKZpTmD6fSxy6Dt
+msgctxt "These next three lines describe the industrial district"
+msgid "The industrial district was a sprawling hellscape of warehouses, factories, and pipes of all shapes and sizes stretching for hundreds of miles like a basket of venomous snakes."
+msgstr ""
+
+#: lqBy3ceDqrcvp2EA
+msgctxt "Continued from above"
+msgid "The air quality was even worse than in the Gutter. Worker safety cut into the bottom line of the fat cats running the place, and they could always get more workers."
+msgstr ""
+
+#: auZMQD7UNhmvma1r
+msgctxt "21Continued from above"
+msgid "Lucky for me, Building 19 was in a secluded area at the edge of the industrial district. Like the other buildings, there was no outward clue of the owner's identity. It was time I applied my carefully honed detective skills."
+msgstr ""
+
+#: krWnIa2vEqgDtYXC
+msgctxt "Mouse hover description for some doors in the industrial district"
+msgid "Doors to the storage facility."
+msgstr ""
+
+#: i1RJUULJsnnXBXaS
+msgctxt "22Mouse hover description for some doors in the industrial district"
+msgid "Doors to the upper-level office."
+msgstr ""
+
+#: y64hXkVvi1UZKow5
+msgctxt "23A sign informing players they can leave this area and go to the subway"
+msgid "Exit to the subway."
+msgstr ""
+
+#: 11OrmpHgc2H9NTf1
+msgctxt "Mouse hover description for the office exit"
+msgid "Leave the office."
+msgstr ""
+
+#: NgNArx8oSl4giIoq
+msgctxt "Mouse hover description for some lockers"
+msgid "Some lockers."
+msgstr ""
+
+#: Z6JdWETSH8n7D8Pj
+msgctxt "Mouse hover description"
+msgid "Some papers on a small table."
+msgstr ""
+
+#: ydV48osT6oVM2BlT
+msgctxt "24"
+msgid "Looking out the window, I could see the industrial wasteland outside."
+msgstr ""
+
+#: DjDHpURONM3SAPvQ
+msgctxt "25Mouse hover description"
+msgid "A trashcan."
+msgstr ""
+
+#: LfAmegpb6xK7cQQp
+msgctxt "This and the next line describe the inside of a warehouse"
+msgid "Something about this place seemed weird. There should have been people working, but the place was empty. Even the many boxes piled high in this facility looked like they hadn't been touched in a long time."
+msgstr ""
+
+#: BA6iR8hOYk1RHP5c
+msgctxt "26Continued from above"
+msgid "This place was definitely a front, all right."
+msgstr ""
+
+#: N9eoOAuqVeyopQTP
+msgctxt "27Mouse hover description"
+msgid "Small plastic capsule"
+msgstr ""
+
+#: bKT5kZBR7crPSpBF
+msgctxt "Mouse hover description for one set of boxes"
+msgid "Lots of boxes"
+msgstr ""
+
+#: ogT5MW6thxeIubuB
+msgctxt "Mouse hover description for another set of boxes"
+msgid "More and more boxes."
+msgstr ""
+
+#: 96Z5ZRcrNsRSJvtA
+msgctxt "Mouse hover description for the building exit"
+msgid "Exit the building."
+msgstr ""
+
+#: gy6dv23xn0P1Ie7i
+msgctxt "28Mouse hover description"
+msgid "The upstairs office."
+msgstr ""
+
+#: hqR7OghUwJE1kd4l
+msgctxt "29Mouse hover description"
+msgid "Door to storage"
+msgstr ""
+
+#: oMerbUrKYeqXleSe
+msgctxt "Mouse hover description for building exit"
+msgid "Leave the building"
+msgstr ""
+
+#: nIadX9Z2mbsBSjTp
+msgctxt "Mouse hover description for exit to the other side of the office"
+msgid "The other side of the office."
+msgstr ""
+
+#: 0PKCRw4am1wk4kO7
+msgctxt "Mouse hover description for a trashcan"
+msgid "A trashcan. Nothing more of interest there."
+msgstr ""
+
+#: jOrX0BTmBGyJjyyi
+msgctxt "Mouse hover description for lockers"
+msgid "A bunch of empty lockers."
+msgstr ""
+
+#: Fi07vkWGNC8DFycZ
+msgctxt "Description when looking out of the office window"
+msgid "I could see neither Crystal nor Visser from this window."
+msgstr ""
+
+#: MfvQOVIPZftWLvx1
+msgctxt "Mouse hover description for the exit to the catwalk"
+msgid "To the catwalk"
+msgstr ""
+
+#: 0pFAdScvMIiKXUtl
+msgctxt "Mouse hover description for a vending machine"
+msgid "Vending machine"
+msgstr ""
+
+#: rFl0woOhJoxMXanE
+msgctxt "30Mouse hover description for exit to the other side of the office"
+msgid "The other side of the office"
+msgstr ""
+
+#: iNWZUVMI5s9e4OrZ
+msgctxt "Blake has looked through too many trashcans, he doesn't want to do it anymore"
+msgid "No! No more looking in the trash!"
+msgstr ""
+
+#: RHFMA1ertAWMeQhj
+msgctxt "Introduction description of the Xantech building. It's huge and looms over the city."
+msgid "Xantech Cybernetics' ostentatious building rose above us all like a giant middle finger to our hardships."
+msgstr ""
+
+#: 9066W119E3INkaC8
+msgctxt "Mouse hover description for entrance to Xantech"
+msgid "Enter Xantech Cybernetics"
+msgstr ""
+
+#: s6cpQrc8n25A5WEu
+msgctxt "Mouse hover description for the Xantech building"
+msgid "Xantech Cybernetics. This was it. The beginning of the end for Xander Vane."
+msgstr ""
+
+#: oBTEBtwYrsvHAAfT
+msgctxt "These next 3 lines describe getting inside the Xantech building."
+msgid "The elevator dinged at the 53rd floor, where Xantech's data center was supposed to be."
+msgstr ""
+
+#: swdaxAZ4h9YrgYhQ
+msgctxt "31Continued from above"
+msgid "*DING*"
+msgstr ""
+
+#: ucBLDWkekATQBOvX
+msgctxt "32Continued from above"
+msgid "Drek. There was a tinman guarding the server room."
+msgstr ""
+
+#: fSgjpNf67PiYvqel
+msgctxt "Mouse hover description for the tinman"
+msgid "Just great, a tinman."
+msgstr ""
+
+#: Ohn6lac1mfoZbF9x
+msgctxt "Mouse hover description for entrance to the server room"
+msgid "To the server rooms."
+msgstr ""
+
+#: QRYKd0pq8j7tlTFo
+msgctxt "Mouse hover description for an exit to the corridor"
+msgid "Corridor"
+msgstr ""
+
+#: pHBYE2kUeenLSp0r
+msgctxt "Description of the hallways"
+msgid "Endless corridors crisscrossed this floor."
+msgstr ""
+
+#: 8seCRRNHjmm16Njy
+msgctxt "Mouse hover description for exit back to the lobby"
+msgid "Back to lobby"
+msgstr ""
+
+#: BCgqdWL5IaqGCmPt
+msgctxt "Mouse hover description for entrance to the medical room"
+msgid "Medical bay"
+msgstr ""
+
+#: N0xKbfgacZIZAGuH
+msgctxt "Mouse hover description for the break room/office kitchen"
+msgid "Breakroom"
+msgstr ""
+
+#: dkTe1WS8FQ91Qp1f
+msgctxt "Description of the medical room"
+msgid "A spotless medical bay. Everything in it was state-of-the-art."
+msgstr ""
+
+#: qiyw5sZ36ee0PRgP
+msgctxt "Mouse hover description for a medicine cabinet"
+msgid "Medicine closet"
+msgstr ""
+
+#: LeN1DRaRaVmJCYoj
+msgctxt "Mouse hover description for exit back to the corridor"
+msgid "Back to the corridor"
+msgstr ""
+
+#: OTCWud75nqu2ol1l
+msgctxt "Mouse hover description for the futuristic medical bed"
+msgid "A medical bed. How often do they need it?"
+msgstr ""
+
+#: jolqCH3mYatZWVBU
+msgctxt "These next 2 lines are the description of the break room"
+msgid "The breakroom on this floor was a fully stocked cafe. Perhaps working for Xantech wouldn't be the worst thing..."
+msgstr ""
+
+#: eqb95G2uEQHd4j3P
+msgctxt "33Continued from above"
+msgid "Better not to be seduced by their corporate perks. I had a job to do."
+msgstr ""
+
+#: vEq9XGn5BBEGMKQ9
+msgctxt "Mouse hover description for exit to the corridor"
+msgid "Back to the corridor"
+msgstr ""
+
+#: m3VT1HtiR5GfVyg3
+msgctxt "Mouse hover description for the coffee machine"
+msgid "A coffee machine"
+msgstr ""
+
+#: lufCIh8SPcmLYJ7v
+msgctxt "Description of what's outside the window of the break room"
+msgid "A view of the city. Nothing but the best for Xantech employees."
+msgstr ""
+
+#: ySViDqCbZGnM20Ir
+msgctxt "Mouse hover description for the server computer"
+msgid "Datablade"
+msgstr ""
+
+#: F61oncoaCL7RXXvs
+msgctxt "After Blake puts the data stick in Xantech server computer, he wonders what should happen next"
+msgid "What now?"
+msgstr ""
+
+#: ymGrpDCre5PMOCSJ
+msgctxt "These next several lines are part of the game menu, this looks like Blake is having a dialogue with himself. This is for the inventory"
+msgid "Let's see what I have on me..."
+msgstr ""
+
+#: yTxZfTZnDcF1vEn6
+msgctxt "Selecting this will save the game. Make sure that SAVE is uppercase"
+msgid "I should SAVE my notes."
+msgstr ""
+
+#: QJJ6P75JfTrMPFi1
+msgctxt "Selecting this will quit the game. Make sure that QUIT is uppercase"
+msgid "Should I call it QUITs?"
+msgstr ""
+
+#: 9yl7toX6G5fjywGJ
+msgctxt "Selecting this will exit the menu"
+msgid "Never mind."
+msgstr ""
+
+#: u7VT6gUT8YeK4BL4
+msgctxt "If having selected the QUIT option, Blake askes himself if he should really quit."
+msgid "Maybe I should forget about this whole business and go home?"
+msgstr ""
+
+#: kIsB1K2IlAC20PTM
+msgctxt "Selecting this will compleately quit the came"
+msgid "Yeah, it's not my problem."
+msgstr ""
+
+#: dgr09v7AhG0ivCdi
+msgctxt "Selecing this will go back to the game"
+msgid "No. A girl's gone missing, and I'm her only hope."
+msgstr ""
+
+#: TwDmSefeThaoQQPX
+msgctxt "These next lines are part of the menu that makes Blake move to different locations. He's asking himself where he should go"
+msgid "Where to?"
+msgstr ""
+
+#: nO3m4LZ1lTZ2hmAZ
+msgctxt "Destination 1: Blake's apartment"
+msgid "My apartment."
+msgstr ""
+
+#: Nyqdo4TdU4sXN46J
+msgctxt "Destination 2"
+msgid "The alleyway near the Alleycat."
+msgstr ""
+
+#: Vtdml2ZFwcGKPcyR
+msgctxt "Destination 3"
+msgid "Danni and Crystal's apartment."
+msgstr ""
+
+#: UFjq7ZsDx3mBuJfJ
+msgctxt "Destination 4"
+msgid "The Lost Sock Laundromat."
+msgstr ""
+
+#: lcGnCRemChAtZJXW
+msgctxt "Destination 5"
+msgid "Building 19, Industrial District."
+msgstr ""
+
+#: 4RoylRg4QAaGIrw1
+msgctxt "Go back to the game and stay in this location"
+msgid "Never mind."
+msgstr ""
+
+#: IAfkkWhEVI9fiTkA
+msgctxt "34"
+msgid "Good to see you're still in possession of all your organs!"
+msgstr ""
+
+#: pHEIOjGRLmvFPuZn
+msgctxt "35"
+msgid "Hey man, you don't look like you're from around these parts."
+""
+"This alleyway is one of the nicest in the Gutter, but if you go sticking your nose where it don't belong, you might end up an involuntary organ donor."
+""
+"Lucky for you, I'm kind of a tour guide, and I don't need your organs. Name's Glitch, by the way."
+msgstr ""
+
+#: 5QKPQaeONqf4GyZZ
+msgctxt "36"
+msgid "So, what do you want to know?"
+msgstr ""
+
+#: OcV6bB4ZyjHS7Tk5
+msgctxt "37"
+msgid "What's the Alleycat?"
+msgstr ""
+
+#: FN8J0pIZGg5kFBLe
+msgctxt "38"
+msgid "Where's a good place to eat around here?"
+msgstr ""
+
+#: Cw1tYBPvFRbFLhg7
+msgctxt "39"
+msgid "Do you know anything about a girl that went missing recently?"
+msgstr ""
+
+#: 3LDMb01vfC1B359o
+msgctxt "40"
+msgid "Let me put it another way, where could I get my hands on some Coral?"
+msgstr ""
+
+#: aqiuaqi7IBksoHSF
+msgctxt "41"
+msgid "Alright, Glitch. I did what you asked. Now tell me the password."
+msgstr ""
+
+#: F1bfw5rPc7ktwx3Z
+msgctxt "42"
+msgid "I need your unique brand of help."
+msgstr ""
+
+#: TWoUsw4hQxJIN4Yi
+msgctxt "43"
+msgid "Do you know who the man in this photo is?"
+msgstr ""
+
+#: jqZoK6gTlxpDX7Je
+msgctxt "44"
+msgid "See you around."
+msgstr ""
+
+#: pDA2txVd6k7jSCQo
+msgctxt "45"
+msgid "I'll be here if you need me."
+msgstr ""
+
+#: 0E1EL7xW1LjsmmJM
+msgctxt "46"
+msgid "Life is the only thing cheaper than the thrills at the Alleycat. If I were you, I'd be careful you don't get eaten alive."
+msgstr ""
+
+#: IuoHCx8LPQ9Lc6DT
+msgctxt "47"
+msgid "Figuratively or literally?"
+msgstr ""
+
+#: nv67cx1sE42HIM36
+msgctxt "48"
+msgid "Takeshi's Noodles was the best place, and just around the corner. "
+""
+"It's a shame he had to close up shop."
+msgstr ""
+
+#: CdkCqZLMEQBhtua1
+msgctxt "49"
+msgid "Why? What happened to him?"
+msgstr ""
+
+#: iQ1aol68g5AKfOS8
+msgctxt "50"
+msgid "Both."
+msgstr ""
+
+#: hc31w1hhbSxusxBn
+msgctxt "51"
+msgid "Ever the enterprising spirit, he decided to branch out."
+""
+"Let's just say that ramen weren't the only noods he started selling if you catch my drift. Made a few enemies."
+msgstr ""
+
+#: Z5gJQ1DQeXLDw3CS
+msgctxt "52"
+msgid "Now his enterprising spirit probably haunts these alleyways..."
+msgstr ""
+
+#: 1SruOcZorAdXoPFR
+msgctxt "53"
+msgid "Ok, listen up because I'm only going to say this once..."
+msgstr ""
+
+#: dm8iLiJvuKMwnYLK
+msgctxt "54"
+msgid "No."
+msgstr ""
+
+#: 6CkVkKXjlb7n0Tup
+msgctxt "55"
+msgid "Coral? You don't look like you got the hardware to enjoy it, but who am I to judge."
+""
+"Acid Nova's the only one selling it, and the Alleycat's the only place to find him. But good luck getting in."
+msgstr ""
+
+#: GBJwwTJYeS9dUDij
+msgctxt "56"
+msgid "Why?"
+msgstr ""
+
+#: oXnrANDfPviq9g5Q
+msgctxt "57"
+msgid "They don't just let any scorched junkie in. You got to be vetted. Even if you had a ticket, you'd still need a password."
+msgstr ""
+
+#: VFFQjcLacJBbRh0n
+msgctxt "58"
+msgid "Lucky for you, I have one and know where to find the other."
+msgstr ""
+
+#: WlkRBmccvQUG1DqJ
+msgctxt "59"
+msgid "I'll bite. Where can I get the password?"
+msgstr ""
+
+#: AxfoWdW6mAW4XPyg
+msgctxt "60"
+msgid "You have a bead on a ticket?"
+msgstr ""
+
+#: OCq1sNZtBX0kPhsB
+msgctxt "61"
+msgid "Let's talk about something else."
+msgstr ""
+
+#: OFEFPkZUy7MrBtXa
+msgctxt "62"
+msgid "That's the lucky part! I have the password, and I'd be happy to scratch your back if you scratch mine. It'll be no problem, especially for you."
+msgstr ""
+
+#: IFKN9jEIgBP56g43
+msgctxt "63"
+msgid "What do you want, credits?"
+msgstr ""
+
+#: uT4i9Dsb5BqFPYj5
+msgctxt "64"
+msgid "Cred- what? No! No, nothing like that. Well, it is something like that. But I don't take money from people; there's so little to go around. Nah, I like to make the corpos bleed a little green if you know what I mean."
+msgstr ""
+
+#: vMQBZUXnMJZgs5qX
+msgctxt "65"
+msgid "You're a real saint. What do you need me to do?"
+msgstr ""
+
+#: Q5hjju5dtLt7xs72
+msgctxt "66"
+msgid "It's simple. All you have to do is take this magical credstick and let it do its voodoo in the cash machine nearby. That's all. Honest."
+msgstr ""
+
+#: q4RFNOoNYCUNk31X
+msgctxt "67"
+msgid "If it's so easy, why don't you do it?"
+msgstr ""
+
+#: G3QY6F5QRwEh3QtT
+msgctxt "68"
+msgid "*cough* Well, they have a tinman standing in front of it, and he already has my scent. You, on the other hand, he doesn't know."
+msgstr ""
+
+#: VnJ42W8688IuNSJV
+msgctxt "69"
+msgid "Ok, fine. Give me the stick."
+msgstr ""
+
+#: R1a65eSBZK0x6JEO
+msgctxt "70"
+msgid "Alright, there's this guy Tweaker. He's a real chrome job and usually hangs out in the subway; he can probably get you a ticket."
+msgstr ""
+
+#: DYIUVg0jTVFDcnd4
+msgctxt "71"
+msgid "Alright, seems simple enough."
+msgstr ""
+
+#: LufyyQfICtT0pFHN
+msgctxt "72"
+msgid "And how! Man, that's a lot of credits..."
+""
+"Oh, right! The password is Dyonisus. Good luck, my friend, and if you need anything else, just let me know!"
+msgstr ""
+
+#: GX0K5KNPqCQ4KccJ
+msgctxt "73"
+msgid "Dyonisus, huh? Thanks."
+msgstr ""
+
+#: ID6cc8nK2ULVyJYi
+msgctxt "74"
+msgid "I'm intrigued; what do you need?"
+msgstr ""
+
+#: A3QNA56qCvwMH3JA
+msgctxt "75"
+msgid "I need to get access to someone's computer."
+msgstr ""
+
+#: eI2NJRhdITceIUsi
+msgctxt "76"
+msgid "1 n33d y0ur l33t h4xx0r sk1llz p0wn1ng b00m3r's 'put3r lolz"
+msgstr ""
+
+#: MqPxBIFNwx3sDUcg
+msgctxt "77"
+msgid "*SWOON* You sure know how to speak to a girl."
+msgstr ""
+
+#: Ld5Osss0FfaypbBM
+msgctxt "78"
+msgid "Alright, I got something for ya. If you can get physical access to the computer and plug this hacktool in any port, it'll clone all of its data."
+msgstr ""
+
+#: 0PmBxoCVogV2qotk
+msgctxt "79"
+msgid "And then what?"
+msgstr ""
+
+#: o1W73Z8rJff8A9og
+msgctxt "80"
+msgid "Then you plug it into your computer, and you can view all the juicy secrets!"
+msgstr ""
+
+#: pCBJKjM0kw77SRTv
+msgctxt "81"
+msgid "What's it going to cost me?"
+msgstr ""
+
+#: pkS3Vmq7Z0BB3Z7q
+msgctxt "82"
+msgid "Well, you see, I need you to get me a special McGuffin that's in the possession of some guy who'll be happy to trade it for you if you can solve his problem..."
+msgstr ""
+
+#: 7s87vP7Cu0ViKpFK
+msgctxt "83"
+msgid "Or you can give it to me because you made a ton of credits off my back."
+msgstr ""
+
+#: MUwNw35NofEHT4Mx
+msgctxt "84"
+msgid "Fine, fine. You're no fun."
+msgstr ""
+
+#: vy9AlNmR2a0JVGYC
+msgctxt "85"
+msgid "Wait... how do I know it's safe to plug into my computer, that it wont to do something else?"
+msgstr ""
+
+#: hgYPFUdM3enJYLYJ
+msgctxt "86"
+msgid "You're just going to have to trust me!"
+msgstr ""
+
+#: JU4gnnYN5YsOuUOk
+msgctxt "87"
+msgid "Looks like I got no choice... Very well, now to find a way to access the computer without that fossil noticing..."
+msgstr ""
+
+#: xbVfaARGaXDev4k9
+msgctxt "88"
+msgid "I can't say I do... however, I have heard something. If you could get me--"
+msgstr ""
+
+#: URGv9NXJhTePnfgW
+msgctxt "89"
+msgid "No. Bad Glitch. No more fetch quests. Just tell me."
+msgstr ""
+
+#: D2V0131pX9wOatov
+msgctxt "90"
+msgid "Fine. Fine. I saw him talking to Acid Nova about some kind of deal. I don't have any other details, I swear."
+msgstr ""
+
+#: GEMm5UkuiPN4Z2qw
+msgctxt "91"
+msgid "Thanks, Glitch."
+msgstr ""
+
+#: sxRvZn6hND1Sia2M
+msgctxt "92"
+msgid "What do you want, chump?"
+msgstr ""
+
+#: W4iAiIANiv48a2MS
+msgctxt "93"
+msgid "Let me in."
+msgstr ""
+
+#: pbBJ33XOHtQHx4u0
+msgctxt "94"
+msgid "No ticket, no password: no entry. No exception."
+msgstr ""
+
+#: Zej8HZ9RQHnoZH7Q
+msgctxt "95"
+msgid "Where do I get those?"
+msgstr ""
+
+#: RmKOWuwTWxcZtS0j
+msgctxt "96"
+msgid "I got a ticket."
+msgstr ""
+
+#: LGNXaxOHum6V5AfL
+msgctxt "97"
+msgid "Man, get drek out of my face!"
+msgstr ""
+
+#: 8qfsNx47Qpd2X2jJ
+msgctxt "98"
+msgid "They give these out to any drek these days. What's the password?"
+msgstr ""
+
+#: AYIrn3kLG1fpK1gx
+msgctxt "99"
+msgid "I don't know."
+msgstr ""
+
+#: 9a5qrij4dxSO0jQV
+msgctxt "100"
+msgid "...Boobies?"
+msgstr ""
+
+#: AUZcj2OK6KvKy91h
+msgctxt "101"
+msgid "Dionysus"
+msgstr ""
+
+#: YkptDGw3N76HFSau
+msgctxt "102"
+msgid "Get the drek out of my face!"
+msgstr ""
+
+#: p2higRKDqqP1SgFA
+msgctxt "103"
+msgid "Very well, Mr..."
+msgstr ""
+
+#: uTBvfZKfHtxsXtqA
+msgctxt "104"
+msgid "Steel. Blake Steel"
+msgstr ""
+
+#: SL41VBpypJobnVit
+msgctxt "105"
+msgid "Very well, Mr. Steel. Right this way."
+msgstr ""
+
+#: hUXjIccxo6j9kDb3
+msgctxt "106"
+msgid "*Ksssh* MOVE ALONG, CITIZEN. *Ksssh*"
+msgstr ""
+
+#: C8mLudKEgMU1A0gr
+msgctxt "107"
+msgid "I need to use the jackpot."
+msgstr ""
+
+#: 1ZErRZ4hhAlB1ALv
+msgctxt "108"
+msgid "Never mind..."
+msgstr ""
+
+#: Ogk32Pen5tOph0C1
+msgctxt "109"
+msgid "*Ksssh* NO. *Ksssh*"
+msgstr ""
+
+#: Yq4SQEHyC2gm5Dck
+msgctxt "110"
+msgid "What do you mean, \"no?\""
+msgstr ""
+
+#: TJKTnUaHlOGvDtIR
+msgctxt "111"
+msgid "You're the boss."
+msgstr ""
+
+#: HuQiCoIvSL6qc1jM
+msgctxt "112"
+msgid "*Ksssh* I'M PROTECTING THIS CASH MACHINE. IF NOBODY USES IT, NOBODY CAN VANDALIZE IT. *Ksssh*"
+msgstr ""
+
+#: ZFOIPqCoA1oot6aK
+msgctxt "113"
+msgid "I really need to get my money."
+msgstr ""
+
+#: aDoSyeZ0x1ZFvSls
+msgctxt "114"
+msgid "Please...?"
+msgstr ""
+
+#: tOlGmPF9voWXXLPA
+msgctxt "115"
+msgid "Are you a dreking idiot?"
+msgstr ""
+
+#: k4WiuDh4KEcWIJ2B
+msgctxt "116"
+msgid "No flaws with that logic. Have a good evening."
+msgstr ""
+
+#: Z14h5xQo9yGRIg2f
+msgctxt "117"
+msgid "*Ksssh* THAT'S YOUR PROBLEM, NOW GET LOST *Ksssh*"
+msgstr ""
+
+#: 6673a0Bhp9dc6J1y
+msgctxt "118"
+msgid "*Ksssh* NO *Ksssh*"
+msgstr ""
+
+#: fGKxDB0xJuNtLet8
+msgctxt "119"
+msgid "*Ksssh* DO YOU WANT TO SAY THAT AGAIN? *Ksssh*"
+msgstr ""
+
+#: k5TTkj9gjcIqAdqC
+msgctxt "120"
+msgid "... No..."
+msgstr ""
+
+#: MJb7wUkpCXVG05TS
+msgctxt "121"
+msgid "Yes. I asked you if you're a dreking idiot."
+msgstr ""
+
+#: Hry4lGGMWnA2jnWH
+msgctxt "122"
+msgid "*Ksssh* YOU HAVE TWO SECONDS TO GET OUT OF MY FACE BEFORE I REARRANGE YOURS *Ksssh*"
+msgstr ""
+
+#: 4YXndJleOHo45cmm
+msgctxt "123"
+msgid "Think about it. How much money is the bank losing by you making it impossible to withdraw creds?"
+msgstr ""
+
+#: 7t0rdNTMSIL70MXm
+msgctxt "124"
+msgid "*Ksssh* ERR... AH... WELL... AT LEAST IT'S NOT GETTING VANDALIZED *Ksssh*"
+msgstr ""
+
+#: wHM2tpgP90IthrDP
+msgctxt "125"
+msgid "Well, that's good! You saved them from paying for a coat of paint and only losing thousands in transaction fees."
+msgstr ""
+
+#: e1pWgvTkJYL11jBd
+msgctxt "126"
+msgid "*Ksssh* YEAH, BUT... *Ksssh*"
+msgstr ""
+
+#: YG0hH3gFSEAFaE83
+msgctxt "127"
+msgid "Best case scenario, they shut this jackpot down because it brings in no money, and you lose your job. Worst case, they sue you for lost revenue. Good luck."
+msgstr ""
+
+#: 118AoJZIwviX9sH9
+msgctxt "128"
+msgid "*Ksssh* FINE! FINE! YOU CAN USE IT. JUST BE QUICK *Ksssh*"
+msgstr ""
+
+#: waUyOrc8hnI2XaGk
+msgctxt "129"
+msgid "While the tinman looked away, I pretended to withdraw some credits and scanned Glitch's chip instead. Graphical anomalies multiplied on the screen like bacteria on a petri dish."
+msgstr ""
+
+#: IprUKM815xyV1vNP
+msgctxt "130"
+msgid "Panic gripped me as I tried to act naturally, keenly aware of the nearby guard. As the screen became more corrupted, sweat dripped from my brow."
+msgstr ""
+
+#: DXhpE6YlZ5YYMilu
+msgctxt "131"
+msgid "Fortunately, the screen returned to normal just as quickly as it glitched. \"TRANSACTION COMPLETE,\" it happily chimed."
+msgstr ""
+
+#: 78MlINjRJiDZCSqv
+msgctxt "132"
+msgid "..."
+msgstr ""
+
+#: IWDxBJEAeL05YgSY
+msgctxt "133"
+msgid "Are you Tweaker?"
+msgstr ""
+
+#: yyEwsfasxaO3vSM5
+msgctxt "134"
+msgid "I got your noodles."
+msgstr ""
+
+#: YUmlAX2EVC3Qu28d
+msgctxt "135"
+msgid "..."
+msgstr ""
+
+#: xiEPVpVAyBIVCdOV
+msgctxt "136"
+msgid "Depends on who's asking."
+msgstr ""
+
+#: PHWRY9ck5DB4FYpR
+msgctxt "137"
+msgid "I'm asking."
+msgstr ""
+
+#: E8S4DKHBSEl8nH3p
+msgctxt "138"
+msgid "Blake Steel, PI."
+msgstr ""
+
+#: yX1sIIejsYcUDgJM
+msgctxt "139"
+msgid "Glitch sent me."
+msgstr ""
+
+#: pLf6VN0lEkjlVkYT
+msgctxt "140"
+msgid "Well, I have no idea who you are. Get lost."
+msgstr ""
+
+#: 8rFRbkIIaHnWViAI
+msgctxt "141"
+msgid "Wait! Glitch sent me."
+msgstr ""
+
+#: 4mhv7ZbIAjAbeeAj
+msgctxt "142"
+msgid "A PI? You're one 'G' short."
+msgstr ""
+
+#: urKn3eVhDZNulR1g
+msgctxt "143"
+msgid "I'm here for business, Glitch sent me."
+msgstr ""
+
+#: xccjfdng1179kEtq
+msgctxt "144"
+msgid "Glitch needs to keep her mouth shut. What do you want?"
+msgstr ""
+
+#: rRjoAdSxs0op3JY4
+msgctxt "145"
+msgid "She said you could get me a ticket for the Alleycat."
+msgstr ""
+
+#: 8V0gDkXc8FSAMdRg
+msgctxt "146"
+msgid "The Alleycat? They're going to eat you alive. What could someone like you possibly want with that pleasure palace?"
+msgstr ""
+
+#: JYHFT1elsc4kPtoM
+msgctxt "147"
+msgid "A man... hmm... has needs."
+msgstr ""
+
+#: c1DCq3NdmT4mcf6J
+msgctxt "148"
+msgid "I'm looking for someone."
+msgstr ""
+
+#: ymlXag0M1Th46WtB
+msgctxt "149"
+msgid "*laughs* Good dreking luck with that."
+msgstr ""
+
+#: noGUvhNgkY11K9bt
+msgctxt "150"
+msgid "Who?"
+msgstr ""
+
+#: 0LT1Uivl4UC1Q2q1
+msgctxt "151"
+msgid "Danni Ashton. Heard of her?"
+msgstr ""
+
+#: UklgRUx1gEB0M77M
+msgctxt "152"
+msgid "Ah shit."
+msgstr ""
+
+#: RfVA6A4XkmjyVYMc
+msgctxt "153"
+msgid "I'll take that as a 'yes.' What happened to her?"
+msgstr ""
+
+#: SKnEajii0En3aAgy
+msgctxt "154"
+msgid "Look, man, the Alleycat swallows people whole. If you value your life, stay away."
+msgstr ""
+
+#: kwrXWmva3xQO5rx2
+msgctxt "155"
+msgid "Thanks for your concern. Nonetheless, I need a ticket."
+msgstr ""
+
+#: hEs92MxFkJcM47iU
+msgctxt "156"
+msgid "Alright, let's say I had a ticket to sell you. You couldn't afford it."
+msgstr ""
+
+#: 7amnDtbtosWxnGWO
+msgctxt "157"
+msgid "Try me."
+msgstr ""
+
+#: b4lyHxKFyjdiHNGV
+msgctxt "158"
+msgid "You don't know what I can afford."
+msgstr ""
+
+#: USSQ1bl0YGqunZO7
+msgctxt "159"
+msgid "You can't afford it because what I want you can't get."
+""
+"Nobody's ever going to get any more of Takeshi's noods on account of him mysteriously 404ing."
+msgstr ""
+
+#: vu2oWMhe6Zf27klu
+msgctxt "160"
+msgid "You just want some dreking noodles?"
+msgstr ""
+
+#: 5ieWvgdrwd9XnZwJ
+msgctxt "161"
+msgid "Not just any noods! Takeshi's! The man was a master of his craft, and he always left a small surprise printed on the bottom of the bowls... heh heh..."
+""
+"Anyway, no Takeshi, no noods."
+msgstr ""
+
+#: R8OxmL7qiF8AClIJ
+msgctxt "162"
+msgid "You underestimate how resourceful I am."
+msgstr ""
+
+#: DP0jOkEfYointORw
+msgctxt "163"
+msgid "What?! How's that possible?!"
+msgstr ""
+
+#: gCLO3gukGYwbdj8Q
+msgctxt "164"
+msgid "I told you, I am resourceful. This is the last bowl in existence. So if you want it, I'll take one of those tickets."
+msgstr ""
+
+#: WBj2NN0EqLAF6aGC
+msgctxt "165"
+msgid "You got a dreking deal! Here's your ticket. Hope you find what you're looking for."
+msgstr ""
+
+#: kG3Z6Wi1FGDmqHUe
+msgctxt "166"
+msgid "Pleasure doing business with ya."
+msgstr ""
+
+#: FknfdxHrYiSDWrsd
+msgctxt "167"
+msgid "What's the deal with the noodles anyway?"
+msgstr ""
+
+#: w7umlaxTUYsP5Bjf
+msgctxt "168"
+msgid "It's not about the noods themselves, but what's at the bottom of the bowl."
+""
+"Takeshi's started printing nudes on the bottom of his bowls of noods! They're collector's items."
+msgstr ""
+
+#: 1L7m3ZNApcD7Zvyx
+msgctxt "169"
+msgid "Gross. I'm out."
+msgstr ""
+
+#: Mxch7QbA0Is76vlV
+msgctxt "170"
+msgid "Oh great! You're back."
+msgstr ""
+
+#: IBK1qbNCNX2TIcuM
+msgctxt "171"
+msgid "What do we have here?"
+""
+"No body armor, so you're no"
+"cop. Ya got no hardware, so you're no chrome job."
+""
+"So... who are you?"
+msgstr ""
+
+#: v9cNfIZBbsHmxSXF
+msgctxt "172"
+msgid "The name's..."
+msgstr ""
+
+#: 8TIKbhuOD9t57swx
+msgctxt "173"
+msgid "Nah, man. I'm keen to guess."
+msgstr ""
+
+#: asWjdeCLXo74PVGZ
+msgctxt "174"
+msgid "You go door to door selling drek?"
+msgstr ""
+
+#: v9Hd7yScGImcvdXd
+msgctxt "175"
+msgid "Not even close."
+msgstr ""
+
+#: 2R0GCOgo1fIGWXZx
+msgctxt "176"
+msgid "I don't have time for this."
+msgstr ""
+
+#: skneByA1MeFKMjHB
+msgctxt "177"
+msgid "You're an out-of-luck ambulance chaser?"
+msgstr ""
+
+#: Xt8SDnfOQrk28QHn
+msgctxt "178"
+msgid "Wrong again."
+msgstr ""
+
+#: AXAtuyuluojFxGIg
+msgctxt "179"
+msgid "I've had enough of this drek."
+msgstr ""
+
+#: A3P3eOGj9QYSST5L
+msgctxt "180"
+msgid "You're the health inspector who's come to shut us down?"
+msgstr ""
+
+#: KcoiK6rVKeZ4YqDk
+msgctxt "181"
+msgid "It's like you're not even trying!"
+msgstr ""
+
+#: wOgDEJJMVB7GajD4
+msgctxt "182"
+msgid "Look, I'm..."
+msgstr ""
+
+#: dxSp8apROGmtE9kg
+msgctxt "183"
+msgid "Judging from your cheap trench coat, I'm guessing you're going to be a pain in my ass."
+msgstr ""
+
+#: NvlerS0PUIjPcr81
+msgctxt "184"
+msgid "Finally, talking sense!"
+msgstr ""
+
+#: 1iwaQa5bRwnBtnID
+msgctxt "185"
+msgid "... the coat's not that cheap."
+msgstr ""
+
+#: rfJqg4fHISst1YGW
+msgctxt "186"
+msgid "What do you want?"
+msgstr ""
+
+#: iVdyqyuCdJlQC2HA
+msgctxt "187"
+msgid "The name's Blake. I heard you're the guy to talk to about Coral."
+msgstr ""
+
+#: HOiEIucri0WIUNZ4
+msgctxt "188"
+msgid "I'm a PI who's looking for a girl."
+msgstr ""
+
+#: CpvByM04n0e6SmBD
+msgctxt "189"
+msgid "Do you know the man in this photo?"
+msgstr ""
+
+#: svehmfg3YyAnXuTL
+msgctxt "190"
+msgid "Looking at you, I can tell this will be pointless. Bye."
+msgstr ""
+
+#: 2b3PZ3NZiCXlQAiT
+msgctxt "191"
+msgid "What could you possibly want from Coral? You don't have the hardware to enjoy it."
+msgstr ""
+
+#: VJ81xTGyhaRKnPPH
+msgctxt "192"
+msgid "People keep saying that. What in the drek are you talking about?"
+msgstr ""
+
+#: tX4GtyqB7G3bEAhw
+msgctxt "193"
+msgid "You for real asking me for Coral when you clearly have no idea what it is?"
+msgstr ""
+
+#: CTKMAyaoSF3gYsai
+msgctxt "194"
+msgid "Why don't you educate me, then?"
+msgstr ""
+
+#: 48xExdOucELRwhBG
+msgctxt "195"
+msgid "Coral's a \"simstim.\" It's a digital drug. You need hardware; you need cybernetics to partake, my unmodified friend."
+msgstr ""
+
+#: 2D93o4QxfMufnHA4
+msgctxt "196"
+msgid "What is it, exactly?"
+msgstr ""
+
+#: ynQlj7ElHib0qg4I
+msgctxt "197"
+msgid "Is it addictive?"
+msgstr ""
+
+#: 1JWKVOubYQjWp2ON
+msgctxt "198"
+msgid "How does one take it?"
+msgstr ""
+
+#: 894cuXDTwwok6o32
+msgctxt "199"
+msgid "Where does it come from?"
+msgstr ""
+
+#: ZkT9w4TWrSPZ4xUl
+msgctxt "200"
+msgid "Actually, I wanted to talk to you about something else."
+msgstr ""
+
+#: KbdmO7Ge1m2CiZZv
+msgctxt "201"
+msgid "Exactly what I said. When you insert the Coral in your socket, it downloads a program that parties on your neural interface. It messes with the signals from your cybernetics, giving you a full-body high. You feel drek that isn't even happening. It shuts you down while you're chasing those ruby slippers, so you don't run around while stoned out of your mind."
+msgstr ""
+
+#: DVcpVG2VUZlAvuvE
+msgctxt "202"
+msgid "All that from a computer program? Huh."
+msgstr ""
+
+#: XNPYn2Z1W06aFe5l
+msgctxt "203"
+msgid "It feels great, but it's no more addictive than really good sex. Some people can't help themselves and will chase those ruby slippers. It's a simstim, there are no chemicals..."
+msgstr ""
+
+#: mymEILxZF2gtoos9
+msgctxt "204"
+msgid "... ergo, you can't get chemically dependent on it, right?"
+msgstr ""
+
+#: ndnCwVLAVGahOKfj
+msgctxt "205"
+msgid "It's all in this little red chip. Plug it into your socket and it does the rest."
+msgstr ""
+
+#: pwvkv9JI1wgInY8V
+msgctxt "206"
+msgid "But if it's just a program on a data chip, can't people copy it and put you out of a job?"
+msgstr ""
+
+#: FLiPAjOslN3CGtXN
+msgctxt "207"
+msgid "They say it's the brainchild of a biohacker named KryptoKool. As for where I get it, well, we're close enough friends."
+msgstr ""
+
+#: SiprM9QLKGwyQB5H
+msgctxt "208"
+msgid "KryptoKool? What a stupid name."
+msgstr ""
+
+#: rxB1FjSnPdJtMs27
+msgctxt "209"
+msgid "Your concern for my livelihood is touching; it really is. But that's the clever bit. The data chip destroys itself when it downloads into you. Or if you tamper with it. It even deletes itself from your system after a random amount of time. Nah, this drek is clever."
+msgstr ""
+
+#: dq1W20PmWGtkeWU0
+msgctxt "210"
+msgid "... Good to see that your retirement is secure."
+msgstr ""
+
+#: 3cLwQlbGyWFDANQU
+msgctxt "211"
+msgid "Aren't we all?"
+msgstr ""
+
+#: tOXRDE5qld7eD5De
+msgctxt "212"
+msgid "Look at this picture, you recognize her?"
+msgstr ""
+
+#: u5ReMiiNX8Tb2WmF
+msgctxt "213"
+msgid "... never seen her in my life."
+msgstr ""
+
+#: NoNln8eW18DZtrWt
+msgctxt "214"
+msgid "And just when I thought we were becoming friends, you lie to my face?"
+msgstr ""
+
+#: 9wGhlw4B2fUtKRyR
+msgctxt "215"
+msgid "How do you figure?"
+msgstr ""
+
+#: jHmMWxWiTu38n8In
+msgctxt "216"
+msgid "Her name is Danni Ashton. She did Coral. You are the only Coral dealer in the Gutter.  I'm just trying to find her."
+msgstr ""
+
+#: SV2BieJ7X0dVJZBV
+msgctxt "217"
+msgid "I don't keep track of every chrome job junkie that crosses my path. Get lost."
+msgstr ""
+
+#: o6lrLIgGGi0u6MOY
+msgctxt "218"
+msgid "Now listen here, you..."
+msgstr ""
+
+#: iDM2vu2gI8oPa0rG
+msgctxt "219"
+msgid "Really? Look at the photo again; she's not that forgettable."
+msgstr ""
+
+#: j56WuT3IDT0CxpbU
+msgctxt "220"
+msgid "Fine. How many credits will it take to jog your RAM?"
+msgstr ""
+
+#: SSICeXVQlwpftM8E
+msgctxt "221"
+msgid "Let me stop you while I'm still in a good mood. I don't like to be called a liar by a two-bit walking cliche with the aforementioned cheap coat. You can drop this now and enjoy the delights the Alleycat offers, or I can ask Tank, who I believe you already met on your way in, to show you the way out."
+""
+"Am I coming through clear?"
+msgstr ""
+
+#: 4AnWCJqeWR6YtIaD
+msgctxt "222"
+msgid "This isn't over."
+msgstr ""
+
+#: NqvIKWtVvr63uyIV
+msgctxt "223"
+msgid "What is it with you and showing me photos of people I've never seen?"
+msgstr ""
+
+#: KRTOE9JoMU90DQNL
+msgctxt "224"
+msgid "I know you know him."
+msgstr ""
+
+#: Kea2aKUF8A9pGvPE
+msgctxt "225"
+msgid "Nevermind."
+msgstr ""
+
+#: MyFQRuTcpP71nEIH
+msgctxt "226"
+msgid "You don't know drek about anything."
+msgstr ""
+
+#: hPtJ0cWcLJRKpMrY
+msgctxt "227"
+msgid "(Bluff) I know all about your deal."
+msgstr ""
+
+#: ucrlXhC6np6G3EuO
+msgctxt "228"
+msgid "*Goes pale* How do you know about the Coral?"
+msgstr ""
+
+#: oNmmVRr7gfnqUfUA
+msgctxt "229"
+msgid "I didn't, but thanks for confirming it for me."
+msgstr ""
+
+#: F5kN6WoktLGHZ1Sv
+msgctxt "230"
+msgid "You dreking drek! You stick your nose in my business, you die!"
+msgstr ""
+
+#: UsiIi2PE1a2EU09A
+msgctxt "231"
+msgid "I don't think so. Instead, you're going to tell me what I want to know, or I'll give JV a call. I'm sure he'd love to know how loose-lipped you are about his involvement with Coral."
+msgstr ""
+
+#: SAHChqcb8vm7WBnw
+msgctxt "232"
+msgid "I'm not falling for another one of your bluffs."
+msgstr ""
+
+#: oxCDPNpjUtIVEsWL
+msgctxt "233"
+msgid "I'm not bluffing this time."
+msgstr ""
+
+#: pWd3TKlttxhues3F
+msgctxt "234"
+msgid "I pulled out my phone and dialed the number for the man claiming to be Jacob Ashton."
+msgstr ""
+
+#: Ea6ND93ENU5SScRu
+msgctxt "235"
+msgid "*RING RING*"
+msgstr ""
+
+#: 50NY9r7iEDRXsTQN
+msgctxt "236"
+msgid "Two rings, and JV, whoever he really was, picked up the phone."
+msgstr ""
+
+#: lSMtxO6yoGMAHt2V
+msgctxt "237"
+msgid "Mr. Steel, I trust you have an update for me?"
+msgstr ""
+
+#: e7ePWpoAVcsk2V4W
+msgctxt "238"
+msgid "*whispering* Ok, you win! Just hang up!"
+msgstr ""
+
+#: 3Ol5Q7y7EmlpLRNf
+msgctxt "239"
+msgid "I can't hear you; it's very loud where you are."
+msgstr ""
+
+#: h0NLMfgllgnV7rvF
+msgctxt "240"
+msgid "My apologies. I dialed you by accident. I'll report later. Goodbye."
+msgstr ""
+
+#: tiZ69Mw4L0QCfY99
+msgctxt "241"
+msgid "Who the drek are you?"
+msgstr ""
+
+#: gmYiNOXIJnCIQ4KS
+msgctxt "242"
+msgid "I told you, I'm Blake Steel, PI. I'm looking for Danni, who I know you sold Coral to, and JV is somehow playing a part in it. And you were just about to tell me what you know."
+msgstr ""
+
+#: m2wiILygS4cl8IIL
+msgctxt "243"
+msgid "Alright, fine. What do you want to know?"
+msgstr ""
+
+#: yRDRyTWeeBVZAf6e
+msgctxt "244"
+msgid "What do you know about Danni?"
+msgstr ""
+
+#: yc0OVIppdg3qXuj5
+msgctxt "245"
+msgid "Tell me everything you know about JV."
+msgstr ""
+
+#: tvFU34dl6DsbwQgp
+msgctxt "246"
+msgid "That wasn't so hard, was it?"
+msgstr ""
+
+#: 26yT3uMdnfDjTWPr
+msgctxt "247"
+msgid "Happy? Good, get the drek out of my club and never come back!"
+msgstr ""
+
+#: 6SCxJnwWC6cPF9l4
+msgctxt "248"
+msgid "Aww... What happened to your friendly disposition?"
+msgstr ""
+
+#: vTNtLDte3Oqj03Li
+msgctxt "249"
+msgid "OUT!"
+msgstr ""
+
+#: MObGLgiLQJm6FGlh
+msgctxt "250"
+msgid "It's true. I sold Coral to Danni every now and again. As far as I know, she got most of it from the people she frequented. That's all I know, I swear!"
+msgstr ""
+
+#: 5TgP874JYchwjueW
+msgctxt "251"
+msgid "JV... Johan Visser. As you've guessed, he's my Coral contact."
+msgstr ""
+
+#: SSqxGMprlAjGkLeO
+msgctxt "252"
+msgid "What can you tell me about him?"
+msgstr ""
+
+#: MR9ZMQuupxEK4qC9
+msgctxt "253"
+msgid "Not much. He's a very dangerous man. We'll meet at Building 19 in the industrial district. He tells me when and I show up with a load of credits and no questions. There's a code to get in: 3141."
+msgstr ""
+
+#: Sc6wPv3wlxOtOKMv
+msgctxt "254"
+msgid "Building 19, huh. I should give that place a look."
+msgstr ""
+
+#: NcOHeNYqVCpUIXE5
+msgctxt "255"
+msgid "I stepped out of the Alleycat no wiser than when I came in. My gut told me that Acid Nova was dirty and knew something, but then again, my gut's been saying many things since that dumpster dive."
+msgstr ""
+
+#: 0GkIvdixXQPxjTKU
+msgctxt "256"
+msgid "As I stepped away from the neon bacchanalia, a woman approached me from the shadows with the practiced saunter of a predator. One look, and I had to force myself not to blush brighter than her neon pink dress. Without hesitation, she hooked her arm on mine and started walking down the alley."
+msgstr ""
+
+#: En3NWBPL3h9htAUa
+msgctxt "257"
+msgid "Act natural, we're just two friends going for a walk. We can't afford to stick out."
+msgstr ""
+
+#: ZADGIGMSnIcomCkX
+msgctxt "258"
+msgid "You have me at a disadvantage, miss...?"
+msgstr ""
+
+#: aYt1W7Q8m0t44i62
+msgctxt "259"
+msgid "Ba... err.. um... oof... ah..."
+msgstr ""
+
+#: EnV0hpywT91PJcLw
+msgctxt "260"
+msgid "My name's Crystal. I overheard you talking to that skeez, Acid. Is it true what you said? That you're looking for Danni?"
+msgstr ""
+
+#: rC0vcybtRMntN0qs
+msgctxt "261"
+msgid "Yes."
+msgstr ""
+
+#: xU5AqcFV2nR3Q3jq
+msgctxt "262"
+msgid "Err... *cough* um, who? Oh, right, yes. Yes, I am."
+msgstr ""
+
+#: Oct3vesH19TbahsB
+msgctxt "263"
+msgid "Why? What's your angle?"
+msgstr ""
+
+#: t6L9vS4A8LVbWfal
+msgctxt "264"
+msgid "I understand she went missing a few days ago. I'm a private investigator, and her father's paying me to find her."
+msgstr ""
+
+#: a1p3rDq5BXdwMjAT
+msgctxt "265"
+msgid "Uhm... err... her father is, um, looking for her. Is it me, or is it getting unseasonably warm?"
+msgstr ""
+
+#: dPVyq04ada0wSkOh
+msgctxt "266"
+msgid "Her father, huh? Danni never talks about her family."
+msgstr ""
+
+#: 7yJQ4MN4csjKXVRu
+msgctxt "267"
+msgid "You know my interest in Danni; what about yours?"
+msgstr ""
+
+#: HDGF9KjE7e31ngXg
+msgctxt "268"
+msgid "How do you, uh... how do you know her?"
+msgstr ""
+
+#: jqTtBkCQUmi1DfUI
+msgctxt "269"
+msgid "Danni's a good friend of mine."
+msgstr ""
+
+#: 8EXiCaOgBIl9v4Mk
+msgctxt "270"
+msgid "Do you know anything about what happened to her?"
+msgstr ""
+
+#: T2Kfn2sLe2f0c6n2
+msgctxt "271"
+msgid "I don't, but it can't be good."
+msgstr ""
+
+#: UKih8FNcml8KYHow
+msgctxt "272"
+msgid "What makes you so sure of that?"
+msgstr ""
+
+#: h7myotqw9edkh2Zi
+msgctxt "273"
+msgid "It's dangerous out there, so we had a system: if one of us stayed out the night, we'd send a message in the morning that all was good. I knew something was wrong when she didn't come home or message me."
+msgstr ""
+
+#: E92QCktymKYT1u8u
+msgctxt "274"
+msgid "When she didn't come home?"
+msgstr ""
+
+#: tAjlEx3rFiDjTudr
+msgctxt "275"
+msgid "Do you, um, live together?"
+msgstr ""
+
+#: oxD6GPrB9fOySGkt
+msgctxt "276"
+msgid "Yes. We're roommates."
+msgstr ""
+
+#: 2HNl2x5ddCsNmNDs
+msgctxt "277"
+msgid "Roommates?! Can we head back to your place, then?"
+msgstr ""
+
+#: gTTrQLAk3cWykQBV
+msgctxt "278"
+msgid "Can we... go back to your place?"
+msgstr ""
+
+#: hSYH3F4TyApvUsMk
+msgctxt "279"
+msgid "You can't afford me, slick."
+msgstr ""
+
+#: Vp52c8bBA1a7rEKq
+msgctxt "280"
+msgid "What? No. I want to search her place, your place, for any clue or indication of what could have happened."
+msgstr ""
+
+#: dHli55D34ETaR02U
+msgctxt "281"
+msgid "*cough* Erm.. *blush* No... uh... I mean... *cough* um, clues..."
+msgstr ""
+
+#: UnZF8m8D3nRiO3LB
+msgctxt "282"
+msgid "Oh... right! That makes sense. But don't try anything funny. I'm not as defenseless as I seem."
+msgstr ""
+
+#: 8wAXJmGfsTZ5pErQ
+msgctxt "283"
+msgid "You don't seem that defenseless to me. Lead the way."
+msgstr ""
+
+#: PNUNdk4oXsoUeO9Q
+msgctxt "284"
+msgid "But being funny is one of my strong suits. Oh well."
+msgstr ""
+
+#: JqEJFom6pLmssj00
+msgctxt "285"
+msgid "We headed for the subway and rode that steel serpent for a few stops until we arrived at our destination."
+msgstr ""
+
+#: 5bAbQWDliAWL8jJ3
+msgctxt "286"
+msgid "Have you found anything yet, Blake?"
+msgstr ""
+
+#: jIQOv2rao5OWOqqZ
+msgctxt "287"
+msgid "Actually, could you tell me about Danni?"
+msgstr ""
+
+#: jmJ6gdEHYxe9pHgH
+msgctxt "288"
+msgid "I found this note in her room; what do you make of it?"
+msgstr ""
+
+#: 1kCvFgCl40AxrIBU
+msgctxt "289"
+msgid "I found her id."
+msgstr ""
+
+#: kc0IXkJ7vNdAkfKy
+msgctxt "290"
+msgid "I did, and it's not good."
+msgstr ""
+
+#: fTP6i1m0XDkoHu3F
+msgctxt "291"
+msgid "I need your help."
+msgstr ""
+
+#: UVMnuc1ipuZh6nmC
+msgctxt "292"
+msgid "Tell me, have you seen the man in this photo before?"
+msgstr ""
+
+#: 7TrJS6h2MRoKOIgG
+msgctxt "293"
+msgid "Nothing more for now."
+msgstr ""
+
+#: mZkZ4flnhCuhJgeg
+msgctxt "294"
+msgid "Sure, what do you want to know?"
+msgstr ""
+
+#: b2cxO9bUYTRkrrGU
+msgctxt "295"
+msgid "How did you two meet?"
+msgstr ""
+
+#: 80i5mjlnQfL27WRX
+msgctxt "296"
+msgid "What does Danni do for a living, exactly..."
+msgstr ""
+
+#: X9WxOxivxDnl6mKx
+msgctxt "297"
+msgid "Has she ever mentioned her family to you?"
+msgstr ""
+
+#: TXZKb2vkgCE4fuu0
+msgctxt "298"
+msgid "Thanks, that was helpful."
+msgstr ""
+
+#: RGYP5aiqPMnVIvQI
+msgctxt "299"
+msgid "We met two years ago. She came into... uh... the shop, looking for work. We started chatting, and we've been friends ever since. Eventually, we got this place together so we wouldn't have to live in a dreking hole."
+msgstr ""
+
+#: ETMS5uZGHUu65Hw4
+msgctxt "300"
+msgid "What kind of shop?"
+msgstr ""
+
+#: OyP2iAIc46MFhIkY
+msgctxt "301"
+msgid "I have other questions."
+msgstr ""
+
+#: C7IqmuIktyx195AA
+msgctxt "302"
+msgid "Danni and I work for a business that caters to the *very expensive* tastes of very wealthy people. Particularly when those tastes have to do with companionship."
+msgstr ""
+
+#: eQe28doaeRdJ6Llq
+msgctxt "303"
+msgid "I see... and where is this business?"
+msgstr ""
+
+#: n9c9YJpiP2nXwn7D
+msgctxt "304"
+msgid "Cyber courtesans, digital doxies, purchased paramours?"
+msgstr ""
+
+#: mUcXqktUOKGDdl89
+msgctxt "305"
+msgid "Don't be an ass, Blake. Everyone's doing what they can to survive."
+msgstr ""
+
+#: dEuVjGJ8x6t8tq4W
+msgctxt "306"
+msgid "There's a laundromat called \"The Lost Sock.\" While it's a functional laundromat, it's a front for the actual business. I don't know who runs it, but Gladys Aubergine is who sends Danni and me on... assignments."
+msgstr ""
+
+#: SyWcYlaMRs3bmDFp
+msgctxt "307"
+msgid "Hmm... I may have to have a chat with this Gladys."
+msgstr ""
+
+#: GstFlbGb5wiWm60x
+msgctxt "308"
+msgid "I don't know... she may not be *snicker* \"Gladys\" to see you."
+msgstr ""
+
+#: ssSIv3WTVk0t3Tn5
+msgctxt "309"
+msgid "Ugh... that was terrible. Anyway, I have a few more questions."
+msgstr ""
+
+#: wu6fcsT51Ll9jEbp
+msgctxt "310"
+msgid "It's a note from Gladys... Danni must have received this just before she went missing."
+msgstr ""
+
+#: sj7oYEDu2yUq0chp
+msgctxt "311"
+msgid "It mentions someone named \"15.\" Any idea who that is?"
+msgstr ""
+
+#: LCDgOUInbmHyjSp3
+msgctxt "312"
+msgid "15... Danni mentioned him quite a few times. He's got a thing for her. I'd say three-quarters of her assignments are with him."
+msgstr ""
+
+#: kuOil7OrlT3jHOuG
+msgctxt "313"
+msgid "Has she ever mentioned who he is?"
+msgstr ""
+
+#: tg4kuoJVsAX1xIWL
+msgctxt "314"
+msgid "15? That seems rather impersonal."
+msgstr ""
+
+#: DTHhKcy4VonddtpG
+msgctxt "315"
+msgid "I have a few more questions."
+msgstr ""
+
+#: 8YRU9ci0OkVDoweh
+msgctxt "316"
+msgid "Never. All I know is that he's a big spender. Whatever he wants, he gets."
+msgstr ""
+
+#: hlPgliTP8o5R2aGi
+msgctxt "317"
+msgid "As you can imagine, discretion is essential in this business. We usually use code names, and 15 chose his."
+msgstr ""
+
+#: sml9p0UrRqI50RNb
+msgctxt "318"
+msgid "No, she never has. But to be fair, neither have I to her. Many people come to the Gutter to get away from their past."
+msgstr ""
+
+#: p60W8saGDZNEvKjW
+msgctxt "319"
+msgid "Her ID? Will that help?"
+msgstr ""
+
+#: dbKixJwdqlv2WKAT
+msgctxt "320"
+msgid "It's a long shot, but I still have access to a GovLink machine. If I run her ID, we might turn something up."
+msgstr ""
+
+#: 7py0WKKgD66fWi34
+msgctxt "321"
+msgid "What do you mean? What is it?"
+msgstr ""
+
+#: bf8gDw37OdJKAPcP
+msgctxt "322"
+msgid "Danni's an orphan who was never adopted. She chose the name Ashton for herself. So the man who introduced himself as Jacob Ashton..."
+msgstr ""
+
+#: ahbKxWxbtRHhmZTC
+msgctxt "323"
+msgid "... can't be her father!"
+msgstr ""
+
+#: EHwpvWtXGfFhG84m
+msgctxt "324"
+msgid "Exactly."
+msgstr ""
+
+#: nUFO7EQEQ53OalIM
+msgctxt "325"
+msgid "But who is he?"
+msgstr ""
+
+#: ApVweLwvax6RK5H2
+msgctxt "326"
+msgid "I don't know yet. Call it a hunch, but I now believe Danni doesn't want to be found. If so, she may be in more danger than we thought."
+msgstr ""
+
+#: m26yi8HFU5lAgqVO
+msgctxt "327"
+msgid "If there's anything I can do to help, don't hesitate to ask."
+msgstr ""
+
+#: P8hcixMInGkQDfMK
+msgctxt "328"
+msgid "I'll hold you to it."
+msgstr ""
+
+#: jhUluowy48GZmpp9
+msgctxt "329"
+msgid "What do you need?"
+msgstr ""
+
+#: bqrpOJEutEegGx4H
+msgctxt "330"
+msgid "I must get close enough to Gladys's computer to plug in this hacktool. It'll clone all the data so I can review it, literally, in the comfort of my own home."
+msgstr ""
+
+#: Kb3mvQSuqwhwnqAO
+msgctxt "331"
+msgid "How about dinner and a vid?"
+msgstr ""
+
+#: 68urwFHPFRrT61Uv
+msgctxt "332"
+msgid "I could get into a shouting match with her. She's got a set of lungs for an old woman, but she's no match for my pair."
+msgstr ""
+
+#: 6FNipt6AoObTBV2e
+msgctxt "333"
+msgid "... I bet."
+msgstr ""
+
+#: s5ta3byP7ai6DENl
+msgctxt "334"
+msgid "Sounds like a plan. Meet you at the Lost Sock."
+msgstr ""
+
+#: 7T5gRpfioEwhUZXi
+msgctxt "335"
+msgid "What was that?"
+msgstr ""
+
+#: Vua2UDfRSV3uLrON
+msgctxt "336"
+msgid "Uh... Sounds like a plan. Meet you at the Lost Sock."
+msgstr ""
+
+#: j8RiWU1OvwX6REji
+msgctxt "337"
+msgid "Are you serious?"
+msgstr ""
+
+#: i3lr3AT9aYZgH9EQ
+msgctxt "338"
+msgid "No, uh, I need you to distract Gladys for me."
+msgstr ""
+
+#: QAjoYReHZ8rJkdjX
+msgctxt "339"
+msgid "Let me see... yeah. I recognize him! He's the guy that would pick up Danni whenever she was supposed to be with 15! He's got to be in on this!"
+msgstr ""
+
+#: 7mGMAOLJAB0xteMJ
+msgctxt "340"
+msgid "I'd say so. He's the one that hired me."
+msgstr ""
+
+#: Bd341oocZZwGh1tO
+msgctxt "341"
+msgid "You mean, he's the one that tried to pass as her father?"
+msgstr ""
+
+#: tQOQxJBkrR3tEsV0
+msgctxt "342"
+msgid "Exactly. I get the feeling something terrible happened the night Danni was with 15. Remember how I said I think she doesn't want to be found?"
+msgstr ""
+
+#: XvOiqVU0LqDsNU1k
+msgctxt "343"
+msgid "Yeah?"
+msgstr ""
+
+#: 6jYmxHqXAn8LvXpD
+msgctxt "344"
+msgid "I suspect these are the people she doesn't want to be found by."
+msgstr ""
+
+#: ZbuNhW7jEgTGfv2c
+msgctxt "345"
+msgid "What should I do?"
+msgstr ""
+
+#: Nvw6u1rrFrwU6jQU
+msgctxt "346"
+msgid "Run Danni's ID card."
+msgstr ""
+
+#: eC92YKbxYMiP0dVr
+msgctxt "347"
+msgid "Run a Database Search."
+msgstr ""
+
+#: sVHtnWjHZ50nBf53
+msgctxt "348"
+msgid "Plug in Glitch's datastick."
+msgstr ""
+
+#: ASSlqi1elkUmgy2S
+msgctxt "349"
+msgid "Plug in Glitch's datastick."
+msgstr ""
+
+#: ijT7I9EG9SWZ7Kst
+msgctxt "350"
+msgid "Run B19's parcel number."
+msgstr ""
+
+#: 3fDUc7gPsRNxmFj1
+msgctxt "351"
+msgid "Log off."
+msgstr ""
+
+#: kZK96M2dmFj4922b
+msgctxt "352"
+msgid "What should I search for?"
+msgstr ""
+
+#: XQt0ihYoEowQgfRL
+msgctxt "353"
+msgid "Xantech Cybernetics"
+msgstr ""
+
+#: EcEuf8Y7X1IwXACy
+msgctxt "354"
+msgid "Xander Vane"
+msgstr ""
+
+#: KicPM9Lao0MY8M35
+msgctxt "355"
+msgid "Cygnus Holdings"
+msgstr ""
+
+#: lkEEYR45oJH0CD5S
+msgctxt "356"
+msgid "SummerVault"
+msgstr ""
+
+#: MM4qs7laiegtafWD
+msgctxt "357"
+msgid "Sumerian Collective"
+msgstr ""
+
+#: 8a7fSea1vHCePgJK
+msgctxt "358"
+msgid "Nothing else."
+msgstr ""
+
+#: jlCNUOebnq4cZ7Su
+msgctxt "359"
+msgid "DATAVAULT 9000"
+msgstr ""
+
+#: 3pOdVvRmPxMZWj00
+msgctxt "360"
+msgid "No entries."
+msgstr ""
+
+#: yviQ08LIIeAKVvhA
+msgctxt "361"
+msgid "DATAVAULT 9000"
+""
+"User: Gladys Aubergine"
+"Password: gladys1"
+""
+"Access granted..."
+msgstr ""
+
+#: Ek7YAJmJcxkOr8Ui
+msgctxt "362"
+msgid "List personnel"
+msgstr ""
+
+#: 7ZYHbPolecVmXsiF
+msgctxt "363"
+msgid "List customers"
+msgstr ""
+
+#: fOA9HXabgRq9dftK
+msgctxt "364"
+msgid "Lost Sock Personnel List"
+""
+"(About a dozen names scroll by, but only two stand out.)"
+msgstr ""
+
+#: kKcUUCrNsIXYCVl9
+msgctxt "365"
+msgid "Crystal Shard"
+msgstr ""
+
+#: RaITRB6FQqrKQecx
+msgctxt "366"
+msgid "Danni Ashton"
+msgstr ""
+
+#: ACK6OOX4clE97Y0u
+msgctxt "367"
+msgid "Return"
+msgstr ""
+
+#: XixrS1PwOEsIkLbT
+msgctxt "368"
+msgid "Name: Crystal Shard"
+"Age: 28"
+"Current Assignment: None"
+msgstr ""
+
+#: ii1yEIrseNE6UdeZ
+msgctxt "369"
+msgid "Name: Danni Ashton"
+"Age: 24"
+"Current Assignment: 15"
+msgstr ""
+
+#: wtqVTc4lZF30016T
+msgctxt "370"
+msgid "A meaningless list of codenames scrolled on the screen. Eventually, I found what I was looking for.)"
+msgstr ""
+
+#: WXNyp2kEPinF35gr
+msgctxt "371"
+msgid "15"
+msgstr ""
+
+#: wIrc9DONvNCSJlvh
+msgctxt "372"
+msgid "JV"
+msgstr ""
+
+#: vVYFRNcx5aolEBiE
+msgctxt "373"
+msgid "Return"
+msgstr ""
+
+#: TnMNbiIg5G7uMdyB
+msgctxt "374"
+msgid "Customer ID: 15"
+"Preferred Server: DA"
+""
+"Notes:"
+"15 doesn't like to get their hands dirty. Their girls are always picked up by one of his subordinates, JV."
+msgstr ""
+
+#: OEKfI5EGCSTAfApF
+msgctxt "375"
+msgid "Customer ID: JV"
+"Preferred Server: N/A"
+""
+"Notes:"
+"JV picks up the girls for 15. He's real slippery, and I don't trust him, but at least the credits are always good."
+""
+"Photograph attached."
+msgstr ""
+
+#: C5OHEkoUuDckH2ny
+msgctxt "376"
+msgid "Download photograph"
+msgstr ""
+
+#: Y9IymtRfwf1h6X8M
+msgctxt "377"
+msgid "Entry: Xantech Cybernetics"
+"Summary: Formed 15 years ago by Xander Vane, Xantech Cybernetics has become the world leader in consumer-level cybernetics, owning 93% of the market share. Xander Cybernetics is a subsidiary of Cygnus Holdings."
+msgstr ""
+
+#: K6xKe5gDBNV1qySK
+msgctxt "378"
+msgid "Return"
+msgstr ""
+
+#: fRkUI9QPGA2LjBrV
+msgctxt "379"
+msgid "Entry: Xander Vane"
+"Summary: Billionaire genius, is CEO and majority stakeholder of Xantech Cybernetics."
+msgstr ""
+
+#: 6MMD1axsSTyr12oH
+msgctxt "380"
+msgid "Return"
+msgstr ""
+
+#: frmPQbCHy5IOW3RM
+msgctxt "381"
+msgid "Entry: Cygnus Holdings"
+"Summary: Cygnus Holdings is [REDACTED] and is responsible for [REDACTED]. Their subsidiaries include [LIST REDACTED] and Xantech Cybernetics."
+msgstr ""
+
+#: W1i55pRuqsrF3IoJ
+msgctxt "382"
+msgid "Return"
+msgstr ""
+
+#: lXLmxUlZljGLQ0rU
+msgctxt "383"
+msgid "Entry: SummerVault"
+"Summary: SummerVault was formed 4 years ago. Since its inception, SummerVault has specialized in selling personal protection vaults and bunkers. Recently it fought off a controversy relating to its vault subscription service, as their capacity is a fraction of the lucrative subscriptions they sold."
+"Last year, they were acquired by the Sumerian Collective."
+msgstr ""
+
+#: j5iIguCOIMNtQh5q
+msgctxt "384"
+msgid "Return"
+msgstr ""
+
+#: NCmxpDoxmHiNOAMb
+msgctxt "385"
+msgid "Entry: Sumerian Collective"
+"Summary: Established 7 years ago, the Sumerian Collective has purchased several companies in varied industries. Ironically, they are now a wholly owned subsidiary of Cygnus Holdings."
+msgstr ""
+
+#: CbbSAcD53KPnxGtM
+msgctxt "386"
+msgid "Return"
+msgstr ""
+
+#: 77d1IK325gt5sk6f
+msgctxt "387"
+msgid "Boof."
+msgstr ""
+
+#: GBwEnGVqQxu4SlZL
+msgctxt "388"
+msgid "Hey girl, want a treat?"
+msgstr ""
+
+#: kymsbrydJtPQKZPy
+msgctxt "389"
+msgid "Who's a good girl?"
+msgstr ""
+
+#: SvD2Srb2XGC63E3O
+msgctxt "390"
+msgid "Ok, I got to get back to work."
+msgstr ""
+
+#: xY937S93bSjs1LV1
+msgctxt "391"
+msgid "                       "
+msgstr ""
+
+#: FeFLH0AiFRlP3qXU
+msgctxt "392"
+msgid "Bark!"
+msgstr ""
+
+#: Udqnq1kgJvoToJFL
+msgctxt "393"
+msgid "Here you go, girl."
+msgstr ""
+
+#: sLpZnjpKUkAfsyWi
+msgctxt "394"
+msgid "*Covers her face with her paws*"
+msgstr ""
+
+#: x8EFXkk6Z5Clisea
+msgctxt "395"
+msgid "That's right! You're a good girl!"
+msgstr ""
+
+#: J5kHKHarFyURneVm
+msgctxt "396"
+msgid "..."
+msgstr ""
+
+#: vgqKCqhp999R9AqK
+msgctxt "397"
+msgid "Daisy, I was afraid I would not be a good dog parent, but when you walked up to me the first time, I knew I had to try. I want to tell you that you've brought me immeasurable joy and happiness, that you're a ray of sunlight that pierces these dark clouds, and that you stirred something in my heart that I never thought I'd feel. I want to tell you these things, but I lack a good way to express them, so I'll do my best and give you all the hugs, walks, and treats you can take."
+msgstr ""
+
+#: TyJKRFGYjl9rvvGR
+msgctxt "398"
+msgid "..."
+msgstr ""
+
+#: NxMnhVB4MAXxoTn9
+msgctxt "399"
+msgid "It breaks me to think of a future without you, without your goofy smile or long walks, without the joy it brings me when you keep me company in my office or fall asleep at my feet. I hope you know how much I love you, even when I make you get off the couch or keep you from eating my breakfast. I hope you know you left a big paw print on my heart that will never dull."
+msgstr ""
+
+#: 9g0FVK0Kjjnfhy07
+msgctxt "400"
+msgid "..."
+msgstr ""
+
+#: uK9HZ1sF3Vj5WTO8
+msgctxt "401"
+msgid "No matter what happens, I'll always be your dad. I love you, sweetie."
+msgstr ""
+
+#: jPwlCvlvG1b3aP3x
+msgctxt "402"
+msgid "Go play on some train tracks."
+msgstr ""
+
+#: 7Cf86gjpP28KMxPS
+msgctxt "403"
+msgid "Welcome to the Lost Sock. Laundry and dryer services are 5 credits each. Detergent is 2 credits."
+msgstr ""
+
+#: Bn8XwuujB2yeaFZC
+msgctxt "404"
+msgid "Those are very competitive prices."
+msgstr ""
+
+#: B9KQDcIdUaaYjDAL
+msgctxt "405"
+msgid "I'm looking for a girl."
+msgstr ""
+
+#: b7aK5v2jnHsZyMnd
+msgctxt "406"
+msgid "Thanks."
+msgstr ""
+
+#: 871wJYeO2smdLYBX
+msgctxt "407"
+msgid "At The Lost Sock, we strive to ensure customers leave with a smile."
+""
+"So smile. And leave me alone."
+msgstr ""
+
+#: cJhidi2OARsPsbut
+msgctxt "408"
+msgid "Do I look like a dating service to you?"
+msgstr ""
+
+#: DxEyyMxDyg7nQtO5
+msgctxt "409"
+msgid "Actually, yes."
+msgstr ""
+
+#: sBkhiif19gJH5n2S
+msgctxt "410"
+msgid "...Who are you?"
+msgstr ""
+
+#: BqcwS8f69mHKmjTa
+msgctxt "411"
+msgid "The name's Steel, Blake Steel. I'm looking for the girl in this photo."
+msgstr ""
+
+#: fVJGY7Ql4qEp1iKk
+msgctxt "412"
+msgid "Never seen her."
+msgstr ""
+
+#: WFXJh3pKomAswwVW
+msgctxt "413"
+msgid "You're going to have to do better than that, Gladys."
+msgstr ""
+
+#: cpaB24IkMIOPSdPc
+msgctxt "414"
+msgid "How do you know my name?"
+msgstr ""
+
+#: e0b4JeeVrtFWHp96
+msgctxt "415"
+msgid "I know a lot of things. I know her name is Danni Ashton, and she works for you providing... private laundry services."
+msgstr ""
+
+#: NtVpIc8mlH05YiAp
+msgctxt "416"
+msgid "Listen here, Bloke--"
+msgstr ""
+
+#: uVFdcxkZlIw9TGVr
+msgctxt "417"
+msgid "Blake, the name's Blake."
+msgstr ""
+
+#: srti2T01VBv0iuqG
+msgctxt "418"
+msgid "I don't care what your name is. You have no idea what you're dealing with, so take this bit of free advice and leave. Our laundry machines can remove even the most stubborn stains but can't wash away broken bones."
+msgstr ""
+
+#: UycRtdWQ3fJAagK7
+msgctxt "419"
+msgid "Are you trying to intimidate me?"
+msgstr ""
+
+#: Oyv3GTSqiIElyfr6
+msgctxt "420"
+msgid "No, Brett. There is no reason to intimidate someone who isn't a threat. Good day."
+msgstr ""
+
+#: avG0hOhSxkqMrUPy
+msgctxt "421"
+msgid "Get your mitts off my computer, Bucko. If you even think of getting close to it, you'll find out why they call it a \"terminal.\""
+msgstr ""
+
+#: xbepIYEomyDhRE6d
+msgctxt "422"
+msgid "You'd better watch you mouth, honey. You're replaceable."
+msgstr ""
+
+#: dSKZXaT9T31fhjbD
+msgctxt "423"
+msgid "Replaceable like Danni, your desiccated  fossil? How do you sleep at night?"
+msgstr ""
+
+#: 8KZQHFF9vtGyfi0f
+msgctxt "424"
+msgid "I sleep just fine, thank you. It's called not giving a damn about what dreking slags think."
+msgstr ""
+
+#: MmRVYkPEia9rcOTO
+msgctxt "425"
+msgid "It hasn't gone unnoticed that you're not pulling like you used to. Pitty it wasn't you that went missing."
+msgstr ""
+
+#: lHIf4ceN8ggJUXrL
+msgctxt "426"
+msgid "The only thing you're pulling is the grim specter of death!"
+msgstr ""
+
+#: Fg85LfV61XIr9oG0
+msgctxt "427"
+msgid "As I stepped back into this house of laundered dreams, Crystal was already yelling at Gladys, who hadn't even noticed me enter. The unbridled creativity of the former was met with the wicked wealth of vicious experience of the latter."
+msgstr ""
+
+#: vViyXulyciMWjj3Z
+msgctxt "428"
+msgid "I would have loved to watch this, but I had a computer to hack."
+msgstr ""
+
+#: gF3CfHosfHyF6Kfw
+msgctxt "429"
+msgid "Hey Blake. How was that?"
+msgstr ""
+
+#: dnmRgHYSODuuE1Hi
+msgctxt "430"
+msgid "That was great! She didn't notice a thing!"
+msgstr ""
+
+#: Gs6VPuh5b0wSbDFf
+msgctxt "431"
+msgid "What's next, then?"
+msgstr ""
+
+#: 53QOyDQv3se37PEg
+msgctxt "432"
+msgid "If Glitch is correct, this hacktool contains a copy of Gladys's data. I'll review it on my computer, and hopefully, it'll lead me somewhere."
+msgstr ""
+
+#: tbqyZgDbFx9XlJcY
+msgctxt "433"
+msgid "Sound good. Keep me posted, ok? I'm worried about Danni."
+msgstr ""
+
+#: ESCFZtbCtH8ohU1B
+msgctxt "434"
+msgid "Me too."
+msgstr ""
+
+#: olIIUsyvXbCM1RRa
+msgctxt "435"
+msgid "And Blake...?"
+msgstr ""
+
+#: j6P7nxGbCc6du961
+msgctxt "436"
+msgid "Yeah?"
+msgstr ""
+
+#: bE7xkrbw65Us8EDi
+msgctxt "437"
+msgid "Be careful."
+msgstr ""
+
+#: W5188VMkIB3a8rj1
+msgctxt "438"
+msgid "I always am."
+msgstr ""
+
+#: yRXFZAWYoN7FRAZ7
+msgctxt "439"
+msgid "I never am."
+msgstr ""
+
+#: MFHPOu9yrL95EsTa
+msgctxt "440"
+msgid "Mr. Steel, have you any news for me?"
+msgstr ""
+
+#: Tm7cxOXxwwKuQAdC
+msgctxt "441"
+msgid "(Better to play along for now)"
+msgstr ""
+
+#: sV1R4a0tcfC5kfIJ
+msgctxt "442"
+msgid "Mr. Ashton, I've investigated Danni's apartment, but it was a dead end."
+msgstr ""
+
+#: LdUKQhNHPgdUG6is
+msgctxt "443"
+msgid "Unacceptable, Mr. Steel. I'm paying good credits for top results; you assured me you could get those results."
+msgstr ""
+
+#: 6pvlDaMNTN4gMSWK
+msgctxt "444"
+msgid "I was just about to hit the street for more information. If she's out there, I'll find her."
+msgstr ""
+
+#: bXyR7cGFOOD8PgvJ
+msgctxt "445"
+msgid "Then get out there and find my Danni!"
+msgstr ""
+
+#: Z2bgYQOwy28ktlGH
+msgctxt "446"
+msgid "Don't worry. I won't stop until she's safe."
+msgstr ""
+
+#: ooh53P5p9gJ6Xn3Y
+msgctxt "447"
+msgid "You can be sure of it."
+msgstr ""
+
+#: EmWjfuNb6vtlbOon
+msgctxt "448"
+msgid "..."
+msgstr ""
+
+#: wwLYoWHDUYjdRce3
+msgctxt "449"
+msgid "He hung up."
+msgstr ""
+
+#: A14grjufStNMDdfj
+msgctxt "450"
+msgid "Hello, Mr. Steel."
+msgstr ""
+
+#: d0duu4ZeZjYUodNH
+msgctxt "451"
+msgid "Who's this?"
+msgstr ""
+
+#: 65TyNNYsKQvsSppB
+msgctxt "452"
+msgid "The person you've been looking for, Blake."
+msgstr ""
+
+#: uTWTMDh1h1uYjl3X
+msgctxt "453"
+msgid "My name is Danni Ashton..."
+msgstr ""
+
+#: Pc5NBZnZtykYBLMm
+msgctxt "454"
+msgid "Sorry, you can't come in. Boss's orders."
+msgstr ""
+
+#: xc9HE1yrqg4Dy6eH
+msgctxt "455"
+msgid "Yeah, no. I get it."
+msgstr ""
+
+#: 92ty5cWjjpYsVEcT
+msgctxt "456"
+msgid "Stand aside. Nobody tells Blake Steel where he can go."
+msgstr ""
+
+#: TxnXpPKXdRN7kdx6
+msgctxt "457"
+msgid "Mustering more bravado than was prudent, I attempted to shove the bouncer aside and quickly understood why they called him \"Tank.\""
+msgstr ""
+
+#: MV68PwYJAg1fJ2bt
+msgctxt "458"
+msgid "With force only a man born to be a living door might possess, Tank unceremoniously shoved me onto the alleyway floor."
+msgstr ""
+
+#: c8iWHq1KuTtuEuuF
+msgctxt "459"
+msgid "AND STAY OUT!"
+msgstr ""
+
+#: by1SIMHwdWXTXNKO
+msgctxt "460"
+msgid "The safe house was in the Gutter, not too far away from the Alleycat. She'd been hiding in plain sight."
+msgstr ""
+
+#: NuRB9BxTcYCXt62S
+msgctxt "461"
+msgid "The glow from countless computer screens washed over us as I regarded my hosts. Danni Ashton looked just like her photo. She was standing near her friend, a bearded man wearing a shirt depicting a red and white checkered ball. The logo must have had some significance to middle-aged nerds. He called himself..."
+msgstr ""
+
+#: MGhcSq7GjkDYjdZj
+msgctxt "462"
+msgid "... SegF4ult. With a '4' in the place of the 'A'."
+msgstr ""
+
+#: e0FXBWv0jXNaCNRr
+msgctxt "463"
+msgid "You and Glitch would get along."
+msgstr ""
+
+#: Ug5MxedNQgsFDHEI
+msgctxt "464"
+msgid "You know Glitch? She's rad!"
+msgstr ""
+
+#: gfpxeucMBShtLodE
+msgctxt "465"
+msgid "Totally. Anyway, Ms. Ashton?"
+msgstr ""
+
+#: QhGEg4oUUf23Pnvl
+msgctxt "466"
+msgid "Please, call me Danni."
+msgstr ""
+
+#: XpcnNKXyW0nl6U0h
+msgctxt "467"
+msgid "Very well, Danni. Can you tell me what happened?"
+msgstr ""
+
+#: vjhHEI5rB0nvxXaD
+msgctxt "468"
+msgid "Sure thing. It all started two nights ago..."
+msgstr ""
+
+#: FsDDl0vP1AvNgC2v
+msgctxt "469"
+msgid "Reliving the trauma of that night, Danni took a moment to compose herself."
+msgstr ""
+
+#: wuBIo1lqaESnS7BP
+msgctxt "470"
+msgid "That's when I contacted my friend SegF4ult, an expert cyberneticist. Once we figured out what was in there, I knew they'd come looking for me, so I didn't dare reach out to Crystal and put her in danger."
+msgstr ""
+
+#: JNOtlPVvcAwVv15n
+msgctxt "471"
+msgid "What did you find?"
+msgstr ""
+
+#: mTvrkl2KaE3qZUsl
+msgctxt "472"
+msgid "Danni had gigabytes of proof that Xantech Cybernetics created Coral to get people who bought cybernetics to continue to pay them money... indirectly. They've made millions already."
+msgstr ""
+
+#: PS3oP1yKhxTOPTGb
+msgctxt "473"
+msgid "Xantech Cybernetics? Hold on a minute. That means..."
+msgstr ""
+
+#: 92vNidIe7MJEmZ8a
+msgctxt "474"
+msgid "15 is..."
+msgstr ""
+
+#: YOpMOH8QMSn78pF4
+msgctxt "475"
+msgid "Johan Visser"
+msgstr ""
+
+#: DRheH3Fm6l7RPbOH
+msgctxt "476"
+msgid "Gladys Aubergine"
+msgstr ""
+
+#: kPqySb7cCRGsFt9Z
+msgctxt "477"
+msgid "Xander Vane"
+msgstr ""
+
+#: 3sNW2Ok4gB8e7tBJ
+msgctxt "478"
+msgid "Acid Nova"
+msgstr ""
+
+#: RrnFOksMTDVefRyO
+msgctxt "479"
+msgid "What? No. It's Xander Vane, Xantech's CEO!"
+msgstr ""
+
+#: JbPinXJwrJ3Zw1df
+msgctxt "480"
+msgid "Xander Vane."
+msgstr ""
+
+#: 0aZ5Hq0ZOgD97Cjy
+msgctxt "481"
+msgid "Xander Vane. XV. 15."
+msgstr ""
+
+#: TJPLaFf8GRuFqPjZ
+msgctxt "482"
+msgid "I bet he thought he was real clever for that one. So, how did you find out about me?"
+msgstr ""
+
+#: yooK9dmD7Sji8ph4
+msgctxt "483"
+msgid "I heard that someone was looking for me. But I couldn't risk reaching out in case my phone was being traced."
+msgstr ""
+
+#: frpfPh1rtXgtNOS8
+msgctxt "484"
+msgid "Fortunately, there's no way that Xander could have my phone tracked. So an hour ago, we called Crystal, and she told us all about you."
+msgstr ""
+
+#: A2DTXodrtCYOTBsU
+msgctxt "485"
+msgid "What she said led us to believe we could trust you."
+msgstr ""
+
+#: 2KKahiWnp13LHusg
+msgctxt "486"
+msgid "Really? What did she say?"
+msgstr ""
+
+#: iiB1A5S5YsKrwyw2
+msgctxt "487"
+msgid "What now?"
+msgstr ""
+
+#: B9ed3dL29Q1DAHHW
+msgctxt "488"
+msgid "*Smirking* Let's just say you made a good impression on her."
+msgstr ""
+
+#: BFBr6C7SIfRXHMpP
+msgctxt "489"
+msgid "Now I need your help. Xander knows I have this data and knows I'm not dead. He's not going to stop until we make him stop."
+msgstr ""
+
+#: BKwT7vgpXhNeLJp4
+msgctxt "490"
+msgid "But what can we do?"
+msgstr ""
+
+#: nTg5DYg6lKCwpEbR
+msgctxt "491"
+msgid "We have to destroy him, and we'll do it with this data."
+msgstr ""
+
+#: DOhSOYtWV4KZY5qO
+msgctxt "492"
+msgid "Hmm... If that data is as damaging as you say, it could take him down. Or cause so many problems for him that you would be the least of them. What's the plan? Leak it to the press?"
+msgstr ""
+
+#: cxMLjBsr1EoCC4HZ
+msgctxt "493"
+msgid "Eventually, but that's not going to be enough. He'll deny it and his lawyers will suppress it. Instead we have to go big."
+msgstr ""
+
+#: BG6kmI1FaMckNVFu
+msgctxt "494"
+msgid "Real big."
+msgstr ""
+
+#: o1XgKeylpuEkllqP
+msgctxt "495"
+msgid "Tomorrow night, Xander will give a keynote at XanCon, unveiling his latest line of cybernetics. If we replace the demo reel that's supposed to play with this data..."
+msgstr ""
+
+#: lnrmypRwkPeUBXWS
+msgctxt "496"
+msgid "... then he's dreked. He won't be able to spin it or suppress it!"
+msgstr ""
+
+#: jLqA3nI17vg4fRkB
+msgctxt "497"
+msgid "Exactly. He'll be publicly ruined."
+msgstr ""
+
+#: 08pQFfu9h9A3W6Tf
+msgctxt "498"
+msgid "Sounds like you have a perfect plan."
+msgstr ""
+
+#: 37fq6SpajA9gteRF
+msgctxt "499"
+msgid "This is where you come in. We can't risk exposing Danni, and I'm, well, I'm more of a coder than a fighter."
+msgstr ""
+
+#: mYZsCE1CpaXgEZFa
+msgctxt "500"
+msgid "I have a feeling I'm not going to like this."
+msgstr ""
+
+#: 9Vkp5hEMwoOZmIcU
+msgctxt "501"
+msgid "I can't wait to take this piece of drek down."
+msgstr ""
+
+#: Hk1BuQWtBosX1rgf
+msgctxt "502"
+msgid "You will need to break into the server room at XanTech and plug in a data stick that will override the demo reel."
+msgstr ""
+
+#: dcbMG6d3qCw8oRZF
+msgctxt "503"
+msgid "Nothing to it."
+msgstr ""
+
+#: QlFmLl936l6khBAE
+msgctxt "504"
+msgid "And how am I supposed to break into Xantech?"
+msgstr ""
+
+#: HRA32vD4kWffnTmI
+msgctxt "505"
+msgid "I'm not going to lie; it's not going to be easy. Other than Xander, only Visser has access codes for the inner sanctum of the data center. Xander doesn't trust anyone else."
+msgstr ""
+
+#: QOuyQ5DvgQXAyJ7e
+msgctxt "506"
+msgid "So I guess it's high time to have a meeting with Danni's... \"dad.\""
+msgstr ""
+
+#: kflfDjHCGvJWknDy
+msgctxt "507"
+msgid "We're going to need a good plan."
+msgstr ""
+
+#: eHIj8wYuoE5kLlDv
+msgctxt "508"
+msgid "Hmm... What If I call him and--"
+msgstr ""
+
+#: 7NF4v95ksdCDpkq7
+msgctxt "509"
+msgid "*RING RING*"
+msgstr ""
+
+#: fhiTtINLSsIymaTp
+msgctxt "510"
+msgid "Interrupting me mid-sentence, my phone insisted on my attention."
+msgstr ""
+
+#: 1ultYEtEfNTdiBW1
+msgctxt "511"
+msgid "Holy drek..."
+msgstr ""
+
+#: KUNWv4eeDaJZjJBf
+msgctxt "512"
+msgid "It was Johan Visser!"
+msgstr ""
+
+#: R4RqHDxgMwi7S9yW
+msgctxt "513"
+msgid "Mr. Steel. I hope I didn't catch you at a bad time."
+msgstr ""
+
+#: 23WbHMyBGSeWsbht
+msgctxt "514"
+msgid "Mr... Ashton. What a coincidence. I was just thinking about you."
+msgstr ""
+
+#: 5coEoAq0JPc0vV5q
+msgctxt "515"
+msgid "You can drop the pretenses, Mr. Steel. I know that you know who I am."
+msgstr ""
+
+#: 6hIvxOGpGFnpoBi2
+msgctxt "516"
+msgid "Then I know that you know that I know who you are."
+msgstr ""
+
+#: xdp2s9ZkvUBJjCHD
+msgctxt "517"
+msgid "A loving father?"
+msgstr ""
+
+#: DD6mhEXTfTI72IiX
+msgctxt "518"
+msgid "A creep?"
+msgstr ""
+
+#: qFO7BKo5E65UFM8f
+msgctxt "519"
+msgid "Do not play games with me, Mr. Steel. You are in no position to do so."
+msgstr ""
+
+#: DfMkNQgBH2DgCODQ
+msgctxt "520"
+msgid "How do you figure?"
+msgstr ""
+
+#: iUfpuTtGqQrUtYnn
+msgctxt "521"
+msgid "Blake!"
+msgstr ""
+
+#: VHST4yD2J7shIALZ
+msgctxt "522"
+msgid "Crystal!!"
+msgstr ""
+
+#: Q3QFcdnWS7lLegZi
+msgctxt "523"
+msgid "Crystal!"
+msgstr ""
+
+#: sedCFv47QXsg45AL
+msgctxt "524"
+msgid "How touching."
+msgstr ""
+
+#: DjddaTKWB6W2P8ua
+msgctxt "525"
+msgid "I swear, you maniac, if you hurt a single hair on her--"
+msgstr ""
+
+#: uVCLZNTQ7Mpykovb
+msgctxt "526"
+msgid "Mind the theatrics, Mr. Steel. I won't need to injure a single follicle on her head if you and Danni do precisely as I say."
+msgstr ""
+
+#: 8AaCXP30J7i4qsMt
+msgctxt "527"
+msgid "What... what do you want?"
+msgstr ""
+
+#: hIBsNvOsgPgel3WS
+msgctxt "528"
+msgid "Isn't it obvious? I want both Danni and my client's data. Your friend's health is entirely out of my hands now."
+""
+"Meet me at Building 19 in an hour. I trust you know the way."
+msgstr ""
+
+#: 010FOhrko5g9NDki
+msgctxt "529"
+msgid "He hung up."
+msgstr ""
+
+#: eZS8e4aisJEYB2LD
+msgctxt "530"
+msgid "Drek! Drek! Drek! What are we going to do?"
+msgstr ""
+
+#: LLcUyg5sjlwr17xS
+msgctxt "531"
+msgid "You are going to do nothing. I'll go rescue Crystal."
+msgstr ""
+
+#: eGcHDCfNoCwkbEt5
+msgctxt "532"
+msgid "How are you going to do that?"
+msgstr ""
+
+#: XxE1Cp4gKnxlhdiH
+msgctxt "533"
+msgid "Don't worry, I'll think of something."
+msgstr ""
+
+#: Q5ZU7sZAE9JGSmE8
+msgctxt "534"
+msgid "Blake!"
+msgstr ""
+
+#: NtiBDDnTUPq1fTCa
+msgctxt "535"
+msgid "Visser held Crystal close to him, a chrome glint catching the moonlight between them."
+msgstr ""
+
+#: w2yY9g2MExYflYJH
+msgctxt "536"
+msgid "Blake! Be careful; he's got a gun!"
+msgstr ""
+
+#: 4rHLyU7towI14aZG
+msgctxt "537"
+msgid "Yes, Mr. Steel. Be very careful."
+msgstr ""
+
+#: M2VMhbKnMwBogGYc
+msgctxt "538"
+msgid "Mr. Ashton... or should I say Johan Visser? Xander Vane's lapdog."
+msgstr ""
+
+#: 43lFnf3wtdL5MtUs
+msgctxt "539"
+msgid "Aren't you resourceful?"
+msgstr ""
+
+#: nxS3OLvBF7uVSmG6
+msgctxt "540"
+msgid "How did you know I'd found Danni?"
+msgstr ""
+
+#: XeCrNy0WTZcEuvAc
+msgctxt "541"
+msgid "Do you think you're the only one conducting their investigation tonight? No. I've been one step ahead of you this whole time."
+msgstr ""
+
+#: r5O8XsFfeBSkXmVt
+msgctxt "542"
+msgid "You drek."
+msgstr ""
+
+#: vPXIfgZsZj0yBNHE
+msgctxt "543"
+msgid "It seems you came alone. How disappointing. After I dispose of your two corpses, I guess I'll --"
+msgstr ""
+
+#: 4FwSupCRff7AqQ3B
+msgctxt "544"
+msgid "Hey, you dreking ball gag!"
+msgstr ""
+
+#: WgfdLxx2T1ny6TkN
+msgctxt "545"
+msgid "It's Danni!"
+msgstr ""
+
+#: EHiPYOuO5nP6h8Vv
+msgctxt "546"
+msgid "Taking advantage of Visser's distraction, Crystal rammed her elbow into his chest. Reeling from the unexpected hit, Visser dropped his gun, which Crystal promptly kicked away, unfortunately, over the railing."
+msgstr ""
+
+#: QFnBkHe6nMtEJVyx
+msgctxt "547"
+msgid "He took a second too long to recover, and I closed our distance with a punch to his face."
+msgstr ""
+
+#: 5pQZejoLrj3Q8b5U
+msgctxt "548"
+msgid "*GRUNT*"
+msgstr ""
+
+#: wvNiWBZqUniu4rxP
+msgctxt "549"
+msgid "(Punch to the face)"
+msgstr ""
+
+#: A6mqNs8dqdRqU5ac
+msgctxt "550"
+msgid "(Punch to the stomach)"
+msgstr ""
+
+#: 4D7HwGikwWw4Oi6J
+msgctxt "551"
+msgid "(Kick)"
+msgstr ""
+
+#: UTmZhJx4onoGNsYD
+msgctxt "552"
+msgid "You'll need to do better than that."
+msgstr ""
+
+#: HKpBpt5R43IKY9cb
+msgctxt "553"
+msgid "(Punch to the face)"
+msgstr ""
+
+#: JKxei5aobuggMqXc
+msgctxt "554"
+msgid "You drek! *Punches me in the face*"
+msgstr ""
+
+#: qpNmnRRluSWtLA1R
+msgctxt "555"
+msgid "(Punch to the face)"
+msgstr ""
+
+#: 7eAm4bbBkqy1qU4E
+msgctxt "556"
+msgid "(Punch to the stomach)"
+msgstr ""
+
+#: AAvlSt8Q1NmePqM8
+msgctxt "557"
+msgid "(Slam against the pipes)"
+msgstr ""
+
+#: b3lq4uWSiRmhrYQ8
+msgctxt "558"
+msgid "*Dodges my blow* I'm not falling for that again. *Hits me in the stomach*"
+msgstr ""
+
+#: NkppsacapBvWsVpV
+msgctxt "559"
+msgid "(Headbutt)"
+msgstr ""
+
+#: iWeao5UTDhVEq2EL
+msgctxt "560"
+msgid "ARGH! Don't think you've won yet."
+msgstr ""
+
+#: 1aSjALjgBBB62COl
+msgctxt "561"
+msgid "(Punch to the face)"
+msgstr ""
+
+#: X3BJEuOuXTFXj1WU
+msgctxt "562"
+msgid "(Spit in his eye)"
+msgstr ""
+
+#: 8mxDHbvZonFogOVM
+msgctxt "563"
+msgid "(Knee to the groin)"
+msgstr ""
+
+#: abXGI9ysKUKgM0Sm
+msgctxt "564"
+msgid "Ugh. You dreking animal. *Hits me in the face*"
+msgstr ""
+
+#: 9DtlsiVmUejtY01B
+msgctxt "565"
+msgid "(Punch to the stomach)"
+msgstr ""
+
+#: 5AjaE7XBC0ZiB3Z7
+msgctxt "566"
+msgid "*Gasps* If that's how you want to play it..."
+msgstr ""
+
+#: UEghjjwhsFpTUyVf
+msgctxt "567"
+msgid "Grabbing something from his pocket, Visser leaped at me brandishing a knife."
+msgstr ""
+
+#: 03n6HKWrgCqHkR50
+msgctxt "568"
+msgid "Instinctively, I stepped back and felt the low railing pressing against my back as my opponent slammed against me."
+msgstr ""
+
+#: pc7PQExSMeBi7ZU8
+msgctxt "569"
+msgid "Unexpectedly, Visser was a lot stronger than he looked... Too strong. It took everything I had to keep his knife away from my face."
+msgstr ""
+
+#: 40gIvRGaAxmulDcX
+msgctxt "570"
+msgid "Then I noticed it, right below his left ear: a port. Visser had cybernetics. Suddenly, I become hyper-aware of the ruby capsule in my jacket pocket."
+msgstr ""
+
+#: ZlXxlL6gUyRXC6LR
+msgctxt "571"
+msgid "Any last words, Mr. Steel?"
+msgstr ""
+
+#: Y9b52ytEZx8PDPcE
+msgctxt "572"
+msgid "Did you know you're allowed one F-bomb in a movie rated PG-13?"
+msgstr ""
+
+#: 9yydrV3cr9AoZAQ5
+msgctxt "573"
+msgid "I think you'd look good in ruby slippers."
+msgstr ""
+
+#: cgernQF0Hmgy140F
+msgctxt "574"
+msgid "No."
+msgstr ""
+
+#: OlplBXQ7fMrdlRq4
+msgctxt "575"
+msgid "What?"
+msgstr ""
+
+#: oAndOBEn7OxD0HH3
+msgctxt "576"
+msgid "Fuck you. (Inject him with Coral)"
+msgstr ""
+
+#: nBGaG6uooVoxZMEl
+msgctxt "577"
+msgid "Now's hardly the time to flatter me. Die!"
+msgstr ""
+
+#: kSTOLKFm9pICaIyk
+msgctxt "578"
+msgid "You first. (Inject him with Coral)"
+msgstr ""
+
+#: 5t27I9P0mjbOrhNH
+msgctxt "579"
+msgid "Have it your way!"
+msgstr ""
+
+#: bcfTRpuyDFIKAOL8
+msgctxt "580"
+msgid "(Inject him with Coral)"
+msgstr ""
+
+#: c9dFeWnCdsVnpehI
+msgctxt "581"
+msgid "In one perfect motion, I reached into my pocket and jabbed the Coral's outlet into Visser's port. The effect was immediate."
+msgstr ""
+
+#: UOPBmJqZDqh9KsXL
+msgctxt "582"
+msgid "Even through his glasses, I saw his eyes instantly dilate. He let go of me and started trashing about with his knife."
+msgstr ""
+
+#: ifg3dTn1ljVSKqsG
+msgctxt "583"
+msgid "I moved away, keeping between this lunatic and Crystal. He screamed, trying to retain control. Lunging forward with all his enhanced might, he missed me and overextended himself."
+msgstr ""
+
+#: OvvrlN9w60ox10np
+msgctxt "584"
+msgid "Visser tripped over the railing, but the Coral must have taken effect since the only sound we heard was the wet thump of yesterday's garbage dropping to the bottom of the dumpster."
+msgstr ""
+
+#: KhuEuDMnvAyHjwsR
+msgctxt "585"
+msgid "Blake, are you hurt?"
+msgstr ""
+
+#: GTXieI9bdGZnGo3N
+msgctxt "586"
+msgid "I could ask you the same thing."
+msgstr ""
+
+#: ZSFGKNMh5MouWtqo
+msgctxt "587"
+msgid "Are you two ok up there?"
+msgstr ""
+
+#: tJLSHXxpMaHwqb8l
+msgctxt "588"
+msgid "We're good. Stay there; we'll be right over."
+msgstr ""
+
+#: yXqIEfQ2FrM9ujDP
+msgctxt "589"
+msgid "Wasting no time, we returned to the ground floor and reunited with Danni."
+msgstr ""
+
+#: nlF60nQkZdixwx7X
+msgctxt "590"
+msgid "Oh, Danni! I'm so glad you're safe!"
+msgstr ""
+
+#: AhkO08E5bsZG4VM4
+msgctxt "591"
+msgid "*ahem*"
+msgstr ""
+
+#: UYj7ev2AsGPdCZex
+msgctxt "592"
+msgid "And you too, Blake!"
+msgstr ""
+
+#: PLMLdlWjh5OTUvYS
+msgctxt "593"
+msgid "Well, if it wasn't for Danni's timely distraction and your quick thinking, I'd have been done for. Thank you both."
+msgstr ""
+
+#: eCZGIZynvQn0JB4x
+msgctxt "594"
+msgid "He shouldn't have underestimated us."
+msgstr ""
+
+#: slGrxtAE3s76eMW0
+msgctxt "595"
+msgid "No kidding. By the way, I thought I told you to stay with SegF4ult, where it was safe!"
+msgstr ""
+
+#: 4hIIMngCbsQAbERF
+msgctxt "596"
+msgid "Yeah, no. And a good thing too."
+msgstr ""
+
+#: qG5oJwvW5rvUFyPU
+msgctxt "597"
+msgid "By the way, I found this."
+msgstr ""
+
+#: 1Po7Xhg6JlLYbRk0
+msgctxt "598"
+msgid "Visser's keycard!"
+msgstr ""
+
+#: fGThy8bqfVqmiAQ9
+msgctxt "599"
+msgid "Drek that guy."
+msgstr ""
+
+#: RYGQ27DeY2edQQ0K
+msgctxt "600"
+msgid "Take this datastick. It's got all the data primed for viewing. Seg says to plug it in and it'll do the rest."
+msgstr ""
+
+#: xXgNecxjMHWIYSAS
+msgctxt "601"
+msgid "Great! Since Xander is still going to be looking for you, I need you two to head back to safety while I--"
+msgstr ""
+
+#: P1NURsVVln6HL4iS
+msgctxt "602"
+msgid "While I go with you. No way I'm staying out of this now."
+msgstr ""
+
+#: ybtpAeJ6nNXbdaZg
+msgctxt "603"
+msgid "Not going to be able to change your mind, am I?"
+msgstr ""
+
+#: QAS310vr7fgZS8Qh
+msgctxt "604"
+msgid "Nope."
+msgstr ""
+
+#: dnHNQw9ENnTPdcUt
+msgctxt "605"
+msgid "Be careful, you two! I'll head back to Seg's."
+msgstr ""
+
+#: v6oAtOO6oSLqkRTO
+msgctxt "606"
+msgid "Crystal, would you like to go on a date to Xantech Cybernetics?"
+msgstr ""
+
+#: IULiPiMmguRoOsaT
+msgctxt "607"
+msgid "I thought you'd never ask."
+msgstr ""
+
+#: oO0JswIb25MOtlx4
+msgctxt "608"
+msgid "The tinman stepped in front of us, blocking the entrance."
+msgstr ""
+
+#: WU3BSf15Lb1Dp1gC
+msgctxt "609"
+msgid "*Ksssh* HALT. *Ksssh*"
+msgstr ""
+
+#: S3NVnZgpNwEZZg2Z
+msgctxt "610"
+msgid "I need to enter the server room"
+msgstr ""
+
+#: GqpKtWkneeQK3y5q
+msgctxt "611"
+msgid "*Ksssh* NO, YOU DON'T. *Ksssh*"
+msgstr ""
+
+#: gf5TR4BHlxqqgP1b
+msgctxt "612"
+msgid "Hmm... Yes, I do."
+msgstr ""
+
+#: dLQoalrRDC7Tk2DL
+msgctxt "613"
+msgid "*Ksssh* I DON'T CARE. AUTHORIZED PERSONNEL ONLY, AND YOU'RE NOT AUTHORIZED PERSONNEL. *Ksssh*"
+msgstr ""
+
+#: OlJtkvoWdA1tVTCM
+msgctxt "614"
+msgid "Why do you think I'm not?"
+msgstr ""
+
+#: KYleMnOhMUu34XTP
+msgctxt "615"
+msgid "*Ksssh* YOU'RE NEITHER MR. VISSER NOR ONE OF THE NERDS. BEGONE! *Ksssh*"
+msgstr ""
+
+#: HfCDBHJM1gEbqyB5
+msgctxt "616"
+msgid "Crystal nudged me to give her the coffee and laxative. After mixing them, she sauntered to the tinman while I hid around the corner."
+msgstr ""
+
+#: KTehDJRQVQZbkAi4
+msgctxt "617"
+msgid "Oh, hey there. How are you?"
+msgstr ""
+
+#: VLJFBmmaWRsVo3pn
+msgctxt "618"
+msgid "*Ksssh* BA... ERR... UHM... OOF... AH... *Ksssh*"
+msgstr ""
+
+#: CPxZ4qRvNOGGGTjp
+msgctxt "619"
+msgid "*Ksssh* HOW CAN I HELP YOU? *Ksssh*"
+msgstr ""
+
+#: XW8qpxOQ2vwR9n8M
+msgctxt "620"
+msgid "It's the other way around. It's not easy keeping us all safe."
+msgstr ""
+
+#: CnFy1s64JxY3A2ZH
+msgctxt "621"
+msgid "It's such a thankless job..."
+msgstr ""
+
+#: 1Ta97APNJSMw267m
+msgctxt "622"
+msgid "... and I want to show you my gratitude..."
+msgstr ""
+
+#: 2Fe7nK83gPbjUHIj
+msgctxt "623"
+msgid "*Ksssh* UHHHH...*Ksssh*"
+msgstr ""
+
+#: jUn2r0aFD59PARjE
+msgctxt "624"
+msgid "... personally..."
+msgstr ""
+
+#: jQDYFgSPsF1t4QuH
+msgctxt "625"
+msgid "..."
+msgstr ""
+
+#: 1Cd5m4ujOmoisOTy
+msgctxt "626"
+msgid "..."
+msgstr ""
+
+#: 0bvFdJ0cIcTosEmb
+msgctxt "627"
+msgid "So I made you a fresh cup of coffee!"
+msgstr ""
+
+#: HMFr3aBM9hb1A98P
+msgctxt "628"
+msgid "*Ksssh* OH!... THANK YOU! *Ksssh*"
+msgstr ""
+
+#: 6Z0Hl3lYEic6QtaX
+msgctxt "629"
+msgid "Eager to make her happy, the tinman opened his helmet and downed Crystal's unique coffee blend. After a few moments, an awful sound came from the tinman's stomach."
+msgstr ""
+
+#: uHsGSgx14lyXo9lx
+msgctxt "630"
+msgid "In a show of complete dereliction of duty, the tinman abandoned his post and ran out of the room as quickly as the coffee was running through him."
+msgstr ""
+
+#: 9INhnOeDZGDX8gZq
+msgctxt "631"
+msgid "Remind me to stay on your good side."
+msgstr ""
+
+#: xFtACQpQevjCxKQc
+msgctxt "632"
+msgid "*Winks* Who said you were on my good side?"
+msgstr ""
+
+#: VNO3iw1jEbiMtMwa
+msgctxt "633"
+msgid "The server room had an enormous server rack, clearly the nexus of Xantech's data."
+msgstr ""
+
+#: R6vrvOvnwvdDOfPJ
+msgctxt "634"
+msgid "What a rack!"
+msgstr ""
+
+#: 8251ckJQLmX7nLRM
+msgctxt "635"
+msgid "Thank you."
+msgstr ""
+
+#: 4ydYu0iiKN3sMBd2
+msgctxt "636"
+msgid "Unlocking the main terminal with Visser's keycard, I inserted SegF4ault's data stick into the expectant port."
+msgstr ""
+
+#: oLRmAjfwStBpdlCA
+msgctxt "637"
+msgid "A few moments passed, but nothing seemed to be happening."
+msgstr ""
+
+#: girRtQuErKMJ7J9H
+msgctxt "638"
+msgid "*RING RING*"
+msgstr ""
+
+#: l5s35GOHY1hjwR24
+msgctxt "639"
+msgid "Great news, Blake!"
+msgstr ""
+
+#: OU8oxv38Zq1MbepE
+msgctxt "640"
+msgid "Hey Seg, it's working?"
+msgstr ""
+
+#: v8ur9kB9mCO6K3cd
+msgctxt "641"
+msgid "Yes! I'm monitoring it from my place. We're good to go on our end. See you soon."
+msgstr ""
+
+#: yJ618AsEOgaOvpmh
+msgctxt "642"
+msgid "Bye, Seg."
+msgstr ""
+
+#: fb94KRxEjkU4NEjP
+msgctxt "643"
+msgid "The trap was set. All we had to do was wait."
+msgstr ""
+
+#: spQfaESi8ffCQfhT
+msgctxt "644"
+msgid "The next day we laid low."
+msgstr ""
+
+#: ADCIf3xkEUgiFW2Q
+msgctxt "645"
+msgid "It was anyone's guess if Xander knew what happened to Visser. Perhaps he was too busy with XanCon being in full swing."
+msgstr ""
+
+#: x3Y9xFTNv1RpvnBX
+msgctxt "646"
+msgid "SegF4ult forged tickets, allowing us to sneak onto the expo floor and confront Xander Vane."
+msgstr ""
+
+#: C931jQucqCVVtNUD
+msgctxt "647"
+msgid "Xander Vane: one of the wealthiest men on the planet."
+msgstr ""
+
+#: YvScYE5BV32W2Ub9
+msgctxt "648"
+msgid "Xander Vane: trying to squeeze every credit from those with none."
+msgstr ""
+
+#: 6jAN32L6ROjJhfgh
+msgctxt "649"
+msgid "Like Icarus before him, he was flying too close to the sun, and it was high time for him to fall."
+msgstr ""
+
+#: d60XrmsmTL1X1YjC
+msgctxt "650"
+msgid "We arrived just in time for the keynote event, where a smiling Xander addressed a roaring crowd."
+msgstr ""
+
+#: onjVHoZAUxwxB9qY
+msgctxt "651"
+msgid "-- And this is why my new Kickstart 4 cybernetic legs will change the world of sports."
+msgstr ""
+
+#: 7k4i6oy3cr7dTl40
+msgctxt "652"
+msgid "The crowd erupted in raucous applause."
+msgstr ""
+
+#: C6rV8spfChrOePBv
+msgctxt "653"
+msgid "They are available for purchase..."
+msgstr ""
+
+#: vZD5xIoo8GOvYBvM
+msgctxt "654"
+msgid "Right now!"
+msgstr ""
+
+#: hpTQiIioY08rX8Rw
+msgctxt "655"
+msgid "More applause from the crowd."
+msgstr ""
+
+#: ANjmY9sGbhSK6li9
+msgctxt "656"
+msgid "Do it, Seg."
+msgstr ""
+
+#: LkLbpgZP91YUMD0c
+msgctxt "657"
+msgid "Up next, we have an innovation you won't believe--"
+msgstr ""
+
+#: iXZ7i7ogrhIQSA1j
+msgctxt "658"
+msgid "The screen behind Xander flickered, and the content was replaced with video clips and audio logs playing in quick succession."
+msgstr ""
+
+#: nvVat0iVp1siYcqH
+msgctxt "659"
+msgid "-- and these dreking animals will eat it up."
+msgstr ""
+
+#: qp6WyZ3tQXMitOxH
+msgctxt "660"
+msgid "-- Why should they stop paying us just because they got the product? With Coral, I *OWN* them."
+msgstr ""
+
+#: 4aUl19Zv6YVcUg1B
+msgctxt "661"
+msgid "-- They will give me every last credit and thank me, well, thank \"KryptoKool\" for it."
+msgstr ""
+
+#: hTL6xC6x2jIbMJuS
+msgctxt "662"
+msgid "-- We're making millions!"
+msgstr ""
+
+#: x9VlAF8mMviZdfyU
+msgctxt "663"
+msgid "The crowd began to roar, confused -- was this a joke?"
+msgstr ""
+
+#: OrQnDDIMfxN8tDSn
+msgctxt "664"
+msgid "But as horror crept on Xander's face, they realized this was all too real."
+msgstr ""
+
+#: WsWvUdF1wcM7W1bq
+msgctxt "665"
+msgid "What is going on?!"
+msgstr ""
+
+#: vHlO0unaQ2BmVuUd
+msgctxt "666"
+msgid "What is the meaning of this?"
+msgstr ""
+
+#: 5fW9PPs0YGuGaQ87
+msgctxt "667"
+msgid "Visser?! Visser?! Where are you?"
+msgstr ""
+
+#: OCrEBV4q4GqipdxN
+msgctxt "668"
+msgid "Xander looked into the crowd, and with almost supernatural precision, his eyes locked onto Danni's."
+msgstr ""
+
+#: E6jTDlk0U4LbjISg
+msgctxt "669"
+msgid "YOU!!!"
+msgstr ""
+
+#: WkXvubqU7I3KyOeq
+msgctxt "670"
+msgid "Like a raging salmon swimming upstream, he pushed his way to us through the crowd of formerly adoring fans."
+msgstr ""
+
+#: AnXoMK9m0lbQ0QAh
+msgctxt "671"
+msgid "You!? Do you realize what you've done?! You ruined me!"
+msgstr ""
+
+#: GyW7mwYmFRIpBSnN
+msgctxt "672"
+msgid "And after all I've done for you?! You'd still be gutter trash if it wasn't for me!"
+msgstr ""
+
+#: Vm68jbTHQu54ngoG
+msgctxt "673"
+msgid "You..."
+msgstr ""
+
+#: TIVUEymbw5MYkUHf
+msgctxt "674"
+msgid "Danni punched him in the face."
+msgstr ""
+
+#: 5C4EhuB2Jj0ROx7a
+msgctxt "675"
+msgid "...Threw me..."
+msgstr ""
+
+#: ZTpMa8tXqn1eMvEc
+msgctxt "676"
+msgid "Reeling from the blow, Xander was unprepared for his groin to meet Danni's knee."
+msgstr ""
+
+#: QS00XIBmvttQ5CsA
+msgctxt "677"
+msgid "... In the TRASH..."
+msgstr ""
+
+#: EYNj0lyIB02Sx9gO
+msgctxt "678"
+msgid "She kicked him in the face as he doubled over, and he landed on his ass."
+msgstr ""
+
+#: IEXcc4DV3UG9oIXr
+msgctxt "679"
+msgid "You left me to die."
+msgstr ""
+
+#: T74Vkc6UHxJc5wOI
+msgctxt "680"
+msgid "You drek... You and your friends are dreking finished! I will--"
+msgstr ""
+
+#: iWwHc15cIuhp0Ovb
+msgctxt "681"
+msgid "Mid-sentence, three black-suited men wearing sunglasses and earpieces appeared behind Xander."
+msgstr ""
+
+#: PabOpBdUxfekOotS
+msgctxt "682"
+msgid "Exhibiting a gross misunderstanding of the situation, Xander ordered them to arrest us."
+msgstr ""
+
+#: 9d5Fj431hU9qyC7Z
+msgctxt "683"
+msgid "They didn't."
+msgstr ""
+
+#: ylAdHoOvaBPZeioL
+msgctxt "684"
+msgid "Mr. Vane. You're exhibiting a gross misunderstanding of the situation."
+msgstr ""
+
+#: H8HxdCMCaMG6OcId
+msgctxt "685"
+msgid "The Cygnus board of directors is displeased and demands your presence immediately."
+msgstr ""
+
+#: VqlaBBxpq3SKeJD0
+msgctxt "686"
+msgid "Xander's struggles and attempts to make an escape were fruitless."
+msgstr ""
+
+#: Q7xPVuNqg0IH92gW
+msgctxt "687"
+msgid "Almost bored, the lead man in black jabbed Xander with something, and \"15\" went limp."
+msgstr ""
+
+#: gxG0hTvF98ZScsXl
+msgctxt "688"
+msgid "Just as quickly as they arrived, they left."
+msgstr ""
+
+#: UPnvccxcb8kdiLYE
+msgctxt "689"
+msgid "Who were they?"
+msgstr ""
+
+#: Gec0VSUOVvWJWqXI
+msgctxt "690"
+msgid "Enforcers for Cygnus Holdings, I'd imagine."
+msgstr ""
+
+#: pbteevtywSuLd2a7
+msgctxt "691"
+msgid "I almost felt bad for Xander."
+msgstr ""
+
+#: qZNDNQ9yBHNYxK8v
+msgctxt "692"
+msgid "Almost."
+msgstr ""
+
+#: m6MU18GkO3mrmykJ
+msgctxt "693"
+msgid "It was now time for us to make our exit."
+msgstr ""
+
+#: e2EBABM6qv1IVHwI
+msgctxt "694"
+msgid "In the following days, Cygnus Holdings publicly denounced Xantech Cybernetics' actions and took control of the company."
+msgstr ""
+
+#: qMflFw2o9xvY1S24
+msgctxt "695"
+msgid "Nobody had seen or heard from Xander Vane since."
+msgstr ""
+
+#: mequa6A07UTT20wE
+msgctxt "696"
+msgid "Things were beginning to go back to normal, or whatever passed for normal around here."
+msgstr ""
+
+#: SXSJghNcUDPuVGXn
+msgctxt "697"
+msgid "Who's a good girl, Daisy?"
+msgstr ""
+
+#: dSXEhNppxLwtfbBL
+msgctxt "698"
+msgid "Boof!"
+msgstr ""
+
+#: S8qZ7U2bEdGOJLvi
+msgctxt "699"
+msgid "That's right! You are!"
+msgstr ""
+
+#: IvMP6UWDtVjj3l5E
+msgctxt "700"
+msgid "To my surprise, there was a knock at the door."
+msgstr ""
+
+#: KKb1xOoygnpm5uVq
+msgctxt "701"
+msgid "Sorry, we're clos--"
+msgstr ""
+
+#: 9Rtr8ucuAwIy9hd6
+msgctxt "702"
+msgid "Even for a friendly face?"
+msgstr ""
+
+#: aTCnAD3FqqcsjjR0
+msgctxt "703"
+msgid "Oh, hi Crystal! Come in."
+msgstr ""
+
+#: wJcjqNBc9cYx9rc4
+msgctxt "704"
+msgid "Boof!"
+msgstr ""
+
+#: T27kOY7r2uC7Ryt8
+msgctxt "705"
+msgid "I didn't know you had a dog! She's beautiful."
+msgstr ""
+
+#: i7VxVkR0jNTcaXon
+msgctxt "706"
+msgid "Is she a good girl?"
+msgstr ""
+
+#: Hge4Ya23hXkyX0Vg
+msgctxt "707"
+msgid "The best."
+msgstr ""
+
+#: takeshi
+msgctxt "708"
+msgid "Takeshi's Noodles used to be the best place in the Gutter for a late meal. Too bad old Takeshi closed up shop for good."
+msgstr ""
+
+#: check_takeshi_alley
+msgctxt "709"
+msgid "A garbage-filled alleyway leads to the back of Takeshi's place. No need to go there."
+msgstr ""
+
+#: enter_takeshis1
+msgctxt "710"
+msgid "I used the keycard to gain entry to Takeshi's. The place looked like it had been hit by a tornado. I checked the fridge and, against all hope, I found the last container of noodles. Who can say how long they've been there?"
+msgstr ""
+
+#: enter_takeshis2
+msgctxt "711"
+msgid "I tossed the container in the microwave hoping that it would kill anything that started growing. In the pale light of the microwave, amid the drone of its magnetron, I contemplated the absurdity of this situation."
+msgstr ""
+
+#: enter_takeshis3
+msgctxt "712"
+msgid "A girl goes missing, and I'm dumpster diving, robbing corpses, and now making a bowl of r-"
+msgstr ""
+
+#: enter_takeshis4
+msgctxt "713"
+msgid "*DING*"
+msgstr ""
+
+#: enter_takeshis_again
+msgctxt "714"
+msgid "I got what I needed. There was nothing else to be found there."
+msgstr ""
+
+#: cant_enter_takeshis
+msgctxt "715"
+msgid "The door was locked. Hmm... What were the odds that there were still some nasty noodles in there?"
+msgstr ""
+
+#: alley_check_dumpster
+msgctxt "716"
+msgid "This particular dumpster was especially foul. Something was putrefying in there."
+msgstr ""
+
+#: glich_check_trash1
+msgctxt "717"
+msgid "Against my better judgement, I opened the dumpster. The smell was so powerful I gagged."
+msgstr ""
+
+#: glich_check_trash2
+msgctxt "718"
+msgid "Under a pile of decomposing trash bags was Takeshi's body. They did a dreking number on him."
+msgstr ""
+
+#: glich_check_trash3
+msgctxt "719"
+msgid "More importantly, I found his key card. I don't like to steal from the dead, but he's not using it."
+msgstr ""
+
+#: glitch_trash_complete
+msgctxt "720"
+msgid "I wouldn't dive into that dumpster again, even if it held the secret to Danni's disappearance."
+msgstr ""
+
+#: alley_atm_description
+msgctxt "721"
+msgid "ATMs. Cash Machines. Cred Dispensers. Unarmed Bandits. Take your pick. These jackpots let you retrieve your credits... for a fee."
+msgstr ""
+
+#: alley_atm_quest_start
+msgctxt "722"
+msgid "The better play would be to deal with that tin man before trying anything. They're not the forgiving type."
+msgstr ""
+
+#: alley_atm_quest_complete
+msgctxt "723"
+msgid "The deed's done; better not bring any more attention to it."
+msgstr ""
+
+#: alley_atm_security_desc
+msgctxt "724"
+msgid "It looked like this bank hired security to babysit the jackpot. These tin men contracts were usually given to the lowest bidders."
+msgstr ""
+
+#: alley_atm_security_done
+msgctxt "725"
+msgid "alley_atm_security_done"
+msgstr ""
+
+#: cant_leave_alley
+msgctxt "726"
+msgid "I couldn't leave yet, not when I still didn't have a lead."
+msgstr ""
+
+#: alley_subway_tweaker_desc
+msgctxt "727"
+msgid "His blue hair almost distracted from his facial cybernetics. Almost."
+msgstr ""
+
+#: danni_clutter_desc
+msgctxt "728"
+msgid "Next to Danni's bed was a small pile of clutter. It was mostly clothes, but there were also some papers."
+msgstr ""
+
+#: danni_note_from_gladys
+msgctxt "729"
+msgid "A note was dated two days prior, addressed to Danni, from someone named Gladys. It read, \"15 wants to see you tonight, and I don't need to remind you that you better bring your A-game.\""
+msgstr ""
+
+#: danni_nightstand_desc
+msgctxt "730"
+msgid "Danni's ID card! I could run a background check on her with the GovLink computer back at my apartment."
+msgstr ""
+
+#: danni_nightstand_desc_after
+msgctxt "731"
+msgid "There was nothing else of interest on the nightstand."
+msgstr ""
+
+#: dont_leave_danni_apt
+msgctxt "732"
+msgid "Mmm... I had a feeling there was more to uncover here."
+msgstr ""
+
+#: danni_id_trace1
+msgctxt "733"
+msgid "Cassandra Null: ID#721077"
+msgstr ""
+
+#: danni_id_trace2
+msgctxt "734"
+msgid "Age: 25"
+msgstr ""
+
+#: danni_id_trace3
+msgctxt "735"
+msgid "Sex: Female."
+msgstr ""
+
+#: danni_id_trace4
+msgctxt "736"
+msgid "Known aliases: Danni Ashton"
+msgstr ""
+
+#: danni_id_trace5
+msgctxt "737"
+msgid "Parents: Unknown."
+msgstr ""
+
+#: danni_id_trace6
+msgctxt "738"
+msgid "Notes:"
+msgstr ""
+
+#: danni_id_trace7
+msgctxt "739"
+msgid "Cassandra was taken into the care of KidCo Orphanages when she was approximately 2 months old. She was never successfully adopted and graduated from KidCo Orphanages at 18."
+msgstr ""
+
+#: danni_id_trace8
+msgctxt "740"
+msgid "The alias \"Danni Ashton\" was tied to her approximately 2 years ago."
+msgstr ""
+
+#: make_a_drink
+msgctxt "741"
+msgid "It was time to review the facts. I poured myself a drink and focused my thoughts."
+msgstr ""
+
+#: end_act1_a
+msgctxt "742"
+msgid "Cassandra, an orphan never adopted, was given the last name \"Null.\" Two years ago, she reinvented herself as \"Danni Ashton\"... that's about when she met Crystal."
+msgstr ""
+
+#: end_act1_b
+msgctxt "743"
+msgid "But what bothered me is that if she chose the name \"Danni Ashton\" for herself, then who the drek was \"Jacob,\" the man who hired me and posed as her concerned father?"
+msgstr ""
+
+#: end_act1_c
+msgctxt "744"
+msgid "Considering everything I'd uncovered, I was more worried for her safety. The problem was that I wasn't any closer to finding her."
+msgstr ""
+
+#: end_act1_d
+msgctxt "745"
+msgid "I decided to pay her employer, Gladys Aubergine, a visit. If I find out who she was with last, I might get the lead I need."
+msgstr ""
+
+#: end_act1_e
+msgctxt "746"
+msgid "*RING RING*"
+msgstr ""
+
+#: blake_start_act2
+msgctxt "747"
+msgid "Time to hit the streets. Daisy, be a good girl while I'm out."
+msgstr ""
+
+#: just_got_visser_photo1
+msgctxt "748"
+msgid "Holy dreking hell! This is a photo of Jacob Ashton! Danni was with 15, whoever they were, and Jacob- I mean, JV picked her up! Why do they want to find her? What did they do to her?"
+msgstr ""
+
+#: just_got_visser_photo2
+msgctxt "749"
+msgid "I need to show this photograph around and see if anyone recognizes him. Finally, some progress!"
+msgstr ""
+
+#: parcel_trace1
+msgctxt "750"
+msgid "Parcel #3,735,928,559"
+msgstr ""
+
+#: parcel_trace2
+msgctxt "751"
+msgid "Address: 2833 Pipeline St, Unit B19"
+msgstr ""
+
+#: parcel_trace3
+msgctxt "752"
+msgid "Owner: SummerVault"
+msgstr ""
+
+#: parcel_trace4
+msgctxt "753"
+msgid "Listed Use: Storage"
+msgstr ""
+
+#: parcel_trace5
+msgctxt "754"
+msgid "SummerVault? Let's add them to them database search."
+msgstr ""
+
+#: get_call_from_danni1
+msgctxt "755"
+msgid "The cool night air carrying the acrid fumes of this district caressed my face like a vengeful lover. The distant industrial music was pierced by a much closer, higher-pitched sound."
+msgstr ""
+
+#: get_call_from_danni2
+msgctxt "756"
+msgid "*RING RING*"
+msgstr ""
+
+#: get_call_from_danni3
+msgctxt "757"
+msgid "I didn't recognize the number, and sensing my hesitation, it chimed again like a child demanding attention."
+msgstr ""
+
+#: we_should_meet
+msgctxt "758"
+msgid "'... and I think we should meet.'"
+msgstr ""
+
+#: end_act2_a
+msgctxt "759"
+msgid "My mind raced faster than Coral through a junkie's wetware. The woman I'd been spending all night looking for had found me instead."
+msgstr ""
+
+#: end_act2_b
+msgctxt "760"
+msgid "While I was sneaking around the industrial district, she called Crystal, who vouched for me."
+msgstr ""
+
+#: end_act2_c
+msgctxt "761"
+msgid "Danni gave me the address of a friend's safe house, someone who helped her lie low until now."
+msgstr ""
+
+#: end_act2_d
+msgctxt "762"
+msgid "It was finally time to meet Danni Ashton and discover why Johan Visser had paid me to find her."
+msgstr ""
+
+#: gladys_is_too_mean
+msgctxt "763"
+msgid "I wasn't going to get anywhere with that museum exhibit. However, I knew I would learn a few interesting things if I could get my hands on her computer."
+msgstr ""
+
+#: laundromat_closed
+msgctxt "764"
+msgid "The door was locked. I saw an old woman through the window, but she waved me away. I'd have to come back later."
+msgstr ""
+
+#: laundry_xantech_poster1
+msgctxt "765"
+msgid "The poster announced the yearly XanCon expo hosted by Xantech Cybernetics. All of Xantech's latest spectacles of planned obsolescence will be on display tomorrow night."
+msgstr ""
+
+#: laundry_xantech_poster2
+msgctxt "766"
+msgid "I added Xantech Cybernetics to my GovLink search database."
+msgstr ""
+
+#: laundry_fight
+msgctxt "767"
+msgid "As I stepped back into this house of laundered promises, Crystal was already yelling at Gladys, who hadn't even noticed me enter. Crystal's unbridled creativity in the insults she was hurling at Gladys was the second time this woman's caused me to blush. Gladys was no slouch; what she couldn't muster in youthful creativity, she more than made up with her ancient wealth of experience. I would have loved to watch this, but I had a computer to hack."
+msgstr ""
+
+#: hack_gladys_computer
+msgctxt "768"
+msgid "Sneaking behind a very occupied Gladys, I plugged Glitch's hacktool into the back of her computer. When a green light blinked twice, the deed was done, and the data was mine. Slinking away, I winked at Crystal to signal I got what I came for."
+msgstr ""
+
+#: need_gladys_distraction
+msgctxt "769"
+msgid "That old witch would never let me close enough to place the hacktool. I needed to find a way to distract her."
+msgstr ""
+
+#: thank_crystal_for_help
+msgctxt "770"
+msgid "A few moments after I stepped out of the Lost Sock, Crystal left in a huff. She was either an accomplished actress, or the argument between them was a long time coming."
+msgstr ""
+
+#: laundromat_never_again
+msgctxt "771"
+msgid "I better stay away. I don't want Gladys to get suspicious."
+msgstr ""
+
+#: gladys_busy_fighting
+msgctxt "772"
+msgid "Gladys exploded forth a geyser of invectives at Crystal. I don't think she even knew I was there, and I wanted to keep it that way."
+msgstr ""
+
+#: b19_pick_storage_lock
+msgctxt "773"
+msgid "Typing the keycode I got from Acid Nova, the door opened without issues."
+msgstr ""
+
+#: b19_pick_office_lock
+msgctxt "774"
+msgid "You don't become a PI without picking your fair share of locks. I added this one to my list of conquests."
+msgstr ""
+
+#: get_coral
+msgctxt "775"
+msgid "The red plastic capsule caught my attention, its ruby red color in sharp contrast to the gloom of the storeroom. I've been hearing a lot about this little pill, and with my lack of cybernetics, its siren's song fell on deaf ears. I didn't know why, but I pocketed the Coral."
+msgstr ""
+
+#: open_boxes1
+msgctxt "776"
+msgid "I pulled out a pocket knife and opened one of the boxes. I didn't know what to expect, but nothing could prepare me for what was inside..."
+msgstr ""
+
+#: open_boxes2
+msgctxt "777"
+msgid "... Flattened out boxes and other packing materials."
+msgstr ""
+
+#: get_parcel_number1
+msgctxt "778"
+msgid "Looking through garbage was becoming an unwholesome habit. Fortunately, there was nothing rancid in here, just papers."
+msgstr ""
+
+#: get_parcel_number2
+msgctxt "779"
+msgid "Rifling through the papers, I found an old permit containing the parcel number for this building, which I could look up on the GovLink."
+msgstr ""
+
+#: empty_trash
+msgctxt "780"
+msgid "There was nothing else of value in there."
+msgstr ""
+
+#: look_at_lockers
+msgctxt "781"
+msgid "The lockers weren't locked. Unfortunately, they were also empty."
+msgstr ""
+
+#: look_at_papers
+msgctxt "782"
+msgid "There were some papers and brochures on the small table. Nothing interesting, I'm afraid."
+msgstr ""
+
+#: b19_cant_leave_yet
+msgctxt "783"
+msgid "I had the feeling there was more for me to uncover here."
+msgstr ""
+
+#: danni_story1
+msgctxt "784"
+msgid "My client had just thrown a large party and wanted me to be the eye candy hanging off his arm."
+msgstr ""
+
+#: danni_story2
+msgctxt "785"
+msgid "After people left, we retired to his bedroom to... rest."
+msgstr ""
+
+#: danni_story3
+msgctxt "786"
+msgid "Before we could get down to business, he got a call. I don't know what it was about, but he sounded anxious and left the room."
+msgstr ""
+
+#: danni_story4
+msgctxt "787"
+msgid "Bored, I looked through his nightstand to find something fun and saw some Coral. I figured he wouldn't mind, so I jacked it in."
+msgstr ""
+
+#: danni_story5
+msgctxt "788"
+msgid "But it wasn't Coral, and I started convulsing."
+msgstr ""
+
+#: danni_story6
+msgctxt "789"
+msgid "The next thing I know, I wake up naked in a dumpster. That drek must have thought I died and threw me in the garbage."
+msgstr ""
+
+#: danni_story7
+msgctxt "790"
+msgid "The data I thought was Coral was still in my head. I didn't know what it contained but knew I wasn't supposed to have it."
+msgstr ""
+
+#: b19r_intro1
+msgctxt "791"
+msgid "Wasting no time, I was on my way back to that snake nest. With Building 19 in sight, I needed to be careful if Crystal and I were to make it out alive."
+msgstr ""
+
+#: b19r_intro2
+msgctxt "792"
+msgid "I didn't know what to expect, but I knew one thing..."
+msgstr ""
+
+#: b19r_intro3
+msgctxt "793"
+msgid "Visser was going to regret this."
+msgstr ""
+
+#: b19r_crystal_on_catwalk
+msgctxt "794"
+msgid "Looking up, I saw Visser and Crystal on the catwalk. I needed to hurry!"
+msgstr ""
+
+#: b19r_use_storage
+msgctxt "795"
+msgid "There was no time to waste on this floor; I needed to go up!"
+msgstr ""
+
+#: b19r_goto_entrance
+msgctxt "796"
+msgid "I decided to head back outside. I was sure Crystal could wait."
+msgstr ""
+
+#: b19r_goto_catwalk
+msgctxt "797"
+msgid "Throwing caution to the wind, I stepped onto the catwalk."
+msgstr ""
+
+#: b19r_vending_machine
+msgctxt "798"
+msgid "Although the ChocoBlaster tantalized me from behind its glass prison, I couldn't think of eating at a time like this."
+msgstr ""
+
+#: xantech_medicine_closet1
+msgctxt "799"
+msgid "Medicines of all kinds, but nothing that was immediately useful."
+msgstr ""
+
+#: xantech_medicine_closet2
+msgctxt "800"
+msgid "Wait. What's this? KwikyLax?"
+msgstr ""
+
+#: xantech_medicine_closet3
+msgctxt "801"
+msgid "'World's first military-grade laxative. Declare war on constipation!'"
+msgstr ""
+
+#: xantech_medicine_closet4
+msgctxt "802"
+msgid "I think we all knew where this was going to go."
+msgstr ""
+
+#: xantech_medicine_closet_end
+msgctxt "803"
+msgid "Nothing else of use was in here."
+msgstr ""
+
+#: xantech_coffee_machine
+msgctxt "804"
+msgid "The coffee from this machine smelled delicious. I decided to take a cup. And why not? I deserved it."
+msgstr ""
+
+#: xantech_has_coffee
+msgctxt "805"
+msgid "I drank deeply from the cup I'd gotten earlier; it was everything I wanted in coffee. I then decided to take another."
+msgstr ""
+
+#: xantech_move_to_server
+msgctxt "806"
+msgid "With the tinman gone, we moved into the server room."
+msgstr ""
+
+#: end5
+msgctxt "807"
+msgid "The End."
+msgstr ""
+
+#: credits_mass1
+msgctxt "808"
+msgid "Programming and Story"
+msgstr ""
+
+#: credits_mass2
+msgctxt "809"
+msgid "Massimo Loi"
+msgstr ""
+
+#: credits_mass3
+msgctxt "810"
+msgid "massproduced.games"
+msgstr ""
+
+#: credits_art1
+msgctxt "811"
+msgid "Art"
+msgstr ""
+
+#: credits_art2
+msgctxt "812"
+msgid "Sandy Loi"
+msgstr ""
+
+#: credits_art3
+msgctxt "813"
+msgid "MidJourney"
+msgstr ""
+
+#: credits_music1
+msgctxt "814"
+msgid "Music"
+msgstr ""
+
+#: credits_music2
+msgctxt "815"
+msgid "Matias Sosa - matiasosa.itch.io"
+msgstr ""
+
+#: credits_thanks1
+msgctxt "816"
+msgid "Special thanks to all the members of the"
+msgstr ""
+
+#: credits_thanks2
+msgctxt "817"
+msgid "Amiga Blitz Basic Game Jam Discord server"
+msgstr ""
+
+#: credits_daisy1
+msgctxt "818"
+msgid "In loving Memory"
+msgstr ""
+
+#: credits_daisy2
+msgctxt "819"
+msgid "Daisy 2009-2022"
+msgstr ""
+
+#: credits_daisy3
+msgctxt "820"
+msgid "You'll always be the goodest girl"
+msgstr ""
+
+#: inv_start
+msgctxt "821"
+msgid "I had..."
+msgstr ""
+
+#: inv_danni_picture
+msgctxt "All these are inventory items, please make sure to keep the * right before the text"
+msgid "*A picture of Danni Ashton."
+msgstr ""
+
+#: inv_glitch_cred_stick
+msgctxt "822"
+msgid "*A cred-stick of dubious origins."
+msgstr ""
+
+#: inv_takeshi_key
+msgctxt "823"
+msgid "*A keycard to Takeshi's Noodles."
+msgstr ""
+
+#: inv_takeshi_noods
+msgctxt "824"
+msgid "*A highly questionable bowl of noodles."
+msgstr ""
+
+#: inv_alleycat_ticket
+msgctxt "825"
+msgid "*A ticket granting entrance to the Alleycat."
+msgstr ""
+
+#: inv_alleycat_password
+msgctxt "826"
+msgid "*The password to the Alleycat."
+msgstr ""
+
+#: inv_note_from_gladys
+msgctxt "827"
+msgid "*A note to Danni from Gladys about someone named '15'."
+msgstr ""
+
+#: inv_danni_id
+msgctxt "828"
+msgid "*Danni's government-issued ID."
+msgstr ""
+
+#: inv_glitch_hacktool
+msgctxt "829"
+msgid "*A hacktool I got from Glitch."
+msgstr ""
+
+#: inv_glitch_hacktool_full
+msgctxt "830"
+msgid "*A hacktool I got from Glitch. It had data from Gladys's computer."
+msgstr ""
+
+#: inv_coral
+msgctxt "831"
+msgid "*A capsule of Coral."
+msgstr ""
+
+#: inv_parcel_number
+msgctxt "832"
+msgid "*A paper with Building 19's parcel number."
+msgstr ""
+
+#: inv_visser_keycard
+msgctxt "833"
+msgid "*A keycard belonging to Johan Visser."
+msgstr ""
+
+#: inv_laxative
+msgctxt "The Kwiky in KwikyLax is a strange spelling for \"Quick\", and Lax is a common abbreviation for Laxative in English."
+msgid "*KwikyLax. A military-grade laxative."
+msgstr ""
+
+#: inv_coffee
+msgctxt "834"
+msgid "*A fresh cup of coffee."
+msgstr ""
+
+#: OuhURObWpjGrvd9f
+msgctxt "835"
+msgid "Foul-smelling Dumpster"
+msgstr ""
+
+#: SCrkDF2TY2L3206v
+msgctxt "836"
+msgid "Credits"
+msgstr ""
+
+#: muMdwxQQeZ2UesJ1
+msgctxt "837"
+msgid "*Programming and Story*"
+"Massimo Loi - massproduced.games"
+""
+"*Art*"
+"Sandy Loi"
+"MidJourney"
+""
+"*Music*"
+"Matias Sosa - matias-sosa.itch.io"
+""
+"*Translations*"
+"Simone Battaglioni \"SimonPPC\""
+""
+"Special thanks to all the members of Amiga Blitz Basic Game Jam Discord server."
+msgstr ""
+
+#: lRsQ0Bt9mq6MvVAB
+msgctxt "838"
+msgid ""
+msgstr ""
+
+#: 6j2XExoEEAmAC5Br
+msgctxt "839"
+msgid "In loving memory"
+"Daisy 2009-2022"
+""
+"You'll always be the goodest girl..."
+msgstr ""
+

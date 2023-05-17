@@ -54,7 +54,7 @@ namespace NEONnoir
             pak.palettes.push_back(speaker.image.color_palette);
         }
         
-        for (auto const& string_entry : data->strings.string_entries)
+        for (auto const& string_entry : data->strings.entries)
         {
             pak.string_table.push_back(string_entry.value);
         }
@@ -274,35 +274,14 @@ namespace NEONnoir
         // Calculate all words
         for (auto const& text : pak.string_table)
         {
+            auto words = string_table::calculate_words(text);
+
             auto word_list = neon_word_list{};
+            word_list.word_count = to<u16>(words.size());
+            word_list.words.reserve(word_list.word_count);
 
-            auto start_idx = 0;
-            auto current = 0;
+            std::ranges::transform(words, std::back_inserter(word_list.words), [](auto& word) -> neon_word { return { to<u16>(word.begin_idx), to<u16>(word.end_idx) }; });
 
-            while (start_idx < text.size())
-            {
-                current = start_idx;
-                while (current < text.size() && text[current] != ' ' && text[current] != '\n')
-                {
-                    current++;
-                }
-
-                word_list.words.push_back(
-                    {
-                        to<u16>(start_idx),
-                        to<u16>(current - 1)
-                    }
-                );
-
-                if (text[current] == '\n')
-                {
-                    word_list.words.push_back({});
-                }
-
-                start_idx = current + 1;
-            }
-
-            word_list.word_count = to<u16>(word_list.words.size());
             pak.words_table.push_back(word_list);
         }
 

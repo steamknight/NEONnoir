@@ -51,7 +51,7 @@ namespace NEONnoir
 
     struct opcode_spec
     {
-        i32 opcode = 0;
+        i16 opcode = 0;
         std::vector<ParamType> params;
     };
 

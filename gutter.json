@@ -362,7 +362,7 @@
         {
           "name": "Credits",
           "description_id": [],
-          "on_enter": "on_enter_credits",
+          "on_enter": "",
           "on_exit": "",
           "image_id": 0,
           "view_x": 0,
@@ -417,7 +417,19 @@
           "offset_x": 0,
           "offset_y": 0,
           "music_id": 65535,
-          "regions": [],
+          "regions": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 320,
+              "height": 200,
+              "shape_id": 65535,
+              "pointer_id": 0,
+              "goto_scene": 65535,
+              "description_id": "wfdtEfkwT062SZbE",
+              "script": "back_to_title"
+            }
+          ],
           "text_regions": [
             {
               "x": 8.0,
@@ -626,7 +638,7 @@
               "height": 71,
               "shape_id": 65535,
               "pointer_id": 3,
-              "goto_scene": 5,
+              "goto_scene": 4,
               "description_id": "wkA20ahkPb1rtaeo",
               "script": ""
             },
@@ -701,7 +713,7 @@
           "description_id": [],
           "on_enter": "",
           "on_exit": "",
-          "image_id": 5,
+          "image_id": 4,
           "view_x": 0,
           "view_y": 0,
           "view_width": 0,
@@ -717,7 +729,7 @@
               "height": 97,
               "shape_id": 65535,
               "pointer_id": 3,
-              "goto_scene": 6,
+              "goto_scene": 5,
               "description_id": "TdKc5o4u79gHR2xx",
               "script": ""
             },
@@ -742,7 +754,7 @@
           ],
           "on_enter": "",
           "on_exit": "",
-          "image_id": 6,
+          "image_id": 5,
           "view_x": 0,
           "view_y": 0,
           "view_width": 0,
@@ -758,7 +770,7 @@
               "height": 170,
               "shape_id": 65535,
               "pointer_id": 3,
-              "goto_scene": 5,
+              "goto_scene": 4,
               "description_id": "pZ0pUW2mOYeWroEb",
               "script": ""
             },
@@ -12342,6 +12354,6 @@
       "image_path": "data\\people\\xander2.iff"
     }
   ],
-  "script_name": "gutter.nscript",
-  "save_on_export": "gutter.nscript"
+  "script_name": "C:\\Users\\mass\\source\\NEONnoir\\gutter.nscript",
+  "save_on_export": "C:\\Users\\mass\\source\\NEONnoir\\gutter.nscript"
 }
