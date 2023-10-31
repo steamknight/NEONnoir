@@ -470,11 +470,10 @@ NN_error_codes$(6) = "Out of memory"
 #TX_lang_id = 0
 #TX_font_path = 1
 
-#TX_lang_count = 3
+#TX_lang_count = 2
 Dim TX_langs.s(#TX_lang_count)
 TX_langs.s(0) = "en"
 TX_langs.s(1) = "it"
-TX_langs.s(2) = "de"
 
 #TX_menu_start = 2
 

@@ -291,6 +291,13 @@ Function .b NN_main_menu{}
   BLITZ
   NN_current_bmp = #BMP_main
 
+  TX_draw_to_shape{2, NN_version$, 2}
+
+  For l = 0 to #menu_items - 1
+    TX_draw_to_shape{3 + l, "*" + labels$(l), 2}
+    TX_draw_to_shape{3 + #menu_items + l, labels$(l), 2}
+  Next
+
   Repeat
     VWait
 
@@ -306,21 +313,22 @@ Function .b NN_main_menu{}
     lmb = IN_update_mouse{}
     selected = IN_check_mouse{&items(0), #menu_items}
 
-    TX_draw_text{NN_version$, version_x, version_y}
+    BBlit NN_current_bmp, 2, version_x, version_y, %0
 
     pointer_id = #NN_pointer_default
     For l = 0 to #menu_items - 1
       If selected = l
-        TX_draw_text{"*" + labels$(l), items(l)\x0 - #TX_font_width, items(l)\y0}
+        BBlit NN_current_bmp, 3 + l, items(l)\x0 - #TX_font_width, items(l)\y0, %0
+        ;TX_draw_text{labels$(l), NN_current_bmp, items(l)\x0 - #TX_font_width, items(l)\y0}
         pointer_id =  #NN_pointer_interact
-
         ; Was it clicked?
         If lmb = #IN_mouse_released
           clicked = l
           done = True
         End If
       Else
-        TX_draw_text{labels$(l), items(l)\x0, items(l)\y0}
+        BBlit NN_current_bmp, 3 + #menu_items + l, items(l)\x0, items(l)\y0, %0
+        ;TX_draw_text{labels$(l), NN_current_bmp, items(l)\x0, items(l)\y0}
       End If
     Next
 

@@ -64,9 +64,7 @@ Statement TX_draw_single_line{text$}
     UnBuffer 0
 End Statement
 
-Statement TX_draw_text{text$, x.w, y.w}
-  SHARED NN_current_bmp
-
+Statement TX_draw_text{text$, bmp_id, x.w, y.w}
   DEFTYPE .w width, strlen
 
   strlen = Len(text$)
@@ -76,7 +74,7 @@ Statement TX_draw_text{text$, x.w, y.w}
   If y + #TX_font_height > DispHeight Then y = DispHeight - #TX_font_height
 
   For i = 0 To strlen - 1
-    BBlit NN_current_bmp, Peek.b (&text$ + i), x, y, %0
+    BBlit bmp_id, Peek.b (&text$ + i), x, y, %0
     x + #TX_font_width
   Next
 End Statement
@@ -459,3 +457,14 @@ Function .l TX_put_text{context.l, id.w, line_max.w}
   *ctx\y_position + height
   Function Return size
 End Function
+
+Statement TX_draw_to_shape{shape_id, text$, scratch_bmp_id}
+  DEFTYPE .w width
+  width = Len(text$) * #TX_font_width
+
+  BitMap scratch_bmp_id, width, #TX_font_height, 5
+  TX_draw_text{text$, scratch_bmp_id, 0, 0}
+  GetaShape shape_id, 0, 0, width, #TX_font_height
+  Free BitMap scratch_bmp_id
+
+End Statement
