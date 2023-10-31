@@ -130,7 +130,7 @@ Repeat
   End If
 
   ; Check if menu icon is clicked
-  If MouseX > menu_x AND MouseY > menu_y
+  If MouseX > menu_x AND MouseY > menu_y AND NOT *NN_current_scene\is_cutscene
     DisplaySprite #CP_coplist, #NN_pointer_interact, MouseX, MouseY, 0
     If left_mouse = #IN_mouse_released
       DG_show_dialog{0}

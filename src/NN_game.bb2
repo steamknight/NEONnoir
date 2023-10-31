@@ -524,9 +524,11 @@ Statement NN_load_location{new_loc_id.w, new_scene_id.w}
   NN_game_set_scene{new_scene_id}
 
   BLITZ
-  If new_loc_id > 0
-    For bg = 0 To bg_count
-      Use BitMap bg
+  DEFTYPE .NN_scene *scene
+  For scnid = *NN_current_location\first_scene to *NN_current_location\last_scene
+    *scene = !__get_scene{scnid}
+    If NOT *scene\is_cutscene
+      Use BitMap *scene\background_id
       Blit #SH_menu, 320 - ShapeWidth(#SH_menu) - 4, 200 - ShapeHeight(#SH_menu) - 4, 0
     Next
   End If

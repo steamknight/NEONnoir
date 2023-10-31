@@ -47,6 +47,8 @@ NEWTYPE.NN_scene
   first_text_region.w
   last_text_region.w
   music_id.w
+  is_cutscene.b
+  padding.b
 End NEWTYPE
 
 ; Location

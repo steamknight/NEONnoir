@@ -58,6 +58,7 @@ namespace NEONnoir
                 display_prop_background(_location->backgrounds);
                 display_prop_string("On Enter", _scene->on_enter);
                 display_prop_string("On Exit", _scene->on_exit);
+                display_prop_checkbox("Is Cutscene", _scene->is_cutscene);
                 display_prop_int("Music ID", _scene->music_id);
             }
 
@@ -176,6 +177,17 @@ namespace NEONnoir
         ImGui::InputInt(make_id("##{}", value), &v);
         value = to<u16>(v);
     }
+
+    void scene_editor::display_prop_checkbox(std::string_view const& label, bool& value)
+    {
+        ImGui::TableNextRow();
+
+        display_label(label.data());
+
+        ImGui::TableNextColumn();
+        ImGui::Checkbox(make_id("##{}", value), &value);
+    }
+
 
     void scene_editor::display_prop_combo(std::string_view const& label, std::vector<std::string> const& values, u16& selected_value)
     {

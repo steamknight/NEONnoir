@@ -101,6 +101,7 @@ namespace NEONnoir
                 s.on_exit = get_script_offset(scene.on_exit, result);
 
                 s.music_id = scene.music_id;
+                s.is_cutscene = scene.is_cutscene ? -1 : 0;
 
                 for (auto const& region : scene.regions)
                 {
@@ -344,6 +345,8 @@ namespace NEONnoir
             write(neonpack, scene.first_text_id);
             write(neonpack, scene.last_text_id);
             write(neonpack, scene.music_id);
+            neonpack.write(&scene.is_cutscene, 1);
+            neonpack.write(&scene.padding, 1);
         }
 
         // Write all regions

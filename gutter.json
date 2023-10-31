@@ -189,7 +189,8 @@
               "center_vertically": true,
               "text_id": "intro01"
             }
-          ]
+          ],
+          "is_cutscene": true
         },
         {
           "name": "Intro2",
@@ -226,7 +227,8 @@
               "center_vertically": true,
               "text_id": "intro02"
             }
-          ]
+          ],
+          "is_cutscene": true
         },
         {
           "name": "Intro3",
@@ -263,7 +265,8 @@
               "center_vertically": true,
               "text_id": "intro03"
             }
-          ]
+          ],
+          "is_cutscene": true
         },
         {
           "name": "Intro4",
@@ -300,7 +303,8 @@
               "center_vertically": true,
               "text_id": "intro04"
             }
-          ]
+          ],
+          "is_cutscene": true
         },
         {
           "name": "Intro5",
@@ -337,7 +341,8 @@
               "center_vertically": true,
               "text_id": "intro05"
             }
-          ]
+          ],
+          "is_cutscene": true
         }
       ],
       "shapes": [],
@@ -402,7 +407,8 @@
               "center_vertically": false,
               "text_id": "muMdwxQQeZ2UesJ1"
             }
-          ]
+          ],
+          "is_cutscene": true
         },
         {
           "name": "Dedication",
@@ -439,7 +445,8 @@
               "center_vertically": true,
               "text_id": "6j2XExoEEAmAC5Br"
             }
-          ]
+          ],
+          "is_cutscene": true
         }
       ],
       "shapes": [],
@@ -527,7 +534,8 @@
               "script": ""
             }
           ],
-          "text_regions": []
+          "text_regions": [],
+          "is_cutscene": false
         },
         {
           "name": "Takeshi's",
@@ -590,7 +598,8 @@
               "script": "enter_takeshis"
             }
           ],
-          "text_regions": []
+          "text_regions": [],
+          "is_cutscene": false
         },
         {
           "name": "Empty Lot",
@@ -654,7 +663,8 @@
               "script": "use_alley_dumpster"
             }
           ],
-          "text_regions": []
+          "text_regions": [],
+          "is_cutscene": false
         },
         {
           "name": "ATM Lot",
@@ -706,7 +716,8 @@
               "script": "use_alley_tinman"
             }
           ],
-          "text_regions": []
+          "text_regions": [],
+          "is_cutscene": false
         },
         {
           "name": "Subway Entrance",
@@ -745,7 +756,8 @@
               "script": ""
             }
           ],
-          "text_regions": []
+          "text_regions": [],
+          "is_cutscene": false
         },
         {
           "name": "Subway Interior",
@@ -797,7 +809,8 @@
               "script": "dialogue_tweaker"
             }
           ],
-          "text_regions": []
+          "text_regions": [],
+          "is_cutscene": false
         }
       ],
       "shapes": [],
@@ -870,7 +883,8 @@
               "script": "exit_alleycat"
             }
           ],
-          "text_regions": []
+          "text_regions": [],
+          "is_cutscene": false
         },
         {
           "name": "Alleycat Bar",
@@ -920,7 +934,8 @@
               "script": ""
             }
           ],
-          "text_regions": []
+          "text_regions": [],
+          "is_cutscene": false
         }
       ],
       "shapes": [],
@@ -1004,7 +1019,8 @@
               "script": ""
             }
           ],
-          "text_regions": []
+          "text_regions": [],
+          "is_cutscene": false
         },
         {
           "name": "Bedroom",
@@ -1068,7 +1084,8 @@
               "script": "use_bedroom_clutter"
             }
           ],
-          "text_regions": []
+          "text_regions": [],
+          "is_cutscene": false
         }
       ],
       "shapes": [],
@@ -1155,7 +1172,8 @@
               "script": ""
             }
           ],
-          "text_regions": []
+          "text_regions": [],
+          "is_cutscene": false
         },
         {
           "name": "End Act 1",
@@ -1171,7 +1189,8 @@
           "offset_y": 0,
           "music_id": 12,
           "regions": [],
-          "text_regions": []
+          "text_regions": [],
+          "is_cutscene": true
         },
         {
           "name": "Fade to black",
@@ -1187,7 +1206,8 @@
           "offset_y": 0,
           "music_id": 65535,
           "regions": [],
-          "text_regions": []
+          "text_regions": [],
+          "is_cutscene": true
         },
         {
           "name": "End Act 2",
@@ -1203,7 +1223,8 @@
           "offset_y": 0,
           "music_id": 65535,
           "regions": [],
-          "text_regions": []
+          "text_regions": [],
+          "is_cutscene": true
         }
       ],
       "shapes": [],
@@ -1289,7 +1310,8 @@
               "script": "exit_to_subway"
             }
           ],
-          "text_regions": []
+          "text_regions": [],
+          "is_cutscene": false
         },
         {
           "name": "Interior",
@@ -1341,7 +1363,8 @@
               "script": "use_gladys_computer"
             }
           ],
-          "text_regions": []
+          "text_regions": [],
+          "is_cutscene": false
         }
       ],
       "shapes": [],
@@ -1417,7 +1440,8 @@
               "script": "leave_b19"
             }
           ],
-          "text_regions": []
+          "text_regions": [],
+          "is_cutscene": false
         },
         {
           "name": "Office",
@@ -1489,7 +1513,8 @@
               "script": "use_trashcan"
             }
           ],
-          "text_regions": []
+          "text_regions": [],
+          "is_cutscene": false
         },
         {
           "name": "Storage",
@@ -1553,7 +1578,8 @@
               "script": ""
             }
           ],
-          "text_regions": []
+          "text_regions": [],
+          "is_cutscene": false
         }
       ],
       "shapes": [],
@@ -1593,7 +1619,8 @@
           "offset_y": 0,
           "music_id": 65535,
           "regions": [],
-          "text_regions": []
+          "text_regions": [],
+          "is_cutscene": true
         }
       ],
       "shapes": [],
@@ -1656,7 +1683,8 @@
               "script": "use_b19r_storage"
             }
           ],
-          "text_regions": []
+          "text_regions": [],
+          "is_cutscene": false
         },
         {
           "name": "Office1",
@@ -1728,7 +1756,8 @@
               "script": ""
             }
           ],
-          "text_regions": []
+          "text_regions": [],
+          "is_cutscene": false
         },
         {
           "name": "Office2",
@@ -1789,7 +1818,8 @@
               "script": ""
             }
           ],
-          "text_regions": []
+          "text_regions": [],
+          "is_cutscene": false
         },
         {
           "name": "Catwalk",
@@ -1805,7 +1835,8 @@
           "offset_y": 0,
           "music_id": 11,
           "regions": [],
-          "text_regions": []
+          "text_regions": [],
+          "is_cutscene": true
         },
         {
           "name": "Cutscene",
@@ -1821,7 +1852,8 @@
           "offset_y": 0,
           "music_id": 7,
           "regions": [],
-          "text_regions": []
+          "text_regions": [],
+          "is_cutscene": true
         }
       ],
       "shapes": [],
@@ -1887,7 +1919,8 @@
               "script": ""
             }
           ],
-          "text_regions": []
+          "text_regions": [],
+          "is_cutscene": false
         },
         {
           "name": "Lobby",
@@ -1941,7 +1974,8 @@
               "script": ""
             }
           ],
-          "text_regions": []
+          "text_regions": [],
+          "is_cutscene": false
         },
         {
           "name": "Corridor",
@@ -1993,7 +2027,8 @@
               "script": ""
             }
           ],
-          "text_regions": []
+          "text_regions": [],
+          "is_cutscene": false
         },
         {
           "name": "Medical",
@@ -2045,7 +2080,8 @@
               "script": ""
             }
           ],
-          "text_regions": []
+          "text_regions": [],
+          "is_cutscene": false
         },
         {
           "name": "Cafe",
@@ -2098,7 +2134,8 @@
               "script": ""
             }
           ],
-          "text_regions": []
+          "text_regions": [],
+          "is_cutscene": false
         },
         {
           "name": "Servers",
@@ -2126,7 +2163,8 @@
               "script": "use_datablade"
             }
           ],
-          "text_regions": []
+          "text_regions": [],
+          "is_cutscene": false
         }
       ],
       "shapes": [],
@@ -2165,7 +2203,8 @@
           "offset_y": 0,
           "music_id": 11,
           "regions": [],
-          "text_regions": []
+          "text_regions": [],
+          "is_cutscene": true
         },
         {
           "name": "Cutscene2",
@@ -2181,7 +2220,8 @@
           "offset_y": 0,
           "music_id": 65535,
           "regions": [],
-          "text_regions": []
+          "text_regions": [],
+          "is_cutscene": true
         },
         {
           "name": "Cutscene3",
@@ -2197,7 +2237,8 @@
           "offset_y": 0,
           "music_id": 65535,
           "regions": [],
-          "text_regions": []
+          "text_regions": [],
+          "is_cutscene": true
         },
         {
           "name": "Cutscene4",
@@ -2213,7 +2254,8 @@
           "offset_y": 0,
           "music_id": 65535,
           "regions": [],
-          "text_regions": []
+          "text_regions": [],
+          "is_cutscene": true
         },
         {
           "name": "Cutscene5",
@@ -2229,7 +2271,8 @@
           "offset_y": 0,
           "music_id": 65535,
           "regions": [],
-          "text_regions": []
+          "text_regions": [],
+          "is_cutscene": true
         }
       ],
       "shapes": [],
@@ -2266,7 +2309,8 @@
           "offset_y": 0,
           "music_id": 7,
           "regions": [],
-          "text_regions": []
+          "text_regions": [],
+          "is_cutscene": true
         }
       ],
       "shapes": [],

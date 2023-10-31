@@ -84,6 +84,9 @@ namespace NEONnoir
         u16 last_text_id{ 0xFFFF };
 
         u16 music_id{ 0xFFFF };
+
+        char is_cutscene{ 0 };
+        char padding{ 0 };
     };
 
     struct neon_regions_header

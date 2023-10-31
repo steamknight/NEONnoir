@@ -1,0 +1,4737 @@
+[
+  {
+    "id": "language",
+    "value": "Italiano",
+    "description": "Name of the language"
+  },
+  {
+    "id": "language_font",
+    "value": "data/lang/latin-1.shapes",
+    "description": "Ignore. Name of the font file."
+  },
+  {
+    "id": "title_start",
+    "value": "Inizia",
+    "description": "Start game button in title screen"
+  },
+  {
+    "id": "title_continue",
+    "value": "Continua",
+    "description": "Continue game button in title screen"
+  },
+  {
+    "id": "title_credits",
+    "value": "Riconoscimenti",
+    "description": "Credits button in title screen, shows who made the game."
+  },
+  {
+    "id": "title_quit",
+    "value": "Esci",
+    "description": "Quit game button in title screen"
+  },
+  {
+    "id": "mod_theme",
+    "value": "data/theme.mod",
+    "description": "Ignore"
+  },
+  {
+    "id": "mod_ambient",
+    "value": "data/ambient.mod",
+    "description": "Ignore"
+  },
+  {
+    "id": "mod_dancemix",
+    "value": "data/dance.mod",
+    "description": "Ignore"
+  },
+  {
+    "id": "mod_intrigue",
+    "value": "data/intrigue.mod",
+    "description": "Ignore"
+  },
+  {
+    "id": "mod_boss_intro",
+    "value": "data/boss_intro.mod",
+    "description": "Ignore"
+  },
+  {
+    "id": "mod_boss_theme",
+    "value": "data/boss_theme.mod",
+    "description": "Ignore"
+  },
+  {
+    "id": "mod_detective",
+    "value": "data/detective.mod",
+    "description": "Ignore"
+  },
+  {
+    "id": "mod_crystal",
+    "value": "data/crystal.mod",
+    "description": "Ignore"
+  },
+  {
+    "id": "mod_industry",
+    "value": "data/to_industry.mod",
+    "description": "Ignore"
+  },
+  {
+    "id": "game_saved",
+    "value": "Gioco Salvato.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=563 - Message that displays once the game has been saved to disk."
+  },
+  {
+    "id": "xaUZC8YbkDkmjaTf",
+    "value": "",
+    "description": "Ignore"
+  },
+  {
+    "id": "ic2wGJBcPr9tWcXq",
+    "value": "",
+    "description": "Ignore"
+  },
+  {
+    "id": "dioMG7WajruJ3O3q",
+    "value": "",
+    "description": "Ignore"
+  },
+  {
+    "id": "HgujNWUNv8WtHCrR",
+    "value": "",
+    "description": "Ignore"
+  },
+  {
+    "id": "7IbXZZFdZdrd3HE8",
+    "value": "",
+    "description": "Ignore"
+  },
+  {
+    "id": "intro01",
+    "value": "La pioggia acida lavava i neon color sangue della città nella Grundana, casa di chi è rimasto senza altra scelta.\n\nLa Grundana non è solo la metafora di un cliché; è il quartiere più spietato e pericoloso della città. Pochi hanno scelto di viverci volentieri; quando i tuoi crediti si prosciugavano, non c'era nessun altro posto dove andare.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=9 This line and the next 3 are the introduce the game's story. Here we are introduced to the Gutter, the protagonist, and what he's investigating. I intend for him to have a classical 1940s noir detective vibe in his descriptions, like Humphrey Bogart in the Maltese Falcon.\n\nIn this first text, we introduce the Gutter, the name of a district or neighborhood in a nameless city."
+  },
+  {
+    "id": "intro02",
+    "value": "La polizia mantiene le distanze dalla Grundana poiché non serve agli interessi delle corporazioni.\n\n\n\nSe volevi giustizia, o prendevi in mano la situazione o racimolavi abbastanza da ingaggiare uno come me.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=13 Here we set the expectation that the police don't solve crimes in the Gutter; it's too dangerous, and since they have been privatized, they only work for the corporations that own them."
+  },
+  {
+    "id": "intro03",
+    "value": "Blake Steel: investigatore privato. Ho preso il nome da un serial poliziesco scadente. \n\nA un ragazzo sperduto della Grundana, quel romanzo poliziesco da due soldi prometteva una nuova vita lontano da tutta quella sporcizia. \n\nÈ diventato il mio progetto finché non ne sono uscito vivo. \n\nOra ero tornato, camminando da solo lungo questi vicoli familiari traboccanti di rifiuti umani e umani rifiutati, alla ricerca di qualcun altro che si era perso. ",
+    "description": "https://youtu.be/EprkOx1qUq0?t=17 Introducing the main character: Blake Steel. That's not his real name, but as a child, he read a detective novel, a giallo, whose protagonist was named Blake Steel and took that name for himself. He escaped the Gutter but now finds himself back here on a job. There is a play on words here, 'alleys brimming with human waste and wasted humans, ' which the best I can come up with in Italian would be 'rifiuti umani e umani rifuitati.'"
+  },
+  {
+    "id": "intro04",
+    "value": "Danni Ashton è comparsa con alcuni amici tutt'altro che gentili e poi è scomparsa dalla faccia della Terra.\n\nSuo padre, Jacob, mi sta pagando molto bene per trovarla. \nTroppo facile. \n\nC'era qualcosa che mi puzzava, ma ero al verde e avevo le bollette da pagare, quindi mi sono tappato il naso e ho accettato il lavoro. \n\nEra dipendente da Coral, l'ultima novità in fatto di droghe sintetiche, e chiunque inseguisse le scarpette color rubino finiva inevitabilmente...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=29 Another play on words (there is a lot in this game, sorry!). 'Fell in/Fell off' match, but how they are used means different things. Falling in with someone means becoming a member of the group. 'Falling off the face of the Earth' implies that the person disappeared.\n\n'Something didn't smell right' means something about it might not be good. `So I plugged my nose and took the job' is more wordplay. The deal was suspicious, but Blake took it anyway.\n\n'Leaking green' is a slang term I made up for this future world. It means 'running out of money' because dollars are green. Feel free to change to something that works better.\n\nIn the game's fiction, a slang term for being addicted to Coral is 'chasing the ruby slippers.' This is made of two references: the first is that being addicted to opium was called 'chasing the Dragon'; the Ruby Slippers are a reference to Dorothy in the Wizard of Oz. Feel free to change this to something that makes more sense."
+  },
+  {
+    "id": "intro05",
+    "value": "... nella Grundana",
+    "description": "https://youtu.be/EprkOx1qUq0?t=43 As you can imagine, \"in the Gutter\" is more wordplay. In English, it means that you are ruined, but here it also means that you are physically in the district called 'The Gutter.'"
+  },
+  {
+    "id": "qMJBWYMYaZk8GJgi",
+    "value": "La musica ovattata risuonava forte fuori dal club.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=75 The player can hear, but can't make out, the music coming from inside the Alleycat club."
+  },
+  {
+    "id": "mnNpLTwYDe22IRhm",
+    "value": "Forse servirà un po' di aria condizionata...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=101 - This is a play on words. The text shows up when you look at a sign that says \"Hot Girls\". Hot can mean attractive or really warm. The player is making a play on words: If they are too warm, maybe they need air conditioning. I'm not sure how this will be able to be translated."
+  },
+  {
+    "id": "FF8SKvwiyZNEv9WU",
+    "value": "La Gatta di Strada",
+    "description": "https://youtu.be/EprkOx1qUq0?t=91 - The name of the club and another play on words. An alley cat can be a cat that lives in an alley but it's also slang for a prostitute."
+  },
+  {
+    "id": "h1X0D4ZABDOVpr71",
+    "value": "Angolo vuoto",
+    "description": "https://youtu.be/EprkOx1qUq0?t=99 - Exit to an empty lot"
+  },
+  {
+    "id": "SRCkT2sKIOOlCENL",
+    "value": "Takeshi's Noodles",
+    "description": "https://youtu.be/EprkOx1qUq0?t=324 - Exit from the Alleycat to Takeshi's Noodles"
+  },
+  {
+    "id": "R52avt7668RUWkrr",
+    "value": "L'odore nauseabondo del decomposto mi riempì le narici mentre passavo per il vicolo dietro al Takeshi's Noodles.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=43It smells like rotting food."
+  },
+  {
+    "id": "pecLe2ggrXwgOK9P",
+    "value": "Takeshi's Noodles",
+    "description": "https://youtu.be/EprkOx1qUq0?t=50 The name of the noodle shop."
+  },
+  {
+    "id": "G8lXyom17tc69IJx",
+    "value": "Alla Gatta di Strada",
+    "description": "https://youtu.be/EprkOx1qUq0?t=73 Exit the current scene and go to the Alleycat"
+  },
+  {
+    "id": "nYGKR1hEf0acZ9RC",
+    "value": "Verso altri Vicoli",
+    "description": "https://youtu.be/EprkOx1qUq0?t=59 Exit the current screen and into more alleyway"
+  },
+  {
+    "id": "7wtYDUt9QyEgw9dR",
+    "value": "Torna al Piccolo Vicolo",
+    "description": "https://youtu.be/EprkOx1qUq0?t=54 A sign informing the player that there is a small alleyway in that direction"
+  },
+  {
+    "id": "frTleC3goNyK3mOP",
+    "value": "Il posto più pulito della Grundana, questo angolo vuoto era accanto alla metropolitana.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=107 - A description of the Empty Lot. The Gutter is the name of this city's neighborhood. Just like how waste water flows down a gutter (on the floor) to the sewers, so is this place where the lowest class goes when they have nowhere esle to turn"
+  },
+  {
+    "id": "jytDAAHirgaHen7i",
+    "value": "Il suo vuoto è rotto solo da un losco figuro appoggiato al duro lavoro di un artista contemporaneo.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=110 - A continuation of the description of the Empty lot. The second half of the sentence is sarcastic: it's calling whoever made the big graffiti in the background a \"contemporary artist\"."
+  },
+  {
+    "id": "WrDQCSSC51QHW2uB",
+    "value": "Alla Gatta di Strada",
+    "description": "Exit the current screen and go to the Alleycat"
+  },
+  {
+    "id": "0cSnB3FNXFChN7xS",
+    "value": "Losco Figuro",
+    "description": "https://youtu.be/EprkOx1qUq0?t=121 - Person description. A mysterious or sinister person"
+  },
+  {
+    "id": "wkA20ahkPb1rtaeo",
+    "value": "Alla Metro",
+    "description": "https://youtu.be/EprkOx1qUq0?t=231 - Exit the current screen and go to the underground train station"
+  },
+  {
+    "id": "LvRFsrxVqXC5NgXP",
+    "value": "Era difficile dirlo a causa dell'elmetto, ma avevo la sensazione che l'uomo di latta mi stesse guardando con sospetto.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=60 The word \"tinman\" in this context is meant to be a futuristic slang term/insult for a security guard that wears body armor. The term comes from the Wizard of Oz, one of the character is called the \"the Tin Man\""
+  },
+  {
+    "id": "QvL4fY493EBFHn3V",
+    "value": "Al Takeshi's",
+    "description": "https://youtu.be/EprkOx1qUq0?t=70 Exit the current screen and go to the Takeshi's Noodles"
+  },
+  {
+    "id": "sOylJYeorG3mkKme",
+    "value": "Jackpot",
+    "description": "https://youtu.be/EprkOx1qUq0?t=66 This is an invented futuristic slang term for a bank machine (ATM, bancomat). It comes from the fact that the bank machine spits out money like a slot machine in a casino. The \"jackpot\" is what the prize money that comes out of a slot machine is called."
+  },
+  {
+    "id": "dqv7c0Mf7Qm1tGc3",
+    "value": "Un Uomo di Latta",
+    "description": "https://youtu.be/EprkOx1qUq0?t=63 'Tinman' refers to hired security guards, and they are another reference to the Wizard of Oz (l'uomo di latta) because they wear full body armor."
+  },
+  {
+    "id": "TdKc5o4u79gHR2xx",
+    "value": "Entrata della Metro",
+    "description": "https://youtu.be/EprkOx1qUq0?t=239 - A sign informing players they can enter the subway"
+  },
+  {
+    "id": "oQSmNFBBUY1DpS1M",
+    "value": "Uscita dalla Metro",
+    "description": "https://youtu.be/EprkOx1qUq0?t=239 - A sign informing players they can exit the subway"
+  },
+  {
+    "id": "lJsAFeIjaSaNd1fw",
+    "value": "Potevo sentire le urla di dolore dei treni della metropolitana dalla banchina.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=243 - Location description. The trains make a lot of noise"
+  },
+  {
+    "id": "pZ0pUW2mOYeWroEb",
+    "value": "Uscita dalla Metro",
+    "description": "https://youtu.be/EprkOx1qUq0?t=318 - A sign informing players they can exit the subway"
+  },
+  {
+    "id": "xkyBiksng48ybBqJ",
+    "value": "A Bordo della Metro",
+    "description": "https://youtu.be/EprkOx1qUq0?t=248 - A sign informing players they can get onto and use the subway"
+  },
+  {
+    "id": "WnNGIoh4Sd4T8KXZ",
+    "value": "Uomo dai capelli blu",
+    "description": "https://youtu.be/EprkOx1qUq0?t=247 - Person description"
+  },
+  {
+    "id": "VBjAKP02SB9j6XQo",
+    "value": "La musica mi colpiva più forte di quanto avrebbe mai potuto fare il buttafuori. Era finalmente giunto il momento di fare due chiacchiere con Acid Nova.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=548 - The music in the nightclub is deafening. Acid Nova is the name of the person you want to speak to."
+  },
+  {
+    "id": "ZNr4vYLrbrMrRPDc",
+    "value": "All'interno",
+    "description": "https://youtu.be/EprkOx1qUq0?t=548 - A sign informing players they can go deeper into the club"
+  },
+  {
+    "id": "jnDW4FqIVabjGeTu",
+    "value": "La gente si stava divertendo. Niente Dei, niente Re, niente regole.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=548 - Describing the people in the club"
+  },
+  {
+    "id": "5C14uMY1HBfx9gLF",
+    "value": "Torna alla Gatta di Strada",
+    "description": "https://youtu.be/EprkOx1qUq0?t=548 - A sign informing players they can can exit the club and go back to the alley"
+  },
+  {
+    "id": "gIMxOREfMvT23L4n",
+    "value": "Acid Nova",
+    "description": "https://youtu.be/EprkOx1qUq0?t=573 - Hover text over Acid Nova"
+  },
+  {
+    "id": "jnHdP7GwPMDWaCtK",
+    "value": "Torna all'ingresso",
+    "description": "https://youtu.be/EprkOx1qUq0?t=573 - A sign informing players they can go back to the entrance or the front of the nightclub"
+  },
+  {
+    "id": "ckpHEfY06F7Elil5",
+    "value": "Hmm... Il bar sembra ben fornito...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=573 - Describing the bar. There are a lot of bottles"
+  },
+  {
+    "id": "G6mqVCHMkvs5Ty24",
+    "value": "L'appartamento di Danni e Crystal si trovava nella parte bella della Grundana (ammesso che un posto del genere esista). Era piccolo, ma moderno e sembrava più costoso di quanto potessi permettermi.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=808 - Describing the apartment that Crysta; and Danni live in"
+  },
+  {
+    "id": "Z1Og8kiDGESvdwwJ",
+    "value": "Crystal",
+    "description": "https://youtu.be/EprkOx1qUq0?t=828 - Hover on Crystal"
+  },
+  {
+    "id": "sMHSrMp3UhVCfx1M",
+    "value": "Torna alla Metro",
+    "description": "https://youtu.be/EprkOx1qUq0?t=822 - A sign informing players they can go back to the subway"
+  },
+  {
+    "id": "7069DfAQ1ReSpHNm",
+    "value": "Se strizzavi gli occhi, la vista era piacevole.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=818 - Description on Crystal's window"
+  },
+  {
+    "id": "huhy9NrjB4y6EsLx",
+    "value": "Alla Stanza di Danni",
+    "description": "https://youtu.be/EprkOx1qUq0?t=901 - A sign informing players they can go to Danni's bedroom"
+  },
+  {
+    "id": "SMFWFgsgAojaGqGu",
+    "value": "La camera da letto di Danni era spoglia e ordinata; l'unico disordine era vicino al suo letto.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=902 - The room is clean but there is a pile of stuff to one side"
+  },
+  {
+    "id": "0YZhsjHwQapogSrf",
+    "value": "O era molto organizzata o trascorreva poco tempo qui.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=902 - Continuation of the previous sentence."
+  },
+  {
+    "id": "KDWWkv5mFpCOIrr6",
+    "value": "Torna all'ingresso",
+    "description": "https://youtu.be/EprkOx1qUq0?t=937 - A sign informing players they can go to the front of the apartment"
+  },
+  {
+    "id": "WBDE1lMEt8Q6uRiv",
+    "value": "Comodino",
+    "description": "https://youtu.be/EprkOx1qUq0?t=910"
+  },
+  {
+    "id": "gdyHIyGCXvKKT2Gu",
+    "value": "Il letto di Danni. Sembrava davvero comodo.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=937"
+  },
+  {
+    "id": "2l0MfUe24n0u2nYC",
+    "value": "Roba in disordine",
+    "description": "https://youtu.be/EprkOx1qUq0?t=921 - A pile of stuff next to Danni's bed"
+  },
+  {
+    "id": "FFgQsLa6aMY9m5XP",
+    "value": "Ho passato innumerevoli ore cercando di rendere professionale il mio appartamento nel seminterrato.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1022 - Blake describing his office/apartment"
+  },
+  {
+    "id": "7IEyB1tBWOJf4Oae",
+    "value": "Come sempre, Daisy stava sonnecchiando piuttosto che sorvegliare il posto.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1022 - Daisy is Blake's dog. Even though she's a big dog, she's always sleeping"
+  },
+  {
+    "id": "Goc4KqvuSwnVTo4V",
+    "value": "Daisy",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1035 - The name of the dog, please don't change it."
+  },
+  {
+    "id": "06ZnxvKltb6qkP1F",
+    "value": "GovLink",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1095 - Name of government database computer Blake has access to"
+  },
+  {
+    "id": "lIHbPtP52P4KsQDb",
+    "value": "Esci alla Metro",
+    "description": "A sign informing players they can leave this area and go to the subway"
+  },
+  {
+    "id": "nfD8Jd1MITJXIeXR",
+    "value": "La finestra simulata mi ha dato viste dall'attico per i prezzi da seminterrato.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1022 - There is window in Blake's apartment that is actually a TV screen. 'Penthouse views' means both view from the top floor and expensibe. 'Basement prices' means cheap."
+  },
+  {
+    "id": "t4Gu0IDtlfZr9grN",
+    "value": "La lavanderia a gettoni Calzino Smarrito era in Via Strada del Mercante, a poca distanza dall'appartamento di Danni e Crystal. Come ovunque nella Grundana, le strade erano scivolose di liquidi indefiniti.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=991 - Description of the area where the laundromat is located. Merchant's Row is a name of a street that has a lot of shops"
+  },
+  {
+    "id": "X2g0nL7WLuxR2IQ6",
+    "value": "In fondo alla strada, un poster spiccava come l'unica cosa non coperta di sporcizia.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=991 - There is a new and clean poster near the laundromat"
+  },
+  {
+    "id": "3ef4AKWtuf2SLiMH",
+    "value": "La lavanderia a gettoni Calzino Smarrito... Immagino sia lì che finiscono tutti i calzini spaiati.",
+    "description": "There is a saying in English that only left socks go missing. Blake is making a joke that this is where they go. The name is part of the graphic so it may not be possible to translate it."
+  },
+  {
+    "id": "SXhXXaOaMFnmS1Bb",
+    "value": "Entra nella lavanderia",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1011 - A sign informing the player they can enter the laundromat"
+  },
+  {
+    "id": "Sm2jujTUGctPruM6",
+    "value": "Un poster vivace",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1002 - Loud, in this context, does not mean that it makes noise but that it's very colorful"
+  },
+  {
+    "id": "LKRbR8lQRYmMrosN",
+    "value": "Torna alla Metro",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1018 - A sign informing players they can leave this area and go to the subway"
+  },
+  {
+    "id": "oOKvcjVsb5fQAB0X",
+    "value": "Per una lavanderia a gettoni, era sorprendentemente nebbioso e buio. Mentre alcune lavatrici giravano, l'unica anima viva era una donna anziana seduta davanti a un computer. Gladys Aubergine, presumo.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1220"
+  },
+  {
+    "id": "0W7XQbEBjZpKAYoX",
+    "value": "Esci alla strada",
+    "description": "A sign informing the player they can exit the laundromat back to the street"
+  },
+  {
+    "id": "5btAySbdtSCuEhTG",
+    "value": "Gladys, presumo.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1235 - Description when hovering the mouse over Gladys"
+  },
+  {
+    "id": "ET6BccIZ755p1mkD",
+    "value": "Computer",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1297 - Description when hovering the mouse over a computer"
+  },
+  {
+    "id": "vUKZpTmD6fSxy6Dt",
+    "value": "Il distretto industriale era un vasto inferno di magazzini, fabbriche e tubi di tutte le forme e dimensioni che si estendevano per centinaia di chilometri come un cesto di serpenti velenosi.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1757 - These next three lines describe the industrial district"
+  },
+  {
+    "id": "lqBy3ceDqrcvp2EA",
+    "value": "La qualità dell'aria era persino peggiore che nella Grundana. La sicurezza dei lavoratori è barattata per i profitti di quei grassi maiali che gestiscono il posto, e potrebbero sempre ottenere più operai.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1757 - Continued from above"
+  },
+  {
+    "id": "auZMQD7UNhmvma1r",
+    "value": "Fortunatamente per me, l'Edificio 19 si trovava in un'area isolata ai margini del distretto industriale. Come per gli altri edifici, non c'era alcun indizio esterno dell'identità del proprietario. Era giunto il momento che applicassi le mie abilità investigative accuratamente affinate.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1757 - Continued from above"
+  },
+  {
+    "id": "krWnIa2vEqgDtYXC",
+    "value": "Porte dell'impianto di stoccaggio.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1780 - Mouse hover description for some doors in the industrial district"
+  },
+  {
+    "id": "i1RJUULJsnnXBXaS",
+    "value": "Le porte dell'ufficio al piano superiore.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1780 - Mouse hover description for some doors in the industrial district"
+  },
+  {
+    "id": "y64hXkVvi1UZKow5",
+    "value": "Esci alla Metro.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1780 - A sign informing players they can leave this area and go to the subway"
+  },
+  {
+    "id": "11OrmpHgc2H9NTf1",
+    "value": "Lascia l'ufficio",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1876 - Mouse hover description for the office exit"
+  },
+  {
+    "id": "NgNArx8oSl4giIoq",
+    "value": "Alcuni armadietti.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1853 - Mouse hover description for some lockers"
+  },
+  {
+    "id": "Z6JdWETSH8n7D8Pj",
+    "value": "Alcune carte su un tavolino.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1846 - Mouse hover description"
+  },
+  {
+    "id": "ydV48osT6oVM2BlT",
+    "value": "Guardando fuori dalla finestra, potevo vedere la terra desolata industriale all'esterno.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1841"
+  },
+  {
+    "id": "DjDHpURONM3SAPvQ",
+    "value": "Un cestino.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1862 - Mouse hover description"
+  },
+  {
+    "id": "LfAmegpb6xK7cQQp",
+    "value": "C'era qualcosa di strano in questo posto. Dovevano esserci persone che lavoravano, ma il posto era vuoto. Anche le tante scatole ammucchiate in questa struttura sembravano non essere state toccate da molto tempo.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1791 - This and the next line describe the inside of a warehouse"
+  },
+  {
+    "id": "BA6iR8hOYk1RHP5c",
+    "value": "Questo posto era decisamente una copertura, va bene.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1791 - Continued from above"
+  },
+  {
+    "id": "N9eoOAuqVeyopQTP",
+    "value": "Capsula di plastica piccola",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1817 - Mouse hover description"
+  },
+  {
+    "id": "bKT5kZBR7crPSpBF",
+    "value": "Un sacco di scatole",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1802 - Mouse hover description for one set of boxes"
+  },
+  {
+    "id": "ogT5MW6thxeIubuB",
+    "value": "Ancora e ancora scatole.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1814 - Mouse hover description for another set of boxes"
+  },
+  {
+    "id": "96Z5ZRcrNsRSJvtA",
+    "value": "Esci dall'edificio.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1832 - Mouse hover description for the building exit"
+  },
+  {
+    "id": "gy6dv23xn0P1Ie7i",
+    "value": "L'ufficio al piano di sopra.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2284 - Mouse hover description"
+  },
+  {
+    "id": "hqR7OghUwJE1kd4l",
+    "value": "Porta del deposito",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2279 - Mouse hover description"
+  },
+  {
+    "id": "oMerbUrKYeqXleSe",
+    "value": "Esci dall'edificio.",
+    "description": "Mouse hover description for building exit"
+  },
+  {
+    "id": "nIadX9Z2mbsBSjTp",
+    "value": "L'altro lato dell'ufficio.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2296 - Mouse hover description for exit to the other side of the office"
+  },
+  {
+    "id": "0PKCRw4am1wk4kO7",
+    "value": "Un cestino. Non c'è niente di interessante lì.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2286 - Mouse hover description for a trashcan"
+  },
+  {
+    "id": "jOrX0BTmBGyJjyyi",
+    "value": "Un mucchio di armadietti vuoti.",
+    "description": "Mhttps://youtu.be/EprkOx1qUq0?t=2286 - ouse hover description for lockers"
+  },
+  {
+    "id": "Fi07vkWGNC8DFycZ",
+    "value": "Da quella finestra non vedevo né Crystal né Visser.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2286 - Description when looking out of the office window"
+  },
+  {
+    "id": "MfvQOVIPZftWLvx1",
+    "value": "Alla passerella",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2309 - Mouse hover description for the exit to the catwalk"
+  },
+  {
+    "id": "0pFAdScvMIiKXUtl",
+    "value": "Distributore automatico",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2303 - Mouse hover description for a vending machine"
+  },
+  {
+    "id": "rFl0woOhJoxMXanE",
+    "value": "L'altro lato dell'ufficio",
+    "description": "Mouse hover description for exit to the other side of the office"
+  },
+  {
+    "id": "iNWZUVMI5s9e4OrZ",
+    "value": "No! Non guarderò più nella spazzatura!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2299 - Blake has looked through too many trashcans, he doesn't want to do it anymore"
+  },
+  {
+    "id": "RHFMA1ertAWMeQhj",
+    "value": "L'ostentazione dell'edificio della Xantech Cybernetics si ergeva sopra di noi come un gigantesco dito medio verso le nostre difficoltà.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2505 - Introduction description of the Xantech building. It's huge and looms over the city."
+  },
+  {
+    "id": "9066W119E3INkaC8",
+    "value": "Entra nella Xantech Cybernetics",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2505 - Mouse hover description for entrance to Xantech"
+  },
+  {
+    "id": "s6cpQrc8n25A5WEu",
+    "value": "Xantech Cybernetics. Era questo. L'inizio della fine per Xander Vane.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2505 - Mouse hover description for the Xantech building"
+  },
+  {
+    "id": "oBTEBtwYrsvHAAfT",
+    "value": "L'ascensore suonò al 53esimo piano, dove avrebbe dovuto essere il data center di Xantech.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2513 - These next 3 lines describe getting inside the Xantech building."
+  },
+  {
+    "id": "swdaxAZ4h9YrgYhQ",
+    "value": "*DING*",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2513 - Continued from above"
+  },
+  {
+    "id": "ucBLDWkekATQBOvX",
+    "value": "Drek. C'era un uomo di latta a guardia della sala server.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2513 - Continued from above"
+  },
+  {
+    "id": "fSgjpNf67PiYvqel",
+    "value": "Semplicemente fantastico, un uomo di latta.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2594 - Mouse hover description for the tinman"
+  },
+  {
+    "id": "Ohn6lac1mfoZbF9x",
+    "value": "Alla sala server.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2522 - Mouse hover description for entrance to the server room"
+  },
+  {
+    "id": "QRYKd0pq8j7tlTFo",
+    "value": "Corridoio",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2541 - Mouse hover description for an exit to the corridor"
+  },
+  {
+    "id": "pHBYE2kUeenLSp0r",
+    "value": "Infiniti corridoi attraversavano questo piano.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2541 - Description of the hallways"
+  },
+  {
+    "id": "8seCRRNHjmm16Njy",
+    "value": "Torna all'atrio",
+    "description": "Mouse hover description for exit back to the lobby"
+  },
+  {
+    "id": "BCgqdWL5IaqGCmPt",
+    "value": "Infermeria",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2541 - Mouse hover description for entrance to the medical room"
+  },
+  {
+    "id": "N0xKbfgacZIZAGuH",
+    "value": "Sala ristoro",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2566 - Mouse hover description for the break room/office kitchen"
+  },
+  {
+    "id": "dkTe1WS8FQ91Qp1f",
+    "value": "Un'infermeria impeccabile. Era tutto all'avanguardia.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2546 - Description of the medical room"
+  },
+  {
+    "id": "qiyw5sZ36ee0PRgP",
+    "value": "Armadietto dei medicinali",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2546 - Mouse hover description for a medicine cabinet"
+  },
+  {
+    "id": "LeN1DRaRaVmJCYoj",
+    "value": "Torna al corridoio",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2564 - Mouse hover description for exit back to the corridor"
+  },
+  {
+    "id": "OTCWud75nqu2ol1l",
+    "value": "Un letto medico. Con che frequenza ne avranno bisogno?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2546 - Mouse hover description for the futuristic medical bed"
+  },
+  {
+    "id": "jolqCH3mYatZWVBU",
+    "value": "La sala ristoro di questo piano era un bar ben fornito. Forse lavorare per la Xantech non sarebbe la cosa peggiore...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2566 - These next 2 lines are the description of the break room"
+  },
+  {
+    "id": "eqb95G2uEQHd4j3P",
+    "value": "Meglio non lasciarsi sedurre dai loro vantaggi aziendali. Avevo un lavoro da fare.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2566 - Continued from above"
+  },
+  {
+    "id": "vEq9XGn5BBEGMKQ9",
+    "value": "Torna al corridoio",
+    "description": "Mouse hover description for exit to the corridor"
+  },
+  {
+    "id": "m3VT1HtiR5GfVyg3",
+    "value": "Una macchina per il caffè",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2578 - Mouse hover description for the coffee machine"
+  },
+  {
+    "id": "lufCIh8SPcmLYJ7v",
+    "value": "Uno scorcio della città. Solo il meglio per i dipendenti Xantech.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2566 - Description of what's outside the window of the break room"
+  },
+  {
+    "id": "ySViDqCbZGnM20Ir",
+    "value": "Datablade",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2657 - Mouse hover description for the server computer"
+  },
+  {
+    "id": "F61oncoaCL7RXXvs",
+    "value": "E ora?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=80 - Game menu"
+  },
+  {
+    "id": "ymGrpDCre5PMOCSJ",
+    "value": "Vediamo cosa ho con me...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=80 - These next several lines are part of the game menu, this looks like Blake is having a dialogue with himself. This is for the inventory"
+  },
+  {
+    "id": "yTxZfTZnDcF1vEn6",
+    "value": "Dovrei SALVARE i miei appunti.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=80 - Selecting this will save the game. Make sure that SAVE is uppercase"
+  },
+  {
+    "id": "QJJ6P75JfTrMPFi1",
+    "value": "Dovrei chiamarlo ABBANDONARE?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=80 - Selecting this will quit the game. Make sure that QUIT is uppercase"
+  },
+  {
+    "id": "9yl7toX6G5fjywGJ",
+    "value": "Non importa.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=80 - Selecting this will exit the menu"
+  },
+  {
+    "id": "u7VT6gUT8YeK4BL4",
+    "value": "Forse dovrei dimenticare tutta questa faccenda e andare a casa?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=86 - If having selected the QUIT option, Blake askes himself if he should really quit."
+  },
+  {
+    "id": "kIsB1K2IlAC20PTM",
+    "value": "Sì, non è un problema mio.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=86 - Selecting this will compleately quit the came"
+  },
+  {
+    "id": "dgr09v7AhG0ivCdi",
+    "value": "No. Una ragazza è scomparsa e io sono la sua unica speranza.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=86 - Selecing this will go back to the game"
+  },
+  {
+    "id": "TwDmSefeThaoQQPX",
+    "value": "Dove vado?",
+    "description": "These next lines are part of the menu that makes Blake move to different locations. He's asking himself where he should go"
+  },
+  {
+    "id": "nO3m4LZ1lTZ2hmAZ",
+    "value": "Il mio appartamento.",
+    "description": "Destination 1: Blake's apartment"
+  },
+  {
+    "id": "Nyqdo4TdU4sXN46J",
+    "value": "Il vicolo vicino alla Gatta di Strada.",
+    "description": "Destination 2"
+  },
+  {
+    "id": "Vtdml2ZFwcGKPcyR",
+    "value": "L'appartamento di Danni e Crystal.",
+    "description": "Destination 3"
+  },
+  {
+    "id": "UFjq7ZsDx3mBuJfJ",
+    "value": "La lavanderia a gettoni Calzino Smarrito",
+    "description": "Destination 4"
+  },
+  {
+    "id": "lcGnCRemChAtZJXW",
+    "value": "Edificio 19, Distretto Industriale.",
+    "description": "Destination 5"
+  },
+  {
+    "id": "4RoylRg4QAaGIrw1",
+    "value": "Non importa.",
+    "description": "Go back to the game and stay in this location"
+  },
+  {
+    "id": "IAfkkWhEVI9fiTkA",
+    "value": "È bello vedere che sei ancora in possesso di tutti i tuoi organi!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=488 - Glitch says this to you every time she sees you after the first time. It references the first thing she says which is the next line."
+  },
+  {
+    "id": "pHEIOjGRLmvFPuZn",
+    "value": "Ehi amico, non sembra che tu sia di queste parti.\n\nQuesto vicolo è uno dei più belli della Grundana, ma se metti il naso dove non dovresti, potresti finire per essere un donatore involontario di organi.\n\nPer tua fortuna, sono una specie di guida turistica e non ho bisogno dei tuoi organi. Il nome è Glitch, a proposito.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=122"
+  },
+  {
+    "id": "5QKPQaeONqf4GyZZ",
+    "value": "So, what do you want to know?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=134 - The beginning of Glitch's dialogue tree"
+  },
+  {
+    "id": "OcV6bB4ZyjHS7Tk5",
+    "value": "What's the Alleycat?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=134 - Question by Blake to Glitch. The Alleycat is the bar/pleasure den"
+  },
+  {
+    "id": "FN8J0pIZGg5kFBLe",
+    "value": "Where's a good place to eat around here?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=134 - Question by Blake to Glitch"
+  },
+  {
+    "id": "Cw1tYBPvFRbFLhg7",
+    "value": "Do you know anything about a girl that went missing recently?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=134 - Question by Blake to Glitch"
+  },
+  {
+    "id": "3LDMb01vfC1B359o",
+    "value": "Let me put it another way, where could I get my hands on some Coral?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=167 - Question by Blake to Glitch, Coral is the new designer drug"
+  },
+  {
+    "id": "aqiuaqi7IBksoHSF",
+    "value": "Alright, Glitch. I did what you asked. Now tell me the password.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=490 - Said by Blake after he's done some work for Glitch. She promised him a password as a reward"
+  },
+  {
+    "id": "F1bfw5rPc7ktwx3Z",
+    "value": "I need your unique brand of help.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1317 - This come in later in Act 2. Blake knows Glitch is a hacker and he need the help of a hacker."
+  },
+  {
+    "id": "TWoUsw4hQxJIN4Yi",
+    "value": "Do you know who the man in this photo is?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1611 - Once Blake has a photo of the man claiming to be Ashley's father, he can show it to Glitch"
+  },
+  {
+    "id": "jqZoK6gTlxpDX7Je",
+    "value": "See you around.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=134 - Said by Blake when ending the dialogue with Glitch"
+  },
+  {
+    "id": "pDA2txVd6k7jSCQo",
+    "value": "I'll be here if you need me.",
+    "description": "Glitch trying to be helpful."
+  },
+  {
+    "id": "0E1EL7xW1LjsmmJM",
+    "value": "Life is the only thing cheaper than the thrills at the Alleycat. If I were you, I'd be careful you don't get eaten alive.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=143 - Said by Glitch as she describes the Alleycat"
+  },
+  {
+    "id": "IuoHCx8LPQ9Lc6DT",
+    "value": "Figuratively or literally?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=143 - Blake, as part of the Alleycat questions"
+  },
+  {
+    "id": "nv67cx1sE42HIM36",
+    "value": "Takeshi's Noodles was the best place, and just around the corner. \n\nIt's a shame he had to close up shop.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=147 - Said by Glitch as she tells Blake of a place to eat"
+  },
+  {
+    "id": "CdkCqZLMEQBhtua1",
+    "value": "Why? What happened to him?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=147 - Blake, as part of the Takeshi questions"
+  },
+  {
+    "id": "iQ1aol68g5AKfOS8",
+    "value": "Both.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=143 - Glitch, in answer to line #824"
+  },
+  {
+    "id": "hc31w1hhbSxusxBn",
+    "value": "Ever the enterprising spirit, he decided to branch out.\n\nLet's just say that ramen weren't the only noods he started selling if you catch my drift. Made a few enemies.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=151 - Glitch, in ansert to line #834. There is a play on words here. Noods can be a way to say noodles, but also sounds like `nudes` as in `nude pictures`. Takeshi was selling noodles and nude pictures."
+  },
+  {
+    "id": "Z5gJQ1DQeXLDw3CS",
+    "value": "Now his enterprising spirit probably haunts these alleyways...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=156 - Glitch, another play on words. `Enterprising spirit` here means Takeshi's exanding his business to pornography, however Takeshi is probably dead so `spirit` also refers to that."
+  },
+  {
+    "id": "1SruOcZorAdXoPFR",
+    "value": "Ok, listen up because I'm only going to say this once...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=164 - Glitch, This and the next line go together. In response of to line #784"
+  },
+  {
+    "id": "dm8iLiJvuKMwnYLK",
+    "value": "No.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=165 - Glitch,"
+  },
+  {
+    "id": "6CkVkKXjlb7n0Tup",
+    "value": "Coral? You don't look like you got the hardware to enjoy it, but who am I to judge.\n\nAcid Nova's the only one selling it, and the Alleycat's the only place to find him. But good luck getting in.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=171 - Glitch, Hardware is slang for cybernetics"
+  },
+  {
+    "id": "GBJwwTJYeS9dUDij",
+    "value": "Why?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=171 - Blake's response to the line above"
+  },
+  {
+    "id": "oXnrANDfPviq9g5Q",
+    "value": "They don't just let any scorched junkie in. You got to be vetted. Even if you had a ticket, you'd still need a password.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=179 - Glith, A junkie is an English slang for a somone who uses drugs. Scorched is slang in the game. A scorched junkie would be someone whose brain has been fried by too many drugs."
+  },
+  {
+    "id": "VFFQjcLacJBbRh0n",
+    "value": "Lucky for you, I have one and know where to find the other.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=184 - Glitch, She has the password and knows where to get a ticket."
+  },
+  {
+    "id": "WlkRBmccvQUG1DqJ",
+    "value": "I'll bite. Where can I get the password?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=184 - Blake, `I'll bite` is English slang for a frustrated `Ok, tell me`"
+  },
+  {
+    "id": "AxfoWdW6mAW4XPyg",
+    "value": "You have a bead on a ticket?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=184 - Blake, A `bead` is English slang for `a lead` as in do you have a lead about where a ticket can be found."
+  },
+  {
+    "id": "OCq1sNZtBX0kPhsB",
+    "value": "Let's talk about something else.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=184 - Blake, Said by Blake to change subject "
+  },
+  {
+    "id": "OFEFPkZUy7MrBtXa",
+    "value": "That's the lucky part! I have the password, and I'd be happy to scratch your back if you scratch mine. It'll be no problem, especially for you.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=191 - Glitch, `scrath your back if you scratch mine` means `I'll do you a favor of you do me a favor first`"
+  },
+  {
+    "id": "IFKN9jEIgBP56g43",
+    "value": "What do you want, credits?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=191 - Blake, he think Glitch wants credits to get the information he needs. Credits is the name of the currency in the game."
+  },
+  {
+    "id": "uT4i9Dsb5BqFPYj5",
+    "value": "Cred- what? No! No, nothing like that. Well, it is something like that. But I don't take money from people; there's so little to go around. Nah, I like to make the corpos bleed a little green if you know what I mean.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=196 - Glitch, she doesn't want money from Blake, she wants him to help her steal money from corporations. `Corpos` is lang for someone who works for a corporation and it's not a nice word. `Bleed green` means `lose money` since in American English, US dollars are known as `green`. "
+  },
+  {
+    "id": "vMQBZUXnMJZgs5qX",
+    "value": "You're a real saint. What do you need me to do?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=196 - Blake, being sarcastic about Glitch's statement above"
+  },
+  {
+    "id": "Q5hjju5dtLt7xs72",
+    "value": "It's simple. All you have to do is take this magical credstick and let it do its voodoo in the cash machine nearby. That's all. Honest.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=206 - Glitch. She means `magical` as `special` as shes' trying to make this seem less bad than it is. A credstick is a digital wallet that stores credits. A cash machine is a bank machine/ATM/bancomat"
+  },
+  {
+    "id": "q4RFNOoNYCUNk31X",
+    "value": "If it's so easy, why don't you do it?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=206 - Blake"
+  },
+  {
+    "id": "G3QY6F5QRwEh3QtT",
+    "value": "*cough* Well, they have a tinman standing in front of it, and he already has my scent. You, on the other hand, he doesn't know.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=214 - Glich. A `tinman` is a hired security guard. `Has my scent` means that he knows her and that she's a hacker, so she can't go do it herself."
+  },
+  {
+    "id": "VnJ42W8688IuNSJV",
+    "value": "Ok, fine. Give me the stick.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=214 - Blake"
+  },
+  {
+    "id": "R1a65eSBZK0x6JEO",
+    "value": "Alright, there's this guy Tweaker. He's a real chrome job and usually hangs out in the subway; he can probably get you a ticket.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=220 - Glitch, in response to the question as to whethere she has a bead on ticket. The guy's name is `Tweaker` which is a reference to a drug user. The name doesn't need to be translated. If there is a good name that can be used that evokes the similar thing, that's good too. a `chrome job` is slang of someone who has cybernetic implants. It's not a nice way to say it. It come froms the term `nut job`, somebody who's crazy, and `chrome` is a slang for cybernetics, especially ones that are visible. "
+  },
+  {
+    "id": "DYIUVg0jTVFDcnd4",
+    "value": "Seems simple enough.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=220 - Blake"
+  },
+  {
+    "id": "LufyyQfICtT0pFHN",
+    "value": "And how! Man, that's a lot of credits...\n\nOh, right! The password is Dionysus. Good luck, my friend, and if you need anything else, just let me know!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=490 - Glitch, in reponse to Blake returning with the ATM job done. Please keep the \n\n between the two sentances. The password is named after the greek god of wine."
+  },
+  {
+    "id": "GX0K5KNPqCQ4KccJ",
+    "value": "Dionysus, huh? Thanks.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=490 - Blake"
+  },
+  {
+    "id": "ID6cc8nK2ULVyJYi",
+    "value": "I'm intrigued; what do you need?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1317 - Glich, when Blake says he needs her special kind of help"
+  },
+  {
+    "id": "A3QNA56qCvwMH3JA",
+    "value": "I need to get access to someone's computer.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1317 - Blake"
+  },
+  {
+    "id": "eI2NJRhdITceIUsi",
+    "value": "1 n33d y0ur l33t h4xx0r sk1llz p0wn1ng a b00m3r's 'put3r lolz",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1317 - Blake - l33tspeak, `I need you elite hacker skills to get into an old person's computer, haha`"
+  },
+  {
+    "id": "MqPxBIFNwx3sDUcg",
+    "value": "*SWOON* You sure know how to speak to a girl.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1317 - Glitch, because `swoon` is surrounded by *, it's not something she's saying. In this case, she's sarcastically pretending Blake's request was romantic"
+  },
+  {
+    "id": "Ld5Osss0FfaypbBM",
+    "value": "Alright, I got something for ya. If you can get physical access to the computer and plug this hacktool in any port, it'll clone all of its data.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1317 - Glitch, a hacktool is... a tool for hacking"
+  },
+  {
+    "id": "0PmBxoCVogV2qotk",
+    "value": "And then what?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1317 - Blake"
+  },
+  {
+    "id": "o1W73Z8rJff8A9og",
+    "value": "Then you plug it into your computer, and you can view all the juicy secrets!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1317 - Glitch"
+  },
+  {
+    "id": "pCBJKjM0kw77SRTv",
+    "value": "What's it going to cost me?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1317 - Blake"
+  },
+  {
+    "id": "pkS3Vmq7Z0BB3Z7q",
+    "value": "Well, you see, I need you to get me a special McGuffin that's in the possession of some guy who'll be happy to trade it for you if you can solve his problem...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1317 - Glich, this is a joke for the player since a McGuffin is a term for something that exists only to move the plot forward. It's made to sound like she's going to send Blake on a large sidequest."
+  },
+  {
+    "id": "7s87vP7Cu0ViKpFK",
+    "value": "Or you can give it to me because you made a ton of credits off my back.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1317 - Blake, does not want to go on a sidequest and reminds Glitch that she just made a ton of money from his work."
+  },
+  {
+    "id": "MUwNw35NofEHT4Mx",
+    "value": "Fine, fine. You're no fun.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1317 - Glitch, relents"
+  },
+  {
+    "id": "vy9AlNmR2a0JVGYC",
+    "value": "Wait... how do I know it's safe to plug into my computer, that it wont to do something else?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1317 - Blake, wisely questioning if his computer will be safe from Glitch."
+  },
+  {
+    "id": "hgYPFUdM3enJYLYJ",
+    "value": "You're just going to have to trust me!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1317 - Glitch"
+  },
+  {
+    "id": "JU4gnnYN5YsOuUOk",
+    "value": "Looks like I got no choice... Very well, now to find a way to access the computer without that fossil noticing...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1317 - Blake, he's using `fossil` to reference Gladys, the mean old lady of the laundromat"
+  },
+  {
+    "id": "xbVfaARGaXDev4k9",
+    "value": "I can't say I do... however, I have heard something. If you could get me--",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1611 - Glitch, when Blake shows her a photo and asks if she knows who the person is. She's trying to get something out of him"
+  },
+  {
+    "id": "URGv9NXJhTePnfgW",
+    "value": "No. Bad Glitch. No more fetch quests. Just tell me.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1611 - Blake, is not falling for her tricks. A `fetch quest` is a quest where you have to go get something and return it."
+  },
+  {
+    "id": "D2V0131pX9wOatov",
+    "value": "Fine. Fine. I saw him talking to Acid Nova about some kind of deal. I don't have any other details, I swear.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1611 - Glitch"
+  },
+  {
+    "id": "GEMm5UkuiPN4Z2qw",
+    "value": "Thanks, Glitch.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1611 - Blake"
+  },
+  {
+    "id": "sxRvZn6hND1Sia2M",
+    "value": "What do you want, chump?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=92 - Tank, The bouncer when he sees you the first time."
+  },
+  {
+    "id": "W4iAiIANiv48a2MS",
+    "value": "Let me in.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=93 - Blake"
+  },
+  {
+    "id": "pbBJ33XOHtQHx4u0",
+    "value": "No ticket, no password: no entry. No exception.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=94 - Tank, a little play on words. no no no no"
+  },
+  {
+    "id": "Zej8HZ9RQHnoZH7Q",
+    "value": "Where do I get those?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=94 - Blake, wants to know where to get a ticket and password."
+  },
+  {
+    "id": "RmKOWuwTWxcZtS0j",
+    "value": "I got a ticket.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=531 - Blake, when he's got a ticket"
+  },
+  {
+    "id": "LGNXaxOHum6V5AfL",
+    "value": "Man, get drek out of my face!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=96 - Tank, if Blake asks where to get a ticket or possword. Drek is a made up swear word for this game. It can me used like `shit` or `fuck`. It can also be used as verb or adjective. `Dreking idot` would be the same as `fucking idiot.`"
+  },
+  {
+    "id": "8qfsNx47Qpd2X2jJ",
+    "value": "They give these out to any drek these days. What's the password?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=531 - Tank, if you have a ticket. He's surprised you have one."
+  },
+  {
+    "id": "AYIrn3kLG1fpK1gx",
+    "value": "I don't know.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=531 - Blake, option if he doesn't have the password."
+  },
+  {
+    "id": "9a5qrij4dxSO0jQV",
+    "value": "...Boobies?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=531 - Blake, option if he doesn't have the password."
+  },
+  {
+    "id": "AUZcj2OK6KvKy91h",
+    "value": "Dionysus",
+    "description": "https://youtu.be/EprkOx1qUq0?t=531 - Blake, this option only shows up if Glitch told us the password."
+  },
+  {
+    "id": "YkptDGw3N76HFSau",
+    "value": "Get the drek out of my face!",
+    "description": "Tank, if you tell him the wrong password."
+  },
+  {
+    "id": "p2higRKDqqP1SgFA",
+    "value": "Very well, Mr...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=531 - Tank, if you say the right password."
+  },
+  {
+    "id": "uTBvfZKfHtxsXtqA",
+    "value": "Steel. Blake Steel",
+    "description": "https://youtu.be/EprkOx1qUq0?t=531 - Blake. Bond, James Bond"
+  },
+  {
+    "id": "SL41VBpypJobnVit",
+    "value": "Very well, Mr. Steel. Right this way.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=531"
+  },
+  {
+    "id": "hUXjIccxo6j9kDb3",
+    "value": "*Ksssh* MOVE ALONG, CITIZEN. *Ksssh*",
+    "description": "https://youtu.be/EprkOx1qUq0?t=380 - Tinman, Dialogue with the tinman near the ATM. He doesn't want you to use the ATM"
+  },
+  {
+    "id": "C8mLudKEgMU1A0gr",
+    "value": "I need to use the jackpot.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=380 - Blake, `Jackpot` is an in-game slang for ATM. Because it looks like a slot machine and the the big prize money that comes out of a slot machine is called a jackpot."
+  },
+  {
+    "id": "1ZErRZ4hhAlB1ALv",
+    "value": "Never mind...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=380 - Blake, if he decides not to talk to the tinman"
+  },
+  {
+    "id": "Ogk32Pen5tOph0C1",
+    "value": "*Ksssh* NO. *Ksssh*",
+    "description": "https://youtu.be/EprkOx1qUq0?t=387 - Tinman, if Blake tell him he wants to use the ATM"
+  },
+  {
+    "id": "Yq4SQEHyC2gm5Dck",
+    "value": "What do you mean, \"no?\"",
+    "description": "https://youtu.be/EprkOx1qUq0?t=387 - Blake, if he decides to question the tinman's logic"
+  },
+  {
+    "id": "TJKTnUaHlOGvDtIR",
+    "value": "You're the boss.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=387 - Blake, if he decides that he doesn't want to talk to the tinman"
+  },
+  {
+    "id": "HuQiCoIvSL6qc1jM",
+    "value": "*Ksssh* I'M PROTECTING THIS CASH MACHINE. IF NOBODY USES IT, NOBODY CAN VANDALIZE IT. *Ksssh*",
+    "description": "https://youtu.be/EprkOx1qUq0?t=395 - Tinman, he's not very smart. He's supposed protect the ATM from vandals and people like Glitch. So he decided that it can't be bloken if nobody uses it."
+  },
+  {
+    "id": "ZFOIPqCoA1oot6aK",
+    "value": "I really need to get my money.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=395 - Blake, trying to appeal to the tinman. It doesn't work"
+  },
+  {
+    "id": "aDoSyeZ0x1ZFvSls",
+    "value": "Please...?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=395 - Blake, trying to appeal to the tinman. It doesn't work"
+  },
+  {
+    "id": "tOlGmPF9voWXXLPA",
+    "value": "Are you a dreking idiot?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=395 - Blake, trying to provoke the tinman"
+  },
+  {
+    "id": "k4WiuDh4KEcWIJ2B",
+    "value": "No flaws with that logic. Have a good evening.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=395 - Blake, if he decides that he doesn't want to talk to the tinman anymore"
+  },
+  {
+    "id": "Z14h5xQo9yGRIg2f",
+    "value": "*Ksssh* THAT'S YOUR PROBLEM, NOW GET LOST *Ksssh*",
+    "description": "Tinman - Reply if you choose 'I really need to get my money.'"
+  },
+  {
+    "id": "6673a0Bhp9dc6J1y",
+    "value": "*Ksssh* NO *Ksssh*",
+    "description": "'Tinman - Reply if you choose 'Please...?'"
+  },
+  {
+    "id": "fGKxDB0xJuNtLet8",
+    "value": "*Ksssh* DO YOU WANT TO SAY THAT AGAIN? *Ksssh*",
+    "description": "https://youtu.be/EprkOx1qUq0?t=403 - Tinman, when Blake calls him an idiot"
+  },
+  {
+    "id": "k5TTkj9gjcIqAdqC",
+    "value": "... No...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=403 - Blake, if he backs down."
+  },
+  {
+    "id": "MJb7wUkpCXVG05TS",
+    "value": "Yes. I asked you if you're a dreking idiot.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=403 - Blake, is going to have a verbal fight with this tinman."
+  },
+  {
+    "id": "Hry4lGGMWnA2jnWH",
+    "value": "*Ksssh* YOU HAVE TWO SECONDS TO GET OUT OF MY FACE BEFORE I REARRANGE YOURS *Ksssh*",
+    "description": "https://youtu.be/EprkOx1qUq0?t=410 - Tinman. `Get out of my face` is when you are angry and someone and want them to go away. This is part of a wordplay with `rearrange yours` He's basically saying, `if you don't leave, I'm going to hurt you`"
+  },
+  {
+    "id": "4YXndJleOHo45cmm",
+    "value": "Think about it. How much money is the bank losing by you making it impossible to withdraw creds?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=414 - Blake, making the argument why the tinman's plan is stupid."
+  },
+  {
+    "id": "7t0rdNTMSIL70MXm",
+    "value": "*Ksssh* ERR... AH... WELL... AT LEAST IT'S NOT GETTING VANDALIZED *Ksssh*",
+    "description": "https://youtu.be/EprkOx1qUq0?t=417 - Tinman, is getting nervous, he hadn't considered this and is trying to save face."
+  },
+  {
+    "id": "wHM2tpgP90IthrDP",
+    "value": "Well, that's good! You saved them from paying for a coat of paint and only losing thousands in transaction fees.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=421 - Blake. Since the banks always charge transaction fees with ATMs and the tinman is not letting people use the ATM, the banks are losing money."
+  },
+  {
+    "id": "e1pWgvTkJYL11jBd",
+    "value": "*Ksssh* YEAH, BUT... *Ksssh*",
+    "description": "https://youtu.be/EprkOx1qUq0?t=427 - Tinman"
+  },
+  {
+    "id": "YG0hH3gFSEAFaE83",
+    "value": "Best case scenario, they shut this jackpot down because it brings in no money, and you lose your job. Worst case, they sue you for lost revenue. Good luck.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=429 - Blake, his final verbal knockout of the tinman."
+  },
+  {
+    "id": "118AoJZIwviX9sH9",
+    "value": "*Ksssh* FINE! FINE! YOU CAN USE IT. JUST BE QUICK *Ksssh*",
+    "description": "https://youtu.be/EprkOx1qUq0?t=432 - Tinman"
+  },
+  {
+    "id": "waUyOrc8hnI2XaGk",
+    "value": "While the tinman looked away, I pretended to withdraw some credits and scanned Glitch's chip instead. Graphical anomalies multiplied on the screen like bacteria on a petri dish.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=434 - Blake, this is personal thoughts, not something said to the tinman. The screen of the ATM -- glitches."
+  },
+  {
+    "id": "IprUKM815xyV1vNP",
+    "value": "Panic gripped me as I tried to act naturally, keenly aware of the nearby guard. As the screen became more corrupted, sweat dripped from my brow.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=440 - Blake is concerned that the tinman will see what he's doing"
+  },
+  {
+    "id": "DXhpE6YlZ5YYMilu",
+    "value": "Fortunately, the screen returned to normal just as quickly as it glitched. \"TRANSACTION COMPLETE,\" it happily chimed.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=446 - Blake, but everything worked out ok."
+  },
+  {
+    "id": "78MlINjRJiDZCSqv",
+    "value": "...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=254 - Dialogue with Tweaker. Tweaker doesn't say hello."
+  },
+  {
+    "id": "IWDxBJEAeL05YgSY",
+    "value": "Are you Tweaker?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=254 - Blake"
+  },
+  {
+    "id": "yyEwsfasxaO3vSM5",
+    "value": "I got your noodles.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=501 - Blake, when he returns to Tweaker with a box of noodles."
+  },
+  {
+    "id": "YUmlAX2EVC3Qu28d",
+    "value": "...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=254 - Blake, Exits dialogue with Tweaker without saying anything"
+  },
+  {
+    "id": "xiEPVpVAyBIVCdOV",
+    "value": "Depends on who's asking.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=259 - Tweaker, in response to `Are you Tweaker`"
+  },
+  {
+    "id": "PHWRY9ck5DB4FYpR",
+    "value": "I'm asking.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=259 - Blake, one of three possible answers to the question above."
+  },
+  {
+    "id": "E8S4DKHBSEl8nH3p",
+    "value": "Blake Steel, PI.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=259 - Blake, one of three possible answers to the question above."
+  },
+  {
+    "id": "yX1sIIejsYcUDgJM",
+    "value": "Glitch sent me.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=259 - Blake, one of three possible answers to the question above."
+  },
+  {
+    "id": "pLf6VN0lEkjlVkYT",
+    "value": "Well, I have no idea who you are. Get lost.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=264 - Tweaker, if you tell hom `I'm asking`"
+  },
+  {
+    "id": "8rFRbkIIaHnWViAI",
+    "value": "Wait! Glitch sent me.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=264 - Blake, before Tweaker ends the conversation."
+  },
+  {
+    "id": "4mhv7ZbIAjAbeeAj",
+    "value": "A PI? You're one 'G' short.",
+    "description": "Tweaker - This is what Tweaker says if you say 'Blake Steele, PI'. There is a play on words here. PI stands for Private Investigator. By telling black that he's one G short, he's suggesting the acronym should be PIG, which is an insulting way to call a cop."
+  },
+  {
+    "id": "urKn3eVhDZNulR1g",
+    "value": "I'm here for business, Glitch sent me.",
+    "description": "Blake - Blake's response to being called a pig."
+  },
+  {
+    "id": "xccjfdng1179kEtq",
+    "value": "Glitch needs to keep her mouth shut. What do you want?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=274 - Tweaker, once he's been told that Glich sent Blake"
+  },
+  {
+    "id": "rRjoAdSxs0op3JY4",
+    "value": "She said you could get me a ticket for the Alleycat.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=274 - Blake"
+  },
+  {
+    "id": "8V0gDkXc8FSAMdRg",
+    "value": "The Alleycat? They're going to eat you alive. What could someone like you possibly want with that pleasure palace?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=276 - Tweaker"
+  },
+  {
+    "id": "JYHFT1elsc4kPtoM",
+    "value": "A man... hmm... has needs.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=276 - Blake, here blake is suggesting that he wants to have sex"
+  },
+  {
+    "id": "c1DCq3NdmT4mcf6J",
+    "value": "I'm looking for someone.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=276 - Blake"
+  },
+  {
+    "id": "ymlXag0M1Th46WtB",
+    "value": "*laughs* Good dreking luck with that.",
+    "description": "Tweaker, if you say 'A man... hmm.. has needs.'"
+  },
+  {
+    "id": "noGUvhNgkY11K9bt",
+    "value": "Who?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=282 - Tweaker, if you say you're looking for a girl."
+  },
+  {
+    "id": "0LT1Uivl4UC1Q2q1",
+    "value": "Danni Ashton. Heard of her?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=282 - Blake"
+  },
+  {
+    "id": "UklgRUx1gEB0M77M",
+    "value": "Ah drek.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=287 - Tweaker, he know something abou the missing girl"
+  },
+  {
+    "id": "RfVA6A4XkmjyVYMc",
+    "value": "I'll take that as a 'yes.' What happened to her?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=287 - Blake, is taking the `ah drek` as a sign that Tweaker knows Danni"
+  },
+  {
+    "id": "SKnEajii0En3aAgy",
+    "value": "Look, man, the Alleycat swallows people whole. If you value your life, stay away.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=290 - Tweaker, `swallows people whole` is slang for `sometimes people go in and disapper."
+  },
+  {
+    "id": "kwrXWmva3xQO5rx2",
+    "value": "Thanks for your concern. Nonetheless, I need a ticket.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=290 - Blake, is not concerned about disappearing"
+  },
+  {
+    "id": "hEs92MxFkJcM47iU",
+    "value": "Alright, let's say I had a ticket to sell you. You couldn't afford it.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=294 - Tweaker wants something in return"
+  },
+  {
+    "id": "7amnDtbtosWxnGWO",
+    "value": "Try me.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=294 - Blake"
+  },
+  {
+    "id": "b4lyHxKFyjdiHNGV",
+    "value": "You don't know what I can afford.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=294 - Blake"
+  },
+  {
+    "id": "USSQ1bl0YGqunZO7",
+    "value": "You can't afford it because what I want you can't get.\n\nNobody's ever going to get any more of Takeshi's noods on account of him mysteriously 404ing.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=301 - Tweaker, 404ing... like the HTML error code for Page Not Found. Also 'noods' is short for 'ramen noodles'"
+  },
+  {
+    "id": "vu2oWMhe6Zf27klu",
+    "value": "You just want some dreking noodles?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=301 - Blake can't believe Tweaker only wants some noodles in exchange"
+  },
+  {
+    "id": "5ieWvgdrwd9XnZwJ",
+    "value": "Not just any noods! Takeshi's! The man was a master of his craft, and he always left a small surprise printed on the bottom of the bowls... heh heh...\n\nAnyway, no Takeshi, no noods.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=309 - Tweaker"
+  },
+  {
+    "id": "R8OxmL7qiF8AClIJ",
+    "value": "You underestimate how resourceful I am.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=309 - Blake"
+  },
+  {
+    "id": "DP0jOkEfYointORw",
+    "value": "What?! How's that possible?!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=501 - Tweaker, when Blake returns with the noodles"
+  },
+  {
+    "id": "gCLO3gukGYwbdj8Q",
+    "value": "I told you, I am resourceful. This is the last bowl in existence. So if you want it, I'll take one of those tickets.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=501 - Blake"
+  },
+  {
+    "id": "WBj2NN0EqLAF6aGC",
+    "value": "You got a dreking deal! Here's your ticket. Hope you find what you're looking for.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=501 - Tweaker accepts the noodles and gives Blake the ticket"
+  },
+  {
+    "id": "kG3Z6Wi1FGDmqHUe",
+    "value": "Pleasure doing business with ya.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=501 - Blake, taking the ticket"
+  },
+  {
+    "id": "FknfdxHrYiSDWrsd",
+    "value": "What's the deal with the noodles anyway?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=501 - Blake, wanting to know why Tweaker wanted the noodles."
+  },
+  {
+    "id": "w7umlaxTUYsP5Bjf",
+    "value": "It's not about the noods themselves, but what's at the bottom of the bowl.\n\nTakeshi's started printing nudes on the bottom of his bowls of noods! They're collector's items.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=501 - Tweaker is a pervert"
+  },
+  {
+    "id": "1L7m3ZNApcD7Zvyx",
+    "value": "Gross. I'm out.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=501 - Blake, disgusted by Tweaker."
+  },
+  {
+    "id": "Mxch7QbA0Is76vlV",
+    "value": "Oh great! You're back.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1629 - Acid Nova is being sarcastic. Says this after the first time you talk to him."
+  },
+  {
+    "id": "IBK1qbNCNX2TIcuM",
+    "value": "What do we have here?\n\nNo body armor, so you're no\ncop. Ya got no hardware, so you're no chrome job.\n\nSo... who are you?\n",
+    "description": "https://youtu.be/EprkOx1qUq0?t=577 - Acid Nova, The very first time you meet with him."
+  },
+  {
+    "id": "v9cNfIZBbsHmxSXF",
+    "value": "The name's...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=577 - Blake, about to introduce himself"
+  },
+  {
+    "id": "8TIKbhuOD9t57swx",
+    "value": "Nah, man. I'm keen to guess.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=577 - Acid Nova wants to guess"
+  },
+  {
+    "id": "asWjdeCLXo74PVGZ",
+    "value": "You go door to door selling drek?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=577 - Acid Nova"
+  },
+  {
+    "id": "v9Hd7yScGImcvdXd",
+    "value": "Not even close.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=577 - Blake"
+  },
+  {
+    "id": "2R0GCOgo1fIGWXZx",
+    "value": "I don't have time for this.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=577 - Blake if he's lost his patience"
+  },
+  {
+    "id": "skneByA1MeFKMjHB",
+    "value": "You're an out-of-luck ambulance chaser?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=577 - Acid Nova, an `abulance chaser` is an English slang for bad lawyers."
+  },
+  {
+    "id": "Xt8SDnfOQrk28QHn",
+    "value": "Wrong again.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=577 - Blake"
+  },
+  {
+    "id": "AXAtuyuluojFxGIg",
+    "value": "I've had enough of this drek.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=577 - Blake if he's lost his patience"
+  },
+  {
+    "id": "A3P3eOGj9QYSST5L",
+    "value": "You're the health inspector who's come to shut us down?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=577 - Acid Nova"
+  },
+  {
+    "id": "KcoiK6rVKeZ4YqDk",
+    "value": "It's like you're not even trying!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=577 - Blake"
+  },
+  {
+    "id": "wOgDEJJMVB7GajD4",
+    "value": "Look, I'm...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=577 - Blake"
+  },
+  {
+    "id": "dxSp8apROGmtE9kg",
+    "value": "Judging from your cheap trench coat, I'm guessing you're going to be a pain in my ass.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=577 - Acid Nova, since Blake looks like a stereotypical PI, Acid guesses that Blake is not here to have a good time."
+  },
+  {
+    "id": "NvlerS0PUIjPcr81",
+    "value": "Finally, talking sense!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=577 - Blake"
+  },
+  {
+    "id": "1iwaQa5bRwnBtnID",
+    "value": "... the coat's not that cheap.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=577 - Blake, being offented that Acid calls his coat cheap"
+  },
+  {
+    "id": "rfJqg4fHISst1YGW",
+    "value": "What do you want?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=601 - Acid Nova"
+  },
+  {
+    "id": "iVdyqyuCdJlQC2HA",
+    "value": "The name's Blake. I heard you're the guy to talk to about Coral.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=601 - Blake"
+  },
+  {
+    "id": "HOiEIucri0WIUNZ4",
+    "value": "I'm a PI who's looking for a girl.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=601 - Blake"
+  },
+  {
+    "id": "CpvByM04n0e6SmBD",
+    "value": "Do you know the man in this photo?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1631 - Blake, this becomes available one Blake find the photo"
+  },
+  {
+    "id": "svehmfg3YyAnXuTL",
+    "value": "Looking at you, I can tell this will be pointless. Bye.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=601 - Blake, ends the conversation."
+  },
+  {
+    "id": "2b3PZ3NZiCXlQAiT",
+    "value": "What could you possibly want from Coral? You don't have the hardware to enjoy it.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=601 - Acid Nova, noting that Blake has no cybernetics"
+  },
+  {
+    "id": "VJ81xTGyhaRKnPPH",
+    "value": "People keep saying that. What in the drek are you talking about?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=601 - Blake"
+  },
+  {
+    "id": "tX4GtyqB7G3bEAhw",
+    "value": "You for real asking me for Coral when you clearly have no idea what it is?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=601 - Acid Nova"
+  },
+  {
+    "id": "CTKMAyaoSF3gYsai",
+    "value": "Why don't you educate me, then?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=601 - Blake"
+  },
+  {
+    "id": "48xExdOucELRwhBG",
+    "value": "Coral's a \"simstim.\" It's a digital drug. You need hardware; you need cybernetics to partake, my unmodified friend.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=601 - Acid Nova, SimStim stands for 'simulated stimulant'"
+  },
+  {
+    "id": "2D93o4QxfMufnHA4",
+    "value": "What is it, exactly?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=601 - Blake, one of his many questions about Coral"
+  },
+  {
+    "id": "ynQlj7ElHib0qg4I",
+    "value": "Is it addictive?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=601 - Blake, one of his many questions about Coral"
+  },
+  {
+    "id": "1JWKVOubYQjWp2ON",
+    "value": "How does one take it?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=601 - Blake, one of his many questions about Coral"
+  },
+  {
+    "id": "894cuXDTwwok6o32",
+    "value": "Where does it come from?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=601 - Blake, one of his many questions about Coral"
+  },
+  {
+    "id": "ZkT9w4TWrSPZ4xUl",
+    "value": "Actually, I wanted to talk to you about something else.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=601 - Blake, changing the subject"
+  },
+  {
+    "id": "KbdmO7Ge1m2CiZZv",
+    "value": "Exactly what I said. When you insert the Coral in your socket, it downloads a program that parties on your neural interface. It messes with the signals from your cybernetics, giving you a full-body high. You feel drek that isn't even happening. It shuts you down while you're chasing those ruby slippers, so you don't run around while stoned out of your mind.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=617 - Acid Nova"
+  },
+  {
+    "id": "DVcpVG2VUZlAvuvE",
+    "value": "All that from a computer program? Huh.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=617 - Blake"
+  },
+  {
+    "id": "XNPYn2Z1W06aFe5l",
+    "value": "It feels great, but it's no more addictive than really good sex. Some people can't help themselves and will chase those ruby slippers. It's a simstim, there are no chemicals...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=625 - Acid Nova"
+  },
+  {
+    "id": "mymEILxZF2gtoos9",
+    "value": "... ergo, you can't get chemically dependent on it, right?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=625 - Blake"
+  },
+  {
+    "id": "ndnCwVLAVGahOKfj",
+    "value": "It's all in this little red chip. Plug it into your socket and it does the rest.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=635 - Acid Nova"
+  },
+  {
+    "id": "pwvkv9JI1wgInY8V",
+    "value": "But if it's just a program on a data chip, can't people copy it and put you out of a job?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=635 - Blake"
+  },
+  {
+    "id": "FLiPAjOslN3CGtXN",
+    "value": "They say it's the brainchild of a biohacker named KryptoKool. As for where I get it, well, we're close enough friends.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=653 - Acid Nova, explaining who invented it"
+  },
+  {
+    "id": "SiprM9QLKGwyQB5H",
+    "value": "KryptoKool? What a stupid name.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=653 - Blake, `KrytoKool` is kind of a dumb name."
+  },
+  {
+    "id": "rxB1FjSnPdJtMs27",
+    "value": "Your concern for my livelihood is touching; it really is. But that's the clever bit. The data chip destroys itself when it downloads into you. Or if you tamper with it. It even deletes itself from your system after a random amount of time. Nah, this drek is clever.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=635 - Acid Nova, explaining how impossible it is to pirate Coral"
+  },
+  {
+    "id": "dq1W20PmWGtkeWU0",
+    "value": "... Good to see that your retirement is secure.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=635 - Blake"
+  },
+  {
+    "id": "3cLwQlbGyWFDANQU",
+    "value": "Aren't we all?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=663 - Acid Nova, in respose to `I'm looking for a girl`"
+  },
+  {
+    "id": "tOXRDE5qld7eD5De",
+    "value": "Look at this picture, you recognize her?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=663 - Blake"
+  },
+  {
+    "id": "u5ReMiiNX8Tb2WmF",
+    "value": "... never seen her in my life.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=663 - Acid Nova, the `...` signify that he's pausing before answering. He's clearly lying"
+  },
+  {
+    "id": "NoNln8eW18DZtrWt",
+    "value": "And just when I thought we were becoming friends, you lie to my face?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=663 - Blake knows Acid Nova is lying"
+  },
+  {
+    "id": "9wGhlw4B2fUtKRyR",
+    "value": "How do you figure?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=663 - Acid Nova, not sure how Blake knows that Acid is lying"
+  },
+  {
+    "id": "jHmMWxWiTu38n8In",
+    "value": "Her name is Danni Ashton. She did Coral. You are the only Coral dealer in the Gutter.  I'm just trying to find her.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=663 - Blake, laying out the facts"
+  },
+  {
+    "id": "SV2BieJ7X0dVJZBV",
+    "value": "I don't keep track of every chrome job junkie that crosses my path. Get lost.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=683 - Acid Nova, he's not going to be helpful."
+  },
+  {
+    "id": "o6lrLIgGGi0u6MOY",
+    "value": "Now listen here, you...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=683 - Blake, one of the things he says to appeal to Acid Nova"
+  },
+  {
+    "id": "iDM2vu2gI8oPa0rG",
+    "value": "Really? Look at the photo again; she's not that forgettable.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=683 - Blake, one of the things he says to appeal to Acid Nova"
+  },
+  {
+    "id": "j56WuT3IDT0CxpbU",
+    "value": "Fine. How many credits will it take to jog your RAM?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=683 - Blake, one of the things he says to appeal to Acid Nova. `Jog your RAM` here is means `Jog your memory`, in other words, `how much money will it take for you to remember that you know Danni`"
+  },
+  {
+    "id": "SSICeXVQlwpftM8E",
+    "value": "Let me stop you while I'm still in a good mood. I don't like to be called a liar by a two-bit walking cliche with the aforementioned cheap coat. You can drop this now and enjoy the delights the Alleycat offers, or I can ask Tank, who I believe you already met on your way in, to show you the way out.\n\nAm I coming through clear?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=683 - Acid Nova is going to be uncooperative."
+  },
+  {
+    "id": "4AnWCJqeWR6YtIaD",
+    "value": "This isn't over.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=683 - Blake"
+  },
+  {
+    "id": "NqvIKWtVvr63uyIV",
+    "value": "What is it with you and showing me photos of people I've never seen?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1631 - Acid Nova, once Blake returns with a photo of the man pretending to be Danni's father."
+  },
+  {
+    "id": "KRTOE9JoMU90DQNL",
+    "value": "I know you know him.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1631 - Blake, only if he's talked to Glitch and told him that she saw Acid Nova and the man in the photo talking."
+  },
+  {
+    "id": "Kea2aKUF8A9pGvPE",
+    "value": "Nevermind.",
+    "description": "Blake, Shown if you haven't talked to Glitch yet."
+  },
+  {
+    "id": "MyFQRuTcpP71nEIH",
+    "value": "You don't know drek about anything.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1631 - Acid Nova, getting nervous."
+  },
+  {
+    "id": "hPtJ0cWcLJRKpMrY",
+    "value": "(Bluff) I know all about your deal.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1631 - Blake, he's bluffing, hoping that Acid Nova will accidentally say something useful."
+  },
+  {
+    "id": "ucrlXhC6np6G3EuO",
+    "value": "*Goes pale* How do you know about the Coral?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1631 Acid Nova, incriminates himself."
+  },
+  {
+    "id": "oNmmVRr7gfnqUfUA",
+    "value": "I didn't, but thanks for confirming it for me.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1631 - Blake is please with himself"
+  },
+  {
+    "id": "F5kN6WoktLGHZ1Sv",
+    "value": "You dreking drek! You stick your nose in my business, you die!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1631 - Acid Nova is very much not pleased with Blake"
+  },
+  {
+    "id": "UsiIi2PE1a2EU09A",
+    "value": "I don't think so. Instead, you're going to tell me what I want to know, or I'll give JV a call. I'm sure he'd love to know how loose-lipped you are about his involvement with Coral.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1631 - Blake, he's taking control of the situation. JV are the initials of the man in the photo."
+  },
+  {
+    "id": "SAHChqcb8vm7WBnw",
+    "value": "I'm not falling for another one of your bluffs.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1631 - Acid Nova thinks that Blake is bluffing again"
+  },
+  {
+    "id": "oxCDPNpjUtIVEsWL",
+    "value": "I'm not bluffing this time.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1631 - Blake is not bluffing, he really has JV's number since, he's the man that hired Blake to begin with."
+  },
+  {
+    "id": "pWd3TKlttxhues3F",
+    "value": "I pulled out my phone and dialed the number for the man claiming to be Jacob Ashton.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1658 - Blake narrates this part."
+  },
+  {
+    "id": "Ea6ND93ENU5SScRu",
+    "value": "*RING RING*",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1658"
+  },
+  {
+    "id": "50NY9r7iEDRXsTQN",
+    "value": "Two rings, and JV, whoever he really was, picked up the phone.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1658 - Blake narrates this part."
+  },
+  {
+    "id": "lSMtxO6yoGMAHt2V",
+    "value": "Mr. Steel, I trust you have an update for me?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1668 - JV, the man who hired Blake and pretended to be Danni's father."
+  },
+  {
+    "id": "e7ePWpoAVcsk2V4W",
+    "value": "*whispering* Ok, you win! Just hang up!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1668 - Acid Nova"
+  },
+  {
+    "id": "3Ol5Q7y7EmlpLRNf",
+    "value": "I can't hear you; it's very loud where you are.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1668 - JV"
+  },
+  {
+    "id": "h0NLMfgllgnV7rvF",
+    "value": "My apologies. I dialed you by accident. I'll report later. Goodbye.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1668 - Blake"
+  },
+  {
+    "id": "tiZ69Mw4L0QCfY99",
+    "value": "Who the drek are you?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1668 - Acid Nova, now concerned about his safety and Blake's connections"
+  },
+  {
+    "id": "gmYiNOXIJnCIQ4KS",
+    "value": "I told you, I'm Blake Steel, PI. I'm looking for Danni, who I know you sold Coral to, and JV is somehow playing a part in it. And you were just about to tell me what you know.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1668 - Blake"
+  },
+  {
+    "id": "m2wiILygS4cl8IIL",
+    "value": "Alright, fine. What do you want to know?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1687 - Acid Nova is finally going to give some answers"
+  },
+  {
+    "id": "yRDRyTWeeBVZAf6e",
+    "value": "What do you know about Danni?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1687 - Blake, first question he asks"
+  },
+  {
+    "id": "yc0OVIppdg3qXuj5",
+    "value": "Tell me everything you know about JV.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1687 - Blake, second question he askes"
+  },
+  {
+    "id": "tvFU34dl6DsbwQgp",
+    "value": "That wasn't so hard, was it?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1687 - Blake, once all his questions are answered"
+  },
+  {
+    "id": "26yT3uMdnfDjTWPr",
+    "value": "Happy? Good, get the drek out of my club and never come back!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1687 - Acid Nova, once he answered all the questions"
+  },
+  {
+    "id": "6SCxJnwWC6cPF9l4",
+    "value": "Aww... What happened to your friendly disposition?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1687 - Blake, he's turning the tables with Acid Nova. When Blake first came here, Acid was acting friendly while being unhelpful, now it's Blake's turn pretend to be friendly while being unhelpful"
+  },
+  {
+    "id": "vTNtLDte3Oqj03Li",
+    "value": "OUT!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1687 - Acid Nova, the mask's finally dropped and he yells at Blake to leave"
+  },
+  {
+    "id": "MObGLgiLQJm6FGlh",
+    "value": "It's true. I sold Coral to Danni every now and again. As far as I know, she got most of it from the people she frequented. That's all I know, I swear!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1687 - Acid Nova, saying what he knows about Danni"
+  },
+  {
+    "id": "5TgP874JYchwjueW",
+    "value": "JV... Johan Visser. As you've guessed, he's my Coral contact.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1687 - Acid Nova, saying what he knows about JV"
+  },
+  {
+    "id": "SSqxGMprlAjGkLeO",
+    "value": "What can you tell me about him?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1687 - Blake, wanting more information"
+  },
+  {
+    "id": "MR9ZMQuupxEK4qC9",
+    "value": "Not much. He's a very dangerous man. We'll meet at Building 19 in the industrial district. He tells me when and I show up with a load of credits and no questions. There's a code to get in: 3141.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1687 - Acid Nova"
+  },
+  {
+    "id": "Sc6wPv3wlxOtOKMv",
+    "value": "Building 19, huh. I should give that place a look.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1687 - Blake"
+  },
+  {
+    "id": "NcOHeNYqVCpUIXE5",
+    "value": "I stepped out of the Alleycat no wiser than when I came in. My gut told me that Acid Nova was dirty and knew something, but then again, my gut's been saying many things since that dumpster dive.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=720 - Blake narrating, this is after you speak with Acid Nova for the first time and he doesn't tell you anything useful. 'My gut told me' is the same as saying 'my instints told me', the joke is that Blake has been in a very smelly dumpster and his stomach didn't like it."
+  },
+  {
+    "id": "0GkIvdixXQPxjTKU",
+    "value": "As I stepped away from the neon bacchanalia, a woman approached me from the shadows with the practiced saunter of a predator. One look, and I had to force myself not to blush brighter than her neon pink dress. Without hesitation, she hooked her arm on mine and started walking down the alley.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=720 - Blake narrating, the small joke is that he called the Alleycat a bacchanialia since the password was Dionysus."
+  },
+  {
+    "id": "En3NWBPL3h9htAUa",
+    "value": "Act natural, we're just two friends going for a walk. We can't afford to stick out.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=739 - Beginning our introduction to Crystal. The joke is that there are always two choices: a suave choice and a stupid choice. There is no difference."
+  },
+  {
+    "id": "ZADGIGMSnIcomCkX",
+    "value": "You have me at a disadvantage, miss...?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=739 - Blake, suave choice 1"
+  },
+  {
+    "id": "aYt1W7Q8m0t44i62",
+    "value": "Ba... err.. um... oof... ah...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=739 - Blake, stupid choice 1. This is a setup to another joke at the end of the game. Someone else who meets Crystal will say the same exact thing"
+  },
+  {
+    "id": "EnV0hpywT91PJcLw",
+    "value": "My name's Crystal. I overheard you talking to that skeeze, Acid. Is it true what you said? That you're looking for Danni?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=743 - Crystal. A skeeze is someone who's disreputable."
+  },
+  {
+    "id": "rC0vcybtRMntN0qs",
+    "value": "Yes.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=743 - Blake, suave choice 2"
+  },
+  {
+    "id": "xU5AqcFV2nR3Q3jq",
+    "value": "Err... *cough* um, who? Oh, right, yes. Yes, I am.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=743 - Blake, stupid choice 2"
+  },
+  {
+    "id": "Oct3vesH19TbahsB",
+    "value": "Why? What's your angle?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=743 - Crystal"
+  },
+  {
+    "id": "t6L9vS4A8LVbWfal",
+    "value": "I understand she went missing a few days ago. I'm a private investigator, and her father's paying me to find her.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=743 - Blake, suave choice 3"
+  },
+  {
+    "id": "a1p3rDq5BXdwMjAT",
+    "value": "Uhm... err... her father is, um, looking for her. Is it me, or is it getting unseasonably warm?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=743 - Blake, stupid choice 3"
+  },
+  {
+    "id": "dPVyq04ada0wSkOh",
+    "value": "Her father, huh? Danni never talks about her family.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=743 - Crystal"
+  },
+  {
+    "id": "7yJQ4MN4csjKXVRu",
+    "value": "You know my interest in Danni; what about yours?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=743 - Blake, suave choice 4"
+  },
+  {
+    "id": "HDGF9KjE7e31ngXg",
+    "value": "How do you, uh... how do you know her?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=743 - Blake, suave choice 4"
+  },
+  {
+    "id": "jqTtBkCQUmi1DfUI",
+    "value": "Danni's a good friend of mine.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=743 - Crystal"
+  },
+  {
+    "id": "8EXiCaOgBIl9v4Mk",
+    "value": "Do you know anything about what happened to her?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=743 - Blake"
+  },
+  {
+    "id": "T2Kfn2sLe2f0c6n2",
+    "value": "I don't, but it can't be good.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=743 - Crystal"
+  },
+  {
+    "id": "UKih8FNcml8KYHow",
+    "value": "What makes you so sure of that?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=743 - Blake"
+  },
+  {
+    "id": "h7myotqw9edkh2Zi",
+    "value": "It's dangerous out there, so we had a system: if one of us stayed out the night, we'd send a message in the morning that all was good. I knew something was wrong when she didn't come home or message me.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=743 - Crystal"
+  },
+  {
+    "id": "E92QCktymKYT1u8u",
+    "value": "When she didn't come home?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=743 - Blake, suave choice 5"
+  },
+  {
+    "id": "tAjlEx3rFiDjTudr",
+    "value": "Do you, um, live together?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=743 - Blake, stupid choice 5"
+  },
+  {
+    "id": "oxD6GPrB9fOySGkt",
+    "value": "Yes. We're roommates.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=743 - Crystal"
+  },
+  {
+    "id": "2HNl2x5ddCsNmNDs",
+    "value": "Roommates?! Can we head back to your place, then?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=743 - Blake, suave choice 6"
+  },
+  {
+    "id": "gTTrQLAk3cWykQBV",
+    "value": "Can we... go back to your place?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=743 - Blake, stupid choice 6"
+  },
+  {
+    "id": "hSYH3F4TyApvUsMk",
+    "value": "You can't afford me, slick.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=743 - Crytal is a high priced call girl"
+  },
+  {
+    "id": "Vp52c8bBA1a7rEKq",
+    "value": "What? No. I want to search her place, your place, for any clue or indication of what could have happened.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=743 - Blake, suave choice 7"
+  },
+  {
+    "id": "dHli55D34ETaR02U",
+    "value": "*cough* Erm.. *blush* No... uh... I mean... *cough* um, clues...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=743 - Blake, stupid choice 7"
+  },
+  {
+    "id": "UnZF8m8D3nRiO3LB",
+    "value": "Oh... right! That makes sense. But don't try anything funny. I'm not as defenseless as I seem.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=743 - Crystal"
+  },
+  {
+    "id": "8wAXJmGfsTZ5pErQ",
+    "value": "You don't seem that defenseless to me. Lead the way.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=743 - Blake, suave choice 8"
+  },
+  {
+    "id": "PNUNdk4oXsoUeO9Q",
+    "value": "But being funny is one of my strong suits. Oh well.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=743 - Blake, silly choice 8"
+  },
+  {
+    "id": "JqEJFom6pLmssj00",
+    "value": "We headed for the subway and rode that steel serpent for a few stops until we arrived at our destination.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=803 - Blake narrating. The steel serpent is supposed to be the subway train"
+  },
+  {
+    "id": "5bAbQWDliAWL8jJ3",
+    "value": "Have you found anything yet, Blake?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=833 - Crystal. Beginning of dialogue with Crystal in her apartment"
+  },
+  {
+    "id": "jIQOv2rao5OWOqqZ",
+    "value": "Actually, could you tell me about Danni?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=833 - Blake"
+  },
+  {
+    "id": "jmJ6gdEHYxe9pHgH",
+    "value": "I found this note in her room; what do you make of it?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=941 - Blake"
+  },
+  {
+    "id": "1kCvFgCl40AxrIBU",
+    "value": "I found her id.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=970 - Blake"
+  },
+  {
+    "id": "kc0IXkJ7vNdAkfKy",
+    "value": "I did, and it's not good.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1191 - Blake. This is said later in the game when we find out that Danni's father is not her father, but someone more sinister"
+  },
+  {
+    "id": "fTP6i1m0XDkoHu3F",
+    "value": "I need your help.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1361 - Blake. This is said later in the game when we need her to distract the old lady."
+  },
+  {
+    "id": "UVMnuc1ipuZh6nmC",
+    "value": "Tell me, have you seen the man in this photo before?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1557 - Blake. This is said when we find JV's photo"
+  },
+  {
+    "id": "7TrJS6h2MRoKOIgG",
+    "value": "Nothing more for now.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=833  - Blake. Ends the conversation"
+  },
+  {
+    "id": "mZkZ4flnhCuhJgeg",
+    "value": "Sure, what do you want to know?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=837 - Crystal"
+  },
+  {
+    "id": "b2cxO9bUYTRkrrGU",
+    "value": "How did you two meet?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=837 - Blake"
+  },
+  {
+    "id": "80i5mjlnQfL27WRX",
+    "value": "What does Danni do for a living, exactly...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=837 - Blake"
+  },
+  {
+    "id": "X9WxOxivxDnl6mKx",
+    "value": "Has she ever mentioned her family to you?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=837 - Blake"
+  },
+  {
+    "id": "TXZKb2vkgCE4fuu0",
+    "value": "Thanks, that was helpful.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=837 - Blake"
+  },
+  {
+    "id": "RGYP5aiqPMnVIvQI",
+    "value": "We met two years ago. She came into... uh... the shop, looking for work. We started chatting, and we've been friends ever since. Eventually, we got this place together so we wouldn't have to live in a dreking hole.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=841 - Crystal. Crystal is being a little coy about the kind of shop she and Danni work for, but we're about to find out. A `dreking hole` is slang for a terrible place to live, like a hole in the ground."
+  },
+  {
+    "id": "ETMS5uZGHUu65Hw4",
+    "value": "What kind of shop?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=841 - Blake"
+  },
+  {
+    "id": "OyP2iAIc46MFhIkY",
+    "value": "I have other questions.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=841 - Blake, to go back to a previous line of questions"
+  },
+  {
+    "id": "C7IqmuIktyx195AA",
+    "value": "Danni and I work for a business that caters to the *very expensive* tastes of very wealthy people. Particularly when those tastes have to do with companionship.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=841 - Crystal - She and Danni are highly paid escorts"
+  },
+  {
+    "id": "eQe28doaeRdJ6Llq",
+    "value": "I see... and where is this business?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=841 - Blake"
+  },
+  {
+    "id": "n9c9YJpiP2nXwn7D",
+    "value": "Cyber courtesans, digital doxies, purchased paramours?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=841 - Blake. Another stupid choice Blake can make. He's using alliteration to say the same thing: prostitutes. It would be nice if we can keep the alliteration going."
+  },
+  {
+    "id": "mUcXqktUOKGDdl89",
+    "value": "Don't be an ass, Blake. Everyone's doing what they can to survive.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=841 - Crystal, after being subject to the previous line."
+  },
+  {
+    "id": "dEuVjGJ8x6t8tq4W",
+    "value": "There's a laundromat called \"The Lost Sock.\" While it's a functional laundromat, it's a front for the actual business. I don't know who runs it, but Gladys Aubergine is who sends Danni and me on... assignments.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=841 - Crystal. The name `Lost Sock` is joke name. In the US there is an ongoing joke about how you always loose your left sock when doing laundry. If the joke doesn't work, feel free to replace it with something more relevant. "
+  },
+  {
+    "id": "SyWcYlaMRs3bmDFp",
+    "value": "Hmm... I may have to have a chat with this Gladys.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=841 - Blake"
+  },
+  {
+    "id": "GstFlbGb5wiWm60x",
+    "value": "I don't know... she may not be *snicker* \"Gladys\" to see you.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=841 - Crystal is making a pun. Gladys will not be glad to see Blake."
+  },
+  {
+    "id": "ssSIv3WTVk0t3Tn5",
+    "value": "Ugh... that was terrible. Anyway, I have a few more questions.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=841 - Blake"
+  },
+  {
+    "id": "wu6fcsT51Ll9jEbp",
+    "value": "It's a note from Gladys... Danni must have received this just before she went missing.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=941 - Crystal"
+  },
+  {
+    "id": "sj7oYEDu2yUq0chp",
+    "value": "It mentions someone named \"15.\" Any idea who that is?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=941  - Blake. Please be careful to use \" around the number 15."
+  },
+  {
+    "id": "LCDgOUInbmHyjSp3",
+    "value": "15... Danni mentioned him quite a few times. He's got a thing for her. I'd say three-quarters of her assignments are with him.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=941 - Crystal. 15 is obsessed with Danni"
+  },
+  {
+    "id": "kuOil7OrlT3jHOuG",
+    "value": "Has she ever mentioned who he is?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=941 - Blake"
+  },
+  {
+    "id": "tg4kuoJVsAX1xIWL",
+    "value": "15? That seems rather impersonal.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=941 - Blake"
+  },
+  {
+    "id": "DTHhKcy4VonddtpG",
+    "value": "I have a few more questions.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=941 - Blake, going back to a previous line of questions."
+  },
+  {
+    "id": "8YRU9ci0OkVDoweh",
+    "value": "Never. All I know is that he's a big spender. Whatever he wants, he gets.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=941 - Crystal, she tell Blake that Danni doen't talk about 15"
+  },
+  {
+    "id": "hlPgliTP8o5R2aGi",
+    "value": "As you can imagine, discretion is essential in this business. We usually use code names, and 15 chose his.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=941 - Crystal, when being told by Blake that 15 is a very impersonal name."
+  },
+  {
+    "id": "sml9p0UrRqI50RNb",
+    "value": "No, she never has. But to be fair, neither have I to her. Many people come to the Gutter to get away from their past.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=892 - Crystal, when asked if Danni has ever mentioned her family."
+  },
+  {
+    "id": "p60W8saGDZNEvKjW",
+    "value": "Her ID? Will that help?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=970 - Crystal"
+  },
+  {
+    "id": "dbKixJwdqlv2WKAT",
+    "value": "It's a long shot, but I still have access to a GovLink machine. If I run her ID, we might turn something up.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=970 - Blake, thinking that the Danni's ID card could help. `GovLink` stands for `Government Link` and it's a computer that is connected to the police database."
+  },
+  {
+    "id": "7py0WKKgD66fWi34",
+    "value": "What do you mean? What is it?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1191 - Crystal, when told by Blake that what he's found out is not good"
+  },
+  {
+    "id": "bf8gDw37OdJKAPcP",
+    "value": "Danni's an orphan who was never adopted. She chose the name Ashton for herself. So the man who introduced himself as Jacob Ashton...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1191 - Blake, about to put the pieces together"
+  },
+  {
+    "id": "ahbKxWxbtRHhmZTC",
+    "value": "... can't be her father!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1191 - Crystal, finishing his thought"
+  },
+  {
+    "id": "EHwpvWtXGfFhG84m",
+    "value": "Exactly.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1191 - Blake"
+  },
+  {
+    "id": "nUFO7EQEQ53OalIM",
+    "value": "But who is he?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1191 - Crystal, asking who the man pretending to be Danni's father is."
+  },
+  {
+    "id": "ApVweLwvax6RK5H2",
+    "value": "I don't know yet. Call it a hunch, but I now believe Danni doesn't want to be found. If so, she may be in more danger than we thought.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1191 - Blake. He suspects the the reason Danni is missing is that she's hiding from someone, probably the man pretending to be her father."
+  },
+  {
+    "id": "m26yi8HFU5lAgqVO",
+    "value": "If there's anything I can do to help, don't hesitate to ask.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1191 - Crystal"
+  },
+  {
+    "id": "P8hcixMInGkQDfMK",
+    "value": "I'll hold you to it.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1191 - Blake, tells Crystal that if he needs help, he'll come ask her"
+  },
+  {
+    "id": "jhUluowy48GZmpp9",
+    "value": "What do you need?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1361 - Crystal, when Blake comes to her for help"
+  },
+  {
+    "id": "bqrpOJEutEegGx4H",
+    "value": "I must get close enough to Gladys's computer to plug in this hacktool. It'll clone all the data so I can review it, literally, in the comfort of my own home.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1361 - Blake. `comfrort of my own home` is a saying in English and literally means that he can review the data comfortably, without worry or stress, at his house."
+  },
+  {
+    "id": "Kb3mvQSuqwhwnqAO",
+    "value": "How about dinner and a vid?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1361 - Blake. This is another stupid option. Instead of asking for help with Gladys, Blake asked Crystal out on a date. `vid` is short for video."
+  },
+  {
+    "id": "68urwFHPFRrT61Uv",
+    "value": "I could get into a shouting match with her. She's got a set of lungs for an old woman, but she's no match for my pair.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1361 - Crystal - 'having a set of lungs' means that you can yell. There is a little bit of unintentional double entendre. She says that Gladys's lungs are no match for `her hair`. She means `her pair of lungs` but `her pair` is slang for `her boobs`."
+  },
+  {
+    "id": "6FNipt6AoObTBV2e",
+    "value": "... I bet.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1361 - Blake - One of the stupid things he can say. While Crystal meant her 'pair' of lungs, Blake's mind is dirty and he's making a comment about a different pair of Crystal's"
+  },
+  {
+    "id": "s5ta3byP7ai6DENl",
+    "value": "Sounds like a plan. Meet you at the Lost Sock.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1361 - Blake"
+  },
+  {
+    "id": "7T5gRpfioEwhUZXi",
+    "value": "What was that?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1361 - Crystal, in response to Blake's dirty mind."
+  },
+  {
+    "id": "Vua2UDfRSV3uLrON",
+    "value": "Uh... Sounds like a plan. Meet you at the Lost Sock.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1361 - Blake, quickly changing subject."
+  },
+  {
+    "id": "j8RiWU1OvwX6REji",
+    "value": "Are you serious?",
+    "description": "Crystal - This is what Crystal says if you asked her out to dinner and a vid."
+  },
+  {
+    "id": "i3lr3AT9aYZgH9EQ",
+    "value": "No, uh, I need you to distract Gladys for me.",
+    "description": "Blake - this is Blake's quick reply"
+  },
+  {
+    "id": "QAjoYReHZ8rJkdjX",
+    "value": "Let me see... yeah. I recognize him! He's the guy that would pick up Danni whenever she was supposed to be with 15! He's got to be in on this!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1557 - Crystal, when she's shown the JV's photo."
+  },
+  {
+    "id": "7mGMAOLJAB0xteMJ",
+    "value": "I'd say so. He's the one that hired me.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1557 - Blake, saying the he thinks JV is involved with Danni's disappearance"
+  },
+  {
+    "id": "Bd341oocZZwGh1tO",
+    "value": "You mean, he's the one that tried to pass as her father?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1557 - Crystal"
+  },
+  {
+    "id": "tQOQxJBkrR3tEsV0",
+    "value": "Exactly. I get the feeling something terrible happened the night Danni was with 15. Remember how I said I think she doesn't want to be found?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1557 - Blake"
+  },
+  {
+    "id": "XvOiqVU0LqDsNU1k",
+    "value": "Yeah?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1557 - Crystal, answering the question above"
+  },
+  {
+    "id": "6jYmxHqXAn8LvXpD",
+    "value": "I suspect these are the people she doesn't want to be found by.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1557 - Blake, answering"
+  },
+  {
+    "id": "ZbuNhW7jEgTGfv2c",
+    "value": "What should I do?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1095 - Beginning 'dialogue' with the GovLink computer"
+  },
+  {
+    "id": "Nvw6u1rrFrwU6jQU",
+    "value": "Run Danni's ID card.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1095"
+  },
+  {
+    "id": "eC92YKbxYMiP0dVr",
+    "value": "Run a Database Search.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1095"
+  },
+  {
+    "id": "sVHtnWjHZ50nBf53",
+    "value": "Plug in Glitch's datastick.",
+    "description": "This choice, while identical to the next one shows up only if you have the hacktool and don't have any data in it"
+  },
+  {
+    "id": "ASSlqi1elkUmgy2S",
+    "value": "Plug in Glitch's datastick.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1476"
+  },
+  {
+    "id": "ijT7I9EG9SWZ7Kst",
+    "value": "Run B19's parcel number.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1896"
+  },
+  {
+    "id": "3fDUc7gPsRNxmFj1",
+    "value": "Log off.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1095"
+  },
+  {
+    "id": "kZK96M2dmFj4922b",
+    "value": "What should I search for?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1947"
+  },
+  {
+    "id": "XQt0ihYoEowQgfRL",
+    "value": "Xantech Cybernetics",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1947"
+  },
+  {
+    "id": "EcEuf8Y7X1IwXACy",
+    "value": "Xander Vane",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1958"
+  },
+  {
+    "id": "KicPM9Lao0MY8M35",
+    "value": "Cygnus Holdings",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1934"
+  },
+  {
+    "id": "lkEEYR45oJH0CD5S",
+    "value": "SummerVault",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1913"
+  },
+  {
+    "id": "MM4qs7laiegtafWD",
+    "value": "Sumerian Collective",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1924"
+  },
+  {
+    "id": "8a7fSea1vHCePgJK",
+    "value": "Nothing else.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1913"
+  },
+  {
+    "id": "jlCNUOebnq4cZ7Su",
+    "value": "DATAVAULT 9000",
+    "description": "If there is no data in the hacktool"
+  },
+  {
+    "id": "3pOdVvRmPxMZWj00",
+    "value": "No entries.",
+    "description": "If there is no data in the hacktool"
+  },
+  {
+    "id": "yviQ08LIIeAKVvhA",
+    "value": "DATAVAULT 9000\n\nUser: Gladys Aubergine\nPassword: gladys1\n\nAccess granted...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1480"
+  },
+  {
+    "id": "Ek7YAJmJcxkOr8Ui",
+    "value": "List personnel",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1480"
+  },
+  {
+    "id": "7ZYHbPolecVmXsiF",
+    "value": "List customers",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1480"
+  },
+  {
+    "id": "fOA9HXabgRq9dftK",
+    "value": "Lost Sock Personnel List\n\n(About a dozen names scroll by, but only two stand out.)",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1480"
+  },
+  {
+    "id": "kKcUUCrNsIXYCVl9",
+    "value": "Crystal Shard",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1480"
+  },
+  {
+    "id": "RaITRB6FQqrKQecx",
+    "value": "Danni Ashton",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1480"
+  },
+  {
+    "id": "ACK6OOX4clE97Y0u",
+    "value": "Return",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1480"
+  },
+  {
+    "id": "XixrS1PwOEsIkLbT",
+    "value": "Name: Crystal Shard\nAge: 28\nCurrent Assignment: None",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1480"
+  },
+  {
+    "id": "ii1yEIrseNE6UdeZ",
+    "value": "Name: Danni Ashton\nAge: 24\nCurrent Assignment: 15",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1480"
+  },
+  {
+    "id": "wtqVTc4lZF30016T",
+    "value": "A meaningless list of codenames scrolled on the screen. Eventually, I found what I was looking for.)",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1480"
+  },
+  {
+    "id": "WXNyp2kEPinF35gr",
+    "value": "15",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1480"
+  },
+  {
+    "id": "wIrc9DONvNCSJlvh",
+    "value": "JV",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1480"
+  },
+  {
+    "id": "vVYFRNcx5aolEBiE",
+    "value": "Return",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1480"
+  },
+  {
+    "id": "TnMNbiIg5G7uMdyB",
+    "value": "Customer ID: 15\nPreferred Server: DA\n\nNotes:\n15 doesn't like to get their hands dirty. Their girls are always picked up by one of his subordinates, JV.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1480"
+  },
+  {
+    "id": "OEKfI5EGCSTAfApF",
+    "value": "Customer ID: JV\nPreferred Server: N/A\n\nNotes:\nJV picks up the girls for 15. He's real slippery, and I don't trust him, but at least the credits are always good.\n\nPhotograph attached.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1480"
+  },
+  {
+    "id": "C5OHEkoUuDckH2ny",
+    "value": "Download photograph",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1480"
+  },
+  {
+    "id": "Y9IymtRfwf1h6X8M",
+    "value": "Entry: Xantech Cybernetics\nSummary: Formed 15 years ago by Xander Vane, Xantech Cybernetics has become the world leader in consumer-level cybernetics, owning 93% of the market share. Xander Cybernetics is a subsidiary of Cygnus Holdings.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1947"
+  },
+  {
+    "id": "K6xKe5gDBNV1qySK",
+    "value": "Return",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1947"
+  },
+  {
+    "id": "fRkUI9QPGA2LjBrV",
+    "value": "Entry: Xander Vane\nSummary: Billionaire genius, is CEO and majority stakeholder of Xantech Cybernetics.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1958"
+  },
+  {
+    "id": "6MMD1axsSTyr12oH",
+    "value": "Return",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1958"
+  },
+  {
+    "id": "frmPQbCHy5IOW3RM",
+    "value": "Entry: Cygnus Holdings\nSummary: Cygnus Holdings is [REDACTED] and is responsible for [REDACTED]. Their subsidiaries include [LIST REDACTED] and Xantech Cybernetics.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1934"
+  },
+  {
+    "id": "W1i55pRuqsrF3IoJ",
+    "value": "Return",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1934"
+  },
+  {
+    "id": "lXLmxUlZljGLQ0rU",
+    "value": "Entry: SummerVault\nSummary: SummerVault was formed 4 years ago. Since its inception, SummerVault has specialized in selling personal protection vaults and bunkers. Recently it fought off a controversy relating to its vault subscription service, as their capacity is a fraction of the lucrative subscriptions they sold.\nLast year, they were acquired by the Sumerian Collective.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1913"
+  },
+  {
+    "id": "j5iIguCOIMNtQh5q",
+    "value": "Return",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1913"
+  },
+  {
+    "id": "NCmxpDoxmHiNOAMb",
+    "value": "Entry: Sumerian Collective\nSummary: Established 7 years ago, the Sumerian Collective has purchased several companies in varied industries. Ironically, they are now a wholly owned subsidiary of Cygnus Holdings.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1924"
+  },
+  {
+    "id": "CbbSAcD53KPnxGtM",
+    "value": "Return",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1924"
+  },
+  {
+    "id": "77d1IK325gt5sk6f",
+    "value": "Boof.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1035 - Beginning of the dialogue with Daisy"
+  },
+  {
+    "id": "GBwEnGVqQxu4SlZL",
+    "value": "Hey girl, want a treat?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1035"
+  },
+  {
+    "id": "kymsbrydJtPQKZPy",
+    "value": "Who's a good girl?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1036"
+  },
+  {
+    "id": "SvD2Srb2XGC63E3O",
+    "value": "Ok, I got to get back to work.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1036"
+  },
+  {
+    "id": "xY937S93bSjs1LV1",
+    "value": "                       ",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1036 - This is empty on purpose. It's an easter egg that triggers a special message."
+  },
+  {
+    "id": "FeFLH0AiFRlP3qXU",
+    "value": "Bark!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1042"
+  },
+  {
+    "id": "Udqnq1kgJvoToJFL",
+    "value": "Here you go, girl.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1042"
+  },
+  {
+    "id": "sLpZnjpKUkAfsyWi",
+    "value": "*Covers her face with her paws*",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1047"
+  },
+  {
+    "id": "x8EFXkk6Z5Clisea",
+    "value": "That's right! You're a good girl!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1047"
+  },
+  {
+    "id": "J5kHKHarFyURneVm",
+    "value": "...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1063 - This is the beginning of the special message. Daisy was my dog, but she passed away while I was making this game, this was my way to keep her with me a little longer."
+  },
+  {
+    "id": "vgqKCqhp999R9AqK",
+    "value": "Daisy, I was afraid I would not be a good dog parent, but when you walked up to me the first time, I knew I had to try. I want to tell you that you've brought me immeasurable joy and happiness, that you're a ray of sunlight that pierces these dark clouds, and that you stirred something in my heart that I never thought I'd feel. I want to tell you these things, but I lack a good way to express them, so I'll do my best and give you all the hugs, walks, and treats you can take.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1063"
+  },
+  {
+    "id": "TyJKRFGYjl9rvvGR",
+    "value": "...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1083"
+  },
+  {
+    "id": "NxMnhVB4MAXxoTn9",
+    "value": "It breaks me to think of a future without you, without your goofy smile or long walks, without the joy it brings me when you keep me company in my office or fall asleep at my feet. I hope you know how much I love you, even when I make you get off the couch or keep you from eating my breakfast. I hope you know you left a big paw print on my heart that will never dull.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1083"
+  },
+  {
+    "id": "9g0FVK0Kjjnfhy07",
+    "value": "...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1087"
+  },
+  {
+    "id": "uK9HZ1sF3Vj5WTO8",
+    "value": "No matter what happens, I'll always be your dad. I love you, sweetie.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1087"
+  },
+  {
+    "id": "jPwlCvlvG1b3aP3x",
+    "value": "Go play on some train tracks.",
+    "description": "What Gladys says to you if you try to talk to her after she told you to leave."
+  },
+  {
+    "id": "7Cf86gjpP28KMxPS",
+    "value": "Welcome to the Lost Sock. Laundry and dryer services are 5 credits each. Detergent is 2 credits.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1235 - Beginning dialogue with Gladys"
+  },
+  {
+    "id": "Bn8XwuujB2yeaFZC",
+    "value": "Those are very competitive prices.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1235"
+  },
+  {
+    "id": "B9KQDcIdUaaYjDAL",
+    "value": "I'm looking for a girl.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1235"
+  },
+  {
+    "id": "b7aK5v2jnHsZyMnd",
+    "value": "Thanks.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1235"
+  },
+  {
+    "id": "871wJYeO2smdLYBX",
+    "value": "At The Lost Sock, we strive to ensure customers leave with a smile.\n\nSo smile. And leave me alone.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1235 - Again more wordplay 'leave with a smile'/'so smile and leave'. Gladys is not nice."
+  },
+  {
+    "id": "cJhidi2OARsPsbut",
+    "value": "Do I look like a dating service to you?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1254"
+  },
+  {
+    "id": "DxEyyMxDyg7nQtO5",
+    "value": "Actually, yes.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1254"
+  },
+  {
+    "id": "sBkhiif19gJH5n2S",
+    "value": "...Who are you?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1254"
+  },
+  {
+    "id": "BqcwS8f69mHKmjTa",
+    "value": "The name's Steel, Blake Steel. I'm looking for the girl in this photo.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1254"
+  },
+  {
+    "id": "fVJGY7Ql4qEp1iKk",
+    "value": "Never seen her.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1254"
+  },
+  {
+    "id": "WFXJh3pKomAswwVW",
+    "value": "You're going to have to do better than that, Gladys.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1254"
+  },
+  {
+    "id": "cpaB24IkMIOPSdPc",
+    "value": "How do you know my name?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1254"
+  },
+  {
+    "id": "e0b4JeeVrtFWHp96",
+    "value": "I know a lot of things. I know her name is Danni Ashton, and she works for you providing... private laundry services.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1254 - 'private laundry services' is a euphemism"
+  },
+  {
+    "id": "NtVpIc8mlH05YiAp",
+    "value": "Listen here, Bloke--",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1254 - Gladys is bad with names"
+  },
+  {
+    "id": "uVFdcxkZlIw9TGVr",
+    "value": "Blake, the name's Blake.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1254"
+  },
+  {
+    "id": "srti2T01VBv0iuqG",
+    "value": "I don't care what your name is. You have no idea what you're dealing with, so take this bit of free advice and leave. Our laundry machines can remove even the most stubborn stains but can't wash away broken bones.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1254 - Gladys is threatening Blake"
+  },
+  {
+    "id": "UycRtdWQ3fJAagK7",
+    "value": "Are you trying to intimidate me?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1254"
+  },
+  {
+    "id": "Oyv3GTSqiIElyfr6",
+    "value": "No, Brett. There is no reason to intimidate someone who isn't a threat. Good day.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1254 - Again, she's bad with names"
+  },
+  {
+    "id": "gladys_is_too_mean",
+    "value": "I wasn't going to get anywhere with that museum exhibit. However, I knew I would learn a few interesting things if I could get my hands on her computer.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1286"
+  },
+  {
+    "id": "avG0hOhSxkqMrUPy",
+    "value": "Get your mitts off my computer, Bucko. If you even think of getting close to it, you'll find out why they call it a \"terminal.\"",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1297"
+  },
+  {
+    "id": "xbepIYEomyDhRE6d",
+    "value": "You'd better watch you mouth, honey. You're replaceable.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1407 - Gladys and Crystal are fighting"
+  },
+  {
+    "id": "dSKZXaT9T31fhjbD",
+    "value": "Replaceable like Danni, your desiccated  fossil? How do you sleep at night?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1407"
+  },
+  {
+    "id": "8KZQHFF9vtGyfi0f",
+    "value": "I sleep just fine, thank you. It's called not giving a damn about what dreking slags think.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1407"
+  },
+  {
+    "id": "MmRVYkPEia9rcOTO",
+    "value": "It hasn't gone unnoticed that you're not pulling like you used to. Pitty it wasn't you that went missing.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1407"
+  },
+  {
+    "id": "lHIf4ceN8ggJUXrL",
+    "value": "The only thing you're pulling is the grim specter of death!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1407"
+  },
+  {
+    "id": "Fg85LfV61XIr9oG0",
+    "value": "As I stepped back into this house of laundered dreams, Crystal was already yelling at Gladys, who hadn't even noticed me enter. The unbridled creativity of the former was met with the wicked wealth of vicious experience of the latter.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1404"
+  },
+  {
+    "id": "vViyXulyciMWjj3Z",
+    "value": "I would have loved to watch this, but I had a computer to hack.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1435"
+  },
+  {
+    "id": "gF3CfHosfHyF6Kfw",
+    "value": "Hey Blake. How was that?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1453 - Dialogue with Crystal outside the laundromat"
+  },
+  {
+    "id": "dnmRgHYSODuuE1Hi",
+    "value": "That was great! She didn't notice a thing!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1453"
+  },
+  {
+    "id": "Gs6VPuh5b0wSbDFf",
+    "value": "What's next, then?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1453"
+  },
+  {
+    "id": "53QOyDQv3se37PEg",
+    "value": "If Glitch is correct, this hacktool contains a copy of Gladys's data. I'll review it on my computer, and hopefully, it'll lead me somewhere.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1453"
+  },
+  {
+    "id": "tbqyZgDbFx9XlJcY",
+    "value": "Sound good. Keep me posted, ok? I'm worried about Danni.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1453"
+  },
+  {
+    "id": "ESCFZtbCtH8ohU1B",
+    "value": "Me too.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1453"
+  },
+  {
+    "id": "olIIUsyvXbCM1RRa",
+    "value": "And Blake...?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1453"
+  },
+  {
+    "id": "j6P7nxGbCc6du961",
+    "value": "Yeah?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1453"
+  },
+  {
+    "id": "bE7xkrbw65Us8EDi",
+    "value": "Be careful.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1453"
+  },
+  {
+    "id": "W5188VMkIB3a8rj1",
+    "value": "I always am.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1453"
+  },
+  {
+    "id": "yRXFZAWYoN7FRAZ7",
+    "value": "I never am.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1453"
+  },
+  {
+    "id": "MFHPOu9yrL95EsTa",
+    "value": "Mr. Steel, have you any news for me?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1144 - Beginning of dialogue with 'Jacob', the man pretending to be Danni's father"
+  },
+  {
+    "id": "Tm7cxOXxwwKuQAdC",
+    "value": "(Better to play along for now)",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1144"
+  },
+  {
+    "id": "sV1R4a0tcfC5kfIJ",
+    "value": "Mr. Ashton, I've investigated Danni's apartment, but it was a dead end.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1144"
+  },
+  {
+    "id": "LdUKQhNHPgdUG6is",
+    "value": "Unacceptable, Mr. Steel. I'm paying good credits for top results; you assured me you could get those results.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1144"
+  },
+  {
+    "id": "6pvlDaMNTN4gMSWK",
+    "value": "I was just about to hit the street for more information. If she's out there, I'll find her.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1144"
+  },
+  {
+    "id": "bXyR7cGFOOD8PgvJ",
+    "value": "Then get out there and find my Danni!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1144"
+  },
+  {
+    "id": "Z2bgYQOwy28ktlGH",
+    "value": "Don't worry. I won't stop until she's safe.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1144"
+  },
+  {
+    "id": "ooh53P5p9gJ6Xn3Y",
+    "value": "You can be sure of it.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1144 - Blake is beginning to learn the truth, this is both a promise and a threat"
+  },
+  {
+    "id": "EmWjfuNb6vtlbOon",
+    "value": "...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1144"
+  },
+  {
+    "id": "wwLYoWHDUYjdRce3",
+    "value": "He hung up.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1144"
+  },
+  {
+    "id": "A14grjufStNMDdfj",
+    "value": "Hello, Mr. Steel.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1971"
+  },
+  {
+    "id": "d0duu4ZeZjYUodNH",
+    "value": "Who's this?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1971"
+  },
+  {
+    "id": "65TyNNYsKQvsSppB",
+    "value": "The person you've been looking for, Blake.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1971"
+  },
+  {
+    "id": "uTWTMDh1h1uYjl3X",
+    "value": "My name is Danni Ashton...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1971"
+  },
+  {
+    "id": "Pc5NBZnZtykYBLMm",
+    "value": "Sorry, you can't come in. Boss's orders.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1730 - Dialogue with Tank once you've been thrown out of the Alleycat"
+  },
+  {
+    "id": "xc9HE1yrqg4Dy6eH",
+    "value": "Yeah, no. I get it.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1730"
+  },
+  {
+    "id": "92ty5cWjjpYsVEcT",
+    "value": "Stand aside. Nobody tells Blake Steel where he can go.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1730"
+  },
+  {
+    "id": "TxnXpPKXdRN7kdx6",
+    "value": "Mustering more bravado than was prudent, I attempted to shove the bouncer aside and quickly understood why they called him \"Tank.\"",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1730"
+  },
+  {
+    "id": "MV68PwYJAg1fJ2bt",
+    "value": "With force only a man born to be a living door might possess, Tank unceremoniously shoved me onto the alleyway floor.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1730"
+  },
+  {
+    "id": "c8iWHq1KuTtuEuuF",
+    "value": "AND STAY OUT!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1730"
+  },
+  {
+    "id": "by1SIMHwdWXTXNKO",
+    "value": "The safe house was in the Gutter, not too far away from the Alleycat. She'd been hiding in plain sight.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2014"
+  },
+  {
+    "id": "NuRB9BxTcYCXt62S",
+    "value": "The glow from countless computer screens washed over us as I regarded my hosts. Danni Ashton looked just like her photo. She was standing near her friend, a bearded man wearing a shirt depicting a red and white checkered ball. The logo must have had some significance to middle-aged nerds. He called himself...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2014"
+  },
+  {
+    "id": "MGhcSq7GjkDYjdZj",
+    "value": "... SegF4ult. With a '4' in the place of the 'A'.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2032 - Long dialogue with SegF4ult and Danni"
+  },
+  {
+    "id": "e0FXBWv0jXNaCNRr",
+    "value": "You and Glitch would get along.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2032"
+  },
+  {
+    "id": "Ug5MxedNQgsFDHEI",
+    "value": "You know Glitch? She's rad!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2032"
+  },
+  {
+    "id": "gfpxeucMBShtLodE",
+    "value": "Totally. Anyway, Ms. Ashton?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2032"
+  },
+  {
+    "id": "QhGEg4oUUf23Pnvl",
+    "value": "Please, call me Danni.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2032"
+  },
+  {
+    "id": "XpcnNKXyW0nl6U0h",
+    "value": "Very well, Danni. Can you tell me what happened?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2032"
+  },
+  {
+    "id": "vjhHEI5rB0nvxXaD",
+    "value": "Sure thing. It all started two nights ago...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2032"
+  },
+  {
+    "id": "FsDDl0vP1AvNgC2v",
+    "value": "Reliving the trauma of that night, Danni took a moment to compose herself.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2080 - Continuing Danni's story"
+  },
+  {
+    "id": "wuBIo1lqaESnS7BP",
+    "value": "That's when I contacted my friend SegF4ult, an expert cyberneticist. Once we figured out what was in there, I knew they'd come looking for me, so I didn't dare reach out to Crystal and put her in danger.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2085"
+  },
+  {
+    "id": "JNOtlPVvcAwVv15n",
+    "value": "What did you find?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2085"
+  },
+  {
+    "id": "mTvrkl2KaE3qZUsl",
+    "value": "Danni had gigabytes of proof that Xantech Cybernetics created Coral to get people who bought cybernetics to continue to pay them money... indirectly. They've made millions already.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2096"
+  },
+  {
+    "id": "PS3oP1yKhxTOPTGb",
+    "value": "Xantech Cybernetics? Hold on a minute. That means...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2096"
+  },
+  {
+    "id": "92vNidIe7MJEmZ8a",
+    "value": "15 is...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2096"
+  },
+  {
+    "id": "YOpMOH8QMSn78pF4",
+    "value": "Johan Visser",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2096"
+  },
+  {
+    "id": "DRheH3Fm6l7RPbOH",
+    "value": "Gladys Aubergine",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2096"
+  },
+  {
+    "id": "kPqySb7cCRGsFt9Z",
+    "value": "Xander Vane",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2096"
+  },
+  {
+    "id": "3sNW2Ok4gB8e7tBJ",
+    "value": "Acid Nova",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2096"
+  },
+  {
+    "id": "RrnFOksMTDVefRyO",
+    "value": "What? No. It's Xander Vane, Xantech's CEO!",
+    "description": "This is displayed if you pick the wrong answer"
+  },
+  {
+    "id": "JbPinXJwrJ3Zw1df",
+    "value": "Xander Vane.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2096"
+  },
+  {
+    "id": "0aZ5Hq0ZOgD97Cjy",
+    "value": "Xander Vane. XV. 15.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2096"
+  },
+  {
+    "id": "TJPLaFf8GRuFqPjZ",
+    "value": "I bet he thought he was real clever for that one. So, how did you find out about me?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2096"
+  },
+  {
+    "id": "yooK9dmD7Sji8ph4",
+    "value": "I heard that someone was looking for me. But I couldn't risk reaching out in case my phone was being traced.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2123"
+  },
+  {
+    "id": "frpfPh1rtXgtNOS8",
+    "value": "Fortunately, there's no way that Xander could have my phone tracked. So an hour ago, we called Crystal, and she told us all about you.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2123"
+  },
+  {
+    "id": "A2DTXodrtCYOTBsU",
+    "value": "What she said led us to believe we could trust you.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2123"
+  },
+  {
+    "id": "2KKahiWnp13LHusg",
+    "value": "Really? What did she say?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2123"
+  },
+  {
+    "id": "iiB1A5S5YsKrwyw2",
+    "value": "What now?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2123"
+  },
+  {
+    "id": "B9ed3dL29Q1DAHHW",
+    "value": "*Smirking* Let's just say you made a good impression on her.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2123"
+  },
+  {
+    "id": "BFBr6C7SIfRXHMpP",
+    "value": "Now I need your help. Xander knows I have this data and knows I'm not dead. He's not going to stop until we make him stop.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2131"
+  },
+  {
+    "id": "BKwT7vgpXhNeLJp4",
+    "value": "But what can we do?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2131"
+  },
+  {
+    "id": "nTg5DYg6lKCwpEbR",
+    "value": "We have to destroy him, and we'll do it with this data.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2131"
+  },
+  {
+    "id": "DOhSOYtWV4KZY5qO",
+    "value": "Hmm... If that data is as damaging as you say, it could take him down. Or cause so many problems for him that you would be the least of them. What's the plan? Leak it to the press?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2131"
+  },
+  {
+    "id": "cxMLjBsr1EoCC4HZ",
+    "value": "Eventually, but that's not going to be enough. He'll deny it and his lawyers will suppress it. Instead we have to go big.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2131"
+  },
+  {
+    "id": "BG6kmI1FaMckNVFu",
+    "value": "Real big.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2131"
+  },
+  {
+    "id": "o1XgKeylpuEkllqP",
+    "value": "Tomorrow night, Xander will give a keynote at XanCon, unveiling his latest line of cybernetics. If we replace the demo reel that's supposed to play with this data...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2131"
+  },
+  {
+    "id": "lnrmypRwkPeUBXWS",
+    "value": "... then he's dreked. He won't be able to spin it or suppress it!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2131"
+  },
+  {
+    "id": "jLqA3nI17vg4fRkB",
+    "value": "Exactly. He'll be publicly ruined.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2131"
+  },
+  {
+    "id": "08pQFfu9h9A3W6Tf",
+    "value": "Sounds like you have a perfect plan.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2131"
+  },
+  {
+    "id": "37fq6SpajA9gteRF",
+    "value": "This is where you come in. We can't risk exposing Danni, and I'm, well, I'm more of a coder than a fighter.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2131"
+  },
+  {
+    "id": "mYZsCE1CpaXgEZFa",
+    "value": "I have a feeling I'm not going to like this.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2131"
+  },
+  {
+    "id": "9Vkp5hEMwoOZmIcU",
+    "value": "I can't wait to take this piece of drek down.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2131"
+  },
+  {
+    "id": "Hk1BuQWtBosX1rgf",
+    "value": "You will need to break into the server room at XanTech and plug in a data stick that will override the demo reel.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2131"
+  },
+  {
+    "id": "dcbMG6d3qCw8oRZF",
+    "value": "Nothing to it.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2131"
+  },
+  {
+    "id": "QlFmLl936l6khBAE",
+    "value": "And how am I supposed to break into Xantech?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2131"
+  },
+  {
+    "id": "HRA32vD4kWffnTmI",
+    "value": "I'm not going to lie; it's not going to be easy. Other than Xander, only Visser has access codes for the inner sanctum of the data center. Xander doesn't trust anyone else.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2131"
+  },
+  {
+    "id": "QOuyQ5DvgQXAyJ7e",
+    "value": "So I guess it's high time to have a meeting with Danni's... \"dad.\"",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2131"
+  },
+  {
+    "id": "kflfDjHCGvJWknDy",
+    "value": "We're going to need a good plan.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2131"
+  },
+  {
+    "id": "eHIj8wYuoE5kLlDv",
+    "value": "Hmm... What If I call him and--",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2131"
+  },
+  {
+    "id": "7NF4v95ksdCDpkq7",
+    "value": "*RING RING*",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2195"
+  },
+  {
+    "id": "fhiTtINLSsIymaTp",
+    "value": "Interrupting me mid-sentence, my phone insisted on my attention.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2195"
+  },
+  {
+    "id": "1ultYEtEfNTdiBW1",
+    "value": "Holy drek...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2195"
+  },
+  {
+    "id": "KUNWv4eeDaJZjJBf",
+    "value": "It was Johan Visser!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2195"
+  },
+  {
+    "id": "R4RqHDxgMwi7S9yW",
+    "value": "Mr. Steel. I hope I didn't catch you at a bad time.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2206"
+  },
+  {
+    "id": "23WbHMyBGSeWsbht",
+    "value": "Mr... Ashton. What a coincidence. I was just thinking about you.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2206"
+  },
+  {
+    "id": "5coEoAq0JPc0vV5q",
+    "value": "You can drop the pretenses, Mr. Steel. I know that you know who I am.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2206"
+  },
+  {
+    "id": "6hIvxOGpGFnpoBi2",
+    "value": "Then I know that you know that I know who you are.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2206"
+  },
+  {
+    "id": "xdp2s9ZkvUBJjCHD",
+    "value": "A loving father?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2206"
+  },
+  {
+    "id": "DD6mhEXTfTI72IiX",
+    "value": "A creep?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2206"
+  },
+  {
+    "id": "qFO7BKo5E65UFM8f",
+    "value": "Do not play games with me, Mr. Steel. You are in no position to do so.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2206"
+  },
+  {
+    "id": "DfMkNQgBH2DgCODQ",
+    "value": "How do you figure?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2206"
+  },
+  {
+    "id": "iUfpuTtGqQrUtYnn",
+    "value": "Blake!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2206"
+  },
+  {
+    "id": "VHST4yD2J7shIALZ",
+    "value": "Crystal!!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2206"
+  },
+  {
+    "id": "Q3QFcdnWS7lLegZi",
+    "value": "Crystal!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2206"
+  },
+  {
+    "id": "sedCFv47QXsg45AL",
+    "value": "How touching.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2206"
+  },
+  {
+    "id": "DjddaTKWB6W2P8ua",
+    "value": "I swear, you maniac, if you hurt a single hair on her--",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2206"
+  },
+  {
+    "id": "uVCLZNTQ7Mpykovb",
+    "value": "Mind the theatrics, Mr. Steel. I won't need to injure a single follicle on her head if you and Danni do precisely as I say.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2206"
+  },
+  {
+    "id": "8AaCXP30J7i4qsMt",
+    "value": "What... what do you want?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2206"
+  },
+  {
+    "id": "hIBsNvOsgPgel3WS",
+    "value": "Isn't it obvious? I want both Danni and my client's data. Your friend's health is entirely out of my hands now.\n\nMeet me at Building 19 in an hour. I trust you know the way.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2206"
+  },
+  {
+    "id": "010FOhrko5g9NDki",
+    "value": "He hung up.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2206"
+  },
+  {
+    "id": "eZS8e4aisJEYB2LD",
+    "value": "Drek! Drek! Drek! What are we going to do?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2250"
+  },
+  {
+    "id": "LLcUyg5sjlwr17xS",
+    "value": "You are going to do nothing. I'll go rescue Crystal.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2250"
+  },
+  {
+    "id": "eGcHDCfNoCwkbEt5",
+    "value": "How are you going to do that?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2250"
+  },
+  {
+    "id": "XxE1Cp4gKnxlhdiH",
+    "value": "Don't worry, I'll think of something.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2250"
+  },
+  {
+    "id": "Q5ZU7sZAE9JGSmE8",
+    "value": "Blake!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2265"
+  },
+  {
+    "id": "NtiBDDnTUPq1fTCa",
+    "value": "Visser held Crystal close to him, a chrome glint catching the moonlight between them.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2312"
+  },
+  {
+    "id": "w2yY9g2MExYflYJH",
+    "value": "Blake! Be careful; he's got a gun!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2312"
+  },
+  {
+    "id": "4rHLyU7towI14aZG",
+    "value": "Yes, Mr. Steel. Be very careful.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2312"
+  },
+  {
+    "id": "M2VMhbKnMwBogGYc",
+    "value": "Mr. Ashton... or should I say Johan Visser? Xander Vane's lapdog.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2312"
+  },
+  {
+    "id": "43lFnf3wtdL5MtUs",
+    "value": "Aren't you resourceful?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2312"
+  },
+  {
+    "id": "nxS3OLvBF7uVSmG6",
+    "value": "How did you know I'd found Danni?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2312"
+  },
+  {
+    "id": "XeCrNy0WTZcEuvAc",
+    "value": "Do you think you're the only one conducting their investigation tonight? No. I've been one step ahead of you this whole time.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2312"
+  },
+  {
+    "id": "r5O8XsFfeBSkXmVt",
+    "value": "You drek.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2312"
+  },
+  {
+    "id": "vPXIfgZsZj0yBNHE",
+    "value": "It seems you came alone. How disappointing. After I dispose of your two corpses, I guess I'll --",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2312"
+  },
+  {
+    "id": "4FwSupCRff7AqQ3B",
+    "value": "Hey, you dreking ball gag!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2312"
+  },
+  {
+    "id": "WgfdLxx2T1ny6TkN",
+    "value": "It's Danni!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2312"
+  },
+  {
+    "id": "EHiPYOuO5nP6h8Vv",
+    "value": "Taking advantage of Visser's distraction, Crystal rammed her elbow into his chest. Reeling from the unexpected hit, Visser dropped his gun, which Crystal promptly kicked away, unfortunately, over the railing.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2312"
+  },
+  {
+    "id": "QFnBkHe6nMtEJVyx",
+    "value": "He took a second too long to recover, and I closed our distance with a punch to his face.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2312"
+  },
+  {
+    "id": "5pQZejoLrj3Q8b5U",
+    "value": "*GRUNT*",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2357"
+  },
+  {
+    "id": "wvNiWBZqUniu4rxP",
+    "value": "(Punch to the face)",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2357"
+  },
+  {
+    "id": "A6mqNs8dqdRqU5ac",
+    "value": "(Punch to the stomach)",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2357"
+  },
+  {
+    "id": "4D7HwGikwWw4Oi6J",
+    "value": "(Kick)",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2357"
+  },
+  {
+    "id": "UTmZhJx4onoGNsYD",
+    "value": "You'll need to do better than that.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2357"
+  },
+  {
+    "id": "HKpBpt5R43IKY9cb",
+    "value": "(Punch to the face)",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2357"
+  },
+  {
+    "id": "JKxei5aobuggMqXc",
+    "value": "You drek! *Punches me in the face*",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2357"
+  },
+  {
+    "id": "qpNmnRRluSWtLA1R",
+    "value": "(Punch to the face)",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2357"
+  },
+  {
+    "id": "7eAm4bbBkqy1qU4E",
+    "value": "(Punch to the stomach)",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2357"
+  },
+  {
+    "id": "AAvlSt8Q1NmePqM8",
+    "value": "(Slam against the pipes)",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2357"
+  },
+  {
+    "id": "b3lq4uWSiRmhrYQ8",
+    "value": "*Dodges my blow* I'm not falling for that again. *Hits me in the stomach*",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2357"
+  },
+  {
+    "id": "NkppsacapBvWsVpV",
+    "value": "(Headbutt)",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2357"
+  },
+  {
+    "id": "iWeao5UTDhVEq2EL",
+    "value": "ARGH! Don't think you've won yet.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2357"
+  },
+  {
+    "id": "1aSjALjgBBB62COl",
+    "value": "(Punch to the face)",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2357"
+  },
+  {
+    "id": "X3BJEuOuXTFXj1WU",
+    "value": "(Spit in his eye)",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2357"
+  },
+  {
+    "id": "8mxDHbvZonFogOVM",
+    "value": "(Knee to the groin)",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2357"
+  },
+  {
+    "id": "abXGI9ysKUKgM0Sm",
+    "value": "Ugh. You dreking animal. *Hits me in the face*",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2357"
+  },
+  {
+    "id": "9DtlsiVmUejtY01B",
+    "value": "(Punch to the stomach)",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2357"
+  },
+  {
+    "id": "5AjaE7XBC0ZiB3Z7",
+    "value": "*Gasps* If that's how you want to play it...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2399"
+  },
+  {
+    "id": "UEghjjwhsFpTUyVf",
+    "value": "Grabbing something from his pocket, Visser leaped at me brandishing a knife.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2399"
+  },
+  {
+    "id": "03n6HKWrgCqHkR50",
+    "value": "Instinctively, I stepped back and felt the low railing pressing against my back as my opponent slammed against me.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2399"
+  },
+  {
+    "id": "pc7PQExSMeBi7ZU8",
+    "value": "Unexpectedly, Visser was a lot stronger than he looked... Too strong. It took everything I had to keep his knife away from my face.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2399"
+  },
+  {
+    "id": "40gIvRGaAxmulDcX",
+    "value": "Then I noticed it, right below his left ear: a port. Visser had cybernetics. Suddenly, I become hyper-aware of the ruby capsule in my jacket pocket.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2399"
+  },
+  {
+    "id": "ZlXxlL6gUyRXC6LR",
+    "value": "Any last words, Mr. Steel?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2399"
+  },
+  {
+    "id": "Y9b52ytEZx8PDPcE",
+    "value": "Did you know you're allowed one F-bomb in a movie rated PG-13?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2399 - This one will probably need to be changed since I don't think it'll make sense anywhere but in the US. It's as setup for Blake to say 'Fuck you'. Feel free to change this into something that is more relevant"
+  },
+  {
+    "id": "9yydrV3cr9AoZAQ5",
+    "value": "I think you'd look good in ruby slippers.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2399 - This is an allusion to the Coral since people who take it are said to 'chase the ruby slippers'"
+  },
+  {
+    "id": "cgernQF0Hmgy140F",
+    "value": "No.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2399"
+  },
+  {
+    "id": "OlplBXQ7fMrdlRq4",
+    "value": "What?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2399"
+  },
+  {
+    "id": "oAndOBEn7OxD0HH3",
+    "value": "Fuck you. (Inject him with Coral)",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2399"
+  },
+  {
+    "id": "nBGaG6uooVoxZMEl",
+    "value": "Now's hardly the time to flatter me. Die!",
+    "description": "Response for the 'looking good in ruby slippers' comment. Visser doesn't understand the threat"
+  },
+  {
+    "id": "kSTOLKFm9pICaIyk",
+    "value": "You first. (Inject him with Coral)",
+    "description": "Blake's action"
+  },
+  {
+    "id": "5t27I9P0mjbOrhNH",
+    "value": "Have it your way!",
+    "description": "Visser's response if you say 'no'"
+  },
+  {
+    "id": "bcfTRpuyDFIKAOL8",
+    "value": "(Inject him with Coral)",
+    "description": "Blake's action"
+  },
+  {
+    "id": "c9dFeWnCdsVnpehI",
+    "value": "In one perfect motion, I reached into my pocket and jabbed the Coral's outlet into Visser's port. The effect was immediate.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2441"
+  },
+  {
+    "id": "UOPBmJqZDqh9KsXL",
+    "value": "Even through his glasses, I saw his eyes instantly dilate. He let go of me and started trashing about with his knife.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2441"
+  },
+  {
+    "id": "ifg3dTn1ljVSKqsG",
+    "value": "I moved away, keeping between this lunatic and Crystal. He screamed, trying to retain control. Lunging forward with all his enhanced might, he missed me and overextended himself.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2441"
+  },
+  {
+    "id": "OvvrlN9w60ox10np",
+    "value": "Visser tripped over the railing, but the Coral must have taken effect since the only sound we heard was the wet thump of yesterday's garbage dropping to the bottom of the dumpster.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2441"
+  },
+  {
+    "id": "KhuEuDMnvAyHjwsR",
+    "value": "Blake, are you hurt?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2441"
+  },
+  {
+    "id": "GTXieI9bdGZnGo3N",
+    "value": "I could ask you the same thing.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2441"
+  },
+  {
+    "id": "ZSFGKNMh5MouWtqo",
+    "value": "Are you two ok up there?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2441"
+  },
+  {
+    "id": "tJLSHXxpMaHwqb8l",
+    "value": "We're good. Stay there; we'll be right over.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2441"
+  },
+  {
+    "id": "yXqIEfQ2FrM9ujDP",
+    "value": "Wasting no time, we returned to the ground floor and reunited with Danni.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2464"
+  },
+  {
+    "id": "nlF60nQkZdixwx7X",
+    "value": "Oh, Danni! I'm so glad you're safe!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2464"
+  },
+  {
+    "id": "AhkO08E5bsZG4VM4",
+    "value": "*ahem*",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2464"
+  },
+  {
+    "id": "UYj7ev2AsGPdCZex",
+    "value": "And you too, Blake!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2464"
+  },
+  {
+    "id": "PLMLdlWjh5OTUvYS",
+    "value": "Well, if it wasn't for Danni's timely distraction and your quick thinking, I'd have been done for. Thank you both.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2464"
+  },
+  {
+    "id": "eCZGIZynvQn0JB4x",
+    "value": "He shouldn't have underestimated us.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2464"
+  },
+  {
+    "id": "slGrxtAE3s76eMW0",
+    "value": "No kidding. By the way, I thought I told you to stay with SegF4ult, where it was safe!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2464"
+  },
+  {
+    "id": "4hIIMngCbsQAbERF",
+    "value": "Yeah, no. And a good thing too.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2464"
+  },
+  {
+    "id": "qG5oJwvW5rvUFyPU",
+    "value": "By the way, I found this.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2464"
+  },
+  {
+    "id": "1Po7Xhg6JlLYbRk0",
+    "value": "Visser's keycard!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2464"
+  },
+  {
+    "id": "fGThy8bqfVqmiAQ9",
+    "value": "Drek that guy.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2464"
+  },
+  {
+    "id": "RYGQ27DeY2edQQ0K",
+    "value": "Take this datastick. It's got all the data primed for viewing. Seg says to plug it in and it'll do the rest.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2464"
+  },
+  {
+    "id": "xXgNecxjMHWIYSAS",
+    "value": "Great! Since Xander is still going to be looking for you, I need you two to head back to safety while I--",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2464"
+  },
+  {
+    "id": "P1NURsVVln6HL4iS",
+    "value": "While I go with you. No way I'm staying out of this now.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2464"
+  },
+  {
+    "id": "ybtpAeJ6nNXbdaZg",
+    "value": "Not going to be able to change your mind, am I?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2464"
+  },
+  {
+    "id": "QAS310vr7fgZS8Qh",
+    "value": "Nope.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2464"
+  },
+  {
+    "id": "dnHNQw9ENnTPdcUt",
+    "value": "Be careful, you two! I'll head back to Seg's.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2464"
+  },
+  {
+    "id": "v6oAtOO6oSLqkRTO",
+    "value": "Crystal, would you like to go on a date to Xantech Cybernetics?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2464 - Blake is being sarcastic, going to a dangerous place is not a good idea for a date. "
+  },
+  {
+    "id": "IULiPiMmguRoOsaT",
+    "value": "I thought you'd never ask.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2464"
+  },
+  {
+    "id": "oO0JswIb25MOtlx4",
+    "value": "The tinman stepped in front of us, blocking the entrance.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2522 - Conversatio with the tinman at Xantech Cybernetics"
+  },
+  {
+    "id": "WU3BSf15Lb1Dp1gC",
+    "value": "*Ksssh* HALT. *Ksssh*",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2522"
+  },
+  {
+    "id": "S3NVnZgpNwEZZg2Z",
+    "value": "I need to enter the server room",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2522"
+  },
+  {
+    "id": "GqpKtWkneeQK3y5q",
+    "value": "*Ksssh* NO, YOU DON'T. *Ksssh*",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2522"
+  },
+  {
+    "id": "gf5TR4BHlxqqgP1b",
+    "value": "Hmm... Yes, I do.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2522"
+  },
+  {
+    "id": "dLQoalrRDC7Tk2DL",
+    "value": "*Ksssh* I DON'T CARE. AUTHORIZED PERSONNEL ONLY, AND YOU'RE NOT AUTHORIZED PERSONNEL. *Ksssh*",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2522"
+  },
+  {
+    "id": "OlJtkvoWdA1tVTCM",
+    "value": "Why do you think I'm not?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2522"
+  },
+  {
+    "id": "KYleMnOhMUu34XTP",
+    "value": "*Ksssh* YOU'RE NEITHER MR. VISSER NOR ONE OF THE NERDS. BEGONE! *Ksssh*",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2522"
+  },
+  {
+    "id": "HfCDBHJM1gEbqyB5",
+    "value": "Crystal nudged me to give her the coffee and laxative. After mixing them, she sauntered to the tinman while I hid around the corner.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2594"
+  },
+  {
+    "id": "KTehDJRQVQZbkAi4",
+    "value": "Oh, hey there. How are you?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2594"
+  },
+  {
+    "id": "VLJFBmmaWRsVo3pn",
+    "value": "*Ksssh* BA... ERR... UHM... OOF... AH... *Ksssh*",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2594 - There is a little joke here. This is exactly one of the things Blake could have said to Crystal the first time he met her."
+  },
+  {
+    "id": "CPxZ4qRvNOGGGTjp",
+    "value": "*Ksssh* HOW CAN I HELP YOU? *Ksssh*",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2594"
+  },
+  {
+    "id": "XW8qpxOQ2vwR9n8M",
+    "value": "It's the other way around. It's not easy keeping us all safe.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2594"
+  },
+  {
+    "id": "CnFy1s64JxY3A2ZH",
+    "value": "It's such a thankless job...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2594"
+  },
+  {
+    "id": "1Ta97APNJSMw267m",
+    "value": "... and I want to show you my gratitude...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2594"
+  },
+  {
+    "id": "2Fe7nK83gPbjUHIj",
+    "value": "*Ksssh* UHHHH...*Ksssh*",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2594"
+  },
+  {
+    "id": "jUn2r0aFD59PARjE",
+    "value": "... personally...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2594"
+  },
+  {
+    "id": "jQDYFgSPsF1t4QuH",
+    "value": "...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2594"
+  },
+  {
+    "id": "1Cd5m4ujOmoisOTy",
+    "value": "...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2594"
+  },
+  {
+    "id": "0bvFdJ0cIcTosEmb",
+    "value": "So I made you a fresh cup of coffee!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2594"
+  },
+  {
+    "id": "HMFr3aBM9hb1A98P",
+    "value": "*Ksssh* OH!... THANK YOU! *Ksssh*",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2594"
+  },
+  {
+    "id": "6Z0Hl3lYEic6QtaX",
+    "value": "Eager to make her happy, the tinman opened his helmet and downed Crystal's unique coffee blend. After a few moments, an awful sound came from the tinman's stomach.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2594"
+  },
+  {
+    "id": "uHsGSgx14lyXo9lx",
+    "value": "In a show of complete dereliction of duty, the tinman abandoned his post and ran out of the room as quickly as the coffee was running through him.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2594"
+  },
+  {
+    "id": "9INhnOeDZGDX8gZq",
+    "value": "Remind me to stay on your good side.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2594"
+  },
+  {
+    "id": "xFtACQpQevjCxKQc",
+    "value": "*Winks* Who said you were on my good side?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2594"
+  },
+  {
+    "id": "VNO3iw1jEbiMtMwa",
+    "value": "The server room had an enormous server rack, clearly the nexus of Xantech's data.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2651"
+  },
+  {
+    "id": "R6vrvOvnwvdDOfPJ",
+    "value": "What a rack!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2651 - These next two lines are joke. Blake is looking a the enormous server rack. However, 'what a rack' can also mean 'what a nice pair of boobs'."
+  },
+  {
+    "id": "8251ckJQLmX7nLRM",
+    "value": "Thank you.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2651 - This is the punchline to the joke. It's an homage to this scene in the movie Young Frankenstein https://www.youtube.com/watch?v=t9K9wiH2Lko"
+  },
+  {
+    "id": "4ydYu0iiKN3sMBd2",
+    "value": "Unlocking the main terminal with Visser's keycard, I inserted SegF4ault's data stick into the expectant port.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2651"
+  },
+  {
+    "id": "oLRmAjfwStBpdlCA",
+    "value": "A few moments passed, but nothing seemed to be happening.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2651"
+  },
+  {
+    "id": "girRtQuErKMJ7J9H",
+    "value": "*RING RING*",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2651"
+  },
+  {
+    "id": "l5s35GOHY1hjwR24",
+    "value": "Great news, Blake!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2651"
+  },
+  {
+    "id": "OU8oxv38Zq1MbepE",
+    "value": "Hey Seg, it's working?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2651"
+  },
+  {
+    "id": "v8ur9kB9mCO6K3cd",
+    "value": "Yes! I'm monitoring it from my place. We're good to go on our end. See you soon.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2651"
+  },
+  {
+    "id": "yJ618AsEOgaOvpmh",
+    "value": "Bye, Seg.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2651"
+  },
+  {
+    "id": "fb94KRxEjkU4NEjP",
+    "value": "The trap was set. All we had to do was wait.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2651"
+  },
+  {
+    "id": "spQfaESi8ffCQfhT",
+    "value": "The next day we laid low.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2651"
+  },
+  {
+    "id": "ADCIf3xkEUgiFW2Q",
+    "value": "It was anyone's guess if Xander knew what happened to Visser. Perhaps he was too busy with XanCon being in full swing.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2677"
+  },
+  {
+    "id": "x3Y9xFTNv1RpvnBX",
+    "value": "SegF4ult forged tickets, allowing us to sneak onto the expo floor and confront Xander Vane.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2677"
+  },
+  {
+    "id": "C931jQucqCVVtNUD",
+    "value": "Xander Vane: one of the wealthiest men on the planet.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2677"
+  },
+  {
+    "id": "YvScYE5BV32W2Ub9",
+    "value": "Xander Vane: trying to squeeze every credit from those with none.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2677"
+  },
+  {
+    "id": "6jAN32L6ROjJhfgh",
+    "value": "Like Icarus before him, he was flying too close to the sun, and it was high time for him to fall.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2677"
+  },
+  {
+    "id": "d60XrmsmTL1X1YjC",
+    "value": "We arrived just in time for the keynote event, where a smiling Xander addressed a roaring crowd.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2701"
+  },
+  {
+    "id": "onjVHoZAUxwxB9qY",
+    "value": "-- And this is why my new Kickstart 4 cybernetic legs will change the world of sports.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2701 - A little Amiga joke here"
+  },
+  {
+    "id": "7k4i6oy3cr7dTl40",
+    "value": "The crowd erupted in raucous applause.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2701"
+  },
+  {
+    "id": "C6rV8spfChrOePBv",
+    "value": "They are available for purchase...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2701"
+  },
+  {
+    "id": "vZD5xIoo8GOvYBvM",
+    "value": "Right now!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2701"
+  },
+  {
+    "id": "hpTQiIioY08rX8Rw",
+    "value": "More applause from the crowd.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2701"
+  },
+  {
+    "id": "ANjmY9sGbhSK6li9",
+    "value": "Do it, Seg.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2701"
+  },
+  {
+    "id": "LkLbpgZP91YUMD0c",
+    "value": "Up next, we have an innovation you won't believe--",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2701"
+  },
+  {
+    "id": "iXZ7i7ogrhIQSA1j",
+    "value": "The screen behind Xander flickered, and the content was replaced with video clips and audio logs playing in quick succession.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2727"
+  },
+  {
+    "id": "nvVat0iVp1siYcqH",
+    "value": "-- and these dreking animals will eat it up.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2727"
+  },
+  {
+    "id": "qp6WyZ3tQXMitOxH",
+    "value": "-- Why should they stop paying us just because they got the product? With Coral, I *OWN* them.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2727"
+  },
+  {
+    "id": "4aUl19Zv6YVcUg1B",
+    "value": "-- They will give me every last credit and thank me, well, thank \"KryptoKool\" for it.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2727"
+  },
+  {
+    "id": "hTL6xC6x2jIbMJuS",
+    "value": "-- We're making millions!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2727"
+  },
+  {
+    "id": "x9VlAF8mMviZdfyU",
+    "value": "The crowd began to roar, confused -- was this a joke?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2727"
+  },
+  {
+    "id": "OrQnDDIMfxN8tDSn",
+    "value": "But as horror crept on Xander's face, they realized this was all too real.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2727"
+  },
+  {
+    "id": "WsWvUdF1wcM7W1bq",
+    "value": "What is going on?!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2727"
+  },
+  {
+    "id": "vHlO0unaQ2BmVuUd",
+    "value": "What is the meaning of this?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2727"
+  },
+  {
+    "id": "5fW9PPs0YGuGaQ87",
+    "value": "Visser?! Visser?! Where are you?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2727"
+  },
+  {
+    "id": "OCrEBV4q4GqipdxN",
+    "value": "Xander looked into the crowd, and with almost supernatural precision, his eyes locked onto Danni's.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2752"
+  },
+  {
+    "id": "E6jTDlk0U4LbjISg",
+    "value": "YOU!!!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2752"
+  },
+  {
+    "id": "WkXvubqU7I3KyOeq",
+    "value": "Like a raging salmon swimming upstream, he pushed his way to us through the crowd of formerly adoring fans.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2752"
+  },
+  {
+    "id": "AnXoMK9m0lbQ0QAh",
+    "value": "You!? Do you realize what you've done?! You ruined me!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2752"
+  },
+  {
+    "id": "GyW7mwYmFRIpBSnN",
+    "value": "And after all I've done for you?! You'd still be gutter trash if it wasn't for me!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2752"
+  },
+  {
+    "id": "Vm68jbTHQu54ngoG",
+    "value": "You...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2752"
+  },
+  {
+    "id": "TIVUEymbw5MYkUHf",
+    "value": "Danni punched him in the face.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2752"
+  },
+  {
+    "id": "5C4EhuB2Jj0ROx7a",
+    "value": "...Threw me...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2752"
+  },
+  {
+    "id": "ZTpMa8tXqn1eMvEc",
+    "value": "Reeling from the blow, Xander was unprepared for his groin to meet Danni's knee.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2752"
+  },
+  {
+    "id": "QS00XIBmvttQ5CsA",
+    "value": "... In the TRASH...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2752"
+  },
+  {
+    "id": "EYNj0lyIB02Sx9gO",
+    "value": "She kicked him in the face as he doubled over, and he landed on his ass.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2752"
+  },
+  {
+    "id": "IEXcc4DV3UG9oIXr",
+    "value": "You left me to die.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2752"
+  },
+  {
+    "id": "T74Vkc6UHxJc5wOI",
+    "value": "You drek... You and your friends are dreking finished! I will--",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2786"
+  },
+  {
+    "id": "iWwHc15cIuhp0Ovb",
+    "value": "Mid-sentence, three black-suited men wearing sunglasses and earpieces appeared behind Xander.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2786"
+  },
+  {
+    "id": "PabOpBdUxfekOotS",
+    "value": "Exhibiting a gross misunderstanding of the situation, Xander ordered them to arrest us.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2786"
+  },
+  {
+    "id": "9d5Fj431hU9qyC7Z",
+    "value": "They didn't.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2786"
+  },
+  {
+    "id": "ylAdHoOvaBPZeioL",
+    "value": "Mr. Vane. You're exhibiting a gross misunderstanding of the situation.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2786"
+  },
+  {
+    "id": "H8HxdCMCaMG6OcId",
+    "value": "The Cygnus board of directors is displeased and demands your presence immediately.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2786"
+  },
+  {
+    "id": "VqlaBBxpq3SKeJD0",
+    "value": "Xander's struggles and attempts to make an escape were fruitless.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2786"
+  },
+  {
+    "id": "Q7xPVuNqg0IH92gW",
+    "value": "Almost bored, the lead man in black jabbed Xander with something, and \"15\" went limp.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2786"
+  },
+  {
+    "id": "gxG0hTvF98ZScsXl",
+    "value": "Just as quickly as they arrived, they left.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2786"
+  },
+  {
+    "id": "UPnvccxcb8kdiLYE",
+    "value": "Who were they?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2786"
+  },
+  {
+    "id": "Gec0VSUOVvWJWqXI",
+    "value": "Enforcers for Cygnus Holdings, I'd imagine.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2786"
+  },
+  {
+    "id": "pbteevtywSuLd2a7",
+    "value": "I almost felt bad for Xander.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2786"
+  },
+  {
+    "id": "qZNDNQ9yBHNYxK8v",
+    "value": "Almost.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2786"
+  },
+  {
+    "id": "m6MU18GkO3mrmykJ",
+    "value": "It was now time for us to make our exit.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2786"
+  },
+  {
+    "id": "e2EBABM6qv1IVHwI",
+    "value": "In the following days, Cygnus Holdings publicly denounced Xantech Cybernetics' actions and took control of the company.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2839"
+  },
+  {
+    "id": "qMflFw2o9xvY1S24",
+    "value": "Nobody had seen or heard from Xander Vane since.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2839"
+  },
+  {
+    "id": "mequa6A07UTT20wE",
+    "value": "Things were beginning to go back to normal, or whatever passed for normal around here.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2839"
+  },
+  {
+    "id": "SXSJghNcUDPuVGXn",
+    "value": "Who's a good girl, Daisy?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2839"
+  },
+  {
+    "id": "dSXEhNppxLwtfbBL",
+    "value": "Boof!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2839"
+  },
+  {
+    "id": "S8qZ7U2bEdGOJLvi",
+    "value": "That's right! You are!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2839"
+  },
+  {
+    "id": "IvMP6UWDtVjj3l5E",
+    "value": "To my surprise, there was a knock at the door.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2839"
+  },
+  {
+    "id": "KKb1xOoygnpm5uVq",
+    "value": "Sorry, we're clos--",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2839"
+  },
+  {
+    "id": "9Rtr8ucuAwIy9hd6",
+    "value": "Even for a friendly face?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2839"
+  },
+  {
+    "id": "aTCnAD3FqqcsjjR0",
+    "value": "Oh, hi Crystal! Come in.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2839"
+  },
+  {
+    "id": "wJcjqNBc9cYx9rc4",
+    "value": "Boof!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2839"
+  },
+  {
+    "id": "T27kOY7r2uC7Ryt8",
+    "value": "I didn't know you had a dog! She's beautiful.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2839"
+  },
+  {
+    "id": "i7VxVkR0jNTcaXon",
+    "value": "Is she a good girl?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2839"
+  },
+  {
+    "id": "Hge4Ya23hXkyX0Vg",
+    "value": "The best.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2839"
+  },
+  {
+    "id": "takeshi",
+    "value": "Takeshi's Noodles used to be the best place in the Gutter for a late meal. Too bad old Takeshi closed up shop for good.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=52"
+  },
+  {
+    "id": "check_takeshi_alley",
+    "value": "A garbage-filled alleyway leads to the back of Takeshi's place. No need to go there.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=56"
+  },
+  {
+    "id": "enter_takeshis1",
+    "value": "I used the keycard to gain entry to Takeshi's. The place looked like it had been hit by a tornado. I checked the fridge and, against all hope, I found the last container of noodles. Who can say how long they've been there?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=457"
+  },
+  {
+    "id": "enter_takeshis2",
+    "value": "I tossed the container in the microwave hoping that it would kill anything that started growing. In the pale light of the microwave, amid the drone of its magnetron, I contemplated the absurdity of this situation.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=457"
+  },
+  {
+    "id": "enter_takeshis3",
+    "value": "A girl goes missing, and I'm dumpster diving, robbing corpses, and now making a bowl of r-",
+    "description": "https://youtu.be/EprkOx1qUq0?t=457"
+  },
+  {
+    "id": "enter_takeshis4",
+    "value": "*DING*",
+    "description": "https://youtu.be/EprkOx1qUq0?t=457"
+  },
+  {
+    "id": "enter_takeshis_again",
+    "value": "I got what I needed. There was nothing else to be found there.",
+    "description": "Displayed if you try to back into Takeshi's Noodles after you already go the noodles"
+  },
+  {
+    "id": "cant_enter_takeshis",
+    "value": "The door was locked. Hmm... What were the odds that there were still some nasty noodles in there?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=333"
+  },
+  {
+    "id": "alley_check_dumpster",
+    "value": "This particular dumpster was especially foul. Something was putrefying in there.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=234 - Use object"
+  },
+  {
+    "id": "glich_check_trash1",
+    "value": "Against my better judgement, I opened the dumpster. The smell was so powerful I gagged.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=345"
+  },
+  {
+    "id": "glich_check_trash2",
+    "value": "Under a pile of decomposing trash bags was Takeshi's body. They did a dreking number on him.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=348"
+  },
+  {
+    "id": "glich_check_trash3",
+    "value": "More importantly, I found his key card. I don't like to steal from the dead, but he's not using it.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=354"
+  },
+  {
+    "id": "glitch_trash_complete",
+    "value": "I wouldn't dive into that dumpster again, even if it held the secret to Danni's disappearance.",
+    "description": "Description shown if you click on the dumpster where Takeshi's keycard was found after you have the keycard"
+  },
+  {
+    "id": "alley_atm_description",
+    "value": "ATMs. Cash Machines. Cred Dispensers. Unarmed Bandits. Take your pick. These jackpots let you retrieve your credits... for a fee.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=68"
+  },
+  {
+    "id": "alley_atm_quest_start",
+    "value": "The better play would be to deal with that tin man before trying anything. They're not the forgiving type.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=370 - 'Play' here is used like the word 'plan'"
+  },
+  {
+    "id": "alley_atm_quest_complete",
+    "value": "The deed's done; better not bring any more attention to it.",
+    "description": "If you try to use the ATM again after you hacked it"
+  },
+  {
+    "id": "alley_atm_security_desc",
+    "value": "It looked like this bank hired security to babysit the jackpot. These tin men contracts were usually given to the lowest bidders.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=65"
+  },
+  {
+    "id": "alley_atm_security_done",
+    "value": "I left him to his brain drain duties.",
+    "description": "If you click on the tinman after you're done with the ATM. Brain-drain means 'really boring'"
+  },
+  {
+    "id": "cant_leave_alley",
+    "value": "I couldn't leave yet, not when I still didn't have a lead.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=250"
+  },
+  {
+    "id": "alley_subway_tweaker_desc",
+    "value": "His blue hair almost distracted from his facial cybernetics. Almost.",
+    "description": "If you look at Tweaker before you know he has the ticket"
+  },
+  {
+    "id": "danni_clutter_desc",
+    "value": "Next to Danni's bed was a small pile of clutter. It was mostly clothes, but there were also some papers.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=921"
+  },
+  {
+    "id": "danni_note_from_gladys",
+    "value": "A note was dated two days prior, addressed to Danni, from someone named Gladys. It read, \"15 wants to see you tonight, and I don't need to remind you that you better bring your A-game.\"",
+    "description": "https://youtu.be/EprkOx1qUq0?t=921"
+  },
+  {
+    "id": "danni_nightstand_desc",
+    "value": "Danni's ID card! I could run a background check on her with the GovLink computer back at my apartment.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=910"
+  },
+  {
+    "id": "danni_nightstand_desc_after",
+    "value": "There was nothing else of interest on the nightstand.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=910"
+  },
+  {
+    "id": "dont_leave_danni_apt",
+    "value": "Mmm... I had a feeling there was more to uncover here.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=824 - If you try to leave Crystal's before you have everything you need."
+  },
+  {
+    "id": "danni_id_trace1",
+    "value": "Cassandra Null: ID#721077",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1102 - These lines, trace1 to trace8 make up a page. The last name 'Null' is a computer joke. There is no last name."
+  },
+  {
+    "id": "danni_id_trace2",
+    "value": "Age: 25",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1102"
+  },
+  {
+    "id": "danni_id_trace3",
+    "value": "Sex: Female.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1102"
+  },
+  {
+    "id": "danni_id_trace4",
+    "value": "Known aliases: Danni Ashton",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1102"
+  },
+  {
+    "id": "danni_id_trace5",
+    "value": "Parents: Unknown.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1102"
+  },
+  {
+    "id": "danni_id_trace6",
+    "value": "Notes:",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1102"
+  },
+  {
+    "id": "danni_id_trace7",
+    "value": "Cassandra was taken into the care of KidCo Orphanages when she was approximately 2 months old. She was never successfully adopted and graduated from KidCo Orphanages at 18.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1102"
+  },
+  {
+    "id": "danni_id_trace8",
+    "value": "The alias \"Danni Ashton\" was tied to her approximately 2 years ago.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1102"
+  },
+  {
+    "id": "make_a_drink",
+    "value": "It was time to review the facts. I poured myself a drink and focused my thoughts.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1116"
+  },
+  {
+    "id": "end_act1_a",
+    "value": "Cassandra, an orphan never adopted, was given the last name \"Null.\" Two years ago, she reinvented herself as \"Danni Ashton\"... that's about when she met Crystal.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1124"
+  },
+  {
+    "id": "end_act1_b",
+    "value": "But what bothered me is that if she chose the name \"Danni Ashton\" for herself, then who the drek was \"Jacob,\" the man who hired me and posed as her concerned father?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1124"
+  },
+  {
+    "id": "end_act1_c",
+    "value": "Considering everything I'd uncovered, I was more worried for her safety. The problem was that I wasn't any closer to finding her.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1138"
+  },
+  {
+    "id": "end_act1_d",
+    "value": "I decided to pay her employer, Gladys Aubergine, a visit. If I find out who she was with last, I might get the lead I need.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1138"
+  },
+  {
+    "id": "end_act1_e",
+    "value": "*RING RING*",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1142"
+  },
+  {
+    "id": "blake_start_act2",
+    "value": "Time to hit the streets. Daisy, be a good girl while I'm out.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1174"
+  },
+  {
+    "id": "just_got_visser_photo1",
+    "value": "Holy dreking hell! This is a photo of Jacob Ashton! Danni was with 15, whoever they were, and Jacob- I mean, JV picked her up! Why do they want to find her? What did they do to her?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1526"
+  },
+  {
+    "id": "just_got_visser_photo2",
+    "value": "I need to show this photograph around and see if anyone recognizes him. Finally, some progress!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1526"
+  },
+  {
+    "id": "parcel_trace1",
+    "value": "Parcel #3,735,928,559",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1896 - trace1 through trace4 form a page"
+  },
+  {
+    "id": "parcel_trace2",
+    "value": "Address: 2833 Pipeline St, Unit B19",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1896"
+  },
+  {
+    "id": "parcel_trace3",
+    "value": "Owner: SummerVault",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1896"
+  },
+  {
+    "id": "parcel_trace4",
+    "value": "Listed Use: Storage",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1896"
+  },
+  {
+    "id": "parcel_trace5",
+    "value": "SummerVault? Let's add them to them database search.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1896"
+  },
+  {
+    "id": "get_call_from_danni1",
+    "value": "The cool night air carrying the acrid fumes of this district caressed my face like a vengeful lover. The distant industrial music was pierced by a much closer, higher-pitched sound.",
+    "description": "Ignore - Unused"
+  },
+  {
+    "id": "get_call_from_danni2",
+    "value": "*RING RING*",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1971"
+  },
+  {
+    "id": "get_call_from_danni3",
+    "value": "I didn't recognize the number, and sensing my hesitation, it chimed again like a child demanding attention.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1971"
+  },
+  {
+    "id": "we_should_meet",
+    "value": "'... and I think we should meet.'",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1971"
+  },
+  {
+    "id": "end_act2_a",
+    "value": "My mind raced faster than Coral through a junkie's wetware. The woman I'd been spending all night looking for had found me instead.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1994"
+  },
+  {
+    "id": "end_act2_b",
+    "value": "While I was sneaking around the industrial district, she called Crystal, who vouched for me.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1994"
+  },
+  {
+    "id": "end_act2_c",
+    "value": "Danni gave me the address of a friend's safe house, someone who helped her lie low until now.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1994"
+  },
+  {
+    "id": "end_act2_d",
+    "value": "It was finally time to meet Danni Ashton and discover why Johan Visser had paid me to find her.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1994"
+  },
+  {
+    "id": "laundromat_closed",
+    "value": "The door was locked. I saw an old woman through the window, but she waved me away. I'd have to come back later.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1011"
+  },
+  {
+    "id": "laundry_xantech_poster1",
+    "value": "The poster announced the yearly XanCon expo hosted by Xantech Cybernetics. All of Xantech's latest spectacles of planned obsolescence will be on display tomorrow night.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1002"
+  },
+  {
+    "id": "laundry_xantech_poster2",
+    "value": "I added Xantech Cybernetics to my GovLink search database.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1002"
+  },
+  {
+    "id": "laundry_fight",
+    "value": "As I stepped back into this house of laundered promises, Crystal was already yelling at Gladys, who hadn't even noticed me enter. Crystal's unbridled creativity in the insults she was hurling at Gladys was the second time this woman's caused me to blush. Gladys was no slouch; what she couldn't muster in youthful creativity, she more than made up with her ancient wealth of experience. I would have loved to watch this, but I had a computer to hack.",
+    "description": "Ignore - Unused"
+  },
+  {
+    "id": "hack_gladys_computer",
+    "value": "Sneaking behind a very occupied Gladys, I plugged Glitch's hacktool into the back of her computer. When a green light blinked twice, the deed was done, and the data was mine. Slinking away, I winked at Crystal to signal I got what I came for.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1444"
+  },
+  {
+    "id": "need_gladys_distraction",
+    "value": "That old witch would never let me close enough to place the hacktool. I needed to find a way to distract her.",
+    "description": "If you try to use Glady's computer before she's distracted."
+  },
+  {
+    "id": "thank_crystal_for_help",
+    "value": "A few moments after I stepped out of the Lost Sock, Crystal left in a huff. She was either an accomplished actress, or the argument between them was a long time coming.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1450"
+  },
+  {
+    "id": "laundromat_never_again",
+    "value": "I better stay away. I don't want Gladys to get suspicious.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1546 - Once you have the data, there is no reason to return to the Lost Sock"
+  },
+  {
+    "id": "gladys_busy_fighting",
+    "value": "Gladys exploded forth a geyser of invectives at Crystal. I don't think she even knew I was there, and I wanted to keep it that way.",
+    "description": "If you click on Gladys while she's fighiting with Crystal"
+  },
+  {
+    "id": "b19_pick_storage_lock",
+    "value": "Typing the keycode I got from Acid Nova, the door opened without issues.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1787"
+  },
+  {
+    "id": "b19_pick_office_lock",
+    "value": "You don't become a PI without picking your fair share of locks. I added this one to my list of conquests.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1836"
+  },
+  {
+    "id": "get_coral",
+    "value": "The red plastic capsule caught my attention, its ruby red color in sharp contrast to the gloom of the storeroom. I've been hearing a lot about this little pill, and with my lack of cybernetics, its siren's song fell on deaf ears. I didn't know why, but I pocketed the Coral.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1817"
+  },
+  {
+    "id": "open_boxes1",
+    "value": "I pulled out a pocket knife and opened one of the boxes. I didn't know what to expect, but nothing could prepare me for what was inside...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1804"
+  },
+  {
+    "id": "open_boxes2",
+    "value": "... Flattened out boxes and other packing materials.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1804 - Continued from above"
+  },
+  {
+    "id": "get_parcel_number1",
+    "value": "Looking through garbage was becoming an unwholesome habit. Fortunately, there was nothing rancid in here, just papers.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1862"
+  },
+  {
+    "id": "get_parcel_number2",
+    "value": "Rifling through the papers, I found an old permit containing the parcel number for this building, which I could look up on the GovLink.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1862"
+  },
+  {
+    "id": "empty_trash",
+    "value": "There was nothing else of value in there.",
+    "description": "If you check the trashcan in the office after you got the parcel number"
+  },
+  {
+    "id": "look_at_lockers",
+    "value": "The lockers weren't locked. Unfortunately, they were also empty.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1853"
+  },
+  {
+    "id": "look_at_papers",
+    "value": "There were some papers and brochures on the small table. Nothing interesting, I'm afraid.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=1846"
+  },
+  {
+    "id": "b19_cant_leave_yet",
+    "value": "I had the feeling there was more for me to uncover here.",
+    "description": "If you try to leave the industrial district before you got everything you needed to find"
+  },
+  {
+    "id": "danni_story1",
+    "value": "My client had just thrown a large party and wanted me to be the eye candy hanging off his arm.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2047"
+  },
+  {
+    "id": "danni_story2",
+    "value": "After people left, we retired to his bedroom to... rest.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2047"
+  },
+  {
+    "id": "danni_story3",
+    "value": "Before we could get down to business, he got a call. I don't know what it was about, but he sounded anxious and left the room.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2047"
+  },
+  {
+    "id": "danni_story4",
+    "value": "Bored, I looked through his nightstand to find something fun and saw some Coral. I figured he wouldn't mind, so I jacked it in.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2047"
+  },
+  {
+    "id": "danni_story5",
+    "value": "But it wasn't Coral, and I started convulsing.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2047"
+  },
+  {
+    "id": "danni_story6",
+    "value": "The next thing I know, I wake up naked in a dumpster. That drek must have thought I died and threw me in the garbage.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2047"
+  },
+  {
+    "id": "danni_story7",
+    "value": "The data I thought was Coral was still in my head. I didn't know what it contained but knew I wasn't supposed to have it.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2047"
+  },
+  {
+    "id": "b19r_intro1",
+    "value": "Wasting no time, I was on my way back to that snake nest. With Building 19 in sight, I needed to be careful if Crystal and I were to make it out alive.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2259"
+  },
+  {
+    "id": "b19r_intro2",
+    "value": "I didn't know what to expect, but I knew one thing...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2259"
+  },
+  {
+    "id": "b19r_intro3",
+    "value": "Visser was going to regret this.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2259"
+  },
+  {
+    "id": "b19r_crystal_on_catwalk",
+    "value": "Looking up, I saw Visser and Crystal on the catwalk. I needed to hurry!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2268"
+  },
+  {
+    "id": "b19r_use_storage",
+    "value": "There was no time to waste on this floor; I needed to go up!",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2279"
+  },
+  {
+    "id": "b19r_goto_entrance",
+    "value": "I decided to head back outside. I was sure Crystal could wait.",
+    "description": "If you leave the Lost Sock when Crystal is fighting with Gladys but did not yet use the hacking tool"
+  },
+  {
+    "id": "b19r_goto_catwalk",
+    "value": "Throwing caution to the wind, I stepped onto the catwalk.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2309"
+  },
+  {
+    "id": "b19r_vending_machine",
+    "value": "Although the ChocoBlaster tantalized me from behind its glass prison, I couldn't think of eating at a time like this.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2303"
+  },
+  {
+    "id": "xantech_medicine_closet1",
+    "value": "Medicines of all kinds, but nothing that was immediately useful.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2546"
+  },
+  {
+    "id": "xantech_medicine_closet2",
+    "value": "Wait. What's this? KwikyLax?",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2546"
+  },
+  {
+    "id": "xantech_medicine_closet3",
+    "value": "'World's first military-grade laxative. Declare war on constipation!'",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2546"
+  },
+  {
+    "id": "xantech_medicine_closet4",
+    "value": "I think we all knew where this was going to go.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2546"
+  },
+  {
+    "id": "xantech_medicine_closet_end",
+    "value": "Nothing else of use was in here.",
+    "description": "If you try to interact with the medicine closet after you already got the laxative"
+  },
+  {
+    "id": "xantech_coffee_machine",
+    "value": "The coffee from this machine smelled delicious. I decided to take a cup. And why not? I deserved it.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2578"
+  },
+  {
+    "id": "xantech_has_coffee",
+    "value": "I drank deeply from the cup I'd gotten earlier; it was everything I wanted in coffee. I then decided to take another.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2578"
+  },
+  {
+    "id": "xantech_move_to_server",
+    "value": "With the tinman gone, we moved into the server room.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2646"
+  },
+  {
+    "id": "end5",
+    "value": "The End.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=2839"
+  },
+  {
+    "id": "inv_start",
+    "value": "I had...",
+    "description": "https://youtu.be/EprkOx1qUq0?t=82 - Inventory title"
+  },
+  {
+    "id": "inv_danni_picture",
+    "value": "*A picture of Danni Ashton.",
+    "description": "https://youtu.be/EprkOx1qUq0?t=82 - All these are inventory items, please make sure to keep the * right before the text"
+  },
+  {
+    "id": "inv_glitch_cred_stick",
+    "value": "*A cred-stick of dubious origins.",
+    "description": ""
+  },
+  {
+    "id": "inv_takeshi_key",
+    "value": "*A keycard to Takeshi's Noodles.",
+    "description": ""
+  },
+  {
+    "id": "inv_takeshi_noods",
+    "value": "*A highly questionable bowl of noodles.",
+    "description": ""
+  },
+  {
+    "id": "inv_alleycat_ticket",
+    "value": "*A ticket granting entrance to the Alleycat.",
+    "description": ""
+  },
+  {
+    "id": "inv_alleycat_password",
+    "value": "*The password to the Alleycat.",
+    "description": ""
+  },
+  {
+    "id": "inv_note_from_gladys",
+    "value": "*A note to Danni from Gladys about someone named '15'.",
+    "description": ""
+  },
+  {
+    "id": "inv_danni_id",
+    "value": "*Danni's government-issued ID.",
+    "description": ""
+  },
+  {
+    "id": "inv_glitch_hacktool",
+    "value": "*A hacktool I got from Glitch.",
+    "description": ""
+  },
+  {
+    "id": "inv_glitch_hacktool_full",
+    "value": "*A hacktool I got from Glitch. It had data from Gladys's computer.",
+    "description": ""
+  },
+  {
+    "id": "inv_coral",
+    "value": "*A capsule of Coral.",
+    "description": ""
+  },
+  {
+    "id": "inv_parcel_number",
+    "value": "*A paper with Building 19's parcel number.",
+    "description": ""
+  },
+  {
+    "id": "inv_visser_keycard",
+    "value": "*A keycard belonging to Johan Visser.",
+    "description": ""
+  },
+  {
+    "id": "inv_laxative",
+    "value": "*KwikyLax. A military-grade laxative.",
+    "description": "The Kwiky in KwikyLax is a strange spelling for \"Quick\", and Lax is a common abbreviation for Laxative in English."
+  },
+  {
+    "id": "inv_coffee",
+    "value": "*A fresh cup of coffee.",
+    "description": ""
+  },
+  {
+    "id": "OuhURObWpjGrvd9f",
+    "value": "Foul-smelling Dumpster",
+    "description": "https://youtu.be/EprkOx1qUq0?t=116 - Object description"
+  },
+  {
+    "id": "SCrkDF2TY2L3206v",
+    "value": "Credits",
+    "description": "The title for the credits of the game, not the game's money :)"
+  },
+  {
+    "id": "muMdwxQQeZ2UesJ1",
+    "value": "*Programming and Story*\nMassimo Loi - massproduced.games\n\n*Art*\nSandy Loi\nMidJourney\n\n*Music*\nMatias Sosa - matias-sosa.itch.io\n\n*Translations*\nSimone Battaglioni \"SimonPPC\"\n\nSpecial thanks to all the members of Amiga Blitz Basic Game Jam Discord server.",
+    "description": "The credits. Please keep the * in the titles and each '\n' is a new line."
+  },
+  {
+    "id": "lRsQ0Bt9mq6MvVAB",
+    "value": "",
+    "description": "Ignore"
+  },
+  {
+    "id": "6j2XExoEEAmAC5Br",
+    "value": "In loving memory\nDaisy 2009-2022\n\nYou'll always be the goodest girl...",
+    "description": "Ignore"
+  },
+  {
+    "id": "wfdtEfkwT062SZbE",
+    "value": "",
+    "description": "Ignore"
+  }
+]

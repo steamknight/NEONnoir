@@ -123,6 +123,7 @@ namespace NEONnoir
         u16 music_id{ NO_INDEX };
         std::vector<game_data_region> regions;
         std::vector<game_data_text_region> text_regions;
+        bool is_cutscene;
     };
 
     struct shape

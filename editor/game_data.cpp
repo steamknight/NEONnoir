@@ -73,7 +73,8 @@ namespace NEONnoir
         offset_y,
         music_id,
         regions,
-        text_regions
+        text_regions,
+        is_cutscene
     );
 
     DEFINE_ORDERED_TYPE(
