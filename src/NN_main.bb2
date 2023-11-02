@@ -96,14 +96,14 @@ Repeat
   ;NN_current_bmp = *NN_current_scene\background_id
 
   ; If we changed locations, let's kill any text that might be hanging around
-  If prev_bmp <> NN_current_bmp
+  If NN_scene_changed
+    NN_scene_changed = False
     UnBuffer 0
-    prev_bmp = NN_current_bmp
 
     If *NN_current_scene\first_text_region <> -1
       For tr = *NN_current_scene\first_text_region to *NN_current_scene\last_text_region
         *text_region = !__get_text_region{tr}
-        TX_begin{&text_region_ctx, False, True}
+        TX_begin{&text_region_ctx, False, *text_region\center_vertical}
         text_region_ctx\justify = *text_region\justify
         size = TX_put_text{&text_region_ctx, *text_region\text_id, *text_region\width}
         TX_end{&text_region_ctx, *text_region\x, *text_region\y, False}

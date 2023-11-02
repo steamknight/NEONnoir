@@ -20,14 +20,14 @@
     "description": "Continue game button in title screen"
   },
   {
-    "id": "title_credits",
-    "value": "Riconoscimenti",
-    "description": "Credits button in title screen, shows who made the game."
-  },
-  {
     "id": "title_quit",
     "value": "Esci",
     "description": "Quit game button in title screen"
+  },
+  {
+    "id": "title_credits",
+    "value": "Riconoscimenti",
+    "description": "Credits button in title screen, shows who made the game."
   },
   {
     "id": "mod_theme",

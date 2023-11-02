@@ -46,23 +46,23 @@
         },
         {
           "name": "bg_alley_takeshi",
-          "relative_path": "data\\alleyway1a.iff"
+          "relative_path": "data\\locations\\loc_alleyway1.iff"
         },
         {
           "name": "bg_alley_empty_lot",
-          "relative_path": "data\\alleyway3a.iff"
+          "relative_path": "data\\locations\\loc_alleyway3.iff"
         },
         {
           "name": "bg_alley_atm",
-          "relative_path": "data\\alleyway_atm.iff"
+          "relative_path": "data\\locations\\loc_alleyway_atm.iff"
         },
         {
           "name": "bg_alley_trash",
-          "relative_path": "data\\alleyway_trash.iff"
+          "relative_path": "data\\locations\\loc_alleyway_trash.iff"
         },
         {
           "name": "bg_subway_entrance",
-          "relative_path": "data\\subway_entrance.iff"
+          "relative_path": "data\\locations\\loc_subway_entrance.iff"
         },
         {
           "name": "bg_subway_interior",
@@ -466,10 +466,10 @@
       "name": "Alley",
       "backgrounds": [
         "data\\locations\\loc_alley_alleycat.iff",
-        "data\\alleyway1a.iff",
-        "data\\alleyway3a.iff",
-        "data\\alleyway_atm.iff",
-        "data\\subway_entrance.iff",
+        "data\\locations\\loc_alleyway1.iff",
+        "data\\locations\\loc_alleyway3.iff",
+        "data\\locations\\loc_alleyway_atm.iff",
+        "data\\locations\\loc_subway_entrance.iff",
         "data\\locations\\loc_subway_interior.iff"
       ],
       "scenes": [

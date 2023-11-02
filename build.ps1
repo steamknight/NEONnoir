@@ -21,16 +21,13 @@ $bb2_files = @(
 
 $data_files = @(
     "./data/title.iff",
-    "./data/title2.iff",
     "./data/blank.iff",
-    "./data/alleyway1a.iff",
+    "./data/locations/loc_alleyway1.iff",
     "./data/locations/loc_alley_alleycat.iff",
-    "./data/alleyway3a.iff",
-    "./data/alleyway_trash.iff",
-    "./data/alleyway_atm.iff",
-    "./data/subway_entrance.iff",
+    "./data/locations/loc_alleyway3.iff",
+    "./data/locations/loc_alleyway_atm.iff",
+    "./data/locations/loc_subway_entrance.iff",
     "./data/locations/loc_subway_interior.iff",
-    "./data/alleycat1.iff",
     "./data/locations/loc_alleycat_bar.iff",
     "./data/locations/loc_alleycat_entrance.iff",
     "./data/locations/loc_apartment_bedroom.iff",
@@ -81,22 +78,9 @@ $data_files = @(
     "./data/mpg.iff",
     "./data/lang_selection.iff",
     "./data/flags.shapes",
-    # "./data/2.shapes",
-    # "./data/3.shapes",
-    # "./data/4.shapes",
-    # "./data/5.shapes",
-    # "./data/6.shapes",
-    # "./data/7.shapes",
-    # "./data/8.shapes",
-    # "./data/9.shapes",
-    # "./data/10.shapes",
-    # "./data/11.shapes",
     "./data/menu.shapes",
     "./data/people.mpsh",
-    "./data/ui.pal"
-)
-
-$lang_files = @(
+    "./data/ui.pal",
     "./data/lang/en.noir"
     "./data/lang/latin-1.shapes"
 )
@@ -106,21 +90,20 @@ function Set-ToolPath($path) {
 }
 
 function Copy-GameData {
-    $data_dir = "$ENV:NEONnoir_path\data"
-    $lang_dir = "$data_dir\lang"
-
-    # Create the output directories
-    if (!(Test-Path $data_dir)) {
-        New-Item -ItemType Directory -Path $data_dir
-        New-Item -ItemType Directory -Path $lang_dir
-    }
+    $data_dir = "$ENV:NEONnoir_path"
 
     # Copy all the data files
-    Write-Host "Copying game data to $data_dir..."
-    Copy-Item -Path $data_files -Destination $data_dir
+    ForEach($file in $data_files) {
+        $dest_path = Join-Path -Path $data_dir -ChildPath $file
 
-    Write-Host "Copying language files to $lang_dir..."
-    Copy-Item -Path $lang_files -Destination $lang_dir
+        if (!(Test-Path -Path $dest_path)) {
+            $directory = Split-Path -Path $dest_path -Parent
+            New-Item -ItemType Directory -Force -Path $directory
+        }
+
+        Write-Host "Copying game data to $dest_path..."
+        Copy-Item -Path $file -Destination $dest_path
+    }
 }
 
 function Copy-Game {

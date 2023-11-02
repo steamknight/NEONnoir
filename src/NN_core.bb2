@@ -169,6 +169,8 @@ DEFTYPE .l NN_scene_count
 ; the previous example, scene 2 might be the 8th scene in the array, so the "global"
 ; scene id would be 7 (zero-based index)
 DEFTYPE .w NN_current_scene_id, NN_current_global_scene_id
+DEFTYPE .b NN_scene_changed
+NN_scene_changed = True
 
 Macro __get_scene
   (*NN_scenes + (SizeOf .NN_scene * (`1)))
@@ -485,5 +487,4 @@ TX_langs.s(1) = "it"
 ; -----------------------------------------------------------------------------
 #NN_menu_start = 0
 #NN_menu_continue = 1
-#NN_menu_credits = 2
-#NN_menu_exit = 3
+#NN_menu_exit = 2

@@ -258,7 +258,7 @@ Function .b NN_main_menu{}
   #menu_padding = 8
   #menu_left = 16
   #menu_top = 136
-  #menu_items = 4
+  #menu_items = 3
 
   DEFTYPE .w y_start
   y_start = #menu_top
@@ -436,9 +436,11 @@ End Statement
 Statement NN_game_set_scene{id.w}
   !DB_trace{"NN_GAME", "NN_game_set_scene: " + Str$(id)}
   SHARED *NN_scenes, *NN_current_scene, NN_current_bmp, *NN_current_location
+  SHARED NN_scene_changed
   SHARED NN_current_palette, NS_script_queue
   SHARED NN_current_scene_id, NN_current_global_scene_id
 
+  NN_scene_changed = True
   NN_current_scene_id = id
   NN_current_global_scene_id = *NN_current_location\first_scene + id
 
@@ -503,7 +505,7 @@ Statement NN_load_location{new_loc_id.w, new_scene_id.w}
     DEFTYPE .NN_shape *first_shape, *last_shape
     *first_shape = !__get_shape{*NN_current_location\first_shape}
     *last_shape = !__get_shape{*NN_current_location\last_shape}
-    LoadShapes *first_shape\shape_id, *last_shape\shape_id, "data/" + !__get_string{*NN_current_location\shapes_file}
+    LoadShapes *first_shape\shape_id, *last_shape\shape_id, !__get_string{*NN_current_location\shapes_file}
   End If
 
   ; Load the portraits if there are any
@@ -526,7 +528,7 @@ Statement NN_load_location{new_loc_id.w, new_scene_id.w}
     BitMap bg, #NN_screen_width, #NN_screen_height, #NN_screen_bpp
     bmp$ = !__get_string{bg + *NN_current_location\first_bg}
     ;NPrint bmp$
-    LoadBitMap bg, "data/" + bmp$, bg
+    LoadBitMap bg, bmp$, bg
   Next
 
   ; Setup the next scene
@@ -748,10 +750,6 @@ Function .b NN_startup{neonpack$}
 
       Case #NN_menu_continue
         done = NN_load_game{}
-
-      Case #NN_menu_credits
-        NN_load_location{1, 0}
-        done = TRUE
 
       Case #NN_menu_exit
         NN_quit_game{}

@@ -70,8 +70,11 @@ namespace NEONnoir
             for (auto const& background : location.backgrounds)
             {
                 auto path = std::filesystem::path{ background };
+                path.replace_extension("iff");
                 
-                pak.string_table.push_back(path.stem().replace_extension("iff").string());
+                auto string_path = path.string();
+                std::replace(string_path.begin(), string_path.end(), '\\', '/');
+                pak.string_table.push_back(string_path);
             }
 
             loc.first_scene_id = to<u16>(pak.scenes.size());
