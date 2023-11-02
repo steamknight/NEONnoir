@@ -12,38 +12,28 @@ Statement MS_load_module{id.w, position.w}
   ; If we're already playing the right track, don't restart it
   If MS_current_track_id = id Then Statement Return
 
-  StopTracker
-  FreeTrackerModule 0
-
   MS_current_track_id = id
 
   DEFTYPE .s file_name$
   file_name$ = !__get_string{id}
   !DB_trace{"MS", "MS_load_module: " + file_name$}
-  DEFTYPE .b success
-  success = LoadTrackerModule(0, file_name$)
-  If success = True
-
-    ; ModulePositionJump doesn't seem to exist
-    ; If position > 0 Then ModulePositionJump(position)
-
-    success = StartTracker(0)
-    If success = False Then !DB_warn{"MS", "Could not play '" + file_name$ + "'"}
-
-  Else
-    !DB_warn{"MS", "Could not load '" + file_name$ + "'"}
-  End If
+  LoadBank 0, file_name$, 2
+  MTInit 0, 0
+  MTPlay On
 End Statement
 
 Statement MS_pause_module{id.w}
-  PauseModule
+  MTPlay Off
 End Statement
 
 Statement MS_unpause_module{id.w}
-  PauseModule
+  MTPlay On
 End Statement
 
 Statement MS_kill_module{id.w}
-  StopTracker
-  FreeTrackerModule id
+  SHARED MS_current_track_id
+  MTEnd
+  FreeBank 0
+
+  MS_current_track_id = -1
 End Statement

@@ -31,47 +31,47 @@
   },
   {
     "id": "mod_theme",
-    "value": "data/theme.mod",
+    "value": "data/music/theme.mod",
     "description": "Ignore"
   },
   {
     "id": "mod_ambient",
-    "value": "data/ambient.mod",
+    "value": "data/music/ambient.mod",
     "description": "Ignore"
   },
   {
     "id": "mod_dancemix",
-    "value": "data/dance.mod",
+    "value": "data/music/dance.mod",
     "description": "Ignore"
   },
   {
     "id": "mod_intrigue",
-    "value": "data/intrigue.mod",
+    "value": "data/music/intrigue.mod",
     "description": "Ignore"
   },
   {
     "id": "mod_boss_intro",
-    "value": "data/boss_intro.mod",
+    "value": "data/music/boss_intro.mod",
     "description": "Ignore"
   },
   {
     "id": "mod_boss_theme",
-    "value": "data/boss_theme.mod",
+    "value": "data/music/boss_theme.mod",
     "description": "Ignore"
   },
   {
     "id": "mod_detective",
-    "value": "data/detective.mod",
+    "value": "data/music/detective.mod",
     "description": "Ignore"
   },
   {
     "id": "mod_crystal",
-    "value": "data/crystal.mod",
+    "value": "data/music/crystal.mod",
     "description": "Ignore"
   },
   {
     "id": "mod_industry",
-    "value": "data/to_industry.mod",
+    "value": "data/music/to_industry.mod",
     "description": "Ignore"
   },
   {
