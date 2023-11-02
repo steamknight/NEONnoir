@@ -319,7 +319,6 @@ Function .b NN_main_menu{}
     For l = 0 to #menu_items - 1
       If selected = l
         BBlit NN_current_bmp, 3 + l, items(l)\x0 - #TX_font_width, items(l)\y0, %0
-        ;TX_draw_text{labels$(l), NN_current_bmp, items(l)\x0 - #TX_font_width, items(l)\y0}
         pointer_id =  #NN_pointer_interact
         ; Was it clicked?
         If lmb = #IN_mouse_released
@@ -328,7 +327,6 @@ Function .b NN_main_menu{}
         End If
       Else
         BBlit NN_current_bmp, 3 + #menu_items + l, items(l)\x0, items(l)\y0, %0
-        ;TX_draw_text{labels$(l), NN_current_bmp, items(l)\x0, items(l)\y0}
       End If
     Next
 
@@ -342,7 +340,10 @@ Function .b NN_main_menu{}
   NN_current_bmp = #BMP_main
   Use BitMap NN_current_bmp
 
-  FadeOutScreen{#CP_coplist, #PAL_fx, #PAL_main}
+  For l = 0 to #menu_items - 1
+    Free Shape 3 + l
+    Free Shape 3 + #menu_items + l
+  Next
 
   QAMIGA
   Function Return clicked
@@ -634,16 +635,18 @@ End Statement
 
 ; Loads the game
 ; =============================================================================
-Statement NN_load_game{}
+Function .b NN_load_game{}
   !DB_trace{"NN_GAME", "NN_load_game"}
   SHARED NN_current_location_id, NN_current_scene_id
   SHARED NS_flags(), NS_page_flags(), NS_choice_flags(), NS_scene_flags()
   !__use_dialogues{}
   !__use_dialogue_limits{}
 
+  If Exists("save.neon") = 0 Then Function Return FALSE
+
   DEFTYPE .w id
   id = 0
-  If OpenFile(id, "save.neon") = 0 Then Statement Return
+  If OpenFile(id, "save.neon") = 0 Then Function Return FALSE
 
   ; Read the player's current location
   ReadMem id, &NN_current_location_id, SizeOf .w
@@ -675,7 +678,8 @@ Statement NN_load_game{}
 
   ; Move to the current location
   NN_load_location{NN_current_location_id, NN_current_scene_id}
-End Statement
+  Function Return True
+End Function
 
 ; Start the game
 ; =============================================================================
@@ -735,21 +739,27 @@ Function .b NN_startup{neonpack$}
   Next
 
   ; Display the main menu
-  Select NN_main_menu{}
-    Case #NN_menu_start
-      NN_load_location{0, 0}
+  DEFTYPE .b done
+  While NOT done
+    Select NN_main_menu{}
+      Case #NN_menu_start
+        NN_load_location{0, 0}
+        done = TRUE
 
-    Case #NN_menu_continue
-      NN_load_game{}
+      Case #NN_menu_continue
+        done = NN_load_game{}
 
-    Case #NN_menu_credits
-      NN_load_location{1, 0}
+      Case #NN_menu_credits
+        NN_load_location{1, 0}
+        done = TRUE
 
-    Case #NN_menu_exit
-      NN_quit_game{}
-      success = #NN_NEON_quit
+      Case #NN_menu_exit
+        NN_quit_game{}
+        success = #NN_NEON_quit
+        done = True
 
-  End Select
+    End Select
+  Wend
 
   Function Return success
 End Function

@@ -83,7 +83,7 @@ Statement NS_execute_script{script_offset.l}
   End If
 
   DEFTYPE .l PC
-  DEFTYPE .b FR, done
+  DEFTYPE .b FR, done, result
 
   PC = script_offset * SizeOf .w; Set up program counter
   FR = False                    ; Initialize Flag Register
@@ -195,7 +195,7 @@ Statement NS_execute_script{script_offset.l}
       Case #NS_op_loadgame
         !__execute_opcode{"loadgame"}
         QAMIGA
-        NN_load_game{}
+        result = NN_load_game{}
         BLITZ
 
       Case #NS_op_savegame

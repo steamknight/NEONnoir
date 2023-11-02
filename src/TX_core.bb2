@@ -73,8 +73,9 @@ Statement TX_draw_text{text$, bmp_id, x.w, y.w}
   If x + width > #NN_screen_width Then x = #NN_screen_width - width
   If y + #TX_font_height > DispHeight Then y = DispHeight - #TX_font_height
 
+  Use BitMap bmp_id
   For i = 0 To strlen - 1
-    BBlit bmp_id, Peek.b (&text$ + i), x, y, %0
+    Blit Peek.b (&text$ + i), x, y, %0
     x + #TX_font_width
   Next
 End Statement

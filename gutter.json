@@ -433,7 +433,7 @@
               "pointer_id": 0,
               "goto_scene": 65535,
               "description_id": "wfdtEfkwT062SZbE",
-              "script": "back_to_title"
+              "script": "menu_quit_game"
             }
           ],
           "text_regions": [
