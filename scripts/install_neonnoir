@@ -1,0 +1,97 @@
+; NEONnoir Installer
+
+(complete 0)
+(set @app-name "NEONnoir")
+(set @default-dest "Work:")
+
+(welcome "\n\nWelcome to NEONnoir and the seedy, neon-stained world of Blake Steel: Private Investigator!\n\n")
+
+; Choose a destination location
+(set #chosen-dest
+  (askdir
+    (prompt "Please choose the installation location for NEONnoir. A drawer called \"NEONnoir\" will be automatically created.")
+    (help "Choose where to install NEONnoir using the controls in the installer window.")
+    (default @default-dest)
+  )
+)
+
+(set @default-dest #chosen-dest)
+(set @default-dest (tackon @default-dest "NEONnoir"))
+(set #destination (cat @default-dest "/"))
+
+(set #nn_disk_help "NEONnoir comes in four disks. In order to install the game, files on all four disks must be copied and unarchived.")
+
+; Make the directory by hand so we can have a .info file for it
+(makedir @default-dest (infos))
+
+(procedure P_EXTRACT_DISK disk_name file_name
+    (debug "Extract disk " disk_name)
+    (debug "\tsource:" (tackon disk_name file_name))
+    (copyfiles
+        (prompt "Copying game file...")
+        (source (tackon disk_name file_name))
+        (dest (@default-dest))
+    )
+
+    (working ("Uncompressing files, this could take a moment..."))
+    (run ("lha x %s %s" (tackon @default-dest file_name) #destination))
+
+    (delete (tackon @default-dest file_name))
+)
+
+(complete 20)
+
+(P_EXTRACT_DISK "NEONnoir Disk 1:" "NN1.lha")
+
+(complete 40)
+
+(askdisk
+    (prompt "Please insert the disk labeled NEONnoir Disk 2\ninto any drive.")
+    (dest "NEONnoir Disk 2")
+    (help #nn_disk_help)
+)
+(P_EXTRACT_DISK "NEONnoir Disk 2:" "NN2.lha")
+
+(complete 60)
+
+(askdisk
+    (prompt "Please insert the disk labeled NEONnoir Disk 3\ninto any drive.")
+    (dest "NEONnoir Disk 3")
+    (help #nn_disk_help)
+)
+(P_EXTRACT_DISK "NEONnoir Disk 3:" "NN3.lha")
+
+(complete 80)
+
+(askdisk
+    (prompt "Please insert the disk labeled NEONnoir Disk 4\ninto any drive.")
+    (dest "NEONnoir Disk 4")
+    (help #nn_disk_help)
+)
+(P_EXTRACT_DISK "NEONnoir Disk 4:" "NN4.lha")
+
+(complete 99)
+
+(set #options_help "\nNEONnoir supports both NTSC and PAL regions. If you're in a PAL region, the graphics will be a little squashed. Do you wish to enable NEONnoir to run with a NTSC aspect ratio?\n\nNOTE: You can change this in the game's ToolType.\n")
+(select
+    (askchoice
+        (prompt #options_help)
+        (help #options_help)
+        (choices
+            ("Yes. I have a PAL Amiga and want to run in NTSC mode.")
+            ("No. I have a PAL Amiga and want to stick with PAL mode.")
+            ("This is already an NTSC system.")
+        )
+    )
+    (tooltype
+        (dest (tackon @default-dest "NEONnoir"))
+        (settooltype "FORCE_NTSC" "")
+    )
+    (debug "1")
+    (debug "2")
+)
+
+(complete 100)
+
+(exit)
+
