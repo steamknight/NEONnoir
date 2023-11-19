@@ -16,8 +16,7 @@ End If
 
 If NN_is_NTSC Then Poke $DFF1DC, $000
 
-; MTInstall = True if PAL or MTInit = False if NTSC
-MTInstall NOT NN_is_NTSC
+MS_initialize{}
 ; PAL has 256 vertical lines, but NTSC only has 200. Center the display
 ; so that it doesn't look terrible for PAL.
 DEFTYPE .w screen_offset
@@ -36,9 +35,7 @@ Buffer #BF_faces, 16000
 
 ;Load the title song
 DEFTYPE .b success
-LoadBank 0, "data/music/theme.mod", 2
-MTInit 0,0
-MTPlay On
+MS_load_module_file{"data/music/theme.mod"}
 
 NN_should_quit = False
 
@@ -192,8 +189,7 @@ Finish:
 TX_uninitialize{}
 NN_uninitialize{}
 
-MTEnd
-MTRemove
+MS_uninitialize{}
 
 ; We're done!
 End

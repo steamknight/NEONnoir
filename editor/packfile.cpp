@@ -56,14 +56,14 @@ namespace NEONnoir
         
         for (auto const& string_entry : data->strings.entries)
         {
-            pak.string_table.push_back(string_entry.value);
+            pak.string_table.push_back(data->strings.get_string_latin1(string_entry.id));
         }
 
         for (auto const& location : data->locations)
         {
             auto loc = neon_location{};
             loc.name_id = to<u16>(pak.string_table.size());
-            pak.string_table.push_back(location.name);
+            pak.string_table.push_back(UTF8toISO8859_1(location.name.c_str()));
 
             loc.first_bg_id = to<u16>(pak.string_table.size());
             loc.last_bg_id = loc.first_bg_id + to<u16>(location.backgrounds.size()) - 1;
@@ -84,7 +84,7 @@ namespace NEONnoir
             {
                 auto s = neon_scene{};
                 s.name_id = to<u16>(pak.string_table.size());
-                pak.string_table.push_back(scene.name);
+                pak.string_table.push_back(UTF8toISO8859_1(scene.name.c_str()));
 
                 if (scene.description_id.size() > 0)
                 {

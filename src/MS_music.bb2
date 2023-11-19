@@ -5,6 +5,25 @@
 ; Prefix MS = Music & Sound
 ;
 
+Statement MS_initialize{}
+  SHARED NN_is_NTSC
+
+  ; MTInstall = True if PAL or MTInit = False if NTSC
+  MTInstall NOT NN_is_NTSC
+End Statement
+
+Statement MS_uninitialize{}
+  MTEnd
+  MTRemove
+End Statement
+
+Statement MS_load_module_file{file_name$}
+  !DB_trace{"MS", "MS_load_module: " + file_name$}
+  LoadBank 0, file_name$, 2
+  MTInit 0, 0
+  MTPlay On
+End Statement
+
 Statement MS_load_module{id.w, position.w}
   SHARED MS_current_track_id
   !__use_string_table{}
@@ -16,10 +35,7 @@ Statement MS_load_module{id.w, position.w}
 
   DEFTYPE .s file_name$
   file_name$ = !__get_string{id}
-  !DB_trace{"MS", "MS_load_module: " + file_name$}
-  LoadBank 0, file_name$, 2
-  MTInit 0, 0
-  MTPlay On
+  MS_load_module_file{file_name$}
 End Statement
 
 Statement MS_pause_module{id.w}

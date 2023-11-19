@@ -1,7 +1,7 @@
 [
   {
     "id": "language",
-    "value": "English",
+    "value": "Deutsch",
     "description": "Name of the language"
   },
   {
@@ -16,17 +16,17 @@
   },
   {
     "id": "title_continue",
-    "value": "Continue",
+    "value": "Fortsetzen",
     "description": "Continue game button in title screen"
   },
   {
     "id": "title_quit",
-    "value": "Quit",
+    "value": "Beenden",
     "description": "Quit game button in title screen"
   },
   {
     "id": "title_credits",
-    "value": "Credits",
+    "value": "Mitwirkende",
     "description": "Credits button in title screen, shows who made the game."
   },
   {
@@ -76,7 +76,7 @@
   },
   {
     "id": "game_saved",
-    "value": "Game Saved.",
+    "value": "Daten abgespeichert.",
     "description": "https://youtu.be/EprkOx1qUq0?t=563 - Message that displays once the game has been saved to disk."
   },
   {
@@ -106,27 +106,27 @@
   },
   {
     "id": "intro01",
-    "value": "The acid rain washed the city's neon blood into the Gutter, home for those who ran out of options.\n\nThe Gutter wasn't just a cliche metaphor; it was the city's most ruthless and dangerous district. Few chose to live there willingly; when your credits ran dry, there was nowhere else to go.",
+    "value": "Der saure Regen wusch der Stadt´s Neon Blut in die Gosse, heim für jene die keine andere möglichkeit haben.\n\nDie Gosse war nicht nur ein metaphorisches klischee; sie war der Stadt´s erbarmungslosester und gefährlichster Bezirk. Die wenigsten lebten hier freiwillig; wenn dir die Kredite ausgingen gab es schlichtweg keinen anderen Ort.",
     "description": "https://youtu.be/EprkOx1qUq0?t=9 This line and the next 3 are the introduce the game's story. Here we are introduced to the Gutter, the protagonist, and what he's investigating. I intend for him to have a classical 1940s noir detective vibe in his descriptions, like Humphrey Bogart in the Maltese Falcon.\n\nIn this first text, we introduce the Gutter, the name of a district or neighborhood in a nameless city."
   },
   {
     "id": "intro02",
-    "value": "The police kept their distance from the Gutter as it didn't serve their corporate interests.\n\n\n\nIf you wanted justice, you either took matters into your own hands or scrounged together enough to hire someone like me.",
+    "value": "Die Polizei hielt ihren Abstand von der Gosse, denn dies diente nicht ihren Unternehmensinteressen.\n\n\n\nWenn du Gerechtigkeit wolltest dann musstest du die Dinge schon selbst in die Hand nehmen oder genug zusammenkratzen um jemanden wie mich anzuheuern.",
     "description": "https://youtu.be/EprkOx1qUq0?t=13 Here we set the expectation that the police don't solve crimes in the Gutter; it's too dangerous, and since they have been privatized, they only work for the corporations that own them."
   },
   {
     "id": "intro03",
-    "value": "Blake Steel: private investigator. I took the name from a trashy crime serial. \n\nTo a lost kid from the Gutter, that two-credit detective novel promised a new life away from all the filth. \n\nIt became my blueprint until I made it out alive. \n\nNow I was back, walking alone down these familiar alleys brimming with human waste and wasted humans, looking for someone else who got lost. ",
+    "value": "Blake Steel: Privatdetektiv. Ich nahm mir den Namen aus einer trashigen Krimi Heftserie. \n\n Ein verlorenes Kind aus der Gosse, welches jene Hefte ein neues Leben versprachen, weit entfernt von all dem Dreck. \n\n Dies wurde zu meiner Stütze bis ich es lebendig hier rausschaffen würde. \n\nNun war ich zurück, alleinigen schrittes hinunter in die mir so vertrauten Gassen, zugeschüttet mit mit menschlichen Müll und geschundenen Existenzen, suchend nach jemanden der verloren ging. ",
     "description": "https://youtu.be/EprkOx1qUq0?t=17 Introducing the main character: Blake Steel. That's not his real name, but as a child, he read a detective novel, a giallo, whose protagonist was named Blake Steel and took that name for himself. He escaped the Gutter but now finds himself back here on a job. There is a play on words here, 'alleys brimming with human waste and wasted humans, ' which the best I can come up with in Italian would be 'rifiuti umani e umani rifuitati.'"
   },
   {
     "id": "intro04",
-    "value": "Danni Ashton fell in with some less-than-savory friends and then fell off the face of the Earth.\n\nHer father, Jacob, is paying me very well to find her. \nToo well. \n\nSomething didn't smell right, but I was leaking green and had bills to pay, so I plugged my nose and took the job. \n\nShe was addicted to Coral, the latest in designer drugs, and anyone chasing the ruby slippers would invariably end up...",
+    "value": "Danni Ashton fiel in einen recht zweifelhaften Freundeskreis und verschwand vom antlitz der Erde.\n\nIhr Vater, Jacob, bezahlt mich sehr gut um sie wiederzufinden. \nZugut. \n\nIrgendetwas war faul an der Sache, aber mir liefen die grünen Dollars durch die Hände und ich hatte Rechnungen zubezahlen, so hielt ich mir praktisch die Nase zu und nahm den Job an. \n\nSie war abhängig von Coral, das neueste in sachen designer Drogen und jene die den nächsten Fix nachjagten, für die gab es nur eine Endstation...",
     "description": "https://youtu.be/EprkOx1qUq0?t=29 Another play on words (there is a lot in this game, sorry!). 'Fell in/Fell off' match, but how they are used means different things. Falling in with someone means becoming a member of the group. 'Falling off the face of the Earth' implies that the person disappeared.\n\n'Something didn't smell right' means something about it might not be good. `So I plugged my nose and took the job' is more wordplay. The deal was suspicious, but Blake took it anyway.\n\n'Leaking green' is a slang term I made up for this future world. It means 'running out of money' because dollars are green. Feel free to change to something that works better.\n\nIn the game's fiction, a slang term for being addicted to Coral is 'chasing the ruby slippers.' This is made of two references: the first is that being addicted to opium was called 'chasing the Dragon'; the Ruby Slippers are a reference to Dorothy in the Wizard of Oz. Feel free to change this to something that makes more sense."
   },
   {
     "id": "intro05",
-    "value": "... in the Gutter",
+    "value": "... die Gosse",
     "description": "https://youtu.be/EprkOx1qUq0?t=43 As you can imagine, \"in the Gutter\" is more wordplay. In English, it means that you are ruined, but here it also means that you are physically in the district called 'The Gutter.'"
   },
   {
