@@ -20,12 +20,13 @@ namespace NEONnoir
         i32 begin_idx{ 0 }, end_idx{ 0 };
     };
 
-    void scene_editor::display(game_data_location* location, game_data_scene* scene)
+    void scene_editor::display(game_data_location* location, game_data_scene* scene, asset_collection* assets)
     {
         if (location != nullptr && scene != nullptr)
         {
             _location = location;
             _scene = scene;
+            _assets = assets;
             if (auto locations_window = ImGui_window(std::format("{}: {}###Scene", location->name, scene->name)))
             {
                 display_editor();
@@ -55,11 +56,12 @@ namespace NEONnoir
             {
                 display_prop_string("Name", _scene->name);
                 display_prop_descriptions("Description", _scene->description_id);
-                display_prop_background(_location->backgrounds);
+                display_prop_background();
                 display_prop_string("On Enter", _scene->on_enter);
                 display_prop_string("On Exit", _scene->on_exit);
                 display_prop_checkbox("Is Cutscene", _scene->is_cutscene);
-                display_prop_int("Music ID", _scene->music_id);
+                //display_prop_int("Music ID", _scene->music_id);
+                display_prop_music();
             }
 
             auto exit_regions = std::vector<std::string>{ "None" };
@@ -271,21 +273,23 @@ namespace NEONnoir
         ImGui::TextUnformatted(label.data());
     }
 
-    void scene_editor::display_prop_background(std::vector<std::string> const& backgrounds)
+    void scene_editor::display_prop_background()
     {
-        display_label("Background");
+        display_label("Music");
 
         ImGui::TableNextColumn();
         ImGui::SetNextItemWidth(-FLT_MIN);
+
+        auto& current_bg = _assets->backgrounds[_location->backgrounds[_scene->image_id]].name;
         
-        auto bg_path = fs::path{ backgrounds[_scene->image_id] };
-        if (ImGui::BeginCombo("##BackgroundCombo", bg_path.stem().string().c_str()))
+        if (ImGui::BeginCombo("##BackgroundCombo", current_bg.c_str()))
         {
-            for (u16 index = 0; index < backgrounds.size(); index++)
+            for (u16 index = 0; index < _location->backgrounds.size(); index++)
             {
                 auto const is_selected = _scene->image_id == index;
-                bg_path = fs::path{ backgrounds[index] };
-                if (ImGui::Selectable(bg_path.stem().string().c_str(), is_selected))
+                auto& bg_name = _assets->backgrounds[_location->backgrounds[index]].name;
+
+                if (ImGui::Selectable(bg_name.c_str(), is_selected))
                 {
                     _scene->image_id = index;
                 }
@@ -294,6 +298,49 @@ namespace NEONnoir
                 {
                     ImGui::SetItemDefaultFocus();
                 }
+            }
+
+            ImGui::EndCombo();
+        }
+    }
+
+    void scene_editor::display_prop_music()
+    {
+        display_label("Music");
+
+        ImGui::TableNextColumn();
+        ImGui::SetNextItemWidth(-FLT_MIN);
+
+        auto previous_song = std::string{ "<Previous Song>" };
+        auto& current = (_scene->music_id != 0xFFFF)
+            ? _assets->music[_scene->music_id].name
+            : previous_song;
+        
+        if (ImGui::BeginCombo("##MusicCombo", current.c_str()))
+        {
+            bool any_selected = false;
+            for (u16 index = 0; index < _assets->music.size(); index++)
+            {
+                auto const is_selected = _scene->music_id == index;
+                auto& name = _assets->music[index].name;
+
+                if (ImGui::Selectable(name.c_str(), is_selected))
+                {
+                    _scene->music_id = index;
+                }
+
+                if (is_selected)
+                {
+                    ImGui::SetItemDefaultFocus();
+                }
+
+                any_selected |= is_selected;
+            }
+
+            if (ImGui::Selectable(previous_song.c_str(), !any_selected))
+            {
+                ImGui::SetItemDefaultFocus();
+                _scene->music_id = 0xFFFF;
             }
 
             ImGui::EndCombo();
@@ -473,7 +520,7 @@ namespace NEONnoir
 
         ImGuiIO& io = ImGui::GetIO(); (void)io;
 
-        auto texture = _location->background_textures[_scene->image_id];
+        auto texture = _assets->backgrounds[_location->backgrounds[_scene->image_id]].texture;
         ImGui::Image((void*)(intptr_t)texture.texture_id, ImVec2((float)(texture.width * _zoom), (float)(texture.height * _zoom)));
 
         auto image_min = ImGui::GetItemRectMin();

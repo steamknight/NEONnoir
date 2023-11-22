@@ -16,7 +16,7 @@ namespace NEONnoir
             , _crosshair_cursor(glfwCreateStandardCursor(GLFW_CROSSHAIR_CURSOR)){ };
         virtual ~scene_editor() = default;
 
-        void display(game_data_location* location, game_data_scene* scene);
+        void display(game_data_location* location, game_data_scene* scene, asset_collection* assets);
 
     private:
         void display_editor() override;
@@ -29,7 +29,8 @@ namespace NEONnoir
         void display_prop_descriptions(std::string_view const& label, std::vector<std::string>& values);
         void display_prop_int(std::string_view const& label, u16& value);
         void display_prop_checkbox(std::string_view const& label, bool& value);
-        void display_prop_background(std::vector<std::string> const& backgrounds);
+        void display_prop_background();
+        void display_prop_music();
         void display_prop_regions(std::vector<std::string> const& exit_regions);
         void display_prop_region_scalar(std::string_view const& label, u16& value);
         void display_prop_region_scalar(std::string_view const& label, float& value);
@@ -47,6 +48,7 @@ namespace NEONnoir
     private:
         game_data_location* _location{ nullptr };
         game_data_scene* _scene{ nullptr };
+        asset_collection* _assets{ nullptr };
 
         i32 _zoom{ 1 };
 

@@ -207,12 +207,13 @@
     dialogue_end               34
 
     ; Music and sound
-    mod_theme                   0
-    mod_ambient                 1
-    mod_dancemix                2
-    mod_intrigue                3
-    mod_boss_intro              4
-    mod_boss_theme              5
+    mod_theme                   45
+    mod_ambient                 46
+    mod_dancemix                47
+    mod_intrigue                48
+    mod_boss_intro              49
+    mod_boss_theme              50
+    mod_crystal                 52
 
     ; Textbox options
     frame_on                   -1
@@ -536,7 +537,7 @@
 
         load !acid_nova_denies_danni
         jiff @done
-        mod $mod_crystal 0
+        mod %mod_crystal 0
         dlg #dialogue_crystal_alley
         goloc #location_danni_apartment #scene_danni_interior
 
@@ -696,7 +697,7 @@
         txtput $end_act1_d 24
         txtend 4 4 #wait_on
 
-        mod $mod_intrigue 0
+        mod %mod_intrigue 0
 
         text $end_act1_e
         dlg #dialogue_visser_act1
@@ -829,7 +830,7 @@
 .SCRIPT on_enter_lost_sock_interior
         load !has_distraction_for_gladys
         jiff @done
-        mod $mod_boss_theme 0
+        mod %mod_boss_theme 0
         setbg #scene_laundry_fight
         dlg #dialogue_gladys_crystal
         end
@@ -932,7 +933,7 @@
 
         dlg #dialogue_exposition2
 
-        mod $mod_intrigue 0
+        mod %mod_intrigue 0
         setbg #scene_seg_blank
         dlg #dialogue_ransom1
 
@@ -1101,6 +1102,20 @@
 .SCRIPT back_to_title
         goloc #location_title #scene_title
         end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

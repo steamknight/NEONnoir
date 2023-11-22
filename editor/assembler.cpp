@@ -37,7 +37,7 @@ namespace NEONnoir
             //{ "hasi",       { (i16)0x60,   {   ParamType::CONST                                                       }}},
             //{ "addi",       { (i16)0x61,   {   ParamType::CONST                                                       }}},
             //{ "remi",       { (i16)0x62,   {   ParamType::CONST                                                       }}},
-            { "mod",        { (i16)0x70,   {   ParamType::TEXT,        ParamType::NUMBER                              }}},
+            { "mod",        { (i16)0x70,   {   ParamType::ASSET,       ParamType::NUMBER                              }}},
             { "modpause",   { (i16)0x71,   {   ParamType::CONST                                                       }}},
             { "modplay",    { (i16)0x72,   {   ParamType::CONST                                                       }}},
             { "modkill",    { (i16)0x73,   {   ParamType::CONST                                                       }}},
@@ -331,6 +331,20 @@ namespace NEONnoir
                         }
 
                         _bytecode.push_back(to<i16>(_game_data->strings.get_string_index(string_id)));
+
+                        break;
+                    }
+
+                    case ParamType::ASSET:
+                    {
+                        auto asset_id = get_param('%');
+
+                        if (!_game_data->manifest.assets.contains_asset(asset_id))
+                        {
+                            throw assembler_error("Undefined asset: $" + asset_id, _scan_line);
+                        }
+
+                        _bytecode.push_back(to<i16>(_game_data->manifest.assets.get_asset_id(asset_id)));
 
                         break;
                     }

@@ -1,8 +1,8 @@
 ECHO "Copying Files..."
 
-COPY Develop:NEONnoir/neonnoir TO RAM:NEONnoir/
+COPY Develop:NEONnoir/NEONnoir TO RAM:NEONnoir/
 
-COPY Develop:NEONnoir/neonnoir.info TO RAM:NEONnoir/
+COPY Develop:NEONnoir/NEONnoir.info TO RAM:NEONnoir/
 
 COPY Develop:NEONnoir/data TO RAM:NEONnoir/data ALL
 

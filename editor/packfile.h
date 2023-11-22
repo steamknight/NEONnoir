@@ -24,6 +24,27 @@ namespace NEONnoir
         u16 minor_version{ 0 };
     };
 
+    constexpr char manifest_header[4] = { 'M', 'N', 'F', 'T' };
+    struct neon_manifest_header
+    {
+        char name[4] = { 'M', 'N', 'F', 'T' };
+        u16 file_count;
+    };
+
+    struct neon_manifest
+    {
+        std::vector<std::string> assets{};
+
+        u32 ui_count;
+        u32 bg_count;
+        u32 mus_count;
+        u32 sfx_count;
+
+        u32 xform_bg_id(u32 id)  { return id != 0xFFFF ? (ui_count + id) : 0xFFFF; }
+        u32 xform_mus_id(u32 id) { return id != 0xFFFF ? (ui_count + bg_count + id) : 0xFFFF; }
+        u32 xform_sfx_id(u32 id) { return id != 0xFFFF ? (ui_count + bg_count + mus_count + id) : 0xFFFF; }
+    };
+
     struct neon_string
     {
         u16 size{ 0 };
@@ -31,7 +52,7 @@ namespace NEONnoir
         // Array of chars
     };
 
-    constexpr char embedded_file_header[4] = { 'E', 'M', 'B', 'D'};
+    constexpr char embedded_file_header[4] = { 'E', 'M', 'B', 'D' };
     struct neon_embedded_file_header
     {
 
@@ -41,15 +62,14 @@ namespace NEONnoir
     struct neon_locations_header
     {
         char name[4] = { 'L', 'O', 'C', 'S' };
-        u16 dialogue_count;
+        u16 location__count;
     };
 
     struct neon_location
     {
         u16 name_id{ 0xFFFF };
 
-        u16 first_bg_id{ 0xFFFF };
-        u16 last_bg_id{ 0xFFFF };
+        u16 backgrounds[8]{ 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF };
 
         u16 first_scene_id{ 0xFFFF };
         u16 last_scene_id{ 0xFFFF };
@@ -214,6 +234,7 @@ namespace NEONnoir
     struct neon_packfile
     {
         neon_header header;
+        neon_manifest manifest;
         std::vector<neon_location> locations;
         std::vector<neon_scene> scenes;
         std::vector<neon_region> regions;

@@ -143,8 +143,7 @@ namespace NEONnoir
     struct game_data_location
     {
         std::string name;
-        std::vector<std::string> backgrounds;
-        std::vector<GLtexture> background_textures;
+        std::vector<u16> backgrounds;
         std::vector<game_data_scene> scenes;
         std::vector<shape_container> shapes;
         std::vector<GLtexture> shapes_textures;
@@ -203,6 +202,7 @@ namespace NEONnoir
     {
         std::string name{};
         std::filesystem::path relative_path{};
+        GLtexture texture;
     };
 
     struct asset_collection
@@ -211,6 +211,9 @@ namespace NEONnoir
         std::vector<game_asset> backgrounds{};
         std::vector<game_asset> music{};
         std::vector<game_asset> sfx{};
+
+        bool contains_asset(std::string const& asset_name);
+        size_t get_asset_id(std::string const& name);
     };
 
     struct project_manifest

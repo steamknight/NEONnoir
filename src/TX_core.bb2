@@ -6,6 +6,13 @@
 
 DEFTYPE .w TX_frame_x, TX_frame_y
 
+Macro __get_char{}
+    `1 = Peek.b(`2)
+    If `1 < 0
+      `1 + 256
+    End If
+End Macro
+
 Statement TX_initialize{fontfile$, framefile$}
   !DB_trace{"TX_CORE", "TX_initialize: " + fontfile$ + ", " + framefile$}
   LoadShapes #TX_font_start, #TX_font_end, "data/" + fontfile$
@@ -65,7 +72,7 @@ Statement TX_draw_single_line{text$}
 End Statement
 
 Statement TX_draw_text{text$, bmp_id, x.w, y.w}
-  DEFTYPE .w width, strlen
+  DEFTYPE .w width, ch
 
   strlen = Len(text$)
   width = strlen * #TX_font_width
@@ -75,13 +82,18 @@ Statement TX_draw_text{text$, bmp_id, x.w, y.w}
 
   Use BitMap bmp_id
   For i = 0 To strlen - 1
-    Blit Peek.b (&text$ + i), x, y, %0
+    ; !__get_char{ch, (&text$ + i)}
+    ch = Peek.b(&text$ + i)
+    If ch < 0
+      ch + 256
+    End If
+    Blit ch, x, y, %0
     x + #TX_font_width
   Next
 End Statement
 
 Statement TX_draw_text_centered{text$, cx.w, cy.w}
-  DEFTYPE .w width, halfw, halfh, strlen, x
+  DEFTYPE .w width, halfw, halfh, strlen, x, cd
 
   strlen = Len(text$)
   width = strlen * #TX_font_width
@@ -95,7 +107,12 @@ Statement TX_draw_text_centered{text$, cx.w, cy.w}
 
   x = cx - halfw
   For i = 0 To strlen - 1
-    BBlit 0, Peek.b (&text$ + i), x, cy, %0
+    ; !__get_char{ch, &text$ + i}
+    ch = Peek.b(&text$ + i)
+    If ch < 0
+      ch + 256
+    End If
+    BBlit 0, ch, x, cy, %0
     x + #TX_font_width
   Next
 End Statement
@@ -226,8 +243,14 @@ Statement TX_draw_text_wrapped{text$, line_max.w, cx.w, cy.w, should_wait.b}
     End If
 
     ; Print the word
+    DEFTYPE .w ch
     For j = tx_word_begin(i) To tx_word_end(i)
-      Blit Peek.b(&text$ + j), x, y, %0
+      ; !__get_char{ch, &text$ + j}
+      ch = Peek.b(&text$ + j)
+      If ch < 0
+        ch + 256
+      End If
+      Blit ch, x, y, %0
       x + #TX_font_width
     Next j
 

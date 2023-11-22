@@ -18,15 +18,16 @@ Statement MS_uninitialize{}
 End Statement
 
 Statement MS_load_module_file{file_name$}
-  !DB_trace{"MS", "MS_load_module: " + file_name$}
+  !DB_trace{"MS", "MS_load_module_file: " + file_name$}
   LoadBank 0, file_name$, 2
   MTInit 0, 0
   MTPlay On
 End Statement
 
 Statement MS_load_module{id.w, position.w}
+  !DB_trace{"MS", "MS_load_module: " + Str$(id)}
   SHARED MS_current_track_id
-  !__use_string_table{}
+  !__use_asset_table{}
 
   ; If we're already playing the right track, don't restart it
   If MS_current_track_id = id Then Statement Return
@@ -34,7 +35,7 @@ Statement MS_load_module{id.w, position.w}
   MS_current_track_id = id
 
   DEFTYPE .s file_name$
-  file_name$ = !__get_string{id}
+  file_name$ = !__get_asset{id}
   MS_load_module_file{file_name$}
 End Statement
 

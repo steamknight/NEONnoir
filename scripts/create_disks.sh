@@ -69,6 +69,8 @@ lha a -rq RAM:NN4.lha data/menu.shapes
 lha a -rq RAM:NN4.lha data/people.mpsh
 lha a -rq RAM:NN4.lha data/ui.pal
 lha a -rq RAM:NN4.lha data/lang/en.noir
+lha a -rq RAM:NN4.lha data/lang/it.noir
+lha a -rq RAM:NN4.lha data/lang/de.noir
 lha a -rq RAM:NN4.lha data/lang/latin-1.shapes
 
 COPY RAM:NN1.lha DF0: FORCE

@@ -44,9 +44,42 @@ namespace NEONnoir
         return result.constants.at(constant).value;
     }
 
+    std::string to_portable_path_string(fs::path const& path)
+    {
+        auto portable_path = path.string();
+        std::replace(portable_path.begin(), portable_path.end(), '\\', '/');
+
+        return portable_path;
+    }
+
     neon_packfile generate_packfile(std::shared_ptr<game_data> const& data, assembler_result const& result)
     {
         auto pak = neon_packfile{};
+
+        // Prepare the asset manifest
+        pak.manifest.ui_count = to<u32>(data->manifest.assets.ui.size());
+        for (auto const& ui : data->manifest.assets.ui)
+        {
+            pak.manifest.assets.push_back(to_portable_path_string(ui.relative_path));
+        }
+
+        pak.manifest.bg_count = to<u32>(data->manifest.assets.backgrounds.size());
+        for (auto const& bg: data->manifest.assets.backgrounds)
+        {
+            pak.manifest.assets.push_back(to_portable_path_string(bg.relative_path));
+        }
+
+        pak.manifest.mus_count = to<u32>(data->manifest.assets.music.size());
+        for (auto const& mus : data->manifest.assets.music)
+        {
+            pak.manifest.assets.push_back(to_portable_path_string(mus.relative_path));
+        }
+
+        pak.manifest.sfx_count = to<u32>(data->manifest.assets.sfx.size());
+        for (auto const& sfx : data->manifest.assets.sfx)
+        {
+            pak.manifest.assets.push_back(to_portable_path_string(sfx.relative_path));
+        }
 
         // Before any other palettes, lets put the speaker palettes
         for (auto const& speaker : data->speakers)
@@ -63,18 +96,14 @@ namespace NEONnoir
         {
             auto loc = neon_location{};
             loc.name_id = to<u16>(pak.string_table.size());
-            pak.string_table.push_back(UTF8toISO8859_1(location.name.c_str()));
 
-            loc.first_bg_id = to<u16>(pak.string_table.size());
-            loc.last_bg_id = loc.first_bg_id + to<u16>(location.backgrounds.size()) - 1;
-            for (auto const& background : location.backgrounds)
+            // TODO do something about this
+            //pak.string_table.push_back(UTF8toISO8859_1(location.name.c_str()));
+
+            auto bg_count = to<u16>(std::min(to<u16>(8), to<u16>(location.backgrounds.size())));
+            for (u16 bg_id = 0; bg_id < bg_count; bg_id++)
             {
-                auto path = std::filesystem::path{ background };
-                path.replace_extension("iff");
-                
-                auto string_path = path.string();
-                std::replace(string_path.begin(), string_path.end(), '\\', '/');
-                pak.string_table.push_back(string_path);
+                loc.backgrounds[bg_id] = to<u16>(pak.manifest.xform_bg_id(location.backgrounds[bg_id]));
             }
 
             loc.first_scene_id = to<u16>(pak.scenes.size());
@@ -84,7 +113,9 @@ namespace NEONnoir
             {
                 auto s = neon_scene{};
                 s.name_id = to<u16>(pak.string_table.size());
-                pak.string_table.push_back(UTF8toISO8859_1(scene.name.c_str()));
+
+                // TODO and something about this
+                //pak.string_table.push_back(UTF8toISO8859_1(scene.name.c_str()));
 
                 if (scene.description_id.size() > 0)
                 {
@@ -103,7 +134,7 @@ namespace NEONnoir
                 s.on_enter = get_script_offset(scene.on_enter, result);
                 s.on_exit = get_script_offset(scene.on_exit, result);
 
-                s.music_id = scene.music_id;
+                s.music_id = pak.manifest.xform_mus_id(scene.music_id);
                 s.is_cutscene = scene.is_cutscene ? -1 : 0;
 
                 for (auto const& region : scene.regions)
@@ -292,6 +323,23 @@ namespace NEONnoir
         return pak;
     }
 
+    void serialize_asset_group(std::ofstream& neonpack, std::vector<game_asset> const& assets)
+    {
+        auto path_size = 0u;
+        for (auto const& entry : assets)
+        {
+            path_size += to<u32>(entry.relative_path.string().size());
+            path_size += 4;
+        }
+        write(neonpack, path_size);
+
+        for (auto const& entry : assets)
+        {
+            write(neonpack, to<u32>(entry.relative_path.string().size()));
+            neonpack.write(entry.relative_path.string().data(), entry.relative_path.string().size());
+        }
+    }
+
     void serialize_to_neon_pak(fs::path file_path, std::shared_ptr<game_data> const& data, assembler_result const& result)
     {
         auto pak = generate_packfile(data, result);
@@ -312,14 +360,36 @@ namespace NEONnoir
         write(neonpack, pak.header.major_version);
         write(neonpack, pak.header.minor_version);
 
+        // Write the file manifest
+        neonpack.write(manifest_header, 4);
+        write(neonpack, to<u32>(pak.manifest.assets.size()));
+
+        auto total_asset_path_size = 0u;
+        for (auto const& entry : pak.manifest.assets)
+        {
+            total_asset_path_size += to<u32>(entry.size());
+            total_asset_path_size += 4;
+        }
+        write(neonpack, total_asset_path_size);
+
+        for (auto const& entry : pak.manifest.assets)
+        {
+            write(neonpack, to<u32>(entry.size()));
+            neonpack.write(entry.data(), entry.size());
+        }
+
         // Write all locations
         neonpack.write(locations_header, 4);
         write(neonpack, to<u32>(pak.locations.size()));
         for (auto const& location: pak.locations)
         {
             write(neonpack, location.name_id);
-            write(neonpack, location.first_bg_id);
-            write(neonpack, location.last_bg_id);
+
+            for (auto const& bg_id : location.backgrounds)
+            {
+                write(neonpack, bg_id);
+            }
+
             write(neonpack, location.first_scene_id);
             write(neonpack, location.last_scene_id);
             write(neonpack, location.first_shape_id);

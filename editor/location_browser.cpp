@@ -33,11 +33,11 @@ namespace NEONnoir
         // Display each location's data
         for (auto idx = 0; idx < _data->locations.size(); idx++)
         {
-            display_location(_data->locations[idx], idx);
+            display_location(_data->locations[idx], _data->manifest.assets.backgrounds, idx);
         }
     }
 
-    void location_browser::display_location(game_data_location& location, size_t location_index)
+    void location_browser::display_location(game_data_location& location, std::vector<game_asset>& assets, size_t location_index)
     {
         // For the header name, we don't want the name to have any part in the
         // generation of the id since it can change and mess everything up
@@ -51,7 +51,7 @@ namespace NEONnoir
         if (auto table = imgui::table("##location_table", 1, ImGuiTableFlags_SizingStretchProp))
         {
             display_location_name(location.name, id);
-            display_backgrounds(location.backgrounds, location.background_textures, id);
+            display_backgrounds(location.backgrounds, assets, id);
             display_scenes(location.scenes, id, location_index);
             display_speakers(location);
 
@@ -80,7 +80,7 @@ namespace NEONnoir
         ImGui::InputText(("##" + id).c_str(), &name);
     }
 
-    void location_browser::display_backgrounds(std::vector<std::string>& backgrounds, std::vector<GLtexture>& background_textures, std::string const& id)
+    void location_browser::display_backgrounds(std::vector<u16>& backgrounds, std::vector<game_asset>& assets, std::string const& id)
     {
         ImGui::TableNextRow();
 
@@ -91,14 +91,28 @@ namespace NEONnoir
             // Add background button
             ImGui::TableNextColumn();
             ImGui::SetNextItemWidth(-FLT_MIN);
-            if (ImGui::Button((ICON_MD_ADD_PHOTO_ALTERNATE " Add##BG" + id).c_str(), { -FLT_MIN, 0 }))
+            if (ImGui::Button((ICON_MD_ADD_PHOTO_ALTERNATE " Add new image##BG" + id).c_str(), { -FLT_MIN, 0 }))
             {
                 if (auto file = open_file_dialog("iff;bmp"))
                 {
-                    backgrounds.push_back(file.value().data());
-                    auto background = MPG::load_image(file.value());
-                    background_textures.push_back(load_texture(background));
+                    auto path = std::filesystem::path{ file.value().data()};
+                    
+                    backgrounds.push_back(to<u16>(assets.size()));
+
+                    auto background = MPG::load_image(path);
+                    assets.push_back(
+                        { 
+                            path.stem().string(),
+                            path.relative_path(),
+                            load_texture(background),
+                        });
+
                 }
+            }
+            ImGui::SetNextItemWidth(-FLT_MIN);
+            if (ImGui::Button((ICON_MD_ADD_PHOTO_ALTERNATE " Add existing image##BG" + id).c_str(), { -FLT_MIN, 0 }))
+            {
+                backgrounds.push_back(0);
             }
 
             // List backgrounds
@@ -114,18 +128,42 @@ namespace NEONnoir
                     remove_index = idx;
                 }
                 ImGui::SameLine();
-                auto bg_name = fs::path{ bg }.stem().string();
-                if (ImGui::Button(bg_name.c_str(), ImVec2{ -FLT_MIN, 0 }))
+                auto bg_name = assets[bg].name;
+
+                ImGui::PushID((void*)&backgrounds[idx]);
+                if (ImGui::BeginCombo("##combo", bg_name.c_str()))
                 {
-                    if (auto file = open_file_dialog("bmp"))
+                    for (u16 n = 0; n < assets.size(); n++)
                     {
-                        auto filename = fs::path{ file.value() }.filename();
-                        bg = filename.string();
+                        auto const is_selected = bg == n;
+                        if (ImGui::Selectable(assets[n].name.c_str(), is_selected))
+                        {
+                            bg = n;
+                        }
+
+                        if (is_selected)
+                        {
+                            ImGui::SetItemDefaultFocus();
+                        }
                     }
-                };
+
+                    ImGui::EndCombo();
+                }
+
+                ImGui::SameLine();
+                ImGui::Button("##preview", ImVec2{ -FLT_MIN, 0 });
+                if (ImGui::IsItemHovered())
+                {
+                    ImGui::BeginTooltip();
+                    auto texture = assets[bg].texture;
+                    ImGui::Image((void*)(intptr_t)texture.texture_id, ImVec2((float)(texture.width), (float)(texture.height)));
+                    ImGui::EndTooltip();
+                }
+
+                ImGui::PopID();
             }
 
-            // Check for deleted backgrouns
+            // Check for deleted backgrounds
             if (remove_index >= 0)
             {
                 backgrounds.erase(backgrounds.begin() + remove_index);

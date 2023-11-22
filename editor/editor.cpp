@@ -247,7 +247,7 @@ namespace NEONnoir
             }
 
             _location_browser->display();
-            _scene_editor->display(_location_browser->get_selected_location(), _location_browser->get_selected_scene());
+            _scene_editor->display(_location_browser->get_selected_location(), _location_browser->get_selected_scene(), &_game_data->manifest.assets);
 
             if (_show_script_editor)
             {

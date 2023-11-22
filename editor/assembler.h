@@ -46,7 +46,8 @@ namespace NEONnoir
         TEXT,
         LABEL,
         NUMBER,
-        BOOLEAN
+        BOOLEAN,
+        ASSET
     };
 
     struct opcode_spec

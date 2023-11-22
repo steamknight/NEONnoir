@@ -211,14 +211,13 @@ namespace NEONnoir
             auto j = json::parse(buffer.str());
             auto data = j.get<game_data>();
 
+            for (auto& asset : data.manifest.assets.backgrounds)
+            {
+                asset.texture = load_texture(MPG::load_image(asset.relative_path));
+            }
+
             for (auto & location : data.locations)
             {
-                for (auto & background : location.backgrounds)
-                {
-                    auto bg_image = MPG::load_image(background);
-                    location.background_textures.push_back(load_texture(bg_image));
-                }
-
                 for (auto& container : location.shapes)
                 {
                     container.image = MPG::load_image(container.image_file);
@@ -276,5 +275,62 @@ namespace NEONnoir
         }
 
         throw std::runtime_error{ "Could not read file" };
+    }
+
+    auto find_asset_by_name(std::vector<game_asset> const& assets, std::string const& asset_name)
+    {
+        auto has_name = [&](game_asset const& asset)
+        {
+            return asset.name == asset_name;
+        };
+
+        return std::find_if(assets.begin(), assets.end(), has_name);
+    };
+
+    bool asset_collection::contains_asset(std::string const& asset_name)
+    {
+        return (find_asset_by_name(ui, asset_name) != ui.end()
+            || find_asset_by_name(backgrounds, asset_name) != backgrounds.end()
+            || find_asset_by_name(music, asset_name) != music.end()
+            || find_asset_by_name(sfx, asset_name) != sfx.end()
+        );
+    }
+
+    size_t asset_collection::get_asset_id(std::string const& name)
+    {
+        size_t id = 0;
+        auto get_id = [&](auto const& assets)
+        {
+            for (auto const& asset : assets)
+            {
+                if (asset.name == name)
+                    return id;
+
+                id++;
+            }
+
+            return id;
+        };
+
+        if (find_asset_by_name(ui, name) != ui.end())
+        {
+            return get_id(ui);
+        }
+        else if (find_asset_by_name(backgrounds, name) != backgrounds.end())
+        {
+            return ui.size() + get_id(backgrounds);
+        }
+        else if (find_asset_by_name(music, name) != music.end())
+        {
+            return ui.size() + backgrounds.size() + get_id(music);
+        }
+        else if (find_asset_by_name(sfx, name) != sfx.end())
+        {
+            return ui.size() + backgrounds.size() + music.size() + get_id(sfx);
+        }
+        else
+        {
+            return 0;
+        }
     }
 }

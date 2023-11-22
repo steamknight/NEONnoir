@@ -21,92 +21,172 @@
       ],
       "backgrounds": [
         {
-          "name": "title_image",
+          "name": "title",
           "relative_path": "data\\title.iff"
         },
         {
-          "name": "cut_intro01",
-          "relative_path": "data\\intro01.iff"
+          "name": "blank",
+          "relative_path": "data\\blank.iff"
         },
         {
-          "name": "cut_intro02",
-          "relative_path": "data\\intro02.iff"
-        },
-        {
-          "name": "cut_intro03",
-          "relative_path": "data\\intro03.iff"
-        },
-        {
-          "name": "cut_intro04",
-          "relative_path": "data\\intro04.iff"
-        },
-        {
-          "name": "bg_alley_alleycat",
-          "relative_path": "data\\locations\\loc_alley_alleycat.iff"
-        },
-        {
-          "name": "bg_alley_takeshi",
+          "name": "loc_alleyway1",
           "relative_path": "data\\locations\\loc_alleyway1.iff"
         },
         {
-          "name": "bg_alley_empty_lot",
+          "name": "loc_alley_alleycat",
+          "relative_path": "data\\locations\\loc_alley_alleycat.iff"
+        },
+        {
+          "name": "loc_alleyway3",
           "relative_path": "data\\locations\\loc_alleyway3.iff"
         },
         {
-          "name": "bg_alley_atm",
+          "name": "loc_alleyway_atm",
           "relative_path": "data\\locations\\loc_alleyway_atm.iff"
         },
         {
-          "name": "bg_alley_trash",
-          "relative_path": "data\\locations\\loc_alleyway_trash.iff"
-        },
-        {
-          "name": "bg_subway_entrance",
+          "name": "loc_subway_entrance",
           "relative_path": "data\\locations\\loc_subway_entrance.iff"
         },
         {
-          "name": "bg_subway_interior",
+          "name": "loc_subway_interior",
           "relative_path": "data\\locations\\loc_subway_interior.iff"
         },
         {
-          "name": "bg_alleycat_bar",
+          "name": "loc_alleycat_bar",
           "relative_path": "data\\locations\\loc_alleycat_bar.iff"
         },
         {
-          "name": "bg_alleycat_entrance",
+          "name": "loc_alleycat_entrance",
           "relative_path": "data\\locations\\loc_alleycat_entrance.iff"
         },
         {
-          "name": "bg_danni_apartment",
+          "name": "loc_apartment_bedroom",
           "relative_path": "data\\locations\\loc_apartment_bedroom.iff"
         },
         {
-          "name": "bg_danni_bedroom",
+          "name": "loc_apartment_interior2",
           "relative_path": "data\\locations\\loc_apartment_interior2.iff"
         },
         {
-          "name": "bg_blake_apartment",
+          "name": "loc_blake_apartment",
           "relative_path": "data\\locations\\loc_blake_apartment.iff"
         },
         {
-          "name": "cut_end_act_1",
-          "relative_path": "data\\cutscenes\\end_act_1.iff"
-        },
-        {
-          "name": "cut_end_act_2",
-          "relative_path": "data\\cutscenes\\end_act_2.iff"
-        },
-        {
-          "name": "cut_blank",
-          "relative_path": "data\\cutscenes\\blank.iff"
-        },
-        {
-          "name": "bg_laundry_exterior",
+          "name": "loc_laundry_exterior",
           "relative_path": "data\\locations\\loc_laundry_exterior.iff"
         },
         {
-          "name": "bg_laundry_interior",
+          "name": "loc_laundry_interior",
           "relative_path": "data\\locations\\loc_laundry_interior.iff"
+        },
+        {
+          "name": "loc_laundry_interior_fight",
+          "relative_path": "data\\locations\\loc_laundry_interior_fight.iff"
+        },
+        {
+          "name": "loc_b19_entrance",
+          "relative_path": "data\\locations\\loc_b19_entrance.iff"
+        },
+        {
+          "name": "loc_b19_office",
+          "relative_path": "data\\locations\\loc_b19_office.iff"
+        },
+        {
+          "name": "loc_b19_office2",
+          "relative_path": "data\\locations\\loc_b19_office2.iff"
+        },
+        {
+          "name": "loc_b19_storage",
+          "relative_path": "data\\locations\\loc_b19_storage.iff"
+        },
+        {
+          "name": "loc_b19_catwalk",
+          "relative_path": "data\\locations\\loc_b19_catwalk.iff"
+        },
+        {
+          "name": "loc_segs_place",
+          "relative_path": "data\\locations\\loc_segs_place.iff"
+        },
+        {
+          "name": "loc_xantech_entrance",
+          "relative_path": "data\\locations\\loc_xantech_entrance.iff"
+        },
+        {
+          "name": "loc_xantech_lobby",
+          "relative_path": "data\\locations\\loc_xantech_lobby.iff"
+        },
+        {
+          "name": "loc_xantech_medical",
+          "relative_path": "data\\locations\\loc_xantech_medical.iff"
+        },
+        {
+          "name": "loc_xantech_cafe",
+          "relative_path": "data\\locations\\loc_xantech_cafe.iff"
+        },
+        {
+          "name": "loc_xantech_corridor",
+          "relative_path": "data\\locations\\loc_xantech_corridor.iff"
+        },
+        {
+          "name": "loc_xantech_servers",
+          "relative_path": "data\\locations\\loc_xantech_servers.iff"
+        },
+        {
+          "name": "intro_01",
+          "relative_path": "data\\cutscenes\\intro_01.iff"
+        },
+        {
+          "name": "intro_02",
+          "relative_path": "data\\cutscenes\\intro_02.iff"
+        },
+        {
+          "name": "intro_03",
+          "relative_path": "data\\cutscenes\\intro_03.iff"
+        },
+        {
+          "name": "intro_04",
+          "relative_path": "data\\cutscenes\\intro_04.iff"
+        },
+        {
+          "name": "end_act_2",
+          "relative_path": "data\\cutscenes\\end_act_2.iff"
+        },
+        {
+          "name": "end_act_1",
+          "relative_path": "data\\cutscenes\\end_act_1.iff"
+        },
+        {
+          "name": "danni1",
+          "relative_path": "data\\cutscenes\\danni1.iff"
+        },
+        {
+          "name": "danni2",
+          "relative_path": "data\\cutscenes\\danni2.iff"
+        },
+        {
+          "name": "danni3",
+          "relative_path": "data\\cutscenes\\danni3.iff"
+        },
+        {
+          "name": "b19",
+          "relative_path": "data\\cutscenes\\b19.iff"
+        },
+        {
+          "name": "xancon1",
+          "relative_path": "data\\cutscenes\\xancon1.iff"
+        },
+        {
+          "name": "xancon2",
+          "relative_path": "data\\cutscenes\\xancon2.iff"
+        },
+        {
+          "name": "xancon3",
+          "relative_path": "data\\cutscenes\\xancon3.iff"
+        },
+        {
+          "name": "end",
+          "relative_path": "data\\cutscenes\\end.iff"
         }
       ],
       "music": [
@@ -133,6 +213,18 @@
         {
           "name": "mod_boss_theme",
           "relative_path": "data\\music\\boss_theme.mod"
+        },
+        {
+          "name": "mod_detective",
+          "relative_path": "data\\music\\detective.mod"
+        },
+        {
+          "name": "mod_crystal",
+          "relative_path": "data\\music\\detective.mod"
+        },
+        {
+          "name": "mod_industry",
+          "relative_path": "data\\music\\to_industry.mod"
         }
       ],
       "sfx": []
@@ -147,11 +239,11 @@
     {
       "name": "Title",
       "backgrounds": [
-        "data\\cutscenes\\intro_01.iff",
-        "data\\cutscenes\\intro_02.iff",
-        "data\\cutscenes\\intro_03.iff",
-        "data\\cutscenes\\intro_04.iff",
-        "data\\blank.bmp"
+        28,
+        29,
+        30,
+        31,
+        1
       ],
       "scenes": [
         {
@@ -361,7 +453,7 @@
     {
       "name": "Credits",
       "backgrounds": [
-        "data\\cutscenes\\end.iff"
+        41
       ],
       "scenes": [
         {
@@ -465,12 +557,12 @@
     {
       "name": "Alley",
       "backgrounds": [
-        "data\\locations\\loc_alley_alleycat.iff",
-        "data\\locations\\loc_alleyway1.iff",
-        "data\\locations\\loc_alleyway3.iff",
-        "data\\locations\\loc_alleyway_atm.iff",
-        "data\\locations\\loc_subway_entrance.iff",
-        "data\\locations\\loc_subway_interior.iff"
+        3,
+        2,
+        4,
+        5,
+        6,
+        7
       ],
       "scenes": [
         {
@@ -487,7 +579,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 7,
+          "music_id": 1,
           "regions": [
             {
               "x": 82,
@@ -551,7 +643,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 7,
+          "music_id": 1,
           "regions": [
             {
               "x": 187,
@@ -616,7 +708,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 7,
+          "music_id": 1,
           "regions": [
             {
               "x": 0,
@@ -680,7 +772,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 7,
+          "music_id": 1,
           "regions": [
             {
               "x": 300,
@@ -731,7 +823,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 7,
+          "music_id": 1,
           "regions": [
             {
               "x": 131,
@@ -773,7 +865,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 7,
+          "music_id": 1,
           "regions": [
             {
               "x": 290,
@@ -829,8 +921,8 @@
     {
       "name": "Alleycat",
       "backgrounds": [
-        "data\\locations\\loc_alleycat_bar.iff",
-        "data\\locations\\loc_alleycat_entrance.iff"
+        8,
+        9
       ],
       "scenes": [
         {
@@ -847,7 +939,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 8,
+          "music_id": 2,
           "regions": [
             {
               "x": 215,
@@ -898,7 +990,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 8,
+          "music_id": 2,
           "regions": [
             {
               "x": 11,
@@ -954,8 +1046,8 @@
     {
       "name": "Danni's Apartment",
       "backgrounds": [
-        "data\\locations\\loc_apartment_bedroom.iff",
-        "data\\locations\\loc_apartment_interior2.iff"
+        10,
+        11
       ],
       "scenes": [
         {
@@ -972,7 +1064,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 13,
+          "music_id": 7,
           "regions": [
             {
               "x": 19,
@@ -1104,10 +1196,10 @@
     {
       "name": "Blake's Apartment",
       "backgrounds": [
-        "data\\locations\\loc_blake_apartment.iff",
-        "data\\cutscenes\\end_act_1.iff",
-        "data\\blank.bmp",
-        "data\\cutscenes\\end_act_2.iff"
+        12,
+        33,
+        1,
+        32
       ],
       "scenes": [
         {
@@ -1125,7 +1217,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 12,
+          "music_id": 6,
           "regions": [
             {
               "x": 113,
@@ -1187,7 +1279,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 12,
+          "music_id": 6,
           "regions": [],
           "text_regions": [],
           "is_cutscene": true
@@ -1243,9 +1335,9 @@
     {
       "name": "Lost Sock Laundromat",
       "backgrounds": [
-        "data\\locations\\loc_laundry_exterior.iff",
-        "data\\locations\\loc_laundry_interior.iff",
-        "C:\\Users\\mass\\source\\NEONnoir\\data\\locations\\loc_laundry_interior_fight.iff"
+        13,
+        14,
+        15
       ],
       "scenes": [
         {
@@ -1263,7 +1355,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 7,
+          "music_id": 1,
           "regions": [
             {
               "x": 195,
@@ -1327,7 +1419,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 7,
+          "music_id": 1,
           "regions": [
             {
               "x": 290,
@@ -1383,9 +1475,9 @@
     {
       "name": "B19",
       "backgrounds": [
-        "data\\locations\\loc_b19_entrance.iff",
-        "data\\locations\\loc_b19_office.iff",
-        "data\\locations\\loc_b19_storage.iff"
+        16,
+        17,
+        19
       ],
       "scenes": [
         {
@@ -1404,7 +1496,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 14,
+          "music_id": 8,
           "regions": [
             {
               "x": 56,
@@ -1598,11 +1690,11 @@
     {
       "name": "SegF4ult's Place",
       "backgrounds": [
-        "data\\locations\\loc_segs_place.iff",
-        "data\\blank.bmp",
-        "data\\cutscenes\\danni1.iff",
-        "data\\cutscenes\\danni2.iff",
-        "data\\cutscenes\\danni3.iff"
+        21,
+        1,
+        34,
+        35,
+        36
       ],
       "scenes": [
         {
@@ -1639,11 +1731,11 @@
     {
       "name": "B19 Revisit",
       "backgrounds": [
-        "data\\locations\\loc_b19_entrance.iff",
-        "data\\locations\\loc_b19_office.iff",
-        "data\\locations\\loc_b19_office2.iff",
-        "data\\locations\\loc_b19_catwalk.iff",
-        "data\\cutscenes\\b19.iff"
+        16,
+        17,
+        18,
+        20,
+        37
       ],
       "scenes": [
         {
@@ -1658,7 +1750,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 14,
+          "music_id": 8,
           "regions": [
             {
               "x": 14,
@@ -1698,7 +1790,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 7,
+          "music_id": 65535,
           "regions": [
             {
               "x": 205,
@@ -1771,7 +1863,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 9,
+          "music_id": 3,
           "regions": [
             {
               "x": 51,
@@ -1833,7 +1925,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 11,
+          "music_id": 5,
           "regions": [],
           "text_regions": [],
           "is_cutscene": true
@@ -1850,7 +1942,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 7,
+          "music_id": 1,
           "regions": [],
           "text_regions": [],
           "is_cutscene": true
@@ -1872,12 +1964,12 @@
     {
       "name": "Xantech",
       "backgrounds": [
-        "data\\locations\\loc_xantech_entrance.iff",
-        "data\\locations\\loc_xantech_lobby.iff",
-        "data\\locations\\loc_xantech_corridor.iff",
-        "data\\locations\\loc_xantech_cafe.iff",
-        "data\\locations\\loc_xantech_medical.iff",
-        "data\\locations\\loc_xantech_servers.iff"
+        22,
+        23,
+        26,
+        25,
+        24,
+        27
       ],
       "scenes": [
         {
@@ -1894,7 +1986,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 7,
+          "music_id": 1,
           "regions": [
             {
               "x": 146,
@@ -1938,7 +2030,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 9,
+          "music_id": 3,
           "regions": [
             {
               "x": 167,
@@ -2149,7 +2241,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 9,
+          "music_id": 3,
           "regions": [
             {
               "x": 191,
@@ -2183,10 +2275,10 @@
     {
       "name": "XanCon",
       "backgrounds": [
-        "data\\blank.bmp",
-        "data\\cutscenes\\xancon1.iff",
-        "data\\cutscenes\\xancon2.iff",
-        "data\\cutscenes\\xancon3.iff"
+        1,
+        38,
+        39,
+        40
       ],
       "scenes": [
         {
@@ -2201,7 +2293,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 11,
+          "music_id": 5,
           "regions": [],
           "text_regions": [],
           "is_cutscene": true
@@ -2291,8 +2383,8 @@
     {
       "name": "End",
       "backgrounds": [
-        "data\\locations\\loc_blake_apartment.iff",
-        "data\\blank.bmp"
+        12,
+        1
       ],
       "scenes": [
         {
@@ -2307,7 +2399,7 @@
           "view_height": 0,
           "offset_x": 0,
           "offset_y": 0,
-          "music_id": 7,
+          "music_id": 6,
           "regions": [],
           "text_regions": [],
           "is_cutscene": true

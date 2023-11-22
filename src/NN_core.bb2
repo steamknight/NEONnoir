@@ -55,8 +55,7 @@ End NEWTYPE
 ; -----------------------------------------------
 NEWTYPE .NN_location
   name_id.w
-  first_bg.w
-  last_bg.w
+  backgrounds.w[8]
   first_scene.w
   last_scene.w
   first_shape.w
@@ -230,6 +229,24 @@ Macro __get_dialogue
   (*DG_dialogues + (SizeOf .DG_dialogue * (`1)))
 End Macro
 
+; Asset Table
+; -----------------------------------------------
+DEFTYPE .w *NN_asset_table
+DEFTYPE .b *NN_asset_data
+DEFTYPE .l NN_asset_count, NN_asset_data_size
+
+Macro __get_asset_length
+  (Peek.w (*NN_asset_table + ((`1) * SizeOf .l)))
+End Macro
+
+Macro __get_asset_addr
+  (Peek.l (*NN_asset_table + ((`1) * SizeOf .l)) + 4)
+End Macro
+
+Macro __get_asset
+  Peek$(!__get_asset_addr{(`1)})
+End Macro
+
 ; String Table
 ; -----------------------------------------------
 DEFTYPE .w *NN_string_table
@@ -304,6 +321,14 @@ DEFTYPE .b NN_fade_in, NN_fade_out
 ; =============================================================================
 ; Convenience Macros
 ; =============================================================================
+Macro __use_asset_table
+  SHARED *NN_asset_table
+End Macro
+
+Macro __use_asset_table_all
+  SHARED *NN_asset_table, *NN_asset_data, NN_asset_count, NN_asset_data_size
+End Macro
+
 Macro __use_string_table
   SHARED *NN_string_table
 End Macro

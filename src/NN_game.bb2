@@ -61,7 +61,7 @@ Function .b NN_load_langpack{filename$}
   ReadMem id, &version, 2
   ReadMem id, &lang_id, 2
 
-    ; Read all the strings and generate a string table
+  ; Read all the strings and generate a string table
   ReadMem id, &header, 4
   ReadMem id, &NN_string_count, 4
   ReadMem id, &NN_string_data_size, 4
@@ -121,6 +121,7 @@ Function .b NN_load_neonpack{filename$}
   SHARED *NS_script_data, NS_script_data_size
   SHARED *NN_ui_palette
   !__use_string_table_all{}
+  !__use_asset_table_all{}
   !__use_word_table_all{}
   !__use_dialogues{}
   !__use_dialogue_limits{}
@@ -149,6 +150,30 @@ Function .b NN_load_neonpack{filename$}
   If version <> $00010000 Then Function Return #NN_NEON_version_not_supported
 
   DEFTYPE .l size, header, ui_palette_count
+
+  ReadMem id, &header, 4
+  ReadMem id, &NN_asset_count, 4
+  ReadMem id, &NN_asset_data_size, 4
+  !__SafeAlloc{"Asset Table", *NN_asset_table, NN_asset_count * SizeOf .l}
+  !__SafeAlloc{"Asset Data", *NN_asset_data, NN_asset_data_size}
+  !DB_log_str{"NN_GAME", "  Asset Table  > $" + Hex$(*NN_asset_table) + "+" + Str$(NN_asset_count * SizeOf .l)}
+  !DB_log_str{"NN_GAME", "  Asset Data   > $" + Hex$(*NN_asset_data) + "+" + Str$(NN_asset_data_size)}
+
+  DEFTYPE .l ptr
+  ptr = *NN_asset_data
+  DEFTYPE .l string_size
+  For i = 0 To NN_asset_count - 1
+    Poke.l *NN_asset_table + (i * 4), ptr
+
+    ReadMem id, &string_size, 4
+    Poke.l ptr, string_size
+
+    ptr + 4
+    ReadMem id, ptr, string_size
+
+    ptr + string_size
+  Next
+
   !__LoadChunk{"Locations   ", SizeOf .NN_location,     *NN_locations,    NN_location_count   }
   !__LoadChunk{"Scenes      ", SizeOf .NN_scene,        *NN_scenes,       NN_scene_count      }
   !__LoadChunk{"Regions     ", SizeOf .NN_region,       *NN_regions,      NN_region_count     }
@@ -168,15 +193,19 @@ End Function
 ; =============================================================================
 Statement NN_uninitialize{}
   !DB_trace{"NN_GAME", "NN_uninitialize"}
-  SHARED *NN_locations, *NN_scenes, *NN_regions, *NN_string_table, *NN_string_data
-  SHARED *NS_script_data, *NN_word_table, *NN_word_data, *NN_ui_palette
+  SHARED *NN_locations, *NN_scenes, *NN_regions
+  SHARED *NS_script_data, *NN_ui_palette
   !__use_dialogues{}
   !__use_dialogue_limits{}
   !__use_shapes{}
   !__use_palettes{}
+  !__use_asset_table_all{}
+  !__use_string_table_all{}
 
   DEFTYPE .l size
 
+  !__SafeFree{"Asset Table  ", *NN_asset_table }
+  !__SafeFree{"Asset Data   ", *NN_asset_data  }
   !__SafeFree{"Locations    ", *NN_locations    }
   !__SafeFree{"Scenes       ", *NN_scenes       }
   !__SafeFree{"Regions      ", *NN_regions      }
@@ -477,6 +506,7 @@ Statement NN_load_location{new_loc_id.w, new_scene_id.w}
   SHARED *NN_current_location, *NN_current_scene
   SHARED *NN_locations, *NN_scenes
   !__use_string_table{}
+  !__use_asset_table{}
   !__use_shapes{}
 
   NN_current_location_id = new_loc_id
@@ -505,7 +535,7 @@ Statement NN_load_location{new_loc_id.w, new_scene_id.w}
     DEFTYPE .NN_shape *first_shape, *last_shape
     *first_shape = !__get_shape{*NN_current_location\first_shape}
     *last_shape = !__get_shape{*NN_current_location\last_shape}
-    LoadShapes *first_shape\shape_id, *last_shape\shape_id, !__get_string{*NN_current_location\shapes_file}
+    LoadShapes *first_shape\shape_id, *last_shape\shape_id, !__get_asset{*NN_current_location\shapes_file}
   End If
 
   ; Load the portraits if there are any
@@ -522,14 +552,23 @@ Statement NN_load_location{new_loc_id.w, new_scene_id.w}
   MPSH_end{&context}
 
   ; Load all the backgrounds
-  DEFTYPE .w bg_count
-  bg_count = *NN_current_location\last_bg - *NN_current_location\first_bg
-  For bg = 0 To bg_count
-    BitMap bg, #NN_screen_width, #NN_screen_height, #NN_screen_bpp
-    bmp$ = !__get_string{bg + *NN_current_location\first_bg}
-    ;NPrint bmp$
-    LoadBitMap bg, bmp$, bg
-  Next
+  ; DEFTYPE .w bg_count
+  ; bg_count = *NN_current_location\last_bg - *NN_current_location\first_bg
+  ; For bg = 0 To bg_count
+  ;   BitMap bg, #NN_screen_width, #NN_screen_height, #NN_screen_bpp
+  ;   bmp$ = !__get_asset{bg + *NN_current_location\first_bg}
+  ;   ;NPrint bmp$
+  ;   LoadBitMap bg, bmp$, bg
+  ; Next
+
+  DEFTYPE .w bg_index
+  bg_index = 0
+  While (*NN_current_location\backgrounds[bg_index] <> -1) & (bg_index < 8)
+    BitMap bg_index, #NN_screen_width, #NN_screen_height, #NN_screen_bpp
+    bmp$ = !__get_asset{*NN_current_location\backgrounds[bg_index]}
+    LoadBitMap bg_index, bmp$, bg_index
+    bg_index + 1
+  Wend
 
   ; Setup the next scene
   NN_game_set_scene{new_scene_id}

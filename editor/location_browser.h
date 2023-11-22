@@ -20,9 +20,9 @@ namespace NEONnoir
         std::string_view get_title_name() const noexcept override { return ICON_MD_MAP " Locations"; }
         void display_editor() override;
 
-        void display_location(game_data_location& location, size_t location_index );
+        void display_location(game_data_location& location, std::vector<game_asset>& assets, size_t location_index );
         void display_location_name(std::string& name, std::string const& id);
-        void display_backgrounds(std::vector<std::string>& backgrounds, std::vector<GLtexture>& background_textures, std::string const& id);
+        void display_backgrounds(std::vector<u16>& backgrounds, std::vector<game_asset>& assets, std::string const& id);
         void display_scenes(std::vector<game_data_scene>& scenes, std::string const& id, size_t location_index);
         void display_speakers(game_data_location& location);
 

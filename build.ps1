@@ -81,7 +81,9 @@ $data_files = @(
     "./data/menu.shapes",
     "./data/people.mpsh",
     "./data/ui.pal",
-    "./data/lang/en.noir"
+    "./data/lang/en.noir",
+    "./data/lang/it.noir",
+    "./data/lang/de.noir",
     "./data/lang/latin-1.shapes"
 )
 
