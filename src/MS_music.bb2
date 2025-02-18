@@ -9,17 +9,22 @@ Statement MS_initialize{}
   SHARED NN_is_NTSC
 
   ; MTInstall = True if PAL or MTInit = False if NTSC
-  MTInstall NOT NN_is_NTSC
+  ; MTInstall NTSC
 End Statement
 
 Statement MS_uninitialize{}
   MTEnd
-  MTRemove
+  FreeBank 0
+  ;MTRemove
 End Statement
 
 Statement MS_load_module_file{file_name$}
   !DB_trace{"MS", "MS_load_module_file: " + file_name$}
+
+  If Bank(0) <> 0 Then FreeBank 0
+
   LoadBank 0, file_name$, 2
+  !DB_printf{"MS: --------> Addr: $" + Hex$(Bank(0)) + "+" + Str$(BankSize(0))}
   MTInit 0, 0
   MTPlay On
 End Statement

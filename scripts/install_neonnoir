@@ -72,14 +72,14 @@
 
 (complete 99)
 
-(set #options_help "\nNEONnoir supports both NTSC and PAL regions. If you're in a PAL region, the graphics will be a little squashed. Do you wish to enable NEONnoir to run with a NTSC aspect ratio?\n\nNOTE: You can change this in the game's ToolType.\n")
+(set #options_help "\nNEONnoir supports both NTSC and PAL regions. If you're in a PAL region, do you wish to enable NEONnoir to run with a NTSC aspect ratio?\nNOTE: You can change this in the game's ToolType.")
 (select
     (askchoice
         (prompt #options_help)
         (help #options_help)
         (choices
-            ("Yes. I have a PAL Amiga and want to run in NTSC mode.")
-            ("No. I have a PAL Amiga and want to stick with PAL mode.")
+            ("Yes. Run NTSC mode.")
+            ("No.")
             ("This is already an NTSC system.")
         )
     )

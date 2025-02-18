@@ -20,9 +20,9 @@ Macro __SafeAlloc
 End Macro
 
 Macro __SafeFree
+  !DB_log_str{"NN_GAME", "  Free " + `1 + " $" + Hex$(`2)}
   If `2 <> 0
     FreeVec_(`2)
-    !DB_log_str{"NN_GAME", "  Free " + `1 + " $" + Hex$(`2)}
   End If
 End Macro
 
@@ -179,7 +179,7 @@ Function .b NN_load_neonpack{filename$}
   !__LoadChunk{"Regions     ", SizeOf .NN_region,       *NN_regions,      NN_region_count     }
   !__LoadChunk{"Text Regions", SizeOf .NN_text_region,  *NN_text_regions, NN_text_region_count}
   !__LoadChunk{"Dialogues   ", SizeOf .DG_dialogue,     *DG_dialogues,    DG_dialogue_count   }
-  !__LoadChunk{"Page        ", SizeOf .DG_page,         *DG_pages,        DG_page_count       }
+  !__LoadChunk{"Pages       ", SizeOf .DG_page,         *DG_pages,        DG_page_count       }
   !__LoadChunk{"Choices     ", SizeOf .DG_choice,       *DG_choices,      DG_choice_count     }
   !__LoadChunk{"Script Data ", SizeOf .w,               *NS_script_data,  NS_script_data_size }
   !__LoadChunk{"Shapes      ", SizeOf .NN_shape,        *NN_shapes,       NN_shape_count      }
@@ -204,8 +204,8 @@ Statement NN_uninitialize{}
 
   DEFTYPE .l size
 
-  !__SafeFree{"Asset Table  ", *NN_asset_table }
-  !__SafeFree{"Asset Data   ", *NN_asset_data  }
+  !__SafeFree{"Asset Table  ", *NN_asset_table  }
+  !__SafeFree{"Asset Data   ", *NN_asset_data   }
   !__SafeFree{"Locations    ", *NN_locations    }
   !__SafeFree{"Scenes       ", *NN_scenes       }
   !__SafeFree{"Regions      ", *NN_regions      }

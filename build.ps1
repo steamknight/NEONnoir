@@ -207,3 +207,27 @@ if ($null -eq $ENV:NEONnoir_path) {
 if (-1 -eq $ENV:PATH.IndexOf("$ENV:APPDATA\Python\Python37\Scripts")) {
     $Env:PATH = "$ENV:APPDATA\Python\Python37\Scripts\;" + $Env:PATH
 }
+
+function CreateUSB {
+    param (
+        [Parameter(Mandatory=$true)]
+        [string]$sourceDirectory,
+
+        [Parameter(Mandatory=$true)]
+        [char]$driveLetter,
+
+        [Parameter(Mandatory=$true)]
+        [string]$newName
+    )
+
+    # Copy files
+    Copy-Item -Path $sourceDirectory -Destination "$($driveLetter):\" -Recurse -Force
+
+    # Rename drive
+    Set-Volume -DriveLetter $driveLetter -NewFileSystemLabel $newName
+
+    # Eject drive
+    $driveEject = New-Object -comObject Shell.Application
+    $driveEject.Namespace(17).ParseName("$($driveLetter):\").InvokeVerb("Eject")
+}
+

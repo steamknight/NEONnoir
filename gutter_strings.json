@@ -76,7 +76,7 @@
   },
   {
     "id": "game_saved",
-    "value": "Game Saved.",
+    "value": "Game Saved.\nPlease exit the game properly to quit.",
     "description": "https://youtu.be/EprkOx1qUq0?t=563 - Message that displays once the game has been saved to disk."
   },
   {
@@ -4716,7 +4716,7 @@
   },
   {
     "id": "muMdwxQQeZ2UesJ1",
-    "value": "*Programming and Story*\nMassimo Loi - massproduced.games\n\n*Art*\nSandy Loi\nMidJourney\n\n*Music*\nMatias Sosa - matias-sosa.itch.io\n\n*Translations*\nSimone Battaglioni \"SimonPPC\"\n\nSpecial thanks to all the members of Amiga Blitz Basic Game Jam Discord server.",
+    "value": "*Programming and Story*\nMassimo Loi - massproduced.games\n\n*Art*\nSandy Loi\nMidJourney\n\n*Music*\nMatias Sosa - matias-sosa.itch.io\n\n*Translations*\nSimone Battaglioni \"SimonPPC\"\nWolfgang \"Torti\" Hiptmair\n\nSpecial thanks to all the members of Amiga Blitz Basic Game Jam Discord server.",
     "description": "The credits. Please keep the * in the titles and each '\n' is a new line."
   },
   {
