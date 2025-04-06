@@ -95,7 +95,7 @@ function Copy-GameData {
     $data_dir = "$ENV:NEONnoir_path"
 
     # Copy all the data files
-    ForEach($file in $data_files) {
+    ForEach ($file in $data_files) {
         $dest_path = Join-Path -Path $data_dir -ChildPath $file
 
         if (!(Test-Path -Path $dest_path)) {
@@ -147,21 +147,18 @@ function Archive-Game {
 
     Write-Host "Copying files..."
     Copy-Item -Path ("$ENV:NEONnoir_path\build\NEONnoir.lha") -Destination "./build/"
-
-    Split-File -Filename "./build/NEONnoir.lha" -Prefix "./build/parts/NEONnoir" -Size (800 * 1024)
+    Copy-Item -Path ("$ENV:NEONnoir_path\build\parts\NN*.lha") -Destination "./build/parts/"
 
     $count = 1
     Get-ChildItem ".\build\parts" | ForEach-Object {
         $name = $_.BaseName
         $volume = "NN{0:d2}" -f $count
 
-        Invoke-Expression "& xdftool .\build\$volume.adf format '$volume' + write .\build\parts\$name"
+        Invoke-Expression "& xdftool .\build\$volume.adf format 'NEONnoir Disk $count' + write .\build\parts\$name.lha"
         $count += 1
     }
-    Invoke-Expression "& xdftool .\build\NN01.adf write .\src\install.sh"
-
-    $drive = Read-Host "Enter the drive to copy the ADFs to"
-    Copy-Item -Path "./build/*.adf" -Destination $drive
+    Invoke-Expression "& xdftool .\build\NN01.adf write .\scripts\install_neonnoir"
+    Invoke-Expression "& xdftool .\build\NN01.adf write .\scripts\Install_NEONnoir.info"
 }
 
 # https://stackoverflow.com/questions/4533570/in-powershell-how-do-i-split-a-large-binary-file
@@ -207,16 +204,19 @@ if ($null -eq $ENV:NEONnoir_path) {
 if (-1 -eq $ENV:PATH.IndexOf("$ENV:APPDATA\Python\Python37\Scripts")) {
     $Env:PATH = "$ENV:APPDATA\Python\Python37\Scripts\;" + $Env:PATH
 }
+if (-1 -eq $ENV:PATH.IndexOf("$ENV:LOCALAPPDATA\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\Scripts")) {
+    $Env:PATH = "$ENV:LOCALAPPDATA\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\Scripts;" + $Env:PATH
+}
 
 function CreateUSB {
     param (
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory = $true)]
         [string]$sourceDirectory,
 
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory = $true)]
         [char]$driveLetter,
 
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory = $true)]
         [string]$newName
     )
 
@@ -231,3 +231,18 @@ function CreateUSB {
     $driveEject.Namespace(17).ParseName("$($driveLetter):\").InvokeVerb("Eject")
 }
 
+function Prepare-USB {
+    if (Test-Path -Path "./output/") {
+        Write-Host "Cleaning up 'output' folder..."
+        Remove-Item -Path "./output/" -Recurse
+    }
+
+    $null = New-Item -ItemType Directory -Path "./output/ADF" -Force
+    $null = New-Item -ItemType Directory -Path "./output/manuals" -Force
+
+    Copy-Item -Path "./manuals/*.pdf" -Destination "./output/manuals" -Recurse -Force
+    Copy-Item -Path "./build/*.adf" -Destination "./output/adf" -Recurse -Force
+    Copy-Item -Path "./build/NEONnoir.lha" -Destination "./output" -Force
+
+    Compress-Archive -Path "./output/*" -DestinationPath "./output/NEONnoir.zip" -Force
+}

@@ -1,10 +1,10 @@
 ECHO "Copying Files..."
 
-COPY Develop:NEONnoir/NEONnoir TO RAM:NEONnoir/
+COPY Dev:NEONnoir/NEONnoir TO RAM:NEONnoir/
 
-COPY Develop:NEONnoir/NEONnoir.info TO RAM:NEONnoir/
+COPY Dev:NEONnoir/NEONnoir.info TO RAM:NEONnoir/
 
-COPY Develop:NEONnoir/data TO RAM:NEONnoir/data ALL
+COPY Dev:NEONnoir/data TO RAM:NEONnoir/data ALL
 
 
 ECHO "Archiving..."
@@ -12,13 +12,13 @@ lha -a -r -x a RAM:NEONnoir.lha  RAM:NEONnoir
 
 
 ECHO "Delete destination..."
-DELETE Develop:NEONnoir/build ALL
+DELETE Dev:NEONnoir/build ALL
 
 
 ECHO "Create destination..."
-MAKEDIR Develop:NEONnoir/build
+MAKEDIR Dev:NEONnoir/build
 
 
 ECHO "Copy archive to destination..."
-COPY RAM:NEONnoir.lha TO Develop:NEONnoir/build
+COPY RAM:NEONnoir.lha TO Dev:NEONnoir/build
 

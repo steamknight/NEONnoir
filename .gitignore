@@ -400,4 +400,7 @@ FodyWeavers.xsd
 *.sln.iml
 
 build/
+output/
+
+*.zip
 
